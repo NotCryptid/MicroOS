@@ -82,9 +82,8 @@ function Define_Sprites () {
 
 // Button Presses and shit
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    // motherfucker why is this needed for the code to work you can't even kill the mouse cursor
     if (spriteutils.isDestroyed(Mouse_Cursor)) {
-    	
+    	// motherfucker why is this needed for the code to work you can't even kill the mouse cursor
     } else if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
         close_apps()
         Open_xCell("")
