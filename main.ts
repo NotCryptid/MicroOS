@@ -8,7 +8,7 @@ namespace SpriteKind {
 
 // this definitely does something
 let Taskbar: Sprite = null
-let File_Manager_selection = null
+let File_Manager_selection : number = null
 let myMenu: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
 let File_Manager_Icon: Sprite = null
@@ -126,20 +126,44 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             myMenu.z = -30
         }
     } else if (App_Open == "File Manager System" || App_Open == "File Manager User") {
-        // this stupid fucker works diferently on a vm and actual hardware but still incorrectly on both
-        File_Manager_selection = Mouse_Cursor.y - 11
-        console.log(File_Manager_selection)
-        File_Manager_selection = File_Manager_selection / 13
-        console.log(File_Manager_selection)
-        File_Manager_selection = File_Manager_selection + 1
-        console.log(File_Manager_selection)
-        File_Manager_selection = File_Manager_selection + ""
-        console.log(File_Manager_selection)
-        File_Manager_selection = parseInt(File_Manager_selection.charAt(1))
-        if (File_Manager_selection < 9.01) {
-            openFile(App_Open, File_Manager_selection)
-            console.log(File_Manager_selection)
+        if (Mouse_Cursor.y > 10) {
+            if (Mouse_Cursor.y > 23) {
+                if (Mouse_Cursor.y > 36) {
+                    if (Mouse_Cursor.y > 49) {
+                        if (Mouse_Cursor.y > 62) {
+                            if (Mouse_Cursor.y > 75) {
+                                if (Mouse_Cursor.y > 88) {
+                                    if (Mouse_Cursor.y > 101) {
+                                        if (Mouse_Cursor.y > 114) {
+                                            File_Manager_selection = 9
+                                        } else {
+                                            File_Manager_selection = 8
+                                        }
+                                    } else {
+                                        File_Manager_selection = 7
+                                    }
+                                } else {
+                                    File_Manager_selection = 6
+                                }
+                            } else {
+                                File_Manager_selection = 5
+                            }
+                        } else {
+                            File_Manager_selection = 4
+                        }
+                    } else {
+                        File_Manager_selection = 3
+                    }
+                } else {
+                    File_Manager_selection = 2
+                }
+            } else {
+                File_Manager_selection = 1
+            }
+        } else {
+            File_Manager_selection = 0
         }
+        openFile(App_Open, File_Manager_selection)
     }
 })
     // figure out what to do with this later
