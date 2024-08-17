@@ -179,7 +179,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 
 // Background tasks
 forever(function () {
-    pause(20)
+    // Don't set this pause to anything above 30 or you will get a seizure 
+    pause(30)
     Start_Icon_Names()
     if (App_Open == "File Manager System" || App_Open == "File Manager User") {
     	// make scrolling in file manager later
