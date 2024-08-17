@@ -1,4 +1,4 @@
-// Auto-generated code. Do not edit.
+// this is literally the rest of the kernel, if you touch it everything will shit itself
 namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
@@ -484,6 +484,12 @@ a c a a a c a
         }
         return null;
     })
+
+}
+// Auto-generated code. Do not edit.
+
+// Auto-generated code. Do not edit.
+namespace myTiles {
 
 }
 // Auto-generated code. Do not edit.

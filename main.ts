@@ -213,7 +213,6 @@ let File_Manager_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
 let Write_icon: Sprite = null
-// mmmmm yesh this isn't green for some reason, can't see anything going wrong here
 let xCell_Icon: Sprite = null
 let Mouse_Cursor: Sprite = null
 let App_Title: TextSprite = null
