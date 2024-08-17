@@ -149,9 +149,8 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 forever(function () {
     Mouse_Cursor.z = 453453453453
     Start_Icon_Names()
-    // make scrolling in file manager later
     if (App_Open == "File Manager System" || App_Open == "File Manager User") {
-    	
+    	// make scrolling in file manager later
     }
 })
 
