@@ -41,8 +41,8 @@ pause(300)
 let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
 text2.setPosition(64, 6)
 pause(500)
-text = textsprite.create("> Loading Micro:OS v0.0.2 Preview", 0, 12)
-text.setPosition(73, 16)
+text = textsprite.create("> Loading Micro:OS v0.0.2", 0, 12)
+text.setPosition(79, 16)
 pause(randint(3000, 5000))
 sprites.destroy(text)
 sprites.destroy(text2)
@@ -179,7 +179,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 
 // Background tasks
 forever(function () {
-    pause(34)
+    pause(20)
     Start_Icon_Names()
     if (App_Open == "File Manager System" || App_Open == "File Manager User") {
     	// make scrolling in file manager later
