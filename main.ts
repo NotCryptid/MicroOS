@@ -248,11 +248,11 @@ function Open_Settings () {
     App_Title.setPosition(25, 4)
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
-    // Pin header keyboard - on/off
-    //Pin header mouse - on/off
-    //External Communication - Radio/Pin Header/Off (Pin header unavailable with mouse and keyboard set to pin header)
-    //Web Chat channel - 1-32
-    //ThingAI communication - Pin Header/Radio (Pin header unavailable with mouse and keyboard set to pin header)
+    // Keyboard - On Screen/Pin Header (-1 Pin)/Radio
+    // Mouse - D-Pad/Pin Header (-2 Pins)/Radio
+    // External Communication - Radio/Pin Header (-3 Pins)/Off
+    // Web Chat channel - 1-32
+    // ThingAI communication - Pin Header (-3 Pins)/Radio
 }
 
 function Open_ThingAI () {
