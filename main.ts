@@ -71,6 +71,7 @@ function Define_Sprites () {
     Mouse_Cursor.setPosition(80, 60)
     Mouse_Cursor.setStayInScreen(true)
     controller.moveSprite(Mouse_Cursor, 50, 50)
+    Mouse_Cursor.z = 453453453453
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     App_Title = textsprite.create("Write", 0, 12)
     myMenu = miniMenu.createMenuFromArray([miniMenu.createMenuItem("")])
@@ -146,8 +147,7 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 
 // Background tasks
 forever(function () {
-    Mouse_Cursor.z = 453453453453
-    pause(20)
+    pause(34)
     Start_Icon_Names()
     if (App_Open == "File Manager System" || App_Open == "File Manager User") {
     	// make scrolling in file manager later
