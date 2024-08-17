@@ -1,5 +1,5 @@
 # Micro:OS
-Micro:OS is a lightweight operating system made in PTX for devices such as the Micro:Bit or Pi Zero
+Micro:OS is a lightweight operating system made in PTX and TypeScript for devices such as the Micro:Bit or Pi Zero
 # Upcoming Features
 - OnScreen Keyboard
 - Write App
