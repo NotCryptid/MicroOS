@@ -126,7 +126,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     } else if (App_Open == "File Manager System" || App_Open == "File Manager User") {
         // this stupid fucker works diferently on a vm and actual hardware but still incorrectly on both
-        File_Manager_selection = Mouse_Cursor.y + 11 / 13 + 1 + ""
+        File_Manager_selection = Mouse_Cursor.y - 11 / 13 + 1 + ""
         File_Manager_selection = parseInt(File_Manager_selection.charAt(1))
         if (File_Manager_selection < 9.01) {
             openFile(App_Open, File_Manager_selection)
