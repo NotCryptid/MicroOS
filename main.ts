@@ -125,7 +125,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             myMenu.z = -30
         }
     } else if (App_Open == "File Manager System" || App_Open == "File Manager User") {
-        console.log(Mouse_Cursor.y)
+        // This is the only solution that would fucking WORK
+        // if you have a better idea make a pull request dipshit
         if (Mouse_Cursor.y > 10) {
             if (Mouse_Cursor.y > 23) {
                 if (Mouse_Cursor.y > 36) {
