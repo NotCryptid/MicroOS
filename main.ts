@@ -38,6 +38,7 @@ miniMenu.createMenuItem("WebChat.moa"),
 miniMenu.createMenuItem("ThingAI.moa")
 ]
 User_Files = [miniMenu.createMenuItem("home"), miniMenu.createMenuItem("test.txt")]
+pause(300)
 let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
 text2.setPosition(64, 6)
 pause(500)
