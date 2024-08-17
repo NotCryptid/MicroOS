@@ -3,8 +3,6 @@ namespace SpriteKind {
     export const Desktop_UI = SpriteKind.create()
     export const Mouse = SpriteKind.create()
     export const App_UI = SpriteKind.create()
-    export const ben = SpriteKind.create()
-    // what the fuck is ben and why does the whole os break when i delete it, like literally nothing uses SpriteKind ben
 }
 
 function openFile (page: string, selection: number) {
