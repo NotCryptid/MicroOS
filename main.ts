@@ -1,6 +1,5 @@
 // this is the kernel do not touch this for the love of god
 namespace SpriteKind {
-    
     export const Desktop_UI = SpriteKind.create()
     export const Mouse = SpriteKind.create()
     export const App_UI = SpriteKind.create()
@@ -28,7 +27,7 @@ let System_Files: miniMenu.MenuItem[] = []
 radio.setGroup(113)
 System_Files = [
 miniMenu.createMenuItem("home"),
-miniMenu.createMenuItem("MicroOS.hex"),
+miniMenu.createMenuItem("MicroOS.uf2"),
 miniMenu.createMenuItem("wallpaper.asset"),
 miniMenu.createMenuItem("File.moa"),
 miniMenu.createMenuItem("Write.moa"),
@@ -42,7 +41,7 @@ pause(300)
 let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
 text2.setPosition(64, 6)
 pause(500)
-text = textsprite.create("> Loading Micro:OS v0.1", 0, 12)
+text = textsprite.create("> Loading Micro:OS v0.0.1", 0, 12)
 text.setPosition(73, 16)
 pause(randint(3000, 5000))
 sprites.destroy(text)
@@ -204,6 +203,7 @@ function Start_Icon_Names () {
 // Background tasks end here
 
 // Apps
+// Running every app at a kernel level is such a good idea ikr
 function Open_Web () {
     App_Open = "Web Chat"
     scene.setBackgroundImage(assets.image`App`)
@@ -301,12 +301,34 @@ function openFile (page: string, selection: number) {
             Open_FileManager()
         } else if (selection + File_Scroll == 2) {
             game.reset()
+        } else if (selection + File_Scroll == 3) {
+            // might make an image viewer some day
+        } else if (selection + File_Scroll == 4) {
+            close_apps()
+            Open_FileManager()
+        } else if (selection + File_Scroll == 5) {
+            close_apps()
+            Open_Write("")
+        } else if (selection + File_Scroll == 6) {
+            close_apps()
+            Open_xCell("")
+        } else if (selection + File_Scroll == 7) {
+            close_apps()
+            Open_Settings()
+        } else if (selection + File_Scroll == 8) {
+            close_apps()
+            Open_Web()
+        } else if (selection + File_Scroll == 9) {
+            close_apps()
+            Open_ThingAI()
         }
     }
     if (page = "File Manager User") {
         if (selection + File_Scroll == 1) {
             close_apps()
             Open_FileManager()
+        } else if (selection + File_Scroll == 2) {
+            Open_Write("This is a test file")
         }
     }
 }
