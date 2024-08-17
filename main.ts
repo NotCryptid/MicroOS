@@ -127,7 +127,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     } else if (App_Open == "File Manager System" || App_Open == "File Manager User") {
         // this stupid fucker works diferently on a vm and actual hardware but still incorrectly on both
-        File_Manager_selection = Mouse_Cursor.y - 11 / 13 + 1 + ""
+        File_Manager_selection = Mouse_Cursor.y - 11
+        File_Manager_selection = File_Manager_selection / 13
+        File_Manager_selection = File_Manager_selection + 1
+        File_Manager_selection = File_Manager_selection + ""
         File_Manager_selection = parseInt(File_Manager_selection.charAt(1))
         if (File_Manager_selection < 9.01) {
             openFile(App_Open, File_Manager_selection)
@@ -135,14 +138,14 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+    // figure out what to do with this later
+    controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+        // possibly spotlight search or some shit???
+        // maybe like an app library type shit???
+        // power options???
+        // quick settings???
+    })
 
-// figure out what to do with this later
-controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-	// possibly spotlight search or some shit???
-    // maybe like an app library type shit???
-    // power options???
-    // quick settings???
-})
 // Button presses end here
 
 // Background tasks
@@ -216,6 +219,11 @@ function Open_Settings () {
     App_Title.setPosition(25, 4)
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
+    // Pin header keyboard - on/off
+    //Pin header mouse - on/off
+    //External Communication - Radio/Pin Header/Off (Pin header unavailable with mouse and keyboard set to pin header)
+    //Web Chat channel - 1-32
+    //ThingAI communication - Pin Header/Radio (Pin header unavailable with mouse and keyboard set to pin header)
 }
 
 function Open_ThingAI () {
