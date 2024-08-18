@@ -188,8 +188,10 @@ forever(function () {
     }
     if(controller.up.isPressed()){
         delobotomized_mouse_y = delobotomized_mouse_y + 5
+        console.log(delobotomized_mouse_y + ", " + Mouse_Cursor.y)
     } else if(controller.down.isPressed()){
         delobotomized_mouse_y = delobotomized_mouse_y - 5
+        console.log(delobotomized_mouse_y + ", " + Mouse_Cursor.y)
     }
 })
 
