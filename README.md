@@ -15,4 +15,4 @@ Micro:OS is a lightweight operating system made in PTX and TypeScript for device
 - Image Viewer
 - Music Player/Creator
 # Known issues
-- File Manager always going back to home no matter what you select when using the vm (GitHub Pages)
+Currently none somehow
