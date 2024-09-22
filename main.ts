@@ -19,7 +19,6 @@ let Mouse_Cursor: Sprite = null
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = ""
-let delobotomized_mouse_y = 60
 let File_Scroll = 0
 let text: TextSprite = null
 let User_Files: miniMenu.MenuItem[] = []
@@ -151,18 +150,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 
 // Background tasks
 forever(function () {
-    // Don't set this pause to anything above 30 or you will get a seizure 
-    pause(30)
+    // Don't set this pause to anything above 25 or you will get a seizure 
+    pause(10)
     Start_Icon_Names()
     if (App_Open == "File Manager System" || App_Open == "File Manager User") {
     	// make scrolling in file manager later
-    }
-    if(controller.up.isPressed()){
-        delobotomized_mouse_y = delobotomized_mouse_y + 5
-        console.log(delobotomized_mouse_y + ", " + Mouse_Cursor.y)
-    } else if(controller.down.isPressed()){
-        delobotomized_mouse_y = delobotomized_mouse_y - 5
-        console.log(delobotomized_mouse_y + ", " + Mouse_Cursor.y)
     }
 })
 
