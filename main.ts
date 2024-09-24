@@ -40,9 +40,11 @@ User_Files = [miniMenu.createMenuItem("home"), miniMenu.createMenuItem("test.txt
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
 text2.setPosition(64, 6)
+let text3 = textsprite.create("> PTX Build 2.0.3", 0, 12)
+text3.setPosition(55, 16)
 pause(500)
 text = textsprite.create("> Loading Micro:OS v0.0.2", 0, 12)
-text.setPosition(79, 16)
+text.setPosition(79, 26)
 pause(randint(3000, 5000))
 sprites.destroy(text)
 sprites.destroy(text2)
@@ -267,8 +269,8 @@ function close_apps () {
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
 }
 
-function openFile (page: string, selection: number) {
-    if (page = "File Manager System") {
+function openFile(page: string, selection: number) {
+    if (page === "File Manager System") {
         if (selection + File_Scroll == 1) {
             close_apps()
             Open_FileManager()
@@ -296,11 +298,12 @@ function openFile (page: string, selection: number) {
             Open_ThingAI()
         }
     }
-    if (page = "File Manager User") {
+    if (page === "File Manager User") {
         if (selection + File_Scroll == 1) {
             close_apps()
             Open_FileManager()
         } else if (selection + File_Scroll == 2) {
+            close_apps()
             Open_Write("This is a test file")
         }
     }
