@@ -216,6 +216,13 @@ function Open_Write (load_file: string) {
     App_Title.setPosition(17, 4)
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
+    if (load_file === "") {
+        // create empty file or whatever
+        let write_document = "";
+    } else {
+        // load document type shit
+        let write_document = load_file;
+    }
 }
 function Open_Settings () {
     App_Open = "Settings"
