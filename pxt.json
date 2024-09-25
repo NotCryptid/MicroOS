@@ -49,5 +49,6 @@
         "#969696",
         "#373737",
         "#000000"
-    ]
+    ],
+    "disableTargetTemplateFiles": true
 }
