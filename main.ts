@@ -1,4 +1,5 @@
-// this is the kernel do not touch this for the love of god
+// MARK: Kernel
+// do not touch this for the love of god
 namespace SpriteKind {
     export const Desktop_UI = SpriteKind.create()
     export const Mouse = SpriteKind.create()
@@ -82,7 +83,7 @@ function Define_Sprites () {
 }
 // Okay kernel ends here
 
-// Button Presses and shit
+// MARK: Button Presses
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (spriteutils.isDestroyed(Mouse_Cursor)) {
     	// motherfucker why is this needed for the code to work you can't even kill the mouse cursor
@@ -154,7 +155,7 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 
 // Button presses end here
 
-// Background tasks
+// MARK: Background tasks
 forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
@@ -181,7 +182,7 @@ function Start_Icon_Names () {
 }
 // Background tasks end here
 
-// Apps
+// MARK: Apps
 // Running every app at a kernel level is such a good idea ikr
 function Open_Web () {
     App_Open = "Web Chat"
@@ -270,7 +271,7 @@ function Open_FileManager () {
 }
 // Apps end here
 
-// App related tasks
+// MARK: App related tasks
 function close_apps () {
     // works good enough so no touching
     App_Open = "null"
