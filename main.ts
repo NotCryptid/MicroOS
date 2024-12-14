@@ -25,18 +25,26 @@ let Settings = blockSettings.readNumber("settings")
 let text: TextSprite = null
 let User_Files: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = []
+let Avaiable_Settings: miniMenu.MenuItem[] = []
 
 radio.setGroup(113)
 System_Files = [
-miniMenu.createMenuItem("home"),
-miniMenu.createMenuItem("MicroOS.uf2"),
-miniMenu.createMenuItem("wallpaper.asset"),
-miniMenu.createMenuItem("File.moa"),
-miniMenu.createMenuItem("Write.moa"),
-miniMenu.createMenuItem("xCell.moa"),
-miniMenu.createMenuItem("Settings.moa"),
-miniMenu.createMenuItem("WebChat.moa"),
-miniMenu.createMenuItem("ThingAI.moa")
+    miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.toString().charAt(2), 10) + 1]),
+    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.toString().charAt(3), 10) + 1]),
+    miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(4), 10) + 1]),
+    miniMenu.createMenuItem(Settings.toString().charAt(5)),
+    miniMenu.createMenuItem(["ThingAI - Radio", "ThingAI - Pin Header"][parseInt(Settings.toString().charAt(6), 10) + 1])
+]
+Avaiable_Settings = [
+    miniMenu.createMenuItem("home"),
+    miniMenu.createMenuItem("MicroOS.uf2"),
+    miniMenu.createMenuItem("wallpaper.asset"),
+    miniMenu.createMenuItem("File.moa"),
+    miniMenu.createMenuItem("Write.moa"),
+    miniMenu.createMenuItem("xCell.moa"),
+    miniMenu.createMenuItem("Settings.moa"),
+    miniMenu.createMenuItem("WebChat.moa"),
+    miniMenu.createMenuItem("ThingAI.moa")
 ]
 if (Settings == null) {
     Settings = 100001
@@ -327,20 +335,28 @@ function openFile(page: string, selection: number) {
 function changeSettings(selection: number) {
     let dingus53 = parseInt(Settings.toString().charAt(selection + 1), 10) + 1;
     let dingus52 = 0
+    let dingus51 = "spoingy"
     if (selection == 1) {
         dingus52 = 2
+        dingus51 = ["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio", "Keyboard - OnScreen"][selection]
     } else if (selection == 2) {
         dingus52 = 2
+        dingus51 = ["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio", "Mouse - D-Pad"][selection]
     } else if (selection == 3) {
         dingus52 = 2
+        dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][selection]
     } else if (selection == 4) {
         dingus52 = 9
+        dingus51 = dingus53.toString()
     } else if (selection == 5) {
         dingus52 = 1
+        dingus51 = ["ThingAI - Radio", "ThingAI - Pin Header", "ThingAI - Radio"][dingus53]
     }
+
     if (dingus53 > dingus52) {
-        dingus53 = 0
+        dingus52 = 0
     }
+
     Settings = parseInt(Settings.toString().slice(0, selection + 1) + dingus53 + Settings.toString().slice(selection + 2))
 }
 // App related tasks end here
