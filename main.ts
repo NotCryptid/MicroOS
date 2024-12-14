@@ -27,6 +27,7 @@ let text: TextSprite = null
 let User_Files: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = []
 let Avaiable_Settings: miniMenu.MenuItem[] = []
+let sillySpacingForListGUI = []
 
 radio.setGroup(113)
 System_Files = [
@@ -141,30 +142,30 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             FileManagerGUI.z = -30
         }
     } else if (App_Open == "File Manager System" || App_Open == "File Manager User") {
-        let thresholds = [10, 23, 36, 49, 62, 75, 88, 101, 114];
+        sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
         let menu_selection = 0;
         
-        for (let i = 0; i < thresholds.length; i++) {
-            if (Mouse_Cursor.y > thresholds[i]) {
+        for (let i = 0; i < sillySpacingForListGUI.length; i++) {
+            if (Mouse_Cursor.y > sillySpacingForListGUI[i]) {
                 menu_selection = i + 1;
             } else {
                 break;
             }
         }
         openFile(App_Open, menu_selection)
-    }// else if (App_Open = "Settings") {
-    //     let thresholds = [10, 23, 36, 49, 62];
-    //     let menu_selection = 0;
+    } else if (App_Open = "Settings") {
+        sillySpacingForListGUI = [10, 23, 36, 49, 62];
+        let menu_selection = 0;
         
-    //     for (let i = 0; i < thresholds.length; i++) {
-    //         if (Mouse_Cursor.y > thresholds[i]) {
-    //             menu_selection = i + 1;
-    //         } else {
-    //             break;
-    //         }
-    //     }
-    //     changeSettings(menu_selection)
-    // }
+        for (let i = 0; i < sillySpacingForListGUI.length; i++) {
+            if (Mouse_Cursor.y > sillySpacingForListGUI[i]) {
+                menu_selection = i + 1;
+            } else {
+                break;
+            }
+        }
+        changeSettings(menu_selection)
+    }
 })
 // figure out what to do with this later
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
