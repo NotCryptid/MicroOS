@@ -1,4 +1,4 @@
-// this is literally the rest of the kernel, if you touch it everything will shit itself
+// Auto-generated code. Do not edit.
 namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {

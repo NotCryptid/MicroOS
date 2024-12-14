@@ -9,7 +9,7 @@ namespace SpriteKind {
 // this definitely does something
 let Taskbar: Sprite = null
 let File_Manager_selection : number = null
-let myMenu: miniMenu.MenuSprite = null
+let FileManagerGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
 let File_Manager_Icon: Sprite = null
 let Settings_Icon: Sprite = null
@@ -21,6 +21,7 @@ let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = ""
 let File_Scroll = 0
+let Settings = blockSettings.readNumber("settings")
 let text: TextSprite = null
 let User_Files: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = []
@@ -37,6 +38,9 @@ miniMenu.createMenuItem("Settings.moa"),
 miniMenu.createMenuItem("WebChat.moa"),
 miniMenu.createMenuItem("ThingAI.moa")
 ]
+if (Settings == null) {
+    Settings = 100001
+}
 User_Files = [miniMenu.createMenuItem("home"), miniMenu.createMenuItem("test.txt")]
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
@@ -76,7 +80,7 @@ function Define_Sprites () {
     Mouse_Cursor.z = 453453453453
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     App_Title = textsprite.create("Write", 0, 12)
-    myMenu = miniMenu.createMenuFromArray([miniMenu.createMenuItem("")])
+    FileManagerGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("")])
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroy(Close_App)
@@ -112,20 +116,20 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         File_Scroll = 0
         if (Mouse_Cursor.y < 24 && (Mouse_Cursor.y > 11 && Mouse_Cursor.x < 150)) {
             App_Open = "File Manager System"
-            myMenu.close()
-            myMenu = miniMenu.createMenuFromArray(System_Files)
-            myMenu.setButtonEventsEnabled(false)
-            myMenu.setDimensions(151, 97)
-            myMenu.setPosition(76, 58)
-            myMenu.z = -30
+            FileManagerGUI.close()
+            FileManagerGUI = miniMenu.createMenuFromArray(System_Files)
+            FileManagerGUI.setButtonEventsEnabled(false)
+            FileManagerGUI.setDimensions(151, 97)
+            FileManagerGUI.setPosition(76, 58)
+            FileManagerGUI.z = -30
         } else if (Mouse_Cursor.y < 37 && (Mouse_Cursor.y > 24 && Mouse_Cursor.x < 150)) {
             App_Open = "File Manager User"
-            myMenu.close()
-            myMenu = miniMenu.createMenuFromArray(User_Files)
-            myMenu.setButtonEventsEnabled(false)
-            myMenu.setDimensions(151, 97)
-            myMenu.setPosition(76, 58)
-            myMenu.z = -30
+            FileManagerGUI.close()
+            FileManagerGUI = miniMenu.createMenuFromArray(User_Files)
+            FileManagerGUI.setButtonEventsEnabled(false)
+            FileManagerGUI.setDimensions(151, 97)
+            FileManagerGUI.setPosition(76, 58)
+            FileManagerGUI.z = -30
         }
     } else if (App_Open == "File Manager System" || App_Open == "File Manager User") {
         const thresholds = [10, 23, 36, 49, 62, 75, 88, 101, 114];
@@ -238,7 +242,7 @@ function Open_Settings () {
     // Keyboard - On Screen/Pin Header (-1 Pin)/Radio
     // Mouse - D-Pad/Pin Header (-2 Pins)/Radio
     // External Communication - Radio/Pin Header (-3 Pins)/Off
-    // Web Chat channel - 1-32
+    // Web Chat channel - 0-9
     // ThingAI communication - Pin Header (-3 Pins)/Radio
 }
 
@@ -263,11 +267,11 @@ function Open_FileManager () {
     App_Title = textsprite.create("File Manager", 0, 12)
     App_Title.setPosition(37, 4)
     // should probably rename this but im too lazy to do that
-    myMenu = miniMenu.createMenuFromArray([miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")])
-    myMenu.setDimensions(151, 97)
-    myMenu.setButtonEventsEnabled(false)
-    myMenu.setPosition(76, 58)
-    myMenu.z = -30
+    FileManagerGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")])
+    FileManagerGUI.setDimensions(151, 97)
+    FileManagerGUI.setButtonEventsEnabled(false)
+    FileManagerGUI.setPosition(76, 58)
+    FileManagerGUI.z = -30
 }
 // Apps end here
 
@@ -309,8 +313,7 @@ function openFile(page: string, selection: number) {
             close_apps()
             Open_ThingAI()
         }
-    }
-    if (page === "File Manager User") {
+    } else if (page === "File Manager User") {
         if (selection + File_Scroll == 1) {
             close_apps()
             Open_FileManager()
@@ -319,5 +322,25 @@ function openFile(page: string, selection: number) {
             Open_Write("This is a test file")
         }
     }
+}
+
+function changeSettings(selection: number) {
+    let dingus53 = parseInt(Settings.toString().charAt(selection + 1), 10) + 1;
+    let dingus52 = 0
+    if (selection == 1) {
+        dingus52 = 2
+    } else if (selection == 2) {
+        dingus52 = 2
+    } else if (selection == 3) {
+        dingus52 = 2
+    } else if (selection == 4) {
+        dingus52 = 9
+    } else if (selection == 5) {
+        dingus52 = 1
+    }
+    if (dingus53 > dingus52) {
+        dingus53 = 0
+    }
+    Settings = parseInt(Settings.toString().slice(0, selection + 1) + dingus53 + Settings.toString().slice(selection + 2))
 }
 // App related tasks end here
