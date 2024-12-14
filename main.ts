@@ -8,8 +8,9 @@ namespace SpriteKind {
 
 // this definitely does something
 let Taskbar: Sprite = null
-let File_Manager_selection : number = null
+let menu_selection : number = null
 let FileManagerGUI: miniMenu.MenuSprite = null
+let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
 let File_Manager_Icon: Sprite = null
 let Settings_Icon: Sprite = null
@@ -140,20 +141,30 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             FileManagerGUI.z = -30
         }
     } else if (App_Open == "File Manager System" || App_Open == "File Manager User") {
-        const thresholds = [10, 23, 36, 49, 62, 75, 88, 101, 114];
-        let File_Manager_selection = 0;
+        let thresholds = [10, 23, 36, 49, 62, 75, 88, 101, 114];
+        let menu_selection = 0;
         
         for (let i = 0; i < thresholds.length; i++) {
             if (Mouse_Cursor.y > thresholds[i]) {
-                File_Manager_selection = i + 1;
+                menu_selection = i + 1;
             } else {
                 break;
             }
         }
-        openFile(App_Open, File_Manager_selection)
-    } else if (App_Open = "Settings") {
+        openFile(App_Open, menu_selection)
+    }// else if (App_Open = "Settings") {
+    //     let thresholds = [10, 23, 36, 49, 62];
+    //     let menu_selection = 0;
         
-    }
+    //     for (let i = 0; i < thresholds.length; i++) {
+    //         if (Mouse_Cursor.y > thresholds[i]) {
+    //             menu_selection = i + 1;
+    //         } else {
+    //             break;
+    //         }
+    //     }
+    //     changeSettings(menu_selection)
+    // }
 })
 // figure out what to do with this later
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -247,6 +258,11 @@ function Open_Settings () {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Settings", 0, 12)
     App_Title.setPosition(25, 4)
+    SettingsGUI = miniMenu.createMenuFromArray(Avaiable_Settings)
+    SettingsGUI.setDimensions(151, 97)
+    SettingsGUI.setButtonEventsEnabled(false)
+    SettingsGUI.setPosition(76, 58)
+    SettingsGUI.z = -30
 }
 
 function Open_ThingAI () {
@@ -352,5 +368,7 @@ function changeSettings(selection: number) {
     }
 
     Settings = parseInt(Settings.toString().slice(0, selection + 1) + dingus53 + Settings.toString().slice(selection + 2))
+    Avaiable_Settings[selection] = miniMenu.createMenuItem(dingus51)
+    blockSettings.writeNumber("settings", Settings)
 }
 // App related tasks end here
