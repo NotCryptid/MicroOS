@@ -151,6 +151,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             }
         }
         openFile(App_Open, File_Manager_selection)
+    } else if (App_Open = "Settings") {
+        
     }
 })
 // figure out what to do with this later
@@ -245,13 +247,6 @@ function Open_Settings () {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Settings", 0, 12)
     App_Title.setPosition(25, 4)
-    text = textsprite.create("Unfinished", 0, 15)
-    text.setPosition(80, 60)
-    // Keyboard - On Screen/Pin Header (-1 Pin)/Radio
-    // Mouse - D-Pad/Pin Header (-2 Pins)/Radio
-    // External Communication - Radio/Pin Header (-3 Pins)/Off
-    // Web Chat channel - 0-9
-    // ThingAI communication - Pin Header (-3 Pins)/Radio
 }
 
 function Open_ThingAI () {
@@ -274,7 +269,6 @@ function Open_FileManager () {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("File Manager", 0, 12)
     App_Title.setPosition(37, 4)
-    // should probably rename this but im too lazy to do that
     FileManagerGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")])
     FileManagerGUI.setDimensions(151, 97)
     FileManagerGUI.setButtonEventsEnabled(false)
