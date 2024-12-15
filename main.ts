@@ -28,7 +28,6 @@ let User_Files: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = []
 let Avaiable_Settings: miniMenu.MenuItem[] = []
 let sillySpacingForListGUI = []
-radio.setGroup(113)
 System_Files = [
     miniMenu.createMenuItem("home"),
     miniMenu.createMenuItem("MicroOS.uf2"),
@@ -43,7 +42,7 @@ System_Files = [
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
 text2.setPosition(64, 6)
-let text3 = textsprite.create("> PTX Build 2.0.3", 0, 12)
+let text3 = textsprite.create("> PTX Build 2.0.6", 0, 12)
 text3.setPosition(55, 16)
 let text4 = textsprite.create("> Hold B + UP to erase", 0, 12)
 text4.setPosition(70, 26)
@@ -51,8 +50,11 @@ pause(1000)
 text = textsprite.create("> Loading Micro:OS v0.0.2", 0, 12)
 text.setPosition(79, 36)
 if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
-    Settings = "10000"
+    Settings = "10001"
+    radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
+} else {
+    radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
 Avaiable_Settings = [
     miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
@@ -174,7 +176,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             }
         }
         changeSettings(menu_selection)
-        console.log(Settings)
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -355,16 +356,17 @@ function changeSettings(selection: number) {
     let dingus51 = "spoingy"
     if (selection == 1) {
         dingus52 = 2
-        dingus51 = ["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio", "Keyboard - OnScreen"][dingus53 - 1]
+        dingus51 = ["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio", "Keyboard - OnScreen"][dingus53]
     } else if (selection == 2) {
         dingus52 = 2
-        dingus51 = ["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio", "Mouse - D-Pad"][dingus53 - 1]
+        dingus51 = ["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio", "Mouse - D-Pad"][dingus53]
     } else if (selection == 3) {
         dingus52 = 2
-        dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][dingus53 - 1]
+        dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][dingus53]
     } else if (selection == 4) {
         dingus52 = 9
-        dingus51 = "Web Chat Channel - " + (dingus53 - 1).toString()
+        dingus51 = "Web Chat Channel - " + (dingus53).toString()
+        radio.setGroup(113 + parseInt(Settings.charAt(4)))
     }
 
     if (dingus53 > dingus52) {
