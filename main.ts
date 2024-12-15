@@ -22,7 +22,7 @@ let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = ""
 let File_Scroll = 0
-let Settings = blockSettings.readNumber("settings")
+let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
 let User_Files: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = []
@@ -51,14 +51,14 @@ pause(500)
 text = textsprite.create("> Loading Micro:OS v0.0.2", 0, 12)
 text.setPosition(79, 36)
 if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
-    Settings = 10000
-    blockSettings.writeNumber("settings", Settings)
+    Settings = "10000"
+    blockSettings.writeString("settings", Settings)
 }
 Avaiable_Settings = [
-    miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.toString().charAt(1), 10)]),
-    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.toString().charAt(2), 10)]),
-    miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(3), 10)]),
-    miniMenu.createMenuItem("Web Chat Channel - " + Settings.toString().charAt(4)),
+    miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10)]),
+    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10)]),
+    miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10)]),
+    miniMenu.createMenuItem("Web Chat Channel - " + Settings.charAt(4)),
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -349,7 +349,7 @@ function openFile(page: string, selection: number) {
 }
 
 function changeSettings(selection: number) {
-    let dingus53 = parseInt(Settings.toString().charAt(selection), 10) + 1;
+    let dingus53 = parseInt(Settings.charAt(selection), 10) + 1;
     let dingus52 = 0
     let dingus51 = "spoingy"
     if (selection == 1) {
@@ -370,8 +370,8 @@ function changeSettings(selection: number) {
         dingus53 = 0
     }
 
-    Settings = parseInt(Settings.toString().slice(0, selection) + dingus53 + Settings.toString().slice(selection + 1))
+    Settings = Settings.slice(0, selection) + dingus53.toString() + Settings.slice(selection + 1)
     Avaiable_Settings[selection - 1] = miniMenu.createMenuItem(dingus51)
-    blockSettings.writeNumber("settings", Settings)
+    blockSettings.writeString("settings", Settings)
 }
 // App related tasks end here
