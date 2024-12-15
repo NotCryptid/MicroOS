@@ -49,6 +49,9 @@ text4.setPosition(76, 26)
 pause(1000)
 text = textsprite.create("> Loading Micro:OS v0.0.3", 0, 12)
 text.setPosition(79, 36)
+if (controller.menu.isPressed()) {
+    
+}
 // (controller.menu.isPressed() && controller.up.isPressed())
 if (Settings == null) {
     Settings = "10001"
@@ -107,6 +110,12 @@ function Define_Sprites () {
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroy(Close_App)
+}
+
+function Open_BIOS() {
+    let bios_settings = "00" + blockSettings.readString("bios_settings")
+    while (bios_settings.charAt(0) == "0") {
+    }
 }
 // Okay kernel ends here
 
