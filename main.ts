@@ -60,14 +60,15 @@ Avaiable_Settings = [
     miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(3), 10)]),
     miniMenu.createMenuItem("Web Chat Channel - " + Settings.toString().charAt(4)),
 ]
-let User_Files_Temp = []
-if (User_Files == null || (controller.B.isPressed() && controller.up.isPressed())) {
-    User_Files_Temp = ["home", "test.txt"]
-    blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp))
-} else {
-    User_Files_Temp = JSON.parse(blockSettings.readString("file_names"))
+let fileNamesString = blockSettings.readString("file_names");
+let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
+if (User_Files_Temp.length === 0 || (controller.B.isPressed() && controller.up.isPressed())) {
+    User_Files_Temp = ["home", "test.txt"];
+    blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
-
+for (let i = 0; i < User_Files_Temp.length; i++) {
+    User_Files.push(miniMenu.createMenuItem(User_Files_Temp[i]));
+}
 pause(randint(3000, 5000))
 sprites.destroy(text)
 sprites.destroy(text2)
