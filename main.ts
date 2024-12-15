@@ -47,7 +47,7 @@ let text3 = textsprite.create("> PTX Build 2.0.3", 0, 12)
 text3.setPosition(55, 16)
 let text4 = textsprite.create("> Hold B + UP to erase", 0, 12)
 text4.setPosition(70, 26)
-pause(500)
+pause(1000)
 text = textsprite.create("> Loading Micro:OS v0.0.2", 0, 12)
 text.setPosition(79, 36)
 if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
@@ -69,7 +69,7 @@ if (User_Files_Temp.length === 0 || (controller.B.isPressed() && controller.up.i
 for (let i = 0; i < User_Files_Temp.length; i++) {
     User_Files.push(miniMenu.createMenuItem(User_Files_Temp[i]));
 }
-pause(randint(3000, 5000))
+pause(randint(1000, 2000))
 sprites.destroy(text)
 sprites.destroy(text2)
 scene.setBackgroundImage(assets.image`Wallpaper`)
