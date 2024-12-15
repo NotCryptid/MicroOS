@@ -177,7 +177,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    
+    // this is gonna be right click
 })
 
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
