@@ -176,16 +176,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         changeSettings(menu_selection)
     }
 })
-// figure out what to do with this later
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    // possibly the right mouse click
+    
 })
 
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-    // possibly spotlight search or some shit???
-    // maybe like an app library type shit???
-    // power options???
-    // quick settings???
+
 })
 
 // Button presses end here
