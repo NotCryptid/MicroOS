@@ -1,10 +1,15 @@
 name: MakeCode Arcade Release
 
-on: 
+on:
   push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -12,9 +17,9 @@ jobs:
         node-version: [8.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: install node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - name: install makecode
