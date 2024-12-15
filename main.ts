@@ -32,14 +32,14 @@ radio.setGroup(113)
 if (Settings == null) {
     Settings = 100001
 }
-System_Files = [
-    miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.toString().charAt(2), 10) + 1]),
-    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.toString().charAt(3), 10) + 1]),
-    miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(4), 10) + 1]),
-    miniMenu.createMenuItem(Settings.toString().charAt(5)),
-    miniMenu.createMenuItem(["ThingAI - Radio", "ThingAI - Pin Header"][parseInt(Settings.toString().charAt(6), 10) + 1])
-]
 Avaiable_Settings = [
+    miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.toString().charAt(1), 10)]),
+    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.toString().charAt(2), 10)]),
+    miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(3), 10)]),
+    miniMenu.createMenuItem(Settings.toString().charAt(4)),
+    miniMenu.createMenuItem(["ThingAI - Radio", "ThingAI - Pin Header"][parseInt(Settings.toString().charAt(5), 10)])
+]
+System_Files = [
     miniMenu.createMenuItem("home"),
     miniMenu.createMenuItem("MicroOS.uf2"),
     miniMenu.createMenuItem("wallpaper.asset"),
