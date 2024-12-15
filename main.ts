@@ -55,9 +55,9 @@ if (Settings == null || (controller.B.isPressed() && controller.up.isPressed()))
     blockSettings.writeString("settings", Settings)
 }
 Avaiable_Settings = [
-    miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10)]),
-    miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10)]),
-    miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10)]),
+    miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
+    miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
+    miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Web Chat Channel - " + (parseInt(Settings.charAt(4))) + ""),
 ]
 let fileNamesString = blockSettings.readString("file_names");
@@ -174,6 +174,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             }
         }
         changeSettings(menu_selection)
+        console.log(Settings)
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
