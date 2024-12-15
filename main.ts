@@ -10,6 +10,7 @@ namespace SpriteKind {
 let Taskbar: Sprite = null
 let menu_selection : number = null
 let FileManagerGUI: miniMenu.MenuSprite = null
+let bios_options: miniMenu.MenuSprite = null
 let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
 let File_Manager_Icon: Sprite = null
@@ -42,18 +43,32 @@ System_Files = [
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2025.1", 0, 12)
 text2.setPosition(64, 6)
+let bios_settings = "00" + blockSettings.readString("bios_settings")
 let text3 = textsprite.create("> PTX Build 2.0.6", 0, 12)
 text3.setPosition(55, 16)
-let text4 = textsprite.create("> Hold Menu to open BIOS", 0, 12)
+let text4 = textsprite.create("> Hold UP+B to open BIOS", 0, 12)
 text4.setPosition(76, 26)
 pause(1000)
 text = textsprite.create("> Loading Micro:OS v0.0.3", 0, 12)
 text.setPosition(79, 36)
-if (controller.menu.isPressed()) {
-    
+// MARK: BIOS
+function Open_BIOS() {
+    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+    bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit")])
+    bios_options.setDimensions(160, 120)
+    bios_options.setButtonEventsEnabled(true)
+    bios_options.setPosition(80, 60)
+    bios_options.z = -30
+    pause(20)
+    while (bios_settings.charAt(0) == "0") {
+        
+    }
 }
-// (controller.menu.isPressed() && controller.up.isPressed())
-if (Settings == null) {
+if (controller.B.isPressed() && controller.up.isPressed()) {
+    Open_BIOS()
+}
+// MARK: OS Boot Sequence
+if (Settings == null || bios_settings.charAt(1) == "1") {
     Settings = "10001"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
@@ -68,8 +83,7 @@ Avaiable_Settings = [
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
-// (controller.menu.isPressed() && controller.up.isPressed())
-if (User_Files_Temp.length === 0) {
+if (User_Files_Temp.length === 0 || bios_settings.charAt(1) == "1") {
     User_Files_Temp = ["home", "test.txt"];
     blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
@@ -80,6 +94,9 @@ pause(randint(1000, 2000))
 sprites.destroy(text)
 sprites.destroy(text2)
 scene.setBackgroundImage(assets.image`Wallpaper`)
+// OS Boot Sequence ends here
+
+// MARK: More Kernel
 Define_Sprites()
 
 function Define_Sprites () {
@@ -112,11 +129,6 @@ function Define_Sprites () {
     sprites.destroy(Close_App)
 }
 
-function Open_BIOS() {
-    let bios_settings = "00" + blockSettings.readString("bios_settings")
-    while (bios_settings.charAt(0) == "0") {
-    }
-}
 // Okay kernel ends here
 
 // MARK: Button Presses
