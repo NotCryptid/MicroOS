@@ -54,7 +54,7 @@ text.setPosition(79, 36)
 // MARK: BIOS
 function Open_BIOS() {
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
-    bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit")])
+    bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit"), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem("Void Kernel BIOS v1.0")])
     bios_options.setDimensions(160, 120)
     bios_options.setButtonEventsEnabled(true)
     bios_options.setPosition(80, 60)
