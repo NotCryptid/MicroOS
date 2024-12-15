@@ -45,8 +45,11 @@ let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
 text2.setPosition(64, 6)
 let text3 = textsprite.create("> PTX Build 2.0.3", 0, 12)
 text3.setPosition(55, 16)
+let text4 = textsprite.create("> Hold B + UP to erase", 0, 12)
+text4.setPosition(70, 26)
 pause(500)
 text = textsprite.create("> Loading Micro:OS v0.0.2", 0, 12)
+text.setPosition(79, 36)
 if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
     Settings = 10000
     blockSettings.writeNumber("settings", Settings)
@@ -57,8 +60,14 @@ Avaiable_Settings = [
     miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(3), 10)]),
     miniMenu.createMenuItem("Web Chat Channel - " + Settings.toString().charAt(4)),
 ]
-User_Files = [miniMenu.createMenuItem("home"), miniMenu.createMenuItem("test.txt")]
-text.setPosition(79, 26)
+let User_Files_Temp = []
+if (User_Files == null || (controller.B.isPressed() && controller.up.isPressed())) {
+    User_Files_Temp = ["home", "test.txt"]
+    blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp))
+} else {
+    User_Files_Temp = JSON.parse(blockSettings.readString("file_names"))
+}
+
 pause(randint(3000, 5000))
 sprites.destroy(text)
 sprites.destroy(text2)
