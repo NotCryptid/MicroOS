@@ -19,7 +19,8 @@
         "images.g.jres",
         "images.g.ts",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "tutorial-info-cache.json"
     ],
     "testFiles": [
         "test.ts"
