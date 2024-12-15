@@ -556,7 +556,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P81278(s) {
+function _main___P81592(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1617,13 +1617,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P81278.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P81278.continuations = [ 60,61,62,63,88,109,110 ]
+_main___P81592.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P81592.continuations = [ 60,61,62,63,88,109,110 ]
 
-function _main___P81278_mk(s) {
+function _main___P81592_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P81278, depth: s.depth + 1,
+        parent: s, fn: _main___P81592, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -69367,5 +69367,5 @@ const sprites_StaticObstacle__C2499_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency16___4769","Desktop_UI___80308","Mouse___80311","App_UI___80314","Settings___80349","System_Files___80354","text2___80379","bios_settings___80385","text3___80391","text4___80396","text___80352","Avaiable_Settings___80355","fileNamesString___80488","User_Files_Temp___80491","User_Files___80353","Mouse_Cursor___80339","xCell_Icon___80337","Write_icon___80335","Web_Chat_Icon___80333","Settings_Icon___80331","File_Manager_Icon___80329","ThingAI_Icon___80327","Close_App___80343","App_Open___80344","File_Scroll___80346","FileManagerGUI___80321","sillySpacingForListGUI___80356","App_Title___80341","SettingsGUI___80325","Taskbar___80317","bios_options___80323"])
 
-return _main___P81278
+return _main___P81592
 })
