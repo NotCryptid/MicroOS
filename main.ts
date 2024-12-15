@@ -29,15 +29,6 @@ let System_Files: miniMenu.MenuItem[] = []
 let Avaiable_Settings: miniMenu.MenuItem[] = []
 let sillySpacingForListGUI = []
 radio.setGroup(113)
-if (Settings == null) {
-    Settings = 10000
-}
-Avaiable_Settings = [
-    miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.toString().charAt(1), 10)]),
-    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.toString().charAt(2), 10)]),
-    miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(3), 10)]),
-    miniMenu.createMenuItem("Web Chat Channel - " + Settings.toString().charAt(4)),
-]
 System_Files = [
     miniMenu.createMenuItem("home"),
     miniMenu.createMenuItem("MicroOS.uf2"),
@@ -49,7 +40,6 @@ System_Files = [
     miniMenu.createMenuItem("WebChat.moa"),
     miniMenu.createMenuItem("ThingAI.moa")
 ]
-User_Files = [miniMenu.createMenuItem("home"), miniMenu.createMenuItem("test.txt")]
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
 text2.setPosition(64, 6)
@@ -57,6 +47,17 @@ let text3 = textsprite.create("> PTX Build 2.0.3", 0, 12)
 text3.setPosition(55, 16)
 pause(500)
 text = textsprite.create("> Loading Micro:OS v0.0.2", 0, 12)
+if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
+    Settings = 10000
+    blockSettings.writeNumber("settings", Settings)
+}
+Avaiable_Settings = [
+    miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.toString().charAt(1), 10)]),
+    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.toString().charAt(2), 10)]),
+    miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(3), 10)]),
+    miniMenu.createMenuItem("Web Chat Channel - " + Settings.toString().charAt(4)),
+]
+User_Files = [miniMenu.createMenuItem("home"), miniMenu.createMenuItem("test.txt")]
 text.setPosition(79, 26)
 pause(randint(3000, 5000))
 sprites.destroy(text)
