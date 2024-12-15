@@ -56,6 +56,7 @@ function Open_BIOS() {
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit"), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem("Void Kernel BIOS v1.0")])
     bios_options.setDimensions(160, 120)
+    bios_options.setButtonEventsEnabled(false)
     bios_options.setPosition(80, 60)
     bios_options.z = -30
     let bios_selection = 0
