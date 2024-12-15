@@ -1,7 +1,8 @@
 name: MakeCode Arcade Release
 
 on: 
-  push:
+  release:
+    create:
 jobs:
   build:
 
