@@ -40,16 +40,17 @@ System_Files = [
     miniMenu.createMenuItem("ThingAI.moa")
 ]
 pause(300)
-let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
+let text2 = textsprite.create("> Void Kernel 2025.1", 0, 12)
 text2.setPosition(64, 6)
 let text3 = textsprite.create("> PTX Build 2.0.6", 0, 12)
 text3.setPosition(55, 16)
-let text4 = textsprite.create("> Hold B + UP to erase", 0, 12)
-text4.setPosition(70, 26)
+let text4 = textsprite.create("> Hold Menu to open BIOS", 0, 12)
+text4.setPosition(76, 26)
 pause(1000)
-text = textsprite.create("> Loading Micro:OS v0.0.2", 0, 12)
+text = textsprite.create("> Loading Micro:OS v0.0.3", 0, 12)
 text.setPosition(79, 36)
-if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
+// (controller.menu.isPressed() && controller.up.isPressed())
+if (Settings == null) {
     Settings = "10001"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
@@ -64,7 +65,8 @@ Avaiable_Settings = [
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
-if (User_Files_Temp.length === 0 || (controller.B.isPressed() && controller.up.isPressed())) {
+// (controller.menu.isPressed() && controller.up.isPressed())
+if (User_Files_Temp.length === 0) {
     User_Files_Temp = ["home", "test.txt"];
     blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
