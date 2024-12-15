@@ -30,14 +30,13 @@ let Avaiable_Settings: miniMenu.MenuItem[] = []
 let sillySpacingForListGUI = []
 radio.setGroup(113)
 if (Settings == null) {
-    Settings = 100001
+    Settings = 10000
 }
 Avaiable_Settings = [
     miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.toString().charAt(1), 10)]),
     miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.toString().charAt(2), 10)]),
     miniMenu.createMenuItem(["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.toString().charAt(3), 10)]),
-    miniMenu.createMenuItem(Settings.toString().charAt(4)),
-    miniMenu.createMenuItem(["ThingAI - Radio", "ThingAI - Pin Header"][parseInt(Settings.toString().charAt(5), 10)])
+    miniMenu.createMenuItem("Web Chat Channel - " + Settings.toString().charAt(4)),
 ]
 System_Files = [
     miniMenu.createMenuItem("home"),
@@ -153,7 +152,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
         openFile(App_Open, menu_selection)
     } else if (App_Open = "Settings") {
-        sillySpacingForListGUI = [10, 23, 36, 49, 62];
+        sillySpacingForListGUI = [10, 23, 36, 49];
         let menu_selection = 0;
         
         for (let i = 0; i < sillySpacingForListGUI.length; i++) {
@@ -259,9 +258,9 @@ function Open_Settings () {
     App_Title = textsprite.create("Settings", 0, 12)
     App_Title.setPosition(25, 4)
     SettingsGUI = miniMenu.createMenuFromArray(Avaiable_Settings)
-    SettingsGUI.setDimensions(151, 97)
+    SettingsGUI.setDimensions(160, 97)
     SettingsGUI.setButtonEventsEnabled(false)
-    SettingsGUI.setPosition(76, 58)
+    SettingsGUI.setPosition(80, 58)
     SettingsGUI.z = -30
 }
 
@@ -357,10 +356,7 @@ function changeSettings(selection: number) {
         dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][selection]
     } else if (selection == 4) {
         dingus52 = 9
-        dingus51 = dingus53.toString()
-    } else if (selection == 5) {
-        dingus52 = 1
-        dingus51 = ["ThingAI - Radio", "ThingAI - Pin Header", "ThingAI - Radio"][dingus53]
+        dingus51 = "Web Chat Channel - " + dingus53.toString()
     }
 
     if (dingus53 > dingus52) {
