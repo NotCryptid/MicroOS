@@ -14,7 +14,7 @@ Micro:OS is a lightweight operating system made in PTX and TypeScript for device
 - Image Viewer
 - Music Player/Creator
 ### Known issues
-OS sharts, god knows why
+None
 # Source code instructions
 ### Setting up the project
 1. Download the [MakeCode Arcade extension](https://marketplace.visualstudio.com/items?itemName=ms-edu.pxt-vscode-web) for Visual Studio Code.
