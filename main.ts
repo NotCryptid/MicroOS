@@ -28,8 +28,10 @@ let User_Files: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = []
 let Avaiable_Settings: miniMenu.MenuItem[] = []
 let sillySpacingForListGUI = []
-
 radio.setGroup(113)
+if (Settings == null) {
+    Settings = 100001
+}
 System_Files = [
     miniMenu.createMenuItem(["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.toString().charAt(2), 10) + 1]),
     miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.toString().charAt(3), 10) + 1]),
@@ -48,9 +50,6 @@ Avaiable_Settings = [
     miniMenu.createMenuItem("WebChat.moa"),
     miniMenu.createMenuItem("ThingAI.moa")
 ]
-if (Settings == null) {
-    Settings = 100001
-}
 User_Files = [miniMenu.createMenuItem("home"), miniMenu.createMenuItem("test.txt")]
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2024.1", 0, 12)
