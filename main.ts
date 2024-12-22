@@ -15,6 +15,7 @@ let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
 let paired_devices = ["doofus"]
 let paired_devices_ids = ["spingus"]
+const keyboardChars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'PrintScreen', 'ScrollLock', 'Pause', 'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'Tab', 'CapsLock', 'Shift', 'Control', 'Alt', 'Space', 'Enter', 'Backspace', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 let File_Manager_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
@@ -51,7 +52,7 @@ text3.setPosition(55, 16)
 let text4 = textsprite.create("> Hold UP+B to open BIOS", 0, 12)
 text4.setPosition(76, 26)
 pause(1000)
-text = textsprite.create("> Loading Micro:OS v0.0.3", 0, 12)
+text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 12)
 text.setPosition(79, 36)
 // MARK: BIOS
 function Open_BIOS() {
@@ -241,6 +242,12 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 // Recieved coded value
 radio.onReceivedValue(function(name: string, value: number) {
     if (name == paired_devices[paired_devices_ids.indexOf("mouse")]) {
+        const str = value.toString();
+        const ms_x = parseInt(str.slice(0, 3), 10);
+        const ms_y = parseInt(str.slice(3, 6), 10);
+        Mouse_Cursor.setPosition(ms_x, ms_y)
+    }
+    if (name == paired_devices[paired_devices_ids.indexOf("keyboard")]) {
         const str = value.toString();
         const ms_x = parseInt(str.slice(0, 3), 10);
         const ms_y = parseInt(str.slice(3, 6), 10);
