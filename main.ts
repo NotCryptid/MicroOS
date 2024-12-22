@@ -13,6 +13,7 @@ let FileManagerGUI: miniMenu.MenuSprite = null
 let bios_options: miniMenu.MenuSprite = null
 let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
+let buttons_down = ["none :("]
 let paired_devices = [69]
 let paired_devices_ids = ["doofus"]
 const keyboardChars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'PrintScreen', 'ScrollLock', 'Pause', 'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'Tab', 'CapsLock', 'Shift', 'Control', 'Alt', 'Space', 'Enter', 'Backspace', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
@@ -241,18 +242,20 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 })
 // Recieved coded value
 radio.onReceivedValue(function(name: string, value: number) {
-    if (paired_devices_ids.includes("name")) {
+    if (paired_devices_ids.includes(name)) {
         const key = paired_devices[paired_devices_ids.indexOf(name)]
-        const str = value.toString();
-        if (str.slice(0, 6) != "000000"){
+        const str = decrypt(value.toString(), key);
+        if (str.slice(0, 8) != "00000000"){
             const ms_x = parseInt(str.slice(0, 3), 10) - 1;
             const ms_y = parseInt(str.slice(3, 6), 10) - 1;
             Mouse_Cursor.setPosition(ms_x, ms_y)
+            buttons_down[0] = str.slice(7, 7)
+            buttons_down[0] = str.slice(8, 8)
         }
     }
     if (name.length == 19 && value == 56345) {
         if (reconnectMicroLink(name)) {
-            radio.sendValue("Reconnect MicroLink", reconnectMicroLink2(name))
+            radio.sendValue(paired_devices_ids[paired_devices.indexOf(reconnectMicroLink2(name))], reconnectMicroLink2(name))
         }
     }
 })
