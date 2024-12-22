@@ -13,7 +13,7 @@ let FileManagerGUI: miniMenu.MenuSprite = null
 let bios_options: miniMenu.MenuSprite = null
 let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
-let buttons_down = ["left", "right"] // after those two we just drop in the pressed letters i guess
+let buttons_down = ["left", "right", "middle", "scroll", "forward", "back"] // after those two we just drop in the pressed letters i guess
 let paired_devices = [69]
 let paired_devices_ids = ["doofus"]
 const keyboardChars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'PrintScreen', 'ScrollLock', 'Pause', 'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'Tab', 'CapsLock', 'Shift', 'Control', 'Alt', 'Space', 'Enter', 'Backspace', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
@@ -268,12 +268,16 @@ radio.onReceivedValue(function(name: string, value: number) {
     if (paired_devices_ids.includes(name)) {
         const key = paired_devices[paired_devices_ids.indexOf(name)]
         const str = decrypt(value.toString(), key);
-        if (str.slice(0, 8) != "00000000"){
+        if (str.slice(0, 8) != "000000000000"){
             const ms_x = parseInt(str.slice(0, 3), 10) - 1;
             const ms_y = parseInt(str.slice(3, 6), 10) - 1;
             Mouse_Cursor.setPosition(ms_x, ms_y)
             buttons_down[0] = str.slice(7, 7)
             buttons_down[1] = str.slice(8, 8)
+            buttons_down[2] = str.slice(9, 9)
+            buttons_down[3] = str.slice(10, 10)
+            buttons_down[4] = str.slice(11, 11)
+            buttons_down[5] = str.slice(12, 12)
         }
     }
     if (name.length == 19 && value == 56345) {
