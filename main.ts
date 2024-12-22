@@ -13,8 +13,8 @@ let FileManagerGUI: miniMenu.MenuSprite = null
 let bios_options: miniMenu.MenuSprite = null
 let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
-let paired_devices = ["doofus"]
-let paired_devices_ids = ["spingus"]
+let paired_devices = [69]
+let paired_devices_ids = ["doofus"]
 const keyboardChars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'PrintScreen', 'ScrollLock', 'Pause', 'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'Tab', 'CapsLock', 'Shift', 'Control', 'Alt', 'Space', 'Enter', 'Backspace', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 let File_Manager_Icon: Sprite = null
 let Settings_Icon: Sprite = null
@@ -241,19 +241,44 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 })
 // Recieved coded value
 radio.onReceivedValue(function(name: string, value: number) {
-    if (name == paired_devices[paired_devices_ids.indexOf("mouse")]) {
+    if (paired_devices_ids.includes("name")) {
+        const key = paired_devices[paired_devices_ids.indexOf(name)]
         const str = value.toString();
-        const ms_x = parseInt(str.slice(0, 3), 10);
-        const ms_y = parseInt(str.slice(3, 6), 10);
-        Mouse_Cursor.setPosition(ms_x, ms_y)
+        if (str.slice(0, 6) != "000000"){
+            const ms_x = parseInt(str.slice(0, 3), 10) - 1;
+            const ms_y = parseInt(str.slice(3, 6), 10) - 1;
+            Mouse_Cursor.setPosition(ms_x, ms_y)
+        }
     }
-    if (name == paired_devices[paired_devices_ids.indexOf("keyboard")]) {
-        const str = value.toString();
-        const ms_x = parseInt(str.slice(0, 3), 10);
-        const ms_y = parseInt(str.slice(3, 6), 10);
-        Mouse_Cursor.setPosition(ms_x, ms_y)
+    if (name.length == 19) {
+        if (value == 56345)
+            if (reconnectMicroLink(name)) {
+                radio.sendValue("Reconnect MicroLink", reconnectMicroLink2(name))
+            } 
     }
 })
+
+// Pairing with MicroLink device
+function reconnectMicroLink(recieved: string): boolean {
+    for (let i = 0; i < paired_devices.length; i++) {
+        const serial = paired_devices[i];
+        
+        if (decrypt(recieved, serial) == "Ready to connect") {
+            return true;
+        }
+    }
+    return false;
+}
+function reconnectMicroLink2(recieved: string): number {
+    for (let i = 0; i < paired_devices.length; i++) {
+        const serial = paired_devices[i];
+        
+        if (decrypt(recieved, serial) == "Ready to connect") {
+            return serial;
+        }
+    }
+    return null;
+}
 // Recieved string
 radio.onReceivedString(function(receivedString: string) {
     
@@ -453,3 +478,23 @@ function changeSettings(selection: number) {
     blockSettings.writeString("settings", Settings)
 }
 // App related tasks end here
+
+// MARK: Encryption
+
+function decrypt(string: string, key: number) {
+    let output = '';
+    for (let i = 0; i < string.length; i++) {
+        output += String.fromCharCode(string.charCodeAt(i) ^ key);
+    }
+    return output;
+}
+
+function encrypt(string: string, key: number): string {
+    let output = '';
+    for (let i = 0; i < string.length; i++) {
+        output += String.fromCharCode(string.charCodeAt(i) ^ key);
+    }
+    return output;
+}
+
+// Encryption ends here
