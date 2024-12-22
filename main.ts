@@ -250,11 +250,10 @@ radio.onReceivedValue(function(name: string, value: number) {
             Mouse_Cursor.setPosition(ms_x, ms_y)
         }
     }
-    if (name.length == 19) {
-        if (value == 56345)
-            if (reconnectMicroLink(name)) {
-                radio.sendValue("Reconnect MicroLink", reconnectMicroLink2(name))
-            } 
+    if (name.length == 19 && value == 56345) {
+        if (reconnectMicroLink(name)) {
+            radio.sendValue("Reconnect MicroLink", reconnectMicroLink2(name))
+        }
     }
 })
 
