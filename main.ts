@@ -437,7 +437,10 @@ function changeSettings(selection: number) {
         dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][dingus53]
     } else if (selection == 4) {
         dingus52 = 9
-        dingus51 = "Radio - " + (dingus53).toString()
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
+        dingus51 = "Radio Channel - " + (dingus53).toString()
         radio.setGroup(113 + parseInt(Settings.charAt(4)))
     }
 
