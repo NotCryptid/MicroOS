@@ -232,6 +232,18 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 
 // MARK: Radio
 
+// Recieved decoded value
+radio.onReceivedNumber(function(receivedNumber: number) {
+    
+})
+// Recieved coded value
+radio.onReceivedValue(function(name: string, value: number) {
+    
+})
+// Recieved string
+radio.onReceivedString(function(receivedString: string) {
+    
+})
 // Radio ends here
 
 // MARK: Background tasks
