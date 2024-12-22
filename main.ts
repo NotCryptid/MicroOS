@@ -166,6 +166,21 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 
 })
 
+game.onUpdate(function() {
+    if (buttons_down[0] == "1") {
+        left_click()
+        while (buttons_down[0] == "1") {
+            
+        }
+    }
+    if (buttons_down[1] == "1") {
+        right_click()
+        while (buttons_down[1] == "1") {
+            
+        }
+    }
+})
+
 function left_click() {
     if (spriteutils.isDestroyed(Mouse_Cursor)) {
     	// motherfucker why is this needed for the code to work you can't even kill the mouse cursor
