@@ -13,7 +13,7 @@ let FileManagerGUI: miniMenu.MenuSprite = null
 let bios_options: miniMenu.MenuSprite = null
 let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
-let buttons_down = ["none :("]
+let buttons_down = ["left", "right"] // after those two we just drop in the pressed letters i guess
 let paired_devices = [69]
 let paired_devices_ids = ["doofus"]
 const keyboardChars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'PrintScreen', 'ScrollLock', 'Pause', 'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'Tab', 'CapsLock', 'Shift', 'Control', 'Alt', 'Space', 'Enter', 'Backspace', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
@@ -156,6 +156,17 @@ function Define_Sprites () {
 
 // MARK: Button Presses
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    left_click()
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    right_click()
+})
+
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+
+})
+
+function left_click() {
     if (spriteutils.isDestroyed(Mouse_Cursor)) {
     	// motherfucker why is this needed for the code to work you can't even kill the mouse cursor
     } else if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
@@ -223,24 +234,21 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
         changeSettings(menu_selection)
     }
-})
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    // this is gonna be right click
-})
+}
 
-controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-
-})
+function right_click() {
+    
+}
 
 // Button presses end here
 
 // MARK: Radio
 
-// Recieved decoded value
+// Recieved unnamed number
 radio.onReceivedNumber(function(receivedNumber: number) {
     
 })
-// Recieved coded value
+// Recieved named number / numbered string
 radio.onReceivedValue(function(name: string, value: number) {
     if (paired_devices_ids.includes(name)) {
         const key = paired_devices[paired_devices_ids.indexOf(name)]
@@ -250,7 +258,7 @@ radio.onReceivedValue(function(name: string, value: number) {
             const ms_y = parseInt(str.slice(3, 6), 10) - 1;
             Mouse_Cursor.setPosition(ms_x, ms_y)
             buttons_down[0] = str.slice(7, 7)
-            buttons_down[0] = str.slice(8, 8)
+            buttons_down[1] = str.slice(8, 8)
         }
     }
     if (name.length == 19 && value == 56345) {
@@ -281,7 +289,7 @@ function reconnectMicroLink2(recieved: string): number {
     }
     return null;
 }
-// Recieved string
+// Recieved unnumbered string
 radio.onReceivedString(function(receivedString: string) {
     
 })
