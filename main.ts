@@ -241,8 +241,9 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 // Recieved coded value
 radio.onReceivedValue(function(name: string, value: number) {
     if (name == paired_devices[paired_devices_ids.indexOf("mouse")]) {
-        const ms_x = 0
-        const ms_y = 0
+        const str = value.toString();
+        const ms_x = parseInt(str.slice(0, 3), 10);
+        const ms_y = parseInt(str.slice(3, 6), 10);
         Mouse_Cursor.setPosition(ms_x, ms_y)
     }
 })
