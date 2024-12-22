@@ -238,7 +238,9 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 })
 // Recieved coded value
 radio.onReceivedValue(function(name: string, value: number) {
-    
+    if (true) {
+        
+    }
 })
 // Recieved string
 radio.onReceivedString(function(receivedString: string) {
