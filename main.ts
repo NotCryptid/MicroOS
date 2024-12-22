@@ -98,7 +98,7 @@ Avaiable_Settings = [
     miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
     miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
-    miniMenu.createMenuItem("Web Chat Channel - " + (parseInt(Settings.charAt(4))) + ""),
+    miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -229,6 +229,10 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 // Button presses end here
+
+// MARK: Radio
+
+// Radio ends here
 
 // MARK: Background tasks
 forever(function () {
@@ -407,7 +411,7 @@ function changeSettings(selection: number) {
         dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][dingus53]
     } else if (selection == 4) {
         dingus52 = 9
-        dingus51 = "Web Chat Channel - " + (dingus53).toString()
+        dingus51 = "Radio - " + (dingus53).toString()
         radio.setGroup(113 + parseInt(Settings.charAt(4)))
     }
 
