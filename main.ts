@@ -13,6 +13,8 @@ let FileManagerGUI: miniMenu.MenuSprite = null
 let bios_options: miniMenu.MenuSprite = null
 let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
+let paired_devices = ["doofus"]
+let paired_devices_ids = ["spingus"]
 let File_Manager_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
@@ -238,8 +240,10 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 })
 // Recieved coded value
 radio.onReceivedValue(function(name: string, value: number) {
-    if (true) {
-        
+    if (name == paired_devices[paired_devices_ids.indexOf("mouse")]) {
+        const ms_x = 0
+        const ms_y = 0
+        Mouse_Cursor.setPosition(ms_x, ms_y)
     }
 })
 // Recieved string
