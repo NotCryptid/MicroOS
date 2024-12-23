@@ -244,10 +244,10 @@ radio.onReceivedNumber(function(receivedNumber: number) {
 })
 // Recieved named number / numbered string
 radio.onReceivedValue(function(name: string, value: number) {
-    if (paired_devices_ids.includes(name)) {
-        const key = paired_devices[paired_devices_ids.indexOf(name)]
-        const str = decrypt(value.toString(), key);
-        if (str.slice(0, 8) != "000000000000"){
+    if (paired_devices_ids.some(id => id.indexOf(name) !== -1)) {
+        const key = paired_devices[paired_devices_ids.indexOf(name)]; 
+        const str = decrypt(value.toString(), key); 
+        if (str.slice(0, 12) != "000000000000") {
             const ms_x = parseInt(str.slice(0, 3), 10) - 1;
             const ms_y = parseInt(str.slice(3, 6), 10) - 1;
             Mouse_Cursor.setPosition(ms_x, ms_y)
