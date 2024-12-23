@@ -564,7 +564,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P222598(s) {
+function _main___P223586(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1674,13 +1674,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P222598.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P222598.continuations = [ 60,61,62,63,88,109,110 ]
+_main___P223586.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P223586.continuations = [ 60,61,62,63,88,109,110 ]
 
-function _main___P222598_mk(s) {
+function _main___P223586_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P222598, depth: s.depth + 1,
+        parent: s, fn: _main___P223586, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -72313,5 +72313,5 @@ const sprites_StaticObstacle__C2499_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency16___4783","Desktop_UI___221041","Mouse___221044","App_UI___221047","Settings___221085","System_Files___221093","text2___221127","bios_settings___221133","text3___221139","text4___221144","text___221088","Current_Settings___221113","fileNamesString___221236","User_Files_Temp___221239","User_Files___221090","buttons_down___221059","paired_devices_ids___221062","paired_devices___221061","Mouse_Cursor___221075","App_Open___221080","xCell_Icon___221073","Write_icon___221071","Web_Chat_Icon___221069","Settings_Icon___221067","File_Manager_Icon___221065","ThingAI_Icon___221058","Close_App___221079","ListMenuContents___221089","sillySpacingForListGUI___221124","SubMenu___221114","List_Scroll___221082","ListMenuGUI___221054","App_Title___221077","Taskbar___221050","bios_options___221056"])
 
-return _main___P222598
+return _main___P223586
 })
