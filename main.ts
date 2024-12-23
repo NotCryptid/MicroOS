@@ -505,9 +505,15 @@ function listSelection(app: string, selection: number, submenu: string) {
                 changeSettings(2)
                 ListMenuContents[2] = Current_Settings[1]
             } else if (selection + List_Scroll == 4) {
-                
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                ]
+                SubMenu = "Connect MicroLink Devices"
             } else if (selection + List_Scroll == 5) {
-                
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                ]
+                SubMenu = "Paired MicroLink Devices"
             }
         } else if (submenu == "Customization") {
             if (selection + List_Scroll == 1) {
@@ -515,9 +521,9 @@ function listSelection(app: string, selection: number, submenu: string) {
                 SubMenu = "Home"
                 Open_Settings()
             } else if (selection + List_Scroll == 2) {
-                changeSettings(4)
+
             } else if (selection + List_Scroll == 3) {
-                changeSettings(3)
+
             } else if (selection + List_Scroll == 4) {
                 
             } else if (selection + List_Scroll == 5) {
@@ -529,13 +535,22 @@ function listSelection(app: string, selection: number, submenu: string) {
                 SubMenu = "Home"
                 Open_Settings()
             } else if (selection + List_Scroll == 2) {
-                changeSettings(4)
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    miniMenu.createMenuItem("Delete all user files"),
+                    miniMenu.createMenuItem("Revert missing system files"),
+                    miniMenu.createMenuItem("Revert settings to default"),
+                    miniMenu.createMenuItem("Wipe Device")
+                ]
+                SubMenu = "Data Management"
             } else if (selection + List_Scroll == 3) {
-                changeSettings(3)
-            } else if (selection + List_Scroll == 4) {
-                
-            } else if (selection + List_Scroll == 5) {
-                
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    miniMenu.createMenuItem("MicroOS v0.1.0"),
+                    miniMenu.createMenuItem("Void Kernel 2025.1"),
+                    miniMenu.createMenuItem("MicroLink r1b1")
+                ]
+                SubMenu = "System Information"
             }
         }
         ListMenuGUI.close()
