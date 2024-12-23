@@ -467,18 +467,31 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ]
             } else if (selection + List_Scroll == 2) {
                 SubMenu = "Input"
+                Settings_Current_Menu = [
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[0],
+                    Current_Settings[1]
+                ]
             } else if (selection + List_Scroll == 1) {
                 SubMenu = "Customization"
+                Settings_Current_Menu = [
+                    miniMenu.createMenuItem("Back")
+                ]
             } else if (selection + List_Scroll == 2) {
                 SubMenu = "System"
+                Settings_Current_Menu = [
+                    miniMenu.createMenuItem("Back"),
+                    miniMenu.createMenuItem("Data Management"),
+                    miniMenu.createMenuItem("System Information")
+                ]
             }
-            ListMenuGUI.close()
-            ListMenuGUI = miniMenu.createMenuFromArray(Settings_Current_Menu)
-            ListMenuGUI.setButtonEventsEnabled(false)
-            ListMenuGUI.setDimensions(151, 97)
-            ListMenuGUI.setPosition(76, 58)
-            ListMenuGUI.z = -30
         }
+        ListMenuGUI.close()
+        ListMenuGUI = miniMenu.createMenuFromArray(Settings_Current_Menu)
+        ListMenuGUI.setButtonEventsEnabled(false)
+        ListMenuGUI.setDimensions(151, 97)
+        ListMenuGUI.setPosition(76, 58)
+        ListMenuGUI.z = -30
     }
 }
 
