@@ -32,7 +32,8 @@ let text: TextSprite = null
 let User_Files: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = []
 let Avaiable_Settings: miniMenu.MenuItem[] = []
-let sillySpacingForListGUI = []
+let SubMenu = ""
+const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 System_Files = [
     miniMenu.createMenuItem("home"),
     miniMenu.createMenuItem("MicroOS.uf2"),
@@ -205,27 +206,6 @@ function left_click() {
     } else if (Mouse_Cursor.overlapsWith(Close_App)) {
         close_apps()
     } else if (App_Open == "File Manager") {
-        // i totally understand how this works
-        File_Scroll = 0
-        if (Mouse_Cursor.y < 24 && (Mouse_Cursor.y > 11 && Mouse_Cursor.x < 150)) {
-            App_Open = "File Manager System"
-            FileManagerGUI.close()
-            FileManagerGUI = miniMenu.createMenuFromArray(System_Files)
-            FileManagerGUI.setButtonEventsEnabled(false)
-            FileManagerGUI.setDimensions(151, 97)
-            FileManagerGUI.setPosition(76, 58)
-            FileManagerGUI.z = -30
-        } else if (Mouse_Cursor.y < 37 && (Mouse_Cursor.y > 24 && Mouse_Cursor.x < 150)) {
-            App_Open = "File Manager User"
-            FileManagerGUI.close()
-            FileManagerGUI = miniMenu.createMenuFromArray(User_Files)
-            FileManagerGUI.setButtonEventsEnabled(false)
-            FileManagerGUI.setDimensions(151, 97)
-            FileManagerGUI.setPosition(76, 58)
-            FileManagerGUI.z = -30
-        }
-    } else if (App_Open == "File Manager System" || App_Open == "File Manager User") {
-        sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
         let menu_selection = 0;
         
         for (let i = 0; i < sillySpacingForListGUI.length; i++) {
@@ -235,9 +215,8 @@ function left_click() {
                 break;
             }
         }
-        openFile(App_Open, menu_selection)
+        listSelection(App_Open, menu_selection, SubMenu)
     } else if (App_Open = "Settings") {
-        sillySpacingForListGUI = [10, 23, 36, 49];
         let menu_selection = 0;
         
         for (let i = 0; i < sillySpacingForListGUI.length; i++) {
@@ -412,6 +391,7 @@ function Open_ThingAI () {
 }
 function Open_FileManager () {
     App_Open = "File Manager"
+    SubMenu = "Home"
     File_Scroll = 0
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(12)
@@ -437,41 +417,61 @@ function close_apps () {
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
 }
 
-function openFile(page: string, selection: number) {
-    if (page === "File Manager System") {
-        if (selection + File_Scroll == 1) {
-            close_apps()
-            Open_FileManager()
-        } else if (selection + File_Scroll == 2) {
-            game.reset()
-        } else if (selection + File_Scroll == 3) {
-            // might make an image viewer some day
-        } else if (selection + File_Scroll == 4) {
-            close_apps()
-            Open_FileManager()
-        } else if (selection + File_Scroll == 5) {
-            close_apps()
-            Open_Write("")
-        } else if (selection + File_Scroll == 6) {
-            close_apps()
-            Open_xCell("")
-        } else if (selection + File_Scroll == 7) {
-            close_apps()
-            Open_Settings()
-        } else if (selection + File_Scroll == 8) {
-            close_apps()
-            Open_Web()
-        } else if (selection + File_Scroll == 9) {
-            close_apps()
-            Open_ThingAI()
-        }
-    } else if (page === "File Manager User") {
-        if (selection + File_Scroll == 1) {
-            close_apps()
-            Open_FileManager()
-        } else if (selection + File_Scroll == 2) {
-            close_apps()
-            Open_Write("This is a test file")
+function listSelection(app: string, selection: number, submenu: string) {
+    if (app === "File Manager") {
+        if (submenu == "System") {
+            if (selection + File_Scroll == 1) {
+                close_apps()
+                Open_FileManager()
+            } else if (selection + File_Scroll == 2) {
+                game.reset()
+            } else if (selection + File_Scroll == 3) {
+                // might make an image viewer some day
+            } else if (selection + File_Scroll == 4) {
+                close_apps()
+                Open_FileManager()
+            } else if (selection + File_Scroll == 5) {
+                close_apps()
+                Open_Write("")
+            } else if (selection + File_Scroll == 6) {
+                close_apps()
+                Open_xCell("")
+            } else if (selection + File_Scroll == 7) {
+                close_apps()
+                Open_Settings()
+            } else if (selection + File_Scroll == 8) {
+                close_apps()
+                Open_Web()
+            } else if (selection + File_Scroll == 9) {
+                close_apps()
+                Open_ThingAI()
+            }
+        } else if (submenu === "User") {
+            if (selection + File_Scroll == 1) {
+                close_apps()
+                Open_FileManager()
+            } else if (selection + File_Scroll == 2) {
+                close_apps()
+                Open_Write("This is a test file")
+            }
+        } else if (submenu === "Home") {
+            if (selection + File_Scroll == 1) {
+                SubMenu = "System"
+                FileManagerGUI.close()
+                FileManagerGUI = miniMenu.createMenuFromArray(System_Files)
+                FileManagerGUI.setButtonEventsEnabled(false)
+                FileManagerGUI.setDimensions(151, 97)
+                FileManagerGUI.setPosition(76, 58)
+                FileManagerGUI.z = -30
+            } else if (selection + File_Scroll == 2) {
+                SubMenu = "User"
+                FileManagerGUI.close()
+                FileManagerGUI = miniMenu.createMenuFromArray(User_Files)
+                FileManagerGUI.setButtonEventsEnabled(false)
+                FileManagerGUI.setDimensions(151, 97)
+                FileManagerGUI.setPosition(76, 58)
+                FileManagerGUI.z = -30
+            }
         }
     }
 }
