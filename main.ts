@@ -11,7 +11,6 @@ let Taskbar: Sprite = null
 let menu_selection : number = null
 let ListMenuGUI: miniMenu.MenuSprite = null
 let bios_options: miniMenu.MenuSprite = null
-let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
 let buttons_down = ["left", "right", "middle", "scroll", "forward", "back"] // after those two we just drop in the pressed letters i guess
 let paired_devices = [69]
@@ -29,7 +28,7 @@ let App_Open = ""
 let List_Scroll = 0
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
-let Settings_Current_Menu: miniMenu.MenuItem[] = []
+let ListMenuContents: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpaper.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("ThingAI.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
@@ -198,8 +197,8 @@ function left_click() {
     } else if (App_Open == "File Manager") {
         let menu_selection = 0;
         
-        for (let i = 0; i < sillySpacingForListGUI.length; i++) {
-            if (Mouse_Cursor.y > sillySpacingForListGUI[i]) {
+        for (let i = 0; i < ListMenuContents.length; i++) {
+            if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 18) {
                 menu_selection = i + 1;
             } else {
                 break;
@@ -209,8 +208,8 @@ function left_click() {
     } else if (App_Open = "Settings") {
         let menu_selection = 0;
         
-        for (let i = 0; i < sillySpacingForListGUI.length; i++) {
-            if (Mouse_Cursor.y > sillySpacingForListGUI[i]) {
+        for (let i = 0; i < ListMenuContents.length; i++) {
+            if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 18) {
                 menu_selection = i + 1;
             } else {
                 break;
@@ -356,18 +355,18 @@ function Open_Write (load_file: string) {
 function Open_Settings () {
     App_Open = "Settings"
     SubMenu = "Home"
-    Settings_Current_Menu = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System")]
+    ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System")]
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(12)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Settings", 0, 12)
     App_Title.setPosition(25, 4)
-    SettingsGUI = miniMenu.createMenuFromArray(Settings_Current_Menu)
+    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
-    SettingsGUI.z = -30
+    ListMenuGUI.z = -30
 }
 
 function Open_ThingAI () {
@@ -391,7 +390,8 @@ function Open_FileManager () {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("File Manager", 0, 12)
     App_Title.setPosition(37, 4)
-    ListMenuGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")])
+    ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
+    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
@@ -444,9 +444,11 @@ function listSelection(app: string, selection: number, submenu: string) {
             ListMenuGUI.close()
             if (selection + List_Scroll == 1) {
                 SubMenu = "System"
+                ListMenuContents = System_Files
                 ListMenuGUI = miniMenu.createMenuFromArray(System_Files)
             } else if (selection + List_Scroll == 2) {
                 SubMenu = "User"
+                ListMenuContents = User_Files
                 ListMenuGUI = miniMenu.createMenuFromArray(User_Files)
             }
             ListMenuGUI.setButtonEventsEnabled(false)
@@ -458,7 +460,7 @@ function listSelection(app: string, selection: number, submenu: string) {
         if (submenu === "Home") {
             if (selection + List_Scroll == 1) {
                 SubMenu = "Connectivity"
-                Settings_Current_Menu = [
+                ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
                     Current_Settings[2],
@@ -467,19 +469,19 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ]
             } else if (selection + List_Scroll == 2) {
                 SubMenu = "Input"
-                Settings_Current_Menu = [
+                ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[0],
                     Current_Settings[1]
                 ]
             } else if (selection + List_Scroll == 1) {
                 SubMenu = "Customization"
-                Settings_Current_Menu = [
+                ListMenuContents = [
                     miniMenu.createMenuItem("Back")
                 ]
             } else if (selection + List_Scroll == 2) {
                 SubMenu = "System"
-                Settings_Current_Menu = [
+                ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("Data Management"),
                     miniMenu.createMenuItem("System Information")
@@ -487,7 +489,7 @@ function listSelection(app: string, selection: number, submenu: string) {
             }
         }
         ListMenuGUI.close()
-        ListMenuGUI = miniMenu.createMenuFromArray(Settings_Current_Menu)
+        ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
         ListMenuGUI.setButtonEventsEnabled(false)
         ListMenuGUI.setDimensions(151, 97)
         ListMenuGUI.setPosition(76, 58)
