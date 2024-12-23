@@ -286,8 +286,8 @@ forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
     Start_Icon_Names()
-    if (App_Open == "File Manager System" || App_Open == "File Manager User") {
-    	// make scrolling in file manager later
+    if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
+        
     }
 })
 
