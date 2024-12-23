@@ -489,9 +489,15 @@ function listSelection(app: string, selection: number, submenu: string) {
                 changeSettings(3)
                 ListMenuContents[2] = Current_Settings[2]
             } else if (selection + List_Scroll == 4) {
-                
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                ]
+                SubMenu = "Connect MicroLink Devices"
             } else if (selection + List_Scroll == 5) {
-                
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                ]
+                SubMenu = "Paired MicroLink Devices"
             }
         } else if (submenu == "Input") {
             if (selection + List_Scroll == 1) {
@@ -505,15 +511,9 @@ function listSelection(app: string, selection: number, submenu: string) {
                 changeSettings(2)
                 ListMenuContents[2] = Current_Settings[1]
             } else if (selection + List_Scroll == 4) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                ]
-                SubMenu = "Connect MicroLink Devices"
+                
             } else if (selection + List_Scroll == 5) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                ]
-                SubMenu = "Paired MicroLink Devices"
+                
             }
         } else if (submenu == "Customization") {
             if (selection + List_Scroll == 1) {
@@ -538,8 +538,8 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("Delete all user files"),
-                    miniMenu.createMenuItem("Revert missing system files"),
-                    miniMenu.createMenuItem("Revert settings to default"),
+                    miniMenu.createMenuItem("Add missing system files"),
+                    miniMenu.createMenuItem("Set settings to default"),
                     miniMenu.createMenuItem("Wipe Device")
                 ]
                 SubMenu = "Data Management"
@@ -551,6 +551,62 @@ function listSelection(app: string, selection: number, submenu: string) {
                     miniMenu.createMenuItem("MicroLink r1b1")
                 ]
                 SubMenu = "System Information"
+            }
+        } else if (submenu == "Data Management") {
+            if (selection + List_Scroll == 1) {
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    miniMenu.createMenuItem("Data Management"),
+                    miniMenu.createMenuItem("System Information")
+                ]
+                SubMenu = "System"
+            } else if (selection + List_Scroll == 2) {
+                
+            } else if (selection + List_Scroll == 3) {
+                
+            } else if (selection + List_Scroll == 4) {
+                
+            } else if (selection + List_Scroll == 5) {
+                
+            }
+        }else if (submenu == "System Information") {
+            if (selection + List_Scroll == 1) {
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    miniMenu.createMenuItem("Data Management"),
+                    miniMenu.createMenuItem("System Information")
+                ]
+                SubMenu = "System"
+            }
+        }else if (submenu == "Connect MicroLink Devices") {
+            if (selection + List_Scroll == 1) {
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[3],
+                    Current_Settings[2],
+                    miniMenu.createMenuItem("Connect MicroLink device"),
+                    miniMenu.createMenuItem("Paired MicroLink Devices")
+                ]
+                SubMenu = "Connectivity"
+            } else if (selection + List_Scroll == 2) {
+                
+            } else if (selection + List_Scroll == 3) {
+                
+            }
+        }else if (submenu == "Paired MicroLink Devices") {
+            if (selection + List_Scroll == 1) {
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[3],
+                    Current_Settings[2],
+                    miniMenu.createMenuItem("Connect MicroLink device"),
+                    miniMenu.createMenuItem("Paired MicroLink Devices")
+                ]
+                SubMenu = "Connectivity"
+            } else if (selection + List_Scroll == 2) {
+                
+            } else if (selection + List_Scroll == 3) {
+                
             }
         }
         ListMenuGUI.close()
