@@ -287,7 +287,32 @@ forever(function () {
     pause(10)
     Start_Icon_Names()
     if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
-        
+        PairTime++
+        for (let i = devices_to_pair_time_table.length - 1; i >= 0; i--) {
+            if (devices_to_pair_time_table[i] <= PairTime) {
+              devices_to_pair_time_table.splice(i, 1);
+              devices_to_pair.splice(i, 1);
+            }
+        }
+        for (let i = 0; i < devices_to_pair.length; i++) {
+            if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
+                ListMenuContents = [miniMenu.createMenuItem("Back")]
+                ListMenuContents.push(miniMenu.createMenuItem(devices_to_pair[i].toString()))
+            } else {
+                break;
+            }
+        }
+        if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
+            ListMenuGUI.close()
+            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+            ListMenuGUI.setButtonEventsEnabled(false)
+            ListMenuGUI.setDimensions(151, 97)
+            ListMenuGUI.setPosition(76, 58)
+            ListMenuGUI.z = -30
+            pause(250)
+        } else {
+            break;
+        }
     }
 })
 
