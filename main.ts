@@ -9,7 +9,7 @@ namespace SpriteKind {
 // this definitely does something
 let Taskbar: Sprite = null
 let menu_selection : number = null
-let FileManagerGUI: miniMenu.MenuSprite = null
+let ListMenuGUI: miniMenu.MenuSprite = null
 let bios_options: miniMenu.MenuSprite = null
 let SettingsGUI: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
@@ -26,25 +26,15 @@ let Mouse_Cursor: Sprite = null
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = ""
-let File_Scroll = 0
+let List_Scroll = 0
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
+let Settings_Current_Menu: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
-let System_Files: miniMenu.MenuItem[] = []
-let Avaiable_Settings: miniMenu.MenuItem[] = []
+let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpaper.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("ThingAI.moa")]
+let Current_Settings: miniMenu.MenuItem[] = []
 let SubMenu = ""
 const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
-System_Files = [
-    miniMenu.createMenuItem("home"),
-    miniMenu.createMenuItem("MicroOS.uf2"),
-    miniMenu.createMenuItem("wallpaper.asset"),
-    miniMenu.createMenuItem("File.moa"),
-    miniMenu.createMenuItem("Write.moa"),
-    miniMenu.createMenuItem("xCell.moa"),
-    miniMenu.createMenuItem("Settings.moa"),
-    miniMenu.createMenuItem("WebChat.moa"),
-    miniMenu.createMenuItem("ThingAI.moa")
-]
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2025.1", 0, 12)
 text2.setPosition(64, 6)
@@ -99,7 +89,7 @@ if (Settings == null || bios_settings.charAt(1) == "1") {
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
-Avaiable_Settings = [
+Current_Settings = [
     miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
     miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
@@ -147,7 +137,7 @@ function Define_Sprites () {
     Mouse_Cursor.z = 453453453453
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     App_Title = textsprite.create("Write", 0, 12)
-    FileManagerGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("")])
+    ListMenuGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("")])
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroy(Close_App)
@@ -226,7 +216,7 @@ function left_click() {
                 break;
             }
         }
-        changeSettings(menu_selection)
+        listSelection(App_Open, menu_selection, SubMenu)
     }
 }
 
@@ -365,16 +355,18 @@ function Open_Write (load_file: string) {
 }
 function Open_Settings () {
     App_Open = "Settings"
+    SubMenu = "Home"
+    Settings_Current_Menu = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System")]
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(12)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Settings", 0, 12)
     App_Title.setPosition(25, 4)
-    SettingsGUI = miniMenu.createMenuFromArray(Avaiable_Settings)
-    SettingsGUI.setDimensions(160, 97)
-    SettingsGUI.setButtonEventsEnabled(false)
-    SettingsGUI.setPosition(80, 58)
+    SettingsGUI = miniMenu.createMenuFromArray(Settings_Current_Menu)
+    ListMenuGUI.setDimensions(151, 97)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setPosition(76, 58)
     SettingsGUI.z = -30
 }
 
@@ -392,22 +384,22 @@ function Open_ThingAI () {
 function Open_FileManager () {
     App_Open = "File Manager"
     SubMenu = "Home"
-    File_Scroll = 0
+    List_Scroll = 0
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(12)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("File Manager", 0, 12)
     App_Title.setPosition(37, 4)
-    FileManagerGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")])
-    FileManagerGUI.setDimensions(151, 97)
-    FileManagerGUI.setButtonEventsEnabled(false)
-    FileManagerGUI.setPosition(76, 58)
-    FileManagerGUI.z = -30
+    ListMenuGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")])
+    ListMenuGUI.setDimensions(151, 97)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setPosition(76, 58)
+    ListMenuGUI.z = -30
 }
 // Apps end here
 
-// MARK: App related tasks
+// MARK: App functions
 function close_apps () {
     // works good enough so no touching
     App_Open = "null"
@@ -420,58 +412,72 @@ function close_apps () {
 function listSelection(app: string, selection: number, submenu: string) {
     if (app === "File Manager") {
         if (submenu == "System") {
-            if (selection + File_Scroll == 1) {
-                close_apps()
+            close_apps()
+            if (selection + List_Scroll == 1) {    
                 Open_FileManager()
-            } else if (selection + File_Scroll == 2) {
+            } else if (selection + List_Scroll == 2) {
                 game.reset()
-            } else if (selection + File_Scroll == 3) {
+            } else if (selection + List_Scroll == 3) {
                 // might make an image viewer some day
-            } else if (selection + File_Scroll == 4) {
-                close_apps()
                 Open_FileManager()
-            } else if (selection + File_Scroll == 5) {
-                close_apps()
+            } else if (selection + List_Scroll == 4) {
+                Open_FileManager()
+            } else if (selection + List_Scroll == 5) {
                 Open_Write("")
-            } else if (selection + File_Scroll == 6) {
-                close_apps()
+            } else if (selection + List_Scroll == 6) {
                 Open_xCell("")
-            } else if (selection + File_Scroll == 7) {
-                close_apps()
+            } else if (selection + List_Scroll == 7) {
                 Open_Settings()
-            } else if (selection + File_Scroll == 8) {
-                close_apps()
+            } else if (selection + List_Scroll == 8) {
                 Open_Web()
-            } else if (selection + File_Scroll == 9) {
-                close_apps()
+            } else if (selection + List_Scroll == 9) {
                 Open_ThingAI()
             }
         } else if (submenu === "User") {
-            if (selection + File_Scroll == 1) {
-                close_apps()
+            close_apps()
+            if (selection + List_Scroll == 1) {
                 Open_FileManager()
-            } else if (selection + File_Scroll == 2) {
-                close_apps()
+            } else if (selection + List_Scroll == 2) {
                 Open_Write("This is a test file")
             }
         } else if (submenu === "Home") {
-            if (selection + File_Scroll == 1) {
+            ListMenuGUI.close()
+            if (selection + List_Scroll == 1) {
                 SubMenu = "System"
-                FileManagerGUI.close()
-                FileManagerGUI = miniMenu.createMenuFromArray(System_Files)
-                FileManagerGUI.setButtonEventsEnabled(false)
-                FileManagerGUI.setDimensions(151, 97)
-                FileManagerGUI.setPosition(76, 58)
-                FileManagerGUI.z = -30
-            } else if (selection + File_Scroll == 2) {
+                ListMenuGUI = miniMenu.createMenuFromArray(System_Files)
+            } else if (selection + List_Scroll == 2) {
                 SubMenu = "User"
-                FileManagerGUI.close()
-                FileManagerGUI = miniMenu.createMenuFromArray(User_Files)
-                FileManagerGUI.setButtonEventsEnabled(false)
-                FileManagerGUI.setDimensions(151, 97)
-                FileManagerGUI.setPosition(76, 58)
-                FileManagerGUI.z = -30
+                ListMenuGUI = miniMenu.createMenuFromArray(User_Files)
             }
+            ListMenuGUI.setButtonEventsEnabled(false)
+            ListMenuGUI.setDimensions(151, 97)
+            ListMenuGUI.setPosition(76, 58)
+            ListMenuGUI.z = -30
+        }
+    } else if (app === "Settings") {
+        if (submenu === "Home") {
+            if (selection + List_Scroll == 1) {
+                SubMenu = "Connectivity"
+                Settings_Current_Menu = [
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[3],
+                    Current_Settings[2],
+                    miniMenu.createMenuItem("Connect MicroLink device"),
+                    miniMenu.createMenuItem("Paired MicroLink Devices")
+                ]
+            } else if (selection + List_Scroll == 2) {
+                SubMenu = "Input"
+            } else if (selection + List_Scroll == 1) {
+                SubMenu = "Customization"
+            } else if (selection + List_Scroll == 2) {
+                SubMenu = "System"
+            }
+            ListMenuGUI.close()
+            ListMenuGUI = miniMenu.createMenuFromArray(Settings_Current_Menu)
+            ListMenuGUI.setButtonEventsEnabled(false)
+            ListMenuGUI.setDimensions(151, 97)
+            ListMenuGUI.setPosition(76, 58)
+            ListMenuGUI.z = -30
         }
     }
 }
@@ -503,10 +509,10 @@ function changeSettings(selection: number) {
     }
 
     Settings = Settings.slice(0, selection) + dingus53.toString() + Settings.slice(selection + 1)
-    Avaiable_Settings[selection - 1] = miniMenu.createMenuItem(dingus51)
+    Current_Settings[selection - 1] = miniMenu.createMenuItem(dingus51)
     blockSettings.writeString("settings", Settings)
 }
-// App related tasks end here
+// App functions end here
 
 // MARK: Encryption
 
