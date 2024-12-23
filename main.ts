@@ -310,8 +310,6 @@ forever(function () {
             ListMenuGUI.setPosition(76, 58)
             ListMenuGUI.z = -30
             pause(250)
-        } else {
-            break;
         }
     }
 })
@@ -529,6 +527,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                 ]
+                PairTime = 0
                 SubMenu = "Connect MicroLink Devices"
             } else if (selection + List_Scroll == 5) {
                 ListMenuContents = [
