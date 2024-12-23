@@ -243,11 +243,11 @@ radio.onReceivedValue(function(name: string, value: number) {
         }
     } else if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
         if (name == "MicroLink Pair") {
-            if (devices_to_pair.includes(value)) {
+            if (devices_to_pair.indexOf(value) !== -1) {
+                devices_to_pair_time_table[devices_to_pair.indexOf(value)] = PairTime + 5
+            } else {
                 devices_to_pair.push(value)
                 devices_to_pair_time_table.push(PairTime + 5)
-            } else {
-                devices_to_pair_time_table[devices_to_pair.indexOf(value)] = PairTime + 5
             }
             
         }
