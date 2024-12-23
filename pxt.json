@@ -1,6 +1,6 @@
 {
     "name": "Micro:OS",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "description": "Operating System made in PTX",
     "dependencies": {
         "device": "*",
