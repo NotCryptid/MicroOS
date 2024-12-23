@@ -194,28 +194,15 @@ function left_click() {
         Open_ThingAI()
     } else if (Mouse_Cursor.overlapsWith(Close_App)) {
         close_apps()
-    } else if (App_Open == "File Manager") {
+    } else if (App_Open == "File Manager" || App_Open == "Settings") {
         let menu_selection = 0;
-        
         for (let i = 0; i < ListMenuContents.length; i++) {
-            if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 18) {
+            if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12) {
                 menu_selection = i + 1;
-            } else {
+                listSelection(App_Open, menu_selection, SubMenu)
                 break;
             }
         }
-        listSelection(App_Open, menu_selection, SubMenu)
-    } else if (App_Open = "Settings") {
-        let menu_selection = 0;
-        
-        for (let i = 0; i < ListMenuContents.length; i++) {
-            if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 18) {
-                menu_selection = i + 1;
-            } else {
-                break;
-            }
-        }
-        listSelection(App_Open, menu_selection, SubMenu)
     }
 }
 
@@ -355,6 +342,7 @@ function Open_Write (load_file: string) {
 function Open_Settings () {
     App_Open = "Settings"
     SubMenu = "Home"
+    List_Scroll = 0
     ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System")]
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(12)
@@ -410,10 +398,11 @@ function close_apps () {
 }
 
 function listSelection(app: string, selection: number, submenu: string) {
-    if (app === "File Manager") {
+    if (app == "File Manager") {
         if (submenu == "System") {
             close_apps()
             if (selection + List_Scroll == 1) {    
+                SubMenu = "Home"
                 Open_FileManager()
             } else if (selection + List_Scroll == 2) {
                 game.reset()
@@ -433,14 +422,15 @@ function listSelection(app: string, selection: number, submenu: string) {
             } else if (selection + List_Scroll == 9) {
                 Open_ThingAI()
             }
-        } else if (submenu === "User") {
+        } else if (submenu == "User") {
             close_apps()
             if (selection + List_Scroll == 1) {
+                SubMenu = "Home"
                 Open_FileManager()
             } else if (selection + List_Scroll == 2) {
                 Open_Write("This is a test file")
             }
-        } else if (submenu === "Home") {
+        } else if (submenu == "Home") {
             ListMenuGUI.close()
             if (selection + List_Scroll == 1) {
                 SubMenu = "System"
@@ -456,10 +446,9 @@ function listSelection(app: string, selection: number, submenu: string) {
             ListMenuGUI.setPosition(76, 58)
             ListMenuGUI.z = -30
         }
-    } else if (app === "Settings") {
-        if (submenu === "Home") {
+    } else if (app == "Settings") {
+        if (submenu == "Home") {
             if (selection + List_Scroll == 1) {
-                SubMenu = "Connectivity"
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
@@ -467,25 +456,86 @@ function listSelection(app: string, selection: number, submenu: string) {
                     miniMenu.createMenuItem("Connect MicroLink device"),
                     miniMenu.createMenuItem("Paired MicroLink Devices")
                 ]
+                SubMenu = "Connectivity"
             } else if (selection + List_Scroll == 2) {
-                SubMenu = "Input"
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[0],
                     Current_Settings[1]
                 ]
-            } else if (selection + List_Scroll == 1) {
-                SubMenu = "Customization"
+                SubMenu = "Input"
+            } else if (selection + List_Scroll == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back")
                 ]
-            } else if (selection + List_Scroll == 2) {
-                SubMenu = "System"
+                SubMenu = "Customization"
+            } else if (selection + List_Scroll == 4) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("Data Management"),
                     miniMenu.createMenuItem("System Information")
                 ]
+                SubMenu = "System"
+            }
+        } else if (submenu == "Connectivity") {
+            if (selection + List_Scroll == 1) {
+                close_apps()
+                SubMenu = "Home"
+                Open_Settings()
+            } else if (selection + List_Scroll == 2) {
+                changeSettings(4)
+                ListMenuContents[1] = Current_Settings[3]
+            } else if (selection + List_Scroll == 3) {
+                changeSettings(3)
+                ListMenuContents[2] = Current_Settings[2]
+            } else if (selection + List_Scroll == 4) {
+                
+            } else if (selection + List_Scroll == 5) {
+                
+            }
+        } else if (submenu == "Input") {
+            if (selection + List_Scroll == 1) {
+                close_apps()
+                SubMenu = "Home"
+                Open_Settings()
+            } else if (selection + List_Scroll == 2) {
+                changeSettings(1)
+                ListMenuContents[1] = Current_Settings[0]
+            } else if (selection + List_Scroll == 3) {
+                changeSettings(2)
+                ListMenuContents[2] = Current_Settings[1]
+            } else if (selection + List_Scroll == 4) {
+                
+            } else if (selection + List_Scroll == 5) {
+                
+            }
+        } else if (submenu == "Customization") {
+            if (selection + List_Scroll == 1) {
+                close_apps()
+                SubMenu = "Home"
+                Open_Settings()
+            } else if (selection + List_Scroll == 2) {
+                changeSettings(4)
+            } else if (selection + List_Scroll == 3) {
+                changeSettings(3)
+            } else if (selection + List_Scroll == 4) {
+                
+            } else if (selection + List_Scroll == 5) {
+                
+            }
+        } else if (submenu == "System") {
+            if (selection + List_Scroll == 1) {
+                close_apps()
+                SubMenu = "Home"
+                Open_Settings()
+            } else if (selection + List_Scroll == 2) {
+                changeSettings(4)
+            } else if (selection + List_Scroll == 3) {
+                changeSettings(3)
+            } else if (selection + List_Scroll == 4) {
+                
+            } else if (selection + List_Scroll == 5) {
+                
             }
         }
         ListMenuGUI.close()
@@ -526,6 +576,12 @@ function changeSettings(selection: number) {
     Settings = Settings.slice(0, selection) + dingus53.toString() + Settings.slice(selection + 1)
     Current_Settings[selection - 1] = miniMenu.createMenuItem(dingus51)
     blockSettings.writeString("settings", Settings)
+    ListMenuGUI.close()
+    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setDimensions(151, 97)
+    ListMenuGUI.setPosition(76, 58)
+    ListMenuGUI.z = -30
 }
 // App functions end here
 
