@@ -22,9 +22,12 @@ let Web_Chat_Icon: Sprite = null
 let Write_icon: Sprite = null
 let xCell_Icon: Sprite = null
 let Mouse_Cursor: Sprite = null
+let devices_to_pair = [4]
+let devices_to_pair_time_table = [1]
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = ""
+let PairTime = 0
 let List_Scroll = 0
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
@@ -234,15 +237,24 @@ radio.onReceivedValue(function(name: string, value: number) {
             buttons_down[4] = str.slice(11, 11)
             buttons_down[5] = str.slice(12, 12)
         }
-    }
-    if (name.length == 19 && value == 56345) {
+    } else if (name.length == 19 && value == 56345) {
         if (reconnectMicroLink(name)) {
             radio.sendValue(paired_devices_ids[paired_devices.indexOf(reconnectMicroLink2(name))], reconnectMicroLink2(name))
+        }
+    } else if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
+        if (name == "MicroLink Pair") {
+            if (devices_to_pair.includes(value)) {
+                devices_to_pair.push(value)
+                devices_to_pair_time_table.push(PairTime + 5)
+            } else {
+                devices_to_pair_time_table[devices_to_pair.indexOf(value)] = PairTime + 5
+            }
+            
         }
     }
 })
 
-// Pairing with MicroLink device
+// Reconnecting MicroLink device
 function reconnectMicroLink(recieved: string): boolean {
     for (let i = 0; i < paired_devices.length; i++) {
         const serial = paired_devices[i];
