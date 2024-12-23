@@ -12,7 +12,7 @@ let menu_selection : number = null
 let ListMenuGUI: miniMenu.MenuSprite = null
 let bios_options: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
-let buttons_down = ["left", "right", "middle", "scroll", "forward", "back"] // after those two we just drop in the pressed letters i guess
+let buttons_down = ["left", "right", "middle", "scroll", "forward", "back"] // after these we just drop in the pressed letters i guess
 let paired_devices = [69]
 let paired_devices_ids = ["doofus"]
 const keyboardChars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'PrintScreen', 'ScrollLock', 'Pause', 'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'Tab', 'CapsLock', 'Shift', 'Control', 'Alt', 'Space', 'Enter', 'Backspace', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
