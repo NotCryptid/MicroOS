@@ -9,8 +9,10 @@ Micro:OS is a lightweight operating system made in PTX and TypeScript for device
 - ThingAI App
 - Image Viewer
 - Music Player/Creator
-### Known issues
+### Known issues (Latest Release)
 None
+### Known issues (Latest commit)
+Unable to do anything in the BIOS
 # Source code instructions
 ### Setting up the project in VS Code
 1. Download the [MakeCode Arcade extension](https://marketplace.visualstudio.com/items?itemName=ms-edu.pxt-vscode-web) for Visual Studio Code.
