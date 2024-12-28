@@ -27,7 +27,7 @@ let devices_to_pair = [4]
 let devices_to_pair_time_table = [1]
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
-let App_Open = ""
+let App_Open = "null"
 let PairTime = 0
 let List_Scroll = 0
 let Settings = blockSettings.readString("settings")
@@ -39,18 +39,18 @@ let Current_Settings: miniMenu.MenuItem[] = []
 let SubMenu = ""
 const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 pause(300)
-let text2 = textsprite.create("> Void Kernel 2025.1", 0, 12)
+let text2 = textsprite.create("> Void Kernel 2025.1", 0, 1)
 text2.setPosition(64, 6)
 if (blockSettings.readString("bios_settings") == null) {
     blockSettings.writeString("bios_settings", "0")
 }
 let bios_settings = "00" + blockSettings.readString("bios_settings")
-let text3 = textsprite.create("> PTX Build 2.0.6", 0, 12)
+let text3 = textsprite.create("> PTX Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
-let text4 = textsprite.create("> Hold UP+B to open BIOS", 0, 12)
+let text4 = textsprite.create("> Hold UP+B to open BIOS", 0, 1)
 text4.setPosition(76, 26)
 pause(1000)
-text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 12)
+text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 1)
 text.setPosition(79, 36)
 // MARK: BIOS
 function Open_BIOS() {
@@ -95,7 +95,7 @@ if (Settings == null || bios_settings.charAt(1) == "1") {
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
-let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Kyrios"), miniMenu.createMenuItem("Aegis"), miniMenu.createMenuItem("Horizon")]
+let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name     | System Load"), miniMenu.createMenuItem("Kyrios   | High"), miniMenu.createMenuItem("Aegis    | Low"), miniMenu.createMenuItem("Horizon  | Medium")]
 Current_Settings = [
     miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
     miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
@@ -145,7 +145,7 @@ function Define_Sprites () {
     controller.moveSprite(Mouse_Cursor, 50, 50)
     Mouse_Cursor.z = 453453453453
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
-    App_Title = textsprite.create("Write", 0, 12)
+    App_Title = textsprite.create("Write", 0, 1)
     ListMenuGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("")])
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
@@ -324,19 +324,27 @@ forever(function () {
     }
 })
 
-function Start_Icon_Names () {
+function Start_Icon_Names() {
+    let otherColor = 12
+    let color24 = 1
+    if (App_Open == "null" || App_Open == "ThingAI") {
+        otherColor = 1
+        color24 = 15
+    }
     if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
-        xCell_Icon.sayText("xCell", 50, false)
+        xCell_Icon.sayText("  xCell", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Write_icon)) {
-        Write_icon.sayText("Write", 50, false)
+        Write_icon.sayText("Write", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Web_Chat_Icon)) {
-        Web_Chat_Icon.sayText("Web Chat", 50, false)
+        Web_Chat_Icon.sayText("Web Chat", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Settings_Icon)) {
-        Settings_Icon.sayText("Settings", 50, false)
+        Settings_Icon.sayText("Settings", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon)) {
-        File_Manager_Icon.sayText("File Manager", 50, false)
+        File_Manager_Icon.sayText("File Manager", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(ThingAI_Icon)) {
-        ThingAI_Icon.sayText("ThingAI", 50, false)
+        ThingAI_Icon.sayText("ThingAI", 50, false, color24, otherColor)
+    } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
+        Process_Icon.sayText("Process Manager", 50, false, color24, otherColor)
     }
 }
 // Background tasks end here
@@ -346,10 +354,10 @@ function Start_Icon_Names () {
 function Open_Web () {
     App_Open = "Web Chat"
     scene.setBackgroundImage(assets.image`App`)
-    scene.setBackgroundColor(12)
+    scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create("Web Chat", 0, 12)
+    App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(26, 4)
 }
 
@@ -357,10 +365,10 @@ function Open_Web () {
 function Open_xCell (load_file: string) {
     App_Open = "xCell"
     scene.setBackgroundImage(assets.image`App`)
-    scene.setBackgroundColor(12)
+    scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create("xCell", 0, 12)
+    App_Title = textsprite.create("xCell", 0, 1)
     App_Title.setPosition(16, 4)
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
@@ -369,10 +377,10 @@ function Open_xCell (load_file: string) {
 function Open_Write (load_file: string) {
     App_Open = "Write"
     scene.setBackgroundImage(assets.image`App`)
-    scene.setBackgroundColor(12)
+    scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create("Write", 0, 12)
+    App_Title = textsprite.create("Write", 0, 1)
     App_Title.setPosition(17, 4)
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
@@ -390,10 +398,10 @@ function Open_Settings () {
     List_Scroll = 0
     ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System")]
     scene.setBackgroundImage(assets.image`App`)
-    scene.setBackgroundColor(12)
+    scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create("Settings", 0, 12)
+    App_Title = textsprite.create("Settings", 0, 1)
     App_Title.setPosition(25, 4)
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
@@ -406,11 +414,11 @@ function Open_ThingAI () {
     App_Open = "ThingAI"
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(15)
-    text = textsprite.create("ThingAI App Isn't Available", 0, 12)
+    text = textsprite.create("ThingAI App Isn't Available", 0, 1)
     text.setPosition(80, 60)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create("ThingAI", 0, 12)
+    App_Title = textsprite.create("ThingAI", 0, 1)
     App_Title.setPosition(23, 4)
 }
 function Open_FileManager () {
@@ -418,10 +426,10 @@ function Open_FileManager () {
     SubMenu = "Home"
     List_Scroll = 0
     scene.setBackgroundImage(assets.image`App`)
-    scene.setBackgroundColor(12)
+    scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create("File Manager", 0, 12)
+    App_Title = textsprite.create("File Manager", 0, 1)
     App_Title.setPosition(37, 4)
     ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
@@ -435,15 +443,15 @@ function Open_ProcessManager () {
     SubMenu = "Home"
     List_Scroll = 0
     scene.setBackgroundImage(assets.image`App`)
-    scene.setBackgroundColor(12)
+    scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create("Process Manager", 0, 12)
+    App_Title = textsprite.create("Process Manager", 0, 1)
     App_Title.setPosition(46, 4)
     ListMenuGUI = miniMenu.createMenuFromArray(Active_Processes)
-    ListMenuGUI.setDimensions(151, 97)
+    ListMenuGUI.setDimensions(160, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
-    ListMenuGUI.setPosition(76, 58)
+    ListMenuGUI.setPosition(80, 58)
     ListMenuGUI.z = -30
 }
 // Apps end here
@@ -452,6 +460,7 @@ function Open_ProcessManager () {
 function close_apps () {
     // works good enough so no touching
     App_Open = "null"
+    SubMenu = "null"
     scene.setBackgroundImage(assets.image`Wallpaper`)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroyAllSpritesOfKind(SpriteKind.App_UI)
