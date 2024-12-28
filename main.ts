@@ -17,6 +17,7 @@ let paired_devices = [69]
 let paired_devices_ids = ["doofus"]
 const keyboardChars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'PrintScreen', 'ScrollLock', 'Pause', 'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'Tab', 'CapsLock', 'Shift', 'Control', 'Alt', 'Space', 'Enter', 'Backspace', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 let File_Manager_Icon: Sprite = null
+let Process_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
 let Write_icon: Sprite = null
@@ -136,6 +137,8 @@ function Define_Sprites () {
     Settings_Icon.setPosition(49, 112)
     File_Manager_Icon = sprites.create(assets.image`File Manager`, SpriteKind.Desktop_UI)
     File_Manager_Icon.setPosition(59, 112)
+    Process_Icon = sprites.create(assets.image`Process Manager`, SpriteKind.Desktop_UI)
+    Process_Icon.setPosition(69, 112)
     Mouse_Cursor = sprites.create(assets.image`Cursor`, SpriteKind.Mouse)
     Mouse_Cursor.setPosition(80, 60)
     Mouse_Cursor.setStayInScreen(true)
