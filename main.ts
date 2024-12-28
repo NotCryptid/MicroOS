@@ -202,6 +202,9 @@ function left_click() {
     } else if (Mouse_Cursor.overlapsWith(ThingAI_Icon)) {
         close_apps()
         Open_ThingAI()
+    } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
+        close_apps()
+        Open_ProcessManager()
     } else if (Mouse_Cursor.overlapsWith(Close_App)) {
         close_apps()
     } else if (App_Open == "File Manager" || App_Open == "Settings") {
@@ -422,6 +425,22 @@ function Open_FileManager () {
     App_Title.setPosition(37, 4)
     ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+    ListMenuGUI.setDimensions(151, 97)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setPosition(76, 58)
+    ListMenuGUI.z = -30
+}
+function Open_ProcessManager () {
+    App_Open = "Process Manager"
+    SubMenu = "Home"
+    List_Scroll = 0
+    scene.setBackgroundImage(assets.image`App`)
+    scene.setBackgroundColor(12)
+    Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
+    Close_App.setPosition(156, 5)
+    App_Title = textsprite.create("Process Manager", 0, 12)
+    App_Title.setPosition(37, 4)
+    ListMenuGUI = miniMenu.createMenuFromArray(Active_Processes)
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
