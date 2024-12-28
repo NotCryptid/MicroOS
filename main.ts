@@ -462,14 +462,14 @@ function listSelection(app: string, selection: number, submenu: string) {
                 Open_ThingAI()
             }
         } else if (submenu == "User") {
-            // i don't even know whats going on here anymore and im not questioning it
+            // i don't even know whats going on here anymore
             const FileAtSelection = JSON.stringify(User_Files[selection + List_Scroll]).substr(JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1,JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"', JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1));
             close_apps()
             if (FileAtSelection == "Home") {
                 SubMenu = "Home"
                 Open_FileManager()
             } else {
-                
+
             }
         } else if (submenu == "Home") {
             ListMenuGUI.close()
@@ -612,7 +612,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                 blockSettings.writeString("Settings", Settings)
                 game.reset()
             }
-        }else if (submenu == "System Information") {
+        } else if (submenu == "System Information") {
             if (selection + List_Scroll == 1) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
@@ -621,7 +621,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ]
                 SubMenu = "System"
             }
-        }else if (submenu == "Connect MicroLink Devices") {
+        } else if (submenu == "Connect MicroLink Devices") {
             if (selection + List_Scroll == 1) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
@@ -636,7 +636,7 @@ function listSelection(app: string, selection: number, submenu: string) {
             } else if (selection + List_Scroll == 3) {
                 
             }
-        }else if (submenu == "Paired MicroLink Devices") {
+        } else if (submenu == "Paired MicroLink Devices") {
             if (selection + List_Scroll == 1) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
