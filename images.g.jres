@@ -94,5 +94,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Web Chat"
+    },
+    "myImages.image10": {
+        "id": "myImages.image10",
+        "data": "hwQIAAgAAADu7u7u/v//7/4/M+/+qqrv/v+Z7/4REe/+///v7u7u7g==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Process Manager"
     }
 }

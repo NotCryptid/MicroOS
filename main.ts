@@ -91,6 +91,7 @@ if (Settings == null || bios_settings.charAt(1) == "1") {
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
+let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Kyrios"), miniMenu.createMenuItem("Aegis"), miniMenu.createMenuItem("Horizon")]
 Current_Settings = [
     miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
     miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),

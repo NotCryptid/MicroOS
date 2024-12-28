@@ -467,6 +467,17 @@ a c a a a c a
 1 1 1 3 1 1 1 1 
 . 1 1 3 1 1 1 . 
 `;
+            case "image10":
+            case "Process Manager":return img`
+e e e e e e e e 
+e f f f f f f e 
+e f f a f 1 f e 
+e f 3 a f 1 f e 
+e f 3 a 9 1 f e 
+e f 3 a 9 1 f e 
+e f f f f f f e 
+e e e e e e e e 
+`;
         }
         return null;
     })
