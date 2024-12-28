@@ -40,6 +40,9 @@ const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2025.1", 0, 12)
 text2.setPosition(64, 6)
+if (blockSettings.readString("bios_settings") == null) {
+    blockSettings.writeString("bios_settings", "0")
+}
 let bios_settings = "00" + blockSettings.readString("bios_settings")
 let text3 = textsprite.create("> PTX Build 2.0.6", 0, 12)
 text3.setPosition(55, 16)
@@ -575,7 +578,6 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("Delete all user files"),
-                    miniMenu.createMenuItem("Add missing system files"),
                     miniMenu.createMenuItem("Set settings to default"),
                     miniMenu.createMenuItem("Wipe Device")
                 ]
@@ -598,13 +600,15 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ]
                 SubMenu = "System"
             } else if (selection + List_Scroll == 2) {
-                
+                User_Files = [miniMenu.createMenuItem("home")]
             } else if (selection + List_Scroll == 3) {
-                
+                Settings = "10001"
+                game.reset()
             } else if (selection + List_Scroll == 4) {
-                
-            } else if (selection + List_Scroll == 5) {
-                
+                User_Files = [miniMenu.createMenuItem("home")]
+                Settings = "10001"
+                blockSettings.writeString("Settings", Settings)
+                game.reset()
             }
         }else if (submenu == "System Information") {
             if (selection + List_Scroll == 1) {
