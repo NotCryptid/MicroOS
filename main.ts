@@ -696,19 +696,27 @@ function changeSettings(selection: number) {
 // MARK: Encryption
 
 function decrypt(string: string, key: number) {
-    let output = '';
-    for (let i = 0; i < string.length; i++) {
-        output += String.fromCharCode(string.charCodeAt(i) ^ key);
+    if (Active_Processes.indexOf(miniMenu.createMenuItem("Aegis")) !== -1) {
+        let output = '';
+        for (let i = 0; i < string.length; i++) {
+            output += String.fromCharCode(string.charCodeAt(i) ^ key);
+        }
+        return output;
+    } else {
+        return null
     }
-    return output;
 }
 
 function encrypt(string: string, key: number): string {
-    let output = '';
-    for (let i = 0; i < string.length; i++) {
-        output += String.fromCharCode(string.charCodeAt(i) ^ key);
+    if (Active_Processes.indexOf(miniMenu.createMenuItem("Aegis")) !== -1) {
+        let output = '';
+        for (let i = 0; i < string.length; i++) {
+            output += String.fromCharCode(string.charCodeAt(i) ^ key);
+        }
+        return output;
+    } else {
+        return null
     }
-    return output;
 }
 
 // Encryption ends here
