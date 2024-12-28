@@ -439,7 +439,7 @@ function Open_ProcessManager () {
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Process Manager", 0, 12)
-    App_Title.setPosition(37, 4)
+    App_Title.setPosition(46, 4)
     ListMenuGUI = miniMenu.createMenuFromArray(Active_Processes)
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
