@@ -33,7 +33,7 @@ let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
-let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpaper.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("ThingAI.moa")]
+let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpaper.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("ThingAI.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
 let SubMenu = ""
 const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
@@ -104,7 +104,7 @@ Current_Settings = [
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
 if (User_Files_Temp.length === 0 || bios_settings.charAt(1) == "1") {
-    User_Files_Temp = ["home", "test.txt"];
+    User_Files_Temp = ["Home"];
     blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
 for (let i = 0; i < User_Files_Temp.length; i++) {
@@ -462,12 +462,14 @@ function listSelection(app: string, selection: number, submenu: string) {
                 Open_ThingAI()
             }
         } else if (submenu == "User") {
+            // i don't even know whats going on here anymore and im not questioning it
+            const FileAtSelection = JSON.stringify(User_Files[selection + List_Scroll]).substr(JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1,JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"', JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1));
             close_apps()
-            if (selection + List_Scroll == 1) {
+            if (FileAtSelection == "Home") {
                 SubMenu = "Home"
                 Open_FileManager()
-            } else if (selection + List_Scroll == 2) {
-                Open_Write("This is a test file")
+            } else {
+                
             }
         } else if (submenu == "Home") {
             ListMenuGUI.close()
