@@ -2,6 +2,7 @@
 Micro:OS is a lightweight operating system made in PTX and TypeScript for devices such as the Micro:Bit or Pi Zero
 ### Upcoming Features
 - Write App
+- Process Manager
 - Web Chat App
 - xCell App
 - Pin Header Drivers
@@ -50,5 +51,6 @@ Once you've opened the Operating System in MakeCode you can continue with the fo
 7. Click the 3 dots next to the ```Download``` button.
 8. Select ```Choose hardware```
 9. Select your hardware.
+10. Click the ```Download``` button.
 
 After you're done you can safely delete the project from the MakeCode Arcade site.
