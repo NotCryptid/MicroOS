@@ -525,7 +525,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
                     Current_Settings[2],
-                    miniMenu.createMenuItem("Connect MicroLink device"),
+                    miniMenu.createMenuItem("Connect MicroLink Device"),
                     miniMenu.createMenuItem("Paired MicroLink Devices")
                 ]
                 SubMenu = "Connectivity"
@@ -658,7 +658,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
                     Current_Settings[2],
-                    miniMenu.createMenuItem("Connect MicroLink device"),
+                    miniMenu.createMenuItem("Connect MicroLink Device"),
                     miniMenu.createMenuItem("Paired MicroLink Devices")
                 ]
                 SubMenu = "Connectivity"
@@ -673,7 +673,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
                     Current_Settings[2],
-                    miniMenu.createMenuItem("Connect MicroLink device"),
+                    miniMenu.createMenuItem("Connect MicroLink Device"),
                     miniMenu.createMenuItem("Paired MicroLink Devices")
                 ]
                 SubMenu = "Connectivity"
@@ -710,8 +710,7 @@ function changeSettings(selection: number) {
         if (dingus53 > dingus52) {
             dingus53 = 0
         }
-        dingus51 = "Radio Channel - " + (dingus53).toString()
-        radio.setGroup(113 + parseInt(Settings.charAt(4)))
+        dingus51 = "Radio Channel - " + (dingus53).toString()  
     }
 
     if (dingus53 > dingus52) {
@@ -727,6 +726,7 @@ function changeSettings(selection: number) {
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
+    radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
 // App functions end here
 
