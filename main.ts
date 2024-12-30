@@ -712,11 +712,9 @@ function changeSettings(selection: number) {
         }
         dingus51 = "Radio Channel - " + (dingus53).toString()  
     }
-
     if (dingus53 > dingus52) {
         dingus53 = 0
     }
-
     Settings = Settings.slice(0, selection) + dingus53.toString() + Settings.slice(selection + 1)
     Current_Settings[selection - 1] = miniMenu.createMenuItem(dingus51)
     blockSettings.writeString("settings", Settings)
