@@ -252,7 +252,7 @@ radio.onReceivedValue(function(name: string, value: number) {
             radio.sendValue(paired_devices_ids[paired_devices.indexOf(reconnectMicroLink2(name))], reconnectMicroLink2(name))
         }
     } else if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
-        if (name == "MicroLink Pair") {
+        if (name == "MicroLink Pairing") {
             if (devices_to_pair.indexOf(value) !== -1) {
                 devices_to_pair_time_table[devices_to_pair.indexOf(value)] = PairTime + 5
             } else {
