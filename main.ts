@@ -95,7 +95,7 @@ if (Settings == null || bios_settings.charAt(1) == "1") {
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
-let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name     | System Load"), miniMenu.createMenuItem("Kyrios   | High"), miniMenu.createMenuItem("Aegis    | Low"), miniMenu.createMenuItem("Horizon  | Medium")]
+let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
     miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
     miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
@@ -332,7 +332,7 @@ function Start_Icon_Names() {
         color24 = 15
     }
     if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
-        xCell_Icon.sayText("  xCell", 50, false, color24, otherColor)
+        xCell_Icon.sayText(".  xCell", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Write_icon)) {
         Write_icon.sayText("Write", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Web_Chat_Icon)) {
