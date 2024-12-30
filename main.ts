@@ -89,7 +89,7 @@ if (controller.B.isPressed() && controller.up.isPressed()) {
 }
 // MARK: OS Boot Sequence
 if (Settings == null || bios_settings.charAt(1) == "1") {
-    Settings = "10001"
+    Settings = "10000"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
 } else {
