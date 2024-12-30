@@ -257,7 +257,7 @@ radio.onReceivedValue(function(name: string, value: number) {
                 devices_to_pair_time_table[devices_to_pair.indexOf(value)] = PairTime + 5
             } else {
                 devices_to_pair.push(value)
-                devices_to_pair_time_table.push(PairTime + 5)
+                devices_to_pair_time_table.push(PairTime + 20)
             }
             
         }
