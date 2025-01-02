@@ -259,6 +259,12 @@ radio.onReceivedValue(function(name: string, value: number) {
                 devices_to_pair.push(value)
                 devices_to_pair_time_table.push(PairTime + 20)
             }
+            ListMenuGUI.close()
+            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+            ListMenuGUI.setButtonEventsEnabled(false)
+            ListMenuGUI.setDimensions(151, 97)
+            ListMenuGUI.setPosition(76, 58)
+            ListMenuGUI.z = -30
             
         }
     }
