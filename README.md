@@ -15,13 +15,13 @@ None
 ### Known issues (Latest commit)
 Unable to do anything in the BIOS
 # Source code instructions
-### Setting up the project in VS Code
+### Setting up the MicroOS project in VS Code
 1. Download the [MakeCode Arcade extension](https://marketplace.visualstudio.com/items?itemName=ms-edu.pxt-vscode-web) for Visual Studio Code.
 2. Download and unzip the [source code](https://github.com/NotCryptid/MicroOS/archive/refs/heads/master.zip)
 3. Open the source code folder in Visual Studio Code.
 4. Head over to the ```Asset Explorer``` tab on the sidebar.
 5. Select ```Install Project Dependencies``` from the ```actions``` menu.
-### Setting up the project on the MakeCode Website
+### Setting up the MicroOS project on the MakeCode Website
 1. Head over to the [Microsoft MakeCode Arcade](https://arcade.makecode.com/) website.
 2. Select ```import```
 3. Select ```Import URL...```
@@ -54,3 +54,18 @@ Once you've opened the Operating System in MakeCode you can continue with the fo
 10. Click the ```Download``` button.
 
 After you're done you can safely delete the project from the MakeCode Arcade site.
+
+### Setting up MicroLink
+> [!NOTE]
+> Unless you want to play around with some experimental features its recommended to get the Stable release. (Not avaiable as of January 2nd 2025)
+1. Download a Stable or [Latest](https://github.com/NotCryptid/MicroOS/tree/master/MicroLink) MicroLink Release.
+2. Head over to the [Microsoft MakeCode MicroBit](https://makecode.microbit.org/) website.
+3. Select ```import```
+4. Select ```Import File...```
+5. Upload the hex file you downloaded.
+6. Configure the settings to match your needs.
+7. Connect your MicroBit via USB.
+8. Click Download.
+9. Upload the exported hex file to your MicroBit either with WebUSB or by dragging and dropping the file to the MicroBit.
+
+After you're done you can safely delete the project from the MakeCode MicroBit site.
