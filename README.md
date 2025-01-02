@@ -58,7 +58,7 @@ After you're done you can safely delete the project from the MakeCode Arcade sit
 ### Setting up MicroLink
 > [!NOTE]
 > Unless you want to play around with some experimental features its recommended to get the Stable release.
-1. Download a [Stable](https://github.com/NotCryptid/MicroOS/tree/master/MicroLink/MicroLink%20Latest.hex) or [Latest](https://github.com/NotCryptid/MicroOS/tree/master/MicroLink/MicroLink%Stable.hex) MicroLink Release.
+1. Download a [Stable](https://github.com/NotCryptid/MicroOS/tree/master/MicroLink/MicroLink%20Stable.hex) or [Latest](https://github.com/NotCryptid/MicroOS/tree/master/MicroLink/MicroLink%20Latest.hex) MicroLink Release.
 2. Head over to the [Microsoft MakeCode Micro:Bit](https://makecode.microbit.org/) website.
 3. Select ```import```
 4. Select ```Import File...```
