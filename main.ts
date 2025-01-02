@@ -708,7 +708,7 @@ function changeSettings(selection: number) {
     } else if (selection == 4) {
         dingus52 = 9
         if (dingus53 > dingus52) {
-            dingus53 = 0
+            dingus53 = 1
         }
         dingus51 = "Radio Channel - " + (dingus53).toString()  
     }
