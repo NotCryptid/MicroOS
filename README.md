@@ -59,13 +59,13 @@ After you're done you can safely delete the project from the MakeCode Arcade sit
 > [!NOTE]
 > Unless you want to play around with some experimental features its recommended to get the Stable release. (Not avaiable as of January 2nd 2025)
 1. Download a Stable or [Latest](https://github.com/NotCryptid/MicroOS/tree/master/MicroLink) MicroLink Release.
-2. Head over to the [Microsoft MakeCode MicroBit](https://makecode.microbit.org/) website.
+2. Head over to the [Microsoft MakeCode Micro:Bit](https://makecode.microbit.org/) website.
 3. Select ```import```
 4. Select ```Import File...```
 5. Upload the hex file you downloaded.
 6. Configure the settings to match your needs.
-7. Connect your MicroBit via USB.
+7. Connect your Micro:Bit via USB.
 8. Click Download.
-9. Upload the exported hex file to your MicroBit either with WebUSB or by dragging and dropping the file to the MicroBit.
+9. Upload the exported hex file to your Micro:Bit either with WebUSB or by dragging and dropping the file to the Micro:Bit.
 
-After you're done you can safely delete the project from the MakeCode MicroBit site.
+After you're done you can safely delete the project from the MakeCode Micro:Bit site.
