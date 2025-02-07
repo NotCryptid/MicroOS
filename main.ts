@@ -44,7 +44,7 @@ text2.setPosition(64, 6)
 if (blockSettings.readString("bios_settings") == null) {
     blockSettings.writeString("bios_settings", "0")
 }
-let bios_settings = "00" + blockSettings.readString("bios_settings")
+let bios_settings = "0" + blockSettings.readString("bios_settings") // add 1 in front of the 0 to factory reset without bios
 let text3 = textsprite.create("> PTX Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
 let text4 = textsprite.create("> Hold UP+B to open BIOS", 0, 1)
@@ -58,7 +58,7 @@ if (controller.B.isPressed() && controller.up.isPressed()) {
 }
 // MARK: OS Boot Sequence
 if (Settings == null || bios_settings.charAt(1) == "1") {
-    Settings = "10001"
+    Settings = "100010"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
 } else {
@@ -70,6 +70,7 @@ Current_Settings = [
     miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
+    miniMenu.createMenuItem(["Wallpaper - Stripes", "Wallpaper - Sunrise", "Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Stripes"][parseInt(Settings.charAt(5), 10)]),
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -83,7 +84,8 @@ for (let i = 0; i < User_Files_Temp.length; i++) {
 pause(randint(1000, 2000))
 sprites.destroy(text)
 sprites.destroy(text2)
-scene.setBackgroundImage(assets.image`Wallpaper`)
+let Wallpaper = [assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
+scene.setBackgroundImage(Wallpaper)
 // OS Boot Sequence ends here
 
 // MARK: More Kernel
@@ -436,7 +438,8 @@ function close_apps () {
     // works good enough so no touching
     App_Open = "null"
     SubMenu = "null"
-    scene.setBackgroundImage(assets.image`Wallpaper`)
+    Wallpaper = [assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
+    scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroyAllSpritesOfKind(SpriteKind.App_UI)
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
@@ -515,7 +518,8 @@ function listSelection(app: string, selection: number, submenu: string) {
                 SubMenu = "Input"
             } else if (selection + List_Scroll == 3) {
                 ListMenuContents = [
-                    miniMenu.createMenuItem("Back")
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[4]
                 ]
                 SubMenu = "Customization"
             } else if (selection + List_Scroll == 4) {
@@ -571,7 +575,8 @@ function listSelection(app: string, selection: number, submenu: string) {
                 SubMenu = "Home"
                 Open_Settings()
             } else if (selection + List_Scroll == 2) {
-
+                changeSettings(5)
+                ListMenuContents[1] = Current_Settings[4]
             } else if (selection + List_Scroll == 3) {
 
             } else if (selection + List_Scroll == 4) {
@@ -690,7 +695,7 @@ function changeSettings(selection: number) {
         dingus51 = "Radio Channel - " + (dingus53).toString()  
     } else if (selection == 5) {
         dingus52 = 3
-        dingus51 = ["Wallpaper - Stripes", "Wallpaper - Sunrise", "Wallpaper - ", "Wallpaper - ", "Wallpaper - Stripes"][dingus53]
+        dingus51 = ["Wallpaper - Stripes", "Wallpaper - Sunrise", "Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Stripes"][dingus53]
     }
     if (dingus53 > dingus52) {
         dingus53 = 0
