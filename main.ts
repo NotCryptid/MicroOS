@@ -52,38 +52,7 @@ text4.setPosition(76, 26)
 pause(1000)
 text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 1)
 text.setPosition(79, 36)
-// MARK: BIOS
-function Open_BIOS() {
-    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
-    bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit"), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem("Void Kernel BIOS v1.0")])
-    bios_options.setDimensions(160, 120)
-    bios_options.setButtonEventsEnabled(true)
-    bios_options.setPosition(80, 60)
-    bios_options.z = -30
-    let bios_selection = 0
-    bios_options.moveSelection(bios_selection)
-    pause(20)
-    while (bios_settings.charAt(0) == "0") {
-        if (controller.down.isPressed() && bios_selection < 9) {
-            console.log("down")
-            bios_selection--
-            bios_options.moveSelection(-1)
-            pause(20)
-            while(controller.down.isPressed()){
 
-            }
-        }
-        if (controller.up.isPressed() && bios_selection > 0) {
-            console.log("up")
-            bios_selection++
-            bios_options.moveSelection(1)
-            pause(20)
-            while (controller.up.isPressed()) {
-
-            }
-        }
-    }
-}
 if (controller.B.isPressed() && controller.up.isPressed()) {
     Open_BIOS()
 }
@@ -506,7 +475,9 @@ function listSelection(app: string, selection: number, submenu: string) {
                 SubMenu = "Home"
                 Open_FileManager()
             } else {
-
+                // temporary workaround
+                SubMenu = "Home"
+                Open_FileManager()
             }
         } else if (submenu == "Home") {
             ListMenuGUI.close()
@@ -717,6 +688,9 @@ function changeSettings(selection: number) {
             dingus53 = 1
         }
         dingus51 = "Radio Channel - " + (dingus53).toString()  
+    } else if (selection == 5) {
+        dingus52 = 3
+        dingus51 = ["Wallpaper - Stripes", "Wallpaper - Sunrise", "Wallpaper - ", "Wallpaper - ", "Wallpaper - Stripes"][dingus53]
     }
     if (dingus53 > dingus52) {
         dingus53 = 0
@@ -761,3 +735,36 @@ function encrypt(string: string, key: number): string {
 }
 
 // Encryption ends here
+
+// MARK: BIOS
+function Open_BIOS() {
+    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+    bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit"), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem("Void Kernel BIOS v1.0")])
+    bios_options.setDimensions(160, 120)
+    bios_options.setButtonEventsEnabled(true)
+    bios_options.setPosition(80, 60)
+    bios_options.z = -30
+    let bios_selection = 0
+    bios_options.moveSelection(bios_selection)
+    pause(20)
+    while (bios_settings.charAt(0) == "0") {
+        if (controller.down.isPressed() && bios_selection < 9) {
+            console.log("down")
+            bios_selection--
+            bios_options.moveSelection(-1)
+            pause(20)
+            while(controller.down.isPressed()){
+
+            }
+        }
+        if (controller.up.isPressed() && bios_selection > 0) {
+            console.log("up")
+            bios_selection++
+            bios_options.moveSelection(1)
+            pause(20)
+            while (controller.up.isPressed()) {
+
+            }
+        }
+    }
+}
