@@ -56,6 +56,41 @@ text.setPosition(79, 36)
 if (controller.B.isPressed() && controller.up.isPressed()) {
     Open_BIOS()
 }
+
+// MARK: BIOS
+function Open_BIOS() {
+    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+    bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit"), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem("Void Kernel BIOS v1.0")])
+    pause(2000)
+    bios_options.setDimensions(160, 120)
+    bios_options.setButtonEventsEnabled(false)
+    bios_options.setPosition(80, 60)
+    bios_options.z = -30
+    text2 = textsprite.create("<", 14, 1)
+    let bios_selection = 0
+    bios_options.moveSelection(bios_selection)
+    
+    while (bios_settings.charAt(0) == "0") {
+        text2.setPosition(154, 4 + bios_selection * 10)
+        if (controller.down.isPressed() && bios_selection < 9) {
+            console.log("down")
+            bios_selection--
+            pause(20)
+            while(controller.down.isPressed()){
+
+            }
+        }
+        if (controller.up.isPressed() && bios_selection > 0) {
+            console.log("up")
+            bios_selection++
+            pause(20)
+            while (controller.up.isPressed()) {
+
+            }
+        }
+    }
+}
+
 // MARK: OS Boot Sequence
 if (Settings == null || bios_settings.charAt(1) == "1") {
     Settings = "100010"
@@ -740,36 +775,3 @@ function encrypt(string: string, key: number): string {
 }
 
 // Encryption ends here
-
-// MARK: BIOS
-function Open_BIOS() {
-    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
-    bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit"), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem("Void Kernel BIOS v1.0")])
-    bios_options.setDimensions(160, 120)
-    bios_options.setButtonEventsEnabled(true)
-    bios_options.setPosition(80, 60)
-    bios_options.z = -30
-    let bios_selection = 0
-    bios_options.moveSelection(bios_selection)
-    pause(20)
-    while (bios_settings.charAt(0) == "0") {
-        if (controller.down.isPressed() && bios_selection < 9) {
-            console.log("down")
-            bios_selection--
-            bios_options.moveSelection(-1)
-            pause(20)
-            while(controller.down.isPressed()){
-
-            }
-        }
-        if (controller.up.isPressed() && bios_selection > 0) {
-            console.log("up")
-            bios_selection++
-            bios_options.moveSelection(1)
-            pause(20)
-            while (controller.up.isPressed()) {
-
-            }
-        }
-    }
-}
