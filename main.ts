@@ -40,11 +40,10 @@ const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2025.1", 0, 1)
 text2.setPosition(64, 6)
-let bios_settings = "0" + blockSettings.readString("bios_settings") // add 1 in front of the 0 to factory reset without bios
 let text3 = textsprite.create("> PTX Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
 let text4 = textsprite.create("> Hold UP+B to erase data", 0, 1)
-text4.setPosition(76, 26)
+text4.setPosition(79, 26)
 pause(1000)
 text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 1)
 text.setPosition(79, 36)
@@ -67,7 +66,7 @@ Current_Settings = [
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
-if (User_Files_Temp.length === 0 || bios_settings.charAt(1) == "1") {
+if (User_Files_Temp.length === 0 || controller.B.isPressed() && controller.up.isPressed()) {
     User_Files_Temp = ["Home"];
     blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
@@ -610,11 +609,11 @@ function listSelection(app: string, selection: number, submenu: string) {
             } else if (selection + List_Scroll == 2) {
                 User_Files = [miniMenu.createMenuItem("home")]
             } else if (selection + List_Scroll == 3) {
-                Settings = "10001"
+                Settings = "100010"
                 game.reset()
             } else if (selection + List_Scroll == 4) {
                 User_Files = [miniMenu.createMenuItem("home")]
-                Settings = "10001"
+                Settings = "100010"
                 blockSettings.writeString("Settings", Settings)
                 game.reset()
             }
