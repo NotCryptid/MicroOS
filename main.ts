@@ -594,7 +594,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.1.0"),
                     miniMenu.createMenuItem("Void Kernel 2025.1"),
-                    miniMenu.createMenuItem("MicroLink r1b1")
+                    miniMenu.createMenuItem("MicroLink Drivers r1b1")
                 ]
                 SubMenu = "System Information"
             }
