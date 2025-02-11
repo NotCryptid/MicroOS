@@ -66,22 +66,18 @@ function Open_BIOS() {
     bios_options.setButtonEventsEnabled(false)
     bios_options.setPosition(80, 60)
     bios_options.z = -30
-    text2 = textsprite.create("<", 14, 1)
     let bios_selection = 0
     bios_options.moveSelection(bios_selection)
-    
+    bios_settings = "0" + blockSettings.readString("bios_settings")
     while (bios_settings.charAt(0) == "0") {
-        text2.setPosition(154, 4 + bios_selection * 10)
-        if (controller.down.isPressed() && bios_selection < 9) {
-            console.log("down")
+        if (controller.down.isPressed() && bios_selection < 0) {
             bios_selection--
             pause(20)
             while(controller.down.isPressed()){
 
             }
         }
-        if (controller.up.isPressed() && bios_selection > 0) {
-            console.log("up")
+        if (controller.up.isPressed() && bios_selection > -3) {
             bios_selection++
             pause(20)
             while (controller.up.isPressed()) {
