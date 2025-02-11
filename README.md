@@ -23,7 +23,7 @@ None
 - 64Mhz CPU
 - 128KB of RAM
 - 1MB of storage
-Pretty much the average MicroBit 2.2
+- Pretty much the average MicroBit 2.2
 ### Recommended (80-90 fps)
 - ~162Mhz CPU
 - 256KB of RAM
