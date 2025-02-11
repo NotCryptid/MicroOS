@@ -68,7 +68,7 @@ function Open_BIOS() {
     bios_options.z = -30
     let bios_selection = 0
     bios_options.moveSelection(bios_selection)
-    bios_settings = "0" + blockSettings.readString("bios_settings")
+    bios_settings = "0" + blockSettings.readString("bios_settings") // i don't know why but loading the bios settings twice fixed it
     while (bios_settings.charAt(0) == "0") {
         if (controller.down.isPressed() && bios_selection < 0) {
             bios_selection--
