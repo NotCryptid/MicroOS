@@ -13,7 +13,25 @@ Micro:OS is a lightweight operating system made in PTX and TypeScript for device
 ### Known issues (Latest Release)
 None
 ### Known issues (Latest commit)
-Unable to do anything in the BIOS
+
+# Hardware requirements
+### Barebones (15-20 fps)
+- 32Mhz CPU
+- 100KB of RAM
+- 1MB of storage
+### Bearable (30-45 fps)
+- 64Mhz CPU
+- 128KB of RAM
+- 1MB of storage
+Pretty much the average MicroBit 2.2
+### Recommended (80-90 fps)
+- ~162Mhz CPU
+- 256KB of RAM
+- 2MB of storage
+### Overkill (600-630fps)
+- 1Ghz CPU
+- 512MB of ram
+- 16GB of storage
 # Source code instructions
 ### Setting up the MicroOS project in VS Code
 1. Download the [MakeCode Arcade extension](https://marketplace.visualstudio.com/items?itemName=ms-edu.pxt-vscode-web) for Visual Studio Code.
