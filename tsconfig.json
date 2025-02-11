@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
-        "target": "ES2016",
-        "lib": ["ES2016", "ES5", "ES6", "ES7", "DOM"],
-        "noImplicitAny": true,
-        "outDir": "built",
-        "rootDir": "."
+      "target": "ES2016",
+      "lib": ["ES2016", "DOM"],
+      "noImplicitAny": true,
+      "outDir": "built",
+      "rootDir": "."
     },
     "exclude": ["pxt_modules/**/*test.ts"]
-}
+  }
+  

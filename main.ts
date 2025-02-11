@@ -10,7 +10,6 @@ namespace SpriteKind {
 let Taskbar: Sprite = null
 let menu_selection : number = null
 let ListMenuGUI: miniMenu.MenuSprite = null
-let bios_options: miniMenu.MenuSprite = null
 let ThingAI_Icon: Sprite = null
 let buttons_down = ["left", "right", "middle", "scroll", "forward", "back"] // after these we just drop in the pressed letters i guess
 let paired_devices = [69]
@@ -41,56 +40,17 @@ const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 pause(300)
 let text2 = textsprite.create("> Void Kernel 2025.1", 0, 1)
 text2.setPosition(64, 6)
-if (blockSettings.readString("bios_settings") == null) {
-    blockSettings.writeString("bios_settings", "0")
-}
 let bios_settings = "0" + blockSettings.readString("bios_settings") // add 1 in front of the 0 to factory reset without bios
 let text3 = textsprite.create("> PTX Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
-let text4 = textsprite.create("> Hold UP+B to open BIOS", 0, 1)
+let text4 = textsprite.create("> Hold UP+B to erase data", 0, 1)
 text4.setPosition(76, 26)
 pause(1000)
 text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 1)
 text.setPosition(79, 36)
 
-if (controller.B.isPressed() && controller.up.isPressed()) {
-    Open_BIOS()
-}
-
-// MARK: BIOS
-function Open_BIOS() {
-    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
-    bios_options = miniMenu.createMenuFromArray([miniMenu.createMenuItem("Wipe device on boot - No"), miniMenu.createMenuItem("Save and exit"), miniMenu.createMenuItem("Exit"), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem("Void Kernel BIOS v1.0")])
-    pause(2000)
-    bios_options.setDimensions(180, 120)
-    bios_options.setPosition(80, 60)
-    bios_options.setButtonEventsEnabled(false)
-    bios_options.z = -30
-    let bios_selection = 0
-    bios_options.moveSelection(bios_selection)
-    bios_settings = "0" + blockSettings.readString("bios_settings") // i don't know why but loading the bios settings twice fixed it
-    while (bios_settings.charAt(0) == "0") {
-        if (controller.down.isPressed() && bios_selection < 0) {
-            bios_selection--
-            bios_options.moveSelection(-1)
-            pause(20)
-            while(controller.down.isPressed()){
-
-            }
-        }
-        if (controller.up.isPressed() && bios_selection > -3) {
-            bios_selection++
-            bios_options.moveSelection(1)
-            pause(20)
-            while (controller.up.isPressed()) {
-
-            }
-        }
-    }
-}
-
 // MARK: OS Boot Sequence
-if (Settings == null || bios_settings.charAt(1) == "1") {
+if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     Settings = "100010"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
