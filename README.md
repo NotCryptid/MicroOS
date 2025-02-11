@@ -23,15 +23,17 @@ None
 - 64Mhz CPU
 - 128KB of RAM
 - 1MB of storage
-- Pretty much the average MicroBit 2.2
-### Recommended (80-90 fps)
-- ~162Mhz CPU
+- Quite literally a MicroBit 2.2
+### Recommended (60-150 fps)
+- 120-216Mhz CPU
 - 256KB of RAM
 - 2MB of storage
+- Your average run of the mill MakeCode Arcade hardware
 ### Overkill (600-630fps)
 - 1Ghz CPU
 - 512MB of ram
 - 16GB of storage
+- Literally the Raspberry Pi Zero
 # Source code instructions
 ### Setting up the MicroOS project in VS Code
 1. Download the [MakeCode Arcade extension](https://marketplace.visualstudio.com/items?itemName=ms-edu.pxt-vscode-web) for Visual Studio Code.
