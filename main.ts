@@ -126,7 +126,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-
+    home_button()
 })
 
 game.onUpdate(function() {
@@ -143,6 +143,14 @@ game.onUpdate(function() {
         }
     }
 })
+
+function home_button() {
+    if (App_Open == "null") {
+        Open_Library()
+    } else {
+        close_apps()
+    }   
+}
 
 function left_click() {
     if (spriteutils.isDestroyed(Mouse_Cursor)) {
@@ -320,6 +328,15 @@ function Start_Icon_Names() {
 
 // MARK: Apps
 // Running every app at a kernel level is such a good idea ikr
+function Open_Library () {
+    App_Open = "App Library"
+    Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
+    Close_App.setPosition(149, 12)
+    Close_App.z = 23
+    Taskbar = sprites.create(assets.image`Library Background`, SpriteKind.App_UI)
+    Taskbar.setPosition(80, 60)
+}
+
 function Open_Web () {
     App_Open = "Web Chat"
     scene.setBackgroundImage(assets.image`App`)
