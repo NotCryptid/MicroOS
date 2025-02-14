@@ -564,7 +564,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P48869(s) {
+function _main___P51440(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1777,13 +1777,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P48869.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P48869.continuations = [ 60,61,62,63,111,112 ]
+_main___P51440.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P51440.continuations = [ 60,61,62,63,111,112 ]
 
-function _main___P48869_mk(s) {
+function _main___P51440_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P48869, depth: s.depth + 1,
+        parent: s, fn: _main___P51440, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -72911,5 +72911,5 @@ const sprites_StaticObstacle__C2499_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency16___4788","Desktop_UI___48882","Mouse___48885","App_UI___48888","Settings___48932","System_Files___48940","text2___48974","text3___48979","text4___48984","text___48935","Active_Processes___49021","Current_Settings___48960","fileNamesString___49091","User_Files_Temp___49094","User_Files___48937","Wallpaper___49141","buttons_down___48898","paired_devices_ids___48901","paired_devices___48900","Mouse_Cursor___48916","App_Open___48925","SubMenu___48961","devices_to_pair___48918","devices_to_pair_time_table___48920","PairTime___48927","ListMenuGUI___48895","ListMenuContents___48936","xCell_Icon___48914","Write_icon___48912","Web_Chat_Icon___48910","Settings_Icon___48908","File_Manager_Icon___48904","ThingAI_Icon___48897","Process_Icon___48906","Close_App___48924","Taskbar___48891","sillySpacingForListGUI___48971","List_Scroll___48929","App_Title___48922"])
 
-return _main___P48869
+return _main___P51440
 })
