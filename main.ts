@@ -20,6 +20,7 @@ let Process_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
 let Write_icon: Sprite = null
+let Library_icon: Sprite = null
 let xCell_Icon: Sprite = null
 let Mouse_Cursor: Sprite = null
 let devices_to_pair = [4]
@@ -88,20 +89,22 @@ function Define_Sprites () {
     App_Open = "null"
     Taskbar = sprites.create(assets.image`Taskbar`, SpriteKind.Desktop_UI)
     Taskbar.setPosition(80, 60)
+    Library_icon = sprites.create(assets.image`Library_icon`, SpriteKind.Desktop_UI)
+    Library_icon.setPosition(9, 111)
     xCell_Icon = sprites.create(assets.image`xCell`, SpriteKind.Desktop_UI)
-    xCell_Icon.setPosition(9, 111)
+    xCell_Icon.setPosition(22, 111)
     Write_icon = sprites.create(assets.image`Write`, SpriteKind.Desktop_UI)
-    Write_icon.setPosition(19, 111)
+    Write_icon.setPosition(32, 111)
     NanoCode_Icon = sprites.create(assets.image`NanoCode`, SpriteKind.Desktop_UI)
-    NanoCode_Icon.setPosition(29, 111)
+    NanoCode_Icon.setPosition(42, 111)
     Web_Chat_Icon = sprites.create(assets.image`Web Chat`, SpriteKind.Desktop_UI)
-    Web_Chat_Icon.setPosition(39, 111)
+    Web_Chat_Icon.setPosition(52, 111)
     Settings_Icon = sprites.create(assets.image`Settings`, SpriteKind.Desktop_UI)
-    Settings_Icon.setPosition(49, 111)
+    Settings_Icon.setPosition(62, 111)
     File_Manager_Icon = sprites.create(assets.image`File Manager`, SpriteKind.Desktop_UI)
-    File_Manager_Icon.setPosition(59, 111)
+    File_Manager_Icon.setPosition(72, 111)
     Process_Icon = sprites.create(assets.image`Process Manager`, SpriteKind.Desktop_UI)
-    Process_Icon.setPosition(69, 111)
+    Process_Icon.setPosition(82, 111)
     Mouse_Cursor = sprites.create(assets.image`Cursor`, SpriteKind.Mouse)
     Mouse_Cursor.setPosition(80, 60)
     Mouse_Cursor.setStayInScreen(true)
@@ -176,6 +179,9 @@ function left_click() {
     } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
         close_apps()
         Open_ProcessManager()
+    } else if (Mouse_Cursor.overlapsWith(Library_icon)) {
+        close_apps()
+        Open_Library()
     } else if (Mouse_Cursor.overlapsWith(Close_App)) {
         close_apps()
     } else if (App_Open == "File Manager" || App_Open == "Settings") {
@@ -309,7 +315,7 @@ function Start_Icon_Names() {
         color24 = 15
     }
     if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
-        xCell_Icon.sayText(".  xCell", 50, false, color24, otherColor)
+        xCell_Icon.sayText("xCell", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Write_icon)) {
         Write_icon.sayText("Write", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Web_Chat_Icon)) {
@@ -322,6 +328,8 @@ function Start_Icon_Names() {
         NanoCode_Icon.sayText("NanoCode", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
         Process_Icon.sayText("Process Manager", 50, false, color24, otherColor)
+    } else if (Mouse_Cursor.overlapsWith(Library_icon)) {
+        Process_Icon.sayText(".  Library", 50, false, color24, otherColor)
     }
 }
 // Background tasks end here
