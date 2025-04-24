@@ -76,7 +76,7 @@ for (let i = 0; i < User_Files_Temp.length; i++) {
 pause(randint(1000, 2000))
 sprites.destroy(text)
 sprites.destroy(text2)
-let Wallpaper = [assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
+let Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
 scene.setBackgroundImage(Wallpaper)
 // OS Boot Sequence ends here
 
@@ -447,7 +447,7 @@ function close_apps () {
     // works good enough so no touching
     App_Open = "null"
     SubMenu = "null"
-    Wallpaper = [assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
+    Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroyAllSpritesOfKind(SpriteKind.App_UI)
