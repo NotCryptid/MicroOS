@@ -836,17 +836,6 @@ f f f f f f f f
 ................................................................................................................................................................
 ................................................................................................................................................................
 `;
-            case "image17":
-            case "Library_icon":return img`
-2 2 2 2 2 2 2 2 
-2 a a a 3 3 3 2 
-2 a 1 a b b 3 2 
-2 1 a 1 3 b 3 2 
-2 7 7 7 6 9 9 2 
-2 1 1 7 9 6 9 2 
-2 1 7 1 6 9 9 2 
-2 2 2 2 2 2 2 2 
-`;
             case "image14":
             case "Wallpaper - Strings":return img`
 fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff333ffffffffffffffffffffffffffff9999ffffffffffffffffffffffffffffffffffff
@@ -969,6 +958,17 @@ fffffffffffffffffffffffffffffff33333fffffffffffffffffffffffff777ffffffffffffffff
 fffffffffffffffffffffffffffffff3333ffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+`;
+            case "image17":
+            case "Library_icon":return img`
+2 2 2 2 2 2 2 2 
+2 a a a 3 3 b 2 
+2 a 1 a b b 3 2 
+2 1 a 1 3 b 3 2 
+2 7 7 7 6 9 9 2 
+2 1 1 7 9 6 9 2 
+2 1 7 1 6 9 9 2 
+2 2 2 2 2 2 2 2 
 `;
         }
         return null;
