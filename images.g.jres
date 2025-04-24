@@ -39,14 +39,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "xCell"
     },
-    "myImages.image5": {
-        "id": "myImages.image5",
-        "data": "hwQIAAgAAAD/H/H//x/x////////H/H//x/x////////H/H//x/x/w==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "ThingAI"
-    },
     "myImages.image9": {
         "id": "myImages.image9",
         "data": "hwQFAAUAAADw/wAAHxEPAB8RDwAfEQ8A8P8AAA==",
@@ -126,5 +118,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Library Background"
+    },
+    "myImages.image5": {
+        "id": "myImages.image5",
+        "data": "hwQIAAgAAAD/PzMzHz8RMR8/MTP/PxMxHz8zMx//8fEfH/Hx/////w==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "NanoCode"
     }
 }

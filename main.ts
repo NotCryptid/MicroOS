@@ -10,7 +10,7 @@ namespace SpriteKind {
 let Taskbar: Sprite = null
 let menu_selection : number = null
 let ListMenuGUI: miniMenu.MenuSprite = null
-let ThingAI_Icon: Sprite = null
+let NanoCode_Icon: Sprite = null
 let buttons_down = ["left", "right", "middle", "scroll", "forward", "back"] // after these we just drop in the pressed letters i guess
 let paired_devices = [69]
 let paired_devices_ids = ["doofus"]
@@ -33,7 +33,7 @@ let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
-let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpaper.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("ThingAI.moa")]
+let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpaper.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
 let SubMenu = ""
 const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
@@ -62,7 +62,7 @@ Current_Settings = [
     miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
-    miniMenu.createMenuItem(["Wallpaper - Stripes", "Wallpaper - Sunrise", "Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Stripes"][parseInt(Settings.charAt(5), 10)]),
+    miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -92,8 +92,8 @@ function Define_Sprites () {
     xCell_Icon.setPosition(9, 112)
     Write_icon = sprites.create(assets.image`Write`, SpriteKind.Desktop_UI)
     Write_icon.setPosition(19, 112)
-    ThingAI_Icon = sprites.create(assets.image`ThingAI`, SpriteKind.Desktop_UI)
-    ThingAI_Icon.setPosition(29, 112)
+    NanoCode_Icon = sprites.create(assets.image`NanoCode`, SpriteKind.Desktop_UI)
+    NanoCode_Icon.setPosition(29, 112)
     Web_Chat_Icon = sprites.create(assets.image`Web Chat`, SpriteKind.Desktop_UI)
     Web_Chat_Icon.setPosition(39, 112)
     Settings_Icon = sprites.create(assets.image`Settings`, SpriteKind.Desktop_UI)
@@ -170,9 +170,9 @@ function left_click() {
     } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon)) {
         close_apps()
         Open_FileManager()
-    } else if (Mouse_Cursor.overlapsWith(ThingAI_Icon)) {
+    } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon)) {
         close_apps()
-        Open_ThingAI()
+        Open_NanoCode()
     } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
         close_apps()
         Open_ProcessManager()
@@ -304,7 +304,7 @@ forever(function () {
 function Start_Icon_Names() {
     let otherColor = 12
     let color24 = 1
-    if (App_Open == "null" || App_Open == "ThingAI") {
+    if (App_Open == "null" || App_Open == "NanoCode") {
         otherColor = 1
         color24 = 15
     }
@@ -318,8 +318,8 @@ function Start_Icon_Names() {
         Settings_Icon.sayText("Settings", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon)) {
         File_Manager_Icon.sayText("File Manager", 50, false, color24, otherColor)
-    } else if (Mouse_Cursor.overlapsWith(ThingAI_Icon)) {
-        ThingAI_Icon.sayText("ThingAI", 50, false, color24, otherColor)
+    } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon)) {
+        NanoCode_Icon.sayText("NanoCode", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
         Process_Icon.sayText("Process Manager", 50, false, color24, otherColor)
     }
@@ -396,16 +396,16 @@ function Open_Settings () {
     ListMenuGUI.z = -30
 }
 
-function Open_ThingAI () {
-    App_Open = "ThingAI"
+function Open_NanoCode () {
+    App_Open = "NanoCode"
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(15)
-    text = textsprite.create("ThingAI App Isn't Available", 0, 1)
+    text = textsprite.create("Coming soon.", 0, 1)
     text.setPosition(80, 60)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create("ThingAI", 0, 1)
-    App_Title.setPosition(23, 4)
+    App_Title = textsprite.create("NanoCode", 0, 1)
+    App_Title.setPosition(25, 4)
 }
 function Open_FileManager () {
     App_Open = "File Manager"
@@ -477,7 +477,7 @@ function listSelection(app: string, selection: number, submenu: string) {
             } else if (selection + List_Scroll == 8) {
                 Open_Web()
             } else if (selection + List_Scroll == 9) {
-                Open_ThingAI()
+                Open_NanoCode()
             }
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
@@ -704,7 +704,7 @@ function changeSettings(selection: number) {
         dingus51 = "Radio Channel - " + (dingus53).toString()  
     } else if (selection == 5) {
         dingus52 = 3
-        dingus51 = ["Wallpaper - Stripes", "Wallpaper - Sunrise", "Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Stripes"][dingus53]
+        dingus51 = ["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
     }
     if (dingus53 > dingus52) {
         dingus53 = 0
