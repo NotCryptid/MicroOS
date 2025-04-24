@@ -6,13 +6,14 @@ Micro:OS is a lightweight operating system made in PTX and TypeScript for device
 - Web Chat App
 - xCell App
 - Pin Header Drivers
-- ThingAI Instance Code
-- ThingAI App
+- MicroLink Protocol
+- NanoShell App for creating your own Apps
 - Image Viewer
 - Music Player/Creator
 ### Known issues (Latest Release)
 None
 ### Known issues (Latest commit)
+None
 
 # Hardware requirements
 ### Barebones (15-20 fps)
