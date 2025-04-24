@@ -13,6 +13,7 @@ Micro:OS is a lightweight operating system made in PTX and TypeScript for device
 ### Known issues (Latest Release)
 None
 ### Known issues (Latest commit)
+None
 
 # Hardware requirements
 ### Barebones (15-20 fps)
