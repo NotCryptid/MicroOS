@@ -32,8 +32,8 @@ let Current_Settings: miniMenu.MenuItem[] = []
 let SubMenu = ""
 const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 pause(300)
-let text2 = textsprite.create("> Void Kernel 2025.1", 0, 1)
-text2.setPosition(64, 6)
+let text2 = textsprite.create("> Void Kernel Micro", 0, 1)
+text2.setPosition(61, 6)
 let text3 = textsprite.create("> PTX Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
 let text4 = textsprite.create("> Hold UP+B to erase data", 0, 1)
@@ -483,7 +483,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.1.0"),
-                    miniMenu.createMenuItem("Void Kernel 2025.1"),
+                    miniMenu.createMenuItem("NanoSDK 2025.1")
                 ]
                 SubMenu = "System Information"
             }

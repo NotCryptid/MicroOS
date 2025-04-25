@@ -1,5 +1,5 @@
 // meta={"simUrl":"https://trg-arcade.userpxt.io/---simulator","cdnUrl":"https://cdn.makecode.com","version":"v0.1.0","target":"arcade","targetVersion":"2.0.53"}
-// total=2624636 new=29.34% cached=66.71% other=3.95%
+// total=2625246 new=29.36% cached=66.69% other=3.95%
 (function (ectx) {
 'use strict';
 const runtime = ectx.runtime;
@@ -555,7 +555,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P93969(s) {
+function _main___P105319(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -565,7 +565,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.i___94205 = undefined;
+    s.i___105555 = undefined;
     globals._intervals___4862 = (undefined);
     globals._pollEventQueue___4871 = (undefined);
     globals.minPriority___375 = (1);
@@ -1083,43 +1083,43 @@ switch (step) {
     s.callLocIdx = 84; s.pc = 71; return s.tmp_0;
   case 71:
     r0 = s.retval;
-    globals.Desktop_UI___93982 = (r0);
+    globals.Desktop_UI___105332 = (r0);
     s.tmp_0 = SpriteKind_create__P2495_mk(s);
     s.callLocIdx = 85; s.pc = 72; return s.tmp_0;
   case 72:
     r0 = s.retval;
-    globals.Mouse___93985 = (r0);
+    globals.Mouse___105335 = (r0);
     s.tmp_0 = SpriteKind_create__P2495_mk(s);
     s.callLocIdx = 86; s.pc = 73; return s.tmp_0;
   case 73:
     r0 = s.retval;
-    globals.App_UI___93988 = (r0);
-    globals.Taskbar___93991 = (null);
-    globals.ListMenuGUI___93995 = (null);
-    globals.NanoCode_Icon___93997 = (null);
-    globals.File_Manager_Icon___93999 = (null);
-    globals.Process_Icon___94001 = (null);
-    globals.Settings_Icon___94003 = (null);
-    globals.Web_Chat_Icon___94005 = (null);
-    globals.Write_icon___94007 = (null);
-    globals.Library_icon___94009 = (null);
-    globals.xCell_Icon___94011 = (null);
-    globals.Mouse_Cursor___94013 = (null);
-    globals.App_Title___94015 = (null);
-    globals.Close_App___94017 = (null);
-    globals.App_Open___94018 = ("null");
-    globals.List_Scroll___94020 = (0);
+    globals.App_UI___105338 = (r0);
+    globals.Taskbar___105341 = (null);
+    globals.ListMenuGUI___105345 = (null);
+    globals.NanoCode_Icon___105347 = (null);
+    globals.File_Manager_Icon___105349 = (null);
+    globals.Process_Icon___105351 = (null);
+    globals.Settings_Icon___105353 = (null);
+    globals.Web_Chat_Icon___105355 = (null);
+    globals.Write_icon___105357 = (null);
+    globals.Library_icon___105359 = (null);
+    globals.xCell_Icon___105361 = (null);
+    globals.Mouse_Cursor___105363 = (null);
+    globals.App_Title___105365 = (null);
+    globals.Close_App___105367 = (null);
+    globals.App_Open___105368 = ("null");
+    globals.List_Scroll___105370 = (0);
     s.tmp_0 = blockSettings_readString__P4743_mk(s);
     s.tmp_0.arg0 = "settings";
     s.callLocIdx = 87; s.pc = 74; return s.tmp_0;
   case 74:
     r0 = s.retval;
-    globals.Settings___94023 = (r0);
-    globals.text___94026 = (null);
+    globals.Settings___105373 = (r0);
+    globals.text___105376 = (null);
     r0 = pxsim_Array__mk();
-    globals.ListMenuContents___94027 = (r0);
+    globals.ListMenuContents___105377 = (r0);
     r0 = pxsim_Array__mk();
-    globals.User_Files___94028 = (r0);
+    globals.User_Files___105378 = (r0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
@@ -1194,11 +1194,11 @@ switch (step) {
     r0 = s.retval;
     s.tmp_17 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_17);
-    globals.System_Files___94031 = (s.tmp_0);
+    globals.System_Files___105381 = (s.tmp_0);
     r0 = pxsim_Array__mk();
-    globals.Current_Settings___94051 = (r0);
+    globals.Current_Settings___105401 = (r0);
     r0 = pxsim_String_.mkEmpty();
-    globals.SubMenu___94052 = (r0);
+    globals.SubMenu___105402 = (r0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, 10);
@@ -1210,23 +1210,23 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_0, 88);
     r0 = pxsim_Array__push(s.tmp_0, 101);
     r0 = pxsim_Array__push(s.tmp_0, 114);
-    globals.sillySpacingForListGUI___94062 = (s.tmp_0);
+    globals.sillySpacingForListGUI___105412 = (s.tmp_0);
     s.tmp_0 = pause__P413_mk(s);
     s.tmp_0.arg0 = 300;
     s.callLocIdx = 97; s.pc = 84; return s.tmp_0;
   case 84:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
-    s.tmp_0.arg0 = "> Void Kernel 2025.1";
+    s.tmp_0.arg0 = "> Void Kernel Micro";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
     s.callLocIdx = 98; s.pc = 85; return s.tmp_0;
   case 85:
     r0 = s.retval;
-    globals.text2___94065 = (r0);
+    globals.text2___105415 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text2___94065;
-    s.tmp_0.arg1 = 64;
+    s.tmp_0.arg0 = globals.text2___105415;
+    s.tmp_0.arg1 = 61;
     s.tmp_0.arg2 = 6;
     s.callLocIdx = 99; s.pc = 86; return s.tmp_0;
   case 86:
@@ -1238,9 +1238,9 @@ switch (step) {
     s.callLocIdx = 100; s.pc = 87; return s.tmp_0;
   case 87:
     r0 = s.retval;
-    globals.text3___94070 = (r0);
+    globals.text3___105420 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text3___94070;
+    s.tmp_0.arg0 = globals.text3___105420;
     s.tmp_0.arg1 = 55;
     s.tmp_0.arg2 = 16;
     s.callLocIdx = 101; s.pc = 88; return s.tmp_0;
@@ -1253,9 +1253,9 @@ switch (step) {
     s.callLocIdx = 102; s.pc = 89; return s.tmp_0;
   case 89:
     r0 = s.retval;
-    globals.text4___94075 = (r0);
+    globals.text4___105425 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text4___94075;
+    s.tmp_0.arg0 = globals.text4___105425;
     s.tmp_0.arg1 = 79;
     s.tmp_0.arg2 = 26;
     s.callLocIdx = 103; s.pc = 90; return s.tmp_0;
@@ -1273,15 +1273,15 @@ switch (step) {
     s.callLocIdx = 105; s.pc = 92; return s.tmp_0;
   case 92:
     r0 = s.retval;
-    globals.text___94026 = (r0);
+    globals.text___105376 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text___94026;
+    s.tmp_0.arg0 = globals.text___105376;
     s.tmp_0.arg1 = 79;
     s.tmp_0.arg2 = 36;
     s.callLocIdx = 106; s.pc = 93; return s.tmp_0;
   case 93:
     r0 = s.retval;
-    r0 = (globals.Settings___94023 == null);
+    r0 = (globals.Settings___105373 == null);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (!r0) { step = 1; continue; }
@@ -1317,18 +1317,18 @@ switch (step) {
     s.tmp_5 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_5);
     if (!r0) { step = 5; continue; }
-    globals.Settings___94023 = ("100010");
+    globals.Settings___105373 = ("100010");
     r0 = pxsim.radio.setGroup(113);
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "settings";
-    s.tmp_0.arg1 = globals.Settings___94023;
+    s.tmp_0.arg1 = globals.Settings___105373;
     s.callLocIdx = 107; s.pc = 96; return s.tmp_0;
   case 96:
     r0 = s.retval;
     { step = 6; continue; }
   case 5:
     s.tmp_2 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 4);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 4);
     s.tmp_2.arg0 = r0;
     s.tmp_2.arg1 = undefined;
     s.callLocIdx = 108; s.pc = 97; return s.tmp_2;
@@ -1381,7 +1381,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_9);
-    globals.Active_Processes___94112 = (s.tmp_0);
+    globals.Active_Processes___105462 = (s.tmp_0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - Radio");
@@ -1392,7 +1392,7 @@ switch (step) {
     s.tmp_1 = r0;
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_6 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 1);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 1);
     s.tmp_6.arg0 = r0;
     s.tmp_6.arg1 = 10;
     s.callLocIdx = 114; s.pc = 104; return s.tmp_6;
@@ -1417,7 +1417,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_7, "Mouse - Radio");
     s.tmp_9 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_12 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 2);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 2);
     s.tmp_12.arg0 = r0;
     s.tmp_12.arg1 = 10;
     s.callLocIdx = 116; s.pc = 106; return s.tmp_12;
@@ -1442,7 +1442,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_13, "Connectivity - Off");
     s.tmp_15 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_18 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 3);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 3);
     s.tmp_18.arg0 = r0;
     s.tmp_18.arg1 = 10;
     s.callLocIdx = 118; s.pc = 108; return s.tmp_18;
@@ -1461,7 +1461,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_14);
     s.tmp_20 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_25 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 4);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 4);
     s.tmp_25.arg0 = r0;
     s.tmp_25.arg1 = undefined;
     s.callLocIdx = 120; s.pc = 110; return s.tmp_25;
@@ -1507,7 +1507,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_27, "Wallpaper - Strings");
     s.tmp_29 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_31 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 5);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 5);
     s.tmp_31.arg0 = r0;
     s.tmp_31.arg1 = 10;
     s.callLocIdx = 122; s.pc = 114; return s.tmp_31;
@@ -1522,17 +1522,17 @@ switch (step) {
     r0 = s.retval;
     s.tmp_28 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_28);
-    globals.Current_Settings___94051 = (s.tmp_1);
+    globals.Current_Settings___105401 = (s.tmp_1);
     s.tmp_0 = blockSettings_readString__P4743_mk(s);
     s.tmp_0.arg0 = "file_names";
     s.callLocIdx = 124; s.pc = 115; return s.tmp_0;
   case 115:
     r0 = s.retval;
-    globals.fileNamesString___94182 = (r0);
-    r0 = pxsim_numops_toBoolDecr(globals.fileNamesString___94182);
+    globals.fileNamesString___105532 = (r0);
+    r0 = pxsim_numops_toBoolDecr(globals.fileNamesString___105532);
     if (!r0) { step = 7; continue; }
     s.tmp_0 = JSON_parse__P388_mk(s);
-    s.tmp_0.arg0 = globals.fileNamesString___94182;
+    s.tmp_0.arg0 = globals.fileNamesString___105532;
     s.callLocIdx = 125; s.pc = 116; return s.tmp_0;
   case 116:
     r0 = s.retval;
@@ -1542,8 +1542,8 @@ switch (step) {
   case 8:
     // jmp value (already in r0)
     s.tmp_1 = r0;
-    globals.User_Files_Temp___94185 = (s.tmp_1);
-    r0 = pxsim_Array__length(globals.User_Files_Temp___94185);
+    globals.User_Files_Temp___105535 = (s.tmp_1);
+    r0 = pxsim_Array__length(globals.User_Files_Temp___105535);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 === 0);
     s.tmp_0 = r0;
@@ -1584,11 +1584,11 @@ switch (step) {
     r0 = pxsim_Array__mk();
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_7, "Home");
-    globals.User_Files_Temp___94185 = (s.tmp_7);
+    globals.User_Files_Temp___105535 = (s.tmp_7);
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "file_names";
     s.tmp_1 = JSON_stringify__P387_mk(s);
-    s.tmp_1.arg0 = globals.User_Files_Temp___94185;
+    s.tmp_1.arg0 = globals.User_Files_Temp___105535;
     s.tmp_1.arg1 = null;
     s.tmp_1.arg2 = 0;
     s.callLocIdx = 126; s.pc = 120; return s.tmp_1;
@@ -1600,18 +1600,18 @@ switch (step) {
     r0 = s.retval;
   case 13:
   case 14:
-    s.i___94205 = (0);
+    s.i___105555 = (0);
   case 15:
-    s.tmp_1 = r0 = s.i___94205;
-    r0 = pxsim_Array__length(globals.User_Files_Temp___94185);
+    s.tmp_1 = r0 = s.i___105555;
+    r0 = pxsim_Array__length(globals.User_Files_Temp___105535);
     s.tmp_2 = r0;
     r0 = (s.tmp_1 < s.tmp_2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 16; continue; }
-    s.tmp_3 = r0 = globals.User_Files___94028;
+    s.tmp_3 = r0 = globals.User_Files___105378;
     s.tmp_5 = miniMenu_createMenuItem__P4522_mk(s);
-    r0 = pxsim_Array__getAt(globals.User_Files_Temp___94185, s.i___94205);
+    r0 = pxsim_Array__getAt(globals.User_Files_Temp___105535, s.i___105555);
     s.tmp_5.arg0 = r0;
     s.tmp_5.arg1 = undefined;
     s.callLocIdx = 128; s.pc = 121; return s.tmp_5;
@@ -1619,8 +1619,8 @@ switch (step) {
     r0 = s.retval;
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_3, s.tmp_4);
-    r0 = (s.i___94205 + 1);
-    s.i___94205 = (r0);
+    r0 = (s.i___105555 + 1);
+    s.i___105555 = (r0);
     { step = 15; continue; }
   case 16:
     s.tmp_0 = pause__P413_mk(s);
@@ -1630,14 +1630,14 @@ switch (step) {
   case 122:
     r0 = s.retval;
     s.tmp_0 = sprites_destroy__P2291_mk(s);
-    s.tmp_0.arg0 = globals.text___94026;
+    s.tmp_0.arg0 = globals.text___105376;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 130; s.pc = 123; return s.tmp_0;
   case 123:
     r0 = s.retval;
     s.tmp_0 = sprites_destroy__P2291_mk(s);
-    s.tmp_0.arg0 = globals.text2___94065;
+    s.tmp_0.arg0 = globals.text2___105415;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 131; s.pc = 124; return s.tmp_0;
@@ -1674,7 +1674,7 @@ switch (step) {
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
     s.tmp_10 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 5);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 5);
     s.tmp_10.arg0 = r0;
     s.tmp_10.arg1 = 10;
     s.callLocIdx = 136; s.pc = 129; return s.tmp_10;
@@ -1682,39 +1682,39 @@ switch (step) {
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_9);
-    globals.Wallpaper___94232 = (r0);
+    globals.Wallpaper___105582 = (r0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
-    s.tmp_0.arg0 = globals.Wallpaper___94232;
+    s.tmp_0.arg0 = globals.Wallpaper___105582;
     s.callLocIdx = 137; s.pc = 130; return s.tmp_0;
   case 130:
     r0 = s.retval;
-    s.tmp_0 = Define_Sprites__P94250_mk(s);
+    s.tmp_0 = Define_Sprites__P105600_mk(s);
     s.callLocIdx = 138; s.pc = 131; return s.tmp_0;
   case 131:
     r0 = s.retval;
     s.tmp_0 = controller_Button_onEvent__P2210_mk(s);
     s.tmp_0.arg0 = globals.A___2127;
     s.tmp_0.arg1 = 2049;
-    s.tmp_0.arg2 = inline__P94254;
+    s.tmp_0.arg2 = inline__P105604;
     s.callLocIdx = 210; s.pc = 132; return s.tmp_0;
   case 132:
     r0 = s.retval;
     s.tmp_0 = controller_Button_onEvent__P2210_mk(s);
     s.tmp_0.arg0 = globals.B___2128;
     s.tmp_0.arg1 = 2049;
-    s.tmp_0.arg2 = inline__P94351;
+    s.tmp_0.arg2 = inline__P105701;
     s.callLocIdx = 211; s.pc = 133; return s.tmp_0;
   case 133:
     r0 = s.retval;
     s.tmp_0 = controller_Button_onEvent__P2210_mk(s);
     s.tmp_0.arg0 = globals.menu___2133;
     s.tmp_0.arg1 = 2049;
-    s.tmp_0.arg2 = inline__P94355;
+    s.tmp_0.arg2 = inline__P105705;
     s.callLocIdx = 214; s.pc = 134; return s.tmp_0;
   case 134:
     r0 = s.retval;
     s.tmp_0 = forever__P2097_mk(s);
-    s.tmp_0.arg0 = inline__P94361;
+    s.tmp_0.arg0 = inline__P105711;
     s.callLocIdx = 217; s.pc = 135; return s.tmp_0;
   case 135:
     r0 = s.retval;
@@ -1722,13 +1722,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P93969.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P93969.continuations = [ 60,61,62,63,111,112 ]
+_main___P105319.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P105319.continuations = [ 60,61,62,63,111,112 ]
 
-function _main___P93969_mk(s) {
+function _main___P105319_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P93969, depth: s.depth + 1,
+        parent: s, fn: _main___P105319, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1762,7 +1762,7 @@ function _main___P93969_mk(s) {
   tmp_29: undefined,
   tmp_30: undefined,
   tmp_31: undefined,
-  i___94205: undefined,
+  i___105555: undefined,
 } }
 
 const _hex8481 = pxsim.BufferMethods.createBufferFromHex("2000000000000000210000005e0000002200000e000e0000230028fe28fe280024004c92ff926400250002651248a64026006c92926ca000270000000e000000280000007c82000029000000827c00002a005438103854002b0010107c1010002c000000907000002d001010101010002e000000606000002f000060100806003000003c42423c00310000447e4000003200004462524c00330000424a4e320034003028247e20003500004e4a4a32003600003c4a4a30003700000262120e00380000344a4a34003900000c52523c003a0000006c6c00003b000000967600003c001028284444003d002828282828003e004444282810003f0000025909060040003c425a560800410078141214780042007e4a4a4a34004300003c424224004400007e42423c004500007e4a4a42004600007e0a0a02004700003c425234004800007e08087e00490000427e4200004a002040423e02004b00007e081462004c00007e404040004d007e0418047e004e00007e04087e004f003c4242423c005000007e12120c005100003c5262bc005200007e12126c00530000244a522400540002027e0202005500003e40403e005600001e70701e0057007e2018207e00580042241824420059000608700806005a000062524a46005b00007e424200005c000006081060005d000042427e00005e000804020408005f00808080808000600000000204000061000030484878006200007e4848300063000030484848006400003048487e006500003068585000660000107c12040067000018a4a478006800007e08087000690000487a4000006a000040847d00006b00007e102840006c0000427e4000006d007808300870006e000078080870006f00003048483000700000fc24241800710000182424fc0072000078100810007300005058682800740000083e48200075000038404078007600001860601800770038403040380078000048303048007900005ca0a07c007a000048685848007b000008364100007c000000fe0000007d000041360800007e00000804080400a000000000000000a10000007a000000a200003048fc4800a30090fc92928400a400542844285400a5002a2c782c2a00a6000000ee000000a7000094aaaa5200a800000200020000a9003e414955413eaa0000242a2e0000ab00102854284400ac00001010107000ad00001010101000ae003e415d45413eaf00000202020200b000000814140800b1008888be888800b2000024322c0000b30000222a140000b400000004020000b50000f840207800b6000c1e7e027e00b700000010000000b800000080400000b90000243e200000ba0000242a240000bb00442854281000bc00025f70f84000bd00021f90c8b000be0011557af84000bf000030484d2000c000601916186000c100601816196000c200601a151a6000c300601a151a6100c400601914196000c500601a151a6000c6007c0a7e4a4200c700001ea1611200c800007c55564400c900007c56554400ca00007c56554600cb00007c55544500cc0000457e440000cd0000447e450000ce0000467d460000cf0000457c450000d000087e4a423c00d100007e09127d00d200003845463800d300003846453800d400003846453a00d500003a45463900d600003845443900d700442810284400d80000fc724e3f00d900003c41423c00da00003c42413c00db00003c42413e00dc00003c41403d00dd00040872090400de00007e24241800df00007c025a2400e0000030494a7800e10000304a497800e20000304a497a00e3000032494a7900e40000304a487a00e50000304a4d7a00e600304878685000e7000018a4642400e8000030695a5000e90000306a595000ea0000306a595200eb0000306a585200ec0000497a400000ed0000487a410000ee00004a79420000ef00004a78420000f00000304a4b3d00f100007a090a7100f2000030494a3000f30000304a493000f40000304a493200f5000032494a3100f60000304a483200f700101054101000f800007068583800f900003841427800fa00003842417800fb00003842417a00fc00003842407a00fd0000b84241f800fe0000ff24241800ff00005ca1a07d000001601915196000010100304a4a7a000201611a16196000030100314a4a790004013c0a094abc00050100182464bc000601003846452800070100304a4948000801003846452a00090100304a494a000a010038444528000b010030484a48000c010038454629000d010030494a49000e01007c454639000f0100314a497e001001087e4a423c00110130484c7e04001201007d55554500130100326a5a52001401007d56564500150100316a5a51001601007c55544400170100306a5850001801003f65a521001901001874ac28001a01007c555645001b010030695a51001c010038465536001d0100304a49f2001e010039465635001f0100314a4af100200100384455340021010018a4a578002201001ea1691a0023010018a6a578002401007812117a0025017e080a7102002601047e147e04002701047e0c08700028010002457e450029010002497a41002a0100457d4500002b01004a7a4200002c0100014a7a49002d0100014a7a41002e0100217fa100002f0100247da00000300100447d440000310100487840000032017e0022423e0033013d0040847d0034012040463d0600350100800af90200360100bf440a3100370100bf4814200038010078102848003901007c404241003a0100467d4000003b01003fa06020003c0100a17f2000003d01007c414241003e0100457e4100003f01007e40484000400100427e4008004101107e48404000420100527e4800004301007c0a117c00440100780a097000450100bf42043f00460100bc440438004701007c09127d00480100790a09700049010a06780870004a01003f02847f004b01003c048478004c013945454539004d0100324a4a32004e013946464639004f0100314a4a310050013a4544463900510132494832010052013c427e4a420053013048306850005401007c163548005501007812091000560100bf49093600570100bc480408005801007d1635480059010079120910005a010048565524005b0100505a6928005c010048565526005d0100505a692a005e010012a56912005f010028ac741400600100485556250061010050596a290062010101bf410100630100049f641000640104057e050400650100083d4a2100660102127e120200670100183e5820006801003a414239006901003a414279006a01003d41413d006b01003a42427a006c010039424239006d010039424279006e01003a45453a006f01003a45457a0070013a41403a010071013a41407a01007201001f60a01f007301001c60a03c00740178221122780075013842314238007601081261120800770100b84241fa00780104097009040079010064564d44007a0100486a5948007b010064544d44007c010048685a48007d010064554e45007e010048695a49007f0100087c0204008f01003452523c00920100887e090200a0013c42423c0806a101003048483008af01003e403e0806b001003840781008b501006a5a4a4e00b601005878585800d101003845463900d2010030494a3100e601003845563500e7010030494af100fa0100742a750000fb0100304c4a7d00fc0178147e554400fd0130487a695000fe010078744e3d00ff0100706a59380018020012a569120019020028ac7414001a020101bf4101001b0200049f641000bb0200000c0a0000bc0200000a060000bd020000060a0000c602000201020000c702000102010000c902000202020000d802000102020100d902000002000000da02000205020000db02000040800000dc02000201020100dd02020100020100740300000201000075030000804000007a030000c08000007e03000096760000840300000300000085030200030002008603037c12127c008703000010000000880303007e4a4200890303007e087e008a030300427e42008c03033c42423c008e0303000e700e008f03035c62625c00900302003b400200910378141214780092037e4a4a4a34009303007e0202020094036058465860009503007e4a4a420096030062524a46009703007e08087e0098033c4a4a4a3c00990300427e4200009a03007e081462009b036018061860009c037e0418047e009d03007e04087e009e0300424a4a42009f033c4242423c00a003007e02027e00a103007e12120c00a30300665a424200a40302027e020200a503060870080600a60318247e241800a703422418244200a8030e107e100e00a9035c6202625c00aa0300457c450000ab03040970090400ac030030484a7900ad030030685a5100ae0378100a09f000af03003a41200000b0033a4043403a00b103003048487800b20300fe25251a00b3030c30c0300c00b403344a4a4a3000b503003068585000b603021aa6a24200b7033c080404f800b803003c4a4a3c00b903003840200000ba03007820504800bb03641212227c00bc03fc2020103c00bd03182040201800be03112d2ba94100bf03003048483000c003087808780800c103f82424241800c2031824a4a44800c303304848582800c403000838482800c503384040403800c6031c20f8241800c703c4281028c400c8031c20fc201c00c903304820483000ca03000238422000cb03384240423800cc0330484a493000cd03384042413800ce03304822493000d0033c52525c2000d10310344a3c0800d203067804020400d303120a7c020400d4030d7009040800d5031824ff241800d603384828483800d70348302221d800da031c2221a14200db031824a4a44200dc037e1212020200dd0300fc24240400de033e2010087c00df030c0ac9281800e003700c621c7000e10301092516f800e2039ea0bea07e00e30398a0b8a07800e4030c1214107e00e503001028207800e603be9088887000e70348544e443800e803245252524c00e903285454544800ea0364524c526400eb03086458640800ec03385454542200ed03306848682400ee03184a7e4a1800ef031848ff0a0800f003483020205800f10378a4a4a49800f203304848485000f303006080847d00f4033c4a4a4a3c00f5030030585848000004007c555644000104007c55544500020401013f8579000304007c0605040004043c4a4a422400050400244a522400060400427e420000070400457c45000008042040423e020009047c027e4830000a047e087e4830000b0402027e0a72000c04007c102a45000d047c2112087c000e040c5152523d000f043f20e0203f00100478141214780011047e4a4a4a300012047e4a4a4a34001304007e020202001404c07c427ec0001504007e4a4a4200160476087e087600170424424a4a34001804007e08047e001904007d120a7d001a04007e081462001b04403c02027e001c047e0418047e001d04007e08087e001e043c4242423c001f047e0202027e002004007e12120c002104003c42422400220402027e02020023040e5050503e00240418247e241800250442241824420026043f2020bf600027040e1010107e0028047e407e407e0029043f203fa07f002a04027e484830002b047e4848307e002c04007e484830002d0424424a4a3c002e047e183c423c002f04006c12127e0030043048487840003104003c4a4a3100320400786850200033040078080808003404c0704878c000350430686850000036044830783048003704004058683000380478402010780039047942221279003a040078203048003b044030080878003c047810201078003d047810101078003e043048484830003f047808080878004004fc24242418004104304848485000420408087808080043041ca0a0a07c0044041824ff241800450400483030480046043c2020bc60004704182020207800480478407840780049043c203ca07c004a040878505020004b047850502078004c040078505020004d044858683000004e047830304830004f0450282878000050040030696a500051040032686a50005204023f0a887000530400780a09080054040030685848005504005058682800560400487a4000005704004a784200005804004080847d0059047008785020005a047810785020005b04047e141060005c040078223148005d047841221078005e0418a1a2a279005f043c20e0203c006204027f4a4830006304087e5850200070040e107e100e00710418207820180072043c4a4a4a3c0073043068586830007404001e70180c0075040018603010009004007e020203009104007808080c009204087e0a0a0200930420782808080096043b043f043be0970424183c1824c09a04003f040a31c09b04003c101824c0ae04060870080600af040c10e0100c00b004161870181600b1042c30e0302c00b20421120c1221c0b3040024181824c0ba047e0808087000bb04007e08087000d804003452523c00d904002868583000e20400457d450000e304004a7a420000e8043c4a4a4a3c00e904003058583000ee04003d41413d00ef04003a42427a00d005681020285000d105484848784000d205004830600000d305080808780800d405680808087800d505000008780000d605080818680800d705087808087800d805784050487800d905000008180000da0504040404fc00db05484848483800dc050e4848281800dd05087848487800de05582010487000df05000004fc0000e005004040487800e105000878483800e205487840281800e305041c0404fc00e405485848483800e50504f820140800e605485060685000e705f40424241c00e805080808087000e905785058403800ea05487808087800f005087800087800f105081800087800f205081800081800f305000010080000f405100800100800021e7c5455542800031e007e484930000a1e007c454438000b1e003049487e001e1e007c151404001f1e001079140800401e7e0419047e00411e780832087000561e007c15140800571e00fc25241800601e004854552400611e0050586a28006a1e04047d0404006b1e00083d482000801e7c2112207c00811e384132403800821e7c2012217c00831e384032413800841e7c2110217c00851e384230423800f21e040972080400f31e00b84142f800a3207e0a7a120a00a420a8fcaa828400a720087e2a1c0800ab200098a4a6bf02ac20183c5a5a4200af20627f224438009021103854101000912108047e0408009221101054381000932110207e201000942110381010381095212844fe442800")
@@ -2752,7 +2752,7 @@ function myTiles_inline__P7528_mk(s) {
 
 
 
-function inline__P94254(s) {
+function inline__P105604(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2762,10 +2762,10 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.menu_selection___94315 = undefined;
-    s.i___94316 = undefined;
+    s.menu_selection___105665 = undefined;
+    s.i___105666 = undefined;
     s.tmp_1 = spriteutils_isDestroyed__P4558_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
     s.callLocIdx = 180; s.pc = 31; return s.tmp_1;
   case 31:
     r0 = s.retval;
@@ -2775,19 +2775,19 @@ switch (step) {
     { step = 30; continue; }
   case 1:
     s.tmp_3 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_3.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_3.arg1 = globals.xCell_Icon___94011;
+    s.tmp_3.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_3.arg1 = globals.xCell_Icon___105361;
     s.callLocIdx = 181; s.pc = 32; return s.tmp_3;
   case 32:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 2; continue; }
-    s.tmp_4 = close_apps__P94261_mk(s);
+    s.tmp_4 = close_apps__P105611_mk(s);
     s.callLocIdx = 182; s.pc = 33; return s.tmp_4;
   case 33:
     r0 = s.retval;
-    s.tmp_0 = Open_xCell__P94263_mk(s);
+    s.tmp_0 = Open_xCell__P105613_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 183; s.pc = 34; return s.tmp_0;
@@ -2796,19 +2796,19 @@ switch (step) {
     { step = 29; continue; }
   case 2:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Write_icon___94007;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Write_icon___105357;
     s.callLocIdx = 184; s.pc = 35; return s.tmp_1;
   case 35:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 185; s.pc = 36; return s.tmp_2;
   case 36:
     r0 = s.retval;
-    s.tmp_0 = Open_Write__P94269_mk(s);
+    s.tmp_0 = Open_Write__P105619_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 186; s.pc = 37; return s.tmp_0;
@@ -2817,164 +2817,164 @@ switch (step) {
     { step = 28; continue; }
   case 3:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Web_Chat_Icon___94005;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Web_Chat_Icon___105355;
     s.callLocIdx = 187; s.pc = 38; return s.tmp_1;
   case 38:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 4; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 188; s.pc = 39; return s.tmp_2;
   case 39:
     r0 = s.retval;
-    s.tmp_0 = Open_Web__P94275_mk(s);
+    s.tmp_0 = Open_Web__P105625_mk(s);
     s.callLocIdx = 189; s.pc = 40; return s.tmp_0;
   case 40:
     r0 = s.retval;
     { step = 27; continue; }
   case 4:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Settings_Icon___94003;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Settings_Icon___105353;
     s.callLocIdx = 190; s.pc = 41; return s.tmp_1;
   case 41:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 191; s.pc = 42; return s.tmp_2;
   case 42:
     r0 = s.retval;
-    s.tmp_0 = Open_Settings__P94281_mk(s);
+    s.tmp_0 = Open_Settings__P105631_mk(s);
     s.callLocIdx = 192; s.pc = 43; return s.tmp_0;
   case 43:
     r0 = s.retval;
     { step = 26; continue; }
   case 5:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.File_Manager_Icon___93999;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.File_Manager_Icon___105349;
     s.callLocIdx = 193; s.pc = 44; return s.tmp_1;
   case 44:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 6; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 194; s.pc = 45; return s.tmp_2;
   case 45:
     r0 = s.retval;
-    s.tmp_0 = Open_FileManager__P94287_mk(s);
+    s.tmp_0 = Open_FileManager__P105637_mk(s);
     s.callLocIdx = 195; s.pc = 46; return s.tmp_0;
   case 46:
     r0 = s.retval;
     { step = 25; continue; }
   case 6:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.NanoCode_Icon___93997;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.NanoCode_Icon___105347;
     s.callLocIdx = 196; s.pc = 47; return s.tmp_1;
   case 47:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 7; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 197; s.pc = 48; return s.tmp_2;
   case 48:
     r0 = s.retval;
-    s.tmp_0 = Open_NanoCode__P94293_mk(s);
+    s.tmp_0 = Open_NanoCode__P105643_mk(s);
     s.callLocIdx = 198; s.pc = 49; return s.tmp_0;
   case 49:
     r0 = s.retval;
     { step = 24; continue; }
   case 7:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Process_Icon___94001;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Process_Icon___105351;
     s.callLocIdx = 199; s.pc = 50; return s.tmp_1;
   case 50:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 8; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 200; s.pc = 51; return s.tmp_2;
   case 51:
     r0 = s.retval;
-    s.tmp_0 = Open_ProcessManager__P94299_mk(s);
+    s.tmp_0 = Open_ProcessManager__P105649_mk(s);
     s.callLocIdx = 201; s.pc = 52; return s.tmp_0;
   case 52:
     r0 = s.retval;
     { step = 23; continue; }
   case 8:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Library_icon___94009;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Library_icon___105359;
     s.callLocIdx = 202; s.pc = 53; return s.tmp_1;
   case 53:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 9; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 203; s.pc = 54; return s.tmp_2;
   case 54:
     r0 = s.retval;
-    s.tmp_0 = Open_Library__P94305_mk(s);
+    s.tmp_0 = Open_Library__P105655_mk(s);
     s.callLocIdx = 204; s.pc = 55; return s.tmp_0;
   case 55:
     r0 = s.retval;
     { step = 22; continue; }
   case 9:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Close_App___94017;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Close_App___105367;
     s.callLocIdx = 205; s.pc = 56; return s.tmp_1;
   case 56:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 10; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 206; s.pc = 57; return s.tmp_2;
   case 57:
     r0 = s.retval;
     { step = 21; continue; }
   case 10:
-    r0 = (globals.App_Open___94018 == "File Manager");
+    r0 = (globals.App_Open___105368 == "File Manager");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (!r0) { step = 11; continue; }
     r0 = s.tmp_0;
     { step = 12; continue; }
   case 11:
-    r0 = (globals.App_Open___94018 == "Settings");
+    r0 = (globals.App_Open___105368 == "Settings");
   case 12:
     // jmp value (already in r0)
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 19; continue; }
-    s.menu_selection___94315 = (0);
-    s.i___94316 = (0);
+    s.menu_selection___105665 = (0);
+    s.i___105666 = (0);
   case 13:
-    s.tmp_1 = r0 = s.i___94316;
-    r0 = pxsim_Array__length(globals.ListMenuContents___94027);
+    s.tmp_1 = r0 = s.i___105666;
+    r0 = pxsim_Array__length(globals.ListMenuContents___105377);
     s.tmp_2 = r0;
     r0 = (s.tmp_1 < s.tmp_2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 18; continue; }
     s.tmp_5 = Sprite_y__P2370_mk(s);
-    s.tmp_5.arg0 = globals.Mouse_Cursor___94013;
+    s.tmp_5.arg0 = globals.Mouse_Cursor___105363;
     s.callLocIdx = 207; s.pc = 58; return s.tmp_5;
   case 58:
     r0 = s.retval;
     s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(globals.sillySpacingForListGUI___94062, s.i___94316);
+    r0 = pxsim_Array__getAt(globals.sillySpacingForListGUI___105412, s.i___105666);
     s.tmp_6 = r0;
     r0 = (s.tmp_4 > s.tmp_6);
     s.tmp_3 = r0;
@@ -2984,12 +2984,12 @@ switch (step) {
     { step = 15; continue; }
   case 14:
     s.tmp_8 = Sprite_y__P2370_mk(s);
-    s.tmp_8.arg0 = globals.Mouse_Cursor___94013;
+    s.tmp_8.arg0 = globals.Mouse_Cursor___105363;
     s.callLocIdx = 208; s.pc = 59; return s.tmp_8;
   case 59:
     r0 = s.retval;
     s.tmp_7 = r0;
-    r0 = pxsim_Array__getAt(globals.sillySpacingForListGUI___94062, s.i___94316);
+    r0 = pxsim_Array__getAt(globals.sillySpacingForListGUI___105412, s.i___105666);
     s.tmp_10 = r0;
     r0 = (s.tmp_10 + 12);
     s.tmp_9 = r0;
@@ -2999,20 +2999,20 @@ switch (step) {
     s.tmp_11 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_11);
     if (!r0) { step = 16; continue; }
-    r0 = (s.i___94316 + 1);
-    s.menu_selection___94315 = (r0);
-    s.tmp_0 = listSelection__P94342_mk(s);
-    s.tmp_0.arg0 = globals.App_Open___94018;
-    s.tmp_0.arg1 = s.menu_selection___94315;
-    s.tmp_0.arg2 = globals.SubMenu___94052;
+    r0 = (s.i___105666 + 1);
+    s.menu_selection___105665 = (r0);
+    s.tmp_0 = listSelection__P105692_mk(s);
+    s.tmp_0.arg0 = globals.App_Open___105368;
+    s.tmp_0.arg1 = s.menu_selection___105665;
+    s.tmp_0.arg2 = globals.SubMenu___105402;
     s.callLocIdx = 209; s.pc = 60; return s.tmp_0;
   case 60:
     r0 = s.retval;
     { step = 18; continue; }
   case 16:
   case 17:
-    r0 = (s.i___94316 + 1);
-    s.i___94316 = (r0);
+    r0 = (s.i___105666 + 1);
+    s.i___105666 = (r0);
     { step = 13; continue; }
   case 18:
   case 19:
@@ -3031,12 +3031,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P94254.info = {"start":5961,"length":1540,"line":116,"column":52,"endLine":155,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P105604.info = {"start":5960,"length":1540,"line":116,"column":52,"endLine":155,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P94254_mk(s) {
+function inline__P105604_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P94254, depth: s.depth + 1,
+        parent: s, fn: inline__P105604, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -3050,15 +3050,15 @@ function inline__P94254_mk(s) {
   tmp_9: undefined,
   tmp_10: undefined,
   tmp_11: undefined,
-  menu_selection___94315: undefined,
-  i___94316: undefined,
+  menu_selection___105665: undefined,
+  i___105666: undefined,
 } }
 
 
 
 
 
-function inline__P94351(s) {
+function inline__P105701(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3072,12 +3072,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P94351.info = {"start":7556,"length":18,"line":156,"column":52,"endLine":158,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P105701.info = {"start":7555,"length":18,"line":156,"column":52,"endLine":158,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P94351_mk(s) {
+function inline__P105701_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P94351, depth: s.depth + 1,
+        parent: s, fn: inline__P105701, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
 } }
 
@@ -3085,7 +3085,7 @@ function inline__P94351_mk(s) {
 
 
 
-function inline__P94355(s) {
+function inline__P105705(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3095,17 +3095,17 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    r0 = (globals.App_Open___94018 == "null");
+    r0 = (globals.App_Open___105368 == "null");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.tmp_1 = Open_Library__P94305_mk(s);
+    s.tmp_1 = Open_Library__P105655_mk(s);
     s.callLocIdx = 212; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     { step = 2; continue; }
   case 1:
-    s.tmp_0 = close_apps__P94261_mk(s);
+    s.tmp_0 = close_apps__P105611_mk(s);
     s.callLocIdx = 213; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
@@ -3114,12 +3114,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P94355.info = {"start":7634,"length":115,"line":160,"column":55,"endLine":166,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P105705.info = {"start":7633,"length":115,"line":160,"column":55,"endLine":166,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P94355_mk(s) {
+function inline__P105705_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P94355, depth: s.depth + 1,
+        parent: s, fn: inline__P105705, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -3129,7 +3129,7 @@ function inline__P94355_mk(s) {
 
 
 
-function inline__P94361(s) {
+function inline__P105711(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3144,7 +3144,7 @@ switch (step) {
     s.callLocIdx = 215; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    s.tmp_0 = Start_Icon_Names__P94364_mk(s);
+    s.tmp_0 = Start_Icon_Names__P105714_mk(s);
     s.callLocIdx = 216; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
@@ -3152,12 +3152,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P94361.info = {"start":7863,"length":132,"line":177,"column":8,"endLine":181,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P105711.info = {"start":7862,"length":132,"line":177,"column":8,"endLine":181,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P94361_mk(s) {
+function inline__P105711_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P94361, depth: s.depth + 1,
+        parent: s, fn: inline__P105711, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -3166,7 +3166,7 @@ function inline__P94361_mk(s) {
 
 
 
-function Start_Icon_Names__P94364(s) {
+function Start_Icon_Names__P105714(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3176,30 +3176,30 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.otherColor___94368 = undefined;
-    s.color24___94369 = undefined;
-    s.otherColor___94368 = (12);
-    s.color24___94369 = (1);
-    r0 = (globals.App_Open___94018 == "null");
+    s.otherColor___105718 = undefined;
+    s.color24___105719 = undefined;
+    s.otherColor___105718 = (12);
+    s.color24___105719 = (1);
+    r0 = (globals.App_Open___105368 == "null");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (!r0) { step = 1; continue; }
     r0 = s.tmp_0;
     { step = 2; continue; }
   case 1:
-    r0 = (globals.App_Open___94018 == "NanoCode");
+    r0 = (globals.App_Open___105368 == "NanoCode");
   case 2:
     // jmp value (already in r0)
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 3; continue; }
-    s.otherColor___94368 = (1);
-    s.color24___94369 = (15);
+    s.otherColor___105718 = (1);
+    s.color24___105719 = (15);
   case 3:
   case 4:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.xCell_Icon___94011;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.xCell_Icon___105361;
     s.callLocIdx = 218; s.pc = 21; return s.tmp_1;
   case 21:
     r0 = s.retval;
@@ -3207,20 +3207,20 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.xCell_Icon___94011;
+    s.tmp_2.arg0 = globals.xCell_Icon___105361;
     s.tmp_2.arg1 = "xCell";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___94369;
-    s.tmp_2.arg5 = s.otherColor___94368;
+    s.tmp_2.arg4 = s.color24___105719;
+    s.tmp_2.arg5 = s.otherColor___105718;
     s.callLocIdx = 219; s.pc = 22; return s.tmp_2;
   case 22:
     r0 = s.retval;
     { step = 20; continue; }
   case 5:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Write_icon___94007;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Write_icon___105357;
     s.callLocIdx = 220; s.pc = 23; return s.tmp_1;
   case 23:
     r0 = s.retval;
@@ -3228,20 +3228,20 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 6; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Write_icon___94007;
+    s.tmp_2.arg0 = globals.Write_icon___105357;
     s.tmp_2.arg1 = "Write";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___94369;
-    s.tmp_2.arg5 = s.otherColor___94368;
+    s.tmp_2.arg4 = s.color24___105719;
+    s.tmp_2.arg5 = s.otherColor___105718;
     s.callLocIdx = 221; s.pc = 24; return s.tmp_2;
   case 24:
     r0 = s.retval;
     { step = 19; continue; }
   case 6:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Web_Chat_Icon___94005;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Web_Chat_Icon___105355;
     s.callLocIdx = 222; s.pc = 25; return s.tmp_1;
   case 25:
     r0 = s.retval;
@@ -3249,20 +3249,20 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 7; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Web_Chat_Icon___94005;
+    s.tmp_2.arg0 = globals.Web_Chat_Icon___105355;
     s.tmp_2.arg1 = "Web Chat";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___94369;
-    s.tmp_2.arg5 = s.otherColor___94368;
+    s.tmp_2.arg4 = s.color24___105719;
+    s.tmp_2.arg5 = s.otherColor___105718;
     s.callLocIdx = 223; s.pc = 26; return s.tmp_2;
   case 26:
     r0 = s.retval;
     { step = 18; continue; }
   case 7:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Settings_Icon___94003;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Settings_Icon___105353;
     s.callLocIdx = 224; s.pc = 27; return s.tmp_1;
   case 27:
     r0 = s.retval;
@@ -3270,20 +3270,20 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 8; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Settings_Icon___94003;
+    s.tmp_2.arg0 = globals.Settings_Icon___105353;
     s.tmp_2.arg1 = "Settings";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___94369;
-    s.tmp_2.arg5 = s.otherColor___94368;
+    s.tmp_2.arg4 = s.color24___105719;
+    s.tmp_2.arg5 = s.otherColor___105718;
     s.callLocIdx = 225; s.pc = 28; return s.tmp_2;
   case 28:
     r0 = s.retval;
     { step = 17; continue; }
   case 8:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.File_Manager_Icon___93999;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.File_Manager_Icon___105349;
     s.callLocIdx = 226; s.pc = 29; return s.tmp_1;
   case 29:
     r0 = s.retval;
@@ -3291,20 +3291,20 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 9; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.File_Manager_Icon___93999;
+    s.tmp_2.arg0 = globals.File_Manager_Icon___105349;
     s.tmp_2.arg1 = "File Manager";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___94369;
-    s.tmp_2.arg5 = s.otherColor___94368;
+    s.tmp_2.arg4 = s.color24___105719;
+    s.tmp_2.arg5 = s.otherColor___105718;
     s.callLocIdx = 227; s.pc = 30; return s.tmp_2;
   case 30:
     r0 = s.retval;
     { step = 16; continue; }
   case 9:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.NanoCode_Icon___93997;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.NanoCode_Icon___105347;
     s.callLocIdx = 228; s.pc = 31; return s.tmp_1;
   case 31:
     r0 = s.retval;
@@ -3312,20 +3312,20 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 10; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.NanoCode_Icon___93997;
+    s.tmp_2.arg0 = globals.NanoCode_Icon___105347;
     s.tmp_2.arg1 = "NanoCode";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___94369;
-    s.tmp_2.arg5 = s.otherColor___94368;
+    s.tmp_2.arg4 = s.color24___105719;
+    s.tmp_2.arg5 = s.otherColor___105718;
     s.callLocIdx = 229; s.pc = 32; return s.tmp_2;
   case 32:
     r0 = s.retval;
     { step = 15; continue; }
   case 10:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Process_Icon___94001;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Process_Icon___105351;
     s.callLocIdx = 230; s.pc = 33; return s.tmp_1;
   case 33:
     r0 = s.retval;
@@ -3333,20 +3333,20 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 11; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Process_Icon___94001;
+    s.tmp_2.arg0 = globals.Process_Icon___105351;
     s.tmp_2.arg1 = "Process Manager";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___94369;
-    s.tmp_2.arg5 = s.otherColor___94368;
+    s.tmp_2.arg4 = s.color24___105719;
+    s.tmp_2.arg5 = s.otherColor___105718;
     s.callLocIdx = 231; s.pc = 34; return s.tmp_2;
   case 34:
     r0 = s.retval;
     { step = 14; continue; }
   case 11:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___94013;
-    s.tmp_1.arg1 = globals.Library_icon___94009;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___105363;
+    s.tmp_1.arg1 = globals.Library_icon___105359;
     s.callLocIdx = 232; s.pc = 35; return s.tmp_1;
   case 35:
     r0 = s.retval;
@@ -3354,12 +3354,12 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 12; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Library_icon___94009;
+    s.tmp_2.arg0 = globals.Library_icon___105359;
     s.tmp_2.arg1 = ".    Library";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___94369;
-    s.tmp_2.arg5 = s.otherColor___94368;
+    s.tmp_2.arg4 = s.color24___105719;
+    s.tmp_2.arg5 = s.otherColor___105718;
     s.callLocIdx = 233; s.pc = 36; return s.tmp_2;
   case 36:
     r0 = s.retval;
@@ -3376,18 +3376,18 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Start_Icon_Names__P94364.info = {"start":8000,"length":1269,"line":183,"column":0,"endLine":207,"endColumn":1,"fileName":"main.ts","functionName":"Start_Icon_Names","argumentNames":[]}
+Start_Icon_Names__P105714.info = {"start":7999,"length":1269,"line":183,"column":0,"endLine":207,"endColumn":1,"fileName":"main.ts","functionName":"Start_Icon_Names","argumentNames":[]}
 
-function Start_Icon_Names__P94364_mk(s) {
+function Start_Icon_Names__P105714_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Start_Icon_Names__P94364, depth: s.depth + 1,
+        parent: s, fn: Start_Icon_Names__P105714, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  otherColor___94368: undefined,
-  color24___94369: undefined,
+  otherColor___105718: undefined,
+  color24___105719: undefined,
 } }
 
 
@@ -6159,7 +6159,7 @@ function helpers_arrayForEach__P109_mk(s) {
 
 
 
-function listSelection__P94342(s) {
+function listSelection__P105692(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -6169,7 +6169,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.FileAtSelection___94489 = undefined;
+    s.FileAtSelection___105839 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -6184,24 +6184,24 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 19; continue; }
-    s.tmp_2 = close_apps__P94261_mk(s);
+    s.tmp_2 = close_apps__P105611_mk(s);
     s.callLocIdx = 336; s.pc = 99; return s.tmp_2;
   case 99:
     r0 = s.retval;
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    globals.SubMenu___94052 = ("Home");
-    s.tmp_0 = Open_FileManager__P94287_mk(s);
+    globals.SubMenu___105402 = ("Home");
+    s.tmp_0 = Open_FileManager__P105637_mk(s);
     s.callLocIdx = 337; s.pc = 100; return s.tmp_0;
   case 100:
     r0 = s.retval;
     { step = 18; continue; }
   case 1:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 2);
     s.tmp_0 = r0;
@@ -6213,37 +6213,37 @@ switch (step) {
     r0 = s.retval;
     { step = 17; continue; }
   case 2:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    s.tmp_2 = Open_FileManager__P94287_mk(s);
+    s.tmp_2 = Open_FileManager__P105637_mk(s);
     s.callLocIdx = 339; s.pc = 102; return s.tmp_2;
   case 102:
     r0 = s.retval;
     { step = 16; continue; }
   case 3:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 4; continue; }
-    s.tmp_2 = Open_FileManager__P94287_mk(s);
+    s.tmp_2 = Open_FileManager__P105637_mk(s);
     s.callLocIdx = 340; s.pc = 103; return s.tmp_2;
   case 103:
     r0 = s.retval;
     { step = 15; continue; }
   case 4:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 5);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
-    s.tmp_2 = Open_Write__P94269_mk(s);
+    s.tmp_2 = Open_Write__P105619_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_2.arg0 = r0;
     s.callLocIdx = 341; s.pc = 104; return s.tmp_2;
@@ -6251,13 +6251,13 @@ switch (step) {
     r0 = s.retval;
     { step = 14; continue; }
   case 5:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 6);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 6; continue; }
-    s.tmp_2 = Open_xCell__P94263_mk(s);
+    s.tmp_2 = Open_xCell__P105613_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_2.arg0 = r0;
     s.callLocIdx = 342; s.pc = 105; return s.tmp_2;
@@ -6265,37 +6265,37 @@ switch (step) {
     r0 = s.retval;
     { step = 13; continue; }
   case 6:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 7);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 7; continue; }
-    s.tmp_2 = Open_Settings__P94281_mk(s);
+    s.tmp_2 = Open_Settings__P105631_mk(s);
     s.callLocIdx = 343; s.pc = 106; return s.tmp_2;
   case 106:
     r0 = s.retval;
     { step = 12; continue; }
   case 7:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 8);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 8; continue; }
-    s.tmp_2 = Open_Web__P94275_mk(s);
+    s.tmp_2 = Open_Web__P105625_mk(s);
     s.callLocIdx = 344; s.pc = 107; return s.tmp_2;
   case 107:
     r0 = s.retval;
     { step = 11; continue; }
   case 8:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 9);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 9; continue; }
-    s.tmp_2 = Open_NanoCode__P94293_mk(s);
+    s.tmp_2 = Open_NanoCode__P105643_mk(s);
     s.callLocIdx = 345; s.pc = 108; return s.tmp_2;
   case 108:
     r0 = s.retval;
@@ -6317,8 +6317,8 @@ switch (step) {
     if (!r0) { step = 22; continue; }
     s.tmp_1 = helpers_stringSubstr__P118_mk(s);
     s.tmp_2 = JSON_stringify__P387_mk(s);
-    s.tmp_3 = r0 = globals.User_Files___94028;
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    s.tmp_3 = r0 = globals.User_Files___105378;
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_4 = r0;
     r0 = pxsim_Array__getAt(s.tmp_3, s.tmp_4);
     s.tmp_2.arg0 = r0;
@@ -6329,8 +6329,8 @@ switch (step) {
     r0 = s.retval;
     s.tmp_1.arg0 = r0;
     s.tmp_7 = JSON_stringify__P387_mk(s);
-    s.tmp_8 = r0 = globals.User_Files___94028;
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    s.tmp_8 = r0 = globals.User_Files___105378;
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_9 = r0;
     r0 = pxsim_Array__getAt(s.tmp_8, s.tmp_9);
     s.tmp_7.arg0 = r0;
@@ -6345,8 +6345,8 @@ switch (step) {
     r0 = (s.tmp_5 + 1);
     s.tmp_1.arg1 = r0;
     s.tmp_11 = JSON_stringify__P387_mk(s);
-    s.tmp_12 = r0 = globals.User_Files___94028;
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    s.tmp_12 = r0 = globals.User_Files___105378;
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_13 = r0;
     r0 = pxsim_Array__getAt(s.tmp_12, s.tmp_13);
     s.tmp_11.arg0 = r0;
@@ -6357,8 +6357,8 @@ switch (step) {
     r0 = s.retval;
     s.tmp_10 = r0;
     s.tmp_17 = JSON_stringify__P387_mk(s);
-    s.tmp_18 = r0 = globals.User_Files___94028;
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    s.tmp_18 = r0 = globals.User_Files___105378;
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_19 = r0;
     r0 = pxsim_Array__getAt(s.tmp_18, s.tmp_19);
     s.tmp_17.arg0 = r0;
@@ -6377,24 +6377,24 @@ switch (step) {
     s.callLocIdx = 350; s.pc = 109; return s.tmp_1;
   case 109:
     r0 = s.retval;
-    s.FileAtSelection___94489 = (r0);
-    s.tmp_0 = close_apps__P94261_mk(s);
+    s.FileAtSelection___105839 = (r0);
+    s.tmp_0 = close_apps__P105611_mk(s);
     s.callLocIdx = 351; s.pc = 114; return s.tmp_0;
   case 114:
     r0 = s.retval;
-    r0 = (s.FileAtSelection___94489 == "Home");
+    r0 = (s.FileAtSelection___105839 == "Home");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 20; continue; }
-    globals.SubMenu___94052 = ("Home");
-    s.tmp_0 = Open_FileManager__P94287_mk(s);
+    globals.SubMenu___105402 = ("Home");
+    s.tmp_0 = Open_FileManager__P105637_mk(s);
     s.callLocIdx = 352; s.pc = 115; return s.tmp_0;
   case 115:
     r0 = s.retval;
     { step = 21; continue; }
   case 20:
-    globals.SubMenu___94052 = ("Home");
-    s.tmp_0 = Open_FileManager__P94287_mk(s);
+    globals.SubMenu___105402 = ("Home");
+    s.tmp_0 = Open_FileManager__P105637_mk(s);
     s.callLocIdx = 353; s.pc = 116; return s.tmp_0;
   case 116:
     r0 = s.retval;
@@ -6406,51 +6406,51 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 27; continue; }
     s.tmp_1 = miniMenu_MenuSprite_close__P4501_mk(s);
-    s.tmp_1.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_1.arg0 = globals.ListMenuGUI___105345;
     s.callLocIdx = 354; s.pc = 117; return s.tmp_1;
   case 117:
     r0 = s.retval;
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 23; continue; }
-    globals.SubMenu___94052 = ("System");
-    globals.ListMenuContents___94027 = (globals.System_Files___94031);
+    globals.SubMenu___105402 = ("System");
+    globals.ListMenuContents___105377 = (globals.System_Files___105381);
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.System_Files___94031;
+    s.tmp_0.arg0 = globals.System_Files___105381;
     s.callLocIdx = 355; s.pc = 118; return s.tmp_0;
   case 118:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
     { step = 26; continue; }
   case 23:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 24; continue; }
-    globals.SubMenu___94052 = ("User");
-    globals.ListMenuContents___94027 = (globals.User_Files___94028);
+    globals.SubMenu___105402 = ("User");
+    globals.ListMenuContents___105377 = (globals.User_Files___105378);
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.User_Files___94028;
+    s.tmp_0.arg0 = globals.User_Files___105378;
     s.callLocIdx = 356; s.pc = 119; return s.tmp_0;
   case 119:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
   case 24:
   case 25:
   case 26:
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = false;
     s.callLocIdx = 357; s.pc = 120; return s.tmp_0;
   case 120:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -6459,14 +6459,14 @@ switch (step) {
   case 121:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
     s.callLocIdx = 358; s.pc = 122; return s.tmp_0;
   case 122:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -6492,7 +6492,7 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 40; continue; }
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_3 = r0;
     r0 = (s.tmp_3 == 1);
     s.tmp_2 = r0;
@@ -6508,17 +6508,17 @@ switch (step) {
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_4, s.tmp_5);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 3);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 3);
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_4, s.tmp_7);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 2);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 2);
     s.tmp_8 = r0;
     r0 = pxsim_Array__push(s.tmp_4, s.tmp_8);
-    globals.ListMenuContents___94027 = (s.tmp_4);
-    globals.SubMenu___94052 = ("Connectivity");
+    globals.ListMenuContents___105377 = (s.tmp_4);
+    globals.SubMenu___105402 = ("Connectivity");
     { step = 39; continue; }
   case 32:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 2);
     s.tmp_0 = r0;
@@ -6534,17 +6534,17 @@ switch (step) {
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_3);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 0);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 0);
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_5);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 1);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 1);
     s.tmp_6 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_6);
-    globals.ListMenuContents___94027 = (s.tmp_2);
-    globals.SubMenu___94052 = ("Input");
+    globals.ListMenuContents___105377 = (s.tmp_2);
+    globals.SubMenu___105402 = ("Input");
     { step = 38; continue; }
   case 33:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 3);
     s.tmp_0 = r0;
@@ -6560,14 +6560,14 @@ switch (step) {
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_3);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 4);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 4);
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_5);
-    globals.ListMenuContents___94027 = (s.tmp_2);
-    globals.SubMenu___94052 = ("Customization");
+    globals.ListMenuContents___105377 = (s.tmp_2);
+    globals.SubMenu___105402 = ("Customization");
     { step = 37; continue; }
   case 34:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 4);
     s.tmp_0 = r0;
@@ -6599,8 +6599,8 @@ switch (step) {
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_7);
-    globals.ListMenuContents___94027 = (s.tmp_2);
-    globals.SubMenu___94052 = ("System");
+    globals.ListMenuContents___105377 = (s.tmp_2);
+    globals.SubMenu___105402 = ("System");
   case 35:
   case 36:
   case 37:
@@ -6612,53 +6612,53 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 47; continue; }
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_2 = r0;
     r0 = (s.tmp_2 == 1);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 41; continue; }
-    s.tmp_3 = close_apps__P94261_mk(s);
+    s.tmp_3 = close_apps__P105611_mk(s);
     s.callLocIdx = 366; s.pc = 130; return s.tmp_3;
   case 130:
     r0 = s.retval;
-    globals.SubMenu___94052 = ("Home");
-    s.tmp_0 = Open_Settings__P94281_mk(s);
+    globals.SubMenu___105402 = ("Home");
+    s.tmp_0 = Open_Settings__P105631_mk(s);
     s.callLocIdx = 367; s.pc = 131; return s.tmp_0;
   case 131:
     r0 = s.retval;
     { step = 46; continue; }
   case 41:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 42; continue; }
-    s.tmp_2 = changeSettings__P94365_mk(s);
+    s.tmp_2 = changeSettings__P105715_mk(s);
     s.tmp_2.arg0 = 4;
     s.callLocIdx = 368; s.pc = 132; return s.tmp_2;
   case 132:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___94027;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 3);
+    s.tmp_0 = r0 = globals.ListMenuContents___105377;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 3);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 1, s.tmp_1);
     { step = 45; continue; }
   case 42:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 43; continue; }
-    s.tmp_2 = changeSettings__P94365_mk(s);
+    s.tmp_2 = changeSettings__P105715_mk(s);
     s.tmp_2.arg0 = 3;
     s.callLocIdx = 369; s.pc = 133; return s.tmp_2;
   case 133:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___94027;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 2);
+    s.tmp_0 = r0 = globals.ListMenuContents___105377;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 2);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 2, s.tmp_1);
   case 43:
@@ -6671,58 +6671,58 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 58; continue; }
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_2 = r0;
     r0 = (s.tmp_2 == 1);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 48; continue; }
-    s.tmp_3 = close_apps__P94261_mk(s);
+    s.tmp_3 = close_apps__P105611_mk(s);
     s.callLocIdx = 370; s.pc = 134; return s.tmp_3;
   case 134:
     r0 = s.retval;
-    globals.SubMenu___94052 = ("Home");
-    s.tmp_0 = Open_Settings__P94281_mk(s);
+    globals.SubMenu___105402 = ("Home");
+    s.tmp_0 = Open_Settings__P105631_mk(s);
     s.callLocIdx = 371; s.pc = 135; return s.tmp_0;
   case 135:
     r0 = s.retval;
     { step = 57; continue; }
   case 48:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 49; continue; }
-    s.tmp_2 = changeSettings__P94365_mk(s);
+    s.tmp_2 = changeSettings__P105715_mk(s);
     s.tmp_2.arg0 = 1;
     s.callLocIdx = 372; s.pc = 136; return s.tmp_2;
   case 136:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___94027;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 0);
+    s.tmp_0 = r0 = globals.ListMenuContents___105377;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 0);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 1, s.tmp_1);
     { step = 56; continue; }
   case 49:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 50; continue; }
-    s.tmp_2 = changeSettings__P94365_mk(s);
+    s.tmp_2 = changeSettings__P105715_mk(s);
     s.tmp_2.arg0 = 2;
     s.callLocIdx = 373; s.pc = 137; return s.tmp_2;
   case 137:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___94027;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 1);
+    s.tmp_0 = r0 = globals.ListMenuContents___105377;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 1);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 2, s.tmp_1);
     { step = 55; continue; }
   case 50:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 4);
     s.tmp_0 = r0;
@@ -6730,7 +6730,7 @@ switch (step) {
     if (!r0) { step = 51; continue; }
     { step = 54; continue; }
   case 51:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_3 = r0;
     r0 = (s.tmp_3 == 5);
     s.tmp_2 = r0;
@@ -6748,41 +6748,41 @@ switch (step) {
     s.tmp_4 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_4);
     if (!r0) { step = 69; continue; }
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_6 = r0;
     r0 = (s.tmp_6 == 1);
     s.tmp_5 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_5);
     if (!r0) { step = 59; continue; }
-    s.tmp_7 = close_apps__P94261_mk(s);
+    s.tmp_7 = close_apps__P105611_mk(s);
     s.callLocIdx = 374; s.pc = 138; return s.tmp_7;
   case 138:
     r0 = s.retval;
-    globals.SubMenu___94052 = ("Home");
-    s.tmp_0 = Open_Settings__P94281_mk(s);
+    globals.SubMenu___105402 = ("Home");
+    s.tmp_0 = Open_Settings__P105631_mk(s);
     s.callLocIdx = 375; s.pc = 139; return s.tmp_0;
   case 139:
     r0 = s.retval;
     { step = 68; continue; }
   case 59:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 60; continue; }
-    s.tmp_2 = changeSettings__P94365_mk(s);
+    s.tmp_2 = changeSettings__P105715_mk(s);
     s.tmp_2.arg0 = 5;
     s.callLocIdx = 376; s.pc = 140; return s.tmp_2;
   case 140:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___94027;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___94051, 4);
+    s.tmp_0 = r0 = globals.ListMenuContents___105377;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___105401, 4);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 1, s.tmp_1);
     { step = 67; continue; }
   case 60:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 3);
     s.tmp_0 = r0;
@@ -6790,7 +6790,7 @@ switch (step) {
     if (!r0) { step = 61; continue; }
     { step = 66; continue; }
   case 61:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_3 = r0;
     r0 = (s.tmp_3 == 4);
     s.tmp_2 = r0;
@@ -6798,7 +6798,7 @@ switch (step) {
     if (!r0) { step = 62; continue; }
     { step = 65; continue; }
   case 62:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_5 = r0;
     r0 = (s.tmp_5 == 5);
     s.tmp_4 = r0;
@@ -6816,24 +6816,24 @@ switch (step) {
     s.tmp_6 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_6);
     if (!r0) { step = 76; continue; }
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_8 = r0;
     r0 = (s.tmp_8 == 1);
     s.tmp_7 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_7);
     if (!r0) { step = 70; continue; }
-    s.tmp_9 = close_apps__P94261_mk(s);
+    s.tmp_9 = close_apps__P105611_mk(s);
     s.callLocIdx = 377; s.pc = 141; return s.tmp_9;
   case 141:
     r0 = s.retval;
-    globals.SubMenu___94052 = ("Home");
-    s.tmp_0 = Open_Settings__P94281_mk(s);
+    globals.SubMenu___105402 = ("Home");
+    s.tmp_0 = Open_Settings__P105631_mk(s);
     s.callLocIdx = 378; s.pc = 142; return s.tmp_0;
   case 142:
     r0 = s.retval;
     { step = 75; continue; }
   case 70:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 2);
     s.tmp_0 = r0;
@@ -6873,11 +6873,11 @@ switch (step) {
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_9);
-    globals.ListMenuContents___94027 = (s.tmp_2);
-    globals.SubMenu___94052 = ("Data Management");
+    globals.ListMenuContents___105377 = (s.tmp_2);
+    globals.SubMenu___105402 = ("Data Management");
     { step = 74; continue; }
   case 71:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 3);
     s.tmp_0 = r0;
@@ -6902,15 +6902,15 @@ switch (step) {
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_5);
     s.tmp_8 = miniMenu_createMenuItem__P4522_mk(s);
-    s.tmp_8.arg0 = "Void Kernel 2025.1";
+    s.tmp_8.arg0 = "NanoSDK 2025.1";
     s.tmp_8.arg1 = undefined;
     s.callLocIdx = 385; s.pc = 149; return s.tmp_8;
   case 149:
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_7);
-    globals.ListMenuContents___94027 = (s.tmp_2);
-    globals.SubMenu___94052 = ("System Information");
+    globals.ListMenuContents___105377 = (s.tmp_2);
+    globals.SubMenu___105402 = ("System Information");
   case 72:
   case 73:
   case 74:
@@ -6921,7 +6921,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 85; continue; }
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_2 = r0;
     r0 = (s.tmp_2 == 1);
     s.tmp_1 = r0;
@@ -6953,11 +6953,11 @@ switch (step) {
     r0 = s.retval;
     s.tmp_8 = r0;
     r0 = pxsim_Array__push(s.tmp_3, s.tmp_8);
-    globals.ListMenuContents___94027 = (s.tmp_3);
-    globals.SubMenu___94052 = ("System");
+    globals.ListMenuContents___105377 = (s.tmp_3);
+    globals.SubMenu___105402 = ("System");
     { step = 84; continue; }
   case 77:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 2);
     s.tmp_0 = r0;
@@ -6973,23 +6973,23 @@ switch (step) {
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_3);
-    globals.User_Files___94028 = (s.tmp_2);
+    globals.User_Files___105378 = (s.tmp_2);
     { step = 83; continue; }
   case 78:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 79; continue; }
-    globals.Settings___94023 = ("100010");
+    globals.Settings___105373 = ("100010");
     s.tmp_0 = game_reset__P3544_mk(s);
     s.callLocIdx = 390; s.pc = 154; return s.tmp_0;
   case 154:
     r0 = s.retval;
     { step = 82; continue; }
   case 79:
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 4);
     s.tmp_0 = r0;
@@ -7005,11 +7005,11 @@ switch (step) {
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_2, s.tmp_3);
-    globals.User_Files___94028 = (s.tmp_2);
-    globals.Settings___94023 = ("100010");
+    globals.User_Files___105378 = (s.tmp_2);
+    globals.Settings___105373 = ("100010");
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "Settings";
-    s.tmp_0.arg1 = globals.Settings___94023;
+    s.tmp_0.arg1 = globals.Settings___105373;
     s.callLocIdx = 392; s.pc = 156; return s.tmp_0;
   case 156:
     r0 = s.retval;
@@ -7028,7 +7028,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 88; continue; }
-    r0 = (s.arg1 + globals.List_Scroll___94020);
+    r0 = (s.arg1 + globals.List_Scroll___105370);
     s.tmp_2 = r0;
     r0 = (s.tmp_2 == 1);
     s.tmp_1 = r0;
@@ -7060,8 +7060,8 @@ switch (step) {
     r0 = s.retval;
     s.tmp_8 = r0;
     r0 = pxsim_Array__push(s.tmp_3, s.tmp_8);
-    globals.ListMenuContents___94027 = (s.tmp_3);
-    globals.SubMenu___94052 = ("System");
+    globals.ListMenuContents___105377 = (s.tmp_3);
+    globals.SubMenu___105402 = ("System");
   case 86:
   case 87:
   case 88:
@@ -7073,24 +7073,24 @@ switch (step) {
   case 94:
   case 95:
     s.tmp_0 = miniMenu_MenuSprite_close__P4501_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.callLocIdx = 397; s.pc = 161; return s.tmp_0;
   case 161:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___94027;
+    s.tmp_0.arg0 = globals.ListMenuContents___105377;
     s.callLocIdx = 398; s.pc = 162; return s.tmp_0;
   case 162:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = false;
     s.callLocIdx = 399; s.pc = 163; return s.tmp_0;
   case 163:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -7099,14 +7099,14 @@ switch (step) {
   case 164:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
     s.callLocIdx = 400; s.pc = 165; return s.tmp_0;
   case 165:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -7125,12 +7125,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-listSelection__P94342.info = {"start":14441,"length":7974,"line":342,"column":0,"endLine":525,"endColumn":1,"fileName":"main.ts","functionName":"listSelection","argumentNames":["app","selection","submenu"]}
+listSelection__P105692.info = {"start":14440,"length":7969,"line":342,"column":0,"endLine":525,"endColumn":1,"fileName":"main.ts","functionName":"listSelection","argumentNames":["app","selection","submenu"]}
 
-function listSelection__P94342_mk(s) {
+function listSelection__P105692_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: listSelection__P94342, depth: s.depth + 1,
+        parent: s, fn: listSelection__P105692, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -7152,7 +7152,7 @@ function listSelection__P94342_mk(s) {
   tmp_17: undefined,
   tmp_18: undefined,
   tmp_19: undefined,
-  FileAtSelection___94489: undefined,
+  FileAtSelection___105839: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -7162,7 +7162,7 @@ function listSelection__P94342_mk(s) {
 
 
 
-function changeSettings__P94365(s) {
+function changeSettings__P105715(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -7172,15 +7172,15 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.dingus53___94812 = undefined;
-    s.dingus52___94821 = undefined;
-    s.dingus51___94822 = undefined;
+    s.dingus53___106162 = undefined;
+    s.dingus52___106171 = undefined;
+    s.dingus51___106172 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     s.tmp_1 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, s.arg0);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, s.arg0);
     s.tmp_1.arg0 = r0;
     s.tmp_1.arg1 = 10;
     s.callLocIdx = 402; s.pc = 15; return s.tmp_1;
@@ -7188,67 +7188,67 @@ switch (step) {
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = (s.tmp_0 + 1);
-    s.dingus53___94812 = (r0);
-    s.dingus52___94821 = (0);
-    s.dingus51___94822 = ("spoingy");
+    s.dingus53___106162 = (r0);
+    s.dingus52___106171 = (0);
+    s.dingus51___106172 = ("spoingy");
     r0 = (s.arg0 == 1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.dingus52___94821 = (2);
+    s.dingus52___106171 = (2);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - OnScreen");
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - Pin Header");
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - Radio");
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - OnScreen");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___94812);
-    s.dingus51___94822 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___106162);
+    s.dingus51___106172 = (r0);
     { step = 12; continue; }
   case 1:
     r0 = (s.arg0 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 2; continue; }
-    s.dingus52___94821 = (2);
+    s.dingus52___106171 = (2);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Mouse - D-Pad");
     r0 = pxsim_Array__push(s.tmp_0, "Mouse - Pin Header");
     r0 = pxsim_Array__push(s.tmp_0, "Mouse - Radio");
     r0 = pxsim_Array__push(s.tmp_0, "Mouse - D-Pad");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___94812);
-    s.dingus51___94822 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___106162);
+    s.dingus51___106172 = (r0);
     { step = 11; continue; }
   case 2:
     r0 = (s.arg0 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    s.dingus52___94821 = (2);
+    s.dingus52___106171 = (2);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Connectivity - Radio");
     r0 = pxsim_Array__push(s.tmp_0, "Connectivity - Pin Header");
     r0 = pxsim_Array__push(s.tmp_0, "Connectivity - Off");
     r0 = pxsim_Array__push(s.tmp_0, "Connectivity - Radio");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___94812);
-    s.dingus51___94822 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___106162);
+    s.dingus51___106172 = (r0);
     { step = 10; continue; }
   case 3:
     r0 = (s.arg0 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 6; continue; }
-    s.dingus52___94821 = (9);
-    r0 = (s.dingus53___94812 > s.dingus52___94821);
+    s.dingus52___106171 = (9);
+    r0 = (s.dingus53___106162 > s.dingus52___106171);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 4; continue; }
-    s.dingus53___94812 = (1);
+    s.dingus53___106162 = (1);
   case 4:
   case 5:
-    r0 = pxsim_numops.toString(s.dingus53___94812);
+    r0 = pxsim_numops.toString(s.dingus53___106162);
     s.tmp_1 = r0;
     if ((s.tmp_1) && (s.tmp_1).vtable) {
     setupResume(s, 16);
@@ -7260,14 +7260,14 @@ switch (step) {
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_String__concat("Radio Channel - ", s.tmp_0);
-    s.dingus51___94822 = (r0);
+    s.dingus51___106172 = (r0);
     { step = 9; continue; }
   case 6:
     r0 = (s.arg0 == 5);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 7; continue; }
-    s.dingus52___94821 = (3);
+    s.dingus52___106171 = (3);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Wallpaper - Strings");
@@ -7275,23 +7275,23 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_0, "Wallpaper - Stripes");
     r0 = pxsim_Array__push(s.tmp_0, "Wallpaper - Squiggles");
     r0 = pxsim_Array__push(s.tmp_0, "Wallpaper - Strings");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___94812);
-    s.dingus51___94822 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___106162);
+    s.dingus51___106172 = (r0);
   case 7:
   case 8:
   case 9:
   case 10:
   case 11:
   case 12:
-    r0 = (s.dingus53___94812 > s.dingus52___94821);
+    r0 = (s.dingus53___106162 > s.dingus52___106171);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 13; continue; }
-    s.dingus53___94812 = (0);
+    s.dingus53___106162 = (0);
   case 13:
   case 14:
     s.tmp_4 = helpers_stringSlice__P119_mk(s);
-    s.tmp_4.arg0 = globals.Settings___94023;
+    s.tmp_4.arg0 = globals.Settings___105373;
     s.tmp_4.arg1 = 0;
     s.tmp_4.arg2 = s.arg0;
     s.callLocIdx = 403; s.pc = 17; return s.tmp_4;
@@ -7307,7 +7307,7 @@ switch (step) {
   case 18:
     r0 = s.retval;
     s.tmp_2 = r0;
-    r0 = pxsim_numops.toString(s.dingus53___94812);
+    r0 = pxsim_numops.toString(s.dingus53___106162);
     s.tmp_6 = r0;
     if ((s.tmp_6) && (s.tmp_6).vtable) {
     setupResume(s, 19);
@@ -7330,7 +7330,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_0 = r0;
     s.tmp_9 = helpers_stringSlice__P119_mk(s);
-    s.tmp_9.arg0 = globals.Settings___94023;
+    s.tmp_9.arg0 = globals.Settings___105373;
     r0 = (s.arg0 + 1);
     s.tmp_9.arg1 = r0;
     s.tmp_9.arg2 = undefined;
@@ -7348,12 +7348,12 @@ switch (step) {
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_String__concat(s.tmp_0, s.tmp_7);
-    globals.Settings___94023 = (r0);
-    s.tmp_0 = r0 = globals.Current_Settings___94051;
+    globals.Settings___105373 = (r0);
+    s.tmp_0 = r0 = globals.Current_Settings___105401;
     r0 = (s.arg0 - 1);
     s.tmp_1 = r0;
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
-    s.tmp_3.arg0 = s.dingus51___94822;
+    s.tmp_3.arg0 = s.dingus51___106172;
     s.tmp_3.arg1 = undefined;
     s.callLocIdx = 405; s.pc = 23; return s.tmp_3;
   case 23:
@@ -7362,29 +7362,29 @@ switch (step) {
     r0 = pxsim_Array_.setAt(s.tmp_0, s.tmp_1, s.tmp_2);
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "settings";
-    s.tmp_0.arg1 = globals.Settings___94023;
+    s.tmp_0.arg1 = globals.Settings___105373;
     s.callLocIdx = 406; s.pc = 24; return s.tmp_0;
   case 24:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_close__P4501_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.callLocIdx = 407; s.pc = 25; return s.tmp_0;
   case 25:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___94027;
+    s.tmp_0.arg0 = globals.ListMenuContents___105377;
     s.callLocIdx = 408; s.pc = 26; return s.tmp_0;
   case 26:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = false;
     s.callLocIdx = 409; s.pc = 27; return s.tmp_0;
   case 27:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -7393,14 +7393,14 @@ switch (step) {
   case 28:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
     s.callLocIdx = 410; s.pc = 29; return s.tmp_0;
   case 29:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -7413,7 +7413,7 @@ switch (step) {
   case 30:
     r0 = s.retval;
     s.tmp_2 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 4);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 4);
     s.tmp_2.arg0 = r0;
     s.tmp_2.arg1 = undefined;
     s.callLocIdx = 412; s.pc = 31; return s.tmp_2;
@@ -7427,12 +7427,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-changeSettings__P94365.info = {"start":22419,"length":1669,"line":527,"column":0,"endLine":563,"endColumn":1,"fileName":"main.ts","functionName":"changeSettings","argumentNames":["selection"]}
+changeSettings__P105715.info = {"start":22413,"length":1669,"line":527,"column":0,"endLine":563,"endColumn":1,"fileName":"main.ts","functionName":"changeSettings","argumentNames":["selection"]}
 
-function changeSettings__P94365_mk(s) {
+function changeSettings__P105715_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: changeSettings__P94365, depth: s.depth + 1,
+        parent: s, fn: changeSettings__P105715, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -7444,9 +7444,9 @@ function changeSettings__P94365_mk(s) {
   tmp_7: undefined,
   tmp_8: undefined,
   tmp_9: undefined,
-  dingus53___94812: undefined,
-  dingus52___94821: undefined,
-  dingus51___94822: undefined,
+  dingus53___106162: undefined,
+  dingus52___106171: undefined,
+  dingus51___106172: undefined,
   arg0: undefined,
 } }
 
@@ -20130,7 +20130,7 @@ function Sprite_y__P2370_mk(s) {
 
 
 
-function Open_Library__P94305(s) {
+function Open_Library__P105655(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -20140,7 +20140,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___94018 = ("App Library");
+    globals.App_Open___105368 = ("App Library");
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
@@ -20148,20 +20148,20 @@ switch (step) {
   case 2:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 235; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 149;
     s.tmp_0.arg2 = 12;
     s.callLocIdx = 236; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 23;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -20180,13 +20180,13 @@ switch (step) {
   case 6:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 239; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    globals.Taskbar___93991 = (r0);
+    globals.Taskbar___105341 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Taskbar___93991;
+    s.tmp_0.arg0 = globals.Taskbar___105341;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
     s.callLocIdx = 240; s.pc = 7; return s.tmp_0;
@@ -20196,12 +20196,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_Library__P94305.info = {"start":9382,"length":305,"line":212,"column":0,"endLine":219,"endColumn":1,"fileName":"main.ts","functionName":"Open_Library","argumentNames":[]}
+Open_Library__P105655.info = {"start":9381,"length":305,"line":212,"column":0,"endLine":219,"endColumn":1,"fileName":"main.ts","functionName":"Open_Library","argumentNames":[]}
 
-function Open_Library__P94305_mk(s) {
+function Open_Library__P105655_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_Library__P94305, depth: s.depth + 1,
+        parent: s, fn: Open_Library__P105655, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -20383,7 +20383,7 @@ function sprites_create_inline__P12598_mk(s) {
 
 
 
-function Open_ProcessManager__P94299(s) {
+function Open_ProcessManager__P105649(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -20393,9 +20393,9 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___94018 = ("Process Manager");
-    globals.SubMenu___94052 = ("Home");
-    globals.List_Scroll___94020 = (0);
+    globals.App_Open___105368 = ("Process Manager");
+    globals.SubMenu___105402 = ("Home");
+    globals.List_Scroll___105370 = (0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
@@ -20418,13 +20418,13 @@ switch (step) {
   case 5:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 319; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
     s.callLocIdx = 320; s.pc = 6; return s.tmp_0;
@@ -20437,22 +20437,22 @@ switch (step) {
     s.callLocIdx = 321; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    globals.App_Title___94015 = (r0);
+    globals.App_Title___105365 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___94015;
+    s.tmp_0.arg0 = globals.App_Title___105365;
     s.tmp_0.arg1 = 46;
     s.tmp_0.arg2 = 4;
     s.callLocIdx = 322; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.Active_Processes___94112;
+    s.tmp_0.arg0 = globals.Active_Processes___105462;
     s.callLocIdx = 323; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 160;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -20461,20 +20461,20 @@ switch (step) {
   case 10:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = false;
     s.callLocIdx = 324; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 58;
     s.callLocIdx = 325; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -20490,12 +20490,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_ProcessManager__P94299.info = {"start":13264,"length":611,"line":312,"column":0,"endLine":327,"endColumn":1,"fileName":"main.ts","functionName":"Open_ProcessManager","argumentNames":[]}
+Open_ProcessManager__P105649.info = {"start":13263,"length":611,"line":312,"column":0,"endLine":327,"endColumn":1,"fileName":"main.ts","functionName":"Open_ProcessManager","argumentNames":[]}
 
-function Open_ProcessManager__P94299_mk(s) {
+function Open_ProcessManager__P105649_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_ProcessManager__P94299, depth: s.depth + 1,
+        parent: s, fn: Open_ProcessManager__P105649, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -20548,7 +20548,7 @@ function scene_setBackgroundColor__P2900_mk(s) {
 
 
 
-function Open_NanoCode__P94293(s) {
+function Open_NanoCode__P105643(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -20558,7 +20558,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___94018 = ("NanoCode");
+    globals.App_Open___105368 = ("NanoCode");
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "NanoCode Menu";
@@ -20609,15 +20609,15 @@ switch (step) {
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
-    globals.ListMenuContents___94027 = (s.tmp_0);
+    globals.ListMenuContents___105377 = (s.tmp_0);
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___94027;
+    s.tmp_0.arg0 = globals.ListMenuContents___105377;
     s.callLocIdx = 292; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 106;
     s.tmp_0.arg2 = 40;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -20626,20 +20626,20 @@ switch (step) {
   case 9:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = false;
     s.callLocIdx = 293; s.pc = 10; return s.tmp_0;
   case 10:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 104;
     s.tmp_0.arg2 = 82;
     s.callLocIdx = 294; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -20658,13 +20658,13 @@ switch (step) {
   case 14:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 297; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
     s.callLocIdx = 298; s.pc = 15; return s.tmp_0;
@@ -20677,9 +20677,9 @@ switch (step) {
     s.callLocIdx = 299; s.pc = 16; return s.tmp_0;
   case 16:
     r0 = s.retval;
-    globals.App_Title___94015 = (r0);
+    globals.App_Title___105365 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___94015;
+    s.tmp_0.arg0 = globals.App_Title___105365;
     s.tmp_0.arg1 = 25;
     s.tmp_0.arg2 = 4;
     s.callLocIdx = 300; s.pc = 17; return s.tmp_0;
@@ -20689,12 +20689,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_NanoCode__P94293.info = {"start":11847,"length":712,"line":280,"column":0,"endLine":294,"endColumn":1,"fileName":"main.ts","functionName":"Open_NanoCode","argumentNames":[]}
+Open_NanoCode__P105643.info = {"start":11846,"length":712,"line":280,"column":0,"endLine":294,"endColumn":1,"fileName":"main.ts","functionName":"Open_NanoCode","argumentNames":[]}
 
-function Open_NanoCode__P94293_mk(s) {
+function Open_NanoCode__P105643_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_NanoCode__P94293, depth: s.depth + 1,
+        parent: s, fn: Open_NanoCode__P105643, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -20711,7 +20711,7 @@ function Open_NanoCode__P94293_mk(s) {
 
 
 
-function Open_FileManager__P94287(s) {
+function Open_FileManager__P105637(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -20721,9 +20721,9 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___94018 = ("File Manager");
-    globals.SubMenu___94052 = ("Home");
-    globals.List_Scroll___94020 = (0);
+    globals.App_Open___105368 = ("File Manager");
+    globals.SubMenu___105402 = ("Home");
+    globals.List_Scroll___105370 = (0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
@@ -20746,13 +20746,13 @@ switch (step) {
   case 5:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 305; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
     s.callLocIdx = 306; s.pc = 6; return s.tmp_0;
@@ -20765,9 +20765,9 @@ switch (step) {
     s.callLocIdx = 307; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    globals.App_Title___94015 = (r0);
+    globals.App_Title___105365 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___94015;
+    s.tmp_0.arg0 = globals.App_Title___105365;
     s.tmp_0.arg1 = 37;
     s.tmp_0.arg2 = 4;
     s.callLocIdx = 308; s.pc = 8; return s.tmp_0;
@@ -20791,15 +20791,15 @@ switch (step) {
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_3);
-    globals.ListMenuContents___94027 = (s.tmp_0);
+    globals.ListMenuContents___105377 = (s.tmp_0);
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___94027;
+    s.tmp_0.arg0 = globals.ListMenuContents___105377;
     s.callLocIdx = 311; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -20808,20 +20808,20 @@ switch (step) {
   case 12:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = false;
     s.callLocIdx = 312; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
     s.callLocIdx = 313; s.pc = 14; return s.tmp_0;
   case 14:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -20837,12 +20837,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_FileManager__P94287.info = {"start":12561,"length":701,"line":295,"column":0,"endLine":311,"endColumn":1,"fileName":"main.ts","functionName":"Open_FileManager","argumentNames":[]}
+Open_FileManager__P105637.info = {"start":12560,"length":701,"line":295,"column":0,"endLine":311,"endColumn":1,"fileName":"main.ts","functionName":"Open_FileManager","argumentNames":[]}
 
-function Open_FileManager__P94287_mk(s) {
+function Open_FileManager__P105637_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_FileManager__P94287, depth: s.depth + 1,
+        parent: s, fn: Open_FileManager__P105637, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -20855,7 +20855,7 @@ function Open_FileManager__P94287_mk(s) {
 
 
 
-function Open_Settings__P94281(s) {
+function Open_Settings__P105631(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -20865,9 +20865,9 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___94018 = ("Settings");
-    globals.SubMenu___94052 = ("Home");
-    globals.List_Scroll___94020 = (0);
+    globals.App_Open___105368 = ("Settings");
+    globals.SubMenu___105402 = ("Home");
+    globals.List_Scroll___105370 = (0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
@@ -20902,7 +20902,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
-    globals.ListMenuContents___94027 = (s.tmp_0);
+    globals.ListMenuContents___105377 = (s.tmp_0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
@@ -20925,13 +20925,13 @@ switch (step) {
   case 9:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 277; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
     s.callLocIdx = 278; s.pc = 10; return s.tmp_0;
@@ -20944,22 +20944,22 @@ switch (step) {
     s.callLocIdx = 279; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
-    globals.App_Title___94015 = (r0);
+    globals.App_Title___105365 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___94015;
+    s.tmp_0.arg0 = globals.App_Title___105365;
     s.tmp_0.arg1 = 25;
     s.tmp_0.arg2 = 4;
     s.callLocIdx = 280; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___94027;
+    s.tmp_0.arg0 = globals.ListMenuContents___105377;
     s.callLocIdx = 281; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -20968,20 +20968,20 @@ switch (step) {
   case 14:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = false;
     s.callLocIdx = 282; s.pc = 15; return s.tmp_0;
   case 15:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
     s.callLocIdx = 283; s.pc = 16; return s.tmp_0;
   case 16:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___93995;
+    s.tmp_0.arg0 = globals.ListMenuGUI___105345;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -20997,12 +20997,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_Settings__P94281.info = {"start":11078,"length":765,"line":262,"column":0,"endLine":278,"endColumn":1,"fileName":"main.ts","functionName":"Open_Settings","argumentNames":[]}
+Open_Settings__P105631.info = {"start":11077,"length":765,"line":262,"column":0,"endLine":278,"endColumn":1,"fileName":"main.ts","functionName":"Open_Settings","argumentNames":[]}
 
-function Open_Settings__P94281_mk(s) {
+function Open_Settings__P105631_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_Settings__P94281, depth: s.depth + 1,
+        parent: s, fn: Open_Settings__P105631, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -21019,7 +21019,7 @@ function Open_Settings__P94281_mk(s) {
 
 
 
-function Open_Web__P94275(s) {
+function Open_Web__P105625(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -21029,7 +21029,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___94018 = ("Web Chat");
+    globals.App_Open___105368 = ("Web Chat");
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
@@ -21052,13 +21052,13 @@ switch (step) {
   case 5:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 245; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
     s.callLocIdx = 246; s.pc = 6; return s.tmp_0;
@@ -21071,9 +21071,9 @@ switch (step) {
     s.callLocIdx = 247; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    globals.App_Title___94015 = (r0);
+    globals.App_Title___105365 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___94015;
+    s.tmp_0.arg0 = globals.App_Title___105365;
     s.tmp_0.arg1 = 26;
     s.tmp_0.arg2 = 4;
     s.callLocIdx = 248; s.pc = 8; return s.tmp_0;
@@ -21083,12 +21083,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_Web__P94275.info = {"start":9691,"length":328,"line":221,"column":0,"endLine":229,"endColumn":1,"fileName":"main.ts","functionName":"Open_Web","argumentNames":[]}
+Open_Web__P105625.info = {"start":9690,"length":328,"line":221,"column":0,"endLine":229,"endColumn":1,"fileName":"main.ts","functionName":"Open_Web","argumentNames":[]}
 
-function Open_Web__P94275_mk(s) {
+function Open_Web__P105625_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_Web__P94275, depth: s.depth + 1,
+        parent: s, fn: Open_Web__P105625, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -21098,7 +21098,7 @@ function Open_Web__P94275_mk(s) {
 
 
 
-function Open_Write__P94269(s) {
+function Open_Write__P105619(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -21108,13 +21108,13 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.write_document___95128 = undefined;
-    s.write_document___95129 = undefined;
+    s.write_document___106478 = undefined;
+    s.write_document___106479 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    globals.App_Open___94018 = ("Write");
+    globals.App_Open___105368 = ("Write");
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
@@ -21137,13 +21137,13 @@ switch (step) {
   case 7:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 263; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
     s.callLocIdx = 264; s.pc = 8; return s.tmp_0;
@@ -21156,9 +21156,9 @@ switch (step) {
     s.callLocIdx = 265; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
-    globals.App_Title___94015 = (r0);
+    globals.App_Title___105365 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___94015;
+    s.tmp_0.arg0 = globals.App_Title___105365;
     s.tmp_0.arg1 = 17;
     s.tmp_0.arg2 = 4;
     s.callLocIdx = 266; s.pc = 10; return s.tmp_0;
@@ -21171,9 +21171,9 @@ switch (step) {
     s.callLocIdx = 267; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
-    globals.text___94026 = (r0);
+    globals.text___105376 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text___94026;
+    s.tmp_0.arg0 = globals.text___105376;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
     s.callLocIdx = 268; s.pc = 12; return s.tmp_0;
@@ -21187,27 +21187,27 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
     r0 = pxsim_String_.mkEmpty();
-    s.write_document___95128 = (r0);
+    s.write_document___106478 = (r0);
     { step = 2; continue; }
   case 1:
-    s.write_document___95129 = (s.arg0);
+    s.write_document___106479 = (s.arg0);
   case 2:
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-Open_Write__P94269.info = {"start":10451,"length":625,"line":244,"column":0,"endLine":261,"endColumn":1,"fileName":"main.ts","functionName":"Open_Write","argumentNames":["load_file"]}
+Open_Write__P105619.info = {"start":10450,"length":625,"line":244,"column":0,"endLine":261,"endColumn":1,"fileName":"main.ts","functionName":"Open_Write","argumentNames":["load_file"]}
 
-function Open_Write__P94269_mk(s) {
+function Open_Write__P105619_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_Write__P94269, depth: s.depth + 1,
+        parent: s, fn: Open_Write__P105619, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  write_document___95128: undefined,
-  write_document___95129: undefined,
+  write_document___106478: undefined,
+  write_document___106479: undefined,
   arg0: undefined,
 } }
 
@@ -21215,7 +21215,7 @@ function Open_Write__P94269_mk(s) {
 
 
 
-function Open_xCell__P94263(s) {
+function Open_xCell__P105613(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -21229,7 +21229,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    globals.App_Open___94018 = ("xCell");
+    globals.App_Open___105368 = ("xCell");
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
@@ -21252,13 +21252,13 @@ switch (step) {
   case 5:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 253; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
     s.callLocIdx = 254; s.pc = 6; return s.tmp_0;
@@ -21271,9 +21271,9 @@ switch (step) {
     s.callLocIdx = 255; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    globals.App_Title___94015 = (r0);
+    globals.App_Title___105365 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___94015;
+    s.tmp_0.arg0 = globals.App_Title___105365;
     s.tmp_0.arg1 = 16;
     s.tmp_0.arg2 = 4;
     s.callLocIdx = 256; s.pc = 8; return s.tmp_0;
@@ -21286,9 +21286,9 @@ switch (step) {
     s.callLocIdx = 257; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
-    globals.text___94026 = (r0);
+    globals.text___105376 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text___94026;
+    s.tmp_0.arg0 = globals.text___105376;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
     s.callLocIdx = 258; s.pc = 10; return s.tmp_0;
@@ -21298,12 +21298,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_xCell__P94263.info = {"start":10025,"length":422,"line":232,"column":0,"endLine":242,"endColumn":1,"fileName":"main.ts","functionName":"Open_xCell","argumentNames":["load_file"]}
+Open_xCell__P105613.info = {"start":10024,"length":422,"line":232,"column":0,"endLine":242,"endColumn":1,"fileName":"main.ts","functionName":"Open_xCell","argumentNames":["load_file"]}
 
-function Open_xCell__P94263_mk(s) {
+function Open_xCell__P105613_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_xCell__P94263, depth: s.depth + 1,
+        parent: s, fn: Open_xCell__P105613, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -21314,7 +21314,7 @@ function Open_xCell__P94263_mk(s) {
 
 
 
-function close_apps__P94261(s) {
+function close_apps__P105611(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -21324,8 +21324,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___94018 = ("null");
-    globals.SubMenu___94052 = ("null");
+    globals.App_Open___105368 = ("null");
+    globals.SubMenu___105402 = ("null");
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = helpers_getImageByName__P3369_mk(s);
@@ -21357,7 +21357,7 @@ switch (step) {
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
     s.tmp_10 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___94023, 5);
+    r0 = pxsim_String_.charAt(globals.Settings___105373, 5);
     s.tmp_10.arg0 = r0;
     s.tmp_10.arg1 = 10;
     s.callLocIdx = 331; s.pc = 5; return s.tmp_10;
@@ -21365,9 +21365,9 @@ switch (step) {
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_9);
-    globals.Wallpaper___94232 = (r0);
+    globals.Wallpaper___105582 = (r0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
-    s.tmp_0.arg0 = globals.Wallpaper___94232;
+    s.tmp_0.arg0 = globals.Wallpaper___105582;
     s.callLocIdx = 332; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
@@ -21379,7 +21379,7 @@ switch (step) {
   case 7:
     r0 = s.retval;
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
-    s.tmp_0.arg0 = globals.App_UI___93988;
+    s.tmp_0.arg0 = globals.App_UI___105338;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 334; s.pc = 8; return s.tmp_0;
@@ -21396,12 +21396,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-close_apps__P94261.info = {"start":13921,"length":516,"line":331,"column":0,"endLine":340,"endColumn":1,"fileName":"main.ts","functionName":"close_apps","argumentNames":[]}
+close_apps__P105611.info = {"start":13920,"length":516,"line":331,"column":0,"endLine":340,"endColumn":1,"fileName":"main.ts","functionName":"close_apps","argumentNames":[]}
 
-function close_apps__P94261_mk(s) {
+function close_apps__P105611_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: close_apps__P94261, depth: s.depth + 1,
+        parent: s, fn: close_apps__P105611, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -22934,7 +22934,7 @@ function controller_Button_onEvent__P2210_mk(s) {
 
 
 
-function Define_Sprites__P94250(s) {
+function Define_Sprites__P105600(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -22944,7 +22944,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___94018 = ("null");
+    globals.App_Open___105368 = ("null");
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Taskbar";
@@ -22952,13 +22952,13 @@ switch (step) {
   case 2:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 140; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.Taskbar___93991 = (r0);
+    globals.Taskbar___105341 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Taskbar___93991;
+    s.tmp_0.arg0 = globals.Taskbar___105341;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
     s.callLocIdx = 141; s.pc = 3; return s.tmp_0;
@@ -22971,13 +22971,13 @@ switch (step) {
   case 5:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 143; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    globals.Library_icon___94009 = (r0);
+    globals.Library_icon___105359 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Library_icon___94009;
+    s.tmp_0.arg0 = globals.Library_icon___105359;
     s.tmp_0.arg1 = 9;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 144; s.pc = 6; return s.tmp_0;
@@ -22990,13 +22990,13 @@ switch (step) {
   case 8:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 146; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    globals.xCell_Icon___94011 = (r0);
+    globals.xCell_Icon___105361 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.xCell_Icon___94011;
+    s.tmp_0.arg0 = globals.xCell_Icon___105361;
     s.tmp_0.arg1 = 22;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 147; s.pc = 9; return s.tmp_0;
@@ -23009,13 +23009,13 @@ switch (step) {
   case 11:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 149; s.pc = 10; return s.tmp_0;
   case 10:
     r0 = s.retval;
-    globals.Write_icon___94007 = (r0);
+    globals.Write_icon___105357 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Write_icon___94007;
+    s.tmp_0.arg0 = globals.Write_icon___105357;
     s.tmp_0.arg1 = 32;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 150; s.pc = 12; return s.tmp_0;
@@ -23028,13 +23028,13 @@ switch (step) {
   case 14:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 152; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
-    globals.NanoCode_Icon___93997 = (r0);
+    globals.NanoCode_Icon___105347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.NanoCode_Icon___93997;
+    s.tmp_0.arg0 = globals.NanoCode_Icon___105347;
     s.tmp_0.arg1 = 42;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 153; s.pc = 15; return s.tmp_0;
@@ -23047,13 +23047,13 @@ switch (step) {
   case 17:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 155; s.pc = 16; return s.tmp_0;
   case 16:
     r0 = s.retval;
-    globals.Web_Chat_Icon___94005 = (r0);
+    globals.Web_Chat_Icon___105355 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Web_Chat_Icon___94005;
+    s.tmp_0.arg0 = globals.Web_Chat_Icon___105355;
     s.tmp_0.arg1 = 52;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 156; s.pc = 18; return s.tmp_0;
@@ -23066,13 +23066,13 @@ switch (step) {
   case 20:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 158; s.pc = 19; return s.tmp_0;
   case 19:
     r0 = s.retval;
-    globals.Settings_Icon___94003 = (r0);
+    globals.Settings_Icon___105353 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Settings_Icon___94003;
+    s.tmp_0.arg0 = globals.Settings_Icon___105353;
     s.tmp_0.arg1 = 62;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 159; s.pc = 21; return s.tmp_0;
@@ -23085,13 +23085,13 @@ switch (step) {
   case 23:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 161; s.pc = 22; return s.tmp_0;
   case 22:
     r0 = s.retval;
-    globals.File_Manager_Icon___93999 = (r0);
+    globals.File_Manager_Icon___105349 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.File_Manager_Icon___93999;
+    s.tmp_0.arg0 = globals.File_Manager_Icon___105349;
     s.tmp_0.arg1 = 72;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 162; s.pc = 24; return s.tmp_0;
@@ -23104,13 +23104,13 @@ switch (step) {
   case 26:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___93982;
+    s.tmp_0.arg1 = globals.Desktop_UI___105332;
     s.callLocIdx = 164; s.pc = 25; return s.tmp_0;
   case 25:
     r0 = s.retval;
-    globals.Process_Icon___94001 = (r0);
+    globals.Process_Icon___105351 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Process_Icon___94001;
+    s.tmp_0.arg0 = globals.Process_Icon___105351;
     s.tmp_0.arg1 = 82;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 165; s.pc = 27; return s.tmp_0;
@@ -23123,33 +23123,33 @@ switch (step) {
   case 29:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Mouse___93985;
+    s.tmp_0.arg1 = globals.Mouse___105335;
     s.callLocIdx = 167; s.pc = 28; return s.tmp_0;
   case 28:
     r0 = s.retval;
-    globals.Mouse_Cursor___94013 = (r0);
+    globals.Mouse_Cursor___105363 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Mouse_Cursor___94013;
+    s.tmp_0.arg0 = globals.Mouse_Cursor___105363;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
     s.callLocIdx = 168; s.pc = 30; return s.tmp_0;
   case 30:
     r0 = s.retval;
     s.tmp_0 = Sprite_setStayInScreen__P2432_mk(s);
-    s.tmp_0.arg0 = globals.Mouse_Cursor___94013;
+    s.tmp_0.arg0 = globals.Mouse_Cursor___105363;
     s.tmp_0.arg1 = true;
     s.callLocIdx = 169; s.pc = 31; return s.tmp_0;
   case 31:
     r0 = s.retval;
     s.tmp_0 = controller_moveSprite__P2181_mk(s);
-    s.tmp_0.arg0 = globals.Mouse_Cursor___94013;
+    s.tmp_0.arg0 = globals.Mouse_Cursor___105363;
     s.tmp_0.arg1 = 50;
     s.tmp_0.arg2 = 50;
     s.callLocIdx = 170; s.pc = 32; return s.tmp_0;
   case 32:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.Mouse_Cursor___94013;
+    s.tmp_0.arg0 = globals.Mouse_Cursor___105363;
     s.tmp_0.arg1 = 453453453453;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -23168,11 +23168,11 @@ switch (step) {
   case 35:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___93988;
+    s.tmp_0.arg1 = globals.App_UI___105338;
     s.callLocIdx = 173; s.pc = 34; return s.tmp_0;
   case 34:
     r0 = s.retval;
-    globals.Close_App___94017 = (r0);
+    globals.Close_App___105367 = (r0);
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Write";
     s.tmp_0.arg1 = 0;
@@ -23180,7 +23180,7 @@ switch (step) {
     s.callLocIdx = 174; s.pc = 36; return s.tmp_0;
   case 36:
     r0 = s.retval;
-    globals.App_Title___94015 = (r0);
+    globals.App_Title___105365 = (r0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
@@ -23197,7 +23197,7 @@ switch (step) {
     s.callLocIdx = 176; s.pc = 38; return s.tmp_3;
   case 38:
     r0 = s.retval;
-    globals.ListMenuGUI___93995 = (r0);
+    globals.ListMenuGUI___105345 = (r0);
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
     s.tmp_0.arg0 = globals.MiniMenu___4365;
     s.tmp_0.arg1 = undefined;
@@ -23213,7 +23213,7 @@ switch (step) {
   case 40:
     r0 = s.retval;
     s.tmp_0 = sprites_destroy__P2291_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___94017;
+    s.tmp_0.arg0 = globals.Close_App___105367;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 179; s.pc = 41; return s.tmp_0;
@@ -23223,12 +23223,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Define_Sprites__P94250.info = {"start":4049,"length":1803,"line":79,"column":0,"endLine":111,"endColumn":1,"fileName":"main.ts","functionName":"Define_Sprites","argumentNames":[]}
+Define_Sprites__P105600.info = {"start":4048,"length":1803,"line":79,"column":0,"endLine":111,"endColumn":1,"fileName":"main.ts","functionName":"Define_Sprites","argumentNames":[]}
 
-function Define_Sprites__P94250_mk(s) {
+function Define_Sprites__P105600_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Define_Sprites__P94250, depth: s.depth + 1,
+        parent: s, fn: Define_Sprites__P105600, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -70187,7 +70187,7 @@ const sprites_StaticObstacle__C2514_VT = mkVTable({
   },
 });
 
-const breakpoints = setupDebugger(1, ["transparency16___4809","Desktop_UI___93982","Mouse___93985","App_UI___93988","Settings___94023","System_Files___94031","text2___94065","text3___94070","text4___94075","text___94026","Active_Processes___94112","Current_Settings___94051","fileNamesString___94182","User_Files_Temp___94185","User_Files___94028","Wallpaper___94232","Mouse_Cursor___94013","xCell_Icon___94011","Write_icon___94007","Web_Chat_Icon___94005","Settings_Icon___94003","File_Manager_Icon___93999","NanoCode_Icon___93997","Process_Icon___94001","Library_icon___94009","Close_App___94017","App_Open___94018","ListMenuContents___94027","sillySpacingForListGUI___94062","SubMenu___94052","List_Scroll___94020","ListMenuGUI___93995","Taskbar___93991","App_Title___94015"])
+const breakpoints = setupDebugger(1, ["transparency16___4809","Desktop_UI___105332","Mouse___105335","App_UI___105338","Settings___105373","System_Files___105381","text2___105415","text3___105420","text4___105425","text___105376","Active_Processes___105462","Current_Settings___105401","fileNamesString___105532","User_Files_Temp___105535","User_Files___105378","Wallpaper___105582","Mouse_Cursor___105363","xCell_Icon___105361","Write_icon___105357","Web_Chat_Icon___105355","Settings_Icon___105353","File_Manager_Icon___105349","NanoCode_Icon___105347","Process_Icon___105351","Library_icon___105359","Close_App___105367","App_Open___105368","ListMenuContents___105377","sillySpacingForListGUI___105412","SubMenu___105402","List_Scroll___105370","ListMenuGUI___105345","Taskbar___105341","App_Title___105365"])
 
-return _main___P93969
+return _main___P105319
 })
