@@ -115,41 +115,50 @@ function Define_Sprites () {
 
 // MARK: Button Presses
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (spriteutils.isDestroyed(Mouse_Cursor)) {
-    	// motherfucker why is this needed for the code to work you can't even kill the mouse cursor
-    } else if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
+    if (Mouse_Cursor.overlapsWith(Close_App)) {
         close_apps()
-        Open_xCell("")
-    } else if (Mouse_Cursor.overlapsWith(Write_icon)) {
-        close_apps()
-        Open_Write("")
-    } else if (Mouse_Cursor.overlapsWith(Web_Chat_Icon)) {
-        close_apps()
-        Open_Web()
-    } else if (Mouse_Cursor.overlapsWith(Settings_Icon)) {
-        close_apps()
-        Open_Settings()
-    } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon)) {
-        close_apps()
-        Open_FileManager()
-    } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon)) {
-        close_apps()
-        Open_NanoCode()
-    } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
-        close_apps()
-        Open_ProcessManager()
-    } else if (Mouse_Cursor.overlapsWith(Library_icon)) {
-        close_apps()
-        Open_Library()
-    } else if (Mouse_Cursor.overlapsWith(Close_App)) {
-        close_apps()
-    } else if (App_Open == "File Manager" || App_Open == "Settings") {
-        let menu_selection = 0;
-        for (let i = 0; i < ListMenuContents.length; i++) {
-            if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12) {
-                menu_selection = i + 1;
-                listSelection(App_Open, menu_selection, SubMenu)
-                break;
+    }
+    if (App_Open !== "App Library") {
+        if (spriteutils.isDestroyed(Mouse_Cursor)) {
+            // motherfucker why is this needed for the code to work you can't even kill the mouse cursor
+        } else if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
+            close_apps()
+            Open_xCell("")
+        } else if (Mouse_Cursor.overlapsWith(Write_icon)) {
+            close_apps()
+            Open_Write("")
+        } else if (Mouse_Cursor.overlapsWith(Web_Chat_Icon)) {
+            close_apps()
+            Open_Web()
+        } else if (Mouse_Cursor.overlapsWith(Settings_Icon)) {
+            close_apps()
+            Open_Settings()
+        } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon)) {
+            close_apps()
+            Open_FileManager()
+        } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon)) {
+            close_apps()
+            Open_NanoCode()
+        } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
+            close_apps()
+            Open_ProcessManager()
+        } else if (Mouse_Cursor.overlapsWith(Library_icon)) {
+            close_apps()
+            Open_Library()
+        } else if (App_Open == "File Manager" || App_Open == "Settings") {
+            let menu_selection = 0;
+            for (let i = 0; i < ListMenuContents.length; i++) {
+                if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12) {
+                    menu_selection = i + 1;
+                    listSelection(App_Open, menu_selection, SubMenu)
+                    break;
+                }
+            }
+        } else if (App_Open == "NanoCode") {
+            if (SubMenu == "Main") {
+                if (Mouse_Cursor.x > 50 && Mouse_Cursor.x < 158) {
+                    
+                }
             }
         }
     }
@@ -280,6 +289,7 @@ function Open_Settings () {
 
 function Open_NanoCode () {
     App_Open = "NanoCode"
+    SubMenu = "Main"
     scene.setBackgroundImage(assets.image`NanoCode Menu`)
     scene.setBackgroundColor(15)
     ListMenuContents = [miniMenu.createMenuItem("New"),miniMenu.createMenuItem("Edit"),miniMenu.createMenuItem("Compile"),miniMenu.createMenuItem("")]
