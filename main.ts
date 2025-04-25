@@ -157,7 +157,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         } else if (App_Open == "NanoCode") {
             if (SubMenu == "Main") {
                 if (Mouse_Cursor.x > 50 && Mouse_Cursor.x < 158) {
-                    
+                    if (Mouse_Cursor.y < 100) {
+                        // nothin happens fucker
+                    } else if (Mouse_Cursor.y < 87) {
+                        // this would be compile
+                    } else if (Mouse_Cursor.y < 74) {
+                        // this would be edit
+                    } else if (Mouse_Cursor.y < 61) {
+                        // this would be new
+                    }
                 }
             }
         }
