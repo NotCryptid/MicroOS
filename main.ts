@@ -282,8 +282,12 @@ function Open_NanoCode () {
     App_Open = "NanoCode"
     scene.setBackgroundImage(assets.image`NanoCode Menu`)
     scene.setBackgroundColor(15)
-    text = textsprite.create("Coming soon.", 0, 1)
-    text.setPosition(105, 86)
+    ListMenuContents = [miniMenu.createMenuItem("New"),miniMenu.createMenuItem("Edit"),miniMenu.createMenuItem("Compile"),miniMenu.createMenuItem("")]
+    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+    ListMenuGUI.setDimensions(106, 40)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setPosition(104, 82)
+    ListMenuGUI.z = -30
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("NanoCode", 0, 1)
