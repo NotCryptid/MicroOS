@@ -11,10 +11,6 @@ let Taskbar: Sprite = null
 let menu_selection : number = null
 let ListMenuGUI: miniMenu.MenuSprite = null
 let NanoCode_Icon: Sprite = null
-let buttons_down = [""]
-let paired_devices = [69]
-let paired_devices_ids = ["doofus"]
-const keyboardChars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'PrintScreen', 'ScrollLock', 'Pause', 'Insert', 'Home', 'PageUp', 'Delete', 'End', 'PageDown', 'Tab', 'CapsLock', 'Shift', 'Control', 'Alt', 'Space', 'Enter', 'Backspace', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 let File_Manager_Icon: Sprite = null
 let Process_Icon: Sprite = null
 let Settings_Icon: Sprite = null
@@ -23,12 +19,9 @@ let Write_icon: Sprite = null
 let Library_icon: Sprite = null
 let xCell_Icon: Sprite = null
 let Mouse_Cursor: Sprite = null
-let devices_to_pair = [4]
-let devices_to_pair_time_table = [1]
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = "null"
-let PairTime = 0
 let List_Scroll = 0
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
@@ -57,7 +50,7 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
-let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("MicroLink  | Medium"), miniMenu.createMenuItem("process.moa| Low")]
+let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
     miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
     miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
@@ -122,40 +115,6 @@ function Define_Sprites () {
 
 // MARK: Button Presses
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    left_click()
-})
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    right_click()
-})
-
-controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-    home_button()
-})
-
-game.onUpdate(function() {
-    if (buttons_down.indexOf('left_click') > -1) {
-        left_click()
-        while (buttons_down.indexOf('left_click') > -1) {
-            
-        }
-    }
-    if (buttons_down.indexOf('right_click') > -1) {
-        right_click()
-        while (buttons_down.indexOf('right_click') > -1) {
-            
-        }
-    }
-})
-
-function home_button() {
-    if (App_Open == "null") {
-        Open_Library()
-    } else {
-        close_apps()
-    }   
-}
-
-function left_click() {
     if (spriteutils.isDestroyed(Mouse_Cursor)) {
     	// motherfucker why is this needed for the code to work you can't even kill the mouse cursor
     } else if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
@@ -194,84 +153,25 @@ function left_click() {
             }
         }
     }
-}
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 
-function right_click() {
-    
-}
+})
+
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (App_Open == "null") {
+        Open_Library()
+    } else {
+        close_apps()
+    } 
+})
+
 
 // Button presses end here
 
 // MARK: Radio
 
-// Recieved unnamed number
-radio.onReceivedNumber(function(receivedNumber: number) {
-    
-})
-// Recieved named number / numbered string
-radio.onReceivedValue(function(name: string, value: number) {
-    if (paired_devices_ids.some(id => id.indexOf(name) !== -1)) {
-        const key = paired_devices[paired_devices_ids.indexOf(name)]; 
-        const str = decrypt(value.toString(), key); 
-        if (str.slice(0, 12) != "000000000000") {
-            const ms_x = parseInt(str.slice(0, 3), 10) - 1;
-            const ms_y = parseInt(str.slice(3, 6), 10) - 1;
-            Mouse_Cursor.setPosition(ms_x, ms_y)
-            buttons_down[0] = str.slice(7, 7)
-            buttons_down[1] = str.slice(8, 8)
-            buttons_down[2] = str.slice(9, 9)
-            buttons_down[3] = str.slice(10, 10)
-            buttons_down[4] = str.slice(11, 11)
-            buttons_down[5] = str.slice(12, 12)
-        }
-    } else if (name.length == 19 && value == 56345) {
-        if (reconnectMicroLink(name)) {
-            radio.sendValue(paired_devices_ids[paired_devices.indexOf(reconnectMicroLink2(name))], reconnectMicroLink2(name))
-        }
-    } else if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
-        if (name == "MicroLink Pairing") {
-            if (devices_to_pair.indexOf(value) !== -1) {
-                devices_to_pair_time_table[devices_to_pair.indexOf(value)] = PairTime + 5
-            } else {
-                devices_to_pair.push(value)
-                devices_to_pair_time_table.push(PairTime + 20)
-            }
-            ListMenuGUI.close()
-            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-            ListMenuGUI.setButtonEventsEnabled(false)
-            ListMenuGUI.setDimensions(151, 97)
-            ListMenuGUI.setPosition(76, 58)
-            ListMenuGUI.z = -30
-            
-        }
-    }
-})
 
-// Reconnecting MicroLink device
-function reconnectMicroLink(recieved: string): boolean {
-    for (let i = 0; i < paired_devices.length; i++) {
-        const serial = paired_devices[i];
-        
-        if (decrypt(recieved, serial) == "Ready to connect") {
-            return true;
-        }
-    }
-    return false;
-}
-function reconnectMicroLink2(recieved: string): number {
-    for (let i = 0; i < paired_devices.length; i++) {
-        const serial = paired_devices[i];
-        
-        if (decrypt(recieved, serial) == "Ready to connect") {
-            return serial;
-        }
-    }
-    return null;
-}
-// Recieved unnumbered string
-radio.onReceivedString(function(receivedString: string) {
-    
-})
 // Radio ends here
 
 // MARK: Background tasks
@@ -279,32 +179,6 @@ forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
     Start_Icon_Names()
-    if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
-        PairTime++
-        for (let i = devices_to_pair_time_table.length - 1; i >= 0; i--) {
-            if (devices_to_pair_time_table[i] <= PairTime) {
-              devices_to_pair_time_table.splice(i, 1);
-              devices_to_pair.splice(i, 1);
-            }
-        }
-        for (let i = 0; i < devices_to_pair.length; i++) {
-            if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
-                ListMenuContents = [miniMenu.createMenuItem("Back")]
-                ListMenuContents.push(miniMenu.createMenuItem(devices_to_pair[i].toString()))
-            } else {
-                break;
-            }
-        }
-        if (App_Open == "Settings" && SubMenu == "Connect MicroLink Devices") {
-            ListMenuGUI.close()
-            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-            ListMenuGUI.setButtonEventsEnabled(false)
-            ListMenuGUI.setDimensions(151, 97)
-            ListMenuGUI.setPosition(76, 58)
-            ListMenuGUI.z = -30
-            pause(250)
-        }
-    }
 })
 
 function Start_Icon_Names() {
@@ -521,9 +395,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
-                    Current_Settings[2],
-                    miniMenu.createMenuItem("Connect MicroLink Device"),
-                    miniMenu.createMenuItem("Paired MicroLink Devices")
+                    Current_Settings[2]
                 ]
                 SubMenu = "Connectivity"
             } else if (selection + List_Scroll == 2) {
@@ -558,17 +430,6 @@ function listSelection(app: string, selection: number, submenu: string) {
             } else if (selection + List_Scroll == 3) {
                 changeSettings(3)
                 ListMenuContents[2] = Current_Settings[2]
-            } else if (selection + List_Scroll == 4) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                ]
-                PairTime = 0
-                SubMenu = "Connect MicroLink Devices"
-            } else if (selection + List_Scroll == 5) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                ]
-                SubMenu = "Paired MicroLink Devices"
             }
         } else if (submenu == "Input") {
             if (selection + List_Scroll == 1) {
@@ -619,7 +480,6 @@ function listSelection(app: string, selection: number, submenu: string) {
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.1.0"),
                     miniMenu.createMenuItem("Void Kernel 2025.1"),
-                    miniMenu.createMenuItem("MicroLink Drivers r1b1")
                 ]
                 SubMenu = "System Information"
             }
@@ -650,36 +510,6 @@ function listSelection(app: string, selection: number, submenu: string) {
                     miniMenu.createMenuItem("System Information")
                 ]
                 SubMenu = "System"
-            }
-        } else if (submenu == "Connect MicroLink Devices") {
-            if (selection + List_Scroll == 1) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[3],
-                    Current_Settings[2],
-                    miniMenu.createMenuItem("Connect MicroLink Device"),
-                    miniMenu.createMenuItem("Paired MicroLink Devices")
-                ]
-                SubMenu = "Connectivity"
-            } else if (selection + List_Scroll == 2) {
-                
-            } else if (selection + List_Scroll == 3) {
-                
-            }
-        } else if (submenu == "Paired MicroLink Devices") {
-            if (selection + List_Scroll == 1) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[3],
-                    Current_Settings[2],
-                    miniMenu.createMenuItem("Connect MicroLink Device"),
-                    miniMenu.createMenuItem("Paired MicroLink Devices")
-                ]
-                SubMenu = "Connectivity"
-            } else if (selection + List_Scroll == 2) {
-                
-            } else if (selection + List_Scroll == 3) {
-                
             }
         }
         ListMenuGUI.close()
