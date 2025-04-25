@@ -329,7 +329,7 @@ function Start_Icon_Names() {
     } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
         Process_Icon.sayText("Process Manager", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Library_icon)) {
-        Process_Icon.sayText(".  Library", 50, false, color24, otherColor)
+        Library_icon.sayText(".  Library", 50, false, color24, otherColor)
     }
 }
 // Background tasks end here
