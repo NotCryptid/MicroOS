@@ -27,6 +27,7 @@ let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
+let User_Apps: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpapers.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
 let SubMenu = ""
@@ -344,6 +345,10 @@ function Open_ProcessManager () {
     ListMenuGUI.setPosition(80, 58)
     ListMenuGUI.z = -30
 }
+function Open_NanoCode_App (app_name: string) {
+    
+}
+
 // Apps end here
 
 // MARK: App functions
