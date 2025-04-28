@@ -469,6 +469,16 @@ function listSelection(app: string, selection: number, submenu: string) {
             } else if (selection + List_Scroll == 3) {
                 changeSettings(3)
                 ListMenuContents[2] = Current_Settings[2]
+            } else if (selection + List_Scroll == 4) {
+                Username = game.askForString("Enter new username", 7)
+                blockSettings.writeString("Username", Username)
+                Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[3],
+                    Current_Settings[2],
+                    Current_Settings[5]
+                ]
             }
         } else if (submenu == "Input") {
             if (selection + List_Scroll == 1) {
@@ -482,15 +492,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                 changeSettings(2)
                 ListMenuContents[2] = Current_Settings[1]
             } else if (selection + List_Scroll == 4) {
-                Username = game.askForString("Enter new username", 7)
-                blockSettings.writeString("Username", Username)
-                Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[3],
-                    Current_Settings[2],
-                    Current_Settings[5]
-                ]
+                
             } else if (selection + List_Scroll == 5) {
                 
             }
