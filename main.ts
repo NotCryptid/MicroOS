@@ -23,6 +23,9 @@ let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = "null"
 let List_Scroll = 0
+let Username = ""
+let WebChatRoom = 0
+let WebChatMessages: miniMenu.MenuItem[] = []
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
@@ -48,8 +51,10 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     Settings = "100010"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
+    blockSettings.writeString("UserName", "User")
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
+    Username = blockSettings.readString("UserName")
 }
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
@@ -58,6 +63,7 @@ Current_Settings = [
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
+    miniMenu.createMenuItem(blockSettings.readString("Name - " + "UserName"))
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -189,6 +195,11 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 
 // MARK: Radio
 
+radio.onReceivedValue(function(name: string, value: number) {
+    if(App_Open == "Web Chat"){
+
+    }
+})
 
 // Radio ends here
 
