@@ -51,19 +51,19 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     Settings = "100010"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
-    blockSettings.writeString("UserName", "User")
+    blockSettings.writeString("Username", "User")
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
     Username = blockSettings.readString("UserName")
 }
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
-    miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
-    miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
+    miniMenu.createMenuItem(["Keyboard - Pin Header", "Keyboard - OnScreen", "Keyboard - Pin Header"][parseInt(Settings.charAt(1), 10) + 1]),
+    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header","Mouse - D-Pad"][parseInt(Settings.charAt(2), 10) + 1]),
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
-    miniMenu.createMenuItem(blockSettings.readString("Name - " + "UserName"))
+    miniMenu.createMenuItem("Name - " + blockSettings.readString("Username"))
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -433,7 +433,8 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
-                    Current_Settings[2]
+                    Current_Settings[2],
+                    Current_Settings[5]
                 ]
                 SubMenu = "Connectivity"
             } else if (selection + List_Scroll == 2) {
@@ -481,7 +482,15 @@ function listSelection(app: string, selection: number, submenu: string) {
                 changeSettings(2)
                 ListMenuContents[2] = Current_Settings[1]
             } else if (selection + List_Scroll == 4) {
-                
+                Username = game.askForString("Enter new username", 7)
+                blockSettings.writeString("Username", Username)
+                Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[3],
+                    Current_Settings[2],
+                    Current_Settings[5]
+                ]
             } else if (selection + List_Scroll == 5) {
                 
             }
@@ -564,11 +573,11 @@ function changeSettings(selection: number) {
     let dingus52 = 0
     let dingus51 = "spoingy"
     if (selection == 1) {
-        dingus52 = 2
-        dingus51 = ["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio", "Keyboard - OnScreen"][dingus53]
+        dingus52 = 1
+        dingus51 = ["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - OnScreen"][dingus53]
     } else if (selection == 2) {
-        dingus52 = 2
-        dingus51 = ["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio", "Mouse - D-Pad"][dingus53]
+        dingus52 = 1
+        dingus51 = ["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - D-Pad"][dingus53]
     } else if (selection == 3) {
         dingus52 = 2
         dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][dingus53]
