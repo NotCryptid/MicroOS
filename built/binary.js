@@ -597,7 +597,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P44486(s) {
+function _main___P46195(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1967,13 +1967,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P44486.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P44486.continuations = [ 66,67,68,69,117,118,123 ]
+_main___P46195.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P46195.continuations = [ 66,67,68,69,117,118,123 ]
 
-function _main___P44486_mk(s) {
+function _main___P46195_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P44486, depth: s.depth + 1,
+        parent: s, fn: _main___P46195, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -74340,5 +74340,5 @@ const sprites_StaticObstacle__C2514_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency16___4813","Desktop_UI___44499","Mouse___44502","App_UI___44505","Settings___44544","System_Files___44553","text2___44587","text3___44592","text___44547","Username___44538","Active_Processes___44632","Current_Settings___44573","fileNamesString___44710","User_Files_Temp___44713","User_Files___44549","Wallpaper___44760","Mouse_Cursor___44530","Close_App___44534","App_Open___44535","xCell_Icon___44528","Write_icon___44524","Web_Chat_Icon___44522","Settings_Icon___44520","File_Manager_Icon___44516","NanoCode_Icon___44514","Process_Icon___44518","Library_icon___44526","ListMenuContents___44548","sillySpacingForListGUI___44584","SubMenu___44574","List_Scroll___44537","ListMenuGUI___44512","Taskbar___44508","App_Title___44532"])
 
-return _main___P44486
+return _main___P46195
 })
