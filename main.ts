@@ -24,7 +24,6 @@ let Close_App: Sprite = null
 let App_Open = "null"
 let List_Scroll = 0
 let Username = ""
-let WebChatRoom = 0
 let WebChatMessages: miniMenu.MenuItem[] = []
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
@@ -194,8 +193,11 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 // MARK: Radio
 
 radio.onReceivedValue(function(name: string, value: number) {
-    if(App_Open == "Web Chat"){
-
+    if(App_Open == "Web Chat" && value == 119101989910497116){
+        WebChatMessages.push(miniMenu.createMenuItem(name))
+        if (WebChatMessages.length > 8) {
+            WebChatMessages.shift();
+        }
     }
 })
 
