@@ -24,7 +24,6 @@ let Close_App: Sprite = null
 let App_Open = "null"
 let List_Scroll = 0
 let Username = ""
-let WebChatMessages: miniMenu.MenuItem[] = []
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
@@ -32,6 +31,7 @@ let User_Files: miniMenu.MenuItem[] = []
 let User_Apps: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpapers.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
+let WebChatMessages: miniMenu.MenuItem[] = []
 let SubMenu = ""
 const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 pause(300)
@@ -39,7 +39,7 @@ let text2 = textsprite.create("> Void Kernel Micro", 0, 1)
 text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
-pause(1000)
+pause(200)
 text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 1)
 text.setPosition(79, 26)
 
@@ -193,9 +193,9 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 // MARK: Radio
 
 radio.onReceivedValue(function(name: string, value: number) {
-    if(App_Open == "Web Chat" && value == 119101989910497116){
+    if(value == 119101989910497116){
         WebChatMessages.push(miniMenu.createMenuItem(name))
-        if (WebChatMessages.length > 8) {
+        if (WebChatMessages.length > 7) {
             WebChatMessages.shift();
         }
     }
@@ -256,6 +256,11 @@ function Open_Web () {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(26, 4)
+    ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
+    ListMenuGUI.setDimensions(151, 86)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setPosition(76, 52)
+    ListMenuGUI.z = -30
 }
 
 
