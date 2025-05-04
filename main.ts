@@ -6,7 +6,7 @@ namespace SpriteKind {
     export const App_UI = SpriteKind.create()
 }
 
-// this definitely does something s
+// this definitely does something
 let Taskbar: Sprite = null
 let menu_selection : number = null
 let ListMenuGUI: miniMenu.MenuSprite = null
