@@ -42,7 +42,7 @@ let text3 = textsprite.create("> PXT Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
 pause(1000)
 text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 1)
-text.setPosition(79, 36)
+text.setPosition(79, 26)
 
 // MARK: OS Boot Sequence
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
