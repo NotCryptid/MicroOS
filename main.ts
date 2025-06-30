@@ -23,6 +23,7 @@ let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = "null"
 let List_Scroll = 0
+let Username = ""
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
@@ -30,34 +31,36 @@ let User_Files: miniMenu.MenuItem[] = []
 let User_Apps: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpapers.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
+let WebChatMessages: miniMenu.MenuItem[] = []
 let SubMenu = ""
 const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 pause(300)
 let text2 = textsprite.create("> Void Kernel Micro", 0, 1)
 text2.setPosition(61, 6)
-let text3 = textsprite.create("> PTX Build 2.0.6", 0, 1)
+let text3 = textsprite.create("> PXT Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
-let text4 = textsprite.create("> Hold UP+B to erase data", 0, 1)
-text4.setPosition(79, 26)
-pause(1000)
-text = textsprite.create("> Loading Micro:OS v0.1.0", 0, 1)
-text.setPosition(79, 36)
+pause(200)
+text = textsprite.create("> Loading Micro:OS v0.0.4", 0, 1)
+text.setPosition(79, 26)
 
 // MARK: OS Boot Sequence
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     Settings = "100010"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
+    blockSettings.writeString("Username", "User")
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
+    Username = blockSettings.readString("UserName")
 }
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
-    miniMenu.createMenuItem(["Keyboard - Radio", "Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio"][parseInt(Settings.charAt(1), 10) + 1]),
-    miniMenu.createMenuItem(["Mouse - Radio", "Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio"][parseInt(Settings.charAt(2), 10) + 1]),
+    miniMenu.createMenuItem(["Keyboard - Pin Header", "Keyboard - OnScreen", "Keyboard - Pin Header"][parseInt(Settings.charAt(1), 10) + 1]),
+    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header","Mouse - D-Pad"][parseInt(Settings.charAt(2), 10) + 1]),
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
+    miniMenu.createMenuItem("Name - " + blockSettings.readString("Username"))
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -189,6 +192,14 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 
 // MARK: Radio
 
+radio.onReceivedValue(function(name: string, value: number) {
+    if(value == 119101989910497116){
+        WebChatMessages.push(miniMenu.createMenuItem(name))
+        if (WebChatMessages.length > 7) {
+            WebChatMessages.shift();
+        }
+    }
+})
 
 // Radio ends here
 
@@ -245,6 +256,11 @@ function Open_Web () {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(26, 4)
+    ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
+    ListMenuGUI.setDimensions(151, 86)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setPosition(76, 52)
+    ListMenuGUI.z = -30
 }
 
 
@@ -422,7 +438,8 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
-                    Current_Settings[2]
+                    Current_Settings[2],
+                    Current_Settings[5]
                 ]
                 SubMenu = "Connectivity"
             } else if (selection + List_Scroll == 2) {
@@ -457,6 +474,16 @@ function listSelection(app: string, selection: number, submenu: string) {
             } else if (selection + List_Scroll == 3) {
                 changeSettings(3)
                 ListMenuContents[2] = Current_Settings[2]
+            } else if (selection + List_Scroll == 4) {
+                Username = game.askForString("Enter new username", 7)
+                blockSettings.writeString("Username", Username)
+                Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[3],
+                    Current_Settings[2],
+                    Current_Settings[5]
+                ]
             }
         } else if (submenu == "Input") {
             if (selection + List_Scroll == 1) {
@@ -506,7 +533,7 @@ function listSelection(app: string, selection: number, submenu: string) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.1.0"),
-                    miniMenu.createMenuItem("NanoSDK 2025.1")
+                    // miniMenu.createMenuItem("NanoSDK 2025.1")
                 ]
                 SubMenu = "System Information"
             }
@@ -553,11 +580,11 @@ function changeSettings(selection: number) {
     let dingus52 = 0
     let dingus51 = "spoingy"
     if (selection == 1) {
-        dingus52 = 2
-        dingus51 = ["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - Radio", "Keyboard - OnScreen"][dingus53]
+        dingus52 = 1
+        dingus51 = ["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - OnScreen"][dingus53]
     } else if (selection == 2) {
-        dingus52 = 2
-        dingus51 = ["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - Radio", "Mouse - D-Pad"][dingus53]
+        dingus52 = 1
+        dingus51 = ["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - D-Pad"][dingus53]
     } else if (selection == 3) {
         dingus52 = 2
         dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][dingus53]

@@ -9,4 +9,3 @@ _site
 *.tgz
 .header.json
 .simstate.json
-binary.js
