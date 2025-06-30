@@ -40,7 +40,7 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 2.0.6", 0, 1)
 text3.setPosition(55, 16)
 pause(200)
-text = textsprite.create("> Loading Micro:OS v0.0.4", 0, 1)
+text = textsprite.create("> Loading Micro:OS v0.0.3", 0, 1)
 text.setPosition(79, 26)
 
 // MARK: OS Boot Sequence
@@ -532,7 +532,7 @@ function listSelection(app: string, selection: number, submenu: string) {
             } else if (selection + List_Scroll == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("MicroOS v0.1.0"),
+                    miniMenu.createMenuItem("MicroOS v0.0.3"),
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
                 ]
                 SubMenu = "System Information"
