@@ -117,7 +117,11 @@ function Define_Sprites () {
 }
 
 function error(type: number) {
-    game.splash(""+type)
+    game.splash("Error "+type)
+}
+function fatalerror(type: number) {
+    close_apps()
+    game.splash("Fatal Error "+type)
 }
 
 // Okay kernel ends here
