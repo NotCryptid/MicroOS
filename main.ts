@@ -22,6 +22,7 @@ let Mouse_Cursor: Sprite = null
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = "null"
+let defined_menu = "none"
 let List_Scroll = 0
 let Username = ""
 let Settings = blockSettings.readString("settings")
@@ -29,7 +30,7 @@ let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
 let User_Apps: miniMenu.MenuItem[] = []
-let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.uf2"),miniMenu.createMenuItem("wallpapers.asset"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
+let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.hex"),miniMenu.createMenuItem("assets.ts"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
 let WebChatMessages: miniMenu.MenuItem[] = []
 let SubMenu = ""
@@ -115,38 +116,57 @@ function Define_Sprites () {
     sprites.destroy(Close_App)
 }
 
+function error(type: number) {
+    game.splash(""+type)
+}
+
 // Okay kernel ends here
 
 // MARK: Button Presses
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (Mouse_Cursor.overlapsWith(Close_App)) {
+    MouseClick(1)
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    MouseClick(2)
+})
+
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (App_Open == "null") {
+        Open_Library()
+    } else {
+        close_apps()
+    } 
+})
+
+function MouseClick(button: number) {
+    if (Mouse_Cursor.overlapsWith(Close_App) && button == 1) {
         close_apps()
     }
     if (App_Open !== "App Library") {
         if (spriteutils.isDestroyed(Mouse_Cursor)) {
             // motherfucker why is this needed for the code to work you can't even kill the mouse cursor
-        } else if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
+        } else if (Mouse_Cursor.overlapsWith(xCell_Icon) && button == 1) {
             close_apps()
             Open_xCell("")
-        } else if (Mouse_Cursor.overlapsWith(Write_icon)) {
+        } else if (Mouse_Cursor.overlapsWith(Write_icon) && button == 1) {
             close_apps()
             Open_Write("")
-        } else if (Mouse_Cursor.overlapsWith(Web_Chat_Icon)) {
+        } else if (Mouse_Cursor.overlapsWith(Web_Chat_Icon) && button == 1) {
             close_apps()
             Open_Web()
-        } else if (Mouse_Cursor.overlapsWith(Settings_Icon)) {
+        } else if (Mouse_Cursor.overlapsWith(Settings_Icon) && button == 1) {
             close_apps()
             Open_Settings()
-        } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon)) {
+        } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
             close_apps()
             Open_FileManager()
-        } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon)) {
+        } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
             close_apps()
             Open_NanoCode()
-        } else if (Mouse_Cursor.overlapsWith(Process_Icon)) {
+        } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
             close_apps()
             Open_ProcessManager()
-        } else if (Mouse_Cursor.overlapsWith(Library_icon)) {
+        } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
             close_apps()
             Open_Library()
         } else if (App_Open == "File Manager" || App_Open == "Settings") {
@@ -154,8 +174,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             for (let i = 0; i < ListMenuContents.length; i++) {
                 if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12) {
                     menu_selection = i + 1;
-                    listSelection(App_Open, menu_selection, SubMenu)
-                    break;
+                    if (button == 1) {
+                        listSelection(App_Open, menu_selection, SubMenu, "click")
+                        break;
+                    } else {
+
+                    }
                 }
             }
         } else if (App_Open == "NanoCode") {
@@ -174,19 +198,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             }
         }
     }
-})
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-
-})
-
-controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (App_Open == "null") {
-        Open_Library()
-    } else {
-        close_apps()
-    } 
-})
-
+}
 
 // Button presses end here
 
@@ -379,31 +391,38 @@ function close_apps () {
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
 }
 
-function listSelection(app: string, selection: number, submenu: string) {
+function listSelection(app: string, selection: number, submenu: string, action: string) {
+    defined_menu = "none"
     if (app == "File Manager") {
         if (submenu == "System") {
             close_apps()
-            if (selection + List_Scroll == 1) {    
-                SubMenu = "Home"
-                Open_FileManager()
-            } else if (selection + List_Scroll == 2) {
-                game.reset()
-            } else if (selection + List_Scroll == 3) {
-                // might make an image viewer some day
-                Open_FileManager()
-            } else if (selection + List_Scroll == 4) {
-                Open_FileManager()
-            } else if (selection + List_Scroll == 5) {
-                Open_Write("")
-            } else if (selection + List_Scroll == 6) {
-                Open_xCell("")
-            } else if (selection + List_Scroll == 7) {
-                Open_Settings()
-            } else if (selection + List_Scroll == 8) {
-                Open_Web()
-            } else if (selection + List_Scroll == 9) {
-                Open_NanoCode()
-            }
+            if (action == "rclick" && selection + List_Scroll !== 1) {
+                return('file')
+            } else if (action == "click" || action == "open") {
+                if (selection + List_Scroll == 1) {    
+                    SubMenu = "Home"
+                    Open_FileManager()
+                } else if (selection + List_Scroll == 2) {
+                    game.reset()
+                } else if (selection + List_Scroll == 3) {
+                    error(105)
+                } else if (selection + List_Scroll == 4) {
+                    Open_FileManager()
+                } else if (selection + List_Scroll == 5) {
+                    Open_Write("")
+                } else if (selection + List_Scroll == 6) {
+                    Open_xCell("")
+                } else if (selection + List_Scroll == 7) {
+                    Open_Settings()
+                } else if (selection + List_Scroll == 8) {
+                    Open_Web()
+                } else if (selection + List_Scroll == 9) {
+                    Open_NanoCode()
+                }
+            } else {
+                error(107)
+            } 
+            
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
             const FileAtSelection = JSON.stringify(User_Files[selection + List_Scroll]).substr(JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1,JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"', JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1));
@@ -413,8 +432,10 @@ function listSelection(app: string, selection: number, submenu: string) {
                 Open_FileManager()
             } else {
                 // temporary workaround
-                SubMenu = "Home"
-                Open_FileManager()
+                if (action == "click" || action == "open") {
+                    SubMenu = "Home"
+                    Open_FileManager()  
+                }
             }
         } else if (submenu == "Home") {
             ListMenuGUI.close()
@@ -573,6 +594,7 @@ function listSelection(app: string, selection: number, submenu: string) {
         ListMenuGUI.setPosition(76, 58)
         ListMenuGUI.z = -30
     }
+    return(defined_menu)
 }
 
 function changeSettings(selection: number) {
@@ -624,6 +646,7 @@ function decrypt(string: string, key: number) {
         }
         return output;
     } else {
+        error(201)
         return null
     }
 }
@@ -636,6 +659,7 @@ function encrypt(string: string, key: number): string {
         }
         return output;
     } else {
+        error(201)
         return null
     }
 }
