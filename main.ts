@@ -121,6 +121,7 @@ function error(type: number) {
     game.splash("Error "+type)
 }
 function fatalerror(type: number) {
+    // make cooler fatal error screen later
     game.splash("Fatal Error " + type)
     game.reset()
 }
