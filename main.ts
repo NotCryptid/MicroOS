@@ -121,8 +121,8 @@ function error(type: number) {
     game.splash("Error "+type)
 }
 function fatalerror(type: number) {
+    game.splash("Fatal Error " + type)
     game.reset()
-    game.splash("Fatal Error "+type)
 }
 
 // Okay kernel ends here
@@ -150,6 +150,7 @@ function MouseClick(button: number) {
     if (App_Open !== "App Library") {
         if (spriteutils.isDestroyed(Mouse_Cursor)) {
             // motherfucker why is this needed for the code to work you can't even kill the mouse cursor
+            fatalerror(202)
         } else if (Mouse_Cursor.overlapsWith(xCell_Icon) && button == 1) {
             Open_xCell("")
         } else if (Mouse_Cursor.overlapsWith(Write_icon) && button == 1) {
