@@ -117,10 +117,11 @@ function Define_Sprites () {
 }
 
 function error(type: number) {
+    close_apps()
     game.splash("Error "+type)
 }
 function fatalerror(type: number) {
-    close_apps()
+    game.reset()
     game.splash("Fatal Error "+type)
 }
 
@@ -150,28 +151,20 @@ function MouseClick(button: number) {
         if (spriteutils.isDestroyed(Mouse_Cursor)) {
             // motherfucker why is this needed for the code to work you can't even kill the mouse cursor
         } else if (Mouse_Cursor.overlapsWith(xCell_Icon) && button == 1) {
-            close_apps()
             Open_xCell("")
         } else if (Mouse_Cursor.overlapsWith(Write_icon) && button == 1) {
-            close_apps()
             Open_Write("")
         } else if (Mouse_Cursor.overlapsWith(Web_Chat_Icon) && button == 1) {
-            close_apps()
             Open_Web()
         } else if (Mouse_Cursor.overlapsWith(Settings_Icon) && button == 1) {
-            close_apps()
             Open_Settings()
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
-            close_apps()
             Open_FileManager()
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
-            close_apps()
             Open_NanoCode()
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
-            close_apps()
             Open_ProcessManager()
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
-            close_apps()
             Open_Library()
         } else if (App_Open == "File Manager" || App_Open == "Settings") {
             let menu_selection = 0;
@@ -255,7 +248,8 @@ function Start_Icon_Names() {
 
 // MARK: Apps
 // Running every app at a kernel level is such a good idea ikr
-function Open_Library () {
+function Open_Library() {
+    close_apps()
     App_Open = "App Library"
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(149, 12)
@@ -264,7 +258,8 @@ function Open_Library () {
     Taskbar.setPosition(80, 60)
 }
 
-function Open_Web () {
+function Open_Web() {
+    close_apps()
     App_Open = "Web Chat"
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
@@ -280,7 +275,8 @@ function Open_Web () {
 }
 
 
-function Open_xCell (load_file: string) {
+function Open_xCell(load_file: string) {
+    close_apps()
     App_Open = "xCell"
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
@@ -292,7 +288,8 @@ function Open_xCell (load_file: string) {
     text.setPosition(80, 60)
 }
 
-function Open_Write (load_file: string) {
+function Open_Write(load_file: string) {
+    close_apps()
     App_Open = "Write"
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
@@ -310,7 +307,8 @@ function Open_Write (load_file: string) {
         let write_document = load_file;
     }
 }
-function Open_Settings () {
+function Open_Settings() {
+    close_apps()
     App_Open = "Settings"
     SubMenu = "Home"
     List_Scroll = 0
@@ -328,7 +326,8 @@ function Open_Settings () {
     ListMenuGUI.z = -30
 }
 
-function Open_NanoCode () {
+function Open_NanoCode() {
+    close_apps()
     App_Open = "NanoCode"
     SubMenu = "Main"
     scene.setBackgroundImage(assets.image`NanoCode Menu`)
@@ -344,7 +343,8 @@ function Open_NanoCode () {
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(25, 4)
 }
-function Open_FileManager () {
+function Open_FileManager() {
+    close_apps()
     App_Open = "File Manager"
     SubMenu = "Home"
     List_Scroll = 0
@@ -361,7 +361,8 @@ function Open_FileManager () {
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
 }
-function Open_ProcessManager () {
+function Open_ProcessManager() {
+    close_apps()
     App_Open = "Process Manager"
     SubMenu = "Home"
     List_Scroll = 0
@@ -399,7 +400,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
     defined_menu = "none"
     if (app == "File Manager") {
         if (submenu == "System") {
-            close_apps()
             if (action == "rclick" && selection + List_Scroll !== 1) {
                 return('file')
             } else if (action == "click" || action == "open") {
@@ -430,7 +430,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
             const FileAtSelection = JSON.stringify(User_Files[selection + List_Scroll]).substr(JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1,JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"', JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1));
-            close_apps()
             if (FileAtSelection == "Home") {
                 SubMenu = "Home"
                 Open_FileManager()
@@ -512,7 +511,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
         } else if (submenu == "Input") {
             if (selection + List_Scroll == 1) {
-                close_apps()
                 SubMenu = "Home"
                 Open_Settings()
             } else if (selection + List_Scroll == 2) {
@@ -528,7 +526,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
         } else if (submenu == "Customization") {
             if (selection + List_Scroll == 1) {
-                close_apps()
                 SubMenu = "Home"
                 Open_Settings()
             } else if (selection + List_Scroll == 2) {
@@ -543,7 +540,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
         } else if (submenu == "System") {
             if (selection + List_Scroll == 1) {
-                close_apps()
                 SubMenu = "Home"
                 Open_Settings()
             } else if (selection + List_Scroll == 2) {
