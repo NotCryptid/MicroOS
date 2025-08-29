@@ -184,7 +184,13 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 function MouseClick(button: number) {
     if (Mouse_Cursor.overlapsWith(Close_App) && button == 1) {
         close_apps()
+    } else if (spriteutils.isDestroyed(RightClickMenu) == false) {
+        RightClickMenu.destroy()
+        if (button == 1) {
+            return
+        }
     }
+    
     if (App_Open !== "App Library") {
         if (spriteutils.isDestroyed(Mouse_Cursor)) {
             // motherfucker why is this needed for the code to work you can't even kill the mouse cursor
@@ -217,7 +223,11 @@ function MouseClick(button: number) {
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
                         RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
                         RightClickMenu.setButtonEventsEnabled(false)
-                        RightClickMenu.setPosition(Mouse_Cursor.x, Mouse_Cursor.y)
+                        if (Mouse_Cursor.y < 60) {
+                            RightClickMenu.setPosition(Mouse_Cursor.x + 25, Mouse_Cursor.y + 30)
+                        } else {
+                            RightClickMenu.setPosition(Mouse_Cursor.x + 25, Mouse_Cursor.y - 30)
+                        }
                         RightClickMenu.setDimensions(50, 60)
                         RightClickMenu.z = 350346
                     }
