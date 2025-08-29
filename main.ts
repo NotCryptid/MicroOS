@@ -223,10 +223,14 @@ function MouseClick(button: number) {
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
                         RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
                         RightClickMenu.setButtonEventsEnabled(false)
+                        let RightClickMenuX = Mouse_Cursor.x + 23
+                        if (Mouse_Cursor.x > 107) {
+                            RightClickMenuX = 130
+                        }
                         if (Mouse_Cursor.y < 60) {
-                            RightClickMenu.setPosition(Mouse_Cursor.x + 25, Mouse_Cursor.y + 30)
+                            RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y + 30)
                         } else {
-                            RightClickMenu.setPosition(Mouse_Cursor.x + 25, Mouse_Cursor.y - 30)
+                            RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - 30)
                         }
                         RightClickMenu.setDimensions(50, 60)
                         RightClickMenu.z = 350346
