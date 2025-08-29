@@ -234,6 +234,7 @@ function MouseClick(button: number) {
                         }
                         RightClickMenu.setDimensions(50, 60)
                         RightClickMenu.z = 350346
+                        
                     }
                 }
             }
