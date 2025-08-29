@@ -227,7 +227,7 @@ function MouseClick(button: number) {
         } else if (App_Open == "File Manager" || App_Open == "Settings") {
             let menu_selection = 0;
             for (let i = 0; i < ListMenuContents.length; i++) {
-                if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12) {
+                if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
                     menu_selection = i + 1;
                     if (button == 1) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
