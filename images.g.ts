@@ -1220,6 +1220,30 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 `;
+            case "image21":
+            case "ArrowUp":return img`
+. 9 9 9 9 9 9 9 . 
+9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 
+9 9 9 9 1 9 9 9 9 
+9 9 9 1 1 1 9 9 9 
+9 9 1 1 1 1 1 9 9 
+9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 
+. 9 9 9 9 9 9 9 . 
+`;
+            case "image22":
+            case "ArrowDown":return img`
+. 9 9 9 9 9 9 9 . 
+9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 
+9 9 1 1 1 1 1 9 9 
+9 9 9 1 1 1 9 9 9 
+9 9 9 9 1 9 9 9 9 
+9 9 9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 9 9 
+. 9 9 9 9 9 9 9 . 
+`;
         }
         return null;
     })

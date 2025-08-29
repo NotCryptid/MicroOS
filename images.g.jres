@@ -99,6 +99,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Kernel Panic"
     },
+    "image21": {
+        "data": "hwQJAAkAAACQmZmZAAAAAJmZmZkJAAAAmZkZmQkAAACZmRGZCQAAAJkZEZkJAAAAmZkRmQkAAACZmRmZCQAAAJmZmZkJAAAAkJmZmQAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "ArrowUp"
+    },
+    "image22": {
+        "data": "hwQJAAkAAACQmZmZAAAAAJmZmZkJAAAAmRmZmQkAAACZGZGZCQAAAJkZEZkJAAAAmRmRmQkAAACZGZmZCQAAAJmZmZkJAAAAkJmZmQAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "ArrowDown"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
