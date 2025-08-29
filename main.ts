@@ -28,6 +28,7 @@ let App_Open = "null"
 let List_Scroll = 0
 let rclick_override = 0
 let current_rclick_menu: miniMenu.MenuItem[] = null
+let ListMenuGUIHidden: miniMenu.MenuItem[] = []
 let RightClickMenu: miniMenu.MenuSprite = null
 let Username = ""
 let Settings = blockSettings.readString("settings")
@@ -247,13 +248,41 @@ function MouseClick(button: number) {
                         } else {
                             RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - 30)
                         }
-                        RightClickMenu.setDimensions(50, 60)                    
+                        RightClickMenu.setDimensions(50, 60)
                         outline = sprites.create(assets.image`Dot`, SpriteKind.Mouse)
                         RightClickMenu.z = 350346
                         outline.z = 350345
-                        outline.setPosition(RightClickMenu.x, RightClickMenu.y)                       
+                        outline.setPosition(RightClickMenu.x, RightClickMenu.y)
                         scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
                         scaling.scaleToPixels(outline, 62, ScaleDirection.Vertically, ScaleAnchor.Middle)
+                    }
+                } else if (button == 1 && App_Open == "File Manager") {
+                    if (Mouse_Cursor.overlapsWith(ArrowUp)) {
+                        if (List_Scroll > 8 && List_Scroll <= ListMenuContents.length - 8) {
+                            List_Scroll++
+                            ListMenuGUIHidden.push(ListMenuContents[0])
+                            ListMenuContents[0] = null
+                            ListMenuGUI.destroy()
+                            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+                            ListMenuGUI.setDimensions(151, 97)
+                            ListMenuGUI.setButtonEventsEnabled(false)
+                            ListMenuGUI.setPosition(76, 58)
+                            ListMenuGUI.z = -30
+                        }
+                    } else if (Mouse_Cursor.overlapsWith(ArrowDown)) {
+                        if (List_Scroll > 0 && ListMenuGUIHidden.length > 0) {
+                            List_Scroll--;
+                            const item = ListMenuGUIHidden.pop();
+                            if (item !== undefined) {
+                                ListMenuContents = [item].concat(ListMenuContents);
+                            }
+                            ListMenuGUI.destroy()
+                            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+                            ListMenuGUI.setDimensions(151, 97)
+                            ListMenuGUI.setButtonEventsEnabled(false)
+                            ListMenuGUI.setPosition(76, 58)
+                            ListMenuGUI.z = -30
+                        }
                     }
                 }
             }
