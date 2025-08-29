@@ -46,7 +46,7 @@ text.setPosition(79, 26)
 
 // MARK: OS Boot Sequence
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
-    Settings = "100010"
+    Settings = "1000101"  // changed default to show clock (charAt(6) == "1")
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
     blockSettings.writeString("Username", "User")
@@ -61,7 +61,8 @@ Current_Settings = [
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
-    miniMenu.createMenuItem("Name - " + blockSettings.readString("Username"))
+    miniMenu.createMenuItem("Name - " + blockSettings.readString("Username")),
+    miniMenu.createMenuItem(["Show Clock - False", "Show Clock - True", "Show Clock - False"][parseInt(Settings.charAt(6), 10)])
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -73,10 +74,20 @@ for (let i = 0; i < User_Files_Temp.length; i++) {
     User_Files.push(miniMenu.createMenuItem(User_Files_Temp[i]));
 }
 pause(randint(1000, 2000))
+// Post startup tasks
 sprites.destroy(text)
 sprites.destroy(text2)
 let Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
 scene.setBackgroundImage(Wallpaper)
+
+let hour = 12
+let minute = 100
+let clock = textsprite.create(hour.toString() + ":" + minute.toString().substr(1,2), 0, 1)
+clock.setPosition(50, 50)
+if (Settings.charAt(6) == "1") {
+    clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
+}
+
 // OS Boot Sequence ends here
 
 // MARK: More Kernel
@@ -215,10 +226,26 @@ radio.onReceivedValue(function(name: string, value: number) {
 // Radio ends here
 
 // MARK: Background tasks
+
 forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
     Start_Icon_Names()
+})
+
+forever(function () {
+    if (Settings.charAt(6) == "1") {
+        pause(60000)
+        minute++
+        if (minute > 159) {
+            minute = 100
+            hour++
+            if (hour > 23) {
+                hour = 0
+            }
+        }
+        clock.setText(hour + ":" + minute.toString().substr(1,2))
+    }
 })
 
 function Start_Icon_Names() {
@@ -399,30 +426,40 @@ function close_apps () {
 }
 
 function listSelection(app: string, selection: number, submenu: string, action: string) {
+
+    const selectedOption = selection + List_Scroll
+
+    const SystemSettings = [
+        miniMenu.createMenuItem("Back"),
+        miniMenu.createMenuItem("Data Management"),
+        miniMenu.createMenuItem("System Information"),
+        miniMenu.createMenuItem("Time Settings")
+    ]
+
     defined_menu = "none"
     if (app == "File Manager") {
         if (submenu == "System") {
-            if (action == "rclick" && selection + List_Scroll !== 1) {
+            if (action == "rclick" && selectedOption !== 1) {
                 return('file')
             } else if (action == "click" || action == "open") {
-                if (selection + List_Scroll == 1) {    
+                if (selectedOption == 1) {    
                     SubMenu = "Home"
                     Open_FileManager()
-                } else if (selection + List_Scroll == 2) {
+                } else if (selectedOption == 2) {
                     game.reset()
-                } else if (selection + List_Scroll == 3) {
+                } else if (selectedOption == 3) {
                     error(105)
-                } else if (selection + List_Scroll == 4) {
+                } else if (selectedOption == 4) {
                     Open_FileManager()
-                } else if (selection + List_Scroll == 5) {
+                } else if (selectedOption == 5) {
                     Open_Write("")
-                } else if (selection + List_Scroll == 6) {
+                } else if (selectedOption == 6) {
                     Open_xCell("")
-                } else if (selection + List_Scroll == 7) {
+                } else if (selectedOption == 7) {
                     Open_Settings()
-                } else if (selection + List_Scroll == 8) {
+                } else if (selectedOption == 8) {
                     Open_Web()
-                } else if (selection + List_Scroll == 9) {
+                } else if (selectedOption == 9) {
                     Open_NanoCode()
                 }
             } else {
@@ -431,7 +468,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
-            const FileAtSelection = JSON.stringify(User_Files[selection + List_Scroll]).substr(JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1,JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"', JSON.stringify(User_Files[selection + List_Scroll]).indexOf('"') + 1));
+            const FileAtSelection = JSON.stringify(User_Files[selectedOption]).substr(JSON.stringify(User_Files[selectedOption]).indexOf('"') + 1,JSON.stringify(User_Files[selectedOption]).indexOf('"', JSON.stringify(User_Files[selectedOption]).indexOf('"') + 1));
             if (FileAtSelection == "Home") {
                 SubMenu = "Home"
                 Open_FileManager()
@@ -444,11 +481,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
         } else if (submenu == "Home") {
             ListMenuGUI.close()
-            if (selection + List_Scroll == 1) {
+            if (selectedOption == 1) {
                 SubMenu = "System"
                 ListMenuContents = System_Files
                 ListMenuGUI = miniMenu.createMenuFromArray(System_Files)
-            } else if (selection + List_Scroll == 2) {
+            } else if (selectedOption == 2) {
                 SubMenu = "User"
                 ListMenuContents = User_Files
                 ListMenuGUI = miniMenu.createMenuFromArray(User_Files)
@@ -460,7 +497,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         }
     } else if (app == "Settings") {
         if (submenu == "Home") {
-            if (selection + List_Scroll == 1) {
+            if (selectedOption == 1) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[3],
@@ -468,39 +505,35 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     Current_Settings[5]
                 ]
                 SubMenu = "Connectivity"
-            } else if (selection + List_Scroll == 2) {
+            } else if (selectedOption == 2) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[0],
                     Current_Settings[1]
                 ]
                 SubMenu = "Input"
-            } else if (selection + List_Scroll == 3) {
+            } else if (selectedOption == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[4]
                 ]
                 SubMenu = "Customization"
-            } else if (selection + List_Scroll == 4) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("Data Management"),
-                    miniMenu.createMenuItem("System Information")
-                ]
+            } else if (selectedOption == 4) {
+                ListMenuContents = SystemSettings
                 SubMenu = "System"
             }
         } else if (submenu == "Connectivity") {
-            if (selection + List_Scroll == 1) {
+            if (selectedOption == 1) {
                 close_apps()
                 SubMenu = "Home"
                 Open_Settings()
-            } else if (selection + List_Scroll == 2) {
+            } else if (selectedOption == 2) {
                 changeSettings(4)
                 ListMenuContents[1] = Current_Settings[3]
-            } else if (selection + List_Scroll == 3) {
+            } else if (selectedOption == 3) {
                 changeSettings(3)
                 ListMenuContents[2] = Current_Settings[2]
-            } else if (selection + List_Scroll == 4) {
+            } else if (selectedOption == 4) {
                 Username = game.askForString("Enter new username", 7)
                 blockSettings.writeString("Username", Username)
                 Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
@@ -512,39 +545,39 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 ]
             }
         } else if (submenu == "Input") {
-            if (selection + List_Scroll == 1) {
+            if (selectedOption == 1) {
                 SubMenu = "Home"
                 Open_Settings()
-            } else if (selection + List_Scroll == 2) {
+            } else if (selectedOption == 2) {
                 changeSettings(1)
                 ListMenuContents[1] = Current_Settings[0]
-            } else if (selection + List_Scroll == 3) {
+            } else if (selectedOption == 3) {
                 changeSettings(2)
                 ListMenuContents[2] = Current_Settings[1]
-            } else if (selection + List_Scroll == 4) {
+            } else if (selectedOption == 4) {
                 
-            } else if (selection + List_Scroll == 5) {
+            } else if (selectedOption == 5) {
                 
             }
         } else if (submenu == "Customization") {
-            if (selection + List_Scroll == 1) {
+            if (selectedOption == 1) {
                 SubMenu = "Home"
                 Open_Settings()
-            } else if (selection + List_Scroll == 2) {
+            } else if (selectedOption == 2) {
                 changeSettings(5)
                 ListMenuContents[1] = Current_Settings[4]
-            } else if (selection + List_Scroll == 3) {
+            } else if (selectedOption == 3) {
 
-            } else if (selection + List_Scroll == 4) {
+            } else if (selectedOption == 4) {
                 
-            } else if (selection + List_Scroll == 5) {
+            } else if (selectedOption == 5) {
                 
             }
         } else if (submenu == "System") {
-            if (selection + List_Scroll == 1) {
+            if (selectedOption == 1) {
                 SubMenu = "Home"
                 Open_Settings()
-            } else if (selection + List_Scroll == 2) {
+            } else if (selectedOption == 2) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("Delete all user files"),
@@ -552,41 +585,63 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     miniMenu.createMenuItem("Wipe Device")
                 ]
                 SubMenu = "Data Management"
-            } else if (selection + List_Scroll == 3) {
+            } else if (selectedOption == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.0.4"),
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
                 ]
                 SubMenu = "System Information"
-            }
-        } else if (submenu == "Data Management") {
-            if (selection + List_Scroll == 1) {
+            } else if (selectedOption == 4) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("Data Management"),
-                    miniMenu.createMenuItem("System Information")
+                    Current_Settings[6],
+                    miniMenu.createMenuItem("Hour - " + hour),
+                    miniMenu.createMenuItem("Minute - " + minute.toString().substr(1,2)),
                 ]
+                SubMenu = "Time Settings"
+            }
+        } else if (submenu == "Data Management") {
+            if (selectedOption == 1) {
+                ListMenuContents = SystemSettings
                 SubMenu = "System"
-            } else if (selection + List_Scroll == 2) {
+            } else if (selectedOption == 2) {
                 User_Files = [miniMenu.createMenuItem("home")]
-            } else if (selection + List_Scroll == 3) {
+            } else if (selectedOption == 3) {
                 Settings = "100010"
                 game.reset()
-            } else if (selection + List_Scroll == 4) {
+            } else if (selectedOption == 4) {
                 User_Files = [miniMenu.createMenuItem("home")]
                 Settings = "100010"
                 blockSettings.writeString("Settings", Settings)
                 game.reset()
             }
         } else if (submenu == "System Information") {
-            if (selection + List_Scroll == 1) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("Data Management"),
-                    miniMenu.createMenuItem("System Information")
-                ]
+            if (selectedOption == 1) {
+                ListMenuContents = SystemSettings
                 SubMenu = "System"
+            } else if (selectedOption == 2) {
+                // nothing lol
+            }
+        } else if (submenu == "Time Settings") {
+            if (selectedOption == 1) {
+                ListMenuContents = SystemSettings
+                SubMenu = "System"
+            } else if (selectedOption == 2) {
+                changeSettings(6)
+                ListMenuContents[1] = Current_Settings[5]
+            } else if (selectedOption == 3) {
+                hour++
+                if (hour > 23) {
+                    hour = 0
+                }
+                ListMenuContents[2] = miniMenu.createMenuItem("Hour - " + hour)
+            } else if (selectedOption == 4) {
+                minute++
+                if (minute > 159) {
+                    minute = 100
+                }
+                ListMenuContents[3] = miniMenu.createMenuItem("Minute - " + minute.toString().substr(1,2))
             }
         }
         ListMenuGUI.close()
@@ -621,6 +676,14 @@ function changeSettings(selection: number) {
     } else if (selection == 5) {
         dingus52 = 3
         dingus51 = ["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
+    } else if (selection == 6) {
+        dingus52 = 1
+        dingus51 = ["Show Clock - False", "Show Clock - True", "Show Clock - False"][dingus53]
+        if (dingus53 == 1) {
+            clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
+        } else {
+            clock.setText("")
+        }
     }
     if (dingus53 > dingus52) {
         dingus53 = 0
