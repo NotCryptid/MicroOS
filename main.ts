@@ -215,8 +215,8 @@ function MouseClick(button: number) {
                         break;
                     } else if (button == 2 && App_Open == "File Manager") {
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
-                        RightClickMenu.destroy()
                         RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
+                        RightClickMenu.setButtonEventsEnabled(false)
                         RightClickMenu.setPosition(Mouse_Cursor.x, Mouse_Cursor.y)
                         RightClickMenu.setDimensions(50, 60)
                         RightClickMenu.z = 350346
@@ -476,7 +476,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         if (action == "rclick") {
             rclick_override = selectedOption
             current_rclick_menu = rclick_menu_files
-            kernel_panic(203)
             return
         } else if (submenu == "System") {
             if (action == "click" || action == "open") {
