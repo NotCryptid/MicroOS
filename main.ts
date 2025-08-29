@@ -129,14 +129,29 @@ function Define_Sprites () {
     sprites.destroy(Close_App)
 }
 
-function error(type: number) {
-    close_apps()
-    game.splash("Error "+type)
+function error(code: number) {
+    if (App_Open !== "death") {
+        close_apps()
+        game.splash("Error " + code)
+    }
 }
-function fatalerror(type: number) {
-    // make cooler fatal error screen later
-    game.splash("Fatal Error " + type)
-    game.reset()
+function fatalerror(code: number) {
+    if (App_Open !== "death"){
+        App_Open = "death"
+        sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
+        sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+        sprites.destroyAllSpritesOfKind(SpriteKind.Mouse)
+        sprites.destroyAllSpritesOfKind(SpriteKind.Desktop_UI)
+        let text2 = textsprite.create("MicroOS has ran into a", 0, 1)
+        text2.setPosition(72, 32)
+        let text3 = textsprite.create("Fatal error.", 0, 1)
+        text3.setPosition(41, 41)
+        let text4 = textsprite.create("Error Code " + code, 0, 1)
+        text4.setPosition(47, 94)
+        text = textsprite.create("Press Menu to reboot", 0, 1)
+        text.setPosition(79, 111)
+        scene.setBackgroundImage(assets.image`Kernel Panic`)
+    }
 }
 
 // Okay kernel ends here
@@ -150,7 +165,9 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (App_Open == "null") {
+    if (App_Open == "death") {
+        game.reset()
+    } else if (App_Open == "null") {
         Open_Library()
     } else {
         close_apps()
