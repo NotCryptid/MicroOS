@@ -136,6 +136,11 @@ function Define_Sprites () {
     sprites.destroy(Close_App)
 }
 
+function softerror(code: number) {
+    if (App_Open !== "death") {
+        game.splash("Error " + code)
+    }
+}
 function error(code: number) {
     if (App_Open !== "death") {
         close_apps()
@@ -186,11 +191,17 @@ function MouseClick(button: number) {
     if (Mouse_Cursor.overlapsWith(Close_App) && button == 1) {
         close_apps()
     } else if (spriteutils.isDestroyed(RightClickMenu) == false) {
-        RightClickMenu.destroy()
-        outline.destroy()
         if (button == 1) {
-            return
+            if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
+                if (Mouse_Cursor.y > RightClickMenu.y - 30 && Mouse_Cursor.y < RightClickMenu.y + 30) {
+                    let optionHeight = 60 / current_rclick_menu.length;
+                    let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - 30)) / optionHeight);
+                    listSelection(App_Open, menu_selection, SubMenu, "rclick" + selectedIndex, rclick_override);
+                }
+            }
         }
+        RightClickMenu.destroy();
+        outline.destroy();
     }
     
     if (App_Open !== "App Library") {
@@ -499,7 +510,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             current_rclick_menu = rclick_menu_files
             return
         } else if (submenu == "System") {
-            if (action == "click" || action == "open") {
+            if (action == "click" || action == "rclick0") {
                 if (selectedOption == 1) {    
                     SubMenu = "Home"
                     Open_FileManager()
@@ -521,7 +532,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     Open_NanoCode()
                 }
             } else {
-                error(107)
+                softerror(107)
             } 
             
         } else if (submenu == "User") {
@@ -538,16 +549,20 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 }
             }
         } else if (submenu == "Home") {
-            ListMenuGUI.close()
-            if (selectedOption == 1) {
-                SubMenu = "System"
-                ListMenuContents = System_Files
-                ListMenuGUI = miniMenu.createMenuFromArray(System_Files)
-            } else if (selectedOption == 2) {
-                SubMenu = "User"
-                ListMenuContents = User_Files
-                ListMenuGUI = miniMenu.createMenuFromArray(User_Files)
-            }
+            if (action == "click" || action == "rclick0") {
+                ListMenuGUI.close()
+                if (selectedOption == 1) {
+                    SubMenu = "System"
+                    ListMenuContents = System_Files
+                    ListMenuGUI = miniMenu.createMenuFromArray(System_Files)
+                } else if (selectedOption == 2) {
+                    SubMenu = "User"
+                    ListMenuContents = User_Files
+                    ListMenuGUI = miniMenu.createMenuFromArray(User_Files)
+            } 
+            } else {
+                softerror(107)
+            } 
             ListMenuGUI.setButtonEventsEnabled(false)
             ListMenuGUI.setDimensions(151, 97)
             ListMenuGUI.setPosition(76, 58)
