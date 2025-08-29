@@ -46,7 +46,7 @@ text.setPosition(79, 26)
 
 // MARK: OS Boot Sequence
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
-    Settings = "1000101"  // changed default to show clock (charAt(6) == "1")
+    Settings = "1000100"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
     blockSettings.writeString("Username", "User")
@@ -83,7 +83,9 @@ scene.setBackgroundImage(Wallpaper)
 let hour = 12
 let minute = 100
 let clock = textsprite.create(hour.toString() + ":" + minute.toString().substr(1,2), 0, 1)
-clock.setPosition(50, 50)
+clock.setKind(SpriteKind.Desktop_UI)
+clock.setPosition(140, 111)
+clock.z = 2400
 if (Settings.charAt(6) == "1") {
     clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
 }
@@ -636,13 +638,15 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     hour = 0
                 }
                 ListMenuContents[2] = miniMenu.createMenuItem("Hour - " + hour)
+                clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
             } else if (selectedOption == 4) {
                 minute++
                 if (minute > 159) {
                     minute = 100
                 }
-                ListMenuContents[3] = miniMenu.createMenuItem("Minute - " + minute.toString().substr(1,2))
-            }
+                ListMenuContents[3] = miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2))
+                clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
+            }           
         }
         ListMenuGUI.close()
         ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
