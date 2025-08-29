@@ -24,6 +24,8 @@ let Close_App: Sprite = null
 let App_Open = "null"
 let defined_menu = "none"
 let List_Scroll = 0
+let rclick_override = 0
+let current_rclick_menu: miniMenu.MenuItem[] = null
 let Username = ""
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
@@ -92,7 +94,7 @@ if (Settings.charAt(6) == "1") {
 
 // Right click menus
 
-let File_Manager_rigth_click: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Open"),miniMenu.createMenuItem("Rename"),miniMenu.createMenuItem("Copy"),miniMenu.createMenuItem("Cut"),miniMenu.createMenuItem("Delete")]
+const rclick_menu_files = [miniMenu.createMenuItem("Open"),miniMenu.createMenuItem("Rename"),miniMenu.createMenuItem("Copy"),miniMenu.createMenuItem("Cut"),miniMenu.createMenuItem("Delete")]
 
 // OS Boot Sequence ends here
 
@@ -142,6 +144,7 @@ function error(code: number) {
 function fatalerror(code: number) {
     if (App_Open !== "death"){
         App_Open = "death"
+        close_apps()
         sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
         sprites.destroyAllSpritesOfKind(SpriteKind.Text)
         sprites.destroyAllSpritesOfKind(SpriteKind.Mouse)
@@ -211,7 +214,12 @@ function MouseClick(button: number) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
                     } else {
-                        listSelection(App_Open, menu_selection, SubMenu, "rclick", 0)
+                        fatalerror(203)
+                        listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
+                        let RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
+                        RightClickMenu.setPosition(Mouse_Cursor.x, Mouse_Cursor.y)
+                        RightClickMenu.setDimensions(50, 60)
+                        RightClickMenu.z = 350346
                     }
                 }
             }
@@ -468,7 +476,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
     if (app == "File Manager") {
         if (submenu == "System") {
             if (action == "rclick" && selectedOption !== 1) {
-                return(1 + selectedOption)
+                rclick_override = selectedOption
+                current_rclick_menu = rclick_menu_files
             } else if (action == "click" || action == "open") {
                 if (selectedOption == 1) {    
                     SubMenu = "Home"

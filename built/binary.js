@@ -1,5 +1,5 @@
 // meta={"simUrl":"https://trg-arcade.userpxt.io/---simulator","cdnUrl":"https://cdn.makecode.com","version":"v0.0.3","target":"arcade","targetVersion":"2.0.56"}
-// total=2872896 new=29.02% cached=66.92% other=4.06%
+// total=2875936 new=29.09% cached=66.85% other=4.06%
 (function (ectx) {
 'use strict';
 const runtime = ectx.runtime;
@@ -620,7 +620,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P32191(s) {
+function _main___P118299(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -630,7 +630,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.i___32445 = undefined;
+    s.i___118557 = undefined;
     globals._intervals___4873 = (undefined);
     globals._pollEventQueue___4882 = (undefined);
     globals.minPriority___375 = (1);
@@ -1325,46 +1325,48 @@ switch (step) {
     s.callLocIdx = 90; s.pc = 79; return s.tmp_0;
   case 79:
     r0 = s.retval;
-    globals.Desktop_UI___32204 = (r0);
+    globals.Desktop_UI___118312 = (r0);
     s.tmp_0 = SpriteKind_create__P2495_mk(s);
     s.callLocIdx = 91; s.pc = 80; return s.tmp_0;
   case 80:
     r0 = s.retval;
-    globals.Mouse___32207 = (r0);
+    globals.Mouse___118315 = (r0);
     s.tmp_0 = SpriteKind_create__P2495_mk(s);
     s.callLocIdx = 92; s.pc = 81; return s.tmp_0;
   case 81:
     r0 = s.retval;
-    globals.App_UI___32210 = (r0);
-    globals.Taskbar___32213 = (null);
-    globals.ListMenuGUI___32217 = (null);
-    globals.NanoCode_Icon___32219 = (null);
-    globals.File_Manager_Icon___32221 = (null);
-    globals.Process_Icon___32223 = (null);
-    globals.Settings_Icon___32225 = (null);
-    globals.Web_Chat_Icon___32227 = (null);
-    globals.Write_icon___32229 = (null);
-    globals.Library_icon___32231 = (null);
-    globals.xCell_Icon___32233 = (null);
-    globals.Mouse_Cursor___32235 = (null);
-    globals.App_Title___32237 = (null);
-    globals.Close_App___32239 = (null);
-    globals.App_Open___32240 = ("null");
-    globals.defined_menu___32241 = ("none");
-    globals.List_Scroll___32243 = (0);
+    globals.App_UI___118318 = (r0);
+    globals.Taskbar___118321 = (null);
+    globals.ListMenuGUI___118325 = (null);
+    globals.NanoCode_Icon___118327 = (null);
+    globals.File_Manager_Icon___118329 = (null);
+    globals.Process_Icon___118331 = (null);
+    globals.Settings_Icon___118333 = (null);
+    globals.Web_Chat_Icon___118335 = (null);
+    globals.Write_icon___118337 = (null);
+    globals.Library_icon___118339 = (null);
+    globals.xCell_Icon___118341 = (null);
+    globals.Mouse_Cursor___118343 = (null);
+    globals.App_Title___118345 = (null);
+    globals.Close_App___118347 = (null);
+    globals.App_Open___118348 = ("null");
+    globals.defined_menu___118349 = ("none");
+    globals.List_Scroll___118351 = (0);
+    globals.rclick_override___118353 = (0);
+    globals.current_rclick_menu___118355 = (null);
     r0 = pxsim_String_.mkEmpty();
-    globals.Username___32244 = (r0);
+    globals.Username___118356 = (r0);
     s.tmp_0 = blockSettings_readString__P4743_mk(s);
     s.tmp_0.arg0 = "settings";
     s.callLocIdx = 93; s.pc = 82; return s.tmp_0;
   case 82:
     r0 = s.retval;
-    globals.Settings___32247 = (r0);
-    globals.text___32250 = (null);
+    globals.Settings___118359 = (r0);
+    globals.text___118362 = (null);
     r0 = pxsim_Array__mk();
-    globals.ListMenuContents___32251 = (r0);
+    globals.ListMenuContents___118363 = (r0);
     r0 = pxsim_Array__mk();
-    globals.User_Files___32252 = (r0);
+    globals.User_Files___118364 = (r0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
@@ -1439,13 +1441,13 @@ switch (step) {
     r0 = s.retval;
     s.tmp_17 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_17);
-    globals.System_Files___32256 = (s.tmp_0);
+    globals.System_Files___118368 = (s.tmp_0);
     r0 = pxsim_Array__mk();
-    globals.Current_Settings___32276 = (r0);
+    globals.Current_Settings___118388 = (r0);
     r0 = pxsim_Array__mk();
-    globals.WebChatMessages___32277 = (r0);
+    globals.WebChatMessages___118389 = (r0);
     r0 = pxsim_String_.mkEmpty();
-    globals.SubMenu___32278 = (r0);
+    globals.SubMenu___118390 = (r0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, 10);
@@ -1457,7 +1459,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_0, 88);
     r0 = pxsim_Array__push(s.tmp_0, 101);
     r0 = pxsim_Array__push(s.tmp_0, 114);
-    globals.sillySpacingForListGUI___32288 = (s.tmp_0);
+    globals.sillySpacingForListGUI___118400 = (s.tmp_0);
     s.tmp_0 = pause__P413_mk(s);
     s.tmp_0.arg0 = 300;
     s.callLocIdx = 103; s.pc = 92; return s.tmp_0;
@@ -1470,9 +1472,9 @@ switch (step) {
     s.callLocIdx = 104; s.pc = 93; return s.tmp_0;
   case 93:
     r0 = s.retval;
-    globals.text2___32291 = (r0);
+    globals.text2___118403 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text2___32291;
+    s.tmp_0.arg0 = globals.text2___118403;
     s.tmp_0.arg1 = 61;
     s.tmp_0.arg2 = 6;
     s.callLocIdx = 105; s.pc = 94; return s.tmp_0;
@@ -1485,9 +1487,9 @@ switch (step) {
     s.callLocIdx = 106; s.pc = 95; return s.tmp_0;
   case 95:
     r0 = s.retval;
-    globals.text3___32296 = (r0);
+    globals.text3___118408 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text3___32296;
+    s.tmp_0.arg0 = globals.text3___118408;
     s.tmp_0.arg1 = 58;
     s.tmp_0.arg2 = 16;
     s.callLocIdx = 107; s.pc = 96; return s.tmp_0;
@@ -1505,15 +1507,15 @@ switch (step) {
     s.callLocIdx = 109; s.pc = 98; return s.tmp_0;
   case 98:
     r0 = s.retval;
-    globals.text___32250 = (r0);
+    globals.text___118362 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text___32250;
+    s.tmp_0.arg0 = globals.text___118362;
     s.tmp_0.arg1 = 79;
     s.tmp_0.arg2 = 26;
     s.callLocIdx = 110; s.pc = 99; return s.tmp_0;
   case 99:
     r0 = s.retval;
-    r0 = (globals.Settings___32247 == null);
+    r0 = (globals.Settings___118359 == null);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (!r0) { step = 1; continue; }
@@ -1549,11 +1551,11 @@ switch (step) {
     s.tmp_5 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_5);
     if (!r0) { step = 5; continue; }
-    globals.Settings___32247 = ("1000100");
+    globals.Settings___118359 = ("1000100");
     r0 = pxsim.radio.setGroup(113);
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "settings";
-    s.tmp_0.arg1 = globals.Settings___32247;
+    s.tmp_0.arg1 = globals.Settings___118359;
     s.callLocIdx = 111; s.pc = 102; return s.tmp_0;
   case 102:
     r0 = s.retval;
@@ -1566,7 +1568,7 @@ switch (step) {
     { step = 6; continue; }
   case 5:
     s.tmp_2 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 4);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 4);
     s.tmp_2.arg0 = r0;
     s.tmp_2.arg1 = undefined;
     s.callLocIdx = 113; s.pc = 104; return s.tmp_2;
@@ -1581,7 +1583,7 @@ switch (step) {
     s.callLocIdx = 114; s.pc = 105; return s.tmp_0;
   case 105:
     r0 = s.retval;
-    globals.Username___32244 = (r0);
+    globals.Username___118356 = (r0);
   case 6:
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
@@ -1625,7 +1627,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_9);
-    globals.Active_Processes___32336 = (s.tmp_0);
+    globals.Active_Processes___118448 = (s.tmp_0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - Pin Header");
@@ -1635,7 +1637,7 @@ switch (step) {
     s.tmp_1 = r0;
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_6 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 1);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 1);
     s.tmp_6.arg0 = r0;
     s.tmp_6.arg1 = 10;
     s.callLocIdx = 120; s.pc = 112; return s.tmp_6;
@@ -1659,7 +1661,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_7, "Mouse - D-Pad");
     s.tmp_9 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_12 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 2);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 2);
     s.tmp_12.arg0 = r0;
     s.tmp_12.arg1 = 10;
     s.callLocIdx = 122; s.pc = 114; return s.tmp_12;
@@ -1684,7 +1686,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_13, "Connectivity - Off");
     s.tmp_15 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_18 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 3);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 3);
     s.tmp_18.arg0 = r0;
     s.tmp_18.arg1 = 10;
     s.callLocIdx = 124; s.pc = 116; return s.tmp_18;
@@ -1703,7 +1705,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_14);
     s.tmp_20 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_25 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 4);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 4);
     s.tmp_25.arg0 = r0;
     s.tmp_25.arg1 = undefined;
     s.callLocIdx = 126; s.pc = 118; return s.tmp_25;
@@ -1749,7 +1751,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_27, "Wallpaper - Strings");
     s.tmp_29 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_31 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 5);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 5);
     s.tmp_31.arg0 = r0;
     s.tmp_31.arg1 = 10;
     s.callLocIdx = 128; s.pc = 122; return s.tmp_31;
@@ -1795,7 +1797,7 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_37, "Show Clock - False");
     s.tmp_39 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_41 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 6);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 6);
     s.tmp_41.arg0 = r0;
     s.tmp_41.arg1 = 10;
     s.callLocIdx = 132; s.pc = 127; return s.tmp_41;
@@ -1810,17 +1812,17 @@ switch (step) {
     r0 = s.retval;
     s.tmp_38 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_38);
-    globals.Current_Settings___32276 = (s.tmp_1);
+    globals.Current_Settings___118388 = (s.tmp_1);
     s.tmp_0 = blockSettings_readString__P4743_mk(s);
     s.tmp_0.arg0 = "file_names";
     s.callLocIdx = 134; s.pc = 128; return s.tmp_0;
   case 128:
     r0 = s.retval;
-    globals.fileNamesString___32422 = (r0);
-    r0 = pxsim_numops_toBoolDecr(globals.fileNamesString___32422);
+    globals.fileNamesString___118534 = (r0);
+    r0 = pxsim_numops_toBoolDecr(globals.fileNamesString___118534);
     if (!r0) { step = 7; continue; }
     s.tmp_0 = JSON_parse__P388_mk(s);
-    s.tmp_0.arg0 = globals.fileNamesString___32422;
+    s.tmp_0.arg0 = globals.fileNamesString___118534;
     s.callLocIdx = 135; s.pc = 129; return s.tmp_0;
   case 129:
     r0 = s.retval;
@@ -1830,8 +1832,8 @@ switch (step) {
   case 8:
     // jmp value (already in r0)
     s.tmp_1 = r0;
-    globals.User_Files_Temp___32425 = (s.tmp_1);
-    r0 = pxsim_Array__length(globals.User_Files_Temp___32425);
+    globals.User_Files_Temp___118537 = (s.tmp_1);
+    r0 = pxsim_Array__length(globals.User_Files_Temp___118537);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 === 0);
     s.tmp_0 = r0;
@@ -1872,11 +1874,11 @@ switch (step) {
     r0 = pxsim_Array__mk();
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_7, "Home");
-    globals.User_Files_Temp___32425 = (s.tmp_7);
+    globals.User_Files_Temp___118537 = (s.tmp_7);
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "file_names";
     s.tmp_1 = JSON_stringify__P387_mk(s);
-    s.tmp_1.arg0 = globals.User_Files_Temp___32425;
+    s.tmp_1.arg0 = globals.User_Files_Temp___118537;
     s.tmp_1.arg1 = null;
     s.tmp_1.arg2 = 0;
     s.callLocIdx = 136; s.pc = 133; return s.tmp_1;
@@ -1888,18 +1890,18 @@ switch (step) {
     r0 = s.retval;
   case 13:
   case 14:
-    s.i___32445 = (0);
+    s.i___118557 = (0);
   case 15:
-    s.tmp_1 = r0 = s.i___32445;
-    r0 = pxsim_Array__length(globals.User_Files_Temp___32425);
+    s.tmp_1 = r0 = s.i___118557;
+    r0 = pxsim_Array__length(globals.User_Files_Temp___118537);
     s.tmp_2 = r0;
     r0 = (s.tmp_1 < s.tmp_2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 16; continue; }
-    s.tmp_3 = r0 = globals.User_Files___32252;
+    s.tmp_3 = r0 = globals.User_Files___118364;
     s.tmp_5 = miniMenu_createMenuItem__P4522_mk(s);
-    r0 = pxsim_Array__getAt(globals.User_Files_Temp___32425, s.i___32445);
+    r0 = pxsim_Array__getAt(globals.User_Files_Temp___118537, s.i___118557);
     s.tmp_5.arg0 = r0;
     s.tmp_5.arg1 = undefined;
     s.callLocIdx = 138; s.pc = 134; return s.tmp_5;
@@ -1907,8 +1909,8 @@ switch (step) {
     r0 = s.retval;
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_3, s.tmp_4);
-    r0 = (s.i___32445 + 1);
-    s.i___32445 = (r0);
+    r0 = (s.i___118557 + 1);
+    s.i___118557 = (r0);
     { step = 15; continue; }
   case 16:
     s.tmp_0 = pause__P413_mk(s);
@@ -1918,14 +1920,14 @@ switch (step) {
   case 135:
     r0 = s.retval;
     s.tmp_0 = sprites_destroy__P2291_mk(s);
-    s.tmp_0.arg0 = globals.text___32250;
+    s.tmp_0.arg0 = globals.text___118362;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 140; s.pc = 136; return s.tmp_0;
   case 136:
     r0 = s.retval;
     s.tmp_0 = sprites_destroy__P2291_mk(s);
-    s.tmp_0.arg0 = globals.text2___32291;
+    s.tmp_0.arg0 = globals.text2___118403;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 141; s.pc = 137; return s.tmp_0;
@@ -1962,7 +1964,7 @@ switch (step) {
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
     s.tmp_10 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 5);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 5);
     s.tmp_10.arg0 = r0;
     s.tmp_10.arg1 = 10;
     s.callLocIdx = 146; s.pc = 142; return s.tmp_10;
@@ -1970,16 +1972,16 @@ switch (step) {
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_9);
-    globals.Wallpaper___32472 = (r0);
+    globals.Wallpaper___118584 = (r0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
-    s.tmp_0.arg0 = globals.Wallpaper___32472;
+    s.tmp_0.arg0 = globals.Wallpaper___118584;
     s.callLocIdx = 147; s.pc = 143; return s.tmp_0;
   case 143:
     r0 = s.retval;
-    globals.hour___32490 = (12);
-    globals.minute___32492 = (100);
+    globals.hour___118602 = (12);
+    globals.minute___118604 = (100);
     s.tmp_0 = textsprite_create__P4602_mk(s);
-    r0 = pxsim_numops.toString(globals.hour___32490);
+    r0 = pxsim_numops.toString(globals.hour___118602);
     s.tmp_4 = r0;
     if ((s.tmp_4) && (s.tmp_4).vtable) {
     setupResume(s, 145);
@@ -2002,7 +2004,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_1 = r0;
     s.tmp_7 = helpers_stringSubstr__P118_mk(s);
-    r0 = pxsim_numops.toString(globals.minute___32492);
+    r0 = pxsim_numops.toString(globals.minute___118604);
     s.tmp_7.arg0 = r0;
     s.tmp_7.arg1 = 1;
     s.tmp_7.arg2 = 2;
@@ -2026,22 +2028,22 @@ switch (step) {
     s.callLocIdx = 149; s.pc = 144; return s.tmp_0;
   case 144:
     r0 = s.retval;
-    globals.clock___32494 = (r0);
+    globals.clock___118606 = (r0);
     s.tmp_0 = Sprite_setKind__P2423_mk(s);
-    s.tmp_0.arg0 = globals.clock___32494;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg0 = globals.clock___118606;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 150; s.pc = 149; return s.tmp_0;
   case 149:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.clock___32494;
+    s.tmp_0.arg0 = globals.clock___118606;
     s.tmp_0.arg1 = 140;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 151; s.pc = 150; return s.tmp_0;
   case 150:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.clock___32494;
+    s.tmp_0.arg0 = globals.clock___118606;
     s.tmp_0.arg1 = 2400;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -2053,15 +2055,15 @@ switch (step) {
     }
   case 151:
     r0 = s.retval;
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 6);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 6);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == "1");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 17; continue; }
     s.tmp_2 = TextSprite_setText__P4596_mk(s);
-    s.tmp_2.arg0 = globals.clock___32494;
-    r0 = pxsim_numops.toString(globals.hour___32490);
+    s.tmp_2.arg0 = globals.clock___118606;
+    r0 = pxsim_numops.toString(globals.hour___118602);
     s.tmp_6 = r0;
     if ((s.tmp_6) && (s.tmp_6).vtable) {
     setupResume(s, 153);
@@ -2084,7 +2086,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_3 = r0;
     s.tmp_9 = helpers_stringSubstr__P118_mk(s);
-    r0 = pxsim_numops.toString(globals.minute___32492);
+    r0 = pxsim_numops.toString(globals.minute___118604);
     s.tmp_9.arg0 = r0;
     s.tmp_9.arg1 = 1;
     s.tmp_9.arg2 = 2;
@@ -2150,58 +2152,58 @@ switch (step) {
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_9);
-    globals.File_Manager_rigth_click___32542 = (s.tmp_0);
-    s.tmp_0 = Define_Sprites__P32555_mk(s);
+    globals.rclick_menu_files___118654 = (s.tmp_0);
+    s.tmp_0 = Define_Sprites__P118667_mk(s);
     s.callLocIdx = 160; s.pc = 162; return s.tmp_0;
   case 162:
     r0 = s.retval;
     s.tmp_0 = controller_Button_onEvent__P2210_mk(s);
     s.tmp_0.arg0 = globals.A___2127;
     s.tmp_0.arg1 = 2049;
-    s.tmp_0.arg2 = inline__P32561;
-    s.callLocIdx = 219; s.pc = 163; return s.tmp_0;
+    s.tmp_0.arg2 = inline__P118673;
+    s.callLocIdx = 220; s.pc = 163; return s.tmp_0;
   case 163:
     r0 = s.retval;
     s.tmp_0 = controller_Button_onEvent__P2210_mk(s);
     s.tmp_0.arg0 = globals.B___2128;
     s.tmp_0.arg1 = 2049;
-    s.tmp_0.arg2 = inline__P32567;
-    s.callLocIdx = 221; s.pc = 164; return s.tmp_0;
+    s.tmp_0.arg2 = inline__P118679;
+    s.callLocIdx = 222; s.pc = 164; return s.tmp_0;
   case 164:
     r0 = s.retval;
     s.tmp_0 = controller_Button_onEvent__P2210_mk(s);
     s.tmp_0.arg0 = globals.menu___2133;
     s.tmp_0.arg1 = 2049;
-    s.tmp_0.arg2 = inline__P32572;
-    s.callLocIdx = 225; s.pc = 165; return s.tmp_0;
+    s.tmp_0.arg2 = inline__P118684;
+    s.callLocIdx = 226; s.pc = 165; return s.tmp_0;
   case 165:
     r0 = s.retval;
     s.tmp_0 = radio_onReceivedValue__P4708_mk(s);
-    s.tmp_0.arg0 = inline__P32583;
-    s.callLocIdx = 258; s.pc = 166; return s.tmp_0;
+    s.tmp_0.arg0 = inline__P118695;
+    s.callLocIdx = 265; s.pc = 166; return s.tmp_0;
   case 166:
     r0 = s.retval;
     s.tmp_0 = forever__P2097_mk(s);
-    s.tmp_0.arg0 = inline__P32600;
-    s.callLocIdx = 261; s.pc = 167; return s.tmp_0;
+    s.tmp_0.arg0 = inline__P118712;
+    s.callLocIdx = 268; s.pc = 167; return s.tmp_0;
   case 167:
     r0 = s.retval;
     s.tmp_0 = forever__P2097_mk(s);
-    s.tmp_0.arg0 = inline__P32605;
-    s.callLocIdx = 265; s.pc = 168; return s.tmp_0;
+    s.tmp_0.arg0 = inline__P118717;
+    s.callLocIdx = 272; s.pc = 168; return s.tmp_0;
   case 168:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-_main___P32191.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P32191.continuations = [ 68,69,70,71,119,120,125,145,146,148,153,154,156 ]
+_main___P118299.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P118299.continuations = [ 68,69,70,71,119,120,125,145,146,148,153,154,156 ]
 
-function _main___P32191_mk(s) {
+function _main___P118299_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P32191, depth: s.depth + 1,
+        parent: s, fn: _main___P118299, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -2245,7 +2247,7 @@ function _main___P32191_mk(s) {
   tmp_39: undefined,
   tmp_40: undefined,
   tmp_41: undefined,
-  i___32445: undefined,
+  i___118557: undefined,
 } }
 
 const _hex8542 = pxsim.BufferMethods.createBufferFromHex("2000000000000000210000005e0000002200000e000e0000230028fe28fe280024004c92ff926400250002651248a64026006c92926ca000270000000e000000280000007c82000029000000827c00002a005438103854002b0010107c1010002c000000907000002d001010101010002e000000606000002f000060100806003000003c42423c00310000447e4000003200004462524c00330000424a4e320034003028247e20003500004e4a4a32003600003c4a4a30003700000262120e00380000344a4a34003900000c52523c003a0000006c6c00003b000000967600003c001028284444003d002828282828003e004444282810003f0000025909060040003c425a560800410078141214780042007e4a4a4a34004300003c424224004400007e42423c004500007e4a4a42004600007e0a0a02004700003c425234004800007e08087e00490000427e4200004a002040423e02004b00007e081462004c00007e404040004d007e0418047e004e00007e04087e004f003c4242423c005000007e12120c005100003c5262bc005200007e12126c00530000244a522400540002027e0202005500003e40403e005600001e70701e0057007e2018207e00580042241824420059000608700806005a000062524a46005b00007e424200005c000006081060005d000042427e00005e000804020408005f00808080808000600000000204000061000030484878006200007e4848300063000030484848006400003048487e006500003068585000660000107c12040067000018a4a478006800007e08087000690000487a4000006a000040847d00006b00007e102840006c0000427e4000006d007808300870006e000078080870006f00003048483000700000fc24241800710000182424fc0072000078100810007300005058682800740000083e48200075000038404078007600001860601800770038403040380078000048303048007900005ca0a07c007a000048685848007b000008364100007c000000fe0000007d000041360800007e00000804080400a000000000000000a10000007a000000a200003048fc4800a30090fc92928400a400542844285400a5002a2c782c2a00a6000000ee000000a7000094aaaa5200a800000200020000a9003e414955413eaa0000242a2e0000ab00102854284400ac00001010107000ad00001010101000ae003e415d45413eaf00000202020200b000000814140800b1008888be888800b2000024322c0000b30000222a140000b400000004020000b50000f840207800b6000c1e7e027e00b700000010000000b800000080400000b90000243e200000ba0000242a240000bb00442854281000bc00025f70f84000bd00021f90c8b000be0011557af84000bf000030484d2000c000601916186000c100601816196000c200601a151a6000c300601a151a6100c400601914196000c500601a151a6000c6007c0a7e4a4200c700001ea1611200c800007c55564400c900007c56554400ca00007c56554600cb00007c55544500cc0000457e440000cd0000447e450000ce0000467d460000cf0000457c450000d000087e4a423c00d100007e09127d00d200003845463800d300003846453800d400003846453a00d500003a45463900d600003845443900d700442810284400d80000fc724e3f00d900003c41423c00da00003c42413c00db00003c42413e00dc00003c41403d00dd00040872090400de00007e24241800df00007c025a2400e0000030494a7800e10000304a497800e20000304a497a00e3000032494a7900e40000304a487a00e50000304a4d7a00e600304878685000e7000018a4642400e8000030695a5000e90000306a595000ea0000306a595200eb0000306a585200ec0000497a400000ed0000487a410000ee00004a79420000ef00004a78420000f00000304a4b3d00f100007a090a7100f2000030494a3000f30000304a493000f40000304a493200f5000032494a3100f60000304a483200f700101054101000f800007068583800f900003841427800fa00003842417800fb00003842417a00fc00003842407a00fd0000b84241f800fe0000ff24241800ff00005ca1a07d000001601915196000010100304a4a7a000201611a16196000030100314a4a790004013c0a094abc00050100182464bc000601003846452800070100304a4948000801003846452a00090100304a494a000a010038444528000b010030484a48000c010038454629000d010030494a49000e01007c454639000f0100314a497e001001087e4a423c00110130484c7e04001201007d55554500130100326a5a52001401007d56564500150100316a5a51001601007c55544400170100306a5850001801003f65a521001901001874ac28001a01007c555645001b010030695a51001c010038465536001d0100304a49f2001e010039465635001f0100314a4af100200100384455340021010018a4a578002201001ea1691a0023010018a6a578002401007812117a0025017e080a7102002601047e147e04002701047e0c08700028010002457e450029010002497a41002a0100457d4500002b01004a7a4200002c0100014a7a49002d0100014a7a41002e0100217fa100002f0100247da00000300100447d440000310100487840000032017e0022423e0033013d0040847d0034012040463d0600350100800af90200360100bf440a3100370100bf4814200038010078102848003901007c404241003a0100467d4000003b01003fa06020003c0100a17f2000003d01007c414241003e0100457e4100003f01007e40484000400100427e4008004101107e48404000420100527e4800004301007c0a117c00440100780a097000450100bf42043f00460100bc440438004701007c09127d00480100790a09700049010a06780870004a01003f02847f004b01003c048478004c013945454539004d0100324a4a32004e013946464639004f0100314a4a310050013a4544463900510132494832010052013c427e4a420053013048306850005401007c163548005501007812091000560100bf49093600570100bc480408005801007d1635480059010079120910005a010048565524005b0100505a6928005c010048565526005d0100505a692a005e010012a56912005f010028ac741400600100485556250061010050596a290062010101bf410100630100049f641000640104057e050400650100083d4a2100660102127e120200670100183e5820006801003a414239006901003a414279006a01003d41413d006b01003a42427a006c010039424239006d010039424279006e01003a45453a006f01003a45457a0070013a41403a010071013a41407a01007201001f60a01f007301001c60a03c00740178221122780075013842314238007601081261120800770100b84241fa00780104097009040079010064564d44007a0100486a5948007b010064544d44007c010048685a48007d010064554e45007e010048695a49007f0100087c0204008f01003452523c00920100887e090200a0013c42423c0806a101003048483008af01003e403e0806b001003840781008b501006a5a4a4e00b601005878585800d101003845463900d2010030494a3100e601003845563500e7010030494af100fa0100742a750000fb0100304c4a7d00fc0178147e554400fd0130487a695000fe010078744e3d00ff0100706a59380018020012a569120019020028ac7414001a020101bf4101001b0200049f641000bb0200000c0a0000bc0200000a060000bd020000060a0000c602000201020000c702000102010000c902000202020000d802000102020100d902000002000000da02000205020000db02000040800000dc02000201020100dd02020100020100740300000201000075030000804000007a030000c08000007e03000096760000840300000300000085030200030002008603037c12127c008703000010000000880303007e4a4200890303007e087e008a030300427e42008c03033c42423c008e0303000e700e008f03035c62625c00900302003b400200910378141214780092037e4a4a4a34009303007e0202020094036058465860009503007e4a4a420096030062524a46009703007e08087e0098033c4a4a4a3c00990300427e4200009a03007e081462009b036018061860009c037e0418047e009d03007e04087e009e0300424a4a42009f033c4242423c00a003007e02027e00a103007e12120c00a30300665a424200a40302027e020200a503060870080600a60318247e241800a703422418244200a8030e107e100e00a9035c6202625c00aa0300457c450000ab03040970090400ac030030484a7900ad030030685a5100ae0378100a09f000af03003a41200000b0033a4043403a00b103003048487800b20300fe25251a00b3030c30c0300c00b403344a4a4a3000b503003068585000b603021aa6a24200b7033c080404f800b803003c4a4a3c00b903003840200000ba03007820504800bb03641212227c00bc03fc2020103c00bd03182040201800be03112d2ba94100bf03003048483000c003087808780800c103f82424241800c2031824a4a44800c303304848582800c403000838482800c503384040403800c6031c20f8241800c703c4281028c400c8031c20fc201c00c903304820483000ca03000238422000cb03384240423800cc0330484a493000cd03384042413800ce03304822493000d0033c52525c2000d10310344a3c0800d203067804020400d303120a7c020400d4030d7009040800d5031824ff241800d603384828483800d70348302221d800da031c2221a14200db031824a4a44200dc037e1212020200dd0300fc24240400de033e2010087c00df030c0ac9281800e003700c621c7000e10301092516f800e2039ea0bea07e00e30398a0b8a07800e4030c1214107e00e503001028207800e603be9088887000e70348544e443800e803245252524c00e903285454544800ea0364524c526400eb03086458640800ec03385454542200ed03306848682400ee03184a7e4a1800ef031848ff0a0800f003483020205800f10378a4a4a49800f203304848485000f303006080847d00f4033c4a4a4a3c00f5030030585848000004007c555644000104007c55544500020401013f8579000304007c0605040004043c4a4a422400050400244a522400060400427e420000070400457c45000008042040423e020009047c027e4830000a047e087e4830000b0402027e0a72000c04007c102a45000d047c2112087c000e040c5152523d000f043f20e0203f00100478141214780011047e4a4a4a300012047e4a4a4a34001304007e020202001404c07c427ec0001504007e4a4a4200160476087e087600170424424a4a34001804007e08047e001904007d120a7d001a04007e081462001b04403c02027e001c047e0418047e001d04007e08087e001e043c4242423c001f047e0202027e002004007e12120c002104003c42422400220402027e02020023040e5050503e00240418247e241800250442241824420026043f2020bf600027040e1010107e0028047e407e407e0029043f203fa07f002a04027e484830002b047e4848307e002c04007e484830002d0424424a4a3c002e047e183c423c002f04006c12127e0030043048487840003104003c4a4a3100320400786850200033040078080808003404c0704878c000350430686850000036044830783048003704004058683000380478402010780039047942221279003a040078203048003b044030080878003c047810201078003d047810101078003e043048484830003f047808080878004004fc24242418004104304848485000420408087808080043041ca0a0a07c0044041824ff241800450400483030480046043c2020bc60004704182020207800480478407840780049043c203ca07c004a040878505020004b047850502078004c040078505020004d044858683000004e047830304830004f0450282878000050040030696a500051040032686a50005204023f0a887000530400780a09080054040030685848005504005058682800560400487a4000005704004a784200005804004080847d0059047008785020005a047810785020005b04047e141060005c040078223148005d047841221078005e0418a1a2a279005f043c20e0203c006204027f4a4830006304087e5850200070040e107e100e00710418207820180072043c4a4a4a3c0073043068586830007404001e70180c0075040018603010009004007e020203009104007808080c009204087e0a0a0200930420782808080096043b043f043be0970424183c1824c09a04003f040a31c09b04003c101824c0ae04060870080600af040c10e0100c00b004161870181600b1042c30e0302c00b20421120c1221c0b3040024181824c0ba047e0808087000bb04007e08087000d804003452523c00d904002868583000e20400457d450000e304004a7a420000e8043c4a4a4a3c00e904003058583000ee04003d41413d00ef04003a42427a00d005681020285000d105484848784000d205004830600000d305080808780800d405680808087800d505000008780000d605080818680800d705087808087800d805784050487800d905000008180000da0504040404fc00db05484848483800dc050e4848281800dd05087848487800de05582010487000df05000004fc0000e005004040487800e105000878483800e205487840281800e305041c0404fc00e405485848483800e50504f820140800e605485060685000e705f40424241c00e805080808087000e905785058403800ea05487808087800f005087800087800f105081800087800f205081800081800f305000010080000f405100800100800021e7c5455542800031e007e484930000a1e007c454438000b1e003049487e001e1e007c151404001f1e001079140800401e7e0419047e00411e780832087000561e007c15140800571e00fc25241800601e004854552400611e0050586a28006a1e04047d0404006b1e00083d482000801e7c2112207c00811e384132403800821e7c2012217c00831e384032413800841e7c2110217c00851e384230423800f21e040972080400f31e00b84142f800a3207e0a7a120a00a420a8fcaa828400a720087e2a1c0800ab200098a4a6bf02ac20183c5a5a4200af20627f224438009021103854101000912108047e0408009221101054381000932110207e201000942110381010381095212844fe442800")
@@ -3244,7 +3246,7 @@ function myTiles_inline__P7541_mk(s) {
 
 
 
-function inline__P32561(s) {
+function inline__P118673(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3254,21 +3256,21 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = MouseClick__P32563_mk(s);
+    s.tmp_0 = MouseClick__P118675_mk(s);
     s.tmp_0.arg0 = 1;
-    s.callLocIdx = 218; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 219; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P32561.info = {"start":7818,"length":35,"line":163,"column":52,"endLine":165,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P118673.info = {"start":7892,"length":35,"line":166,"column":52,"endLine":168,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P32561_mk(s) {
+function inline__P118673_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P32561, depth: s.depth + 1,
+        parent: s, fn: inline__P118673, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -3277,7 +3279,7 @@ function inline__P32561_mk(s) {
 
 
 
-function inline__P32567(s) {
+function inline__P118679(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3287,21 +3289,21 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = MouseClick__P32563_mk(s);
+    s.tmp_0 = MouseClick__P118675_mk(s);
     s.tmp_0.arg0 = 2;
-    s.callLocIdx = 220; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 221; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P32567.info = {"start":7908,"length":35,"line":166,"column":52,"endLine":168,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P118679.info = {"start":7982,"length":35,"line":169,"column":52,"endLine":171,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P32567_mk(s) {
+function inline__P118679_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P32567, depth: s.depth + 1,
+        parent: s, fn: inline__P118679, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -3310,7 +3312,7 @@ function inline__P32567_mk(s) {
 
 
 
-function inline__P32572(s) {
+function inline__P118684(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3320,28 +3322,28 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    r0 = (globals.App_Open___32240 == "death");
+    r0 = (globals.App_Open___118348 == "death");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
     s.tmp_1 = game_reset__P3544_mk(s);
-    s.callLocIdx = 222; s.pc = 5; return s.tmp_1;
+    s.callLocIdx = 223; s.pc = 5; return s.tmp_1;
   case 5:
     r0 = s.retval;
     { step = 4; continue; }
   case 1:
-    r0 = (globals.App_Open___32240 == "null");
+    r0 = (globals.App_Open___118348 == "null");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 2; continue; }
-    s.tmp_1 = Open_Library__P32579_mk(s);
-    s.callLocIdx = 223; s.pc = 6; return s.tmp_1;
+    s.tmp_1 = Open_Library__P118691_mk(s);
+    s.callLocIdx = 224; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
     { step = 3; continue; }
   case 2:
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 224; s.pc = 7; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 225; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
   case 3:
@@ -3350,12 +3352,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P32572.info = {"start":8003,"length":176,"line":170,"column":55,"endLine":178,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P118684.info = {"start":8077,"length":176,"line":173,"column":55,"endLine":181,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P32572_mk(s) {
+function inline__P118684_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P32572, depth: s.depth + 1,
+        parent: s, fn: inline__P118684, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -3365,7 +3367,7 @@ function inline__P32572_mk(s) {
 
 
 
-function inline__P32583(s) {
+function inline__P118695(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3384,22 +3386,22 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    s.tmp_1 = r0 = globals.WebChatMessages___32277;
+    s.tmp_1 = r0 = globals.WebChatMessages___118389;
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_3.arg0 = s.arg0;
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 256; s.pc = 5; return s.tmp_3;
+    s.callLocIdx = 263; s.pc = 5; return s.tmp_3;
   case 5:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
-    r0 = pxsim_Array__length(globals.WebChatMessages___32277);
+    r0 = pxsim_Array__length(globals.WebChatMessages___118389);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 > 7);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    r0 = pxsim_Array_.removeAt(globals.WebChatMessages___32277, 0);
+    r0 = pxsim_Array_.removeAt(globals.WebChatMessages___118389, 0);
   case 1:
   case 2:
   case 3:
@@ -3408,12 +3410,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P32583.info = {"start":10787,"length":240,"line":239,"column":22,"endLine":246,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":["name","value"]}
+inline__P118695.info = {"start":11197,"length":240,"line":247,"column":22,"endLine":254,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":["name","value"]}
 
-function inline__P32583_mk(s) {
+function inline__P118695_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P32583, depth: s.depth + 1,
+        parent: s, fn: inline__P118695, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -3427,7 +3429,7 @@ function inline__P32583_mk(s) {
 
 
 
-function inline__P32600(s) {
+function inline__P118712(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3439,23 +3441,23 @@ switch (step) {
 
     s.tmp_0 = pause__P413_mk(s);
     s.tmp_0.arg0 = 10;
-    s.callLocIdx = 259; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 266; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    s.tmp_0 = Start_Icon_Names__P32603_mk(s);
-    s.callLocIdx = 260; s.pc = 2; return s.tmp_0;
+    s.tmp_0 = Start_Icon_Names__P118715_mk(s);
+    s.callLocIdx = 267; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P32600.info = {"start":11091,"length":132,"line":252,"column":8,"endLine":256,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P118712.info = {"start":11501,"length":132,"line":260,"column":8,"endLine":264,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P32600_mk(s) {
+function inline__P118712_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P32600, depth: s.depth + 1,
+        parent: s, fn: inline__P118712, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -3464,7 +3466,7 @@ function inline__P32600_mk(s) {
 
 
 
-function inline__P32605(s) {
+function inline__P118717(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3474,7 +3476,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 6);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 6);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == "1");
     s.tmp_0 = r0;
@@ -3482,35 +3484,35 @@ switch (step) {
     if (!r0) { step = 5; continue; }
     s.tmp_2 = pause__P413_mk(s);
     s.tmp_2.arg0 = 60000;
-    s.callLocIdx = 262; s.pc = 7; return s.tmp_2;
+    s.callLocIdx = 269; s.pc = 7; return s.tmp_2;
   case 7:
     r0 = s.retval;
-    r0 = (globals.minute___32492 + 1);
-    globals.minute___32492 = (r0);
-    r0 = (globals.minute___32492 > 159);
+    r0 = (globals.minute___118604 + 1);
+    globals.minute___118604 = (r0);
+    r0 = (globals.minute___118604 > 159);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    globals.minute___32492 = (100);
-    r0 = (globals.hour___32490 + 1);
-    globals.hour___32490 = (r0);
-    r0 = (globals.hour___32490 > 23);
+    globals.minute___118604 = (100);
+    r0 = (globals.hour___118602 + 1);
+    globals.hour___118602 = (r0);
+    r0 = (globals.hour___118602 > 23);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    globals.hour___32490 = (0);
+    globals.hour___118602 = (0);
   case 1:
   case 2:
   case 3:
   case 4:
     s.tmp_0 = TextSprite_setText__P4596_mk(s);
-    s.tmp_0.arg0 = globals.clock___32494;
-    if ((globals.hour___32490) && (globals.hour___32490).vtable) {
+    s.tmp_0.arg0 = globals.clock___118606;
+    if ((globals.hour___118602) && (globals.hour___118602).vtable) {
     setupResume(s, 9);
-    pxsim_String__stringConv(globals.hour___32490);
+    pxsim_String__stringConv(globals.hour___118602);
     checkResumeConsumed();
     return;
-    } else { s.retval = (globals.hour___32490) + ""; }
+    } else { s.retval = (globals.hour___118602) + ""; }
   case 9:
     r0 = s.retval;
     s.tmp_3 = r0;
@@ -3526,11 +3528,11 @@ switch (step) {
     r0 = s.retval;
     s.tmp_1 = r0;
     s.tmp_6 = helpers_stringSubstr__P118_mk(s);
-    r0 = pxsim_numops.toString(globals.minute___32492);
+    r0 = pxsim_numops.toString(globals.minute___118604);
     s.tmp_6.arg0 = r0;
     s.tmp_6.arg1 = 1;
     s.tmp_6.arg2 = 2;
-    s.callLocIdx = 263; s.pc = 11; return s.tmp_6;
+    s.callLocIdx = 270; s.pc = 11; return s.tmp_6;
   case 11:
     r0 = s.retval;
     s.tmp_5 = r0;
@@ -3545,7 +3547,7 @@ switch (step) {
     s.tmp_4 = r0;
     r0 = pxsim_String__concat(s.tmp_1, s.tmp_4);
     s.tmp_0.arg1 = r0;
-    s.callLocIdx = 264; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 271; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
   case 5:
@@ -3554,12 +3556,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P32605.info = {"start":11236,"length":325,"line":258,"column":8,"endLine":271,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P118717.info = {"start":11646,"length":325,"line":266,"column":8,"endLine":279,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P32605_mk(s) {
+function inline__P118717_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P32605, depth: s.depth + 1,
+        parent: s, fn: inline__P118717, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -3574,7 +3576,7 @@ function inline__P32605_mk(s) {
 
 
 
-function Start_Icon_Names__P32603(s) {
+function Start_Icon_Names__P118715(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3584,191 +3586,191 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.otherColor___32649 = undefined;
-    s.color24___32650 = undefined;
-    s.otherColor___32649 = (12);
-    s.color24___32650 = (1);
-    r0 = (globals.App_Open___32240 == "null");
+    s.otherColor___118761 = undefined;
+    s.color24___118762 = undefined;
+    s.otherColor___118761 = (12);
+    s.color24___118762 = (1);
+    r0 = (globals.App_Open___118348 == "null");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (!r0) { step = 1; continue; }
     r0 = s.tmp_0;
     { step = 2; continue; }
   case 1:
-    r0 = (globals.App_Open___32240 == "NanoCode");
+    r0 = (globals.App_Open___118348 == "NanoCode");
   case 2:
     // jmp value (already in r0)
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 3; continue; }
-    s.otherColor___32649 = (1);
-    s.color24___32650 = (15);
+    s.otherColor___118761 = (1);
+    s.color24___118762 = (15);
   case 3:
   case 4:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.xCell_Icon___32233;
-    s.callLocIdx = 266; s.pc = 21; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.xCell_Icon___118341;
+    s.callLocIdx = 273; s.pc = 21; return s.tmp_1;
   case 21:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.xCell_Icon___32233;
+    s.tmp_2.arg0 = globals.xCell_Icon___118341;
     s.tmp_2.arg1 = "xCell";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___32650;
-    s.tmp_2.arg5 = s.otherColor___32649;
-    s.callLocIdx = 267; s.pc = 22; return s.tmp_2;
+    s.tmp_2.arg4 = s.color24___118762;
+    s.tmp_2.arg5 = s.otherColor___118761;
+    s.callLocIdx = 274; s.pc = 22; return s.tmp_2;
   case 22:
     r0 = s.retval;
     { step = 20; continue; }
   case 5:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Write_icon___32229;
-    s.callLocIdx = 268; s.pc = 23; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Write_icon___118337;
+    s.callLocIdx = 275; s.pc = 23; return s.tmp_1;
   case 23:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 6; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Write_icon___32229;
+    s.tmp_2.arg0 = globals.Write_icon___118337;
     s.tmp_2.arg1 = "Write";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___32650;
-    s.tmp_2.arg5 = s.otherColor___32649;
-    s.callLocIdx = 269; s.pc = 24; return s.tmp_2;
+    s.tmp_2.arg4 = s.color24___118762;
+    s.tmp_2.arg5 = s.otherColor___118761;
+    s.callLocIdx = 276; s.pc = 24; return s.tmp_2;
   case 24:
     r0 = s.retval;
     { step = 19; continue; }
   case 6:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Web_Chat_Icon___32227;
-    s.callLocIdx = 270; s.pc = 25; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Web_Chat_Icon___118335;
+    s.callLocIdx = 277; s.pc = 25; return s.tmp_1;
   case 25:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 7; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Web_Chat_Icon___32227;
+    s.tmp_2.arg0 = globals.Web_Chat_Icon___118335;
     s.tmp_2.arg1 = "Web Chat";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___32650;
-    s.tmp_2.arg5 = s.otherColor___32649;
-    s.callLocIdx = 271; s.pc = 26; return s.tmp_2;
+    s.tmp_2.arg4 = s.color24___118762;
+    s.tmp_2.arg5 = s.otherColor___118761;
+    s.callLocIdx = 278; s.pc = 26; return s.tmp_2;
   case 26:
     r0 = s.retval;
     { step = 18; continue; }
   case 7:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Settings_Icon___32225;
-    s.callLocIdx = 272; s.pc = 27; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Settings_Icon___118333;
+    s.callLocIdx = 279; s.pc = 27; return s.tmp_1;
   case 27:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 8; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Settings_Icon___32225;
+    s.tmp_2.arg0 = globals.Settings_Icon___118333;
     s.tmp_2.arg1 = "Settings";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___32650;
-    s.tmp_2.arg5 = s.otherColor___32649;
-    s.callLocIdx = 273; s.pc = 28; return s.tmp_2;
+    s.tmp_2.arg4 = s.color24___118762;
+    s.tmp_2.arg5 = s.otherColor___118761;
+    s.callLocIdx = 280; s.pc = 28; return s.tmp_2;
   case 28:
     r0 = s.retval;
     { step = 17; continue; }
   case 8:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.File_Manager_Icon___32221;
-    s.callLocIdx = 274; s.pc = 29; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.File_Manager_Icon___118329;
+    s.callLocIdx = 281; s.pc = 29; return s.tmp_1;
   case 29:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 9; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.File_Manager_Icon___32221;
+    s.tmp_2.arg0 = globals.File_Manager_Icon___118329;
     s.tmp_2.arg1 = "File Manager";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___32650;
-    s.tmp_2.arg5 = s.otherColor___32649;
-    s.callLocIdx = 275; s.pc = 30; return s.tmp_2;
+    s.tmp_2.arg4 = s.color24___118762;
+    s.tmp_2.arg5 = s.otherColor___118761;
+    s.callLocIdx = 282; s.pc = 30; return s.tmp_2;
   case 30:
     r0 = s.retval;
     { step = 16; continue; }
   case 9:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.NanoCode_Icon___32219;
-    s.callLocIdx = 276; s.pc = 31; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.NanoCode_Icon___118327;
+    s.callLocIdx = 283; s.pc = 31; return s.tmp_1;
   case 31:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 10; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.NanoCode_Icon___32219;
+    s.tmp_2.arg0 = globals.NanoCode_Icon___118327;
     s.tmp_2.arg1 = "NanoCode";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___32650;
-    s.tmp_2.arg5 = s.otherColor___32649;
-    s.callLocIdx = 277; s.pc = 32; return s.tmp_2;
+    s.tmp_2.arg4 = s.color24___118762;
+    s.tmp_2.arg5 = s.otherColor___118761;
+    s.callLocIdx = 284; s.pc = 32; return s.tmp_2;
   case 32:
     r0 = s.retval;
     { step = 15; continue; }
   case 10:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Process_Icon___32223;
-    s.callLocIdx = 278; s.pc = 33; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Process_Icon___118331;
+    s.callLocIdx = 285; s.pc = 33; return s.tmp_1;
   case 33:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 11; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Process_Icon___32223;
+    s.tmp_2.arg0 = globals.Process_Icon___118331;
     s.tmp_2.arg1 = "Process Manager";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___32650;
-    s.tmp_2.arg5 = s.otherColor___32649;
-    s.callLocIdx = 279; s.pc = 34; return s.tmp_2;
+    s.tmp_2.arg4 = s.color24___118762;
+    s.tmp_2.arg5 = s.otherColor___118761;
+    s.callLocIdx = 286; s.pc = 34; return s.tmp_2;
   case 34:
     r0 = s.retval;
     { step = 14; continue; }
   case 11:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Library_icon___32231;
-    s.callLocIdx = 280; s.pc = 35; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Library_icon___118339;
+    s.callLocIdx = 287; s.pc = 35; return s.tmp_1;
   case 35:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 12; continue; }
     s.tmp_2 = Sprite_sayText__P2427_mk(s);
-    s.tmp_2.arg0 = globals.Library_icon___32231;
+    s.tmp_2.arg0 = globals.Library_icon___118339;
     s.tmp_2.arg1 = ".    Library";
     s.tmp_2.arg2 = 50;
     s.tmp_2.arg3 = false;
-    s.tmp_2.arg4 = s.color24___32650;
-    s.tmp_2.arg5 = s.otherColor___32649;
-    s.callLocIdx = 281; s.pc = 36; return s.tmp_2;
+    s.tmp_2.arg4 = s.color24___118762;
+    s.tmp_2.arg5 = s.otherColor___118761;
+    s.callLocIdx = 288; s.pc = 36; return s.tmp_2;
   case 36:
     r0 = s.retval;
   case 12:
@@ -3784,18 +3786,18 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Start_Icon_Names__P32603.info = {"start":11566,"length":1269,"line":273,"column":0,"endLine":297,"endColumn":1,"fileName":"main.ts","functionName":"Start_Icon_Names","argumentNames":[]}
+Start_Icon_Names__P118715.info = {"start":11976,"length":1269,"line":281,"column":0,"endLine":305,"endColumn":1,"fileName":"main.ts","functionName":"Start_Icon_Names","argumentNames":[]}
 
-function Start_Icon_Names__P32603_mk(s) {
+function Start_Icon_Names__P118715_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Start_Icon_Names__P32603, depth: s.depth + 1,
+        parent: s, fn: Start_Icon_Names__P118715, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  otherColor___32649: undefined,
-  color24___32650: undefined,
+  otherColor___118761: undefined,
+  color24___118762: undefined,
 } }
 
 
@@ -9520,7 +9522,7 @@ function radio_RadioPacket_constructor__P7449_mk(s) {
 
 
 
-function close_apps__P32581(s) {
+function close_apps__P118693(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -9530,84 +9532,84 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___32240 = ("null");
-    globals.SubMenu___32278 = ("null");
+    globals.App_Open___118348 = ("null");
+    globals.SubMenu___118390 = ("null");
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = helpers_getImageByName__P3369_mk(s);
     s.tmp_2.arg0 = "Wallpaper - Strings";
-    s.callLocIdx = 387; s.pc = 1; return s.tmp_2;
+    s.callLocIdx = 394; s.pc = 1; return s.tmp_2;
   case 1:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_1);
     s.tmp_4 = helpers_getImageByName__P3369_mk(s);
     s.tmp_4.arg0 = "Wallpaper - Sunrise";
-    s.callLocIdx = 388; s.pc = 2; return s.tmp_4;
+    s.callLocIdx = 395; s.pc = 2; return s.tmp_4;
   case 2:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_3);
     s.tmp_6 = helpers_getImageByName__P3369_mk(s);
     s.tmp_6.arg0 = "Wallpaper - Stripes";
-    s.callLocIdx = 389; s.pc = 3; return s.tmp_6;
+    s.callLocIdx = 396; s.pc = 3; return s.tmp_6;
   case 3:
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_5);
     s.tmp_8 = helpers_getImageByName__P3369_mk(s);
     s.tmp_8.arg0 = "Wallpaper - Squiggles";
-    s.callLocIdx = 390; s.pc = 4; return s.tmp_8;
+    s.callLocIdx = 397; s.pc = 4; return s.tmp_8;
   case 4:
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
     s.tmp_10 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 5);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 5);
     s.tmp_10.arg0 = r0;
     s.tmp_10.arg1 = 10;
-    s.callLocIdx = 391; s.pc = 5; return s.tmp_10;
+    s.callLocIdx = 398; s.pc = 5; return s.tmp_10;
   case 5:
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_9);
-    globals.Wallpaper___32472 = (r0);
+    globals.Wallpaper___118584 = (r0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
-    s.tmp_0.arg0 = globals.Wallpaper___32472;
-    s.callLocIdx = 392; s.pc = 6; return s.tmp_0;
+    s.tmp_0.arg0 = globals.Wallpaper___118584;
+    s.callLocIdx = 399; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
     s.tmp_0.arg0 = globals.Text___4590;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
-    s.callLocIdx = 393; s.pc = 7; return s.tmp_0;
+    s.callLocIdx = 400; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
-    s.tmp_0.arg0 = globals.App_UI___32210;
+    s.tmp_0.arg0 = globals.App_UI___118318;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
-    s.callLocIdx = 394; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 401; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
     s.tmp_0.arg0 = globals.MiniMenu___4365;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
-    s.callLocIdx = 395; s.pc = 9; return s.tmp_0;
+    s.callLocIdx = 402; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-close_apps__P32581.info = {"start":17919,"length":516,"line":439,"column":0,"endLine":448,"endColumn":1,"fileName":"main.ts","functionName":"close_apps","argumentNames":[]}
+close_apps__P118693.info = {"start":18329,"length":516,"line":447,"column":0,"endLine":456,"endColumn":1,"fileName":"main.ts","functionName":"close_apps","argumentNames":[]}
 
-function close_apps__P32581_mk(s) {
+function close_apps__P118693_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: close_apps__P32581, depth: s.depth + 1,
+        parent: s, fn: close_apps__P118693, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -11717,7 +11719,7 @@ function sprites_SpriteSet_sprites_inline__P10156_mk(s) {
 
 
 
-function Open_Library__P32579(s) {
+function Open_Library__P118691(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -11727,32 +11729,32 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 282; s.pc = 1; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 289; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.App_Open___32240 = ("App Library");
+    globals.App_Open___118348 = ("App Library");
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
-    s.callLocIdx = 283; s.pc = 3; return s.tmp_1;
+    s.callLocIdx = 290; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 284; s.pc = 2; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 291; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 149;
     s.tmp_0.arg2 = 12;
-    s.callLocIdx = 285; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 292; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 23;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -11760,39 +11762,39 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 286; s.pc = 5; return s.tmp_0; }
+     else { s.callLocIdx = 293; s.pc = 5; return s.tmp_0; }
     }
   case 5:
     r0 = s.retval;
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Library Background";
-    s.callLocIdx = 287; s.pc = 7; return s.tmp_1;
+    s.callLocIdx = 294; s.pc = 7; return s.tmp_1;
   case 7:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 288; s.pc = 6; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 295; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
-    globals.Taskbar___32213 = (r0);
+    globals.Taskbar___118321 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Taskbar___32213;
+    s.tmp_0.arg0 = globals.Taskbar___118321;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
-    s.callLocIdx = 289; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 296; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-Open_Library__P32579.info = {"start":12948,"length":322,"line":302,"column":0,"endLine":310,"endColumn":1,"fileName":"main.ts","functionName":"Open_Library","argumentNames":[]}
+Open_Library__P118691.info = {"start":13358,"length":322,"line":310,"column":0,"endLine":318,"endColumn":1,"fileName":"main.ts","functionName":"Open_Library","argumentNames":[]}
 
-function Open_Library__P32579_mk(s) {
+function Open_Library__P118691_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_Library__P32579, depth: s.depth + 1,
+        parent: s, fn: Open_Library__P118691, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -12913,7 +12915,7 @@ function game_reset__P3544_mk(s) {
 
 
 
-function MouseClick__P32563(s) {
+function MouseClick__P118675(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -12923,16 +12925,17 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.menu_selection___32848 = undefined;
-    s.i___32849 = undefined;
+    s.menu_selection___118960 = undefined;
+    s.i___118961 = undefined;
+    s.RightClickMenu___118997 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Close_App___32239;
-    s.callLocIdx = 226; s.pc = 69; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Close_App___118347;
+    s.callLocIdx = 227; s.pc = 69; return s.tmp_1;
   case 69:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -12947,35 +12950,35 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 3; continue; }
-    s.tmp_3 = close_apps__P32581_mk(s);
-    s.callLocIdx = 227; s.pc = 70; return s.tmp_3;
+    s.tmp_3 = close_apps__P118693_mk(s);
+    s.callLocIdx = 228; s.pc = 70; return s.tmp_3;
   case 70:
     r0 = s.retval;
   case 3:
   case 4:
-    r0 = (globals.App_Open___32240 !== "App Library");
+    r0 = (globals.App_Open___118348 !== "App Library");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 67; continue; }
     s.tmp_2 = spriteutils_isDestroyed__P4558_mk(s);
-    s.tmp_2.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 228; s.pc = 71; return s.tmp_2;
+    s.tmp_2.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 229; s.pc = 71; return s.tmp_2;
   case 71:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 5; continue; }
-    s.tmp_3 = fatalerror__P32557_mk(s);
+    s.tmp_3 = fatalerror__P118669_mk(s);
     s.tmp_3.arg0 = 202;
-    s.callLocIdx = 229; s.pc = 72; return s.tmp_3;
+    s.callLocIdx = 230; s.pc = 72; return s.tmp_3;
   case 72:
     r0 = s.retval;
     { step = 66; continue; }
   case 5:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.xCell_Icon___32233;
-    s.callLocIdx = 230; s.pc = 73; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.xCell_Icon___118341;
+    s.callLocIdx = 231; s.pc = 73; return s.tmp_1;
   case 73:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -12990,18 +12993,18 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 8; continue; }
-    s.tmp_3 = Open_xCell__P32638_mk(s);
+    s.tmp_3 = Open_xCell__P118750_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_3.arg0 = r0;
-    s.callLocIdx = 231; s.pc = 74; return s.tmp_3;
+    s.callLocIdx = 232; s.pc = 74; return s.tmp_3;
   case 74:
     r0 = s.retval;
     { step = 65; continue; }
   case 8:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Write_icon___32229;
-    s.callLocIdx = 232; s.pc = 75; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Write_icon___118337;
+    s.callLocIdx = 233; s.pc = 75; return s.tmp_1;
   case 75:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -13016,18 +13019,18 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 11; continue; }
-    s.tmp_3 = Open_Write__P32639_mk(s);
+    s.tmp_3 = Open_Write__P118751_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_3.arg0 = r0;
-    s.callLocIdx = 233; s.pc = 76; return s.tmp_3;
+    s.callLocIdx = 234; s.pc = 76; return s.tmp_3;
   case 76:
     r0 = s.retval;
     { step = 64; continue; }
   case 11:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Web_Chat_Icon___32227;
-    s.callLocIdx = 234; s.pc = 77; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Web_Chat_Icon___118335;
+    s.callLocIdx = 235; s.pc = 77; return s.tmp_1;
   case 77:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -13042,16 +13045,16 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 14; continue; }
-    s.tmp_3 = Open_Web__P32637_mk(s);
-    s.callLocIdx = 235; s.pc = 78; return s.tmp_3;
+    s.tmp_3 = Open_Web__P118749_mk(s);
+    s.callLocIdx = 236; s.pc = 78; return s.tmp_3;
   case 78:
     r0 = s.retval;
     { step = 63; continue; }
   case 14:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Settings_Icon___32225;
-    s.callLocIdx = 236; s.pc = 79; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Settings_Icon___118333;
+    s.callLocIdx = 237; s.pc = 79; return s.tmp_1;
   case 79:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -13066,16 +13069,16 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 17; continue; }
-    s.tmp_3 = Open_Settings__P32640_mk(s);
-    s.callLocIdx = 237; s.pc = 80; return s.tmp_3;
+    s.tmp_3 = Open_Settings__P118752_mk(s);
+    s.callLocIdx = 238; s.pc = 80; return s.tmp_3;
   case 80:
     r0 = s.retval;
     { step = 62; continue; }
   case 17:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.File_Manager_Icon___32221;
-    s.callLocIdx = 238; s.pc = 81; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.File_Manager_Icon___118329;
+    s.callLocIdx = 239; s.pc = 81; return s.tmp_1;
   case 81:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -13090,16 +13093,16 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 20; continue; }
-    s.tmp_3 = Open_FileManager__P32642_mk(s);
-    s.callLocIdx = 239; s.pc = 82; return s.tmp_3;
+    s.tmp_3 = Open_FileManager__P118754_mk(s);
+    s.callLocIdx = 240; s.pc = 82; return s.tmp_3;
   case 82:
     r0 = s.retval;
     { step = 61; continue; }
   case 20:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.NanoCode_Icon___32219;
-    s.callLocIdx = 240; s.pc = 83; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.NanoCode_Icon___118327;
+    s.callLocIdx = 241; s.pc = 83; return s.tmp_1;
   case 83:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -13114,16 +13117,16 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 23; continue; }
-    s.tmp_3 = Open_NanoCode__P32641_mk(s);
-    s.callLocIdx = 241; s.pc = 84; return s.tmp_3;
+    s.tmp_3 = Open_NanoCode__P118753_mk(s);
+    s.callLocIdx = 242; s.pc = 84; return s.tmp_3;
   case 84:
     r0 = s.retval;
     { step = 60; continue; }
   case 23:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Process_Icon___32223;
-    s.callLocIdx = 242; s.pc = 85; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Process_Icon___118331;
+    s.callLocIdx = 243; s.pc = 85; return s.tmp_1;
   case 85:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -13138,16 +13141,16 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 26; continue; }
-    s.tmp_3 = Open_ProcessManager__P32643_mk(s);
-    s.callLocIdx = 243; s.pc = 86; return s.tmp_3;
+    s.tmp_3 = Open_ProcessManager__P118755_mk(s);
+    s.callLocIdx = 244; s.pc = 86; return s.tmp_3;
   case 86:
     r0 = s.retval;
     { step = 59; continue; }
   case 26:
     s.tmp_1 = Sprite_overlapsWith__P2435_mk(s);
-    s.tmp_1.arg0 = globals.Mouse_Cursor___32235;
-    s.tmp_1.arg1 = globals.Library_icon___32231;
-    s.callLocIdx = 244; s.pc = 87; return s.tmp_1;
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.tmp_1.arg1 = globals.Library_icon___118339;
+    s.callLocIdx = 245; s.pc = 87; return s.tmp_1;
   case 87:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -13162,42 +13165,42 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 29; continue; }
-    s.tmp_3 = Open_Library__P32579_mk(s);
-    s.callLocIdx = 245; s.pc = 88; return s.tmp_3;
+    s.tmp_3 = Open_Library__P118691_mk(s);
+    s.callLocIdx = 246; s.pc = 88; return s.tmp_3;
   case 88:
     r0 = s.retval;
     { step = 58; continue; }
   case 29:
-    r0 = (globals.App_Open___32240 == "File Manager");
+    r0 = (globals.App_Open___118348 == "File Manager");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (!r0) { step = 30; continue; }
     r0 = s.tmp_0;
     { step = 31; continue; }
   case 30:
-    r0 = (globals.App_Open___32240 == "Settings");
+    r0 = (globals.App_Open___118348 == "Settings");
   case 31:
     // jmp value (already in r0)
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 40; continue; }
-    s.menu_selection___32848 = (0);
-    s.i___32849 = (0);
+    s.menu_selection___118960 = (0);
+    s.i___118961 = (0);
   case 32:
-    s.tmp_1 = r0 = s.i___32849;
-    r0 = pxsim_Array__length(globals.ListMenuContents___32251);
+    s.tmp_1 = r0 = s.i___118961;
+    r0 = pxsim_Array__length(globals.ListMenuContents___118363);
     s.tmp_2 = r0;
     r0 = (s.tmp_1 < s.tmp_2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 39; continue; }
     s.tmp_5 = Sprite_y__P2370_mk(s);
-    s.tmp_5.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 246; s.pc = 89; return s.tmp_5;
+    s.tmp_5.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 247; s.pc = 89; return s.tmp_5;
   case 89:
     r0 = s.retval;
     s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(globals.sillySpacingForListGUI___32288, s.i___32849);
+    r0 = pxsim_Array__getAt(globals.sillySpacingForListGUI___118400, s.i___118961);
     s.tmp_6 = r0;
     r0 = (s.tmp_4 > s.tmp_6);
     s.tmp_3 = r0;
@@ -13207,12 +13210,12 @@ switch (step) {
     { step = 34; continue; }
   case 33:
     s.tmp_8 = Sprite_y__P2370_mk(s);
-    s.tmp_8.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 247; s.pc = 90; return s.tmp_8;
+    s.tmp_8.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 248; s.pc = 90; return s.tmp_8;
   case 90:
     r0 = s.retval;
     s.tmp_7 = r0;
-    r0 = pxsim_Array__getAt(globals.sillySpacingForListGUI___32288, s.i___32849);
+    r0 = pxsim_Array__getAt(globals.sillySpacingForListGUI___118400, s.i___118961);
     s.tmp_10 = r0;
     r0 = (s.tmp_10 + 12);
     s.tmp_9 = r0;
@@ -13222,54 +13225,104 @@ switch (step) {
     s.tmp_11 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_11);
     if (!r0) { step = 37; continue; }
-    r0 = (s.i___32849 + 1);
-    s.menu_selection___32848 = (r0);
+    r0 = (s.i___118961 + 1);
+    s.menu_selection___118960 = (r0);
     r0 = (s.arg0 == 1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 35; continue; }
-    s.tmp_1 = listSelection__P32645_mk(s);
-    s.tmp_1.arg0 = globals.App_Open___32240;
-    s.tmp_1.arg1 = s.menu_selection___32848;
-    s.tmp_1.arg2 = globals.SubMenu___32278;
+    s.tmp_1 = listSelection__P118757_mk(s);
+    s.tmp_1.arg0 = globals.App_Open___118348;
+    s.tmp_1.arg1 = s.menu_selection___118960;
+    s.tmp_1.arg2 = globals.SubMenu___118390;
     s.tmp_1.arg3 = "click";
     s.tmp_1.arg4 = 0;
-    s.callLocIdx = 248; s.pc = 91; return s.tmp_1;
+    s.callLocIdx = 249; s.pc = 91; return s.tmp_1;
   case 91:
     r0 = s.retval;
     { step = 39; continue; }
     { step = 36; continue; }
   case 35:
-    s.tmp_0 = listSelection__P32645_mk(s);
-    s.tmp_0.arg0 = globals.App_Open___32240;
-    s.tmp_0.arg1 = s.menu_selection___32848;
-    s.tmp_0.arg2 = globals.SubMenu___32278;
+    s.tmp_0 = fatalerror__P118669_mk(s);
+    s.tmp_0.arg0 = 203;
+    s.callLocIdx = 250; s.pc = 92; return s.tmp_0;
+  case 92:
+    r0 = s.retval;
+    s.tmp_0 = listSelection__P118757_mk(s);
+    s.tmp_0.arg0 = globals.App_Open___118348;
+    s.tmp_0.arg1 = s.menu_selection___118960;
+    s.tmp_0.arg2 = globals.SubMenu___118390;
     s.tmp_0.arg3 = "rclick";
     s.tmp_0.arg4 = 0;
-    s.callLocIdx = 249; s.pc = 92; return s.tmp_0;
-  case 92:
+    s.callLocIdx = 251; s.pc = 93; return s.tmp_0;
+  case 93:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
+    s.tmp_0.arg0 = globals.current_rclick_menu___118355;
+    s.callLocIdx = 252; s.pc = 94; return s.tmp_0;
+  case 94:
+    r0 = s.retval;
+    s.RightClickMenu___118997 = (r0);
+    s.tmp_0 = Sprite_setPosition__P2424_mk(s);
+    s.tmp_0.arg0 = s.RightClickMenu___118997;
+    s.tmp_1 = Sprite_x__P2368_mk(s);
+    s.tmp_1.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 253; s.pc = 96; return s.tmp_1;
+  case 96:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.tmp_2 = Sprite_y__P2370_mk(s);
+    s.tmp_2.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 254; s.pc = 97; return s.tmp_2;
+  case 97:
+    r0 = s.retval;
+    s.tmp_0.arg2 = r0;
+    s.callLocIdx = 255; s.pc = 95; return s.tmp_0;
+  case 95:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
+    s.tmp_0.arg0 = s.RightClickMenu___118997;
+    s.tmp_0.arg1 = 50;
+    s.tmp_0.arg2 = 60;
+    if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
+    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.setDimensions;
+    s.pc = 98; return s.tmp_0;
+  case 98:
+    r0 = s.retval;
+    s.tmp_0 = if_z_2_mk(s);
+    s.tmp_0.arg0 = s.RightClickMenu___118997;
+    s.tmp_0.arg1 = 350346;
+    if (!s.tmp_0.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
+    } else {
+      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
+      if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
+      else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
+     else { s.callLocIdx = 256; s.pc = 99; return s.tmp_0; }
+    }
+  case 99:
     r0 = s.retval;
   case 36:
   case 37:
   case 38:
-    r0 = (s.i___32849 + 1);
-    s.i___32849 = (r0);
+    r0 = (s.i___118961 + 1);
+    s.i___118961 = (r0);
     { step = 32; continue; }
   case 39:
     { step = 57; continue; }
   case 40:
-    r0 = (globals.App_Open___32240 == "NanoCode");
+    r0 = (globals.App_Open___118348 == "NanoCode");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 55; continue; }
-    r0 = (globals.SubMenu___32278 == "Main");
+    r0 = (globals.SubMenu___118390 == "Main");
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 53; continue; }
     s.tmp_4 = Sprite_x__P2368_mk(s);
-    s.tmp_4.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 250; s.pc = 93; return s.tmp_4;
-  case 93:
+    s.tmp_4.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 257; s.pc = 100; return s.tmp_4;
+  case 100:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = (s.tmp_3 > 50);
@@ -13280,9 +13333,9 @@ switch (step) {
     { step = 42; continue; }
   case 41:
     s.tmp_6 = Sprite_x__P2368_mk(s);
-    s.tmp_6.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 251; s.pc = 94; return s.tmp_6;
-  case 94:
+    s.tmp_6.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 258; s.pc = 101; return s.tmp_6;
+  case 101:
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = (s.tmp_5 < 158);
@@ -13292,9 +13345,9 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_7);
     if (!r0) { step = 51; continue; }
     s.tmp_10 = Sprite_y__P2370_mk(s);
-    s.tmp_10.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 252; s.pc = 95; return s.tmp_10;
-  case 95:
+    s.tmp_10.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 259; s.pc = 102; return s.tmp_10;
+  case 102:
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = (s.tmp_9 < 100);
@@ -13304,9 +13357,9 @@ switch (step) {
     { step = 50; continue; }
   case 43:
     s.tmp_13 = Sprite_y__P2370_mk(s);
-    s.tmp_13.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 253; s.pc = 96; return s.tmp_13;
-  case 96:
+    s.tmp_13.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 260; s.pc = 103; return s.tmp_13;
+  case 103:
     r0 = s.retval;
     s.tmp_12 = r0;
     r0 = (s.tmp_12 < 87);
@@ -13316,9 +13369,9 @@ switch (step) {
     { step = 49; continue; }
   case 44:
     s.tmp_16 = Sprite_y__P2370_mk(s);
-    s.tmp_16.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 254; s.pc = 97; return s.tmp_16;
-  case 97:
+    s.tmp_16.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 261; s.pc = 104; return s.tmp_16;
+  case 104:
     r0 = s.retval;
     s.tmp_15 = r0;
     r0 = (s.tmp_15 < 74);
@@ -13328,9 +13381,9 @@ switch (step) {
     { step = 48; continue; }
   case 45:
     s.tmp_19 = Sprite_y__P2370_mk(s);
-    s.tmp_19.arg0 = globals.Mouse_Cursor___32235;
-    s.callLocIdx = 255; s.pc = 98; return s.tmp_19;
-  case 98:
+    s.tmp_19.arg0 = globals.Mouse_Cursor___118343;
+    s.callLocIdx = 262; s.pc = 105; return s.tmp_19;
+  case 105:
     r0 = s.retval;
     s.tmp_18 = r0;
     r0 = (s.tmp_18 < 61);
@@ -13364,12 +13417,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-MouseClick__P32563.info = {"start":8184,"length":2529,"line":180,"column":0,"endLine":233,"endColumn":1,"fileName":"main.ts","functionName":"MouseClick","argumentNames":["button"]}
+MouseClick__P118675.info = {"start":8258,"length":2865,"line":183,"column":0,"endLine":241,"endColumn":1,"fileName":"main.ts","functionName":"MouseClick","argumentNames":["button"]}
 
-function MouseClick__P32563_mk(s) {
+function MouseClick__P118675_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: MouseClick__P32563, depth: s.depth + 1,
+        parent: s, fn: MouseClick__P118675, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -13391,9 +13444,6322 @@ function MouseClick__P32563_mk(s) {
   tmp_17: undefined,
   tmp_18: undefined,
   tmp_19: undefined,
-  menu_selection___32848: undefined,
-  i___32849: undefined,
+  menu_selection___118960: undefined,
+  i___118961: undefined,
+  RightClickMenu___118997: undefined,
   arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_setDimensions__P4507(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    s.tmp_0 = miniMenu_MenuSprite_setMenuStyleProperty__P4505_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 0;
+    s.tmp_0.arg2 = s.arg1;
+    s.callLocIdx = 2059; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuSprite_setMenuStyleProperty__P4505_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 1;
+    s.tmp_0.arg2 = s.arg2;
+    s.callLocIdx = 2060; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_setDimensions__P4507.info = {"start":49571,"length":203,"line":1335,"column":8,"endLine":1338,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setDimensions","argumentNames":["this","width","height"]}
+
+function miniMenu_MenuSprite_setDimensions__P4507_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_setDimensions__P4507, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_setMenuStyleProperty__P4505(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    s.tmp_0 = miniMenu_MenuStyle_setMenuStyleProperty__P4436_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg1;
+    s.tmp_0.arg2 = s.arg2;
+    s.callLocIdx = 2039; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    r0 = (s.arg1 === 10);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    r0 = pxsim_numops_toBoolDecr(s.arg2);
+    if (!r0) { step = 1; continue; }
+    s.tmp_1 = miniMenu_MenuStyle_copyTo__P4437_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2040; s.pc = 7; return s.tmp_2;
+  case 7:
+    r0 = s.retval;
+    r0 = r0.fields["menuStyle"];
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 2041; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2042; s.pc = 8; return s.tmp_2;
+  case 8:
+    r0 = s.retval;
+    r0 = r0.fields["menuStyle"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["menuStyle"] = (s.tmp_1);
+    s.tmp_0 = miniMenu_Style_copyTo__P4468_mk(s);
+    r0 = s.arg0.fields["defaultStyle"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2043; s.pc = 10; return s.tmp_1;
+  case 10:
+    r0 = s.retval;
+    r0 = r0.fields["defaultStyle"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 2044; s.pc = 9; return s.tmp_0;
+  case 9:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2045; s.pc = 11; return s.tmp_2;
+  case 11:
+    r0 = s.retval;
+    r0 = r0.fields["defaultStyle"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["defaultStyle"] = (s.tmp_1);
+    s.tmp_0 = miniMenu_Style_copyTo__P4468_mk(s);
+    r0 = s.arg0.fields["titleStyle"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2046; s.pc = 13; return s.tmp_1;
+  case 13:
+    r0 = s.retval;
+    r0 = r0.fields["titleStyle"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 2047; s.pc = 12; return s.tmp_0;
+  case 12:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2048; s.pc = 14; return s.tmp_2;
+  case 14:
+    r0 = s.retval;
+    r0 = r0.fields["titleStyle"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["titleStyle"] = (s.tmp_1);
+    s.tmp_0 = miniMenu_Style_copyTo__P4468_mk(s);
+    r0 = s.arg0.fields["selectedStyle"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2049; s.pc = 16; return s.tmp_1;
+  case 16:
+    r0 = s.retval;
+    r0 = r0.fields["selectedStyle"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 2050; s.pc = 15; return s.tmp_0;
+  case 15:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2051; s.pc = 17; return s.tmp_2;
+  case 17:
+    r0 = s.retval;
+    r0 = r0.fields["selectedStyle"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["selectedStyle"] = (s.tmp_1);
+    { step = 2; continue; }
+  case 1:
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2052; s.pc = 19; return s.tmp_2;
+  case 19:
+    r0 = s.retval;
+    r0 = r0.fields["defaultStyle"];
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 2053; s.pc = 18; return s.tmp_1;
+  case 18:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["defaultStyle"] = (s.tmp_0);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2054; s.pc = 21; return s.tmp_2;
+  case 21:
+    r0 = s.retval;
+    r0 = r0.fields["titleStyle"];
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 2055; s.pc = 20; return s.tmp_1;
+  case 20:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["titleStyle"] = (s.tmp_0);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 2056; s.pc = 23; return s.tmp_2;
+  case 23:
+    r0 = s.retval;
+    r0 = r0.fields["selectedStyle"];
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 2057; s.pc = 22; return s.tmp_1;
+  case 22:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["selectedStyle"] = (s.tmp_0);
+  case 2:
+  case 3:
+  case 4:
+    s.tmp_0 = miniMenu_MenuSprite_updateDimensions__P4512_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 2058; s.pc = 24; return s.tmp_0;
+  case 24:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_setMenuStyleProperty__P4505.info = {"start":46955,"length":1103,"line":1272,"column":8,"endLine":1297,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setMenuStyleProperty","argumentNames":["this","property","value"]}
+
+function miniMenu_MenuSprite_setMenuStyleProperty__P4505_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_setMenuStyleProperty__P4505, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_updateDimensions__P4512(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    s.tmp_0 = sprites_ExtendableSprite_setDimensions__P2455_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_1 = miniMenu_MenuSprite_getWidth__P7349_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 2066; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.tmp_2 = miniMenu_MenuSprite_getHeight__P7350_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    s.callLocIdx = 2067; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0.arg2 = r0;
+    s.callLocIdx = 2068; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_updateDimensions__P4512.info = {"start":52073,"length":100,"line":1399,"column":8,"endLine":1401,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"updateDimensions","argumentNames":["this"]}
+
+function miniMenu_MenuSprite_updateDimensions__P4512_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_updateDimensions__P4512, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_getHeight__P7350(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.contentHeight___14982 = undefined;
+    s.current___14983 = undefined;
+    s.style___14984 = undefined;
+    s.i___14994 = undefined;
+    s.i___15032 = undefined;
+    s.i___15060 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    s.tmp_2 = miniMenu_MenuStyle_customHeight__P4418_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2111; s.pc = 30; return s.tmp_2;
+  case 30:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 !== undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_customHeight__P4418_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 2112; s.pc = 31; return s.tmp_3;
+  case 31:
+    r0 = s.retval;
+    { step = 29; continue; }
+  case 1:
+  case 2:
+    s.contentHeight___14982 = (0);
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2113; s.pc = 32; return s.tmp_2;
+  case 32:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 <= 1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 3; continue; }
+    r0 = s.tmp_0;
+    { step = 4; continue; }
+  case 3:
+    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_4.arg0 = r0;
+    s.callLocIdx = 2114; s.pc = 33; return s.tmp_4;
+  case 33:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === 0);
+  case 4:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 9; continue; }
+    s.i___14994 = (0);
+  case 5:
+    s.tmp_1 = r0 = s.i___14994;
+    r0 = s.arg0.fields["items"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__length(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 8; continue; }
+    r0 = s.arg0.fields["items"];
+    s.tmp_4 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_4, s.i___14994);
+    s.current___14983 = (r0);
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === s.i___14994);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 6; continue; }
+    r0 = s.arg0.fields["selectedStyle"];
+    { step = 7; continue; }
+  case 6:
+    r0 = s.arg0.fields["defaultStyle"];
+  case 7:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    s.style___14984 = (s.tmp_2);
+    s.tmp_0 = r0 = s.contentHeight___14982;
+    s.tmp_2 = miniMenu_MenuItem_getHeight__P4473_mk(s);
+    s.tmp_2.arg0 = s.current___14983;
+    s.tmp_2.arg1 = s.style___14984;
+    s.callLocIdx = 2115; s.pc = 34; return s.tmp_2;
+  case 34:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 + s.tmp_1);
+    s.contentHeight___14982 = (r0);
+    r0 = (s.i___14994 + 1);
+    s.i___14994 = (r0);
+    { step = 5; continue; }
+  case 8:
+    { step = 22; continue; }
+  case 9:
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2116; s.pc = 35; return s.tmp_2;
+  case 35:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 10; continue; }
+    r0 = s.tmp_0;
+    { step = 11; continue; }
+  case 10:
+    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_4.arg0 = r0;
+    s.callLocIdx = 2117; s.pc = 36; return s.tmp_4;
+  case 36:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === 1);
+  case 11:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 16; continue; }
+    s.i___15032 = (0);
+  case 12:
+    s.tmp_1 = r0 = s.i___15032;
+    r0 = s.arg0.fields["items"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__length(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 15; continue; }
+    r0 = s.arg0.fields["items"];
+    s.tmp_4 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15032);
+    s.current___14983 = (r0);
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === s.i___15032);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 13; continue; }
+    r0 = s.arg0.fields["selectedStyle"];
+    { step = 14; continue; }
+  case 13:
+    r0 = s.arg0.fields["defaultStyle"];
+  case 14:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    s.style___14984 = (s.tmp_2);
+    s.tmp_0 = Math_max__P130_mk(s);
+    s.tmp_1 = miniMenu_MenuItem_getHeight__P4473_mk(s);
+    s.tmp_1.arg0 = s.current___14983;
+    s.tmp_1.arg1 = s.style___14984;
+    s.callLocIdx = 2118; s.pc = 38; return s.tmp_1;
+  case 38:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.contentHeight___14982;
+    s.callLocIdx = 2119; s.pc = 37; return s.tmp_0;
+  case 37:
+    r0 = s.retval;
+    s.contentHeight___14982 = (r0);
+    r0 = (s.i___15032 + 1);
+    s.i___15032 = (r0);
+    { step = 12; continue; }
+  case 15:
+    { step = 21; continue; }
+  case 16:
+    s.i___15060 = (0);
+  case 17:
+    s.tmp_1 = r0 = s.i___15060;
+    r0 = s.arg0.fields["items"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__length(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 20; continue; }
+    r0 = s.arg0.fields["items"];
+    s.tmp_4 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15060);
+    s.current___14983 = (r0);
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === s.i___15060);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 18; continue; }
+    r0 = s.arg0.fields["selectedStyle"];
+    { step = 19; continue; }
+  case 18:
+    r0 = s.arg0.fields["defaultStyle"];
+  case 19:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    s.style___14984 = (s.tmp_2);
+    s.tmp_0 = Math_max__P130_mk(s);
+    s.tmp_1 = miniMenu_MenuItem_getHeight__P4473_mk(s);
+    s.tmp_1.arg0 = s.current___14983;
+    s.tmp_1.arg1 = s.style___14984;
+    s.callLocIdx = 2120; s.pc = 40; return s.tmp_1;
+  case 40:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.contentHeight___14982;
+    s.callLocIdx = 2121; s.pc = 39; return s.tmp_0;
+  case 39:
+    r0 = s.retval;
+    s.contentHeight___14982 = (r0);
+    r0 = (s.i___15060 + 1);
+    s.i___15060 = (r0);
+    { step = 17; continue; }
+  case 20:
+    s.tmp_0 = r0 = s.contentHeight___14982;
+    s.tmp_2 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2122; s.pc = 41; return s.tmp_2;
+  case 41:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 * s.tmp_1);
+    s.contentHeight___14982 = (r0);
+  case 21:
+  case 22:
+    r0 = s.arg0.fields["frame"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 23; continue; }
+    r0 = s.arg0.fields["frame"];
+    s.tmp_3 = r0;
+    r0 = pxsim_ImageMethods.width(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim.Math_.idiv(s.tmp_2, 3);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 << 1);
+    { step = 24; continue; }
+  case 23:
+    r0 = 0;
+  case 24:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    s.tmp_6 = miniMenu_MenuStyle_scrollColor__P4434_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_6.arg0 = r0;
+    s.callLocIdx = 2131; s.pc = 42; return s.tmp_6;
+  case 42:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 27; continue; }
+    s.tmp_8 = miniMenu_MenuSprite_isVerticalScroll__P7351_mk(s);
+    s.tmp_8.arg0 = s.arg0;
+    s.callLocIdx = 2132; s.pc = 43; return s.tmp_8;
+  case 43:
+    r0 = s.retval;
+    s.tmp_7 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_7);
+    if (!r0) { step = 25; continue; }
+    r0 = 0;
+    { step = 26; continue; }
+  case 25:
+    r0 = 8;
+  case 26:
+    // jmp value (already in r0)
+    s.tmp_9 = r0;
+    r0 = s.tmp_9;
+    { step = 28; continue; }
+  case 27:
+    r0 = 0;
+  case 28:
+    // jmp value (already in r0)
+    s.tmp_10 = r0;
+    s.tmp_16 = r0 = s.contentHeight___14982;
+    s.tmp_18 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_19 = miniMenu_MenuStyle_border__P4426_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_19.arg0 = r0;
+    s.callLocIdx = 2123; s.pc = 45; return s.tmp_19;
+  case 45:
+    r0 = s.retval;
+    s.tmp_18.arg0 = r0;
+    s.tmp_18.arg1 = 0;
+    s.callLocIdx = 2124; s.pc = 44; return s.tmp_18;
+  case 44:
+    r0 = s.retval;
+    s.tmp_17 = r0;
+    r0 = (s.tmp_16 + s.tmp_17);
+    s.tmp_15 = r0;
+    s.tmp_21 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_22 = miniMenu_MenuStyle_border__P4426_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_22.arg0 = r0;
+    s.callLocIdx = 2125; s.pc = 47; return s.tmp_22;
+  case 47:
+    r0 = s.retval;
+    s.tmp_21.arg0 = r0;
+    s.tmp_21.arg1 = 1;
+    s.callLocIdx = 2126; s.pc = 46; return s.tmp_21;
+  case 46:
+    r0 = s.retval;
+    s.tmp_20 = r0;
+    r0 = (s.tmp_15 + s.tmp_20);
+    s.tmp_14 = r0;
+    s.tmp_24 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_25 = miniMenu_MenuStyle_padding__P4430_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_25.arg0 = r0;
+    s.callLocIdx = 2127; s.pc = 49; return s.tmp_25;
+  case 49:
+    r0 = s.retval;
+    s.tmp_24.arg0 = r0;
+    s.tmp_24.arg1 = 0;
+    s.callLocIdx = 2128; s.pc = 48; return s.tmp_24;
+  case 48:
+    r0 = s.retval;
+    s.tmp_23 = r0;
+    r0 = (s.tmp_14 + s.tmp_23);
+    s.tmp_13 = r0;
+    s.tmp_27 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_28 = miniMenu_MenuStyle_padding__P4430_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_28.arg0 = r0;
+    s.callLocIdx = 2129; s.pc = 51; return s.tmp_28;
+  case 51:
+    r0 = s.retval;
+    s.tmp_27.arg0 = r0;
+    s.tmp_27.arg1 = 1;
+    s.callLocIdx = 2130; s.pc = 50; return s.tmp_27;
+  case 50:
+    r0 = s.retval;
+    s.tmp_26 = r0;
+    r0 = (s.tmp_13 + s.tmp_26);
+    s.tmp_12 = r0;
+    r0 = (s.tmp_12 + s.tmp_4);
+    s.tmp_11 = r0;
+    r0 = (s.tmp_11 + s.tmp_10);
+  case 29:
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_getHeight__P7350.info = {"start":62452,"length":1951,"line":1654,"column":8,"endLine":1692,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"getHeight","argumentNames":["this"]}
+
+function miniMenu_MenuSprite_getHeight__P7350_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_getHeight__P7350, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  tmp_11: undefined,
+  tmp_12: undefined,
+  tmp_13: undefined,
+  tmp_14: undefined,
+  tmp_15: undefined,
+  tmp_16: undefined,
+  tmp_17: undefined,
+  tmp_18: undefined,
+  tmp_19: undefined,
+  tmp_20: undefined,
+  tmp_21: undefined,
+  tmp_22: undefined,
+  tmp_23: undefined,
+  tmp_24: undefined,
+  tmp_25: undefined,
+  tmp_26: undefined,
+  tmp_27: undefined,
+  tmp_28: undefined,
+  contentHeight___14982: undefined,
+  current___14983: undefined,
+  style___14984: undefined,
+  i___14994: undefined,
+  i___15032: undefined,
+  i___15060: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_isVerticalScroll__P7351(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2133; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_4.arg0 = r0;
+    s.callLocIdx = 2134; s.pc = 4; return s.tmp_4;
+  case 4:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === 1);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    s.tmp_6 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_6);
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_isVerticalScroll__P7351.info = {"start":64415,"length":123,"line":1694,"column":8,"endLine":1696,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"isVerticalScroll","argumentNames":["this"]}
+
+function miniMenu_MenuSprite_isVerticalScroll__P7351_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_isVerticalScroll__P7351, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_unpackMargin__P4518(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = (s.arg0 < 255);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.arg0;
+    { step = 8; continue; }
+  case 1:
+  case 2:
+    s.tmp_1 = r0 = s.arg1;
+    r0 = pxsim_pxtcore.switch_eq(0, s.tmp_1);
+    if (r0) { step = 3; continue; }
+    r0 = pxsim_pxtcore.switch_eq(3, s.tmp_1);
+    if (r0) { step = 4; continue; }
+    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_1);
+    if (r0) { step = 5; continue; }
+    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_1);
+    if (r0) { step = 6; continue; }
+    r0 = s.tmp_1;
+    { step = 7; continue; }
+  case 3:
+    r0 = (s.arg0 & 255);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 - 1);
+    { step = 8; continue; }
+  case 4:
+    r0 = (s.arg0 >> 8);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 & 255);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 - 1);
+    { step = 8; continue; }
+  case 5:
+    r0 = (s.arg0 >> 16);
+    s.tmp_6 = r0;
+    r0 = (s.tmp_6 & 255);
+    s.tmp_5 = r0;
+    r0 = (s.tmp_5 - 1);
+    { step = 8; continue; }
+  case 6:
+    r0 = (s.arg0 >> 24);
+    s.tmp_8 = r0;
+    r0 = (s.tmp_8 & 255);
+    s.tmp_7 = r0;
+    r0 = (s.tmp_7 - 1);
+    { step = 8; continue; }
+  case 7:
+    r0 = s.arg0;
+  case 8:
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_unpackMargin__P4518.info = {"start":78268,"length":567,"line":2033,"column":4,"endLine":2050,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"unpackMargin","argumentNames":["margin","direction"]}
+
+function miniMenu_unpackMargin__P4518_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_unpackMargin__P4518, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuItem_getHeight__P4473(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.allPadding___15230 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuItem__C4470_VT)) failedCast(r0);
+    s.tmp_5 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_6 = miniMenu_Style_padding__P4448_mk(s);
+    s.tmp_6.arg0 = s.arg1;
+    s.callLocIdx = 1781; s.pc = 9; return s.tmp_6;
+  case 9:
+    r0 = s.retval;
+    s.tmp_5.arg0 = r0;
+    s.tmp_5.arg1 = 0;
+    s.callLocIdx = 1782; s.pc = 8; return s.tmp_5;
+  case 8:
+    r0 = s.retval;
+    s.tmp_4 = r0;
+    s.tmp_8 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_9 = miniMenu_Style_padding__P4448_mk(s);
+    s.tmp_9.arg0 = s.arg1;
+    s.callLocIdx = 1783; s.pc = 11; return s.tmp_9;
+  case 11:
+    r0 = s.retval;
+    s.tmp_8.arg0 = r0;
+    s.tmp_8.arg1 = 1;
+    s.callLocIdx = 1784; s.pc = 10; return s.tmp_8;
+  case 10:
+    r0 = s.retval;
+    s.tmp_7 = r0;
+    r0 = (s.tmp_4 + s.tmp_7);
+    s.tmp_3 = r0;
+    s.tmp_11 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_12 = miniMenu_Style_margin__P4458_mk(s);
+    s.tmp_12.arg0 = s.arg1;
+    s.callLocIdx = 1785; s.pc = 13; return s.tmp_12;
+  case 13:
+    r0 = s.retval;
+    s.tmp_11.arg0 = r0;
+    s.tmp_11.arg1 = 0;
+    s.callLocIdx = 1786; s.pc = 12; return s.tmp_11;
+  case 12:
+    r0 = s.retval;
+    s.tmp_10 = r0;
+    r0 = (s.tmp_3 + s.tmp_10);
+    s.tmp_2 = r0;
+    s.tmp_14 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_15 = miniMenu_Style_margin__P4458_mk(s);
+    s.tmp_15.arg0 = s.arg1;
+    s.callLocIdx = 1787; s.pc = 15; return s.tmp_15;
+  case 15:
+    r0 = s.retval;
+    s.tmp_14.arg0 = r0;
+    s.tmp_14.arg1 = 1;
+    s.callLocIdx = 1788; s.pc = 14; return s.tmp_14;
+  case 14:
+    r0 = s.retval;
+    s.tmp_13 = r0;
+    r0 = (s.tmp_2 + s.tmp_13);
+    s.tmp_1 = r0;
+    s.tmp_17 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_18 = miniMenu_Style_border__P4456_mk(s);
+    s.tmp_18.arg0 = s.arg1;
+    s.callLocIdx = 1789; s.pc = 17; return s.tmp_18;
+  case 17:
+    r0 = s.retval;
+    s.tmp_17.arg0 = r0;
+    s.tmp_17.arg1 = 0;
+    s.callLocIdx = 1790; s.pc = 16; return s.tmp_17;
+  case 16:
+    r0 = s.retval;
+    s.tmp_16 = r0;
+    r0 = (s.tmp_1 + s.tmp_16);
+    s.tmp_0 = r0;
+    s.tmp_20 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_21 = miniMenu_Style_border__P4456_mk(s);
+    s.tmp_21.arg0 = s.arg1;
+    s.callLocIdx = 1791; s.pc = 19; return s.tmp_21;
+  case 19:
+    r0 = s.retval;
+    s.tmp_20.arg0 = r0;
+    s.tmp_20.arg1 = 1;
+    s.callLocIdx = 1792; s.pc = 18; return s.tmp_20;
+  case 18:
+    r0 = s.retval;
+    s.tmp_19 = r0;
+    r0 = (s.tmp_0 + s.tmp_19);
+    s.allPadding___15230 = (r0);
+    s.tmp_1 = miniMenu_Style_iconOnly__P4462_mk(s);
+    s.tmp_1.arg0 = s.arg1;
+    s.callLocIdx = 1793; s.pc = 20; return s.tmp_1;
+  case 20:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["icon"];
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    r0 = s.arg0.fields["icon"];
+    s.tmp_4 = r0;
+    r0 = pxsim_ImageMethods.height(s.tmp_4);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 + s.allPadding___15230);
+    { step = 7; continue; }
+    { step = 6; continue; }
+  case 3:
+    r0 = s.arg0.fields["icon"];
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 4; continue; }
+    s.tmp_7 = Math_max__P130_mk(s);
+    r0 = s.arg0.fields["icon"];
+    s.tmp_8 = r0;
+    r0 = pxsim_ImageMethods.height(s.tmp_8);
+    s.tmp_7.arg0 = r0;
+    s.tmp_9 = if_charHeight_1_mk(s);
+    r0 = s.arg0.fields["font"];
+    s.tmp_9.arg0 = r0;
+    if (!s.tmp_9.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_9.arg0, "charHeight");
+    } else {
+      s.tmp_9.fn = s.tmp_9.arg0.vtable.iface["charHeight"];
+      if (s.tmp_9.fn == null) { s.retval = s.tmp_9.arg0.fields["charHeight"]; }
+      else if (!s.tmp_9.fn.isGetter) { s.retval = bind(s.tmp_9); }
+     else { s.callLocIdx = 1794; s.pc = 22; return s.tmp_9; }
+    }
+  case 22:
+    r0 = s.retval;
+    s.tmp_7.arg1 = r0;
+    s.callLocIdx = 1795; s.pc = 21; return s.tmp_7;
+  case 21:
+    r0 = s.retval;
+    s.tmp_6 = r0;
+    r0 = (s.tmp_6 + s.allPadding___15230);
+    { step = 7; continue; }
+    { step = 5; continue; }
+  case 4:
+    s.tmp_11 = if_charHeight_1_mk(s);
+    r0 = s.arg0.fields["font"];
+    s.tmp_11.arg0 = r0;
+    if (!s.tmp_11.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_11.arg0, "charHeight");
+    } else {
+      s.tmp_11.fn = s.tmp_11.arg0.vtable.iface["charHeight"];
+      if (s.tmp_11.fn == null) { s.retval = s.tmp_11.arg0.fields["charHeight"]; }
+      else if (!s.tmp_11.fn.isGetter) { s.retval = bind(s.tmp_11); }
+     else { s.callLocIdx = 1796; s.pc = 23; return s.tmp_11; }
+    }
+  case 23:
+    r0 = s.retval;
+    s.tmp_10 = r0;
+    r0 = (s.tmp_10 + s.allPadding___15230);
+    { step = 7; continue; }
+  case 5:
+  case 6:
+    r0 = undefined;
+  case 7:
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuItem_getHeight__P4473.info = {"start":16631,"length":808,"line":550,"column":8,"endLine":568,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"getHeight","argumentNames":["this","style"]}
+
+function miniMenu_MenuItem_getHeight__P4473_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuItem_getHeight__P4473, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  tmp_11: undefined,
+  tmp_12: undefined,
+  tmp_13: undefined,
+  tmp_14: undefined,
+  tmp_15: undefined,
+  tmp_16: undefined,
+  tmp_17: undefined,
+  tmp_18: undefined,
+  tmp_19: undefined,
+  tmp_20: undefined,
+  tmp_21: undefined,
+  allPadding___15230: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_iconOnly__P4462(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_iconOnly"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_iconOnly__P4462_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1737; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_iconOnly"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_iconOnly__P4462.info = {"start":12481,"length":180,"line":431,"column":8,"endLine":436,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"iconOnly","argumentNames":["this"]}
+miniMenu_Style_iconOnly__P4462.isGetter = true;
+
+function miniMenu_Style_iconOnly__P4462_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_iconOnly__P4462, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_margin__P4458(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_margin"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_margin__P4458_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1731; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_margin"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_margin__P4458.info = {"start":11803,"length":172,"line":407,"column":8,"endLine":412,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"margin","argumentNames":["this"]}
+miniMenu_Style_margin__P4458.isGetter = true;
+
+function miniMenu_Style_margin__P4458_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_margin__P4458, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_border__P4456(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_border"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_border__P4456_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1728; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_border"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_border__P4456.info = {"start":11491,"length":172,"line":395,"column":8,"endLine":400,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"border","argumentNames":["this"]}
+miniMenu_Style_border__P4456.isGetter = true;
+
+function miniMenu_Style_border__P4456_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_border__P4456, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_padding__P4448(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_padding"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_padding__P4448_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1722; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_padding"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_padding__P4448.info = {"start":10288,"length":176,"line":350,"column":8,"endLine":355,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"padding","argumentNames":["this"]}
+miniMenu_Style_padding__P4448.isGetter = true;
+
+function miniMenu_Style_padding__P4448_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_padding__P4448, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_scrollColor__P4434(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_scrollColor"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_scrollColor__P4434_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1689; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_scrollColor"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_scrollColor__P4434.info = {"start":7695,"length":208,"line":279,"column":8,"endLine":284,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"scrollColor","argumentNames":["this"]}
+miniMenu_MenuStyle_scrollColor__P4434.isGetter = true;
+
+function miniMenu_MenuStyle_scrollColor__P4434_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_scrollColor__P4434, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_padding__P4430(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_padding"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_padding__P4430_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1685; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_padding"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_padding__P4430.info = {"start":7018,"length":192,"line":256,"column":8,"endLine":261,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"padding","argumentNames":["this"]}
+miniMenu_MenuStyle_padding__P4430.isGetter = true;
+
+function miniMenu_MenuStyle_padding__P4430_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_padding__P4430, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_border__P4426(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_border"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_border__P4426_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1681; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_border"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_border__P4426.info = {"start":6371,"length":188,"line":233,"column":8,"endLine":238,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"border","argumentNames":["this"]}
+miniMenu_MenuStyle_border__P4426.isGetter = true;
+
+function miniMenu_MenuStyle_border__P4426_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_border__P4426, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_rows__P4424(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_rows"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1678; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_rows"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_rows__P4424.info = {"start":6051,"length":180,"line":221,"column":8,"endLine":226,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"rows","argumentNames":["this"]}
+miniMenu_MenuStyle_rows__P4424.isGetter = true;
+
+function miniMenu_MenuStyle_rows__P4424_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_rows__P4424, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_columns__P4422(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_columns"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1675; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_columns"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_columns__P4422.info = {"start":5713,"length":192,"line":209,"column":8,"endLine":214,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"columns","argumentNames":["this"]}
+miniMenu_MenuStyle_columns__P4422.isGetter = true;
+
+function miniMenu_MenuStyle_columns__P4422_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_columns__P4422, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_customHeight__P4418(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_customHeight"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_customHeight__P4418_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1671; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_customHeight"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_customHeight__P4418.info = {"start":5030,"length":212,"line":186,"column":8,"endLine":191,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"customHeight","argumentNames":["this"]}
+miniMenu_MenuStyle_customHeight__P4418.isGetter = true;
+
+function miniMenu_MenuStyle_customHeight__P4418_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_customHeight__P4418, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_getWidth__P7349(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.contentWidth___15383 = undefined;
+    s.current___15384 = undefined;
+    s.style___15385 = undefined;
+    s.i___15395 = undefined;
+    s.i___15432 = undefined;
+    s.i___15461 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    s.tmp_2 = miniMenu_MenuStyle_customWidth__P4416_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2089; s.pc = 30; return s.tmp_2;
+  case 30:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 !== undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_customWidth__P4416_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 2090; s.pc = 31; return s.tmp_3;
+  case 31:
+    r0 = s.retval;
+    { step = 29; continue; }
+  case 1:
+  case 2:
+    s.contentWidth___15383 = (0);
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2091; s.pc = 32; return s.tmp_2;
+  case 32:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 <= 1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 3; continue; }
+    r0 = s.tmp_0;
+    { step = 4; continue; }
+  case 3:
+    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_4.arg0 = r0;
+    s.callLocIdx = 2092; s.pc = 33; return s.tmp_4;
+  case 33:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === 0);
+  case 4:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 9; continue; }
+    s.i___15395 = (0);
+  case 5:
+    s.tmp_1 = r0 = s.i___15395;
+    r0 = s.arg0.fields["items"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__length(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 8; continue; }
+    r0 = s.arg0.fields["items"];
+    s.tmp_4 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15395);
+    s.current___15384 = (r0);
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === s.i___15395);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 6; continue; }
+    r0 = s.arg0.fields["selectedStyle"];
+    { step = 7; continue; }
+  case 6:
+    r0 = s.arg0.fields["defaultStyle"];
+  case 7:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    s.style___15385 = (s.tmp_2);
+    s.tmp_0 = Math_max__P130_mk(s);
+    s.tmp_1 = miniMenu_MenuItem_getWidth__P4474_mk(s);
+    s.tmp_1.arg0 = s.current___15384;
+    s.tmp_1.arg1 = s.style___15385;
+    s.callLocIdx = 2093; s.pc = 35; return s.tmp_1;
+  case 35:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.contentWidth___15383;
+    s.callLocIdx = 2094; s.pc = 34; return s.tmp_0;
+  case 34:
+    r0 = s.retval;
+    s.contentWidth___15383 = (r0);
+    r0 = (s.i___15395 + 1);
+    s.i___15395 = (r0);
+    { step = 5; continue; }
+  case 8:
+    { step = 22; continue; }
+  case 9:
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2095; s.pc = 36; return s.tmp_2;
+  case 36:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 10; continue; }
+    r0 = s.tmp_0;
+    { step = 11; continue; }
+  case 10:
+    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_4.arg0 = r0;
+    s.callLocIdx = 2096; s.pc = 37; return s.tmp_4;
+  case 37:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === 1);
+  case 11:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 16; continue; }
+    s.i___15432 = (0);
+  case 12:
+    s.tmp_1 = r0 = s.i___15432;
+    r0 = s.arg0.fields["items"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__length(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 15; continue; }
+    r0 = s.arg0.fields["items"];
+    s.tmp_4 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15432);
+    s.current___15384 = (r0);
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === s.i___15432);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 13; continue; }
+    r0 = s.arg0.fields["selectedStyle"];
+    { step = 14; continue; }
+  case 13:
+    r0 = s.arg0.fields["defaultStyle"];
+  case 14:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    s.style___15385 = (s.tmp_2);
+    s.tmp_0 = r0 = s.contentWidth___15383;
+    s.tmp_2 = miniMenu_MenuItem_getWidth__P4474_mk(s);
+    s.tmp_2.arg0 = s.current___15384;
+    s.tmp_2.arg1 = s.style___15385;
+    s.callLocIdx = 2097; s.pc = 38; return s.tmp_2;
+  case 38:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 + s.tmp_1);
+    s.contentWidth___15383 = (r0);
+    r0 = (s.i___15432 + 1);
+    s.i___15432 = (r0);
+    { step = 12; continue; }
+  case 15:
+    { step = 21; continue; }
+  case 16:
+    s.i___15461 = (0);
+  case 17:
+    s.tmp_1 = r0 = s.i___15461;
+    r0 = s.arg0.fields["items"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__length(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 20; continue; }
+    r0 = s.arg0.fields["items"];
+    s.tmp_4 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15461);
+    s.current___15384 = (r0);
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === s.i___15461);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 18; continue; }
+    r0 = s.arg0.fields["selectedStyle"];
+    { step = 19; continue; }
+  case 18:
+    r0 = s.arg0.fields["defaultStyle"];
+  case 19:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    s.style___15385 = (s.tmp_2);
+    s.tmp_0 = Math_max__P130_mk(s);
+    s.tmp_1 = miniMenu_MenuItem_getWidth__P4474_mk(s);
+    s.tmp_1.arg0 = s.current___15384;
+    s.tmp_1.arg1 = s.style___15385;
+    s.callLocIdx = 2098; s.pc = 40; return s.tmp_1;
+  case 40:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.contentWidth___15383;
+    s.callLocIdx = 2099; s.pc = 39; return s.tmp_0;
+  case 39:
+    r0 = s.retval;
+    s.contentWidth___15383 = (r0);
+    r0 = (s.i___15461 + 1);
+    s.i___15461 = (r0);
+    { step = 17; continue; }
+  case 20:
+    s.tmp_0 = r0 = s.contentWidth___15383;
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2100; s.pc = 41; return s.tmp_2;
+  case 41:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 * s.tmp_1);
+    s.contentWidth___15383 = (r0);
+  case 21:
+  case 22:
+    r0 = s.arg0.fields["frame"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 23; continue; }
+    r0 = s.arg0.fields["frame"];
+    s.tmp_3 = r0;
+    r0 = pxsim_ImageMethods.width(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim.Math_.idiv(s.tmp_2, 3);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 << 1);
+    { step = 24; continue; }
+  case 23:
+    r0 = 0;
+  case 24:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    s.tmp_6 = miniMenu_MenuStyle_scrollColor__P4434_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_6.arg0 = r0;
+    s.callLocIdx = 2109; s.pc = 42; return s.tmp_6;
+  case 42:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 27; continue; }
+    s.tmp_8 = miniMenu_MenuSprite_isVerticalScroll__P7351_mk(s);
+    s.tmp_8.arg0 = s.arg0;
+    s.callLocIdx = 2110; s.pc = 43; return s.tmp_8;
+  case 43:
+    r0 = s.retval;
+    s.tmp_7 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_7);
+    if (!r0) { step = 25; continue; }
+    r0 = 8;
+    { step = 26; continue; }
+  case 25:
+    r0 = 0;
+  case 26:
+    // jmp value (already in r0)
+    s.tmp_9 = r0;
+    r0 = s.tmp_9;
+    { step = 28; continue; }
+  case 27:
+    r0 = 0;
+  case 28:
+    // jmp value (already in r0)
+    s.tmp_10 = r0;
+    s.tmp_16 = r0 = s.contentWidth___15383;
+    s.tmp_18 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_19 = miniMenu_MenuStyle_border__P4426_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_19.arg0 = r0;
+    s.callLocIdx = 2101; s.pc = 45; return s.tmp_19;
+  case 45:
+    r0 = s.retval;
+    s.tmp_18.arg0 = r0;
+    s.tmp_18.arg1 = 2;
+    s.callLocIdx = 2102; s.pc = 44; return s.tmp_18;
+  case 44:
+    r0 = s.retval;
+    s.tmp_17 = r0;
+    r0 = (s.tmp_16 + s.tmp_17);
+    s.tmp_15 = r0;
+    s.tmp_21 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_22 = miniMenu_MenuStyle_border__P4426_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_22.arg0 = r0;
+    s.callLocIdx = 2103; s.pc = 47; return s.tmp_22;
+  case 47:
+    r0 = s.retval;
+    s.tmp_21.arg0 = r0;
+    s.tmp_21.arg1 = 3;
+    s.callLocIdx = 2104; s.pc = 46; return s.tmp_21;
+  case 46:
+    r0 = s.retval;
+    s.tmp_20 = r0;
+    r0 = (s.tmp_15 + s.tmp_20);
+    s.tmp_14 = r0;
+    s.tmp_24 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_25 = miniMenu_MenuStyle_padding__P4430_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_25.arg0 = r0;
+    s.callLocIdx = 2105; s.pc = 49; return s.tmp_25;
+  case 49:
+    r0 = s.retval;
+    s.tmp_24.arg0 = r0;
+    s.tmp_24.arg1 = 2;
+    s.callLocIdx = 2106; s.pc = 48; return s.tmp_24;
+  case 48:
+    r0 = s.retval;
+    s.tmp_23 = r0;
+    r0 = (s.tmp_14 + s.tmp_23);
+    s.tmp_13 = r0;
+    s.tmp_27 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_28 = miniMenu_MenuStyle_padding__P4430_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_28.arg0 = r0;
+    s.callLocIdx = 2107; s.pc = 51; return s.tmp_28;
+  case 51:
+    r0 = s.retval;
+    s.tmp_27.arg0 = r0;
+    s.tmp_27.arg1 = 3;
+    s.callLocIdx = 2108; s.pc = 50; return s.tmp_27;
+  case 50:
+    r0 = s.retval;
+    s.tmp_26 = r0;
+    r0 = (s.tmp_13 + s.tmp_26);
+    s.tmp_12 = r0;
+    r0 = (s.tmp_12 + s.tmp_4);
+    s.tmp_11 = r0;
+    r0 = (s.tmp_11 + s.tmp_10);
+  case 29:
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_getWidth__P7349.info = {"start":60492,"length":1948,"line":1614,"column":8,"endLine":1652,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"getWidth","argumentNames":["this"]}
+
+function miniMenu_MenuSprite_getWidth__P7349_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_getWidth__P7349, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  tmp_11: undefined,
+  tmp_12: undefined,
+  tmp_13: undefined,
+  tmp_14: undefined,
+  tmp_15: undefined,
+  tmp_16: undefined,
+  tmp_17: undefined,
+  tmp_18: undefined,
+  tmp_19: undefined,
+  tmp_20: undefined,
+  tmp_21: undefined,
+  tmp_22: undefined,
+  tmp_23: undefined,
+  tmp_24: undefined,
+  tmp_25: undefined,
+  tmp_26: undefined,
+  tmp_27: undefined,
+  tmp_28: undefined,
+  contentWidth___15383: undefined,
+  current___15384: undefined,
+  style___15385: undefined,
+  i___15395: undefined,
+  i___15432: undefined,
+  i___15461: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuItem_getWidth__P4474(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.allPadding___15545 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuItem__C4470_VT)) failedCast(r0);
+    s.tmp_5 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_6 = miniMenu_Style_padding__P4448_mk(s);
+    s.tmp_6.arg0 = s.arg1;
+    s.callLocIdx = 1797; s.pc = 9; return s.tmp_6;
+  case 9:
+    r0 = s.retval;
+    s.tmp_5.arg0 = r0;
+    s.tmp_5.arg1 = 2;
+    s.callLocIdx = 1798; s.pc = 8; return s.tmp_5;
+  case 8:
+    r0 = s.retval;
+    s.tmp_4 = r0;
+    s.tmp_8 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_9 = miniMenu_Style_padding__P4448_mk(s);
+    s.tmp_9.arg0 = s.arg1;
+    s.callLocIdx = 1799; s.pc = 11; return s.tmp_9;
+  case 11:
+    r0 = s.retval;
+    s.tmp_8.arg0 = r0;
+    s.tmp_8.arg1 = 3;
+    s.callLocIdx = 1800; s.pc = 10; return s.tmp_8;
+  case 10:
+    r0 = s.retval;
+    s.tmp_7 = r0;
+    r0 = (s.tmp_4 + s.tmp_7);
+    s.tmp_3 = r0;
+    s.tmp_11 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_12 = miniMenu_Style_margin__P4458_mk(s);
+    s.tmp_12.arg0 = s.arg1;
+    s.callLocIdx = 1801; s.pc = 13; return s.tmp_12;
+  case 13:
+    r0 = s.retval;
+    s.tmp_11.arg0 = r0;
+    s.tmp_11.arg1 = 2;
+    s.callLocIdx = 1802; s.pc = 12; return s.tmp_11;
+  case 12:
+    r0 = s.retval;
+    s.tmp_10 = r0;
+    r0 = (s.tmp_3 + s.tmp_10);
+    s.tmp_2 = r0;
+    s.tmp_14 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_15 = miniMenu_Style_margin__P4458_mk(s);
+    s.tmp_15.arg0 = s.arg1;
+    s.callLocIdx = 1803; s.pc = 15; return s.tmp_15;
+  case 15:
+    r0 = s.retval;
+    s.tmp_14.arg0 = r0;
+    s.tmp_14.arg1 = 3;
+    s.callLocIdx = 1804; s.pc = 14; return s.tmp_14;
+  case 14:
+    r0 = s.retval;
+    s.tmp_13 = r0;
+    r0 = (s.tmp_2 + s.tmp_13);
+    s.tmp_1 = r0;
+    s.tmp_17 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_18 = miniMenu_Style_border__P4456_mk(s);
+    s.tmp_18.arg0 = s.arg1;
+    s.callLocIdx = 1805; s.pc = 17; return s.tmp_18;
+  case 17:
+    r0 = s.retval;
+    s.tmp_17.arg0 = r0;
+    s.tmp_17.arg1 = 2;
+    s.callLocIdx = 1806; s.pc = 16; return s.tmp_17;
+  case 16:
+    r0 = s.retval;
+    s.tmp_16 = r0;
+    r0 = (s.tmp_1 + s.tmp_16);
+    s.tmp_0 = r0;
+    s.tmp_20 = miniMenu_unpackMargin__P4518_mk(s);
+    s.tmp_21 = miniMenu_Style_border__P4456_mk(s);
+    s.tmp_21.arg0 = s.arg1;
+    s.callLocIdx = 1807; s.pc = 19; return s.tmp_21;
+  case 19:
+    r0 = s.retval;
+    s.tmp_20.arg0 = r0;
+    s.tmp_20.arg1 = 3;
+    s.callLocIdx = 1808; s.pc = 18; return s.tmp_20;
+  case 18:
+    r0 = s.retval;
+    s.tmp_19 = r0;
+    r0 = (s.tmp_0 + s.tmp_19);
+    s.allPadding___15545 = (r0);
+    s.tmp_1 = miniMenu_Style_iconOnly__P4462_mk(s);
+    s.tmp_1.arg0 = s.arg1;
+    s.callLocIdx = 1809; s.pc = 20; return s.tmp_1;
+  case 20:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["icon"];
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    r0 = s.arg0.fields["icon"];
+    s.tmp_4 = r0;
+    r0 = pxsim_ImageMethods.width(s.tmp_4);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 + s.allPadding___15545);
+    { step = 7; continue; }
+    { step = 6; continue; }
+  case 3:
+    r0 = s.arg0.fields["icon"];
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 4; continue; }
+    r0 = s.arg0.fields["icon"];
+    s.tmp_9 = r0;
+    r0 = pxsim_ImageMethods.width(s.tmp_9);
+    s.tmp_8 = r0;
+    s.tmp_11 = miniMenu_Style_iconTextSpacing__P4460_mk(s);
+    s.tmp_11.arg0 = s.arg1;
+    s.callLocIdx = 1810; s.pc = 21; return s.tmp_11;
+  case 21:
+    r0 = s.retval;
+    s.tmp_10 = r0;
+    r0 = (s.tmp_8 + s.tmp_10);
+    s.tmp_7 = r0;
+    r0 = s.arg0.fields["text"];
+    s.tmp_14 = r0;
+    r0 = pxsim_String_.length(s.tmp_14);
+    s.tmp_13 = r0;
+    s.tmp_16 = if_charWidth_1_mk(s);
+    r0 = s.arg0.fields["font"];
+    s.tmp_16.arg0 = r0;
+    if (!s.tmp_16.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_16.arg0, "charWidth");
+    } else {
+      s.tmp_16.fn = s.tmp_16.arg0.vtable.iface["charWidth"];
+      if (s.tmp_16.fn == null) { s.retval = s.tmp_16.arg0.fields["charWidth"]; }
+      else if (!s.tmp_16.fn.isGetter) { s.retval = bind(s.tmp_16); }
+     else { s.callLocIdx = 1811; s.pc = 22; return s.tmp_16; }
+    }
+  case 22:
+    r0 = s.retval;
+    s.tmp_15 = r0;
+    r0 = (s.tmp_13 * s.tmp_15);
+    s.tmp_12 = r0;
+    r0 = (s.tmp_7 + s.tmp_12);
+    s.tmp_6 = r0;
+    r0 = (s.tmp_6 + s.allPadding___15545);
+    { step = 7; continue; }
+    { step = 5; continue; }
+  case 4:
+    r0 = s.arg0.fields["text"];
+    s.tmp_19 = r0;
+    r0 = pxsim_String_.length(s.tmp_19);
+    s.tmp_18 = r0;
+    s.tmp_21 = if_charWidth_1_mk(s);
+    r0 = s.arg0.fields["font"];
+    s.tmp_21.arg0 = r0;
+    if (!s.tmp_21.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_21.arg0, "charWidth");
+    } else {
+      s.tmp_21.fn = s.tmp_21.arg0.vtable.iface["charWidth"];
+      if (s.tmp_21.fn == null) { s.retval = s.tmp_21.arg0.fields["charWidth"]; }
+      else if (!s.tmp_21.fn.isGetter) { s.retval = bind(s.tmp_21); }
+     else { s.callLocIdx = 1812; s.pc = 23; return s.tmp_21; }
+    }
+  case 23:
+    r0 = s.retval;
+    s.tmp_20 = r0;
+    r0 = (s.tmp_18 * s.tmp_20);
+    s.tmp_17 = r0;
+    r0 = (s.tmp_17 + s.allPadding___15545);
+    { step = 7; continue; }
+  case 5:
+  case 6:
+    r0 = undefined;
+  case 7:
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuItem_getWidth__P4474.info = {"start":17451,"length":865,"line":570,"column":8,"endLine":588,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"getWidth","argumentNames":["this","style"]}
+
+function miniMenu_MenuItem_getWidth__P4474_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuItem_getWidth__P4474, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  tmp_11: undefined,
+  tmp_12: undefined,
+  tmp_13: undefined,
+  tmp_14: undefined,
+  tmp_15: undefined,
+  tmp_16: undefined,
+  tmp_17: undefined,
+  tmp_18: undefined,
+  tmp_19: undefined,
+  tmp_20: undefined,
+  tmp_21: undefined,
+  allPadding___15545: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_iconTextSpacing__P4460(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_iconTextSpacing"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_iconTextSpacing__P4460_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1734; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_iconTextSpacing"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_iconTextSpacing__P4460.info = {"start":12115,"length":208,"line":419,"column":8,"endLine":424,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"iconTextSpacing","argumentNames":["this"]}
+miniMenu_Style_iconTextSpacing__P4460.isGetter = true;
+
+function miniMenu_Style_iconTextSpacing__P4460_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_iconTextSpacing__P4460, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_customWidth__P4416(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_customWidth"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_customWidth__P4416_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1668; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_customWidth"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_customWidth__P4416.info = {"start":4668,"length":208,"line":174,"column":8,"endLine":179,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"customWidth","argumentNames":["this"]}
+miniMenu_MenuStyle_customWidth__P4416.isGetter = true;
+
+function miniMenu_MenuStyle_customWidth__P4416_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_customWidth__P4416, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function sprites_ExtendableSprite_setDimensions__P2455(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_ExtendableSprite__C2451_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = (s.arg1 * 256);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 | 0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_width"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = (s.arg2 * 256);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 | 0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_height"] = (s.tmp_1);
+    r0 = (s.arg0).fields["hasCustomDimensions"] = (true);
+    s.tmp_0 = Sprite_resetHitbox__P2408_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 691; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_ExtendableSprite_setDimensions__P2455.info = {"start":1729,"length":211,"line":49,"column":8,"endLine":54,"endColumn":9,"fileName":"pxt_modules/game/extendableSprite.ts","functionName":"setDimensions","argumentNames":["this","width","height"]}
+
+function sprites_ExtendableSprite_setDimensions__P2455_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_ExtendableSprite_setDimensions__P2455, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function miniMenu__state__P4476(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = miniMenu__init__P4477_mk(s);
+    s.callLocIdx = 1898; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = r0 = globals.stateStack___7333;
+    r0 = pxsim_Array__length(globals.stateStack___7333);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 - 1);
+    s.tmp_1 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_1);
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu__state__P4476.info = {"start":25746,"length":102,"line":763,"column":4,"endLine":766,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"_state","argumentNames":[]}
+
+function miniMenu__state__P4476_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu__state__P4476, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+} }
+
+
+
+
+
+function miniMenu__init__P4477(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    r0 = pxsim_numops_toBoolDecr(globals.stateStack___7333);
+    if (!r0) { step = 1; continue; }
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MiniMenuState__C7336_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_MiniMenuState_constructor__P7342_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.callLocIdx = 1899; s.pc = 4; return s.tmp_1;
+  case 4:
+    r0 = s.retval;
+    r0 = pxsim_Array__mk();
+    s.tmp_2 = r0;
+    r0 = pxsim_Array__push(s.tmp_2, s.tmp_0);
+    globals.stateStack___7333 = (s.tmp_2);
+    r0 = pxsim.image.create(12, 12);
+    globals.printCanvas___7334 = (r0);
+    s.tmp_0 = game_addScenePushHandler__P3052_mk(s);
+    s.tmp_0.arg0 = miniMenu__init_inline__P15844;
+    s.callLocIdx = 1901; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = game_addScenePopHandler__P3054_mk(s);
+    s.tmp_0.arg0 = miniMenu__init_inline__P15851;
+    s.callLocIdx = 1903; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+  case 3:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu__init__P4477.info = {"start":25856,"length":491,"line":768,"column":4,"endLine":788,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"_init","argumentNames":[]}
+
+function miniMenu__init__P4477_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu__init__P4477, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+} }
+
+
+
+
+
+function miniMenu__init_inline__P15844(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MiniMenuState__C7336_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_MiniMenuState_constructor__P7342_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.callLocIdx = 1900; s.pc = 1; return s.tmp_1;
+  case 1:
+    r0 = s.retval;
+    r0 = pxsim_Array__push(globals.stateStack___7333, s.tmp_0);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu__init_inline__P15844.info = {"start":26069,"length":68,"line":777,"column":33,"endLine":779,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
+
+function miniMenu__init_inline__P15844_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu__init_inline__P15844, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+} }
+
+
+
+
+
+function miniMenu__init_inline__P15851(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    r0 = pxsim_Array_.pop(globals.stateStack___7333);
+    r0 = pxsim_Array__length(globals.stateStack___7333);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MiniMenuState__C7336_VT);
+    s.tmp_2 = r0;
+    s.tmp_3 = miniMenu_MiniMenuState_constructor__P7342_mk(s);
+    s.tmp_3.arg0 = s.tmp_2;
+    s.callLocIdx = 1902; s.pc = 3; return s.tmp_3;
+  case 3:
+    r0 = s.retval;
+    r0 = pxsim_Array__push(globals.stateStack___7333, s.tmp_2);
+  case 1:
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu__init_inline__P15851.info = {"start":26174,"length":165,"line":781,"column":32,"endLine":787,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
+
+function miniMenu__init_inline__P15851_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu__init_inline__P15851, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+} }
+
+
+
+
+
+function miniMenu_MiniMenuState_constructor__P7342(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.button___15909 = undefined;
+    s.unnamed122___U1 = undefined;
+    s.unnamed123___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_Array__mk();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["sprites"] = (s.tmp_1);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MenuStyle__C4404_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_MenuStyle_constructor__P4415_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = undefined;
+    s.callLocIdx = 1657; s.pc = 3; return s.tmp_1;
+  case 3:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["menuStyle"] = (s.tmp_0);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = undefined;
+    s.callLocIdx = 1658; s.pc = 4; return s.tmp_1;
+  case 4:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["defaultStyle"] = (s.tmp_0);
+    r0 = s.arg0.fields["defaultStyle"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["_iconTextSpacing"] = (8);
+    r0 = s.arg0.fields["defaultStyle"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["_padding"] = (2);
+    r0 = s.arg0.fields["defaultStyle"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["_foreground"] = (15);
+    r0 = s.arg0.fields["defaultStyle"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["_background"] = (1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = miniMenu_Style_clone__P4467_mk(s);
+    r0 = s.arg0.fields["defaultStyle"];
+    s.tmp_2.arg0 = r0;
+    s.tmp_2.arg1 = false;
+    s.callLocIdx = 1659; s.pc = 5; return s.tmp_2;
+  case 5:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["selectedStyle"] = (s.tmp_1);
+    r0 = s.arg0.fields["selectedStyle"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["_foreground"] = (1);
+    r0 = s.arg0.fields["selectedStyle"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["_background"] = (3);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = miniMenu_Style_clone__P4467_mk(s);
+    r0 = s.arg0.fields["defaultStyle"];
+    s.tmp_2.arg0 = r0;
+    s.tmp_2.arg1 = false;
+    s.callLocIdx = 1660; s.pc = 6; return s.tmp_2;
+  case 6:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["titleStyle"] = (s.tmp_1);
+    r0 = s.arg0.fields["titleStyle"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["_background"] = (0);
+    s.button___15909 = (undefined);
+    r0 = pxsim_Array__mk();
+    s.tmp_0 = r0;
+    r0 = pxsim_Array__push(s.tmp_0, globals.up___2130);
+    r0 = pxsim_Array__push(s.tmp_0, globals.right___2131);
+    r0 = pxsim_Array__push(s.tmp_0, globals.down___2132);
+    r0 = pxsim_Array__push(s.tmp_0, globals.menu___2133);
+    r0 = pxsim_Array__push(s.tmp_0, globals.left___2129);
+    r0 = pxsim_Array__push(s.tmp_0, globals.A___2127);
+    r0 = pxsim_Array__push(s.tmp_0, globals.B___2128);
+    s.unnamed122___U1 = (s.tmp_0);
+    s.unnamed123___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed123___U2;
+    r0 = pxsim_Array__length(s.unnamed122___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed122___U1, s.unnamed123___U2);
+    s.button___15909 = (r0);
+    r0 = pxsim_pxtcore_mkAction(2, miniMenu_MiniMenuState_inline__P15921);
+    s.tmp_2 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_2, 0, s.arg0);
+    r0 = pxsim_pxtrt_stclo(s.tmp_2, 1, s.button___15909);
+    s.tmp_3 = controller_Button_addEventListener__P2211_mk(s);
+    s.tmp_3.arg0 = s.button___15909;
+    s.tmp_3.arg1 = 2049;
+    s.tmp_3.arg2 = s.tmp_2;
+    s.callLocIdx = 1663; s.pc = 7; return s.tmp_3;
+  case 7:
+    r0 = s.retval;
+    r0 = (s.unnamed123___U2 + 1);
+    s.unnamed123___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed122___U1 = (undefined);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MiniMenuState_constructor__P7342.info = {"start":447,"length":1051,"line":20,"column":8,"endLine":45,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this"]}
+
+function miniMenu_MiniMenuState_constructor__P7342_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MiniMenuState_constructor__P7342, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  button___15909: undefined,
+  unnamed122___U1: undefined,
+  unnamed123___U2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MiniMenuState_inline__P15921(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.sprite___15923 = undefined;
+    s.unnamed124___U1 = undefined;
+    s.unnamed125___U2 = undefined;
+    s.sprite___15923 = (undefined);
+    s.tmp_0 = helpers_arrayFilter__P110_mk(s);
+    r0 = s.caps[0].fields["sprites"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = miniMenu_buttonEventsEnabled__P7353;
+    s.callLocIdx = 1661; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.unnamed124___U1 = (r0);
+    s.unnamed125___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed125___U2;
+    r0 = pxsim_Array__length(s.unnamed124___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed124___U1, s.unnamed125___U2);
+    s.sprite___15923 = (r0);
+    s.tmp_2 = miniMenu_MenuSprite_fireButtonEvent__P4509_mk(s);
+    s.tmp_2.arg0 = s.sprite___15923;
+    s.tmp_2.arg1 = s.caps[1];
+    s.callLocIdx = 1662; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    r0 = (s.unnamed125___U2 + 1);
+    s.unnamed125___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed124___U1 = (undefined);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MiniMenuState_inline__P15921.info = {"start":1278,"length":192,"line":39,"column":71,"endLine":43,"endColumn":17,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
+
+function miniMenu_MiniMenuState_inline__P15921_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MiniMenuState_inline__P15921, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  sprite___15923: undefined,
+  unnamed124___U1: undefined,
+  unnamed125___U2: undefined,
+} }
+
+
+
+
+
+function miniMenu_buttonEventsEnabled__P7353(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0.fields["buttonEventsEnabled"];
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_0);
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_buttonEventsEnabled__P7353.info = {"start":79924,"length":116,"line":2075,"column":4,"endLine":2077,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"buttonEventsEnabled","argumentNames":["sprite"]}
+
+function miniMenu_buttonEventsEnabled__P7353_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_buttonEventsEnabled__P7353, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_fireButtonEvent__P4509(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.buttonHandler___15943 = undefined;
+    s.unnamed128___U1 = undefined;
+    s.unnamed129___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    r0 = s.arg0.fields["buttonEventsEnabled"];
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["items"];
+    s.tmp_5 = r0;
+    r0 = pxsim_Array__length(s.tmp_5);
+    s.tmp_4 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_4);
+    s.tmp_3 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_3);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_6 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
+    if (!r0) { step = 3; continue; }
+    { step = 9; continue; }
+  case 3:
+  case 4:
+    s.buttonHandler___15943 = (undefined);
+    r0 = s.arg0.fields["buttonHandlers"];
+    s.unnamed128___U1 = (r0);
+    s.unnamed129___U2 = (0);
+  case 5:
+    s.tmp_0 = r0 = s.unnamed129___U2;
+    r0 = pxsim_Array__length(s.unnamed128___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 8; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed128___U1, s.unnamed129___U2);
+    s.buttonHandler___15943 = (r0);
+    r0 = s.buttonHandler___15943.fields["button"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === s.arg1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 6; continue; }
+    s.tmp_4 = miniMenu_ButtonHandler_fire__P7344_mk(s);
+    s.tmp_4.arg0 = s.buttonHandler___15943;
+    r0 = s.arg0.fields["items"];
+    s.tmp_5 = r0;
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_6 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_5, s.tmp_6);
+    r0 = r0.fields["text"];
+    s.tmp_4.arg1 = r0;
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_4.arg2 = r0;
+    s.callLocIdx = 2061; s.pc = 10; return s.tmp_4;
+  case 10:
+    r0 = s.retval;
+    { step = 8; continue; }
+  case 6:
+  case 7:
+    r0 = (s.unnamed129___U2 + 1);
+    s.unnamed129___U2 = (r0);
+    { step = 5; continue; }
+  case 8:
+    s.unnamed128___U1 = (undefined);
+  case 9:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_fireButtonEvent__P4509.info = {"start":51101,"length":411,"line":1373,"column":8,"endLine":1382,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"fireButtonEvent","argumentNames":["this","button"]}
+
+function miniMenu_MenuSprite_fireButtonEvent__P4509_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_fireButtonEvent__P4509, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  buttonHandler___15943: undefined,
+  unnamed128___U1: undefined,
+  unnamed129___U2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_ButtonHandler_fire__P7344(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_ButtonHandler__C7343_VT)) failedCast(r0);
+    r0 = s.arg0.fields["enabled"];
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    s.tmp_3 = if_handler_3_mk(s);
+    s.tmp_3.arg0 = s.arg0;
+    s.tmp_3.arg1 = s.arg1;
+    s.tmp_3.arg2 = s.arg2;
+    if (!s.tmp_3.arg0.vtable.iface) {
+      setupLambda(s.tmp_3, pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "handler"), 3);
+      s.callLocIdx = 1906; s.pc = 4; return s.tmp_3;
+    } else {
+      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["handler"];
+      if (s.tmp_3.fn == null) { setupLambda(s.tmp_3, s.tmp_3.arg0.fields["handler"], 3); s.callLocIdx = 1906; s.pc = 4; return s.tmp_3; }
+      else if (s.tmp_3.fn.isGetter) { s.tmp_3.stage2Call = true; s.callLocIdx = 1906; s.pc = 4; return s.tmp_3;; }
+     else { s.callLocIdx = 1906; s.pc = 4; return s.tmp_3; }
+    }
+  case 4:
+    r0 = s.retval;
+  case 3:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_ButtonHandler_fire__P7344.info = {"start":27340,"length":142,"line":815,"column":8,"endLine":818,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"fire","argumentNames":["this","text","selectedIndex"]}
+
+function miniMenu_ButtonHandler_fire__P7344_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_ButtonHandler_fire__P7344, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_clone__P4467(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.res___16111 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = undefined;
+    s.callLocIdx = 1743; s.pc = 3; return s.tmp_1;
+  case 3:
+    r0 = s.retval;
+    s.res___16111 = (s.tmp_0);
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    if (!r0) { step = 1; continue; }
+    s.tmp_0 = miniMenu_Style_padding__P4449_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_padding__P4448_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1744; s.pc = 5; return s.tmp_1;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1745; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_foreground__P4451_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_foreground__P4450_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1746; s.pc = 7; return s.tmp_1;
+  case 7:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1747; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_background__P4453_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_background__P4452_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1748; s.pc = 9; return s.tmp_1;
+  case 9:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1749; s.pc = 8; return s.tmp_0;
+  case 8:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_borderColor__P4455_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_borderColor__P4454_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1750; s.pc = 11; return s.tmp_1;
+  case 11:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1751; s.pc = 10; return s.tmp_0;
+  case 10:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_border__P4457_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_border__P4456_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1752; s.pc = 13; return s.tmp_1;
+  case 13:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1753; s.pc = 12; return s.tmp_0;
+  case 12:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_margin__P4459_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_margin__P4458_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1754; s.pc = 15; return s.tmp_1;
+  case 15:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1755; s.pc = 14; return s.tmp_0;
+  case 14:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_iconOnly__P4463_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_iconOnly__P4462_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1756; s.pc = 17; return s.tmp_1;
+  case 17:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1757; s.pc = 16; return s.tmp_0;
+  case 16:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_iconTextSpacing__P4461_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_iconTextSpacing__P4460_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1758; s.pc = 19; return s.tmp_1;
+  case 19:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1759; s.pc = 18; return s.tmp_0;
+  case 18:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_alignment__P4465_mk(s);
+    s.tmp_0.arg0 = s.res___16111;
+    s.tmp_1 = miniMenu_Style_alignment__P4464_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1760; s.pc = 21; return s.tmp_1;
+  case 21:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1761; s.pc = 20; return s.tmp_0;
+  case 20:
+    r0 = s.retval;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_padding"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_padding"] = (s.tmp_0);
+    r0 = s.arg0.fields["_foreground"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_foreground"] = (s.tmp_0);
+    r0 = s.arg0.fields["_background"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_background"] = (s.tmp_0);
+    r0 = s.arg0.fields["_borderColor"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_borderColor"] = (s.tmp_0);
+    r0 = s.arg0.fields["_border"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_border"] = (s.tmp_0);
+    r0 = s.arg0.fields["_margin"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_margin"] = (s.tmp_0);
+    r0 = s.arg0.fields["_iconOnly"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_iconOnly"] = (s.tmp_0);
+    r0 = s.arg0.fields["_iconTextSpacing"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_iconTextSpacing"] = (s.tmp_0);
+    r0 = s.arg0.fields["_alignment"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["_alignment"] = (s.tmp_0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = (s.res___16111).fields["parent"] = (s.tmp_0);
+  case 2:
+    r0 = s.res___16111;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_clone__P4467.info = {"start":13599,"length":1147,"line":469,"column":8,"endLine":496,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"clone","argumentNames":["this","flattenInheritance"]}
+
+function miniMenu_Style_clone__P4467_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_clone__P4467, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  res___16111: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_alignment__P4465(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_alignment"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1741; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1742; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_alignment__P4465.info = {"start":13004,"length":125,"line":450,"column":8,"endLine":453,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"alignment","argumentNames":["this","value"]}
+
+function miniMenu_Style_alignment__P4465_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_alignment__P4465, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MiniMenuState_onStyleChange__P7339(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
+    r0 = s.arg0.fields["defaultStyle"];
+    s.tmp_1 = r0;
+    r0 = (s.arg1 === s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["titleStyle"];
+    s.tmp_2 = r0;
+    r0 = (s.arg1 === s.tmp_2);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_3);
+    if (!r0) { step = 3; continue; }
+    r0 = s.tmp_3;
+    { step = 4; continue; }
+  case 3:
+    r0 = s.arg0.fields["selectedStyle"];
+    s.tmp_4 = r0;
+    r0 = (s.arg1 === s.tmp_4);
+  case 4:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 5; continue; }
+    s.tmp_6 = miniMenu_MiniMenuState_updateDimensions__P7341_mk(s);
+    s.tmp_6.arg0 = s.arg0;
+    s.callLocIdx = 1665; s.pc = 7; return s.tmp_6;
+  case 7:
+    r0 = s.retval;
+  case 5:
+  case 6:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MiniMenuState_onStyleChange__P7339.info = {"start":1729,"length":206,"line":55,"column":8,"endLine":59,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"onStyleChange","argumentNames":["this","style"]}
+
+function miniMenu_MiniMenuState_onStyleChange__P7339_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MiniMenuState_onStyleChange__P7339, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MiniMenuState_updateDimensions__P7341(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.sprite___15734 = undefined;
+    s.unnamed126___U1 = undefined;
+    s.unnamed127___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
+    s.sprite___15734 = (undefined);
+    r0 = s.arg0.fields["sprites"];
+    s.unnamed126___U1 = (r0);
+    s.unnamed127___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed127___U2;
+    r0 = pxsim_Array__length(s.unnamed126___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed126___U1, s.unnamed127___U2);
+    s.sprite___15734 = (r0);
+    s.tmp_2 = miniMenu_MenuSprite_updateDimensions__P4512_mk(s);
+    s.tmp_2.arg0 = s.sprite___15734;
+    s.callLocIdx = 1667; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    r0 = (s.unnamed127___U2 + 1);
+    s.unnamed127___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed126___U1 = (undefined);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MiniMenuState_updateDimensions__P7341.info = {"start":2109,"length":150,"line":67,"column":8,"endLine":71,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"updateDimensions","argumentNames":["this"]}
+
+function miniMenu_MiniMenuState_updateDimensions__P7341_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MiniMenuState_updateDimensions__P7341, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  sprite___15734: undefined,
+  unnamed126___U1: undefined,
+  unnamed127___U2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_alignment__P4464(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_alignment"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_alignment__P4464_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1740; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_alignment"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_alignment__P4464.info = {"start":12805,"length":187,"line":443,"column":8,"endLine":448,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"alignment","argumentNames":["this"]}
+miniMenu_Style_alignment__P4464.isGetter = true;
+
+function miniMenu_Style_alignment__P4464_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_alignment__P4464, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_iconOnly__P4463(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_iconOnly"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1738; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1739; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_iconOnly__P4463.info = {"start":12673,"length":120,"line":438,"column":8,"endLine":441,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"iconOnly","argumentNames":["this","value"]}
+
+function miniMenu_Style_iconOnly__P4463_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_iconOnly__P4463, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_iconTextSpacing__P4461(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_iconTextSpacing"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1735; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1736; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_iconTextSpacing__P4461.info = {"start":12335,"length":134,"line":426,"column":8,"endLine":429,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"iconTextSpacing","argumentNames":["this","value"]}
+
+function miniMenu_Style_iconTextSpacing__P4461_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_iconTextSpacing__P4461, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_margin__P4459(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_margin"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1732; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1733; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_margin__P4459.info = {"start":11987,"length":116,"line":414,"column":8,"endLine":417,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"margin","argumentNames":["this","value"]}
+
+function miniMenu_Style_margin__P4459_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_margin__P4459, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_border__P4457(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_border"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1729; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1730; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_border__P4457.info = {"start":11675,"length":116,"line":402,"column":8,"endLine":405,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"border","argumentNames":["this","value"]}
+
+function miniMenu_Style_border__P4457_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_border__P4457, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_borderColor__P4455(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_borderColor"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_borderColor__P4455.info = {"start":11396,"length":83,"line":391,"column":8,"endLine":393,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"borderColor","argumentNames":["this","value"]}
+
+function miniMenu_Style_borderColor__P4455_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_borderColor__P4455, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_borderColor__P4454(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_borderColor"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_borderColor__P4454_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1727; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_borderColor"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_borderColor__P4454.info = {"start":11192,"length":192,"line":384,"column":8,"endLine":389,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"borderColor","argumentNames":["this"]}
+miniMenu_Style_borderColor__P4454.isGetter = true;
+
+function miniMenu_Style_borderColor__P4454_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_borderColor__P4454, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_background__P4453(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_background"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_background__P4453.info = {"start":11099,"length":81,"line":380,"column":8,"endLine":382,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"background","argumentNames":["this","value"]}
+
+function miniMenu_Style_background__P4453_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_background__P4453, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_background__P4452(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_background"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_background__P4452_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1726; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_background"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_background__P4452.info = {"start":10899,"length":188,"line":373,"column":8,"endLine":378,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"background","argumentNames":["this"]}
+miniMenu_Style_background__P4452.isGetter = true;
+
+function miniMenu_Style_background__P4452_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_background__P4452, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_foreground__P4451(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_foreground"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_foreground__P4451.info = {"start":10806,"length":81,"line":369,"column":8,"endLine":371,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"foreground","argumentNames":["this","value"]}
+
+function miniMenu_Style_foreground__P4451_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_foreground__P4451, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_foreground__P4450(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_foreground"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_Style_foreground__P4450_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1725; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_foreground"];
+  case 3:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_foreground__P4450.info = {"start":10606,"length":188,"line":362,"column":8,"endLine":367,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"foreground","argumentNames":["this"]}
+miniMenu_Style_foreground__P4450.isGetter = true;
+
+function miniMenu_Style_foreground__P4450_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_foreground__P4450, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_padding__P4449(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_padding"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1723; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1724; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_padding__P4449.info = {"start":10476,"length":118,"line":357,"column":8,"endLine":360,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"padding","argumentNames":["this","value"]}
+
+function miniMenu_Style_padding__P4449_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_padding__P4449, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_constructor__P4415(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["parent"] = (s.arg1);
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = (s.arg0).fields["_scrollSpeed"] = (150);
+    r0 = (s.arg0).fields["_columns"] = (0);
+    r0 = (s.arg0).fields["_rows"] = (0);
+    r0 = (s.arg0).fields["_backgroundColor"] = (0);
+    r0 = (s.arg0).fields["_border"] = (0);
+    r0 = (s.arg0).fields["_padding"] = (0);
+    r0 = (s.arg0).fields["_borderColor"] = (0);
+  case 1:
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_constructor__P4415.info = {"start":4296,"length":360,"line":162,"column":8,"endLine":172,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this","parent"]}
+
+function miniMenu_MenuStyle_constructor__P4415_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_constructor__P4415, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function controller_Button_addEventListener__P2211(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.handlerState___15985 = undefined;
+    s.eventHandler___15994 = undefined;
+    s.unnamed86___U2 = undefined;
+    s.unnamed87___U3 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
+    s.tmp_0 = controller_Button_getOrCreateHandlerForEvent__P5197_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.arg1;
+    s.callLocIdx = 257; s.pc = 10; return s.tmp_0;
+  case 10:
+    r0 = s.retval;
+    s.tmp_0 = controller_Button_handlerState__P5192_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 258; s.pc = 11; return s.tmp_0;
+  case 11:
+    r0 = s.retval;
+    s.handlerState___15985 = (r0);
+    r0 = s.handlerState___15985.fields["system"];
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_3 = r0 = s.handlerState___15985;
+    r0 = pxsim_Array__mk();
+    s.tmp_4 = r0;
+    r0 = (s.tmp_3).fields["system"] = (s.tmp_4);
+  case 1:
+  case 2:
+    s.eventHandler___15994 = (undefined);
+    r0 = s.handlerState___15985.fields["system"];
+    s.unnamed86___U2 = (r0);
+    s.unnamed87___U3 = (0);
+  case 3:
+    s.tmp_0 = r0 = s.unnamed87___U3;
+    r0 = pxsim_Array__length(s.unnamed86___U2);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 8; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed86___U2, s.unnamed87___U3);
+    s.eventHandler___15994 = (r0);
+    r0 = s.eventHandler___15994.fields["event"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === s.arg1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_2);
+    if (r0) { step = 4; continue; }
+    r0 = s.tmp_2;
+    { step = 5; continue; }
+  case 4:
+    r0 = s.eventHandler___15994.fields["callback"];
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 === s.arg2);
+  case 5:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 6; continue; }
+    { step = 9; continue; }
+  case 6:
+  case 7:
+    r0 = (s.unnamed87___U3 + 1);
+    s.unnamed87___U3 = (r0);
+    { step = 3; continue; }
+  case 8:
+    s.unnamed86___U2 = (undefined);
+    r0 = pxsim_pxtcore_mkClassInstance(controller_ButtonHandler__C2197_VT);
+    s.tmp_6 = r0;
+    s.tmp_7 = controller_ButtonHandler_constructor__P2198_mk(s);
+    s.tmp_7.arg0 = s.tmp_6;
+    s.tmp_7.arg1 = s.arg1;
+    s.tmp_7.arg2 = s.arg2;
+    s.callLocIdx = 259; s.pc = 12; return s.tmp_7;
+  case 12:
+    r0 = s.retval;
+    r0 = s.handlerState___15985.fields["system"];
+    s.tmp_8 = r0;
+    r0 = pxsim_Array__push(s.tmp_8, s.tmp_6);
+  case 9:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+controller_Button_addEventListener__P2211.info = {"start":4445,"length":495,"line":137,"column":8,"endLine":149,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"addEventListener","argumentNames":["this","event","handler"]}
+
+function controller_Button_addEventListener__P2211_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller_Button_addEventListener__P2211, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  handlerState___15985: undefined,
+  eventHandler___15994: undefined,
+  unnamed86___U2: undefined,
+  unnamed87___U3: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function controller_Button_getOrCreateHandlerForEvent__P5197(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.handlerState___16044 = undefined;
+    s.eventHandler___16053 = undefined;
+    s.unnamed90___U2 = undefined;
+    s.unnamed91___U3 = undefined;
+    s.newHandler___16068 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
+    s.tmp_3 = controller_Button_handlerState__P5192_mk(s);
+    s.tmp_3.arg0 = s.arg0;
+    s.callLocIdx = 271; s.pc = 10; return s.tmp_3;
+  case 10:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = pxsim_pxtcore_mkClassInstance(controller_ButtonEventHandlerState__C2199_VT);
+    s.tmp_4 = r0;
+    s.tmp_5 = controller_ButtonEventHandlerState_constructor__P2200_mk(s);
+    s.tmp_5.arg0 = s.tmp_4;
+    r0 = s.arg0.fields["id"];
+    s.tmp_5.arg1 = r0;
+    s.callLocIdx = 273; s.pc = 11; return s.tmp_5;
+  case 11:
+    r0 = s.retval;
+    s.tmp_7 = game_currentScene__P3033_mk(s);
+    s.callLocIdx = 272; s.pc = 12; return s.tmp_7;
+  case 12:
+    r0 = s.retval;
+    r0 = r0.fields["buttonEventHandlers"];
+    s.tmp_6 = r0;
+    r0 = pxsim_Array__push(s.tmp_6, s.tmp_4);
+  case 1:
+  case 2:
+    s.tmp_0 = controller_Button_handlerState__P5192_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 274; s.pc = 13; return s.tmp_0;
+  case 13:
+    r0 = s.retval;
+    s.handlerState___16044 = (r0);
+    r0 = s.handlerState___16044.fields["user"];
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = r0 = s.handlerState___16044;
+    r0 = pxsim_Array__mk();
+    s.tmp_4 = r0;
+    r0 = (s.tmp_3).fields["user"] = (s.tmp_4);
+  case 3:
+  case 4:
+    s.eventHandler___16053 = (undefined);
+    r0 = s.handlerState___16044.fields["user"];
+    s.unnamed90___U2 = (r0);
+    s.unnamed91___U3 = (0);
+  case 5:
+    s.tmp_0 = r0 = s.unnamed91___U3;
+    r0 = pxsim_Array__length(s.unnamed90___U2);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 8; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed90___U2, s.unnamed91___U3);
+    s.eventHandler___16053 = (r0);
+    r0 = s.eventHandler___16053.fields["event"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === s.arg1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 6; continue; }
+    r0 = s.eventHandler___16053;
+    { step = 9; continue; }
+  case 6:
+  case 7:
+    r0 = (s.unnamed91___U3 + 1);
+    s.unnamed91___U3 = (r0);
+    { step = 5; continue; }
+  case 8:
+    s.unnamed90___U2 = (undefined);
+    r0 = pxsim_pxtcore_mkAction(2, controller_Button_getOrCreateHandlerForEvent_inline__P16065);
+    s.tmp_4 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_4, 0, s.arg0);
+    r0 = pxsim_pxtrt_stclo(s.tmp_4, 1, s.arg1);
+    s.tmp_5 = control_onEvent__P391_mk(s);
+    s.tmp_5.arg0 = s.arg1;
+    r0 = s.arg0.fields["id"];
+    s.tmp_5.arg1 = r0;
+    s.tmp_5.arg2 = s.tmp_4;
+    s.tmp_5.arg3 = 16;
+    s.callLocIdx = 276; s.pc = 14; return s.tmp_5;
+  case 14:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkClassInstance(controller_ButtonHandler__C2197_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = controller_ButtonHandler_constructor__P2198_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = s.arg1;
+    s.tmp_1.arg2 = undefined;
+    s.callLocIdx = 277; s.pc = 15; return s.tmp_1;
+  case 15:
+    r0 = s.retval;
+    s.newHandler___16068 = (s.tmp_0);
+    r0 = s.handlerState___16044.fields["user"];
+    s.tmp_0 = r0;
+    r0 = pxsim_Array__push(s.tmp_0, s.newHandler___16068);
+    r0 = s.newHandler___16068;
+  case 9:
+    return leave(s, r0)
+  default: oops()
+} } }
+controller_Button_getOrCreateHandlerForEvent__P5197.info = {"start":8550,"length":829,"line":250,"column":8,"endLine":270,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"getOrCreateHandlerForEvent","argumentNames":["this","event"]}
+
+function controller_Button_getOrCreateHandlerForEvent__P5197_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller_Button_getOrCreateHandlerForEvent__P5197, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  handlerState___16044: undefined,
+  eventHandler___16053: undefined,
+  unnamed90___U2: undefined,
+  unnamed91___U3: undefined,
+  newHandler___16068: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function controller_Button_getOrCreateHandlerForEvent_inline__P16065(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = controller_Button_runButtonEvents__P5196_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = s.caps[1];
+    s.callLocIdx = 275; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+controller_Button_getOrCreateHandlerForEvent_inline__P16065.info = {"start":9186,"length":33,"line":265,"column":44,"endLine":265,"endColumn":77,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"inline","argumentNames":[]}
+
+function controller_Button_getOrCreateHandlerForEvent_inline__P16065_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller_Button_getOrCreateHandlerForEvent_inline__P16065, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function controller_Button_runButtonEvents__P5196(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.handlerState___16081 = undefined;
+    s.userHandler___16085 = undefined;
+    s.eventHandler___16096 = undefined;
+    s.unnamed88___U3 = undefined;
+    s.unnamed89___U4 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
+    s.tmp_0 = controller_Button_handlerState__P5192_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 267; s.pc = 14; return s.tmp_0;
+  case 14:
+    r0 = s.retval;
+    s.handlerState___16081 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.handlerState___16081);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    { step = 13; continue; }
+  case 1:
+  case 2:
+    s.tmp_2 = controller_Button_getOrCreateHandlerForEvent__P5197_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    s.tmp_2.arg1 = s.arg1;
+    s.callLocIdx = 268; s.pc = 15; return s.tmp_2;
+  case 15:
+    r0 = s.retval;
+    s.userHandler___16085 = (r0);
+    r0 = s.userHandler___16085.fields["callback"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    s.tmp_1 = if_callback_1_mk(s);
+    s.tmp_1.arg0 = s.userHandler___16085;
+    if (!s.tmp_1.arg0.vtable.iface) {
+      setupLambda(s.tmp_1, pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "callback"), 1);
+      s.callLocIdx = 269; s.pc = 16; return s.tmp_1;
+    } else {
+      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["callback"];
+      if (s.tmp_1.fn == null) { setupLambda(s.tmp_1, s.tmp_1.arg0.fields["callback"], 1); s.callLocIdx = 269; s.pc = 16; return s.tmp_1; }
+      else if (s.tmp_1.fn.isGetter) { s.tmp_1.stage2Call = true; s.callLocIdx = 269; s.pc = 16; return s.tmp_1;; }
+     else { s.callLocIdx = 269; s.pc = 16; return s.tmp_1; }
+    }
+  case 16:
+    r0 = s.retval;
+  case 3:
+  case 4:
+    r0 = s.handlerState___16081.fields["system"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 11; continue; }
+    s.eventHandler___16096 = (undefined);
+    r0 = s.handlerState___16081.fields["system"];
+    s.unnamed88___U3 = (r0);
+    s.unnamed89___U4 = (0);
+  case 5:
+    s.tmp_0 = r0 = s.unnamed89___U4;
+    r0 = pxsim_Array__length(s.unnamed88___U3);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 10; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed88___U3, s.unnamed89___U4);
+    s.eventHandler___16096 = (r0);
+    r0 = s.eventHandler___16096.fields["event"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === s.arg1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_2);
+    if (r0) { step = 6; continue; }
+    r0 = s.tmp_2;
+    { step = 7; continue; }
+  case 6:
+    r0 = s.eventHandler___16096.fields["callback"];
+  case 7:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_4);
+    if (!r0) { step = 8; continue; }
+    s.tmp_5 = if_callback_1_mk(s);
+    s.tmp_5.arg0 = s.eventHandler___16096;
+    if (!s.tmp_5.arg0.vtable.iface) {
+      setupLambda(s.tmp_5, pxsim_pxtrt.mapGetByString(s.tmp_5.arg0, "callback"), 1);
+      s.callLocIdx = 270; s.pc = 17; return s.tmp_5;
+    } else {
+      s.tmp_5.fn = s.tmp_5.arg0.vtable.iface["callback"];
+      if (s.tmp_5.fn == null) { setupLambda(s.tmp_5, s.tmp_5.arg0.fields["callback"], 1); s.callLocIdx = 270; s.pc = 17; return s.tmp_5; }
+      else if (s.tmp_5.fn.isGetter) { s.tmp_5.stage2Call = true; s.callLocIdx = 270; s.pc = 17; return s.tmp_5;; }
+     else { s.callLocIdx = 270; s.pc = 17; return s.tmp_5; }
+    }
+  case 17:
+    r0 = s.retval;
+  case 8:
+  case 9:
+    r0 = (s.unnamed89___U4 + 1);
+    s.unnamed89___U4 = (r0);
+    { step = 5; continue; }
+  case 10:
+    s.unnamed88___U3 = (undefined);
+  case 11:
+  case 12:
+  case 13:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+controller_Button_runButtonEvents__P5196.info = {"start":8005,"length":535,"line":236,"column":8,"endLine":248,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"runButtonEvents","argumentNames":["this","event"]}
+
+function controller_Button_runButtonEvents__P5196_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller_Button_runButtonEvents__P5196, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  handlerState___16081: undefined,
+  userHandler___16085: undefined,
+  eventHandler___16096: undefined,
+  unnamed88___U3: undefined,
+  unnamed89___U4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function controller_ButtonEventHandlerState_constructor__P2200(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, controller_ButtonEventHandlerState__C2199_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["id"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+controller_ButtonEventHandlerState_constructor__P2200.info = {"start":1122,"length":33,"line":48,"column":8,"endLine":48,"endColumn":41,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"inline","argumentNames":["this","id"]}
+
+function controller_ButtonEventHandlerState_constructor__P2200_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller_ButtonEventHandlerState_constructor__P2200, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function control_onEvent__P391(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.ctx___11870 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.arg3 = (s.lambdaArgs[3]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = control_eventContext__P408_mk(s);
+    s.callLocIdx = 82; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.ctx___11870 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.ctx___11870);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = pxsim.control.internalOnEvent(s.arg0, s.arg1, s.arg2, s.arg3);
+    { step = 2; continue; }
+  case 1:
+    s.tmp_0 = control_EventContext_registerHandler__P405_mk(s);
+    s.tmp_0.arg0 = s.ctx___11870;
+    s.tmp_0.arg1 = s.arg0;
+    s.tmp_0.arg2 = s.arg1;
+    s.tmp_0.arg3 = s.arg2;
+    s.tmp_0.arg4 = s.arg3;
+    s.callLocIdx = 83; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_onEvent__P391.info = {"start":336,"length":325,"line":9,"column":4,"endLine":15,"endColumn":5,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"onEvent","argumentNames":["src","value","handler","flags"]}
+
+function control_onEvent__P391_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_onEvent__P391, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  ctx___11870: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+} }
+
+
+
+
+
+function control_eventContext__P408(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    r0 = pxsim_numops_toBoolDecr(globals.eventContexts___4908);
+    if (!r0) { step = 1; continue; }
+    s.tmp_0 = r0 = globals.eventContexts___4908;
+    r0 = pxsim_Array__length(globals.eventContexts___4908);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 - 1);
+    s.tmp_1 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_1);
+    { step = 2; continue; }
+  case 1:
+    r0 = undefined;
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    r0 = s.tmp_3;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_eventContext__P408.info = {"start":7094,"length":136,"line":213,"column":4,"endLine":215,"endColumn":5,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"eventContext","argumentNames":[]}
+
+function control_eventContext__P408_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_eventContext__P408, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+} }
+
+
+
+
+
+function control_EventContext_registerHandler__P405(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.h___11893 = undefined;
+    s.unnamed80___U1 = undefined;
+    s.unnamed81___U2 = undefined;
+    s.hn___11911 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.arg3 = (s.lambdaArgs[3]);
+      s.arg4 = (s.lambdaArgs[4]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, control_EventContext__C395_VT)) failedCast(r0);
+    s.h___11893 = (undefined);
+    r0 = s.arg0.fields["handlers"];
+    s.unnamed80___U1 = (r0);
+    s.unnamed81___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed81___U2;
+    r0 = pxsim_Array__length(s.unnamed80___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 6; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed80___U1, s.unnamed81___U2);
+    s.h___11893 = (r0);
+    r0 = s.h___11893.fields["src"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 == s.arg1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_2);
+    if (r0) { step = 2; continue; }
+    r0 = s.tmp_2;
+    { step = 3; continue; }
+  case 2:
+    r0 = s.h___11893.fields["value"];
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 == s.arg2);
+  case 3:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 4; continue; }
+    r0 = (s.h___11893).fields["flags"] = (s.arg4);
+    r0 = (s.h___11893).fields["handler"] = (s.arg3);
+    { step = 7; continue; }
+  case 4:
+  case 5:
+    r0 = (s.unnamed81___U2 + 1);
+    s.unnamed81___U2 = (r0);
+    { step = 1; continue; }
+  case 6:
+    s.unnamed80___U1 = (undefined);
+    r0 = pxsim_pxtcore_mkClassInstance(control_EventHandler__C4900_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = control_EventHandler_constructor__P4903_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = s.arg1;
+    s.tmp_1.arg2 = s.arg2;
+    s.tmp_1.arg3 = s.arg3;
+    s.tmp_1.arg4 = s.arg4;
+    s.callLocIdx = 94; s.pc = 8; return s.tmp_1;
+  case 8:
+    r0 = s.retval;
+    s.hn___11911 = (s.tmp_0);
+    r0 = s.arg0.fields["handlers"];
+    s.tmp_0 = r0;
+    r0 = pxsim_Array__push(s.tmp_0, s.hn___11911);
+    s.tmp_0 = control_EventHandler_register__P4901_mk(s);
+    s.tmp_0.arg0 = s.hn___11911;
+    s.callLocIdx = 95; s.pc = 9; return s.tmp_0;
+  case 9:
+    r0 = s.retval;
+  case 7:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_EventContext_registerHandler__P405.info = {"start":5760,"length":525,"line":173,"column":8,"endLine":186,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"registerHandler","argumentNames":["this","src","value","handler","flags"]}
+
+function control_EventContext_registerHandler__P405_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_EventContext_registerHandler__P405, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  h___11893: undefined,
+  unnamed80___U1: undefined,
+  unnamed81___U2: undefined,
+  hn___11911: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+  arg4: undefined,
+} }
+
+
+
+
+
+function control_EventHandler_constructor__P4903(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.arg3 = (s.lambdaArgs[3]);
+      s.arg4 = (s.lambdaArgs[4]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, control_EventHandler__C4900_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["src"] = (s.arg1);
+    r0 = (s.arg0).fields["value"] = (s.arg2);
+    r0 = (s.arg0).fields["handler"] = (s.arg3);
+    r0 = (s.arg0).fields["flags"] = (s.arg4);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_EventHandler_constructor__P4903.info = {"start":786,"length":165,"line":23,"column":8,"endLine":28,"endColumn":13,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"inline","argumentNames":["this","src","value","handler","flags"]}
+
+function control_EventHandler_constructor__P4903_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_EventHandler_constructor__P4903, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+  arg4: undefined,
+} }
+
+
+
+
+
+function control_EventHandler_register__P4901(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, control_EventHandler__C4900_VT)) failedCast(r0);
+    r0 = pxsim_pxtcore_mkAction(1, control_EventHandler_register_inline__P11477);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    r0 = s.arg0.fields["src"];
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["value"];
+    s.tmp_2 = r0;
+    r0 = s.arg0.fields["flags"];
+    s.tmp_3 = r0;
+    r0 = pxsim.control.internalOnEvent(s.tmp_1, s.tmp_2, s.tmp_0, s.tmp_3);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_EventHandler_register__P4901.info = {"start":961,"length":165,"line":30,"column":8,"endLine":34,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"register","argumentNames":["this"]}
+
+function control_EventHandler_register__P4901_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_EventHandler_register__P4901, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function control_EventHandler_register_inline__P11477(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    r0 = s.caps[0].fields["handler"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_1 = if_handler_1_mk(s);
+    s.tmp_1.arg0 = s.caps[0];
+    if (!s.tmp_1.arg0.vtable.iface) {
+      setupLambda(s.tmp_1, pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "handler"), 1);
+      s.callLocIdx = 84; s.pc = 3; return s.tmp_1;
+    } else {
+      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["handler"];
+      if (s.tmp_1.fn == null) { setupLambda(s.tmp_1, s.tmp_1.arg0.fields["handler"], 1); s.callLocIdx = 84; s.pc = 3; return s.tmp_1; }
+      else if (s.tmp_1.fn.isGetter) { s.tmp_1.stage2Call = true; s.callLocIdx = 84; s.pc = 3; return s.tmp_1;; }
+     else { s.callLocIdx = 84; s.pc = 3; return s.tmp_1; }
+    }
+  case 3:
+    r0 = s.retval;
+  case 1:
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_EventHandler_register_inline__P11477.info = {"start":1032,"length":71,"line":31,"column":58,"endLine":33,"endColumn":13,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"inline","argumentNames":[]}
+
+function control_EventHandler_register_inline__P11477_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_EventHandler_register_inline__P11477, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+} }
+
+
+
+
+
+function controller_Button_handlerState__P5192(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.state___16019 = undefined;
+    s.unnamed84___U1 = undefined;
+    s.unnamed85___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
+    s.state___16019 = (undefined);
+    s.tmp_0 = game_currentScene__P3033_mk(s);
+    s.callLocIdx = 252; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+    r0 = r0.fields["buttonEventHandlers"];
+    s.unnamed84___U1 = (r0);
+    s.unnamed85___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed85___U2;
+    r0 = pxsim_Array__length(s.unnamed84___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 4; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed84___U1, s.unnamed85___U2);
+    s.state___16019 = (r0);
+    r0 = s.state___16019.fields["id"];
+    s.tmp_3 = r0;
+    r0 = s.arg0.fields["id"];
+    s.tmp_4 = r0;
+    r0 = (s.tmp_3 === s.tmp_4);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 2; continue; }
+    r0 = s.state___16019;
+    { step = 5; continue; }
+  case 2:
+  case 3:
+    r0 = (s.unnamed85___U2 + 1);
+    s.unnamed85___U2 = (r0);
+    { step = 1; continue; }
+  case 4:
+    s.unnamed84___U1 = (undefined);
+    r0 = undefined;
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+controller_Button_handlerState__P5192.info = {"start":1644,"length":240,"line":66,"column":8,"endLine":71,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"handlerState","argumentNames":["this"]}
+controller_Button_handlerState__P5192.isGetter = true;
+
+function controller_Button_handlerState__P5192_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller_Button_handlerState__P5192, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  state___16019: undefined,
+  unnamed84___U1: undefined,
+  unnamed85___U2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function controller_ButtonHandler_constructor__P2198(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, controller_ButtonHandler__C2197_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["event"] = (s.arg1);
+    r0 = (s.arg0).fields["callback"] = (s.arg2);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+controller_ButtonHandler_constructor__P2198.info = {"start":997,"length":66,"line":44,"column":8,"endLine":44,"endColumn":74,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"inline","argumentNames":["this","event","callback"]}
+
+function controller_ButtonHandler_constructor__P2198_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller_ButtonHandler_constructor__P2198, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_copyTo__P4468(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    s.tmp_0 = miniMenu_Style_padding__P4449_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_padding__P4448_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1762; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1763; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_foreground__P4451_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_foreground__P4450_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1764; s.pc = 4; return s.tmp_1;
+  case 4:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1765; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_background__P4453_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_background__P4452_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1766; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1767; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_borderColor__P4455_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_borderColor__P4454_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1768; s.pc = 8; return s.tmp_1;
+  case 8:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1769; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_border__P4457_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_border__P4456_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1770; s.pc = 10; return s.tmp_1;
+  case 10:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1771; s.pc = 9; return s.tmp_0;
+  case 9:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_margin__P4459_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_margin__P4458_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1772; s.pc = 12; return s.tmp_1;
+  case 12:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1773; s.pc = 11; return s.tmp_0;
+  case 11:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_iconOnly__P4463_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_iconOnly__P4462_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1774; s.pc = 14; return s.tmp_1;
+  case 14:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1775; s.pc = 13; return s.tmp_0;
+  case 13:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_iconTextSpacing__P4461_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_iconTextSpacing__P4460_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1776; s.pc = 16; return s.tmp_1;
+  case 16:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1777; s.pc = 15; return s.tmp_0;
+  case 15:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_Style_alignment__P4465_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_Style_alignment__P4464_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1778; s.pc = 18; return s.tmp_1;
+  case 18:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1779; s.pc = 17; return s.tmp_0;
+  case 17:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_copyTo__P4468.info = {"start":14758,"length":468,"line":498,"column":8,"endLine":508,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"copyTo","argumentNames":["this","target"]}
+
+function miniMenu_Style_copyTo__P4468_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_copyTo__P4468, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_Style_constructor__P4466(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["parent"] = (s.arg1);
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = (s.arg0).fields["_padding"] = (0);
+    r0 = (s.arg0).fields["_foreground"] = (1);
+    r0 = (s.arg0).fields["_background"] = (15);
+    r0 = (s.arg0).fields["_borderColor"] = (1);
+    r0 = (s.arg0).fields["_border"] = (0);
+    r0 = (s.arg0).fields["_margin"] = (0);
+    r0 = (s.arg0).fields["_iconTextSpacing"] = (0);
+    r0 = (s.arg0).fields["_iconOnly"] = (0);
+    r0 = (s.arg0).fields["_alignment"] = (0);
+  case 1:
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_Style_constructor__P4466.info = {"start":13141,"length":446,"line":455,"column":8,"endLine":467,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this","parent"]}
+
+function miniMenu_Style_constructor__P4466_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_Style_constructor__P4466, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_copyTo__P4437(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    s.tmp_0 = miniMenu_MenuStyle_customWidth__P4417_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_customWidth__P4416_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1702; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1703; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_customHeight__P4419_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_customHeight__P4418_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1704; s.pc = 4; return s.tmp_1;
+  case 4:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1705; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_scrollSpeed__P4421_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_scrollSpeed__P4420_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1706; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1707; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_columns__P4423_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1708; s.pc = 8; return s.tmp_1;
+  case 8:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1709; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_rows__P4425_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1710; s.pc = 10; return s.tmp_1;
+  case 10:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1711; s.pc = 9; return s.tmp_0;
+  case 9:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_border__P4427_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_border__P4426_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1712; s.pc = 12; return s.tmp_1;
+  case 12:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1713; s.pc = 11; return s.tmp_0;
+  case 11:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_borderColor__P4429_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_borderColor__P4428_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1714; s.pc = 14; return s.tmp_1;
+  case 14:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1715; s.pc = 13; return s.tmp_0;
+  case 13:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_padding__P4431_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_padding__P4430_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1716; s.pc = 16; return s.tmp_1;
+  case 16:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1717; s.pc = 15; return s.tmp_0;
+  case 15:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_backgroundColor__P4433_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_backgroundColor__P4432_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1718; s.pc = 18; return s.tmp_1;
+  case 18:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1719; s.pc = 17; return s.tmp_0;
+  case 17:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuStyle_scrollColor__P4435_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = miniMenu_MenuStyle_scrollColor__P4434_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.callLocIdx = 1720; s.pc = 20; return s.tmp_1;
+  case 20:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1721; s.pc = 19; return s.tmp_0;
+  case 19:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_copyTo__P4437.info = {"start":9448,"length":528,"line":325,"column":8,"endLine":336,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"copyTo","argumentNames":["this","target"]}
+
+function miniMenu_MenuStyle_copyTo__P4437_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_copyTo__P4437, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_scrollColor__P4435(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_scrollColor"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_scrollColor__P4435.info = {"start":7915,"length":83,"line":286,"column":8,"endLine":288,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"scrollColor","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_scrollColor__P4435_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_scrollColor__P4435, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_backgroundColor__P4433(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_backgroundColor"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_backgroundColor__P4433.info = {"start":7592,"length":91,"line":275,"column":8,"endLine":277,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"backgroundColor","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_backgroundColor__P4433_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_backgroundColor__P4433, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_backgroundColor__P4432(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_backgroundColor"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_backgroundColor__P4432_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1688; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_backgroundColor"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_backgroundColor__P4432.info = {"start":7356,"length":224,"line":268,"column":8,"endLine":273,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"backgroundColor","argumentNames":["this"]}
+miniMenu_MenuStyle_backgroundColor__P4432.isGetter = true;
+
+function miniMenu_MenuStyle_backgroundColor__P4432_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_backgroundColor__P4432, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_padding__P4431(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_padding"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1686; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1687; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_padding__P4431.info = {"start":7222,"length":122,"line":263,"column":8,"endLine":266,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"padding","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_padding__P4431_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_padding__P4431, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MiniMenuState_onMenuStyleChange__P7340(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_1 = r0;
+    r0 = (s.arg1 === s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = miniMenu_MiniMenuState_updateDimensions__P7341_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    s.callLocIdx = 1666; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+  case 1:
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MiniMenuState_onMenuStyleChange__P7340.info = {"start":1947,"length":150,"line":61,"column":8,"endLine":65,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"onMenuStyleChange","argumentNames":["this","style"]}
+
+function miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MiniMenuState_onMenuStyleChange__P7340, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_borderColor__P4429(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_borderColor"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_borderColor__P4429.info = {"start":6923,"length":83,"line":252,"column":8,"endLine":254,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"borderColor","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_borderColor__P4429_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_borderColor__P4429, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_borderColor__P4428(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_borderColor"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_borderColor__P4428_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1684; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_borderColor"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_borderColor__P4428.info = {"start":6703,"length":208,"line":245,"column":8,"endLine":250,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"borderColor","argumentNames":["this"]}
+miniMenu_MenuStyle_borderColor__P4428.isGetter = true;
+
+function miniMenu_MenuStyle_borderColor__P4428_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_borderColor__P4428, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_border__P4427(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_border"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1682; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1683; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_border__P4427.info = {"start":6571,"length":120,"line":240,"column":8,"endLine":243,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"border","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_border__P4427_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_border__P4427, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_rows__P4425(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_rows"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1679; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1680; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_rows__P4425.info = {"start":6243,"length":116,"line":228,"column":8,"endLine":231,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"rows","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_rows__P4425_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_rows__P4425, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_columns__P4423(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_columns"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1676; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1677; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_columns__P4423.info = {"start":5917,"length":122,"line":216,"column":8,"endLine":219,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"columns","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_columns__P4423_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_columns__P4423, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_scrollSpeed__P4421(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_scrollSpeed"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_scrollSpeed__P4421.info = {"start":5618,"length":83,"line":205,"column":8,"endLine":207,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"scrollSpeed","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_scrollSpeed__P4421_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_scrollSpeed__P4421, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_scrollSpeed__P4420(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_scrollSpeed"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    s.tmp_3 = miniMenu_MenuStyle_scrollSpeed__P4420_mk(s);
+    r0 = s.arg0.fields["parent"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1674; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_scrollSpeed"];
+  case 5:
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_scrollSpeed__P4420.info = {"start":5398,"length":208,"line":198,"column":8,"endLine":203,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"scrollSpeed","argumentNames":["this"]}
+miniMenu_MenuStyle_scrollSpeed__P4420.isGetter = true;
+
+function miniMenu_MenuStyle_scrollSpeed__P4420_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_scrollSpeed__P4420, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_customHeight__P4419(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_customHeight"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1672; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1673; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_customHeight__P4419.info = {"start":5254,"length":132,"line":193,"column":8,"endLine":196,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"customHeight","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_customHeight__P4419_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_customHeight__P4419, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_customWidth__P4417(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["_customWidth"] = (s.arg1);
+    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1669; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1670; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_customWidth__P4417.info = {"start":4888,"length":130,"line":181,"column":8,"endLine":184,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"customWidth","argumentNames":["this","value"]}
+
+function miniMenu_MenuStyle_customWidth__P4417_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_customWidth__P4417, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuStyle_setMenuStyleProperty__P4436(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg1;
+    r0 = pxsim_pxtcore.switch_eq(0, s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_0);
+    if (r0) { step = 2; continue; }
+    r0 = pxsim_pxtcore.switch_eq(6, s.tmp_0);
+    if (r0) { step = 3; continue; }
+    r0 = pxsim_pxtcore.switch_eq(8, s.tmp_0);
+    if (r0) { step = 4; continue; }
+    r0 = pxsim_pxtcore.switch_eq(7, s.tmp_0);
+    if (r0) { step = 5; continue; }
+    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_0);
+    if (r0) { step = 6; continue; }
+    r0 = pxsim_pxtcore.switch_eq(4, s.tmp_0);
+    if (r0) { step = 7; continue; }
+    r0 = pxsim_pxtcore.switch_eq(3, s.tmp_0);
+    if (r0) { step = 8; continue; }
+    r0 = pxsim_pxtcore.switch_eq(5, s.tmp_0);
+    if (r0) { step = 9; continue; }
+    r0 = pxsim_pxtcore.switch_eq(9, s.tmp_0);
+    if (r0) { step = 10; continue; }
+    r0 = s.tmp_0;
+    { step = 11; continue; }
+  case 1:
+    s.tmp_1 = miniMenu_MenuStyle_customWidth__P4417_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.tmp_1.arg1 = s.arg2;
+    s.callLocIdx = 1690; s.pc = 12; return s.tmp_1;
+  case 12:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 2:
+    s.tmp_0 = miniMenu_MenuStyle_customHeight__P4419_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.arg2;
+    s.callLocIdx = 1691; s.pc = 13; return s.tmp_0;
+  case 13:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 3:
+    s.tmp_0 = miniMenu_MenuStyle_scrollSpeed__P4421_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.arg2;
+    s.callLocIdx = 1692; s.pc = 14; return s.tmp_0;
+  case 14:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 4:
+    s.tmp_0 = miniMenu_MenuStyle_columns__P4423_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_1 = Math_max__P130_mk(s);
+    r0 = (s.arg2 | 0);
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 0;
+    s.callLocIdx = 1693; s.pc = 16; return s.tmp_1;
+  case 16:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1694; s.pc = 15; return s.tmp_0;
+  case 15:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 5:
+    s.tmp_0 = miniMenu_MenuStyle_rows__P4425_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_1 = Math_max__P130_mk(s);
+    r0 = (s.arg2 | 0);
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 0;
+    s.callLocIdx = 1695; s.pc = 18; return s.tmp_1;
+  case 18:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1696; s.pc = 17; return s.tmp_0;
+  case 17:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 6:
+    s.tmp_0 = miniMenu_MenuStyle_border__P4427_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    r0 = (s.arg2 | 0);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1697; s.pc = 19; return s.tmp_0;
+  case 19:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 7:
+    s.tmp_0 = miniMenu_MenuStyle_padding__P4431_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    r0 = (s.arg2 | 0);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1698; s.pc = 20; return s.tmp_0;
+  case 20:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 8:
+    s.tmp_0 = miniMenu_MenuStyle_borderColor__P4429_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    r0 = (s.arg2 | 0);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1699; s.pc = 21; return s.tmp_0;
+  case 21:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 9:
+    s.tmp_0 = miniMenu_MenuStyle_backgroundColor__P4433_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    r0 = (s.arg2 | 0);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1700; s.pc = 22; return s.tmp_0;
+  case 22:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 10:
+    s.tmp_0 = miniMenu_MenuStyle_scrollColor__P4435_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    r0 = (s.arg2 | 0);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1701; s.pc = 23; return s.tmp_0;
+  case 23:
+    r0 = s.retval;
+  case 11:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuStyle_setMenuStyleProperty__P4436.info = {"start":8010,"length":1426,"line":290,"column":8,"endLine":323,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setMenuStyleProperty","argumentNames":["this","property","value"]}
+
+function miniMenu_MenuStyle_setMenuStyleProperty__P4436_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuStyle_setMenuStyleProperty__P4436, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
 } }
 
 
@@ -13487,7 +19853,7 @@ function Fx_div__P162_mk(s) {
 
 
 
-function listSelection__P32645(s) {
+function miniMenu_createMenuFromArray__P4524(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -13497,9 +19863,1795 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.selectedOption___32914 = undefined;
-    s.SystemSettings___32923 = undefined;
-    s.FileAtSelection___32982 = undefined;
+    s.m___16392 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = miniMenu__init__P4477_mk(s);
+    s.callLocIdx = 2203; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MenuSprite__C4478_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_MenuSprite_constructor__P4495_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.callLocIdx = 2204; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.m___16392 = (s.tmp_0);
+    s.tmp_0 = miniMenu_MenuSprite_setMenuItems__P4498_mk(s);
+    s.tmp_0.arg0 = s.m___16392;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 2205; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
+    s.tmp_0.arg0 = s.m___16392;
+    s.tmp_0.arg1 = true;
+    s.callLocIdx = 2206; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_x__P2369_mk(s);
+    s.tmp_0.arg0 = s.m___16392;
+    s.tmp_0.arg1 = 80;
+    s.callLocIdx = 2207; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_y__P2371_mk(s);
+    s.tmp_0.arg0 = s.m___16392;
+    s.tmp_0.arg1 = 60;
+    s.callLocIdx = 2208; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+    r0 = s.m___16392;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_createMenuFromArray__P4524.info = {"start":3739,"length":287,"line":114,"column":4,"endLine":128,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/api.ts","functionName":"createMenuFromArray","argumentNames":["items"]}
+
+function miniMenu_createMenuFromArray__P4524_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_createMenuFromArray__P4524, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  m___16392: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_setButtonEventsEnabled__P4499(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["buttonEventsEnabled"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_setButtonEventsEnabled__P4499.info = {"start":38226,"length":102,"line":1072,"column":8,"endLine":1074,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setButtonEventsEnabled","argumentNames":["this","enabled"]}
+
+function miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_setButtonEventsEnabled__P4499, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_setMenuItems__P4498(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["items"] = (s.arg1);
+    s.tmp_0 = miniMenu_MenuSprite_updateDimensions__P4512_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 2019; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_setMenuItems__P4498.info = {"start":37545,"length":115,"line":1054,"column":8,"endLine":1057,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setMenuItems","argumentNames":["this","items"]}
+
+function miniMenu_MenuSprite_setMenuItems__P4498_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_setMenuItems__P4498, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_constructor__P4495(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    s.tmp_0 = sprites_ExtendableSprite_constructor__P2452_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    r0 = pxsim.image.ofBuffer(_hex16460);
+    s.tmp_0.arg1 = r0;
+    s.tmp_0.arg2 = globals.MiniMenu___4365;
+    s.callLocIdx = 1907; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = miniMenu__init__P4477_mk(s);
+    s.callLocIdx = 1908; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MenuStyle__C4404_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_MenuStyle_constructor__P4415_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1909; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    r0 = r0.fields["menuStyle"];
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 1910; s.pc = 3; return s.tmp_1;
+  case 3:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["menuStyle"] = (s.tmp_0);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1911; s.pc = 6; return s.tmp_2;
+  case 6:
+    r0 = s.retval;
+    r0 = r0.fields["titleStyle"];
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 1912; s.pc = 5; return s.tmp_1;
+  case 5:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["titleStyle"] = (s.tmp_0);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1913; s.pc = 8; return s.tmp_2;
+  case 8:
+    r0 = s.retval;
+    r0 = r0.fields["defaultStyle"];
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 1914; s.pc = 7; return s.tmp_1;
+  case 7:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["defaultStyle"] = (s.tmp_0);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_2 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1915; s.pc = 10; return s.tmp_2;
+  case 10:
+    r0 = s.retval;
+    r0 = r0.fields["selectedStyle"];
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 1916; s.pc = 9; return s.tmp_1;
+  case 9:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["selectedStyle"] = (s.tmp_0);
+    r0 = (s.arg0).fields["selectedIndex"] = (0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_Array__mk();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["items"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_Array__mk();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["buttonHandlers"] = (s.tmp_1);
+    r0 = (s.arg0).fields["buttonEventsEnabled"] = (false);
+    r0 = pxsim_pxtcore_mkAction(1, miniMenu_MenuSprite_inline__P16503);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = miniMenu_MenuSprite_onButtonEvent__P4510_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.tmp_1.arg1 = globals.up___2130;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 1918; s.pc = 11; return s.tmp_1;
+  case 11:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, miniMenu_MenuSprite_inline__P16508);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = miniMenu_MenuSprite_onButtonEvent__P4510_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.tmp_1.arg1 = globals.down___2132;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 1920; s.pc = 12; return s.tmp_1;
+  case 12:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, miniMenu_MenuSprite_inline__P16513);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = miniMenu_MenuSprite_onButtonEvent__P4510_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.tmp_1.arg1 = globals.left___2129;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 1922; s.pc = 13; return s.tmp_1;
+  case 13:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, miniMenu_MenuSprite_inline__P16518);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = miniMenu_MenuSprite_onButtonEvent__P4510_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.tmp_1.arg1 = globals.right___2131;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 1924; s.pc = 14; return s.tmp_1;
+  case 14:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["yScroll"] = (0);
+    r0 = (s.arg0).fields["targetYScroll"] = (0);
+    r0 = (s.arg0).fields["xScroll"] = (0);
+    r0 = (s.arg0).fields["targetXScroll"] = (0);
+    r0 = (s.arg0).fields["scrollAnimationTick"] = (-1);
+    r0 = (s.arg0).fields["titleAnimationTick"] = (0);
+    s.tmp_0 = miniMenu_MiniMenuState_addSprite__P7337_mk(s);
+    s.tmp_1 = miniMenu__state__P4476_mk(s);
+    s.callLocIdx = 1925; s.pc = 16; return s.tmp_1;
+  case 16:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1926; s.pc = 15; return s.tmp_0;
+  case 15:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_constructor__P4495.info = {"start":28208,"length":1161,"line":848,"column":8,"endLine":874,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this"]}
+
+function miniMenu_MenuSprite_constructor__P4495_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_constructor__P4495, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+const _hex16460 = pxsim.BufferMethods.createBufferFromHex("870401000100000000000000")
+
+
+
+
+function miniMenu_MenuSprite_inline__P16503(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = miniMenu_MenuSprite_moveSelection__P4500_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 1917; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_inline__P16503.info = {"start":28761,"length":42,"line":862,"column":46,"endLine":862,"endColumn":88,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
+
+function miniMenu_MenuSprite_inline__P16503_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_inline__P16503, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_inline__P16508(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = miniMenu_MenuSprite_moveSelection__P4500_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = 1;
+    s.callLocIdx = 1919; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_inline__P16508.info = {"start":28855,"length":44,"line":863,"column":48,"endLine":863,"endColumn":92,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
+
+function miniMenu_MenuSprite_inline__P16508_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_inline__P16508, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_inline__P16513(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = miniMenu_MenuSprite_moveSelection__P4500_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = 2;
+    s.callLocIdx = 1921; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_inline__P16513.info = {"start":28951,"length":44,"line":864,"column":48,"endLine":864,"endColumn":92,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
+
+function miniMenu_MenuSprite_inline__P16513_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_inline__P16513, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_inline__P16518(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = miniMenu_MenuSprite_moveSelection__P4500_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = 3;
+    s.callLocIdx = 1923; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_inline__P16518.info = {"start":29048,"length":45,"line":865,"column":49,"endLine":865,"endColumn":94,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
+
+function miniMenu_MenuSprite_inline__P16518_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_inline__P16518, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function miniMenu_MiniMenuState_addSprite__P7337(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
+    r0 = s.arg0.fields["sprites"];
+    s.tmp_0 = r0;
+    r0 = pxsim_Array__push(s.tmp_0, s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MiniMenuState_addSprite__P7337.info = {"start":1510,"length":82,"line":47,"column":8,"endLine":49,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"addSprite","argumentNames":["this","sprite"]}
+
+function miniMenu_MiniMenuState_addSprite__P7337_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MiniMenuState_addSprite__P7337, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_onButtonEvent__P4510(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.buttonHandler___16802 = undefined;
+    s.unnamed130___U1 = undefined;
+    s.unnamed131___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    s.buttonHandler___16802 = (undefined);
+    r0 = s.arg0.fields["buttonHandlers"];
+    s.unnamed130___U1 = (r0);
+    s.unnamed131___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed131___U2;
+    r0 = pxsim_Array__length(s.unnamed130___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 4; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed130___U1, s.unnamed131___U2);
+    s.buttonHandler___16802 = (r0);
+    r0 = s.buttonHandler___16802.fields["button"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === s.arg1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 2; continue; }
+    r0 = (s.buttonHandler___16802).fields["handler"] = (s.arg2);
+    { step = 5; continue; }
+  case 2:
+  case 3:
+    r0 = (s.unnamed131___U2 + 1);
+    s.unnamed131___U2 = (r0);
+    { step = 1; continue; }
+  case 4:
+    s.unnamed130___U1 = (undefined);
+    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_ButtonHandler__C7343_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = miniMenu_ButtonHandler_constructor__P7345_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = s.arg1;
+    s.tmp_1.arg2 = s.arg2;
+    s.callLocIdx = 2062; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    r0 = s.arg0.fields["buttonHandlers"];
+    s.tmp_2 = r0;
+    r0 = pxsim_Array__push(s.tmp_2, s.tmp_0);
+  case 5:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_onButtonEvent__P4510.info = {"start":51524,"length":421,"line":1384,"column":8,"endLine":1392,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"onButtonEvent","argumentNames":["this","button","handler"]}
+
+function miniMenu_MenuSprite_onButtonEvent__P4510_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_onButtonEvent__P4510, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  buttonHandler___16802: undefined,
+  unnamed130___U1: undefined,
+  unnamed131___U2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function miniMenu_ButtonHandler_constructor__P7345(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.enableHandler___16825 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_ButtonHandler__C7343_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["button"] = (s.arg1);
+    r0 = (s.arg0).fields["handler"] = (s.arg2);
+    s.tmp_1 = controller_Button__C2203_v0_1_mk(s);
+    s.tmp_1.arg0 = s.arg1;
+    if (!checkSubtype(s.tmp_1.arg0, controller_Button__C2203_VT)) failedCast(s.tmp_1.arg0);
+    s.tmp_1.fn = s.tmp_1.arg0.vtable.methods.isPressed;
+    s.pc = 3; return s.tmp_1;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = (s.arg0).fields["enabled"] = (false);
+    r0 = pxsim_pxtcore_mkAction(3, enableHandler_inline__P16826);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 1, s.arg1);
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 2, s.enableHandler___16825);
+    s.enableHandler___16825 = (s.tmp_0);
+    s.tmp_0 = controller_Button_addEventListener__P2211_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_0.arg1 = 2048;
+    s.tmp_0.arg2 = s.enableHandler___16825;
+    s.callLocIdx = 1905; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    { step = 2; continue; }
+  case 1:
+    r0 = (s.arg0).fields["enabled"] = (true);
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_ButtonHandler_constructor__P7345.info = {"start":26412,"length":916,"line":792,"column":8,"endLine":813,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this","button","handler"]}
+
+function miniMenu_ButtonHandler_constructor__P7345_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_ButtonHandler_constructor__P7345, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  enableHandler___16825: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function enableHandler_inline__P16826(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    r0 = (s.caps[0]).fields["enabled"] = (true);
+    s.tmp_0 = controller_Button_removeEventListener__P2212_mk(s);
+    s.tmp_0.arg0 = s.caps[1];
+    s.tmp_0.arg1 = 2048;
+    s.tmp_0.arg2 = s.caps[2];
+    s.callLocIdx = 1904; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+enableHandler_inline__P16826.info = {"start":26975,"length":164,"line":804,"column":38,"endLine":807,"endColumn":17,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
+
+function enableHandler_inline__P16826_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: enableHandler_inline__P16826, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function controller_Button_removeEventListener__P2212(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.handlerState___16843 = undefined;
+    s.i___16851 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
+    s.tmp_0 = controller_Button_handlerState__P5192_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 260; s.pc = 12; return s.tmp_0;
+  case 12:
+    r0 = s.retval;
+    s.handlerState___16843 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.handlerState___16843);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.handlerState___16843.fields["system"];
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_2);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_4);
+    if (!r0) { step = 3; continue; }
+    { step = 11; continue; }
+  case 3:
+  case 4:
+    s.i___16851 = (0);
+  case 5:
+    s.tmp_1 = r0 = s.i___16851;
+    r0 = s.handlerState___16843.fields["system"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__length(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 10; continue; }
+    r0 = s.handlerState___16843.fields["system"];
+    s.tmp_6 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_6, s.i___16851);
+    r0 = r0.fields["event"];
+    s.tmp_5 = r0;
+    r0 = (s.tmp_5 === s.arg1);
+    s.tmp_4 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_4);
+    if (r0) { step = 6; continue; }
+    r0 = s.tmp_4;
+    { step = 7; continue; }
+  case 6:
+    r0 = s.handlerState___16843.fields["system"];
+    s.tmp_8 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_8, s.i___16851);
+    r0 = r0.fields["callback"];
+    s.tmp_7 = r0;
+    r0 = (s.tmp_7 === s.arg2);
+  case 7:
+    // jmp value (already in r0)
+    s.tmp_9 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_9);
+    if (!r0) { step = 8; continue; }
+    s.tmp_10 = helpers_arraySplice__P100_mk(s);
+    r0 = s.handlerState___16843.fields["system"];
+    s.tmp_10.arg0 = r0;
+    s.tmp_10.arg1 = s.i___16851;
+    s.tmp_10.arg2 = 1;
+    s.callLocIdx = 261; s.pc = 13; return s.tmp_10;
+  case 13:
+    r0 = s.retval;
+    { step = 11; continue; }
+  case 8:
+  case 9:
+    r0 = (s.i___16851 + 1);
+    s.i___16851 = (r0);
+    { step = 5; continue; }
+  case 10:
+  case 11:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+controller_Button_removeEventListener__P2212.info = {"start":5179,"length":487,"line":157,"column":8,"endLine":167,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"removeEventListener","argumentNames":["this","event","handler"]}
+
+function controller_Button_removeEventListener__P2212_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller_Button_removeEventListener__P2212, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  handlerState___16843: undefined,
+  i___16851: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function miniMenu_MenuSprite_moveSelection__P4500(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.oldSelection___16550 = undefined;
+    s.column___16637 = undefined;
+    s.row___16644 = undefined;
+    s.maxRows___16652 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
+    r0 = s.arg0.fields["items"];
+    s.tmp_2 = r0;
+    r0 = pxsim_Array__length(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    { step = 39; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["selectedIndex"];
+    s.oldSelection___16550 = (r0);
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2020; s.pc = 40; return s.tmp_2;
+  case 40:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 <= 1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 3; continue; }
+    r0 = s.tmp_0;
+    { step = 4; continue; }
+  case 3:
+    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_4.arg0 = r0;
+    s.callLocIdx = 2021; s.pc = 41; return s.tmp_4;
+  case 41:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === 0);
+  case 4:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 9; continue; }
+    r0 = (s.arg1 === 0);
+    s.tmp_6 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
+    if (!r0) { step = 5; continue; }
+    s.tmp_7 = r0 = s.arg0;
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_11 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_13 = r0;
+    r0 = pxsim_Array__length(s.tmp_13);
+    s.tmp_12 = r0;
+    r0 = (s.tmp_11 + s.tmp_12);
+    s.tmp_10 = r0;
+    r0 = (s.tmp_10 - 1);
+    s.tmp_9 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_15 = r0;
+    r0 = pxsim_Array__length(s.tmp_15);
+    s.tmp_14 = r0;
+    r0 = (s.tmp_9 % s.tmp_14);
+    s.tmp_8 = r0;
+    r0 = (s.tmp_7).fields["selectedIndex"] = (s.tmp_8);
+    { step = 8; continue; }
+  case 5:
+    r0 = (s.arg1 === 1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 6; continue; }
+    s.tmp_1 = r0 = s.arg0;
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 + 1);
+    s.tmp_3 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_6 = r0;
+    r0 = pxsim_Array__length(s.tmp_6);
+    s.tmp_5 = r0;
+    r0 = (s.tmp_3 % s.tmp_5);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1).fields["selectedIndex"] = (s.tmp_2);
+    { step = 7; continue; }
+  case 6:
+    { step = 39; continue; }
+  case 7:
+  case 8:
+    r0 = (s.arg0).fields["scrollAnimationTick"] = (0);
+    { step = 34; continue; }
+  case 9:
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2022; s.pc = 42; return s.tmp_2;
+  case 42:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 10; continue; }
+    r0 = s.tmp_0;
+    { step = 11; continue; }
+  case 10:
+    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_4.arg0 = r0;
+    s.callLocIdx = 2023; s.pc = 43; return s.tmp_4;
+  case 43:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 === 1);
+  case 11:
+    // jmp value (already in r0)
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    if (!r0) { step = 16; continue; }
+    r0 = (s.arg1 === 2);
+    s.tmp_6 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
+    if (!r0) { step = 12; continue; }
+    s.tmp_7 = r0 = s.arg0;
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_11 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_13 = r0;
+    r0 = pxsim_Array__length(s.tmp_13);
+    s.tmp_12 = r0;
+    r0 = (s.tmp_11 + s.tmp_12);
+    s.tmp_10 = r0;
+    r0 = (s.tmp_10 - 1);
+    s.tmp_9 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_15 = r0;
+    r0 = pxsim_Array__length(s.tmp_15);
+    s.tmp_14 = r0;
+    r0 = (s.tmp_9 % s.tmp_14);
+    s.tmp_8 = r0;
+    r0 = (s.tmp_7).fields["selectedIndex"] = (s.tmp_8);
+    { step = 15; continue; }
+  case 12:
+    r0 = (s.arg1 === 3);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 13; continue; }
+    s.tmp_1 = r0 = s.arg0;
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 + 1);
+    s.tmp_3 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_6 = r0;
+    r0 = pxsim_Array__length(s.tmp_6);
+    s.tmp_5 = r0;
+    r0 = (s.tmp_3 % s.tmp_5);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1).fields["selectedIndex"] = (s.tmp_2);
+    { step = 14; continue; }
+  case 13:
+    { step = 39; continue; }
+  case 14:
+  case 15:
+    r0 = (s.arg0).fields["scrollAnimationTick"] = (0);
+    { step = 33; continue; }
+  case 16:
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_0 = r0;
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2024; s.pc = 44; return s.tmp_2;
+  case 44:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 % s.tmp_1);
+    s.column___16637 = (r0);
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_0 = r0;
+    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 2025; s.pc = 45; return s.tmp_2;
+  case 45:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim.Math_.idiv(s.tmp_0, s.tmp_1);
+    s.row___16644 = (r0);
+    r0 = s.arg0.fields["items"];
+    s.tmp_2 = r0;
+    r0 = pxsim_Array__length(s.tmp_2);
+    s.tmp_1 = r0;
+    s.tmp_4 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_4.arg0 = r0;
+    s.callLocIdx = 2026; s.pc = 46; return s.tmp_4;
+  case 46:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_1 / s.tmp_3);
+    s.tmp_0 = r0;
+    r0 = pxsim.Math_.ceil(s.tmp_0);
+    s.maxRows___16652 = (r0);
+    r0 = (s.arg1 === 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 19; continue; }
+    r0 = (s.row___16644 + s.maxRows___16652);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 - 1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 % s.maxRows___16652);
+    s.row___16644 = (r0);
+    s.tmp_2 = r0 = s.column___16637;
+    s.tmp_4 = r0 = s.row___16644;
+    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_6.arg0 = r0;
+    s.callLocIdx = 2027; s.pc = 47; return s.tmp_6;
+  case 47:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 * s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_2 + s.tmp_3);
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_8 = r0;
+    r0 = pxsim_Array__length(s.tmp_8);
+    s.tmp_7 = r0;
+    r0 = (s.tmp_1 >= s.tmp_7);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 17; continue; }
+    r0 = (s.maxRows___16652 - 2);
+    s.row___16644 = (r0);
+  case 17:
+  case 18:
+    { step = 32; continue; }
+  case 19:
+    r0 = (s.arg1 === 1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 22; continue; }
+    r0 = (s.row___16644 + 1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 % s.maxRows___16652);
+    s.row___16644 = (r0);
+    s.tmp_2 = r0 = s.column___16637;
+    s.tmp_4 = r0 = s.row___16644;
+    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_6.arg0 = r0;
+    s.callLocIdx = 2028; s.pc = 48; return s.tmp_6;
+  case 48:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 * s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_2 + s.tmp_3);
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_8 = r0;
+    r0 = pxsim_Array__length(s.tmp_8);
+    s.tmp_7 = r0;
+    r0 = (s.tmp_1 >= s.tmp_7);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 20; continue; }
+    s.row___16644 = (0);
+  case 20:
+  case 21:
+    { step = 31; continue; }
+  case 22:
+    r0 = (s.arg1 === 2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 25; continue; }
+    s.tmp_3 = r0 = s.column___16637;
+    s.tmp_5 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_5.arg0 = r0;
+    s.callLocIdx = 2029; s.pc = 49; return s.tmp_5;
+  case 49:
+    r0 = s.retval;
+    s.tmp_4 = r0;
+    r0 = (s.tmp_3 + s.tmp_4);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 - 1);
+    s.tmp_1 = r0;
+    s.tmp_7 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_7.arg0 = r0;
+    s.callLocIdx = 2030; s.pc = 50; return s.tmp_7;
+  case 50:
+    r0 = s.retval;
+    s.tmp_6 = r0;
+    r0 = (s.tmp_1 % s.tmp_6);
+    s.column___16637 = (r0);
+    s.tmp_2 = r0 = s.column___16637;
+    s.tmp_4 = r0 = s.row___16644;
+    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_6.arg0 = r0;
+    s.callLocIdx = 2031; s.pc = 51; return s.tmp_6;
+  case 51:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 * s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_2 + s.tmp_3);
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_8 = r0;
+    r0 = pxsim_Array__length(s.tmp_8);
+    s.tmp_7 = r0;
+    r0 = (s.tmp_1 >= s.tmp_7);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 23; continue; }
+    r0 = s.arg0.fields["items"];
+    s.tmp_11 = r0;
+    r0 = pxsim_Array__length(s.tmp_11);
+    s.tmp_10 = r0;
+    r0 = (s.tmp_10 - 1);
+    s.tmp_9 = r0;
+    s.tmp_13 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_13.arg0 = r0;
+    s.callLocIdx = 2032; s.pc = 52; return s.tmp_13;
+  case 52:
+    r0 = s.retval;
+    s.tmp_12 = r0;
+    r0 = (s.tmp_9 % s.tmp_12);
+    s.column___16637 = (r0);
+  case 23:
+  case 24:
+    { step = 30; continue; }
+  case 25:
+    r0 = (s.arg1 === 3);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 28; continue; }
+    r0 = (s.column___16637 + 1);
+    s.tmp_1 = r0;
+    s.tmp_3 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 2033; s.pc = 53; return s.tmp_3;
+  case 53:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 % s.tmp_2);
+    s.column___16637 = (r0);
+    s.tmp_2 = r0 = s.column___16637;
+    s.tmp_4 = r0 = s.row___16644;
+    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_6.arg0 = r0;
+    s.callLocIdx = 2034; s.pc = 54; return s.tmp_6;
+  case 54:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 * s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_2 + s.tmp_3);
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_8 = r0;
+    r0 = pxsim_Array__length(s.tmp_8);
+    s.tmp_7 = r0;
+    r0 = (s.tmp_1 >= s.tmp_7);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 26; continue; }
+    s.column___16637 = (0);
+  case 26:
+  case 27:
+  case 28:
+  case 29:
+  case 30:
+  case 31:
+  case 32:
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = r0 = s.column___16637;
+    s.tmp_4 = r0 = s.row___16644;
+    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
+    r0 = s.arg0.fields["menuStyle"];
+    s.tmp_6.arg0 = r0;
+    s.callLocIdx = 2035; s.pc = 55; return s.tmp_6;
+  case 55:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 * s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_2 + s.tmp_3);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["selectedIndex"] = (s.tmp_1);
+    r0 = (s.arg0).fields["scrollAnimationTick"] = (0);
+  case 33:
+  case 34:
+    s.tmp_0 = miniMenu_MenuSprite_updateDimensions__P4512_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 2036; s.pc = 56; return s.tmp_0;
+  case 56:
+    r0 = s.retval;
+    r0 = s.arg0.fields["itemSelectedHandler"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 35; continue; }
+    r0 = s.tmp_0;
+    { step = 36; continue; }
+  case 35:
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_1 = r0;
+    r0 = (s.oldSelection___16550 !== s.tmp_1);
+  case 36:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 37; continue; }
+    s.tmp_3 = if_itemSelectedHandler_3_mk(s);
+    s.tmp_3.arg0 = s.arg0;
+    r0 = s.arg0.fields["items"];
+    s.tmp_4 = r0;
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_5 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_4, s.tmp_5);
+    r0 = r0.fields["text"];
+    s.tmp_3.arg1 = r0;
+    r0 = s.arg0.fields["selectedIndex"];
+    s.tmp_3.arg2 = r0;
+    if (!s.tmp_3.arg0.vtable.iface) {
+      setupLambda(s.tmp_3, pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "itemSelectedHandler"), 3);
+      s.callLocIdx = 2037; s.pc = 57; return s.tmp_3;
+    } else {
+      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["itemSelectedHandler"];
+      if (s.tmp_3.fn == null) { setupLambda(s.tmp_3, s.tmp_3.arg0.fields["itemSelectedHandler"], 3); s.callLocIdx = 2037; s.pc = 57; return s.tmp_3; }
+      else if (s.tmp_3.fn.isGetter) { s.tmp_3.stage2Call = true; s.callLocIdx = 2037; s.pc = 57; return s.tmp_3;; }
+     else { s.callLocIdx = 2037; s.pc = 57; return s.tmp_3; }
+    }
+  case 57:
+    r0 = s.retval;
+  case 37:
+  case 38:
+  case 39:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+miniMenu_MenuSprite_moveSelection__P4500.info = {"start":38857,"length":3157,"line":1089,"column":8,"endLine":1159,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"moveSelection","argumentNames":["this","direction"]}
+
+function miniMenu_MenuSprite_moveSelection__P4500_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: miniMenu_MenuSprite_moveSelection__P4500, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  tmp_11: undefined,
+  tmp_12: undefined,
+  tmp_13: undefined,
+  tmp_14: undefined,
+  tmp_15: undefined,
+  oldSelection___16550: undefined,
+  column___16637: undefined,
+  row___16644: undefined,
+  maxRows___16652: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function sprites_ExtendableSprite_constructor__P2452(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.scene___16884 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_ExtendableSprite__C2451_VT)) failedCast(r0);
+    s.tmp_0 = Sprite_constructor__P2403_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.arg1;
+    s.callLocIdx = 682; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = game_currentScene__P3033_mk(s);
+    s.callLocIdx = 683; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    s.scene___16884 = (r0);
+    s.tmp_0 = Sprite_setKind__P2423_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.arg2;
+    s.callLocIdx = 684; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = PhysicsEngine__C2527_v0_2_mk(s);
+    r0 = s.scene___16884.fields["physicsEngine"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    if (!checkSubtype(s.tmp_0.arg0, PhysicsEngine__C2527_VT)) failedCast(s.tmp_0.arg0);
+    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.addSprite;
+    s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, forEach_inline__P16896);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg2);
+    r0 = pxsim_pxtcore_mkAction(1, sprites_ExtendableSprite_inline__P16902);
+    s.tmp_1 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_1, 0, s.arg0);
+    s.tmp_2 = helpers_arrayForEach__P109_mk(s);
+    s.tmp_3 = helpers_arrayFilter__P110_mk(s);
+    r0 = s.scene___16884.fields["createdHandlers"];
+    s.tmp_3.arg0 = r0;
+    s.tmp_3.arg1 = s.tmp_0;
+    s.callLocIdx = 685; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    s.tmp_2.arg0 = r0;
+    s.tmp_2.arg1 = s.tmp_1;
+    s.callLocIdx = 687; s.pc = 5; return s.tmp_2;
+  case 5:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["hasCustomDimensions"] = (false);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_ExtendableSprite_constructor__P2452.info = {"start":386,"length":437,"line":11,"column":8,"endLine":24,"endColumn":9,"fileName":"pxt_modules/game/extendableSprite.ts","functionName":"inline","argumentNames":["this","spriteImage","kind"]}
+
+function sprites_ExtendableSprite_constructor__P2452_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_ExtendableSprite_constructor__P2452, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  scene___16884: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function forEach_inline__P16896(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0.fields["kind"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 == s.caps[0]);
+    return leave(s, r0)
+  default: oops()
+} } }
+forEach_inline__P16896.info = {"start":698,"length":19,"line":20,"column":24,"endLine":20,"endColumn":43,"fileName":"pxt_modules/game/extendableSprite.ts","functionName":"inline","argumentNames":["h"]}
+
+function forEach_inline__P16896_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: forEach_inline__P16896, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function sprites_ExtendableSprite_inline__P16902(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = if_handler_2_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.caps[0];
+    if (!s.tmp_0.arg0.vtable.iface) {
+      setupLambda(s.tmp_0, pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "handler"), 2);
+      s.callLocIdx = 686; s.pc = 1; return s.tmp_0;
+    } else {
+      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["handler"];
+      if (s.tmp_0.fn == null) { setupLambda(s.tmp_0, s.tmp_0.arg0.fields["handler"], 2); s.callLocIdx = 686; s.pc = 1; return s.tmp_0; }
+      else if (s.tmp_0.fn.isGetter) { s.tmp_0.stage2Call = true; s.callLocIdx = 686; s.pc = 1; return s.tmp_0;; }
+     else { s.callLocIdx = 686; s.pc = 1; return s.tmp_0; }
+    }
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_ExtendableSprite_inline__P16902.info = {"start":744,"length":20,"line":21,"column":25,"endLine":21,"endColumn":45,"fileName":"pxt_modules/game/extendableSprite.ts","functionName":"inline","argumentNames":["h"]}
+
+function sprites_ExtendableSprite_inline__P16902_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_ExtendableSprite_inline__P16902, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function Sprite_y__P2371(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2355_VT)) failedCast(r0);
+    s.tmp_0 = Sprite_top__P2419_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_1 = r0 = s.arg1;
+    s.tmp_4 = Sprite_height__P2413_mk(s);
+    s.tmp_4.arg0 = s.arg0;
+    s.callLocIdx = 511; s.pc = 2; return s.tmp_4;
+  case 2:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 / 2);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 - s.tmp_2);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 512; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_y__P2371.info = {"start":3081,"length":65,"line":126,"column":4,"endLine":128,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"y","argumentNames":["this","v"]}
+
+function Sprite_y__P2371_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_y__P2371, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function Sprite_top__P2419(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.physics___16414 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2355_VT)) failedCast(r0);
+    s.tmp_0 = game_currentScene__P3033_mk(s);
+    s.callLocIdx = 560; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = r0.fields["physicsEngine"];
+    s.physics___16414 = (r0);
+    s.tmp_0 = PhysicsEngine__C2527_v2_4_mk(s);
+    s.tmp_0.arg0 = s.physics___16414;
+    s.tmp_0.arg1 = s.arg0;
+    s.tmp_0.arg2 = 0;
+    r0 = (s.arg1 * 256);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 | 0);
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["_y"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_1 - s.tmp_3);
+    s.tmp_0.arg3 = r0;
+    if (!checkSubtype(s.tmp_0.arg0, PhysicsEngine__C2527_VT)) failedCast(s.tmp_0.arg0);
+    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.moveSprite;
+    s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_top__P2419.info = {"start":11718,"length":256,"line":422,"column":4,"endLine":432,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"top","argumentNames":["this","value"]}
+
+function Sprite_top__P2419_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_top__P2419, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  physics___16414: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function PhysicsEngine_moveSprite__P2531(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.arg3 = (s.lambdaArgs[3]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, PhysicsEngine__C2527_VT)) failedCast(r0);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+PhysicsEngine_moveSprite__P2531.info = {"start":230,"length":43,"line":13,"column":4,"endLine":13,"endColumn":47,"fileName":"pxt_modules/game/physics.ts","functionName":"moveSprite","argumentNames":["this","s","dx","dy"]}
+
+function PhysicsEngine_moveSprite__P2531_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: PhysicsEngine_moveSprite__P2531, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+} }
+
+
+
+
+
+function Sprite_x__P2369(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2355_VT)) failedCast(r0);
+    s.tmp_0 = Sprite_left__P2415_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_1 = r0 = s.arg1;
+    s.tmp_4 = Sprite_width__P2412_mk(s);
+    s.tmp_4.arg0 = s.arg0;
+    s.callLocIdx = 506; s.pc = 2; return s.tmp_4;
+  case 2:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 / 2);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 - s.tmp_2);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 507; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_x__P2369.info = {"start":2724,"length":65,"line":115,"column":4,"endLine":117,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"x","argumentNames":["this","v"]}
+
+function Sprite_x__P2369_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_x__P2369, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function Sprite_left__P2415(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.physics___16439 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2355_VT)) failedCast(r0);
+    s.tmp_0 = game_currentScene__P3033_mk(s);
+    s.callLocIdx = 552; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = r0.fields["physicsEngine"];
+    s.physics___16439 = (r0);
+    s.tmp_0 = PhysicsEngine__C2527_v2_4_mk(s);
+    s.tmp_0.arg0 = s.physics___16439;
+    s.tmp_0.arg1 = s.arg0;
+    r0 = (s.arg1 * 256);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 | 0);
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["_x"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_1 - s.tmp_3);
+    s.tmp_0.arg2 = r0;
+    s.tmp_0.arg3 = 0;
+    if (!checkSubtype(s.tmp_0.arg0, PhysicsEngine__C2527_VT)) failedCast(s.tmp_0.arg0);
+    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.moveSprite;
+    s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_left__P2415.info = {"start":10884,"length":257,"line":392,"column":4,"endLine":402,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"left","argumentNames":["this","value"]}
+
+function Sprite_left__P2415_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_left__P2415, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  physics___16439: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function listSelection__P118757(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.selectedOption___119040 = undefined;
+    s.SystemSettings___119049 = undefined;
+    s.FileAtSelection___119109 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -13508,53 +21660,53 @@ switch (step) {
       s.arg4 = (s.lambdaArgs[4]);
       s.lambdaArgs = null;
     }
-    s.selectedOption___32914 = (0);
+    s.selectedOption___119040 = (0);
     r0 = (s.arg4 == 0);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    r0 = (s.arg1 + globals.List_Scroll___32243);
-    s.selectedOption___32914 = (r0);
+    r0 = (s.arg1 + globals.List_Scroll___118351);
+    s.selectedOption___119040 = (r0);
     { step = 2; continue; }
   case 1:
-    s.selectedOption___32914 = (s.arg4);
+    s.selectedOption___119040 = (s.arg4);
   case 2:
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_2.arg0 = "Back";
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 396; s.pc = 134; return s.tmp_2;
-  case 134:
+    s.callLocIdx = 403; s.pc = 133; return s.tmp_2;
+  case 133:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_1);
     s.tmp_4 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_4.arg0 = "Data Management";
     s.tmp_4.arg1 = undefined;
-    s.callLocIdx = 397; s.pc = 135; return s.tmp_4;
-  case 135:
+    s.callLocIdx = 404; s.pc = 134; return s.tmp_4;
+  case 134:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_3);
     s.tmp_6 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_6.arg0 = "System Information";
     s.tmp_6.arg1 = undefined;
-    s.callLocIdx = 398; s.pc = 136; return s.tmp_6;
-  case 136:
+    s.callLocIdx = 405; s.pc = 135; return s.tmp_6;
+  case 135:
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_5);
     s.tmp_8 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_8.arg0 = "Time Settings";
     s.tmp_8.arg1 = undefined;
-    s.callLocIdx = 399; s.pc = 137; return s.tmp_8;
-  case 137:
+    s.callLocIdx = 406; s.pc = 136; return s.tmp_8;
+  case 136:
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
-    s.SystemSettings___32923 = (s.tmp_0);
-    globals.defined_menu___32241 = ("none");
+    s.SystemSettings___119049 = (s.tmp_0);
+    globals.defined_menu___118349 = ("none");
     r0 = (s.arg0 == "File Manager");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
@@ -13570,122 +21722,122 @@ switch (step) {
     r0 = s.tmp_2;
     { step = 4; continue; }
   case 3:
-    r0 = (s.selectedOption___32914 !== 1);
+    r0 = (s.selectedOption___119040 !== 1);
   case 4:
     // jmp value (already in r0)
     s.tmp_3 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_3);
     if (!r0) { step = 5; continue; }
-    r0 = (1 + s.selectedOption___32914);
-    { step = 133; continue; }
+    globals.rclick_override___118353 = (s.selectedOption___119040);
+    globals.current_rclick_menu___118355 = (globals.rclick_menu_files___118654);
     { step = 28; continue; }
   case 5:
     r0 = (s.arg3 == "click");
-    s.tmp_4 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_4);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
     if (!r0) { step = 6; continue; }
-    r0 = s.tmp_4;
+    r0 = s.tmp_0;
     { step = 7; continue; }
   case 6:
     r0 = (s.arg3 == "open");
   case 7:
     // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 26; continue; }
-    r0 = (s.selectedOption___32914 == 1);
-    s.tmp_6 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
+    r0 = (s.selectedOption___119040 == 1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 8; continue; }
-    globals.SubMenu___32278 = ("Home");
-    s.tmp_0 = Open_FileManager__P32642_mk(s);
-    s.callLocIdx = 400; s.pc = 138; return s.tmp_0;
-  case 138:
+    globals.SubMenu___118390 = ("Home");
+    s.tmp_0 = Open_FileManager__P118754_mk(s);
+    s.callLocIdx = 407; s.pc = 137; return s.tmp_0;
+  case 137:
     r0 = s.retval;
     { step = 25; continue; }
   case 8:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 9; continue; }
     s.tmp_1 = game_reset__P3544_mk(s);
-    s.callLocIdx = 401; s.pc = 139; return s.tmp_1;
-  case 139:
+    s.callLocIdx = 408; s.pc = 138; return s.tmp_1;
+  case 138:
     r0 = s.retval;
     { step = 24; continue; }
   case 9:
-    r0 = (s.selectedOption___32914 == 3);
+    r0 = (s.selectedOption___119040 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 10; continue; }
-    s.tmp_1 = error__P32556_mk(s);
+    s.tmp_1 = error__P118668_mk(s);
     s.tmp_1.arg0 = 105;
-    s.callLocIdx = 402; s.pc = 140; return s.tmp_1;
-  case 140:
+    s.callLocIdx = 409; s.pc = 139; return s.tmp_1;
+  case 139:
     r0 = s.retval;
     { step = 23; continue; }
   case 10:
-    r0 = (s.selectedOption___32914 == 4);
+    r0 = (s.selectedOption___119040 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 11; continue; }
-    s.tmp_1 = Open_FileManager__P32642_mk(s);
-    s.callLocIdx = 403; s.pc = 141; return s.tmp_1;
-  case 141:
+    s.tmp_1 = Open_FileManager__P118754_mk(s);
+    s.callLocIdx = 410; s.pc = 140; return s.tmp_1;
+  case 140:
     r0 = s.retval;
     { step = 22; continue; }
   case 11:
-    r0 = (s.selectedOption___32914 == 5);
+    r0 = (s.selectedOption___119040 == 5);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 12; continue; }
-    s.tmp_1 = Open_Write__P32639_mk(s);
+    s.tmp_1 = Open_Write__P118751_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_1.arg0 = r0;
-    s.callLocIdx = 404; s.pc = 142; return s.tmp_1;
-  case 142:
+    s.callLocIdx = 411; s.pc = 141; return s.tmp_1;
+  case 141:
     r0 = s.retval;
     { step = 21; continue; }
   case 12:
-    r0 = (s.selectedOption___32914 == 6);
+    r0 = (s.selectedOption___119040 == 6);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 13; continue; }
-    s.tmp_1 = Open_xCell__P32638_mk(s);
+    s.tmp_1 = Open_xCell__P118750_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_1.arg0 = r0;
-    s.callLocIdx = 405; s.pc = 143; return s.tmp_1;
-  case 143:
+    s.callLocIdx = 412; s.pc = 142; return s.tmp_1;
+  case 142:
     r0 = s.retval;
     { step = 20; continue; }
   case 13:
-    r0 = (s.selectedOption___32914 == 7);
+    r0 = (s.selectedOption___119040 == 7);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 14; continue; }
-    s.tmp_1 = Open_Settings__P32640_mk(s);
-    s.callLocIdx = 406; s.pc = 144; return s.tmp_1;
-  case 144:
+    s.tmp_1 = Open_Settings__P118752_mk(s);
+    s.callLocIdx = 413; s.pc = 143; return s.tmp_1;
+  case 143:
     r0 = s.retval;
     { step = 19; continue; }
   case 14:
-    r0 = (s.selectedOption___32914 == 8);
+    r0 = (s.selectedOption___119040 == 8);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 15; continue; }
-    s.tmp_1 = Open_Web__P32637_mk(s);
-    s.callLocIdx = 407; s.pc = 145; return s.tmp_1;
-  case 145:
+    s.tmp_1 = Open_Web__P118749_mk(s);
+    s.callLocIdx = 414; s.pc = 144; return s.tmp_1;
+  case 144:
     r0 = s.retval;
     { step = 18; continue; }
   case 15:
-    r0 = (s.selectedOption___32914 == 9);
+    r0 = (s.selectedOption___119040 == 9);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 16; continue; }
-    s.tmp_1 = Open_NanoCode__P32641_mk(s);
-    s.callLocIdx = 408; s.pc = 146; return s.tmp_1;
-  case 146:
+    s.tmp_1 = Open_NanoCode__P118753_mk(s);
+    s.callLocIdx = 415; s.pc = 145; return s.tmp_1;
+  case 145:
     r0 = s.retval;
   case 16:
   case 17:
@@ -13699,10 +21851,10 @@ switch (step) {
   case 25:
     { step = 27; continue; }
   case 26:
-    s.tmp_0 = error__P32556_mk(s);
+    s.tmp_0 = error__P118668_mk(s);
     s.tmp_0.arg0 = 107;
-    s.callLocIdx = 409; s.pc = 147; return s.tmp_0;
-  case 147:
+    s.callLocIdx = 416; s.pc = 146; return s.tmp_0;
+  case 146:
     r0 = s.retval;
   case 27:
   case 28:
@@ -13714,21 +21866,21 @@ switch (step) {
     if (!r0) { step = 36; continue; }
     s.tmp_1 = helpers_stringSubstr__P118_mk(s);
     s.tmp_2 = JSON_stringify__P387_mk(s);
-    r0 = pxsim_Array__getAt(globals.User_Files___32252, s.selectedOption___32914);
+    r0 = pxsim_Array__getAt(globals.User_Files___118364, s.selectedOption___119040);
     s.tmp_2.arg0 = r0;
     s.tmp_2.arg1 = null;
     s.tmp_2.arg2 = 0;
-    s.callLocIdx = 410; s.pc = 149; return s.tmp_2;
-  case 149:
+    s.callLocIdx = 417; s.pc = 148; return s.tmp_2;
+  case 148:
     r0 = s.retval;
     s.tmp_1.arg0 = r0;
     s.tmp_5 = JSON_stringify__P387_mk(s);
-    r0 = pxsim_Array__getAt(globals.User_Files___32252, s.selectedOption___32914);
+    r0 = pxsim_Array__getAt(globals.User_Files___118364, s.selectedOption___119040);
     s.tmp_5.arg0 = r0;
     s.tmp_5.arg1 = null;
     s.tmp_5.arg2 = 0;
-    s.callLocIdx = 411; s.pc = 150; return s.tmp_5;
-  case 150:
+    s.callLocIdx = 418; s.pc = 149; return s.tmp_5;
+  case 149:
     r0 = s.retval;
     s.tmp_4 = r0;
     r0 = pxsim_String_.indexOf(s.tmp_4, "\"", undefined);
@@ -13736,21 +21888,21 @@ switch (step) {
     r0 = (s.tmp_3 + 1);
     s.tmp_1.arg1 = r0;
     s.tmp_7 = JSON_stringify__P387_mk(s);
-    r0 = pxsim_Array__getAt(globals.User_Files___32252, s.selectedOption___32914);
+    r0 = pxsim_Array__getAt(globals.User_Files___118364, s.selectedOption___119040);
     s.tmp_7.arg0 = r0;
     s.tmp_7.arg1 = null;
     s.tmp_7.arg2 = 0;
-    s.callLocIdx = 412; s.pc = 151; return s.tmp_7;
-  case 151:
+    s.callLocIdx = 419; s.pc = 150; return s.tmp_7;
+  case 150:
     r0 = s.retval;
     s.tmp_6 = r0;
     s.tmp_11 = JSON_stringify__P387_mk(s);
-    r0 = pxsim_Array__getAt(globals.User_Files___32252, s.selectedOption___32914);
+    r0 = pxsim_Array__getAt(globals.User_Files___118364, s.selectedOption___119040);
     s.tmp_11.arg0 = r0;
     s.tmp_11.arg1 = null;
     s.tmp_11.arg2 = 0;
-    s.callLocIdx = 413; s.pc = 152; return s.tmp_11;
-  case 152:
+    s.callLocIdx = 420; s.pc = 151; return s.tmp_11;
+  case 151:
     r0 = s.retval;
     s.tmp_10 = r0;
     r0 = pxsim_String_.indexOf(s.tmp_10, "\"", undefined);
@@ -13759,18 +21911,18 @@ switch (step) {
     s.tmp_8 = r0;
     r0 = pxsim_String_.indexOf(s.tmp_6, "\"", s.tmp_8);
     s.tmp_1.arg2 = r0;
-    s.callLocIdx = 414; s.pc = 148; return s.tmp_1;
-  case 148:
+    s.callLocIdx = 421; s.pc = 147; return s.tmp_1;
+  case 147:
     r0 = s.retval;
-    s.FileAtSelection___32982 = (r0);
-    r0 = (s.FileAtSelection___32982 == "Home");
+    s.FileAtSelection___119109 = (r0);
+    r0 = (s.FileAtSelection___119109 == "Home");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 30; continue; }
-    globals.SubMenu___32278 = ("Home");
-    s.tmp_0 = Open_FileManager__P32642_mk(s);
-    s.callLocIdx = 415; s.pc = 153; return s.tmp_0;
-  case 153:
+    globals.SubMenu___118390 = ("Home");
+    s.tmp_0 = Open_FileManager__P118754_mk(s);
+    s.callLocIdx = 422; s.pc = 152; return s.tmp_0;
+  case 152:
     r0 = s.retval;
     { step = 35; continue; }
   case 30:
@@ -13787,10 +21939,10 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 33; continue; }
-    globals.SubMenu___32278 = ("Home");
-    s.tmp_0 = Open_FileManager__P32642_mk(s);
-    s.callLocIdx = 416; s.pc = 154; return s.tmp_0;
-  case 154:
+    globals.SubMenu___118390 = ("Home");
+    s.tmp_0 = Open_FileManager__P118754_mk(s);
+    s.callLocIdx = 423; s.pc = 153; return s.tmp_0;
+  case 153:
     r0 = s.retval;
   case 33:
   case 34:
@@ -13802,63 +21954,63 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 41; continue; }
     s.tmp_1 = miniMenu_MenuSprite_close__P4501_mk(s);
-    s.tmp_1.arg0 = globals.ListMenuGUI___32217;
-    s.callLocIdx = 417; s.pc = 155; return s.tmp_1;
-  case 155:
+    s.tmp_1.arg0 = globals.ListMenuGUI___118325;
+    s.callLocIdx = 424; s.pc = 154; return s.tmp_1;
+  case 154:
     r0 = s.retval;
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 37; continue; }
-    globals.SubMenu___32278 = ("System");
-    globals.ListMenuContents___32251 = (globals.System_Files___32256);
+    globals.SubMenu___118390 = ("System");
+    globals.ListMenuContents___118363 = (globals.System_Files___118368);
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.System_Files___32256;
-    s.callLocIdx = 418; s.pc = 156; return s.tmp_0;
-  case 156:
+    s.tmp_0.arg0 = globals.System_Files___118368;
+    s.callLocIdx = 425; s.pc = 155; return s.tmp_0;
+  case 155:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
     { step = 40; continue; }
   case 37:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 38; continue; }
-    globals.SubMenu___32278 = ("User");
-    globals.ListMenuContents___32251 = (globals.User_Files___32252);
+    globals.SubMenu___118390 = ("User");
+    globals.ListMenuContents___118363 = (globals.User_Files___118364);
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.User_Files___32252;
-    s.callLocIdx = 419; s.pc = 157; return s.tmp_0;
-  case 157:
+    s.tmp_0.arg0 = globals.User_Files___118364;
+    s.callLocIdx = 426; s.pc = 156; return s.tmp_0;
+  case 156:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
   case 38:
   case 39:
   case 40:
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = false;
-    s.callLocIdx = 420; s.pc = 158; return s.tmp_0;
-  case 158:
+    s.callLocIdx = 427; s.pc = 157; return s.tmp_0;
+  case 157:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
     s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.setDimensions;
-    s.pc = 159; return s.tmp_0;
-  case 159:
+    s.pc = 158; return s.tmp_0;
+  case 158:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
-    s.callLocIdx = 421; s.pc = 160; return s.tmp_0;
-  case 160:
+    s.callLocIdx = 428; s.pc = 159; return s.tmp_0;
+  case 159:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -13866,9 +22018,9 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 422; s.pc = 161; return s.tmp_0; }
+     else { s.callLocIdx = 429; s.pc = 160; return s.tmp_0; }
     }
-  case 161:
+  case 160:
     r0 = s.retval;
   case 41:
   case 42:
@@ -13884,7 +22036,7 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 54; continue; }
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 46; continue; }
@@ -13893,25 +22045,25 @@ switch (step) {
     s.tmp_5 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_5.arg0 = "Back";
     s.tmp_5.arg1 = undefined;
-    s.callLocIdx = 423; s.pc = 162; return s.tmp_5;
-  case 162:
+    s.callLocIdx = 430; s.pc = 161; return s.tmp_5;
+  case 161:
     r0 = s.retval;
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_3, s.tmp_4);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 3);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 3);
     s.tmp_6 = r0;
     r0 = pxsim_Array__push(s.tmp_3, s.tmp_6);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 2);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 2);
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_3, s.tmp_7);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 5);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 5);
     s.tmp_8 = r0;
     r0 = pxsim_Array__push(s.tmp_3, s.tmp_8);
-    globals.ListMenuContents___32251 = (s.tmp_3);
-    globals.SubMenu___32278 = ("Connectivity");
+    globals.ListMenuContents___118363 = (s.tmp_3);
+    globals.SubMenu___118390 = ("Connectivity");
     { step = 53; continue; }
   case 46:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 47; continue; }
@@ -13920,22 +22072,22 @@ switch (step) {
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_3.arg0 = "Back";
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 424; s.pc = 163; return s.tmp_3;
-  case 163:
+    s.callLocIdx = 431; s.pc = 162; return s.tmp_3;
+  case 162:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 0);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 0);
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_4);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 1);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 1);
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_5);
-    globals.ListMenuContents___32251 = (s.tmp_1);
-    globals.SubMenu___32278 = ("Input");
+    globals.ListMenuContents___118363 = (s.tmp_1);
+    globals.SubMenu___118390 = ("Input");
     { step = 52; continue; }
   case 47:
-    r0 = (s.selectedOption___32914 == 3);
+    r0 = (s.selectedOption___119040 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 48; continue; }
@@ -13944,24 +22096,24 @@ switch (step) {
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_3.arg0 = "Back";
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 425; s.pc = 164; return s.tmp_3;
-  case 164:
+    s.callLocIdx = 432; s.pc = 163; return s.tmp_3;
+  case 163:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 4);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 4);
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_4);
-    globals.ListMenuContents___32251 = (s.tmp_1);
-    globals.SubMenu___32278 = ("Customization");
+    globals.ListMenuContents___118363 = (s.tmp_1);
+    globals.SubMenu___118390 = ("Customization");
     { step = 51; continue; }
   case 48:
-    r0 = (s.selectedOption___32914 == 4);
+    r0 = (s.selectedOption___119040 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 49; continue; }
-    globals.ListMenuContents___32251 = (s.SystemSettings___32923);
-    globals.SubMenu___32278 = ("System");
+    globals.ListMenuContents___118363 = (s.SystemSettings___119049);
+    globals.SubMenu___118390 = ("System");
   case 49:
   case 50:
   case 51:
@@ -13973,52 +22125,52 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 63; continue; }
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 55; continue; }
-    s.tmp_2 = close_apps__P32581_mk(s);
-    s.callLocIdx = 426; s.pc = 165; return s.tmp_2;
-  case 165:
+    s.tmp_2 = close_apps__P118693_mk(s);
+    s.callLocIdx = 433; s.pc = 164; return s.tmp_2;
+  case 164:
     r0 = s.retval;
-    globals.SubMenu___32278 = ("Home");
-    s.tmp_0 = Open_Settings__P32640_mk(s);
-    s.callLocIdx = 427; s.pc = 166; return s.tmp_0;
-  case 166:
+    globals.SubMenu___118390 = ("Home");
+    s.tmp_0 = Open_Settings__P118752_mk(s);
+    s.callLocIdx = 434; s.pc = 165; return s.tmp_0;
+  case 165:
     r0 = s.retval;
     { step = 62; continue; }
   case 55:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 56; continue; }
-    s.tmp_1 = changeSettings__P32646_mk(s);
+    s.tmp_1 = changeSettings__P118758_mk(s);
     s.tmp_1.arg0 = 4;
-    s.callLocIdx = 428; s.pc = 167; return s.tmp_1;
-  case 167:
+    s.callLocIdx = 435; s.pc = 166; return s.tmp_1;
+  case 166:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___32251;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 3);
+    s.tmp_0 = r0 = globals.ListMenuContents___118363;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 3);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 1, s.tmp_1);
     { step = 61; continue; }
   case 56:
-    r0 = (s.selectedOption___32914 == 3);
+    r0 = (s.selectedOption___119040 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 57; continue; }
-    s.tmp_1 = changeSettings__P32646_mk(s);
+    s.tmp_1 = changeSettings__P118758_mk(s);
     s.tmp_1.arg0 = 3;
-    s.callLocIdx = 429; s.pc = 168; return s.tmp_1;
-  case 168:
+    s.callLocIdx = 436; s.pc = 167; return s.tmp_1;
+  case 167:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___32251;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 2);
+    s.tmp_0 = r0 = globals.ListMenuContents___118363;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 2);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 2, s.tmp_1);
     { step = 60; continue; }
   case 57:
-    r0 = (s.selectedOption___32914 == 4);
+    r0 = (s.selectedOption___119040 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 58; continue; }
@@ -14026,32 +22178,32 @@ switch (step) {
     s.tmp_1.arg0 = "Enter new username";
     s.tmp_1.arg1 = 7;
     s.tmp_1.arg2 = false;
-    s.callLocIdx = 430; s.pc = 169; return s.tmp_1;
-  case 169:
+    s.callLocIdx = 437; s.pc = 168; return s.tmp_1;
+  case 168:
     r0 = s.retval;
-    globals.Username___32244 = (r0);
+    globals.Username___118356 = (r0);
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "Username";
-    s.tmp_0.arg1 = globals.Username___32244;
-    s.callLocIdx = 431; s.pc = 170; return s.tmp_0;
-  case 170:
+    s.tmp_0.arg1 = globals.Username___118356;
+    s.callLocIdx = 438; s.pc = 169; return s.tmp_0;
+  case 169:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.Current_Settings___32276;
+    s.tmp_0 = r0 = globals.Current_Settings___118388;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
-    if ((globals.Username___32244) && (globals.Username___32244).vtable) {
-    setupResume(s, 172);
-    pxsim_String__stringConv(globals.Username___32244);
+    if ((globals.Username___118356) && (globals.Username___118356).vtable) {
+    setupResume(s, 171);
+    pxsim_String__stringConv(globals.Username___118356);
     checkResumeConsumed();
     return;
-    } else { s.retval = (globals.Username___32244) + ""; }
-  case 172:
+    } else { s.retval = (globals.Username___118356) + ""; }
+  case 171:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_String__concat("Name - ", s.tmp_3);
     s.tmp_2.arg0 = r0;
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 432; s.pc = 171; return s.tmp_2;
-  case 171:
+    s.callLocIdx = 439; s.pc = 170; return s.tmp_2;
+  case 170:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 5, s.tmp_1);
@@ -14060,21 +22212,21 @@ switch (step) {
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_2.arg0 = "Back";
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 433; s.pc = 173; return s.tmp_2;
-  case 173:
+    s.callLocIdx = 440; s.pc = 172; return s.tmp_2;
+  case 172:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_1);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 3);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 3);
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_3);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 2);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 2);
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_4);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 5);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 5);
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_5);
-    globals.ListMenuContents___32251 = (s.tmp_0);
+    globals.ListMenuContents___118363 = (s.tmp_0);
   case 58:
   case 59:
   case 60:
@@ -14086,54 +22238,54 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 74; continue; }
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 64; continue; }
-    globals.SubMenu___32278 = ("Home");
-    s.tmp_0 = Open_Settings__P32640_mk(s);
-    s.callLocIdx = 434; s.pc = 174; return s.tmp_0;
-  case 174:
+    globals.SubMenu___118390 = ("Home");
+    s.tmp_0 = Open_Settings__P118752_mk(s);
+    s.callLocIdx = 441; s.pc = 173; return s.tmp_0;
+  case 173:
     r0 = s.retval;
     { step = 73; continue; }
   case 64:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 65; continue; }
-    s.tmp_1 = changeSettings__P32646_mk(s);
+    s.tmp_1 = changeSettings__P118758_mk(s);
     s.tmp_1.arg0 = 1;
-    s.callLocIdx = 435; s.pc = 175; return s.tmp_1;
-  case 175:
+    s.callLocIdx = 442; s.pc = 174; return s.tmp_1;
+  case 174:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___32251;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 0);
+    s.tmp_0 = r0 = globals.ListMenuContents___118363;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 0);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 1, s.tmp_1);
     { step = 72; continue; }
   case 65:
-    r0 = (s.selectedOption___32914 == 3);
+    r0 = (s.selectedOption___119040 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 66; continue; }
-    s.tmp_1 = changeSettings__P32646_mk(s);
+    s.tmp_1 = changeSettings__P118758_mk(s);
     s.tmp_1.arg0 = 2;
-    s.callLocIdx = 436; s.pc = 176; return s.tmp_1;
-  case 176:
+    s.callLocIdx = 443; s.pc = 175; return s.tmp_1;
+  case 175:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___32251;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 1);
+    s.tmp_0 = r0 = globals.ListMenuContents___118363;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 1);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 2, s.tmp_1);
     { step = 71; continue; }
   case 66:
-    r0 = (s.selectedOption___32914 == 4);
+    r0 = (s.selectedOption___119040 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 67; continue; }
     { step = 70; continue; }
   case 67:
-    r0 = (s.selectedOption___32914 == 5);
+    r0 = (s.selectedOption___119040 == 5);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 68; continue; }
@@ -14149,45 +22301,45 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 85; continue; }
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_3 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_3);
     if (!r0) { step = 75; continue; }
-    globals.SubMenu___32278 = ("Home");
-    s.tmp_0 = Open_Settings__P32640_mk(s);
-    s.callLocIdx = 437; s.pc = 177; return s.tmp_0;
-  case 177:
+    globals.SubMenu___118390 = ("Home");
+    s.tmp_0 = Open_Settings__P118752_mk(s);
+    s.callLocIdx = 444; s.pc = 176; return s.tmp_0;
+  case 176:
     r0 = s.retval;
     { step = 84; continue; }
   case 75:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 76; continue; }
-    s.tmp_1 = changeSettings__P32646_mk(s);
+    s.tmp_1 = changeSettings__P118758_mk(s);
     s.tmp_1.arg0 = 5;
-    s.callLocIdx = 438; s.pc = 178; return s.tmp_1;
-  case 178:
+    s.callLocIdx = 445; s.pc = 177; return s.tmp_1;
+  case 177:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___32251;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 4);
+    s.tmp_0 = r0 = globals.ListMenuContents___118363;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 4);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 1, s.tmp_1);
     { step = 83; continue; }
   case 76:
-    r0 = (s.selectedOption___32914 == 3);
+    r0 = (s.selectedOption___119040 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 77; continue; }
     { step = 82; continue; }
   case 77:
-    r0 = (s.selectedOption___32914 == 4);
+    r0 = (s.selectedOption___119040 == 4);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 78; continue; }
     { step = 81; continue; }
   case 78:
-    r0 = (s.selectedOption___32914 == 5);
+    r0 = (s.selectedOption___119040 == 5);
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 79; continue; }
@@ -14203,18 +22355,18 @@ switch (step) {
     s.tmp_3 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_3);
     if (!r0) { step = 94; continue; }
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_4 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_4);
     if (!r0) { step = 86; continue; }
-    globals.SubMenu___32278 = ("Home");
-    s.tmp_0 = Open_Settings__P32640_mk(s);
-    s.callLocIdx = 439; s.pc = 179; return s.tmp_0;
-  case 179:
+    globals.SubMenu___118390 = ("Home");
+    s.tmp_0 = Open_Settings__P118752_mk(s);
+    s.callLocIdx = 446; s.pc = 178; return s.tmp_0;
+  case 178:
     r0 = s.retval;
     { step = 93; continue; }
   case 86:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 87; continue; }
@@ -14223,40 +22375,40 @@ switch (step) {
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_3.arg0 = "Back";
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 440; s.pc = 180; return s.tmp_3;
-  case 180:
+    s.callLocIdx = 447; s.pc = 179; return s.tmp_3;
+  case 179:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
     s.tmp_5 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_5.arg0 = "Delete all user files";
     s.tmp_5.arg1 = undefined;
-    s.callLocIdx = 441; s.pc = 181; return s.tmp_5;
-  case 181:
+    s.callLocIdx = 448; s.pc = 180; return s.tmp_5;
+  case 180:
     r0 = s.retval;
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_4);
     s.tmp_7 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_7.arg0 = "Set settings to default";
     s.tmp_7.arg1 = undefined;
-    s.callLocIdx = 442; s.pc = 182; return s.tmp_7;
-  case 182:
+    s.callLocIdx = 449; s.pc = 181; return s.tmp_7;
+  case 181:
     r0 = s.retval;
     s.tmp_6 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_6);
     s.tmp_9 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_9.arg0 = "Wipe Device";
     s.tmp_9.arg1 = undefined;
-    s.callLocIdx = 443; s.pc = 183; return s.tmp_9;
-  case 183:
+    s.callLocIdx = 450; s.pc = 182; return s.tmp_9;
+  case 182:
     r0 = s.retval;
     s.tmp_8 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_8);
-    globals.ListMenuContents___32251 = (s.tmp_1);
-    globals.SubMenu___32278 = ("Data Management");
+    globals.ListMenuContents___118363 = (s.tmp_1);
+    globals.SubMenu___118390 = ("Data Management");
     { step = 92; continue; }
   case 87:
-    r0 = (s.selectedOption___32914 == 3);
+    r0 = (s.selectedOption___119040 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 88; continue; }
@@ -14265,24 +22417,24 @@ switch (step) {
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_3.arg0 = "Back";
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 444; s.pc = 184; return s.tmp_3;
-  case 184:
+    s.callLocIdx = 451; s.pc = 183; return s.tmp_3;
+  case 183:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
     s.tmp_5 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_5.arg0 = "MicroOS v0.0.4";
     s.tmp_5.arg1 = undefined;
-    s.callLocIdx = 445; s.pc = 185; return s.tmp_5;
-  case 185:
+    s.callLocIdx = 452; s.pc = 184; return s.tmp_5;
+  case 184:
     r0 = s.retval;
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_4);
-    globals.ListMenuContents___32251 = (s.tmp_1);
-    globals.SubMenu___32278 = ("System Information");
+    globals.ListMenuContents___118363 = (s.tmp_1);
+    globals.SubMenu___118390 = ("System Information");
     { step = 91; continue; }
   case 88:
-    r0 = (s.selectedOption___32914 == 4);
+    r0 = (s.selectedOption___119040 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 89; continue; }
@@ -14291,61 +22443,61 @@ switch (step) {
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_3.arg0 = "Back";
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 446; s.pc = 186; return s.tmp_3;
-  case 186:
+    s.callLocIdx = 453; s.pc = 185; return s.tmp_3;
+  case 185:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 6);
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 6);
     s.tmp_4 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_4);
     s.tmp_6 = miniMenu_createMenuItem__P4522_mk(s);
-    if ((globals.hour___32490) && (globals.hour___32490).vtable) {
-    setupResume(s, 188);
-    pxsim_String__stringConv(globals.hour___32490);
+    if ((globals.hour___118602) && (globals.hour___118602).vtable) {
+    setupResume(s, 187);
+    pxsim_String__stringConv(globals.hour___118602);
     checkResumeConsumed();
     return;
-    } else { s.retval = (globals.hour___32490) + ""; }
-  case 188:
+    } else { s.retval = (globals.hour___118602) + ""; }
+  case 187:
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_String__concat("Hour - ", s.tmp_7);
     s.tmp_6.arg0 = r0;
     s.tmp_6.arg1 = undefined;
-    s.callLocIdx = 447; s.pc = 187; return s.tmp_6;
-  case 187:
+    s.callLocIdx = 454; s.pc = 186; return s.tmp_6;
+  case 186:
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_5);
     s.tmp_9 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_12 = helpers_stringSubstr__P118_mk(s);
-    r0 = pxsim_numops.toString(globals.minute___32492);
+    r0 = pxsim_numops.toString(globals.minute___118604);
     s.tmp_12.arg0 = r0;
     s.tmp_12.arg1 = 1;
     s.tmp_12.arg2 = 2;
-    s.callLocIdx = 448; s.pc = 190; return s.tmp_12;
-  case 190:
+    s.callLocIdx = 455; s.pc = 189; return s.tmp_12;
+  case 189:
     r0 = s.retval;
     s.tmp_11 = r0;
     if ((s.tmp_11) && (s.tmp_11).vtable) {
-    setupResume(s, 191);
+    setupResume(s, 190);
     pxsim_String__stringConv(s.tmp_11);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.tmp_11) + ""; }
-  case 191:
+  case 190:
     r0 = s.retval;
     s.tmp_10 = r0;
     r0 = pxsim_String__concat("Minute - ", s.tmp_10);
     s.tmp_9.arg0 = r0;
     s.tmp_9.arg1 = undefined;
-    s.callLocIdx = 449; s.pc = 189; return s.tmp_9;
-  case 189:
+    s.callLocIdx = 456; s.pc = 188; return s.tmp_9;
+  case 188:
     r0 = s.retval;
     s.tmp_8 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_8);
-    globals.ListMenuContents___32251 = (s.tmp_1);
-    globals.SubMenu___32278 = ("Time Settings");
+    globals.ListMenuContents___118363 = (s.tmp_1);
+    globals.SubMenu___118390 = ("Time Settings");
   case 89:
   case 90:
   case 91:
@@ -14357,15 +22509,15 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 103; continue; }
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 95; continue; }
-    globals.ListMenuContents___32251 = (s.SystemSettings___32923);
-    globals.SubMenu___32278 = ("System");
+    globals.ListMenuContents___118363 = (s.SystemSettings___119049);
+    globals.SubMenu___118390 = ("System");
     { step = 102; continue; }
   case 95:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 96; continue; }
@@ -14374,26 +22526,26 @@ switch (step) {
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_3.arg0 = "home";
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 450; s.pc = 192; return s.tmp_3;
-  case 192:
+    s.callLocIdx = 457; s.pc = 191; return s.tmp_3;
+  case 191:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
-    globals.User_Files___32252 = (s.tmp_1);
+    globals.User_Files___118364 = (s.tmp_1);
     { step = 101; continue; }
   case 96:
-    r0 = (s.selectedOption___32914 == 3);
+    r0 = (s.selectedOption___119040 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 97; continue; }
-    globals.Settings___32247 = ("100010");
+    globals.Settings___118359 = ("100010");
     s.tmp_0 = game_reset__P3544_mk(s);
-    s.callLocIdx = 451; s.pc = 193; return s.tmp_0;
-  case 193:
+    s.callLocIdx = 458; s.pc = 192; return s.tmp_0;
+  case 192:
     r0 = s.retval;
     { step = 100; continue; }
   case 97:
-    r0 = (s.selectedOption___32914 == 4);
+    r0 = (s.selectedOption___119040 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 98; continue; }
@@ -14402,22 +22554,22 @@ switch (step) {
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_3.arg0 = "home";
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 452; s.pc = 194; return s.tmp_3;
-  case 194:
+    s.callLocIdx = 459; s.pc = 193; return s.tmp_3;
+  case 193:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
-    globals.User_Files___32252 = (s.tmp_1);
-    globals.Settings___32247 = ("100010");
+    globals.User_Files___118364 = (s.tmp_1);
+    globals.Settings___118359 = ("100010");
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "Settings";
-    s.tmp_0.arg1 = globals.Settings___32247;
-    s.callLocIdx = 453; s.pc = 195; return s.tmp_0;
-  case 195:
+    s.tmp_0.arg1 = globals.Settings___118359;
+    s.callLocIdx = 460; s.pc = 194; return s.tmp_0;
+  case 194:
     r0 = s.retval;
     s.tmp_0 = game_reset__P3544_mk(s);
-    s.callLocIdx = 454; s.pc = 196; return s.tmp_0;
-  case 196:
+    s.callLocIdx = 461; s.pc = 195; return s.tmp_0;
+  case 195:
     r0 = s.retval;
   case 98:
   case 99:
@@ -14430,15 +22582,15 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 108; continue; }
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 104; continue; }
-    globals.ListMenuContents___32251 = (s.SystemSettings___32923);
-    globals.SubMenu___32278 = ("System");
+    globals.ListMenuContents___118363 = (s.SystemSettings___119049);
+    globals.SubMenu___118390 = ("System");
     { step = 107; continue; }
   case 104:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 105; continue; }
@@ -14451,197 +22603,197 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 121; continue; }
-    r0 = (s.selectedOption___32914 == 1);
+    r0 = (s.selectedOption___119040 == 1);
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 109; continue; }
-    globals.ListMenuContents___32251 = (s.SystemSettings___32923);
-    globals.SubMenu___32278 = ("System");
+    globals.ListMenuContents___118363 = (s.SystemSettings___119049);
+    globals.SubMenu___118390 = ("System");
     { step = 120; continue; }
   case 109:
-    r0 = (s.selectedOption___32914 == 2);
+    r0 = (s.selectedOption___119040 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 110; continue; }
-    s.tmp_1 = changeSettings__P32646_mk(s);
+    s.tmp_1 = changeSettings__P118758_mk(s);
     s.tmp_1.arg0 = 6;
-    s.callLocIdx = 455; s.pc = 197; return s.tmp_1;
-  case 197:
+    s.callLocIdx = 462; s.pc = 196; return s.tmp_1;
+  case 196:
     r0 = s.retval;
-    s.tmp_0 = r0 = globals.ListMenuContents___32251;
-    r0 = pxsim_Array__getAt(globals.Current_Settings___32276, 5);
+    s.tmp_0 = r0 = globals.ListMenuContents___118363;
+    r0 = pxsim_Array__getAt(globals.Current_Settings___118388, 5);
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 1, s.tmp_1);
     { step = 119; continue; }
   case 110:
-    r0 = (s.selectedOption___32914 == 3);
+    r0 = (s.selectedOption___119040 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 113; continue; }
-    r0 = (globals.hour___32490 + 1);
-    globals.hour___32490 = (r0);
-    r0 = (globals.hour___32490 > 23);
+    r0 = (globals.hour___118602 + 1);
+    globals.hour___118602 = (r0);
+    r0 = (globals.hour___118602 > 23);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 111; continue; }
-    globals.hour___32490 = (0);
+    globals.hour___118602 = (0);
   case 111:
   case 112:
-    s.tmp_0 = r0 = globals.ListMenuContents___32251;
+    s.tmp_0 = r0 = globals.ListMenuContents___118363;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
-    if ((globals.hour___32490) && (globals.hour___32490).vtable) {
-    setupResume(s, 199);
-    pxsim_String__stringConv(globals.hour___32490);
+    if ((globals.hour___118602) && (globals.hour___118602).vtable) {
+    setupResume(s, 198);
+    pxsim_String__stringConv(globals.hour___118602);
     checkResumeConsumed();
     return;
-    } else { s.retval = (globals.hour___32490) + ""; }
-  case 199:
+    } else { s.retval = (globals.hour___118602) + ""; }
+  case 198:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_String__concat("Hour - ", s.tmp_3);
     s.tmp_2.arg0 = r0;
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 456; s.pc = 198; return s.tmp_2;
-  case 198:
+    s.callLocIdx = 463; s.pc = 197; return s.tmp_2;
+  case 197:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 2, s.tmp_1);
     s.tmp_0 = TextSprite_setText__P4596_mk(s);
-    s.tmp_0.arg0 = globals.clock___32494;
-    r0 = pxsim_numops.toString(globals.hour___32490);
+    s.tmp_0.arg0 = globals.clock___118606;
+    r0 = pxsim_numops.toString(globals.hour___118602);
     s.tmp_4 = r0;
     if ((s.tmp_4) && (s.tmp_4).vtable) {
-    setupResume(s, 201);
+    setupResume(s, 200);
     pxsim_String__stringConv(s.tmp_4);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.tmp_4) + ""; }
-  case 201:
+  case 200:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_String__concat(s.tmp_3, ":");
     s.tmp_2 = r0;
     if ((s.tmp_2) && (s.tmp_2).vtable) {
-    setupResume(s, 202);
+    setupResume(s, 201);
     pxsim_String__stringConv(s.tmp_2);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.tmp_2) + ""; }
-  case 202:
+  case 201:
     r0 = s.retval;
     s.tmp_1 = r0;
     s.tmp_7 = helpers_stringSubstr__P118_mk(s);
-    r0 = pxsim_numops.toString(globals.minute___32492);
+    r0 = pxsim_numops.toString(globals.minute___118604);
     s.tmp_7.arg0 = r0;
     s.tmp_7.arg1 = 1;
     s.tmp_7.arg2 = 2;
-    s.callLocIdx = 457; s.pc = 203; return s.tmp_7;
-  case 203:
+    s.callLocIdx = 464; s.pc = 202; return s.tmp_7;
+  case 202:
     r0 = s.retval;
     s.tmp_6 = r0;
     if ((s.tmp_6) && (s.tmp_6).vtable) {
-    setupResume(s, 204);
+    setupResume(s, 203);
     pxsim_String__stringConv(s.tmp_6);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.tmp_6) + ""; }
-  case 204:
+  case 203:
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = pxsim_String__concat(s.tmp_1, s.tmp_5);
     s.tmp_0.arg1 = r0;
-    s.callLocIdx = 458; s.pc = 200; return s.tmp_0;
-  case 200:
+    s.callLocIdx = 465; s.pc = 199; return s.tmp_0;
+  case 199:
     r0 = s.retval;
     { step = 118; continue; }
   case 113:
-    r0 = (s.selectedOption___32914 == 4);
+    r0 = (s.selectedOption___119040 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 116; continue; }
-    r0 = (globals.minute___32492 + 1);
-    globals.minute___32492 = (r0);
-    r0 = (globals.minute___32492 > 159);
+    r0 = (globals.minute___118604 + 1);
+    globals.minute___118604 = (r0);
+    r0 = (globals.minute___118604 > 159);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 114; continue; }
-    globals.minute___32492 = (100);
+    globals.minute___118604 = (100);
   case 114:
   case 115:
-    s.tmp_0 = r0 = globals.ListMenuContents___32251;
+    s.tmp_0 = r0 = globals.ListMenuContents___118363;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_5 = helpers_stringSubstr__P118_mk(s);
-    r0 = pxsim_numops.toString(globals.minute___32492);
+    r0 = pxsim_numops.toString(globals.minute___118604);
     s.tmp_5.arg0 = r0;
     s.tmp_5.arg1 = 1;
     s.tmp_5.arg2 = 2;
-    s.callLocIdx = 459; s.pc = 206; return s.tmp_5;
-  case 206:
+    s.callLocIdx = 466; s.pc = 205; return s.tmp_5;
+  case 205:
     r0 = s.retval;
     s.tmp_4 = r0;
     if ((s.tmp_4) && (s.tmp_4).vtable) {
-    setupResume(s, 207);
+    setupResume(s, 206);
     pxsim_String__stringConv(s.tmp_4);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.tmp_4) + ""; }
-  case 207:
+  case 206:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_String__concat("Minute - ", s.tmp_3);
     s.tmp_2.arg0 = r0;
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 460; s.pc = 205; return s.tmp_2;
-  case 205:
+    s.callLocIdx = 467; s.pc = 204; return s.tmp_2;
+  case 204:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, 3, s.tmp_1);
     s.tmp_0 = TextSprite_setText__P4596_mk(s);
-    s.tmp_0.arg0 = globals.clock___32494;
-    r0 = pxsim_numops.toString(globals.hour___32490);
+    s.tmp_0.arg0 = globals.clock___118606;
+    r0 = pxsim_numops.toString(globals.hour___118602);
     s.tmp_4 = r0;
     if ((s.tmp_4) && (s.tmp_4).vtable) {
-    setupResume(s, 209);
+    setupResume(s, 208);
     pxsim_String__stringConv(s.tmp_4);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.tmp_4) + ""; }
-  case 209:
+  case 208:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_String__concat(s.tmp_3, ":");
     s.tmp_2 = r0;
     if ((s.tmp_2) && (s.tmp_2).vtable) {
-    setupResume(s, 210);
+    setupResume(s, 209);
     pxsim_String__stringConv(s.tmp_2);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.tmp_2) + ""; }
-  case 210:
+  case 209:
     r0 = s.retval;
     s.tmp_1 = r0;
     s.tmp_7 = helpers_stringSubstr__P118_mk(s);
-    r0 = pxsim_numops.toString(globals.minute___32492);
+    r0 = pxsim_numops.toString(globals.minute___118604);
     s.tmp_7.arg0 = r0;
     s.tmp_7.arg1 = 1;
     s.tmp_7.arg2 = 2;
-    s.callLocIdx = 461; s.pc = 211; return s.tmp_7;
-  case 211:
+    s.callLocIdx = 468; s.pc = 210; return s.tmp_7;
+  case 210:
     r0 = s.retval;
     s.tmp_6 = r0;
     if ((s.tmp_6) && (s.tmp_6).vtable) {
-    setupResume(s, 212);
+    setupResume(s, 211);
     pxsim_String__stringConv(s.tmp_6);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.tmp_6) + ""; }
-  case 212:
+  case 211:
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = pxsim_String__concat(s.tmp_1, s.tmp_5);
     s.tmp_0.arg1 = r0;
-    s.callLocIdx = 462; s.pc = 208; return s.tmp_0;
-  case 208:
+    s.callLocIdx = 469; s.pc = 207; return s.tmp_0;
+  case 207:
     r0 = s.retval;
   case 116:
   case 117:
@@ -14658,40 +22810,40 @@ switch (step) {
   case 128:
   case 129:
     s.tmp_0 = miniMenu_MenuSprite_close__P4501_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
-    s.callLocIdx = 463; s.pc = 213; return s.tmp_0;
-  case 213:
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
+    s.callLocIdx = 470; s.pc = 212; return s.tmp_0;
+  case 212:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___32251;
-    s.callLocIdx = 464; s.pc = 214; return s.tmp_0;
+    s.tmp_0.arg0 = globals.ListMenuContents___118363;
+    s.callLocIdx = 471; s.pc = 213; return s.tmp_0;
+  case 213:
+    r0 = s.retval;
+    globals.ListMenuGUI___118325 = (r0);
+    s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
+    s.tmp_0.arg1 = false;
+    s.callLocIdx = 472; s.pc = 214; return s.tmp_0;
   case 214:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
-    s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
-    s.tmp_0.arg1 = false;
-    s.callLocIdx = 465; s.pc = 215; return s.tmp_0;
-  case 215:
-    r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
     s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.setDimensions;
-    s.pc = 216; return s.tmp_0;
-  case 216:
+    s.pc = 215; return s.tmp_0;
+  case 215:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
-    s.callLocIdx = 466; s.pc = 217; return s.tmp_0;
-  case 217:
+    s.callLocIdx = 473; s.pc = 216; return s.tmp_0;
+  case 216:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -14699,24 +22851,23 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 467; s.pc = 218; return s.tmp_0; }
+     else { s.callLocIdx = 474; s.pc = 217; return s.tmp_0; }
     }
-  case 218:
+  case 217:
     r0 = s.retval;
   case 130:
   case 131:
   case 132:
-    r0 = globals.defined_menu___32241;
-  case 133:
+    r0 = globals.defined_menu___118349;
     return leave(s, r0)
   default: oops()
 } } }
-listSelection__P32645.info = {"start":18439,"length":9869,"line":450,"column":0,"endLine":686,"endColumn":1,"fileName":"main.ts","functionName":"listSelection","argumentNames":["app","selection","submenu","action","override"]}
+listSelection__P118757.info = {"start":18849,"length":9932,"line":458,"column":0,"endLine":695,"endColumn":1,"fileName":"main.ts","functionName":"listSelection","argumentNames":["app","selection","submenu","action","override"]}
 
-function listSelection__P32645_mk(s) {
+function listSelection__P118757_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: listSelection__P32645, depth: s.depth + 1,
+        parent: s, fn: listSelection__P118757, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -14731,9 +22882,9 @@ function listSelection__P32645_mk(s) {
   tmp_10: undefined,
   tmp_11: undefined,
   tmp_12: undefined,
-  selectedOption___32914: undefined,
-  SystemSettings___32923: undefined,
-  FileAtSelection___32982: undefined,
+  selectedOption___119040: undefined,
+  SystemSettings___119049: undefined,
+  FileAtSelection___119109: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -19917,102 +28068,6 @@ function control_EventContext_runCallbacks__P4905_mk(s) {
   fps___11393: undefined,
   delay___11462: undefined,
   arg0: undefined,
-} }
-
-
-
-
-
-function control_EventHandler_register__P4901(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, control_EventHandler__C4900_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkAction(1, control_EventHandler_register_inline__P11477);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    r0 = s.arg0.fields["src"];
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["value"];
-    s.tmp_2 = r0;
-    r0 = s.arg0.fields["flags"];
-    s.tmp_3 = r0;
-    r0 = pxsim.control.internalOnEvent(s.tmp_1, s.tmp_2, s.tmp_0, s.tmp_3);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_EventHandler_register__P4901.info = {"start":961,"length":165,"line":30,"column":8,"endLine":34,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"register","argumentNames":["this"]}
-
-function control_EventHandler_register__P4901_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_EventHandler_register__P4901, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function control_EventHandler_register_inline__P11477(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    r0 = s.caps[0].fields["handler"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_1 = if_handler_1_mk(s);
-    s.tmp_1.arg0 = s.caps[0];
-    if (!s.tmp_1.arg0.vtable.iface) {
-      setupLambda(s.tmp_1, pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "handler"), 1);
-      s.callLocIdx = 84; s.pc = 3; return s.tmp_1;
-    } else {
-      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["handler"];
-      if (s.tmp_1.fn == null) { setupLambda(s.tmp_1, s.tmp_1.arg0.fields["handler"], 1); s.callLocIdx = 84; s.pc = 3; return s.tmp_1; }
-      else if (s.tmp_1.fn.isGetter) { s.tmp_1.stage2Call = true; s.callLocIdx = 84; s.pc = 3; return s.tmp_1;; }
-     else { s.callLocIdx = 84; s.pc = 3; return s.tmp_1; }
-    }
-  case 3:
-    r0 = s.retval;
-  case 1:
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_EventHandler_register_inline__P11477.info = {"start":1032,"length":71,"line":31,"column":58,"endLine":33,"endColumn":13,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"inline","argumentNames":[]}
-
-function control_EventHandler_register_inline__P11477_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_EventHandler_register_inline__P11477, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
 } }
 
 
@@ -26483,51 +34538,6 @@ function control_pushEventContext__P409_mk(s) {
 
 
 
-function control_eventContext__P408(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    r0 = pxsim_numops_toBoolDecr(globals.eventContexts___4908);
-    if (!r0) { step = 1; continue; }
-    s.tmp_0 = r0 = globals.eventContexts___4908;
-    r0 = pxsim_Array__length(globals.eventContexts___4908);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 - 1);
-    s.tmp_1 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_1);
-    { step = 2; continue; }
-  case 1:
-    r0 = undefined;
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_3 = r0;
-    r0 = s.tmp_3;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_eventContext__P408.info = {"start":7094,"length":136,"line":213,"column":4,"endLine":215,"endColumn":5,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"eventContext","argumentNames":[]}
-
-function control_eventContext__P408_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_eventContext__P408, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-} }
-
-
-
-
-
 function control_EventContext_constructor__P399(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -26820,234 +34830,6 @@ function controller__setUserEventsEnabled__P2220_mk(s) {
         parent: s, fn: controller__setUserEventsEnabled__P2220, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
-} }
-
-
-
-
-
-function control_onEvent__P391(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.ctx___11870 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.arg3 = (s.lambdaArgs[3]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = control_eventContext__P408_mk(s);
-    s.callLocIdx = 82; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.ctx___11870 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.ctx___11870);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = pxsim.control.internalOnEvent(s.arg0, s.arg1, s.arg2, s.arg3);
-    { step = 2; continue; }
-  case 1:
-    s.tmp_0 = control_EventContext_registerHandler__P405_mk(s);
-    s.tmp_0.arg0 = s.ctx___11870;
-    s.tmp_0.arg1 = s.arg0;
-    s.tmp_0.arg2 = s.arg1;
-    s.tmp_0.arg3 = s.arg2;
-    s.tmp_0.arg4 = s.arg3;
-    s.callLocIdx = 83; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_onEvent__P391.info = {"start":336,"length":325,"line":9,"column":4,"endLine":15,"endColumn":5,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"onEvent","argumentNames":["src","value","handler","flags"]}
-
-function control_onEvent__P391_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_onEvent__P391, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  ctx___11870: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-} }
-
-
-
-
-
-function control_EventContext_registerHandler__P405(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.h___11893 = undefined;
-    s.unnamed80___U1 = undefined;
-    s.unnamed81___U2 = undefined;
-    s.hn___11911 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.arg3 = (s.lambdaArgs[3]);
-      s.arg4 = (s.lambdaArgs[4]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, control_EventContext__C395_VT)) failedCast(r0);
-    s.h___11893 = (undefined);
-    r0 = s.arg0.fields["handlers"];
-    s.unnamed80___U1 = (r0);
-    s.unnamed81___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed81___U2;
-    r0 = pxsim_Array__length(s.unnamed80___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 6; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed80___U1, s.unnamed81___U2);
-    s.h___11893 = (r0);
-    r0 = s.h___11893.fields["src"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 == s.arg1);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_2);
-    if (r0) { step = 2; continue; }
-    r0 = s.tmp_2;
-    { step = 3; continue; }
-  case 2:
-    r0 = s.h___11893.fields["value"];
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 == s.arg2);
-  case 3:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 4; continue; }
-    r0 = (s.h___11893).fields["flags"] = (s.arg4);
-    r0 = (s.h___11893).fields["handler"] = (s.arg3);
-    { step = 7; continue; }
-  case 4:
-  case 5:
-    r0 = (s.unnamed81___U2 + 1);
-    s.unnamed81___U2 = (r0);
-    { step = 1; continue; }
-  case 6:
-    s.unnamed80___U1 = (undefined);
-    r0 = pxsim_pxtcore_mkClassInstance(control_EventHandler__C4900_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = control_EventHandler_constructor__P4903_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.arg1;
-    s.tmp_1.arg2 = s.arg2;
-    s.tmp_1.arg3 = s.arg3;
-    s.tmp_1.arg4 = s.arg4;
-    s.callLocIdx = 94; s.pc = 8; return s.tmp_1;
-  case 8:
-    r0 = s.retval;
-    s.hn___11911 = (s.tmp_0);
-    r0 = s.arg0.fields["handlers"];
-    s.tmp_0 = r0;
-    r0 = pxsim_Array__push(s.tmp_0, s.hn___11911);
-    s.tmp_0 = control_EventHandler_register__P4901_mk(s);
-    s.tmp_0.arg0 = s.hn___11911;
-    s.callLocIdx = 95; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-  case 7:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_EventContext_registerHandler__P405.info = {"start":5760,"length":525,"line":173,"column":8,"endLine":186,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"registerHandler","argumentNames":["this","src","value","handler","flags"]}
-
-function control_EventContext_registerHandler__P405_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_EventContext_registerHandler__P405, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  h___11893: undefined,
-  unnamed80___U1: undefined,
-  unnamed81___U2: undefined,
-  hn___11911: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-  arg4: undefined,
-} }
-
-
-
-
-
-function control_EventHandler_constructor__P4903(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.arg3 = (s.lambdaArgs[3]);
-      s.arg4 = (s.lambdaArgs[4]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, control_EventHandler__C4900_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["src"] = (s.arg1);
-    r0 = (s.arg0).fields["value"] = (s.arg2);
-    r0 = (s.arg0).fields["handler"] = (s.arg3);
-    r0 = (s.arg0).fields["flags"] = (s.arg4);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_EventHandler_constructor__P4903.info = {"start":786,"length":165,"line":23,"column":8,"endLine":28,"endColumn":13,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"inline","argumentNames":["this","src","value","handler","flags"]}
-
-function control_EventHandler_constructor__P4903_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_EventHandler_constructor__P4903, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-  arg4: undefined,
 } }
 
 
@@ -27496,7 +35278,7 @@ function game_Prompt_constructor__P3080_mk(s) {
 
 
 
-function changeSettings__P32646(s) {
+function changeSettings__P118758(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -27506,81 +35288,81 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.dingus53___33359 = undefined;
-    s.dingus52___33368 = undefined;
-    s.dingus51___33369 = undefined;
+    s.dingus53___119486 = undefined;
+    s.dingus52___119495 = undefined;
+    s.dingus51___119496 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     s.tmp_1 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, s.arg0);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, s.arg0);
     s.tmp_1.arg0 = r0;
     s.tmp_1.arg1 = 10;
-    s.callLocIdx = 468; s.pc = 19; return s.tmp_1;
+    s.callLocIdx = 475; s.pc = 19; return s.tmp_1;
   case 19:
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = (s.tmp_0 + 1);
-    s.dingus53___33359 = (r0);
-    s.dingus52___33368 = (0);
-    s.dingus51___33369 = ("spoingy");
+    s.dingus53___119486 = (r0);
+    s.dingus52___119495 = (0);
+    s.dingus51___119496 = ("spoingy");
     r0 = (s.arg0 == 1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.dingus52___33368 = (1);
+    s.dingus52___119495 = (1);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - OnScreen");
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - Pin Header");
     r0 = pxsim_Array__push(s.tmp_0, "Keyboard - OnScreen");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___33359);
-    s.dingus51___33369 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___119486);
+    s.dingus51___119496 = (r0);
     { step = 16; continue; }
   case 1:
     r0 = (s.arg0 == 2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 2; continue; }
-    s.dingus52___33368 = (1);
+    s.dingus52___119495 = (1);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Mouse - D-Pad");
     r0 = pxsim_Array__push(s.tmp_0, "Mouse - Pin Header");
     r0 = pxsim_Array__push(s.tmp_0, "Mouse - D-Pad");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___33359);
-    s.dingus51___33369 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___119486);
+    s.dingus51___119496 = (r0);
     { step = 15; continue; }
   case 2:
     r0 = (s.arg0 == 3);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    s.dingus52___33368 = (2);
+    s.dingus52___119495 = (2);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Connectivity - Radio");
     r0 = pxsim_Array__push(s.tmp_0, "Connectivity - Pin Header");
     r0 = pxsim_Array__push(s.tmp_0, "Connectivity - Off");
     r0 = pxsim_Array__push(s.tmp_0, "Connectivity - Radio");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___33359);
-    s.dingus51___33369 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___119486);
+    s.dingus51___119496 = (r0);
     { step = 14; continue; }
   case 3:
     r0 = (s.arg0 == 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 6; continue; }
-    s.dingus52___33368 = (9);
-    r0 = (s.dingus53___33359 > s.dingus52___33368);
+    s.dingus52___119495 = (9);
+    r0 = (s.dingus53___119486 > s.dingus52___119495);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 4; continue; }
-    s.dingus53___33359 = (1);
+    s.dingus53___119486 = (1);
   case 4:
   case 5:
-    r0 = pxsim_numops.toString(s.dingus53___33359);
+    r0 = pxsim_numops.toString(s.dingus53___119486);
     s.tmp_1 = r0;
     if ((s.tmp_1) && (s.tmp_1).vtable) {
     setupResume(s, 20);
@@ -27592,14 +35374,14 @@ switch (step) {
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_String__concat("Radio Channel - ", s.tmp_0);
-    s.dingus51___33369 = (r0);
+    s.dingus51___119496 = (r0);
     { step = 13; continue; }
   case 6:
     r0 = (s.arg0 == 5);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 7; continue; }
-    s.dingus52___33368 = (3);
+    s.dingus52___119495 = (3);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Wallpaper - Strings");
@@ -27607,29 +35389,29 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_0, "Wallpaper - Stripes");
     r0 = pxsim_Array__push(s.tmp_0, "Wallpaper - Squiggles");
     r0 = pxsim_Array__push(s.tmp_0, "Wallpaper - Strings");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___33359);
-    s.dingus51___33369 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___119486);
+    s.dingus51___119496 = (r0);
     { step = 12; continue; }
   case 7:
     r0 = (s.arg0 == 6);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 10; continue; }
-    s.dingus52___33368 = (1);
+    s.dingus52___119495 = (1);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, "Show Clock - False");
     r0 = pxsim_Array__push(s.tmp_0, "Show Clock - True");
     r0 = pxsim_Array__push(s.tmp_0, "Show Clock - False");
-    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___33359);
-    s.dingus51___33369 = (r0);
-    r0 = (s.dingus53___33359 == 1);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.dingus53___119486);
+    s.dingus51___119496 = (r0);
+    r0 = (s.dingus53___119486 == 1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 8; continue; }
     s.tmp_1 = TextSprite_setText__P4596_mk(s);
-    s.tmp_1.arg0 = globals.clock___32494;
-    r0 = pxsim_numops.toString(globals.hour___32490);
+    s.tmp_1.arg0 = globals.clock___118606;
+    r0 = pxsim_numops.toString(globals.hour___118602);
     s.tmp_5 = r0;
     if ((s.tmp_5) && (s.tmp_5).vtable) {
     setupResume(s, 22);
@@ -27652,11 +35434,11 @@ switch (step) {
     r0 = s.retval;
     s.tmp_2 = r0;
     s.tmp_8 = helpers_stringSubstr__P118_mk(s);
-    r0 = pxsim_numops.toString(globals.minute___32492);
+    r0 = pxsim_numops.toString(globals.minute___118604);
     s.tmp_8.arg0 = r0;
     s.tmp_8.arg1 = 1;
     s.tmp_8.arg2 = 2;
-    s.callLocIdx = 469; s.pc = 24; return s.tmp_8;
+    s.callLocIdx = 476; s.pc = 24; return s.tmp_8;
   case 24:
     r0 = s.retval;
     s.tmp_7 = r0;
@@ -27671,16 +35453,16 @@ switch (step) {
     s.tmp_6 = r0;
     r0 = pxsim_String__concat(s.tmp_2, s.tmp_6);
     s.tmp_1.arg1 = r0;
-    s.callLocIdx = 470; s.pc = 21; return s.tmp_1;
+    s.callLocIdx = 477; s.pc = 21; return s.tmp_1;
   case 21:
     r0 = s.retval;
     { step = 9; continue; }
   case 8:
     s.tmp_0 = TextSprite_setText__P4596_mk(s);
-    s.tmp_0.arg0 = globals.clock___32494;
+    s.tmp_0.arg0 = globals.clock___118606;
     r0 = pxsim_String_.mkEmpty();
     s.tmp_0.arg1 = r0;
-    s.callLocIdx = 471; s.pc = 26; return s.tmp_0;
+    s.callLocIdx = 478; s.pc = 26; return s.tmp_0;
   case 26:
     r0 = s.retval;
   case 9:
@@ -27691,18 +35473,18 @@ switch (step) {
   case 14:
   case 15:
   case 16:
-    r0 = (s.dingus53___33359 > s.dingus52___33368);
+    r0 = (s.dingus53___119486 > s.dingus52___119495);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 17; continue; }
-    s.dingus53___33359 = (0);
+    s.dingus53___119486 = (0);
   case 17:
   case 18:
     s.tmp_4 = helpers_stringSlice__P119_mk(s);
-    s.tmp_4.arg0 = globals.Settings___32247;
+    s.tmp_4.arg0 = globals.Settings___118359;
     s.tmp_4.arg1 = 0;
     s.tmp_4.arg2 = s.arg0;
-    s.callLocIdx = 472; s.pc = 27; return s.tmp_4;
+    s.callLocIdx = 479; s.pc = 27; return s.tmp_4;
   case 27:
     r0 = s.retval;
     s.tmp_3 = r0;
@@ -27715,7 +35497,7 @@ switch (step) {
   case 28:
     r0 = s.retval;
     s.tmp_2 = r0;
-    r0 = pxsim_numops.toString(s.dingus53___33359);
+    r0 = pxsim_numops.toString(s.dingus53___119486);
     s.tmp_6 = r0;
     if ((s.tmp_6) && (s.tmp_6).vtable) {
     setupResume(s, 29);
@@ -27738,11 +35520,11 @@ switch (step) {
     r0 = s.retval;
     s.tmp_0 = r0;
     s.tmp_9 = helpers_stringSlice__P119_mk(s);
-    s.tmp_9.arg0 = globals.Settings___32247;
+    s.tmp_9.arg0 = globals.Settings___118359;
     r0 = (s.arg0 + 1);
     s.tmp_9.arg1 = r0;
     s.tmp_9.arg2 = undefined;
-    s.callLocIdx = 473; s.pc = 31; return s.tmp_9;
+    s.callLocIdx = 480; s.pc = 31; return s.tmp_9;
   case 31:
     r0 = s.retval;
     s.tmp_8 = r0;
@@ -27756,43 +35538,43 @@ switch (step) {
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_String__concat(s.tmp_0, s.tmp_7);
-    globals.Settings___32247 = (r0);
-    s.tmp_0 = r0 = globals.Current_Settings___32276;
+    globals.Settings___118359 = (r0);
+    s.tmp_0 = r0 = globals.Current_Settings___118388;
     r0 = (s.arg0 - 1);
     s.tmp_1 = r0;
     s.tmp_3 = miniMenu_createMenuItem__P4522_mk(s);
-    s.tmp_3.arg0 = s.dingus51___33369;
+    s.tmp_3.arg0 = s.dingus51___119496;
     s.tmp_3.arg1 = undefined;
-    s.callLocIdx = 474; s.pc = 33; return s.tmp_3;
+    s.callLocIdx = 481; s.pc = 33; return s.tmp_3;
   case 33:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, s.tmp_1, s.tmp_2);
     s.tmp_0 = blockSettings_writeString__P4742_mk(s);
     s.tmp_0.arg0 = "settings";
-    s.tmp_0.arg1 = globals.Settings___32247;
-    s.callLocIdx = 475; s.pc = 34; return s.tmp_0;
+    s.tmp_0.arg1 = globals.Settings___118359;
+    s.callLocIdx = 482; s.pc = 34; return s.tmp_0;
   case 34:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_close__P4501_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
-    s.callLocIdx = 476; s.pc = 35; return s.tmp_0;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
+    s.callLocIdx = 483; s.pc = 35; return s.tmp_0;
   case 35:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___32251;
-    s.callLocIdx = 477; s.pc = 36; return s.tmp_0;
+    s.tmp_0.arg0 = globals.ListMenuContents___118363;
+    s.callLocIdx = 484; s.pc = 36; return s.tmp_0;
   case 36:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = false;
-    s.callLocIdx = 478; s.pc = 37; return s.tmp_0;
+    s.callLocIdx = 485; s.pc = 37; return s.tmp_0;
   case 37:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -27801,14 +35583,14 @@ switch (step) {
   case 38:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
-    s.callLocIdx = 479; s.pc = 39; return s.tmp_0;
+    s.callLocIdx = 486; s.pc = 39; return s.tmp_0;
   case 39:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -27816,15 +35598,15 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 480; s.pc = 40; return s.tmp_0; }
+     else { s.callLocIdx = 487; s.pc = 40; return s.tmp_0; }
     }
   case 40:
     r0 = s.retval;
     s.tmp_2 = parseInt__P97_mk(s);
-    r0 = pxsim_String_.charAt(globals.Settings___32247, 4);
+    r0 = pxsim_String_.charAt(globals.Settings___118359, 4);
     s.tmp_2.arg0 = r0;
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 481; s.pc = 41; return s.tmp_2;
+    s.callLocIdx = 488; s.pc = 41; return s.tmp_2;
   case 41:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -27835,12 +35617,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-changeSettings__P32646.info = {"start":28312,"length":1956,"line":688,"column":0,"endLine":732,"endColumn":1,"fileName":"main.ts","functionName":"changeSettings","argumentNames":["selection"]}
+changeSettings__P118758.info = {"start":28785,"length":1956,"line":697,"column":0,"endLine":741,"endColumn":1,"fileName":"main.ts","functionName":"changeSettings","argumentNames":["selection"]}
 
-function changeSettings__P32646_mk(s) {
+function changeSettings__P118758_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: changeSettings__P32646, depth: s.depth + 1,
+        parent: s, fn: changeSettings__P118758, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -27852,7739 +35634,10 @@ function changeSettings__P32646_mk(s) {
   tmp_7: undefined,
   tmp_8: undefined,
   tmp_9: undefined,
-  dingus53___33359: undefined,
-  dingus52___33368: undefined,
-  dingus51___33369: undefined,
+  dingus53___119486: undefined,
+  dingus52___119495: undefined,
+  dingus51___119496: undefined,
   arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_setDimensions__P4507(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    s.tmp_0 = miniMenu_MenuSprite_setMenuStyleProperty__P4505_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 0;
-    s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 2059; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuSprite_setMenuStyleProperty__P4505_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 1;
-    s.tmp_0.arg2 = s.arg2;
-    s.callLocIdx = 2060; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_setDimensions__P4507.info = {"start":49571,"length":203,"line":1335,"column":8,"endLine":1338,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setDimensions","argumentNames":["this","width","height"]}
-
-function miniMenu_MenuSprite_setDimensions__P4507_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_setDimensions__P4507, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_setMenuStyleProperty__P4505(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    s.tmp_0 = miniMenu_MenuStyle_setMenuStyleProperty__P4436_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg1;
-    s.tmp_0.arg2 = s.arg2;
-    s.callLocIdx = 2039; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    r0 = (s.arg1 === 10);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    r0 = pxsim_numops_toBoolDecr(s.arg2);
-    if (!r0) { step = 1; continue; }
-    s.tmp_1 = miniMenu_MenuStyle_copyTo__P4437_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2040; s.pc = 7; return s.tmp_2;
-  case 7:
-    r0 = s.retval;
-    r0 = r0.fields["menuStyle"];
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 2041; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2042; s.pc = 8; return s.tmp_2;
-  case 8:
-    r0 = s.retval;
-    r0 = r0.fields["menuStyle"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["menuStyle"] = (s.tmp_1);
-    s.tmp_0 = miniMenu_Style_copyTo__P4468_mk(s);
-    r0 = s.arg0.fields["defaultStyle"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2043; s.pc = 10; return s.tmp_1;
-  case 10:
-    r0 = s.retval;
-    r0 = r0.fields["defaultStyle"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 2044; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2045; s.pc = 11; return s.tmp_2;
-  case 11:
-    r0 = s.retval;
-    r0 = r0.fields["defaultStyle"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["defaultStyle"] = (s.tmp_1);
-    s.tmp_0 = miniMenu_Style_copyTo__P4468_mk(s);
-    r0 = s.arg0.fields["titleStyle"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2046; s.pc = 13; return s.tmp_1;
-  case 13:
-    r0 = s.retval;
-    r0 = r0.fields["titleStyle"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 2047; s.pc = 12; return s.tmp_0;
-  case 12:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2048; s.pc = 14; return s.tmp_2;
-  case 14:
-    r0 = s.retval;
-    r0 = r0.fields["titleStyle"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["titleStyle"] = (s.tmp_1);
-    s.tmp_0 = miniMenu_Style_copyTo__P4468_mk(s);
-    r0 = s.arg0.fields["selectedStyle"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2049; s.pc = 16; return s.tmp_1;
-  case 16:
-    r0 = s.retval;
-    r0 = r0.fields["selectedStyle"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 2050; s.pc = 15; return s.tmp_0;
-  case 15:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2051; s.pc = 17; return s.tmp_2;
-  case 17:
-    r0 = s.retval;
-    r0 = r0.fields["selectedStyle"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["selectedStyle"] = (s.tmp_1);
-    { step = 2; continue; }
-  case 1:
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2052; s.pc = 19; return s.tmp_2;
-  case 19:
-    r0 = s.retval;
-    r0 = r0.fields["defaultStyle"];
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 2053; s.pc = 18; return s.tmp_1;
-  case 18:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["defaultStyle"] = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2054; s.pc = 21; return s.tmp_2;
-  case 21:
-    r0 = s.retval;
-    r0 = r0.fields["titleStyle"];
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 2055; s.pc = 20; return s.tmp_1;
-  case 20:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["titleStyle"] = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 2056; s.pc = 23; return s.tmp_2;
-  case 23:
-    r0 = s.retval;
-    r0 = r0.fields["selectedStyle"];
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 2057; s.pc = 22; return s.tmp_1;
-  case 22:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["selectedStyle"] = (s.tmp_0);
-  case 2:
-  case 3:
-  case 4:
-    s.tmp_0 = miniMenu_MenuSprite_updateDimensions__P4512_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 2058; s.pc = 24; return s.tmp_0;
-  case 24:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_setMenuStyleProperty__P4505.info = {"start":46955,"length":1103,"line":1272,"column":8,"endLine":1297,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setMenuStyleProperty","argumentNames":["this","property","value"]}
-
-function miniMenu_MenuSprite_setMenuStyleProperty__P4505_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_setMenuStyleProperty__P4505, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_updateDimensions__P4512(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    s.tmp_0 = sprites_ExtendableSprite_setDimensions__P2455_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_1 = miniMenu_MenuSprite_getWidth__P7349_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 2066; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.tmp_2 = miniMenu_MenuSprite_getHeight__P7350_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    s.callLocIdx = 2067; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0.arg2 = r0;
-    s.callLocIdx = 2068; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_updateDimensions__P4512.info = {"start":52073,"length":100,"line":1399,"column":8,"endLine":1401,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"updateDimensions","argumentNames":["this"]}
-
-function miniMenu_MenuSprite_updateDimensions__P4512_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_updateDimensions__P4512, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_getHeight__P7350(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.contentHeight___14982 = undefined;
-    s.current___14983 = undefined;
-    s.style___14984 = undefined;
-    s.i___14994 = undefined;
-    s.i___15032 = undefined;
-    s.i___15060 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    s.tmp_2 = miniMenu_MenuStyle_customHeight__P4418_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2111; s.pc = 30; return s.tmp_2;
-  case 30:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 !== undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_customHeight__P4418_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 2112; s.pc = 31; return s.tmp_3;
-  case 31:
-    r0 = s.retval;
-    { step = 29; continue; }
-  case 1:
-  case 2:
-    s.contentHeight___14982 = (0);
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2113; s.pc = 32; return s.tmp_2;
-  case 32:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 <= 1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 3; continue; }
-    r0 = s.tmp_0;
-    { step = 4; continue; }
-  case 3:
-    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_4.arg0 = r0;
-    s.callLocIdx = 2114; s.pc = 33; return s.tmp_4;
-  case 33:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === 0);
-  case 4:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 9; continue; }
-    s.i___14994 = (0);
-  case 5:
-    s.tmp_1 = r0 = s.i___14994;
-    r0 = s.arg0.fields["items"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__length(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 8; continue; }
-    r0 = s.arg0.fields["items"];
-    s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_4, s.i___14994);
-    s.current___14983 = (r0);
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === s.i___14994);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 6; continue; }
-    r0 = s.arg0.fields["selectedStyle"];
-    { step = 7; continue; }
-  case 6:
-    r0 = s.arg0.fields["defaultStyle"];
-  case 7:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    s.style___14984 = (s.tmp_2);
-    s.tmp_0 = r0 = s.contentHeight___14982;
-    s.tmp_2 = miniMenu_MenuItem_getHeight__P4473_mk(s);
-    s.tmp_2.arg0 = s.current___14983;
-    s.tmp_2.arg1 = s.style___14984;
-    s.callLocIdx = 2115; s.pc = 34; return s.tmp_2;
-  case 34:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 + s.tmp_1);
-    s.contentHeight___14982 = (r0);
-    r0 = (s.i___14994 + 1);
-    s.i___14994 = (r0);
-    { step = 5; continue; }
-  case 8:
-    { step = 22; continue; }
-  case 9:
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2116; s.pc = 35; return s.tmp_2;
-  case 35:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 10; continue; }
-    r0 = s.tmp_0;
-    { step = 11; continue; }
-  case 10:
-    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_4.arg0 = r0;
-    s.callLocIdx = 2117; s.pc = 36; return s.tmp_4;
-  case 36:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === 1);
-  case 11:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 16; continue; }
-    s.i___15032 = (0);
-  case 12:
-    s.tmp_1 = r0 = s.i___15032;
-    r0 = s.arg0.fields["items"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__length(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 15; continue; }
-    r0 = s.arg0.fields["items"];
-    s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15032);
-    s.current___14983 = (r0);
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === s.i___15032);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 13; continue; }
-    r0 = s.arg0.fields["selectedStyle"];
-    { step = 14; continue; }
-  case 13:
-    r0 = s.arg0.fields["defaultStyle"];
-  case 14:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    s.style___14984 = (s.tmp_2);
-    s.tmp_0 = Math_max__P130_mk(s);
-    s.tmp_1 = miniMenu_MenuItem_getHeight__P4473_mk(s);
-    s.tmp_1.arg0 = s.current___14983;
-    s.tmp_1.arg1 = s.style___14984;
-    s.callLocIdx = 2118; s.pc = 38; return s.tmp_1;
-  case 38:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.contentHeight___14982;
-    s.callLocIdx = 2119; s.pc = 37; return s.tmp_0;
-  case 37:
-    r0 = s.retval;
-    s.contentHeight___14982 = (r0);
-    r0 = (s.i___15032 + 1);
-    s.i___15032 = (r0);
-    { step = 12; continue; }
-  case 15:
-    { step = 21; continue; }
-  case 16:
-    s.i___15060 = (0);
-  case 17:
-    s.tmp_1 = r0 = s.i___15060;
-    r0 = s.arg0.fields["items"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__length(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 20; continue; }
-    r0 = s.arg0.fields["items"];
-    s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15060);
-    s.current___14983 = (r0);
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === s.i___15060);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 18; continue; }
-    r0 = s.arg0.fields["selectedStyle"];
-    { step = 19; continue; }
-  case 18:
-    r0 = s.arg0.fields["defaultStyle"];
-  case 19:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    s.style___14984 = (s.tmp_2);
-    s.tmp_0 = Math_max__P130_mk(s);
-    s.tmp_1 = miniMenu_MenuItem_getHeight__P4473_mk(s);
-    s.tmp_1.arg0 = s.current___14983;
-    s.tmp_1.arg1 = s.style___14984;
-    s.callLocIdx = 2120; s.pc = 40; return s.tmp_1;
-  case 40:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.contentHeight___14982;
-    s.callLocIdx = 2121; s.pc = 39; return s.tmp_0;
-  case 39:
-    r0 = s.retval;
-    s.contentHeight___14982 = (r0);
-    r0 = (s.i___15060 + 1);
-    s.i___15060 = (r0);
-    { step = 17; continue; }
-  case 20:
-    s.tmp_0 = r0 = s.contentHeight___14982;
-    s.tmp_2 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2122; s.pc = 41; return s.tmp_2;
-  case 41:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 * s.tmp_1);
-    s.contentHeight___14982 = (r0);
-  case 21:
-  case 22:
-    r0 = s.arg0.fields["frame"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 23; continue; }
-    r0 = s.arg0.fields["frame"];
-    s.tmp_3 = r0;
-    r0 = pxsim_ImageMethods.width(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim.Math_.idiv(s.tmp_2, 3);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 << 1);
-    { step = 24; continue; }
-  case 23:
-    r0 = 0;
-  case 24:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    s.tmp_6 = miniMenu_MenuStyle_scrollColor__P4434_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_6.arg0 = r0;
-    s.callLocIdx = 2131; s.pc = 42; return s.tmp_6;
-  case 42:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 27; continue; }
-    s.tmp_8 = miniMenu_MenuSprite_isVerticalScroll__P7351_mk(s);
-    s.tmp_8.arg0 = s.arg0;
-    s.callLocIdx = 2132; s.pc = 43; return s.tmp_8;
-  case 43:
-    r0 = s.retval;
-    s.tmp_7 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_7);
-    if (!r0) { step = 25; continue; }
-    r0 = 0;
-    { step = 26; continue; }
-  case 25:
-    r0 = 8;
-  case 26:
-    // jmp value (already in r0)
-    s.tmp_9 = r0;
-    r0 = s.tmp_9;
-    { step = 28; continue; }
-  case 27:
-    r0 = 0;
-  case 28:
-    // jmp value (already in r0)
-    s.tmp_10 = r0;
-    s.tmp_16 = r0 = s.contentHeight___14982;
-    s.tmp_18 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_19 = miniMenu_MenuStyle_border__P4426_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_19.arg0 = r0;
-    s.callLocIdx = 2123; s.pc = 45; return s.tmp_19;
-  case 45:
-    r0 = s.retval;
-    s.tmp_18.arg0 = r0;
-    s.tmp_18.arg1 = 0;
-    s.callLocIdx = 2124; s.pc = 44; return s.tmp_18;
-  case 44:
-    r0 = s.retval;
-    s.tmp_17 = r0;
-    r0 = (s.tmp_16 + s.tmp_17);
-    s.tmp_15 = r0;
-    s.tmp_21 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_22 = miniMenu_MenuStyle_border__P4426_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_22.arg0 = r0;
-    s.callLocIdx = 2125; s.pc = 47; return s.tmp_22;
-  case 47:
-    r0 = s.retval;
-    s.tmp_21.arg0 = r0;
-    s.tmp_21.arg1 = 1;
-    s.callLocIdx = 2126; s.pc = 46; return s.tmp_21;
-  case 46:
-    r0 = s.retval;
-    s.tmp_20 = r0;
-    r0 = (s.tmp_15 + s.tmp_20);
-    s.tmp_14 = r0;
-    s.tmp_24 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_25 = miniMenu_MenuStyle_padding__P4430_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_25.arg0 = r0;
-    s.callLocIdx = 2127; s.pc = 49; return s.tmp_25;
-  case 49:
-    r0 = s.retval;
-    s.tmp_24.arg0 = r0;
-    s.tmp_24.arg1 = 0;
-    s.callLocIdx = 2128; s.pc = 48; return s.tmp_24;
-  case 48:
-    r0 = s.retval;
-    s.tmp_23 = r0;
-    r0 = (s.tmp_14 + s.tmp_23);
-    s.tmp_13 = r0;
-    s.tmp_27 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_28 = miniMenu_MenuStyle_padding__P4430_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_28.arg0 = r0;
-    s.callLocIdx = 2129; s.pc = 51; return s.tmp_28;
-  case 51:
-    r0 = s.retval;
-    s.tmp_27.arg0 = r0;
-    s.tmp_27.arg1 = 1;
-    s.callLocIdx = 2130; s.pc = 50; return s.tmp_27;
-  case 50:
-    r0 = s.retval;
-    s.tmp_26 = r0;
-    r0 = (s.tmp_13 + s.tmp_26);
-    s.tmp_12 = r0;
-    r0 = (s.tmp_12 + s.tmp_4);
-    s.tmp_11 = r0;
-    r0 = (s.tmp_11 + s.tmp_10);
-  case 29:
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_getHeight__P7350.info = {"start":62452,"length":1951,"line":1654,"column":8,"endLine":1692,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"getHeight","argumentNames":["this"]}
-
-function miniMenu_MenuSprite_getHeight__P7350_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_getHeight__P7350, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  tmp_11: undefined,
-  tmp_12: undefined,
-  tmp_13: undefined,
-  tmp_14: undefined,
-  tmp_15: undefined,
-  tmp_16: undefined,
-  tmp_17: undefined,
-  tmp_18: undefined,
-  tmp_19: undefined,
-  tmp_20: undefined,
-  tmp_21: undefined,
-  tmp_22: undefined,
-  tmp_23: undefined,
-  tmp_24: undefined,
-  tmp_25: undefined,
-  tmp_26: undefined,
-  tmp_27: undefined,
-  tmp_28: undefined,
-  contentHeight___14982: undefined,
-  current___14983: undefined,
-  style___14984: undefined,
-  i___14994: undefined,
-  i___15032: undefined,
-  i___15060: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_isVerticalScroll__P7351(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2133; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_4.arg0 = r0;
-    s.callLocIdx = 2134; s.pc = 4; return s.tmp_4;
-  case 4:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === 1);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    s.tmp_6 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_6);
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_isVerticalScroll__P7351.info = {"start":64415,"length":123,"line":1694,"column":8,"endLine":1696,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"isVerticalScroll","argumentNames":["this"]}
-
-function miniMenu_MenuSprite_isVerticalScroll__P7351_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_isVerticalScroll__P7351, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_unpackMargin__P4518(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = (s.arg0 < 255);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.arg0;
-    { step = 8; continue; }
-  case 1:
-  case 2:
-    s.tmp_1 = r0 = s.arg1;
-    r0 = pxsim_pxtcore.switch_eq(0, s.tmp_1);
-    if (r0) { step = 3; continue; }
-    r0 = pxsim_pxtcore.switch_eq(3, s.tmp_1);
-    if (r0) { step = 4; continue; }
-    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_1);
-    if (r0) { step = 5; continue; }
-    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_1);
-    if (r0) { step = 6; continue; }
-    r0 = s.tmp_1;
-    { step = 7; continue; }
-  case 3:
-    r0 = (s.arg0 & 255);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 - 1);
-    { step = 8; continue; }
-  case 4:
-    r0 = (s.arg0 >> 8);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 & 255);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 - 1);
-    { step = 8; continue; }
-  case 5:
-    r0 = (s.arg0 >> 16);
-    s.tmp_6 = r0;
-    r0 = (s.tmp_6 & 255);
-    s.tmp_5 = r0;
-    r0 = (s.tmp_5 - 1);
-    { step = 8; continue; }
-  case 6:
-    r0 = (s.arg0 >> 24);
-    s.tmp_8 = r0;
-    r0 = (s.tmp_8 & 255);
-    s.tmp_7 = r0;
-    r0 = (s.tmp_7 - 1);
-    { step = 8; continue; }
-  case 7:
-    r0 = s.arg0;
-  case 8:
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_unpackMargin__P4518.info = {"start":78268,"length":567,"line":2033,"column":4,"endLine":2050,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"unpackMargin","argumentNames":["margin","direction"]}
-
-function miniMenu_unpackMargin__P4518_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_unpackMargin__P4518, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuItem_getHeight__P4473(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.allPadding___15230 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuItem__C4470_VT)) failedCast(r0);
-    s.tmp_5 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_6 = miniMenu_Style_padding__P4448_mk(s);
-    s.tmp_6.arg0 = s.arg1;
-    s.callLocIdx = 1781; s.pc = 9; return s.tmp_6;
-  case 9:
-    r0 = s.retval;
-    s.tmp_5.arg0 = r0;
-    s.tmp_5.arg1 = 0;
-    s.callLocIdx = 1782; s.pc = 8; return s.tmp_5;
-  case 8:
-    r0 = s.retval;
-    s.tmp_4 = r0;
-    s.tmp_8 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_9 = miniMenu_Style_padding__P4448_mk(s);
-    s.tmp_9.arg0 = s.arg1;
-    s.callLocIdx = 1783; s.pc = 11; return s.tmp_9;
-  case 11:
-    r0 = s.retval;
-    s.tmp_8.arg0 = r0;
-    s.tmp_8.arg1 = 1;
-    s.callLocIdx = 1784; s.pc = 10; return s.tmp_8;
-  case 10:
-    r0 = s.retval;
-    s.tmp_7 = r0;
-    r0 = (s.tmp_4 + s.tmp_7);
-    s.tmp_3 = r0;
-    s.tmp_11 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_12 = miniMenu_Style_margin__P4458_mk(s);
-    s.tmp_12.arg0 = s.arg1;
-    s.callLocIdx = 1785; s.pc = 13; return s.tmp_12;
-  case 13:
-    r0 = s.retval;
-    s.tmp_11.arg0 = r0;
-    s.tmp_11.arg1 = 0;
-    s.callLocIdx = 1786; s.pc = 12; return s.tmp_11;
-  case 12:
-    r0 = s.retval;
-    s.tmp_10 = r0;
-    r0 = (s.tmp_3 + s.tmp_10);
-    s.tmp_2 = r0;
-    s.tmp_14 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_15 = miniMenu_Style_margin__P4458_mk(s);
-    s.tmp_15.arg0 = s.arg1;
-    s.callLocIdx = 1787; s.pc = 15; return s.tmp_15;
-  case 15:
-    r0 = s.retval;
-    s.tmp_14.arg0 = r0;
-    s.tmp_14.arg1 = 1;
-    s.callLocIdx = 1788; s.pc = 14; return s.tmp_14;
-  case 14:
-    r0 = s.retval;
-    s.tmp_13 = r0;
-    r0 = (s.tmp_2 + s.tmp_13);
-    s.tmp_1 = r0;
-    s.tmp_17 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_18 = miniMenu_Style_border__P4456_mk(s);
-    s.tmp_18.arg0 = s.arg1;
-    s.callLocIdx = 1789; s.pc = 17; return s.tmp_18;
-  case 17:
-    r0 = s.retval;
-    s.tmp_17.arg0 = r0;
-    s.tmp_17.arg1 = 0;
-    s.callLocIdx = 1790; s.pc = 16; return s.tmp_17;
-  case 16:
-    r0 = s.retval;
-    s.tmp_16 = r0;
-    r0 = (s.tmp_1 + s.tmp_16);
-    s.tmp_0 = r0;
-    s.tmp_20 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_21 = miniMenu_Style_border__P4456_mk(s);
-    s.tmp_21.arg0 = s.arg1;
-    s.callLocIdx = 1791; s.pc = 19; return s.tmp_21;
-  case 19:
-    r0 = s.retval;
-    s.tmp_20.arg0 = r0;
-    s.tmp_20.arg1 = 1;
-    s.callLocIdx = 1792; s.pc = 18; return s.tmp_20;
-  case 18:
-    r0 = s.retval;
-    s.tmp_19 = r0;
-    r0 = (s.tmp_0 + s.tmp_19);
-    s.allPadding___15230 = (r0);
-    s.tmp_1 = miniMenu_Style_iconOnly__P4462_mk(s);
-    s.tmp_1.arg0 = s.arg1;
-    s.callLocIdx = 1793; s.pc = 20; return s.tmp_1;
-  case 20:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["icon"];
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    r0 = s.arg0.fields["icon"];
-    s.tmp_4 = r0;
-    r0 = pxsim_ImageMethods.height(s.tmp_4);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 + s.allPadding___15230);
-    { step = 7; continue; }
-    { step = 6; continue; }
-  case 3:
-    r0 = s.arg0.fields["icon"];
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 4; continue; }
-    s.tmp_7 = Math_max__P130_mk(s);
-    r0 = s.arg0.fields["icon"];
-    s.tmp_8 = r0;
-    r0 = pxsim_ImageMethods.height(s.tmp_8);
-    s.tmp_7.arg0 = r0;
-    s.tmp_9 = if_charHeight_1_mk(s);
-    r0 = s.arg0.fields["font"];
-    s.tmp_9.arg0 = r0;
-    if (!s.tmp_9.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_9.arg0, "charHeight");
-    } else {
-      s.tmp_9.fn = s.tmp_9.arg0.vtable.iface["charHeight"];
-      if (s.tmp_9.fn == null) { s.retval = s.tmp_9.arg0.fields["charHeight"]; }
-      else if (!s.tmp_9.fn.isGetter) { s.retval = bind(s.tmp_9); }
-     else { s.callLocIdx = 1794; s.pc = 22; return s.tmp_9; }
-    }
-  case 22:
-    r0 = s.retval;
-    s.tmp_7.arg1 = r0;
-    s.callLocIdx = 1795; s.pc = 21; return s.tmp_7;
-  case 21:
-    r0 = s.retval;
-    s.tmp_6 = r0;
-    r0 = (s.tmp_6 + s.allPadding___15230);
-    { step = 7; continue; }
-    { step = 5; continue; }
-  case 4:
-    s.tmp_11 = if_charHeight_1_mk(s);
-    r0 = s.arg0.fields["font"];
-    s.tmp_11.arg0 = r0;
-    if (!s.tmp_11.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_11.arg0, "charHeight");
-    } else {
-      s.tmp_11.fn = s.tmp_11.arg0.vtable.iface["charHeight"];
-      if (s.tmp_11.fn == null) { s.retval = s.tmp_11.arg0.fields["charHeight"]; }
-      else if (!s.tmp_11.fn.isGetter) { s.retval = bind(s.tmp_11); }
-     else { s.callLocIdx = 1796; s.pc = 23; return s.tmp_11; }
-    }
-  case 23:
-    r0 = s.retval;
-    s.tmp_10 = r0;
-    r0 = (s.tmp_10 + s.allPadding___15230);
-    { step = 7; continue; }
-  case 5:
-  case 6:
-    r0 = undefined;
-  case 7:
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuItem_getHeight__P4473.info = {"start":16631,"length":808,"line":550,"column":8,"endLine":568,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"getHeight","argumentNames":["this","style"]}
-
-function miniMenu_MenuItem_getHeight__P4473_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuItem_getHeight__P4473, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  tmp_11: undefined,
-  tmp_12: undefined,
-  tmp_13: undefined,
-  tmp_14: undefined,
-  tmp_15: undefined,
-  tmp_16: undefined,
-  tmp_17: undefined,
-  tmp_18: undefined,
-  tmp_19: undefined,
-  tmp_20: undefined,
-  tmp_21: undefined,
-  allPadding___15230: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_iconOnly__P4462(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_iconOnly"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_iconOnly__P4462_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1737; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_iconOnly"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_iconOnly__P4462.info = {"start":12481,"length":180,"line":431,"column":8,"endLine":436,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"iconOnly","argumentNames":["this"]}
-miniMenu_Style_iconOnly__P4462.isGetter = true;
-
-function miniMenu_Style_iconOnly__P4462_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_iconOnly__P4462, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_margin__P4458(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_margin"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_margin__P4458_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1731; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_margin"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_margin__P4458.info = {"start":11803,"length":172,"line":407,"column":8,"endLine":412,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"margin","argumentNames":["this"]}
-miniMenu_Style_margin__P4458.isGetter = true;
-
-function miniMenu_Style_margin__P4458_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_margin__P4458, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_border__P4456(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_border"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_border__P4456_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1728; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_border"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_border__P4456.info = {"start":11491,"length":172,"line":395,"column":8,"endLine":400,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"border","argumentNames":["this"]}
-miniMenu_Style_border__P4456.isGetter = true;
-
-function miniMenu_Style_border__P4456_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_border__P4456, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_padding__P4448(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_padding"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_padding__P4448_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1722; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_padding"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_padding__P4448.info = {"start":10288,"length":176,"line":350,"column":8,"endLine":355,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"padding","argumentNames":["this"]}
-miniMenu_Style_padding__P4448.isGetter = true;
-
-function miniMenu_Style_padding__P4448_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_padding__P4448, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_scrollColor__P4434(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_scrollColor"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_scrollColor__P4434_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1689; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_scrollColor"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_scrollColor__P4434.info = {"start":7695,"length":208,"line":279,"column":8,"endLine":284,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"scrollColor","argumentNames":["this"]}
-miniMenu_MenuStyle_scrollColor__P4434.isGetter = true;
-
-function miniMenu_MenuStyle_scrollColor__P4434_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_scrollColor__P4434, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_padding__P4430(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_padding"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_padding__P4430_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1685; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_padding"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_padding__P4430.info = {"start":7018,"length":192,"line":256,"column":8,"endLine":261,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"padding","argumentNames":["this"]}
-miniMenu_MenuStyle_padding__P4430.isGetter = true;
-
-function miniMenu_MenuStyle_padding__P4430_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_padding__P4430, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_border__P4426(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_border"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_border__P4426_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1681; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_border"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_border__P4426.info = {"start":6371,"length":188,"line":233,"column":8,"endLine":238,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"border","argumentNames":["this"]}
-miniMenu_MenuStyle_border__P4426.isGetter = true;
-
-function miniMenu_MenuStyle_border__P4426_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_border__P4426, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_rows__P4424(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_rows"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1678; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_rows"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_rows__P4424.info = {"start":6051,"length":180,"line":221,"column":8,"endLine":226,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"rows","argumentNames":["this"]}
-miniMenu_MenuStyle_rows__P4424.isGetter = true;
-
-function miniMenu_MenuStyle_rows__P4424_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_rows__P4424, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_columns__P4422(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_columns"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1675; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_columns"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_columns__P4422.info = {"start":5713,"length":192,"line":209,"column":8,"endLine":214,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"columns","argumentNames":["this"]}
-miniMenu_MenuStyle_columns__P4422.isGetter = true;
-
-function miniMenu_MenuStyle_columns__P4422_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_columns__P4422, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_customHeight__P4418(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_customHeight"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_customHeight__P4418_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1671; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_customHeight"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_customHeight__P4418.info = {"start":5030,"length":212,"line":186,"column":8,"endLine":191,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"customHeight","argumentNames":["this"]}
-miniMenu_MenuStyle_customHeight__P4418.isGetter = true;
-
-function miniMenu_MenuStyle_customHeight__P4418_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_customHeight__P4418, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_getWidth__P7349(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.contentWidth___15383 = undefined;
-    s.current___15384 = undefined;
-    s.style___15385 = undefined;
-    s.i___15395 = undefined;
-    s.i___15432 = undefined;
-    s.i___15461 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    s.tmp_2 = miniMenu_MenuStyle_customWidth__P4416_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2089; s.pc = 30; return s.tmp_2;
-  case 30:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 !== undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_customWidth__P4416_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 2090; s.pc = 31; return s.tmp_3;
-  case 31:
-    r0 = s.retval;
-    { step = 29; continue; }
-  case 1:
-  case 2:
-    s.contentWidth___15383 = (0);
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2091; s.pc = 32; return s.tmp_2;
-  case 32:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 <= 1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 3; continue; }
-    r0 = s.tmp_0;
-    { step = 4; continue; }
-  case 3:
-    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_4.arg0 = r0;
-    s.callLocIdx = 2092; s.pc = 33; return s.tmp_4;
-  case 33:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === 0);
-  case 4:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 9; continue; }
-    s.i___15395 = (0);
-  case 5:
-    s.tmp_1 = r0 = s.i___15395;
-    r0 = s.arg0.fields["items"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__length(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 8; continue; }
-    r0 = s.arg0.fields["items"];
-    s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15395);
-    s.current___15384 = (r0);
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === s.i___15395);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 6; continue; }
-    r0 = s.arg0.fields["selectedStyle"];
-    { step = 7; continue; }
-  case 6:
-    r0 = s.arg0.fields["defaultStyle"];
-  case 7:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    s.style___15385 = (s.tmp_2);
-    s.tmp_0 = Math_max__P130_mk(s);
-    s.tmp_1 = miniMenu_MenuItem_getWidth__P4474_mk(s);
-    s.tmp_1.arg0 = s.current___15384;
-    s.tmp_1.arg1 = s.style___15385;
-    s.callLocIdx = 2093; s.pc = 35; return s.tmp_1;
-  case 35:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.contentWidth___15383;
-    s.callLocIdx = 2094; s.pc = 34; return s.tmp_0;
-  case 34:
-    r0 = s.retval;
-    s.contentWidth___15383 = (r0);
-    r0 = (s.i___15395 + 1);
-    s.i___15395 = (r0);
-    { step = 5; continue; }
-  case 8:
-    { step = 22; continue; }
-  case 9:
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2095; s.pc = 36; return s.tmp_2;
-  case 36:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 10; continue; }
-    r0 = s.tmp_0;
-    { step = 11; continue; }
-  case 10:
-    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_4.arg0 = r0;
-    s.callLocIdx = 2096; s.pc = 37; return s.tmp_4;
-  case 37:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === 1);
-  case 11:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 16; continue; }
-    s.i___15432 = (0);
-  case 12:
-    s.tmp_1 = r0 = s.i___15432;
-    r0 = s.arg0.fields["items"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__length(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 15; continue; }
-    r0 = s.arg0.fields["items"];
-    s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15432);
-    s.current___15384 = (r0);
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === s.i___15432);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 13; continue; }
-    r0 = s.arg0.fields["selectedStyle"];
-    { step = 14; continue; }
-  case 13:
-    r0 = s.arg0.fields["defaultStyle"];
-  case 14:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    s.style___15385 = (s.tmp_2);
-    s.tmp_0 = r0 = s.contentWidth___15383;
-    s.tmp_2 = miniMenu_MenuItem_getWidth__P4474_mk(s);
-    s.tmp_2.arg0 = s.current___15384;
-    s.tmp_2.arg1 = s.style___15385;
-    s.callLocIdx = 2097; s.pc = 38; return s.tmp_2;
-  case 38:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 + s.tmp_1);
-    s.contentWidth___15383 = (r0);
-    r0 = (s.i___15432 + 1);
-    s.i___15432 = (r0);
-    { step = 12; continue; }
-  case 15:
-    { step = 21; continue; }
-  case 16:
-    s.i___15461 = (0);
-  case 17:
-    s.tmp_1 = r0 = s.i___15461;
-    r0 = s.arg0.fields["items"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__length(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 20; continue; }
-    r0 = s.arg0.fields["items"];
-    s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_4, s.i___15461);
-    s.current___15384 = (r0);
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === s.i___15461);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 18; continue; }
-    r0 = s.arg0.fields["selectedStyle"];
-    { step = 19; continue; }
-  case 18:
-    r0 = s.arg0.fields["defaultStyle"];
-  case 19:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    s.style___15385 = (s.tmp_2);
-    s.tmp_0 = Math_max__P130_mk(s);
-    s.tmp_1 = miniMenu_MenuItem_getWidth__P4474_mk(s);
-    s.tmp_1.arg0 = s.current___15384;
-    s.tmp_1.arg1 = s.style___15385;
-    s.callLocIdx = 2098; s.pc = 40; return s.tmp_1;
-  case 40:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.contentWidth___15383;
-    s.callLocIdx = 2099; s.pc = 39; return s.tmp_0;
-  case 39:
-    r0 = s.retval;
-    s.contentWidth___15383 = (r0);
-    r0 = (s.i___15461 + 1);
-    s.i___15461 = (r0);
-    { step = 17; continue; }
-  case 20:
-    s.tmp_0 = r0 = s.contentWidth___15383;
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2100; s.pc = 41; return s.tmp_2;
-  case 41:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 * s.tmp_1);
-    s.contentWidth___15383 = (r0);
-  case 21:
-  case 22:
-    r0 = s.arg0.fields["frame"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 23; continue; }
-    r0 = s.arg0.fields["frame"];
-    s.tmp_3 = r0;
-    r0 = pxsim_ImageMethods.width(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim.Math_.idiv(s.tmp_2, 3);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 << 1);
-    { step = 24; continue; }
-  case 23:
-    r0 = 0;
-  case 24:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    s.tmp_6 = miniMenu_MenuStyle_scrollColor__P4434_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_6.arg0 = r0;
-    s.callLocIdx = 2109; s.pc = 42; return s.tmp_6;
-  case 42:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 27; continue; }
-    s.tmp_8 = miniMenu_MenuSprite_isVerticalScroll__P7351_mk(s);
-    s.tmp_8.arg0 = s.arg0;
-    s.callLocIdx = 2110; s.pc = 43; return s.tmp_8;
-  case 43:
-    r0 = s.retval;
-    s.tmp_7 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_7);
-    if (!r0) { step = 25; continue; }
-    r0 = 8;
-    { step = 26; continue; }
-  case 25:
-    r0 = 0;
-  case 26:
-    // jmp value (already in r0)
-    s.tmp_9 = r0;
-    r0 = s.tmp_9;
-    { step = 28; continue; }
-  case 27:
-    r0 = 0;
-  case 28:
-    // jmp value (already in r0)
-    s.tmp_10 = r0;
-    s.tmp_16 = r0 = s.contentWidth___15383;
-    s.tmp_18 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_19 = miniMenu_MenuStyle_border__P4426_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_19.arg0 = r0;
-    s.callLocIdx = 2101; s.pc = 45; return s.tmp_19;
-  case 45:
-    r0 = s.retval;
-    s.tmp_18.arg0 = r0;
-    s.tmp_18.arg1 = 2;
-    s.callLocIdx = 2102; s.pc = 44; return s.tmp_18;
-  case 44:
-    r0 = s.retval;
-    s.tmp_17 = r0;
-    r0 = (s.tmp_16 + s.tmp_17);
-    s.tmp_15 = r0;
-    s.tmp_21 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_22 = miniMenu_MenuStyle_border__P4426_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_22.arg0 = r0;
-    s.callLocIdx = 2103; s.pc = 47; return s.tmp_22;
-  case 47:
-    r0 = s.retval;
-    s.tmp_21.arg0 = r0;
-    s.tmp_21.arg1 = 3;
-    s.callLocIdx = 2104; s.pc = 46; return s.tmp_21;
-  case 46:
-    r0 = s.retval;
-    s.tmp_20 = r0;
-    r0 = (s.tmp_15 + s.tmp_20);
-    s.tmp_14 = r0;
-    s.tmp_24 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_25 = miniMenu_MenuStyle_padding__P4430_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_25.arg0 = r0;
-    s.callLocIdx = 2105; s.pc = 49; return s.tmp_25;
-  case 49:
-    r0 = s.retval;
-    s.tmp_24.arg0 = r0;
-    s.tmp_24.arg1 = 2;
-    s.callLocIdx = 2106; s.pc = 48; return s.tmp_24;
-  case 48:
-    r0 = s.retval;
-    s.tmp_23 = r0;
-    r0 = (s.tmp_14 + s.tmp_23);
-    s.tmp_13 = r0;
-    s.tmp_27 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_28 = miniMenu_MenuStyle_padding__P4430_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_28.arg0 = r0;
-    s.callLocIdx = 2107; s.pc = 51; return s.tmp_28;
-  case 51:
-    r0 = s.retval;
-    s.tmp_27.arg0 = r0;
-    s.tmp_27.arg1 = 3;
-    s.callLocIdx = 2108; s.pc = 50; return s.tmp_27;
-  case 50:
-    r0 = s.retval;
-    s.tmp_26 = r0;
-    r0 = (s.tmp_13 + s.tmp_26);
-    s.tmp_12 = r0;
-    r0 = (s.tmp_12 + s.tmp_4);
-    s.tmp_11 = r0;
-    r0 = (s.tmp_11 + s.tmp_10);
-  case 29:
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_getWidth__P7349.info = {"start":60492,"length":1948,"line":1614,"column":8,"endLine":1652,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"getWidth","argumentNames":["this"]}
-
-function miniMenu_MenuSprite_getWidth__P7349_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_getWidth__P7349, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  tmp_11: undefined,
-  tmp_12: undefined,
-  tmp_13: undefined,
-  tmp_14: undefined,
-  tmp_15: undefined,
-  tmp_16: undefined,
-  tmp_17: undefined,
-  tmp_18: undefined,
-  tmp_19: undefined,
-  tmp_20: undefined,
-  tmp_21: undefined,
-  tmp_22: undefined,
-  tmp_23: undefined,
-  tmp_24: undefined,
-  tmp_25: undefined,
-  tmp_26: undefined,
-  tmp_27: undefined,
-  tmp_28: undefined,
-  contentWidth___15383: undefined,
-  current___15384: undefined,
-  style___15385: undefined,
-  i___15395: undefined,
-  i___15432: undefined,
-  i___15461: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuItem_getWidth__P4474(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.allPadding___15545 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuItem__C4470_VT)) failedCast(r0);
-    s.tmp_5 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_6 = miniMenu_Style_padding__P4448_mk(s);
-    s.tmp_6.arg0 = s.arg1;
-    s.callLocIdx = 1797; s.pc = 9; return s.tmp_6;
-  case 9:
-    r0 = s.retval;
-    s.tmp_5.arg0 = r0;
-    s.tmp_5.arg1 = 2;
-    s.callLocIdx = 1798; s.pc = 8; return s.tmp_5;
-  case 8:
-    r0 = s.retval;
-    s.tmp_4 = r0;
-    s.tmp_8 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_9 = miniMenu_Style_padding__P4448_mk(s);
-    s.tmp_9.arg0 = s.arg1;
-    s.callLocIdx = 1799; s.pc = 11; return s.tmp_9;
-  case 11:
-    r0 = s.retval;
-    s.tmp_8.arg0 = r0;
-    s.tmp_8.arg1 = 3;
-    s.callLocIdx = 1800; s.pc = 10; return s.tmp_8;
-  case 10:
-    r0 = s.retval;
-    s.tmp_7 = r0;
-    r0 = (s.tmp_4 + s.tmp_7);
-    s.tmp_3 = r0;
-    s.tmp_11 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_12 = miniMenu_Style_margin__P4458_mk(s);
-    s.tmp_12.arg0 = s.arg1;
-    s.callLocIdx = 1801; s.pc = 13; return s.tmp_12;
-  case 13:
-    r0 = s.retval;
-    s.tmp_11.arg0 = r0;
-    s.tmp_11.arg1 = 2;
-    s.callLocIdx = 1802; s.pc = 12; return s.tmp_11;
-  case 12:
-    r0 = s.retval;
-    s.tmp_10 = r0;
-    r0 = (s.tmp_3 + s.tmp_10);
-    s.tmp_2 = r0;
-    s.tmp_14 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_15 = miniMenu_Style_margin__P4458_mk(s);
-    s.tmp_15.arg0 = s.arg1;
-    s.callLocIdx = 1803; s.pc = 15; return s.tmp_15;
-  case 15:
-    r0 = s.retval;
-    s.tmp_14.arg0 = r0;
-    s.tmp_14.arg1 = 3;
-    s.callLocIdx = 1804; s.pc = 14; return s.tmp_14;
-  case 14:
-    r0 = s.retval;
-    s.tmp_13 = r0;
-    r0 = (s.tmp_2 + s.tmp_13);
-    s.tmp_1 = r0;
-    s.tmp_17 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_18 = miniMenu_Style_border__P4456_mk(s);
-    s.tmp_18.arg0 = s.arg1;
-    s.callLocIdx = 1805; s.pc = 17; return s.tmp_18;
-  case 17:
-    r0 = s.retval;
-    s.tmp_17.arg0 = r0;
-    s.tmp_17.arg1 = 2;
-    s.callLocIdx = 1806; s.pc = 16; return s.tmp_17;
-  case 16:
-    r0 = s.retval;
-    s.tmp_16 = r0;
-    r0 = (s.tmp_1 + s.tmp_16);
-    s.tmp_0 = r0;
-    s.tmp_20 = miniMenu_unpackMargin__P4518_mk(s);
-    s.tmp_21 = miniMenu_Style_border__P4456_mk(s);
-    s.tmp_21.arg0 = s.arg1;
-    s.callLocIdx = 1807; s.pc = 19; return s.tmp_21;
-  case 19:
-    r0 = s.retval;
-    s.tmp_20.arg0 = r0;
-    s.tmp_20.arg1 = 3;
-    s.callLocIdx = 1808; s.pc = 18; return s.tmp_20;
-  case 18:
-    r0 = s.retval;
-    s.tmp_19 = r0;
-    r0 = (s.tmp_0 + s.tmp_19);
-    s.allPadding___15545 = (r0);
-    s.tmp_1 = miniMenu_Style_iconOnly__P4462_mk(s);
-    s.tmp_1.arg0 = s.arg1;
-    s.callLocIdx = 1809; s.pc = 20; return s.tmp_1;
-  case 20:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["icon"];
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    r0 = s.arg0.fields["icon"];
-    s.tmp_4 = r0;
-    r0 = pxsim_ImageMethods.width(s.tmp_4);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 + s.allPadding___15545);
-    { step = 7; continue; }
-    { step = 6; continue; }
-  case 3:
-    r0 = s.arg0.fields["icon"];
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 4; continue; }
-    r0 = s.arg0.fields["icon"];
-    s.tmp_9 = r0;
-    r0 = pxsim_ImageMethods.width(s.tmp_9);
-    s.tmp_8 = r0;
-    s.tmp_11 = miniMenu_Style_iconTextSpacing__P4460_mk(s);
-    s.tmp_11.arg0 = s.arg1;
-    s.callLocIdx = 1810; s.pc = 21; return s.tmp_11;
-  case 21:
-    r0 = s.retval;
-    s.tmp_10 = r0;
-    r0 = (s.tmp_8 + s.tmp_10);
-    s.tmp_7 = r0;
-    r0 = s.arg0.fields["text"];
-    s.tmp_14 = r0;
-    r0 = pxsim_String_.length(s.tmp_14);
-    s.tmp_13 = r0;
-    s.tmp_16 = if_charWidth_1_mk(s);
-    r0 = s.arg0.fields["font"];
-    s.tmp_16.arg0 = r0;
-    if (!s.tmp_16.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_16.arg0, "charWidth");
-    } else {
-      s.tmp_16.fn = s.tmp_16.arg0.vtable.iface["charWidth"];
-      if (s.tmp_16.fn == null) { s.retval = s.tmp_16.arg0.fields["charWidth"]; }
-      else if (!s.tmp_16.fn.isGetter) { s.retval = bind(s.tmp_16); }
-     else { s.callLocIdx = 1811; s.pc = 22; return s.tmp_16; }
-    }
-  case 22:
-    r0 = s.retval;
-    s.tmp_15 = r0;
-    r0 = (s.tmp_13 * s.tmp_15);
-    s.tmp_12 = r0;
-    r0 = (s.tmp_7 + s.tmp_12);
-    s.tmp_6 = r0;
-    r0 = (s.tmp_6 + s.allPadding___15545);
-    { step = 7; continue; }
-    { step = 5; continue; }
-  case 4:
-    r0 = s.arg0.fields["text"];
-    s.tmp_19 = r0;
-    r0 = pxsim_String_.length(s.tmp_19);
-    s.tmp_18 = r0;
-    s.tmp_21 = if_charWidth_1_mk(s);
-    r0 = s.arg0.fields["font"];
-    s.tmp_21.arg0 = r0;
-    if (!s.tmp_21.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_21.arg0, "charWidth");
-    } else {
-      s.tmp_21.fn = s.tmp_21.arg0.vtable.iface["charWidth"];
-      if (s.tmp_21.fn == null) { s.retval = s.tmp_21.arg0.fields["charWidth"]; }
-      else if (!s.tmp_21.fn.isGetter) { s.retval = bind(s.tmp_21); }
-     else { s.callLocIdx = 1812; s.pc = 23; return s.tmp_21; }
-    }
-  case 23:
-    r0 = s.retval;
-    s.tmp_20 = r0;
-    r0 = (s.tmp_18 * s.tmp_20);
-    s.tmp_17 = r0;
-    r0 = (s.tmp_17 + s.allPadding___15545);
-    { step = 7; continue; }
-  case 5:
-  case 6:
-    r0 = undefined;
-  case 7:
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuItem_getWidth__P4474.info = {"start":17451,"length":865,"line":570,"column":8,"endLine":588,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"getWidth","argumentNames":["this","style"]}
-
-function miniMenu_MenuItem_getWidth__P4474_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuItem_getWidth__P4474, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  tmp_11: undefined,
-  tmp_12: undefined,
-  tmp_13: undefined,
-  tmp_14: undefined,
-  tmp_15: undefined,
-  tmp_16: undefined,
-  tmp_17: undefined,
-  tmp_18: undefined,
-  tmp_19: undefined,
-  tmp_20: undefined,
-  tmp_21: undefined,
-  allPadding___15545: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_iconTextSpacing__P4460(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_iconTextSpacing"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_iconTextSpacing__P4460_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1734; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_iconTextSpacing"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_iconTextSpacing__P4460.info = {"start":12115,"length":208,"line":419,"column":8,"endLine":424,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"iconTextSpacing","argumentNames":["this"]}
-miniMenu_Style_iconTextSpacing__P4460.isGetter = true;
-
-function miniMenu_Style_iconTextSpacing__P4460_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_iconTextSpacing__P4460, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_customWidth__P4416(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_customWidth"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_customWidth__P4416_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1668; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_customWidth"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_customWidth__P4416.info = {"start":4668,"length":208,"line":174,"column":8,"endLine":179,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"customWidth","argumentNames":["this"]}
-miniMenu_MenuStyle_customWidth__P4416.isGetter = true;
-
-function miniMenu_MenuStyle_customWidth__P4416_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_customWidth__P4416, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function sprites_ExtendableSprite_setDimensions__P2455(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_ExtendableSprite__C2451_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = (s.arg1 * 256);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 | 0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_width"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = (s.arg2 * 256);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 | 0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_height"] = (s.tmp_1);
-    r0 = (s.arg0).fields["hasCustomDimensions"] = (true);
-    s.tmp_0 = Sprite_resetHitbox__P2408_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 691; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_ExtendableSprite_setDimensions__P2455.info = {"start":1729,"length":211,"line":49,"column":8,"endLine":54,"endColumn":9,"fileName":"pxt_modules/game/extendableSprite.ts","functionName":"setDimensions","argumentNames":["this","width","height"]}
-
-function sprites_ExtendableSprite_setDimensions__P2455_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_ExtendableSprite_setDimensions__P2455, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function miniMenu__state__P4476(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = miniMenu__init__P4477_mk(s);
-    s.callLocIdx = 1898; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = r0 = globals.stateStack___7333;
-    r0 = pxsim_Array__length(globals.stateStack___7333);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 - 1);
-    s.tmp_1 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_1);
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu__state__P4476.info = {"start":25746,"length":102,"line":763,"column":4,"endLine":766,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"_state","argumentNames":[]}
-
-function miniMenu__state__P4476_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu__state__P4476, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-} }
-
-
-
-
-
-function miniMenu__init__P4477(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    r0 = pxsim_numops_toBoolDecr(globals.stateStack___7333);
-    if (!r0) { step = 1; continue; }
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MiniMenuState__C7336_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_MiniMenuState_constructor__P7342_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 1899; s.pc = 4; return s.tmp_1;
-  case 4:
-    r0 = s.retval;
-    r0 = pxsim_Array__mk();
-    s.tmp_2 = r0;
-    r0 = pxsim_Array__push(s.tmp_2, s.tmp_0);
-    globals.stateStack___7333 = (s.tmp_2);
-    r0 = pxsim.image.create(12, 12);
-    globals.printCanvas___7334 = (r0);
-    s.tmp_0 = game_addScenePushHandler__P3052_mk(s);
-    s.tmp_0.arg0 = miniMenu__init_inline__P15844;
-    s.callLocIdx = 1901; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = game_addScenePopHandler__P3054_mk(s);
-    s.tmp_0.arg0 = miniMenu__init_inline__P15851;
-    s.callLocIdx = 1903; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-  case 3:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu__init__P4477.info = {"start":25856,"length":491,"line":768,"column":4,"endLine":788,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"_init","argumentNames":[]}
-
-function miniMenu__init__P4477_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu__init__P4477, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-} }
-
-
-
-
-
-function miniMenu__init_inline__P15844(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MiniMenuState__C7336_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_MiniMenuState_constructor__P7342_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 1900; s.pc = 1; return s.tmp_1;
-  case 1:
-    r0 = s.retval;
-    r0 = pxsim_Array__push(globals.stateStack___7333, s.tmp_0);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu__init_inline__P15844.info = {"start":26069,"length":68,"line":777,"column":33,"endLine":779,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
-
-function miniMenu__init_inline__P15844_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu__init_inline__P15844, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-} }
-
-
-
-
-
-function miniMenu__init_inline__P15851(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    r0 = pxsim_Array_.pop(globals.stateStack___7333);
-    r0 = pxsim_Array__length(globals.stateStack___7333);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MiniMenuState__C7336_VT);
-    s.tmp_2 = r0;
-    s.tmp_3 = miniMenu_MiniMenuState_constructor__P7342_mk(s);
-    s.tmp_3.arg0 = s.tmp_2;
-    s.callLocIdx = 1902; s.pc = 3; return s.tmp_3;
-  case 3:
-    r0 = s.retval;
-    r0 = pxsim_Array__push(globals.stateStack___7333, s.tmp_2);
-  case 1:
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu__init_inline__P15851.info = {"start":26174,"length":165,"line":781,"column":32,"endLine":787,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
-
-function miniMenu__init_inline__P15851_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu__init_inline__P15851, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-} }
-
-
-
-
-
-function miniMenu_MiniMenuState_constructor__P7342(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.button___15909 = undefined;
-    s.unnamed122___U1 = undefined;
-    s.unnamed123___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_Array__mk();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["sprites"] = (s.tmp_1);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MenuStyle__C4404_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_MenuStyle_constructor__P4415_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = undefined;
-    s.callLocIdx = 1657; s.pc = 3; return s.tmp_1;
-  case 3:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["menuStyle"] = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = undefined;
-    s.callLocIdx = 1658; s.pc = 4; return s.tmp_1;
-  case 4:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["defaultStyle"] = (s.tmp_0);
-    r0 = s.arg0.fields["defaultStyle"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["_iconTextSpacing"] = (8);
-    r0 = s.arg0.fields["defaultStyle"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["_padding"] = (2);
-    r0 = s.arg0.fields["defaultStyle"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["_foreground"] = (15);
-    r0 = s.arg0.fields["defaultStyle"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["_background"] = (1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = miniMenu_Style_clone__P4467_mk(s);
-    r0 = s.arg0.fields["defaultStyle"];
-    s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = false;
-    s.callLocIdx = 1659; s.pc = 5; return s.tmp_2;
-  case 5:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["selectedStyle"] = (s.tmp_1);
-    r0 = s.arg0.fields["selectedStyle"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["_foreground"] = (1);
-    r0 = s.arg0.fields["selectedStyle"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["_background"] = (3);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = miniMenu_Style_clone__P4467_mk(s);
-    r0 = s.arg0.fields["defaultStyle"];
-    s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = false;
-    s.callLocIdx = 1660; s.pc = 6; return s.tmp_2;
-  case 6:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["titleStyle"] = (s.tmp_1);
-    r0 = s.arg0.fields["titleStyle"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["_background"] = (0);
-    s.button___15909 = (undefined);
-    r0 = pxsim_Array__mk();
-    s.tmp_0 = r0;
-    r0 = pxsim_Array__push(s.tmp_0, globals.up___2130);
-    r0 = pxsim_Array__push(s.tmp_0, globals.right___2131);
-    r0 = pxsim_Array__push(s.tmp_0, globals.down___2132);
-    r0 = pxsim_Array__push(s.tmp_0, globals.menu___2133);
-    r0 = pxsim_Array__push(s.tmp_0, globals.left___2129);
-    r0 = pxsim_Array__push(s.tmp_0, globals.A___2127);
-    r0 = pxsim_Array__push(s.tmp_0, globals.B___2128);
-    s.unnamed122___U1 = (s.tmp_0);
-    s.unnamed123___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed123___U2;
-    r0 = pxsim_Array__length(s.unnamed122___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed122___U1, s.unnamed123___U2);
-    s.button___15909 = (r0);
-    r0 = pxsim_pxtcore_mkAction(2, miniMenu_MiniMenuState_inline__P15921);
-    s.tmp_2 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_2, 0, s.arg0);
-    r0 = pxsim_pxtrt_stclo(s.tmp_2, 1, s.button___15909);
-    s.tmp_3 = controller_Button_addEventListener__P2211_mk(s);
-    s.tmp_3.arg0 = s.button___15909;
-    s.tmp_3.arg1 = 2049;
-    s.tmp_3.arg2 = s.tmp_2;
-    s.callLocIdx = 1663; s.pc = 7; return s.tmp_3;
-  case 7:
-    r0 = s.retval;
-    r0 = (s.unnamed123___U2 + 1);
-    s.unnamed123___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed122___U1 = (undefined);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MiniMenuState_constructor__P7342.info = {"start":447,"length":1051,"line":20,"column":8,"endLine":45,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this"]}
-
-function miniMenu_MiniMenuState_constructor__P7342_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MiniMenuState_constructor__P7342, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  button___15909: undefined,
-  unnamed122___U1: undefined,
-  unnamed123___U2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MiniMenuState_inline__P15921(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.sprite___15923 = undefined;
-    s.unnamed124___U1 = undefined;
-    s.unnamed125___U2 = undefined;
-    s.sprite___15923 = (undefined);
-    s.tmp_0 = helpers_arrayFilter__P110_mk(s);
-    r0 = s.caps[0].fields["sprites"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = miniMenu_buttonEventsEnabled__P7353;
-    s.callLocIdx = 1661; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.unnamed124___U1 = (r0);
-    s.unnamed125___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed125___U2;
-    r0 = pxsim_Array__length(s.unnamed124___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed124___U1, s.unnamed125___U2);
-    s.sprite___15923 = (r0);
-    s.tmp_2 = miniMenu_MenuSprite_fireButtonEvent__P4509_mk(s);
-    s.tmp_2.arg0 = s.sprite___15923;
-    s.tmp_2.arg1 = s.caps[1];
-    s.callLocIdx = 1662; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    r0 = (s.unnamed125___U2 + 1);
-    s.unnamed125___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed124___U1 = (undefined);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MiniMenuState_inline__P15921.info = {"start":1278,"length":192,"line":39,"column":71,"endLine":43,"endColumn":17,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
-
-function miniMenu_MiniMenuState_inline__P15921_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MiniMenuState_inline__P15921, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  sprite___15923: undefined,
-  unnamed124___U1: undefined,
-  unnamed125___U2: undefined,
-} }
-
-
-
-
-
-function miniMenu_buttonEventsEnabled__P7353(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0.fields["buttonEventsEnabled"];
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_0);
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_buttonEventsEnabled__P7353.info = {"start":79924,"length":116,"line":2075,"column":4,"endLine":2077,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"buttonEventsEnabled","argumentNames":["sprite"]}
-
-function miniMenu_buttonEventsEnabled__P7353_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_buttonEventsEnabled__P7353, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_fireButtonEvent__P4509(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.buttonHandler___15943 = undefined;
-    s.unnamed128___U1 = undefined;
-    s.unnamed129___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    r0 = s.arg0.fields["buttonEventsEnabled"];
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["items"];
-    s.tmp_5 = r0;
-    r0 = pxsim_Array__length(s.tmp_5);
-    s.tmp_4 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_4);
-    s.tmp_3 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_3);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_6 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
-    if (!r0) { step = 3; continue; }
-    { step = 9; continue; }
-  case 3:
-  case 4:
-    s.buttonHandler___15943 = (undefined);
-    r0 = s.arg0.fields["buttonHandlers"];
-    s.unnamed128___U1 = (r0);
-    s.unnamed129___U2 = (0);
-  case 5:
-    s.tmp_0 = r0 = s.unnamed129___U2;
-    r0 = pxsim_Array__length(s.unnamed128___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 8; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed128___U1, s.unnamed129___U2);
-    s.buttonHandler___15943 = (r0);
-    r0 = s.buttonHandler___15943.fields["button"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === s.arg1);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 6; continue; }
-    s.tmp_4 = miniMenu_ButtonHandler_fire__P7344_mk(s);
-    s.tmp_4.arg0 = s.buttonHandler___15943;
-    r0 = s.arg0.fields["items"];
-    s.tmp_5 = r0;
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_6 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_5, s.tmp_6);
-    r0 = r0.fields["text"];
-    s.tmp_4.arg1 = r0;
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_4.arg2 = r0;
-    s.callLocIdx = 2061; s.pc = 10; return s.tmp_4;
-  case 10:
-    r0 = s.retval;
-    { step = 8; continue; }
-  case 6:
-  case 7:
-    r0 = (s.unnamed129___U2 + 1);
-    s.unnamed129___U2 = (r0);
-    { step = 5; continue; }
-  case 8:
-    s.unnamed128___U1 = (undefined);
-  case 9:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_fireButtonEvent__P4509.info = {"start":51101,"length":411,"line":1373,"column":8,"endLine":1382,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"fireButtonEvent","argumentNames":["this","button"]}
-
-function miniMenu_MenuSprite_fireButtonEvent__P4509_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_fireButtonEvent__P4509, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  buttonHandler___15943: undefined,
-  unnamed128___U1: undefined,
-  unnamed129___U2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_ButtonHandler_fire__P7344(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_ButtonHandler__C7343_VT)) failedCast(r0);
-    r0 = s.arg0.fields["enabled"];
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    s.tmp_3 = if_handler_3_mk(s);
-    s.tmp_3.arg0 = s.arg0;
-    s.tmp_3.arg1 = s.arg1;
-    s.tmp_3.arg2 = s.arg2;
-    if (!s.tmp_3.arg0.vtable.iface) {
-      setupLambda(s.tmp_3, pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "handler"), 3);
-      s.callLocIdx = 1906; s.pc = 4; return s.tmp_3;
-    } else {
-      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["handler"];
-      if (s.tmp_3.fn == null) { setupLambda(s.tmp_3, s.tmp_3.arg0.fields["handler"], 3); s.callLocIdx = 1906; s.pc = 4; return s.tmp_3; }
-      else if (s.tmp_3.fn.isGetter) { s.tmp_3.stage2Call = true; s.callLocIdx = 1906; s.pc = 4; return s.tmp_3;; }
-     else { s.callLocIdx = 1906; s.pc = 4; return s.tmp_3; }
-    }
-  case 4:
-    r0 = s.retval;
-  case 3:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_ButtonHandler_fire__P7344.info = {"start":27340,"length":142,"line":815,"column":8,"endLine":818,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"fire","argumentNames":["this","text","selectedIndex"]}
-
-function miniMenu_ButtonHandler_fire__P7344_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_ButtonHandler_fire__P7344, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_clone__P4467(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.res___16111 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = undefined;
-    s.callLocIdx = 1743; s.pc = 3; return s.tmp_1;
-  case 3:
-    r0 = s.retval;
-    s.res___16111 = (s.tmp_0);
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    if (!r0) { step = 1; continue; }
-    s.tmp_0 = miniMenu_Style_padding__P4449_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_padding__P4448_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1744; s.pc = 5; return s.tmp_1;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1745; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_foreground__P4451_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_foreground__P4450_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1746; s.pc = 7; return s.tmp_1;
-  case 7:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1747; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_background__P4453_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_background__P4452_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1748; s.pc = 9; return s.tmp_1;
-  case 9:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1749; s.pc = 8; return s.tmp_0;
-  case 8:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_borderColor__P4455_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_borderColor__P4454_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1750; s.pc = 11; return s.tmp_1;
-  case 11:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1751; s.pc = 10; return s.tmp_0;
-  case 10:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_border__P4457_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_border__P4456_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1752; s.pc = 13; return s.tmp_1;
-  case 13:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1753; s.pc = 12; return s.tmp_0;
-  case 12:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_margin__P4459_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_margin__P4458_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1754; s.pc = 15; return s.tmp_1;
-  case 15:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1755; s.pc = 14; return s.tmp_0;
-  case 14:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_iconOnly__P4463_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_iconOnly__P4462_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1756; s.pc = 17; return s.tmp_1;
-  case 17:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1757; s.pc = 16; return s.tmp_0;
-  case 16:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_iconTextSpacing__P4461_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_iconTextSpacing__P4460_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1758; s.pc = 19; return s.tmp_1;
-  case 19:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1759; s.pc = 18; return s.tmp_0;
-  case 18:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_alignment__P4465_mk(s);
-    s.tmp_0.arg0 = s.res___16111;
-    s.tmp_1 = miniMenu_Style_alignment__P4464_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1760; s.pc = 21; return s.tmp_1;
-  case 21:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1761; s.pc = 20; return s.tmp_0;
-  case 20:
-    r0 = s.retval;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_padding"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_padding"] = (s.tmp_0);
-    r0 = s.arg0.fields["_foreground"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_foreground"] = (s.tmp_0);
-    r0 = s.arg0.fields["_background"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_background"] = (s.tmp_0);
-    r0 = s.arg0.fields["_borderColor"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_borderColor"] = (s.tmp_0);
-    r0 = s.arg0.fields["_border"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_border"] = (s.tmp_0);
-    r0 = s.arg0.fields["_margin"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_margin"] = (s.tmp_0);
-    r0 = s.arg0.fields["_iconOnly"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_iconOnly"] = (s.tmp_0);
-    r0 = s.arg0.fields["_iconTextSpacing"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_iconTextSpacing"] = (s.tmp_0);
-    r0 = s.arg0.fields["_alignment"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["_alignment"] = (s.tmp_0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = (s.res___16111).fields["parent"] = (s.tmp_0);
-  case 2:
-    r0 = s.res___16111;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_clone__P4467.info = {"start":13599,"length":1147,"line":469,"column":8,"endLine":496,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"clone","argumentNames":["this","flattenInheritance"]}
-
-function miniMenu_Style_clone__P4467_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_clone__P4467, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  res___16111: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_alignment__P4465(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_alignment"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1741; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1742; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_alignment__P4465.info = {"start":13004,"length":125,"line":450,"column":8,"endLine":453,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"alignment","argumentNames":["this","value"]}
-
-function miniMenu_Style_alignment__P4465_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_alignment__P4465, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MiniMenuState_onStyleChange__P7339(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
-    r0 = s.arg0.fields["defaultStyle"];
-    s.tmp_1 = r0;
-    r0 = (s.arg1 === s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["titleStyle"];
-    s.tmp_2 = r0;
-    r0 = (s.arg1 === s.tmp_2);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_3);
-    if (!r0) { step = 3; continue; }
-    r0 = s.tmp_3;
-    { step = 4; continue; }
-  case 3:
-    r0 = s.arg0.fields["selectedStyle"];
-    s.tmp_4 = r0;
-    r0 = (s.arg1 === s.tmp_4);
-  case 4:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 5; continue; }
-    s.tmp_6 = miniMenu_MiniMenuState_updateDimensions__P7341_mk(s);
-    s.tmp_6.arg0 = s.arg0;
-    s.callLocIdx = 1665; s.pc = 7; return s.tmp_6;
-  case 7:
-    r0 = s.retval;
-  case 5:
-  case 6:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MiniMenuState_onStyleChange__P7339.info = {"start":1729,"length":206,"line":55,"column":8,"endLine":59,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"onStyleChange","argumentNames":["this","style"]}
-
-function miniMenu_MiniMenuState_onStyleChange__P7339_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MiniMenuState_onStyleChange__P7339, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MiniMenuState_updateDimensions__P7341(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.sprite___15734 = undefined;
-    s.unnamed126___U1 = undefined;
-    s.unnamed127___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
-    s.sprite___15734 = (undefined);
-    r0 = s.arg0.fields["sprites"];
-    s.unnamed126___U1 = (r0);
-    s.unnamed127___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed127___U2;
-    r0 = pxsim_Array__length(s.unnamed126___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed126___U1, s.unnamed127___U2);
-    s.sprite___15734 = (r0);
-    s.tmp_2 = miniMenu_MenuSprite_updateDimensions__P4512_mk(s);
-    s.tmp_2.arg0 = s.sprite___15734;
-    s.callLocIdx = 1667; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    r0 = (s.unnamed127___U2 + 1);
-    s.unnamed127___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed126___U1 = (undefined);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MiniMenuState_updateDimensions__P7341.info = {"start":2109,"length":150,"line":67,"column":8,"endLine":71,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"updateDimensions","argumentNames":["this"]}
-
-function miniMenu_MiniMenuState_updateDimensions__P7341_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MiniMenuState_updateDimensions__P7341, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  sprite___15734: undefined,
-  unnamed126___U1: undefined,
-  unnamed127___U2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_alignment__P4464(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_alignment"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_alignment__P4464_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1740; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_alignment"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_alignment__P4464.info = {"start":12805,"length":187,"line":443,"column":8,"endLine":448,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"alignment","argumentNames":["this"]}
-miniMenu_Style_alignment__P4464.isGetter = true;
-
-function miniMenu_Style_alignment__P4464_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_alignment__P4464, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_iconOnly__P4463(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_iconOnly"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1738; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1739; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_iconOnly__P4463.info = {"start":12673,"length":120,"line":438,"column":8,"endLine":441,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"iconOnly","argumentNames":["this","value"]}
-
-function miniMenu_Style_iconOnly__P4463_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_iconOnly__P4463, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_iconTextSpacing__P4461(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_iconTextSpacing"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1735; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1736; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_iconTextSpacing__P4461.info = {"start":12335,"length":134,"line":426,"column":8,"endLine":429,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"iconTextSpacing","argumentNames":["this","value"]}
-
-function miniMenu_Style_iconTextSpacing__P4461_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_iconTextSpacing__P4461, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_margin__P4459(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_margin"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1732; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1733; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_margin__P4459.info = {"start":11987,"length":116,"line":414,"column":8,"endLine":417,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"margin","argumentNames":["this","value"]}
-
-function miniMenu_Style_margin__P4459_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_margin__P4459, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_border__P4457(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_border"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1729; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1730; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_border__P4457.info = {"start":11675,"length":116,"line":402,"column":8,"endLine":405,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"border","argumentNames":["this","value"]}
-
-function miniMenu_Style_border__P4457_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_border__P4457, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_borderColor__P4455(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_borderColor"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_borderColor__P4455.info = {"start":11396,"length":83,"line":391,"column":8,"endLine":393,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"borderColor","argumentNames":["this","value"]}
-
-function miniMenu_Style_borderColor__P4455_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_borderColor__P4455, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_borderColor__P4454(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_borderColor"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_borderColor__P4454_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1727; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_borderColor"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_borderColor__P4454.info = {"start":11192,"length":192,"line":384,"column":8,"endLine":389,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"borderColor","argumentNames":["this"]}
-miniMenu_Style_borderColor__P4454.isGetter = true;
-
-function miniMenu_Style_borderColor__P4454_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_borderColor__P4454, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_background__P4453(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_background"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_background__P4453.info = {"start":11099,"length":81,"line":380,"column":8,"endLine":382,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"background","argumentNames":["this","value"]}
-
-function miniMenu_Style_background__P4453_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_background__P4453, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_background__P4452(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_background"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_background__P4452_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1726; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_background"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_background__P4452.info = {"start":10899,"length":188,"line":373,"column":8,"endLine":378,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"background","argumentNames":["this"]}
-miniMenu_Style_background__P4452.isGetter = true;
-
-function miniMenu_Style_background__P4452_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_background__P4452, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_foreground__P4451(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_foreground"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_foreground__P4451.info = {"start":10806,"length":81,"line":369,"column":8,"endLine":371,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"foreground","argumentNames":["this","value"]}
-
-function miniMenu_Style_foreground__P4451_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_foreground__P4451, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_foreground__P4450(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_foreground"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_Style_foreground__P4450_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1725; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_foreground"];
-  case 3:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_foreground__P4450.info = {"start":10606,"length":188,"line":362,"column":8,"endLine":367,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"foreground","argumentNames":["this"]}
-miniMenu_Style_foreground__P4450.isGetter = true;
-
-function miniMenu_Style_foreground__P4450_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_foreground__P4450, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_padding__P4449(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_padding"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onStyleChange__P7339_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1723; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1724; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_padding__P4449.info = {"start":10476,"length":118,"line":357,"column":8,"endLine":360,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"padding","argumentNames":["this","value"]}
-
-function miniMenu_Style_padding__P4449_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_padding__P4449, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_constructor__P4415(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["parent"] = (s.arg1);
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = (s.arg0).fields["_scrollSpeed"] = (150);
-    r0 = (s.arg0).fields["_columns"] = (0);
-    r0 = (s.arg0).fields["_rows"] = (0);
-    r0 = (s.arg0).fields["_backgroundColor"] = (0);
-    r0 = (s.arg0).fields["_border"] = (0);
-    r0 = (s.arg0).fields["_padding"] = (0);
-    r0 = (s.arg0).fields["_borderColor"] = (0);
-  case 1:
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_constructor__P4415.info = {"start":4296,"length":360,"line":162,"column":8,"endLine":172,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this","parent"]}
-
-function miniMenu_MenuStyle_constructor__P4415_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_constructor__P4415, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function controller_Button_addEventListener__P2211(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.handlerState___15985 = undefined;
-    s.eventHandler___15994 = undefined;
-    s.unnamed86___U2 = undefined;
-    s.unnamed87___U3 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
-    s.tmp_0 = controller_Button_getOrCreateHandlerForEvent__P5197_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 257; s.pc = 10; return s.tmp_0;
-  case 10:
-    r0 = s.retval;
-    s.tmp_0 = controller_Button_handlerState__P5192_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 258; s.pc = 11; return s.tmp_0;
-  case 11:
-    r0 = s.retval;
-    s.handlerState___15985 = (r0);
-    r0 = s.handlerState___15985.fields["system"];
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_3 = r0 = s.handlerState___15985;
-    r0 = pxsim_Array__mk();
-    s.tmp_4 = r0;
-    r0 = (s.tmp_3).fields["system"] = (s.tmp_4);
-  case 1:
-  case 2:
-    s.eventHandler___15994 = (undefined);
-    r0 = s.handlerState___15985.fields["system"];
-    s.unnamed86___U2 = (r0);
-    s.unnamed87___U3 = (0);
-  case 3:
-    s.tmp_0 = r0 = s.unnamed87___U3;
-    r0 = pxsim_Array__length(s.unnamed86___U2);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 8; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed86___U2, s.unnamed87___U3);
-    s.eventHandler___15994 = (r0);
-    r0 = s.eventHandler___15994.fields["event"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === s.arg1);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_2);
-    if (r0) { step = 4; continue; }
-    r0 = s.tmp_2;
-    { step = 5; continue; }
-  case 4:
-    r0 = s.eventHandler___15994.fields["callback"];
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 === s.arg2);
-  case 5:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 6; continue; }
-    { step = 9; continue; }
-  case 6:
-  case 7:
-    r0 = (s.unnamed87___U3 + 1);
-    s.unnamed87___U3 = (r0);
-    { step = 3; continue; }
-  case 8:
-    s.unnamed86___U2 = (undefined);
-    r0 = pxsim_pxtcore_mkClassInstance(controller_ButtonHandler__C2197_VT);
-    s.tmp_6 = r0;
-    s.tmp_7 = controller_ButtonHandler_constructor__P2198_mk(s);
-    s.tmp_7.arg0 = s.tmp_6;
-    s.tmp_7.arg1 = s.arg1;
-    s.tmp_7.arg2 = s.arg2;
-    s.callLocIdx = 259; s.pc = 12; return s.tmp_7;
-  case 12:
-    r0 = s.retval;
-    r0 = s.handlerState___15985.fields["system"];
-    s.tmp_8 = r0;
-    r0 = pxsim_Array__push(s.tmp_8, s.tmp_6);
-  case 9:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-controller_Button_addEventListener__P2211.info = {"start":4445,"length":495,"line":137,"column":8,"endLine":149,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"addEventListener","argumentNames":["this","event","handler"]}
-
-function controller_Button_addEventListener__P2211_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller_Button_addEventListener__P2211, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  handlerState___15985: undefined,
-  eventHandler___15994: undefined,
-  unnamed86___U2: undefined,
-  unnamed87___U3: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function controller_Button_getOrCreateHandlerForEvent__P5197(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.handlerState___16044 = undefined;
-    s.eventHandler___16053 = undefined;
-    s.unnamed90___U2 = undefined;
-    s.unnamed91___U3 = undefined;
-    s.newHandler___16068 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
-    s.tmp_3 = controller_Button_handlerState__P5192_mk(s);
-    s.tmp_3.arg0 = s.arg0;
-    s.callLocIdx = 271; s.pc = 10; return s.tmp_3;
-  case 10:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = pxsim_pxtcore_mkClassInstance(controller_ButtonEventHandlerState__C2199_VT);
-    s.tmp_4 = r0;
-    s.tmp_5 = controller_ButtonEventHandlerState_constructor__P2200_mk(s);
-    s.tmp_5.arg0 = s.tmp_4;
-    r0 = s.arg0.fields["id"];
-    s.tmp_5.arg1 = r0;
-    s.callLocIdx = 273; s.pc = 11; return s.tmp_5;
-  case 11:
-    r0 = s.retval;
-    s.tmp_7 = game_currentScene__P3033_mk(s);
-    s.callLocIdx = 272; s.pc = 12; return s.tmp_7;
-  case 12:
-    r0 = s.retval;
-    r0 = r0.fields["buttonEventHandlers"];
-    s.tmp_6 = r0;
-    r0 = pxsim_Array__push(s.tmp_6, s.tmp_4);
-  case 1:
-  case 2:
-    s.tmp_0 = controller_Button_handlerState__P5192_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 274; s.pc = 13; return s.tmp_0;
-  case 13:
-    r0 = s.retval;
-    s.handlerState___16044 = (r0);
-    r0 = s.handlerState___16044.fields["user"];
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = r0 = s.handlerState___16044;
-    r0 = pxsim_Array__mk();
-    s.tmp_4 = r0;
-    r0 = (s.tmp_3).fields["user"] = (s.tmp_4);
-  case 3:
-  case 4:
-    s.eventHandler___16053 = (undefined);
-    r0 = s.handlerState___16044.fields["user"];
-    s.unnamed90___U2 = (r0);
-    s.unnamed91___U3 = (0);
-  case 5:
-    s.tmp_0 = r0 = s.unnamed91___U3;
-    r0 = pxsim_Array__length(s.unnamed90___U2);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 8; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed90___U2, s.unnamed91___U3);
-    s.eventHandler___16053 = (r0);
-    r0 = s.eventHandler___16053.fields["event"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === s.arg1);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 6; continue; }
-    r0 = s.eventHandler___16053;
-    { step = 9; continue; }
-  case 6:
-  case 7:
-    r0 = (s.unnamed91___U3 + 1);
-    s.unnamed91___U3 = (r0);
-    { step = 5; continue; }
-  case 8:
-    s.unnamed90___U2 = (undefined);
-    r0 = pxsim_pxtcore_mkAction(2, controller_Button_getOrCreateHandlerForEvent_inline__P16065);
-    s.tmp_4 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_4, 0, s.arg0);
-    r0 = pxsim_pxtrt_stclo(s.tmp_4, 1, s.arg1);
-    s.tmp_5 = control_onEvent__P391_mk(s);
-    s.tmp_5.arg0 = s.arg1;
-    r0 = s.arg0.fields["id"];
-    s.tmp_5.arg1 = r0;
-    s.tmp_5.arg2 = s.tmp_4;
-    s.tmp_5.arg3 = 16;
-    s.callLocIdx = 276; s.pc = 14; return s.tmp_5;
-  case 14:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkClassInstance(controller_ButtonHandler__C2197_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = controller_ButtonHandler_constructor__P2198_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.arg1;
-    s.tmp_1.arg2 = undefined;
-    s.callLocIdx = 277; s.pc = 15; return s.tmp_1;
-  case 15:
-    r0 = s.retval;
-    s.newHandler___16068 = (s.tmp_0);
-    r0 = s.handlerState___16044.fields["user"];
-    s.tmp_0 = r0;
-    r0 = pxsim_Array__push(s.tmp_0, s.newHandler___16068);
-    r0 = s.newHandler___16068;
-  case 9:
-    return leave(s, r0)
-  default: oops()
-} } }
-controller_Button_getOrCreateHandlerForEvent__P5197.info = {"start":8550,"length":829,"line":250,"column":8,"endLine":270,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"getOrCreateHandlerForEvent","argumentNames":["this","event"]}
-
-function controller_Button_getOrCreateHandlerForEvent__P5197_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller_Button_getOrCreateHandlerForEvent__P5197, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  handlerState___16044: undefined,
-  eventHandler___16053: undefined,
-  unnamed90___U2: undefined,
-  unnamed91___U3: undefined,
-  newHandler___16068: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function controller_Button_getOrCreateHandlerForEvent_inline__P16065(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = controller_Button_runButtonEvents__P5196_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = s.caps[1];
-    s.callLocIdx = 275; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-controller_Button_getOrCreateHandlerForEvent_inline__P16065.info = {"start":9186,"length":33,"line":265,"column":44,"endLine":265,"endColumn":77,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"inline","argumentNames":[]}
-
-function controller_Button_getOrCreateHandlerForEvent_inline__P16065_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller_Button_getOrCreateHandlerForEvent_inline__P16065, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function controller_Button_runButtonEvents__P5196(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.handlerState___16081 = undefined;
-    s.userHandler___16085 = undefined;
-    s.eventHandler___16096 = undefined;
-    s.unnamed88___U3 = undefined;
-    s.unnamed89___U4 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
-    s.tmp_0 = controller_Button_handlerState__P5192_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 267; s.pc = 14; return s.tmp_0;
-  case 14:
-    r0 = s.retval;
-    s.handlerState___16081 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.handlerState___16081);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    { step = 13; continue; }
-  case 1:
-  case 2:
-    s.tmp_2 = controller_Button_getOrCreateHandlerForEvent__P5197_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    s.tmp_2.arg1 = s.arg1;
-    s.callLocIdx = 268; s.pc = 15; return s.tmp_2;
-  case 15:
-    r0 = s.retval;
-    s.userHandler___16085 = (r0);
-    r0 = s.userHandler___16085.fields["callback"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    s.tmp_1 = if_callback_1_mk(s);
-    s.tmp_1.arg0 = s.userHandler___16085;
-    if (!s.tmp_1.arg0.vtable.iface) {
-      setupLambda(s.tmp_1, pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "callback"), 1);
-      s.callLocIdx = 269; s.pc = 16; return s.tmp_1;
-    } else {
-      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["callback"];
-      if (s.tmp_1.fn == null) { setupLambda(s.tmp_1, s.tmp_1.arg0.fields["callback"], 1); s.callLocIdx = 269; s.pc = 16; return s.tmp_1; }
-      else if (s.tmp_1.fn.isGetter) { s.tmp_1.stage2Call = true; s.callLocIdx = 269; s.pc = 16; return s.tmp_1;; }
-     else { s.callLocIdx = 269; s.pc = 16; return s.tmp_1; }
-    }
-  case 16:
-    r0 = s.retval;
-  case 3:
-  case 4:
-    r0 = s.handlerState___16081.fields["system"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 11; continue; }
-    s.eventHandler___16096 = (undefined);
-    r0 = s.handlerState___16081.fields["system"];
-    s.unnamed88___U3 = (r0);
-    s.unnamed89___U4 = (0);
-  case 5:
-    s.tmp_0 = r0 = s.unnamed89___U4;
-    r0 = pxsim_Array__length(s.unnamed88___U3);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 10; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed88___U3, s.unnamed89___U4);
-    s.eventHandler___16096 = (r0);
-    r0 = s.eventHandler___16096.fields["event"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === s.arg1);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_2);
-    if (r0) { step = 6; continue; }
-    r0 = s.tmp_2;
-    { step = 7; continue; }
-  case 6:
-    r0 = s.eventHandler___16096.fields["callback"];
-  case 7:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_4);
-    if (!r0) { step = 8; continue; }
-    s.tmp_5 = if_callback_1_mk(s);
-    s.tmp_5.arg0 = s.eventHandler___16096;
-    if (!s.tmp_5.arg0.vtable.iface) {
-      setupLambda(s.tmp_5, pxsim_pxtrt.mapGetByString(s.tmp_5.arg0, "callback"), 1);
-      s.callLocIdx = 270; s.pc = 17; return s.tmp_5;
-    } else {
-      s.tmp_5.fn = s.tmp_5.arg0.vtable.iface["callback"];
-      if (s.tmp_5.fn == null) { setupLambda(s.tmp_5, s.tmp_5.arg0.fields["callback"], 1); s.callLocIdx = 270; s.pc = 17; return s.tmp_5; }
-      else if (s.tmp_5.fn.isGetter) { s.tmp_5.stage2Call = true; s.callLocIdx = 270; s.pc = 17; return s.tmp_5;; }
-     else { s.callLocIdx = 270; s.pc = 17; return s.tmp_5; }
-    }
-  case 17:
-    r0 = s.retval;
-  case 8:
-  case 9:
-    r0 = (s.unnamed89___U4 + 1);
-    s.unnamed89___U4 = (r0);
-    { step = 5; continue; }
-  case 10:
-    s.unnamed88___U3 = (undefined);
-  case 11:
-  case 12:
-  case 13:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-controller_Button_runButtonEvents__P5196.info = {"start":8005,"length":535,"line":236,"column":8,"endLine":248,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"runButtonEvents","argumentNames":["this","event"]}
-
-function controller_Button_runButtonEvents__P5196_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller_Button_runButtonEvents__P5196, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  handlerState___16081: undefined,
-  userHandler___16085: undefined,
-  eventHandler___16096: undefined,
-  unnamed88___U3: undefined,
-  unnamed89___U4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function controller_ButtonEventHandlerState_constructor__P2200(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, controller_ButtonEventHandlerState__C2199_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["id"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-controller_ButtonEventHandlerState_constructor__P2200.info = {"start":1122,"length":33,"line":48,"column":8,"endLine":48,"endColumn":41,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"inline","argumentNames":["this","id"]}
-
-function controller_ButtonEventHandlerState_constructor__P2200_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller_ButtonEventHandlerState_constructor__P2200, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function controller_Button_handlerState__P5192(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.state___16019 = undefined;
-    s.unnamed84___U1 = undefined;
-    s.unnamed85___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
-    s.state___16019 = (undefined);
-    s.tmp_0 = game_currentScene__P3033_mk(s);
-    s.callLocIdx = 252; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    r0 = r0.fields["buttonEventHandlers"];
-    s.unnamed84___U1 = (r0);
-    s.unnamed85___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed85___U2;
-    r0 = pxsim_Array__length(s.unnamed84___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 4; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed84___U1, s.unnamed85___U2);
-    s.state___16019 = (r0);
-    r0 = s.state___16019.fields["id"];
-    s.tmp_3 = r0;
-    r0 = s.arg0.fields["id"];
-    s.tmp_4 = r0;
-    r0 = (s.tmp_3 === s.tmp_4);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 2; continue; }
-    r0 = s.state___16019;
-    { step = 5; continue; }
-  case 2:
-  case 3:
-    r0 = (s.unnamed85___U2 + 1);
-    s.unnamed85___U2 = (r0);
-    { step = 1; continue; }
-  case 4:
-    s.unnamed84___U1 = (undefined);
-    r0 = undefined;
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-controller_Button_handlerState__P5192.info = {"start":1644,"length":240,"line":66,"column":8,"endLine":71,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"handlerState","argumentNames":["this"]}
-controller_Button_handlerState__P5192.isGetter = true;
-
-function controller_Button_handlerState__P5192_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller_Button_handlerState__P5192, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  state___16019: undefined,
-  unnamed84___U1: undefined,
-  unnamed85___U2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function controller_ButtonHandler_constructor__P2198(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, controller_ButtonHandler__C2197_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["event"] = (s.arg1);
-    r0 = (s.arg0).fields["callback"] = (s.arg2);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-controller_ButtonHandler_constructor__P2198.info = {"start":997,"length":66,"line":44,"column":8,"endLine":44,"endColumn":74,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"inline","argumentNames":["this","event","callback"]}
-
-function controller_ButtonHandler_constructor__P2198_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller_ButtonHandler_constructor__P2198, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_copyTo__P4468(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    s.tmp_0 = miniMenu_Style_padding__P4449_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_padding__P4448_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1762; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1763; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_foreground__P4451_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_foreground__P4450_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1764; s.pc = 4; return s.tmp_1;
-  case 4:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1765; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_background__P4453_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_background__P4452_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1766; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1767; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_borderColor__P4455_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_borderColor__P4454_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1768; s.pc = 8; return s.tmp_1;
-  case 8:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1769; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_border__P4457_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_border__P4456_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1770; s.pc = 10; return s.tmp_1;
-  case 10:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1771; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_margin__P4459_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_margin__P4458_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1772; s.pc = 12; return s.tmp_1;
-  case 12:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1773; s.pc = 11; return s.tmp_0;
-  case 11:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_iconOnly__P4463_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_iconOnly__P4462_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1774; s.pc = 14; return s.tmp_1;
-  case 14:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1775; s.pc = 13; return s.tmp_0;
-  case 13:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_iconTextSpacing__P4461_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_iconTextSpacing__P4460_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1776; s.pc = 16; return s.tmp_1;
-  case 16:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1777; s.pc = 15; return s.tmp_0;
-  case 15:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_Style_alignment__P4465_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_Style_alignment__P4464_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1778; s.pc = 18; return s.tmp_1;
-  case 18:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1779; s.pc = 17; return s.tmp_0;
-  case 17:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_copyTo__P4468.info = {"start":14758,"length":468,"line":498,"column":8,"endLine":508,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"copyTo","argumentNames":["this","target"]}
-
-function miniMenu_Style_copyTo__P4468_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_copyTo__P4468, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_Style_constructor__P4466(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_Style__C4438_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["parent"] = (s.arg1);
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = (s.arg0).fields["_padding"] = (0);
-    r0 = (s.arg0).fields["_foreground"] = (1);
-    r0 = (s.arg0).fields["_background"] = (15);
-    r0 = (s.arg0).fields["_borderColor"] = (1);
-    r0 = (s.arg0).fields["_border"] = (0);
-    r0 = (s.arg0).fields["_margin"] = (0);
-    r0 = (s.arg0).fields["_iconTextSpacing"] = (0);
-    r0 = (s.arg0).fields["_iconOnly"] = (0);
-    r0 = (s.arg0).fields["_alignment"] = (0);
-  case 1:
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_Style_constructor__P4466.info = {"start":13141,"length":446,"line":455,"column":8,"endLine":467,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this","parent"]}
-
-function miniMenu_Style_constructor__P4466_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_Style_constructor__P4466, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_copyTo__P4437(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    s.tmp_0 = miniMenu_MenuStyle_customWidth__P4417_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_customWidth__P4416_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1702; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1703; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_customHeight__P4419_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_customHeight__P4418_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1704; s.pc = 4; return s.tmp_1;
-  case 4:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1705; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_scrollSpeed__P4421_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_scrollSpeed__P4420_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1706; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1707; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_columns__P4423_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1708; s.pc = 8; return s.tmp_1;
-  case 8:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1709; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_rows__P4425_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1710; s.pc = 10; return s.tmp_1;
-  case 10:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1711; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_border__P4427_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_border__P4426_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1712; s.pc = 12; return s.tmp_1;
-  case 12:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1713; s.pc = 11; return s.tmp_0;
-  case 11:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_borderColor__P4429_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_borderColor__P4428_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1714; s.pc = 14; return s.tmp_1;
-  case 14:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1715; s.pc = 13; return s.tmp_0;
-  case 13:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_padding__P4431_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_padding__P4430_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1716; s.pc = 16; return s.tmp_1;
-  case 16:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1717; s.pc = 15; return s.tmp_0;
-  case 15:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_backgroundColor__P4433_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_backgroundColor__P4432_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1718; s.pc = 18; return s.tmp_1;
-  case 18:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1719; s.pc = 17; return s.tmp_0;
-  case 17:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuStyle_scrollColor__P4435_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = miniMenu_MenuStyle_scrollColor__P4434_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 1720; s.pc = 20; return s.tmp_1;
-  case 20:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1721; s.pc = 19; return s.tmp_0;
-  case 19:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_copyTo__P4437.info = {"start":9448,"length":528,"line":325,"column":8,"endLine":336,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"copyTo","argumentNames":["this","target"]}
-
-function miniMenu_MenuStyle_copyTo__P4437_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_copyTo__P4437, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_scrollColor__P4435(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_scrollColor"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_scrollColor__P4435.info = {"start":7915,"length":83,"line":286,"column":8,"endLine":288,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"scrollColor","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_scrollColor__P4435_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_scrollColor__P4435, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_backgroundColor__P4433(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_backgroundColor"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_backgroundColor__P4433.info = {"start":7592,"length":91,"line":275,"column":8,"endLine":277,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"backgroundColor","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_backgroundColor__P4433_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_backgroundColor__P4433, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_backgroundColor__P4432(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_backgroundColor"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_backgroundColor__P4432_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1688; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_backgroundColor"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_backgroundColor__P4432.info = {"start":7356,"length":224,"line":268,"column":8,"endLine":273,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"backgroundColor","argumentNames":["this"]}
-miniMenu_MenuStyle_backgroundColor__P4432.isGetter = true;
-
-function miniMenu_MenuStyle_backgroundColor__P4432_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_backgroundColor__P4432, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_padding__P4431(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_padding"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1686; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1687; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_padding__P4431.info = {"start":7222,"length":122,"line":263,"column":8,"endLine":266,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"padding","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_padding__P4431_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_padding__P4431, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MiniMenuState_onMenuStyleChange__P7340(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_1 = r0;
-    r0 = (s.arg1 === s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = miniMenu_MiniMenuState_updateDimensions__P7341_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    s.callLocIdx = 1666; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-  case 1:
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MiniMenuState_onMenuStyleChange__P7340.info = {"start":1947,"length":150,"line":61,"column":8,"endLine":65,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"onMenuStyleChange","argumentNames":["this","style"]}
-
-function miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MiniMenuState_onMenuStyleChange__P7340, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_borderColor__P4429(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_borderColor"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_borderColor__P4429.info = {"start":6923,"length":83,"line":252,"column":8,"endLine":254,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"borderColor","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_borderColor__P4429_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_borderColor__P4429, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_borderColor__P4428(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_borderColor"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_borderColor__P4428_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1684; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_borderColor"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_borderColor__P4428.info = {"start":6703,"length":208,"line":245,"column":8,"endLine":250,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"borderColor","argumentNames":["this"]}
-miniMenu_MenuStyle_borderColor__P4428.isGetter = true;
-
-function miniMenu_MenuStyle_borderColor__P4428_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_borderColor__P4428, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_border__P4427(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_border"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1682; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1683; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_border__P4427.info = {"start":6571,"length":120,"line":240,"column":8,"endLine":243,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"border","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_border__P4427_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_border__P4427, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_rows__P4425(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_rows"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1679; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1680; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_rows__P4425.info = {"start":6243,"length":116,"line":228,"column":8,"endLine":231,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"rows","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_rows__P4425_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_rows__P4425, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_columns__P4423(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_columns"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1676; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1677; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_columns__P4423.info = {"start":5917,"length":122,"line":216,"column":8,"endLine":219,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"columns","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_columns__P4423_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_columns__P4423, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_scrollSpeed__P4421(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_scrollSpeed"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_scrollSpeed__P4421.info = {"start":5618,"length":83,"line":205,"column":8,"endLine":207,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"scrollSpeed","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_scrollSpeed__P4421_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_scrollSpeed__P4421, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_scrollSpeed__P4420(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_scrollSpeed"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    s.tmp_3 = miniMenu_MenuStyle_scrollSpeed__P4420_mk(s);
-    r0 = s.arg0.fields["parent"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1674; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_scrollSpeed"];
-  case 5:
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_scrollSpeed__P4420.info = {"start":5398,"length":208,"line":198,"column":8,"endLine":203,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"scrollSpeed","argumentNames":["this"]}
-miniMenu_MenuStyle_scrollSpeed__P4420.isGetter = true;
-
-function miniMenu_MenuStyle_scrollSpeed__P4420_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_scrollSpeed__P4420, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_customHeight__P4419(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_customHeight"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1672; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1673; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_customHeight__P4419.info = {"start":5254,"length":132,"line":193,"column":8,"endLine":196,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"customHeight","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_customHeight__P4419_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_customHeight__P4419, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_customWidth__P4417(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["_customWidth"] = (s.arg1);
-    s.tmp_0 = miniMenu_MiniMenuState_onMenuStyleChange__P7340_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1669; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1670; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_customWidth__P4417.info = {"start":4888,"length":130,"line":181,"column":8,"endLine":184,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"customWidth","argumentNames":["this","value"]}
-
-function miniMenu_MenuStyle_customWidth__P4417_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_customWidth__P4417, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuStyle_setMenuStyleProperty__P4436(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuStyle__C4404_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg1;
-    r0 = pxsim_pxtcore.switch_eq(0, s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_0);
-    if (r0) { step = 2; continue; }
-    r0 = pxsim_pxtcore.switch_eq(6, s.tmp_0);
-    if (r0) { step = 3; continue; }
-    r0 = pxsim_pxtcore.switch_eq(8, s.tmp_0);
-    if (r0) { step = 4; continue; }
-    r0 = pxsim_pxtcore.switch_eq(7, s.tmp_0);
-    if (r0) { step = 5; continue; }
-    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_0);
-    if (r0) { step = 6; continue; }
-    r0 = pxsim_pxtcore.switch_eq(4, s.tmp_0);
-    if (r0) { step = 7; continue; }
-    r0 = pxsim_pxtcore.switch_eq(3, s.tmp_0);
-    if (r0) { step = 8; continue; }
-    r0 = pxsim_pxtcore.switch_eq(5, s.tmp_0);
-    if (r0) { step = 9; continue; }
-    r0 = pxsim_pxtcore.switch_eq(9, s.tmp_0);
-    if (r0) { step = 10; continue; }
-    r0 = s.tmp_0;
-    { step = 11; continue; }
-  case 1:
-    s.tmp_1 = miniMenu_MenuStyle_customWidth__P4417_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.tmp_1.arg1 = s.arg2;
-    s.callLocIdx = 1690; s.pc = 12; return s.tmp_1;
-  case 12:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 2:
-    s.tmp_0 = miniMenu_MenuStyle_customHeight__P4419_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.arg2;
-    s.callLocIdx = 1691; s.pc = 13; return s.tmp_0;
-  case 13:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 3:
-    s.tmp_0 = miniMenu_MenuStyle_scrollSpeed__P4421_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.arg2;
-    s.callLocIdx = 1692; s.pc = 14; return s.tmp_0;
-  case 14:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 4:
-    s.tmp_0 = miniMenu_MenuStyle_columns__P4423_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_1 = Math_max__P130_mk(s);
-    r0 = (s.arg2 | 0);
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 0;
-    s.callLocIdx = 1693; s.pc = 16; return s.tmp_1;
-  case 16:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1694; s.pc = 15; return s.tmp_0;
-  case 15:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 5:
-    s.tmp_0 = miniMenu_MenuStyle_rows__P4425_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_1 = Math_max__P130_mk(s);
-    r0 = (s.arg2 | 0);
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 0;
-    s.callLocIdx = 1695; s.pc = 18; return s.tmp_1;
-  case 18:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1696; s.pc = 17; return s.tmp_0;
-  case 17:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 6:
-    s.tmp_0 = miniMenu_MenuStyle_border__P4427_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    r0 = (s.arg2 | 0);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1697; s.pc = 19; return s.tmp_0;
-  case 19:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 7:
-    s.tmp_0 = miniMenu_MenuStyle_padding__P4431_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    r0 = (s.arg2 | 0);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1698; s.pc = 20; return s.tmp_0;
-  case 20:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 8:
-    s.tmp_0 = miniMenu_MenuStyle_borderColor__P4429_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    r0 = (s.arg2 | 0);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1699; s.pc = 21; return s.tmp_0;
-  case 21:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 9:
-    s.tmp_0 = miniMenu_MenuStyle_backgroundColor__P4433_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    r0 = (s.arg2 | 0);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1700; s.pc = 22; return s.tmp_0;
-  case 22:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 10:
-    s.tmp_0 = miniMenu_MenuStyle_scrollColor__P4435_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    r0 = (s.arg2 | 0);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1701; s.pc = 23; return s.tmp_0;
-  case 23:
-    r0 = s.retval;
-  case 11:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuStyle_setMenuStyleProperty__P4436.info = {"start":8010,"length":1426,"line":290,"column":8,"endLine":323,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setMenuStyleProperty","argumentNames":["this","property","value"]}
-
-function miniMenu_MenuStyle_setMenuStyleProperty__P4436_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuStyle_setMenuStyleProperty__P4436, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_setButtonEventsEnabled__P4499(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["buttonEventsEnabled"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_setButtonEventsEnabled__P4499.info = {"start":38226,"length":102,"line":1072,"column":8,"endLine":1074,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setButtonEventsEnabled","argumentNames":["this","enabled"]}
-
-function miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_setButtonEventsEnabled__P4499, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_createMenuFromArray__P4524(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.m___16392 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = miniMenu__init__P4477_mk(s);
-    s.callLocIdx = 2203; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MenuSprite__C4478_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_MenuSprite_constructor__P4495_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 2204; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.m___16392 = (s.tmp_0);
-    s.tmp_0 = miniMenu_MenuSprite_setMenuItems__P4498_mk(s);
-    s.tmp_0.arg0 = s.m___16392;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 2205; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = s.m___16392;
-    s.tmp_0.arg1 = true;
-    s.callLocIdx = 2206; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_x__P2369_mk(s);
-    s.tmp_0.arg0 = s.m___16392;
-    s.tmp_0.arg1 = 80;
-    s.callLocIdx = 2207; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_y__P2371_mk(s);
-    s.tmp_0.arg0 = s.m___16392;
-    s.tmp_0.arg1 = 60;
-    s.callLocIdx = 2208; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    r0 = s.m___16392;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_createMenuFromArray__P4524.info = {"start":3739,"length":287,"line":114,"column":4,"endLine":128,"endColumn":5,"fileName":"pxt_modules/arcade-mini-menu/api.ts","functionName":"createMenuFromArray","argumentNames":["items"]}
-
-function miniMenu_createMenuFromArray__P4524_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_createMenuFromArray__P4524, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  m___16392: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_setMenuItems__P4498(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["items"] = (s.arg1);
-    s.tmp_0 = miniMenu_MenuSprite_updateDimensions__P4512_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 2019; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_setMenuItems__P4498.info = {"start":37545,"length":115,"line":1054,"column":8,"endLine":1057,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"setMenuItems","argumentNames":["this","items"]}
-
-function miniMenu_MenuSprite_setMenuItems__P4498_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_setMenuItems__P4498, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_constructor__P4495(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    s.tmp_0 = sprites_ExtendableSprite_constructor__P2452_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    r0 = pxsim.image.ofBuffer(_hex16460);
-    s.tmp_0.arg1 = r0;
-    s.tmp_0.arg2 = globals.MiniMenu___4365;
-    s.callLocIdx = 1907; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = miniMenu__init__P4477_mk(s);
-    s.callLocIdx = 1908; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_MenuStyle__C4404_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_MenuStyle_constructor__P4415_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1909; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    r0 = r0.fields["menuStyle"];
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 1910; s.pc = 3; return s.tmp_1;
-  case 3:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["menuStyle"] = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1911; s.pc = 6; return s.tmp_2;
-  case 6:
-    r0 = s.retval;
-    r0 = r0.fields["titleStyle"];
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 1912; s.pc = 5; return s.tmp_1;
-  case 5:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["titleStyle"] = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1913; s.pc = 8; return s.tmp_2;
-  case 8:
-    r0 = s.retval;
-    r0 = r0.fields["defaultStyle"];
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 1914; s.pc = 7; return s.tmp_1;
-  case 7:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["defaultStyle"] = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_Style__C4438_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_Style_constructor__P4466_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_2 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1915; s.pc = 10; return s.tmp_2;
-  case 10:
-    r0 = s.retval;
-    r0 = r0.fields["selectedStyle"];
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 1916; s.pc = 9; return s.tmp_1;
-  case 9:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["selectedStyle"] = (s.tmp_0);
-    r0 = (s.arg0).fields["selectedIndex"] = (0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_Array__mk();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["items"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_Array__mk();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["buttonHandlers"] = (s.tmp_1);
-    r0 = (s.arg0).fields["buttonEventsEnabled"] = (false);
-    r0 = pxsim_pxtcore_mkAction(1, miniMenu_MenuSprite_inline__P16503);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = miniMenu_MenuSprite_onButtonEvent__P4510_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.tmp_1.arg1 = globals.up___2130;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 1918; s.pc = 11; return s.tmp_1;
-  case 11:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, miniMenu_MenuSprite_inline__P16508);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = miniMenu_MenuSprite_onButtonEvent__P4510_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.tmp_1.arg1 = globals.down___2132;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 1920; s.pc = 12; return s.tmp_1;
-  case 12:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, miniMenu_MenuSprite_inline__P16513);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = miniMenu_MenuSprite_onButtonEvent__P4510_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.tmp_1.arg1 = globals.left___2129;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 1922; s.pc = 13; return s.tmp_1;
-  case 13:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, miniMenu_MenuSprite_inline__P16518);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = miniMenu_MenuSprite_onButtonEvent__P4510_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.tmp_1.arg1 = globals.right___2131;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 1924; s.pc = 14; return s.tmp_1;
-  case 14:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["yScroll"] = (0);
-    r0 = (s.arg0).fields["targetYScroll"] = (0);
-    r0 = (s.arg0).fields["xScroll"] = (0);
-    r0 = (s.arg0).fields["targetXScroll"] = (0);
-    r0 = (s.arg0).fields["scrollAnimationTick"] = (-1);
-    r0 = (s.arg0).fields["titleAnimationTick"] = (0);
-    s.tmp_0 = miniMenu_MiniMenuState_addSprite__P7337_mk(s);
-    s.tmp_1 = miniMenu__state__P4476_mk(s);
-    s.callLocIdx = 1925; s.pc = 16; return s.tmp_1;
-  case 16:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1926; s.pc = 15; return s.tmp_0;
-  case 15:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_constructor__P4495.info = {"start":28208,"length":1161,"line":848,"column":8,"endLine":874,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this"]}
-
-function miniMenu_MenuSprite_constructor__P4495_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_constructor__P4495, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-const _hex16460 = pxsim.BufferMethods.createBufferFromHex("870401000100000000000000")
-
-
-
-
-function miniMenu_MenuSprite_inline__P16503(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = miniMenu_MenuSprite_moveSelection__P4500_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 1917; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_inline__P16503.info = {"start":28761,"length":42,"line":862,"column":46,"endLine":862,"endColumn":88,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
-
-function miniMenu_MenuSprite_inline__P16503_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_inline__P16503, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_inline__P16508(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = miniMenu_MenuSprite_moveSelection__P4500_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = 1;
-    s.callLocIdx = 1919; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_inline__P16508.info = {"start":28855,"length":44,"line":863,"column":48,"endLine":863,"endColumn":92,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
-
-function miniMenu_MenuSprite_inline__P16508_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_inline__P16508, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_inline__P16513(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = miniMenu_MenuSprite_moveSelection__P4500_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = 2;
-    s.callLocIdx = 1921; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_inline__P16513.info = {"start":28951,"length":44,"line":864,"column":48,"endLine":864,"endColumn":92,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
-
-function miniMenu_MenuSprite_inline__P16513_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_inline__P16513, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_inline__P16518(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = miniMenu_MenuSprite_moveSelection__P4500_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = 3;
-    s.callLocIdx = 1923; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_inline__P16518.info = {"start":29048,"length":45,"line":865,"column":49,"endLine":865,"endColumn":94,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
-
-function miniMenu_MenuSprite_inline__P16518_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_inline__P16518, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function miniMenu_MiniMenuState_addSprite__P7337(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MiniMenuState__C7336_VT)) failedCast(r0);
-    r0 = s.arg0.fields["sprites"];
-    s.tmp_0 = r0;
-    r0 = pxsim_Array__push(s.tmp_0, s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MiniMenuState_addSprite__P7337.info = {"start":1510,"length":82,"line":47,"column":8,"endLine":49,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"addSprite","argumentNames":["this","sprite"]}
-
-function miniMenu_MiniMenuState_addSprite__P7337_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MiniMenuState_addSprite__P7337, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_onButtonEvent__P4510(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.buttonHandler___16802 = undefined;
-    s.unnamed130___U1 = undefined;
-    s.unnamed131___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    s.buttonHandler___16802 = (undefined);
-    r0 = s.arg0.fields["buttonHandlers"];
-    s.unnamed130___U1 = (r0);
-    s.unnamed131___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed131___U2;
-    r0 = pxsim_Array__length(s.unnamed130___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 4; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed130___U1, s.unnamed131___U2);
-    s.buttonHandler___16802 = (r0);
-    r0 = s.buttonHandler___16802.fields["button"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === s.arg1);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 2; continue; }
-    r0 = (s.buttonHandler___16802).fields["handler"] = (s.arg2);
-    { step = 5; continue; }
-  case 2:
-  case 3:
-    r0 = (s.unnamed131___U2 + 1);
-    s.unnamed131___U2 = (r0);
-    { step = 1; continue; }
-  case 4:
-    s.unnamed130___U1 = (undefined);
-    r0 = pxsim_pxtcore_mkClassInstance(miniMenu_ButtonHandler__C7343_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = miniMenu_ButtonHandler_constructor__P7345_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.arg1;
-    s.tmp_1.arg2 = s.arg2;
-    s.callLocIdx = 2062; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    r0 = s.arg0.fields["buttonHandlers"];
-    s.tmp_2 = r0;
-    r0 = pxsim_Array__push(s.tmp_2, s.tmp_0);
-  case 5:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_onButtonEvent__P4510.info = {"start":51524,"length":421,"line":1384,"column":8,"endLine":1392,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"onButtonEvent","argumentNames":["this","button","handler"]}
-
-function miniMenu_MenuSprite_onButtonEvent__P4510_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_onButtonEvent__P4510, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  buttonHandler___16802: undefined,
-  unnamed130___U1: undefined,
-  unnamed131___U2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function miniMenu_ButtonHandler_constructor__P7345(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.enableHandler___16825 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_ButtonHandler__C7343_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["button"] = (s.arg1);
-    r0 = (s.arg0).fields["handler"] = (s.arg2);
-    s.tmp_1 = controller_Button__C2203_v0_1_mk(s);
-    s.tmp_1.arg0 = s.arg1;
-    if (!checkSubtype(s.tmp_1.arg0, controller_Button__C2203_VT)) failedCast(s.tmp_1.arg0);
-    s.tmp_1.fn = s.tmp_1.arg0.vtable.methods.isPressed;
-    s.pc = 3; return s.tmp_1;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = (s.arg0).fields["enabled"] = (false);
-    r0 = pxsim_pxtcore_mkAction(3, enableHandler_inline__P16826);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 1, s.arg1);
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 2, s.enableHandler___16825);
-    s.enableHandler___16825 = (s.tmp_0);
-    s.tmp_0 = controller_Button_addEventListener__P2211_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_0.arg1 = 2048;
-    s.tmp_0.arg2 = s.enableHandler___16825;
-    s.callLocIdx = 1905; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    { step = 2; continue; }
-  case 1:
-    r0 = (s.arg0).fields["enabled"] = (true);
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_ButtonHandler_constructor__P7345.info = {"start":26412,"length":916,"line":792,"column":8,"endLine":813,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":["this","button","handler"]}
-
-function miniMenu_ButtonHandler_constructor__P7345_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_ButtonHandler_constructor__P7345, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  enableHandler___16825: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function enableHandler_inline__P16826(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    r0 = (s.caps[0]).fields["enabled"] = (true);
-    s.tmp_0 = controller_Button_removeEventListener__P2212_mk(s);
-    s.tmp_0.arg0 = s.caps[1];
-    s.tmp_0.arg1 = 2048;
-    s.tmp_0.arg2 = s.caps[2];
-    s.callLocIdx = 1904; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-enableHandler_inline__P16826.info = {"start":26975,"length":164,"line":804,"column":38,"endLine":807,"endColumn":17,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"inline","argumentNames":[]}
-
-function enableHandler_inline__P16826_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: enableHandler_inline__P16826, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function controller_Button_removeEventListener__P2212(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.handlerState___16843 = undefined;
-    s.i___16851 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, controller_Button__C2203_VT)) failedCast(r0);
-    s.tmp_0 = controller_Button_handlerState__P5192_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 260; s.pc = 12; return s.tmp_0;
-  case 12:
-    r0 = s.retval;
-    s.handlerState___16843 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.handlerState___16843);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.handlerState___16843.fields["system"];
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_2);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_4);
-    if (!r0) { step = 3; continue; }
-    { step = 11; continue; }
-  case 3:
-  case 4:
-    s.i___16851 = (0);
-  case 5:
-    s.tmp_1 = r0 = s.i___16851;
-    r0 = s.handlerState___16843.fields["system"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__length(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 10; continue; }
-    r0 = s.handlerState___16843.fields["system"];
-    s.tmp_6 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_6, s.i___16851);
-    r0 = r0.fields["event"];
-    s.tmp_5 = r0;
-    r0 = (s.tmp_5 === s.arg1);
-    s.tmp_4 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_4);
-    if (r0) { step = 6; continue; }
-    r0 = s.tmp_4;
-    { step = 7; continue; }
-  case 6:
-    r0 = s.handlerState___16843.fields["system"];
-    s.tmp_8 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_8, s.i___16851);
-    r0 = r0.fields["callback"];
-    s.tmp_7 = r0;
-    r0 = (s.tmp_7 === s.arg2);
-  case 7:
-    // jmp value (already in r0)
-    s.tmp_9 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_9);
-    if (!r0) { step = 8; continue; }
-    s.tmp_10 = helpers_arraySplice__P100_mk(s);
-    r0 = s.handlerState___16843.fields["system"];
-    s.tmp_10.arg0 = r0;
-    s.tmp_10.arg1 = s.i___16851;
-    s.tmp_10.arg2 = 1;
-    s.callLocIdx = 261; s.pc = 13; return s.tmp_10;
-  case 13:
-    r0 = s.retval;
-    { step = 11; continue; }
-  case 8:
-  case 9:
-    r0 = (s.i___16851 + 1);
-    s.i___16851 = (r0);
-    { step = 5; continue; }
-  case 10:
-  case 11:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-controller_Button_removeEventListener__P2212.info = {"start":5179,"length":487,"line":157,"column":8,"endLine":167,"endColumn":9,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"removeEventListener","argumentNames":["this","event","handler"]}
-
-function controller_Button_removeEventListener__P2212_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller_Button_removeEventListener__P2212, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  handlerState___16843: undefined,
-  i___16851: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function miniMenu_MenuSprite_moveSelection__P4500(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.oldSelection___16550 = undefined;
-    s.column___16637 = undefined;
-    s.row___16644 = undefined;
-    s.maxRows___16652 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, miniMenu_MenuSprite__C4478_VT)) failedCast(r0);
-    r0 = s.arg0.fields["items"];
-    s.tmp_2 = r0;
-    r0 = pxsim_Array__length(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    { step = 39; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["selectedIndex"];
-    s.oldSelection___16550 = (r0);
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2020; s.pc = 40; return s.tmp_2;
-  case 40:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 <= 1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 3; continue; }
-    r0 = s.tmp_0;
-    { step = 4; continue; }
-  case 3:
-    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_4.arg0 = r0;
-    s.callLocIdx = 2021; s.pc = 41; return s.tmp_4;
-  case 41:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === 0);
-  case 4:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 9; continue; }
-    r0 = (s.arg1 === 0);
-    s.tmp_6 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
-    if (!r0) { step = 5; continue; }
-    s.tmp_7 = r0 = s.arg0;
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_11 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_13 = r0;
-    r0 = pxsim_Array__length(s.tmp_13);
-    s.tmp_12 = r0;
-    r0 = (s.tmp_11 + s.tmp_12);
-    s.tmp_10 = r0;
-    r0 = (s.tmp_10 - 1);
-    s.tmp_9 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_15 = r0;
-    r0 = pxsim_Array__length(s.tmp_15);
-    s.tmp_14 = r0;
-    r0 = (s.tmp_9 % s.tmp_14);
-    s.tmp_8 = r0;
-    r0 = (s.tmp_7).fields["selectedIndex"] = (s.tmp_8);
-    { step = 8; continue; }
-  case 5:
-    r0 = (s.arg1 === 1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 6; continue; }
-    s.tmp_1 = r0 = s.arg0;
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 + 1);
-    s.tmp_3 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_6 = r0;
-    r0 = pxsim_Array__length(s.tmp_6);
-    s.tmp_5 = r0;
-    r0 = (s.tmp_3 % s.tmp_5);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1).fields["selectedIndex"] = (s.tmp_2);
-    { step = 7; continue; }
-  case 6:
-    { step = 39; continue; }
-  case 7:
-  case 8:
-    r0 = (s.arg0).fields["scrollAnimationTick"] = (0);
-    { step = 34; continue; }
-  case 9:
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2022; s.pc = 42; return s.tmp_2;
-  case 42:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 10; continue; }
-    r0 = s.tmp_0;
-    { step = 11; continue; }
-  case 10:
-    s.tmp_4 = miniMenu_MenuStyle_rows__P4424_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_4.arg0 = r0;
-    s.callLocIdx = 2023; s.pc = 43; return s.tmp_4;
-  case 43:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 === 1);
-  case 11:
-    // jmp value (already in r0)
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    if (!r0) { step = 16; continue; }
-    r0 = (s.arg1 === 2);
-    s.tmp_6 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
-    if (!r0) { step = 12; continue; }
-    s.tmp_7 = r0 = s.arg0;
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_11 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_13 = r0;
-    r0 = pxsim_Array__length(s.tmp_13);
-    s.tmp_12 = r0;
-    r0 = (s.tmp_11 + s.tmp_12);
-    s.tmp_10 = r0;
-    r0 = (s.tmp_10 - 1);
-    s.tmp_9 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_15 = r0;
-    r0 = pxsim_Array__length(s.tmp_15);
-    s.tmp_14 = r0;
-    r0 = (s.tmp_9 % s.tmp_14);
-    s.tmp_8 = r0;
-    r0 = (s.tmp_7).fields["selectedIndex"] = (s.tmp_8);
-    { step = 15; continue; }
-  case 12:
-    r0 = (s.arg1 === 3);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 13; continue; }
-    s.tmp_1 = r0 = s.arg0;
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 + 1);
-    s.tmp_3 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_6 = r0;
-    r0 = pxsim_Array__length(s.tmp_6);
-    s.tmp_5 = r0;
-    r0 = (s.tmp_3 % s.tmp_5);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1).fields["selectedIndex"] = (s.tmp_2);
-    { step = 14; continue; }
-  case 13:
-    { step = 39; continue; }
-  case 14:
-  case 15:
-    r0 = (s.arg0).fields["scrollAnimationTick"] = (0);
-    { step = 33; continue; }
-  case 16:
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_0 = r0;
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2024; s.pc = 44; return s.tmp_2;
-  case 44:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 % s.tmp_1);
-    s.column___16637 = (r0);
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_0 = r0;
-    s.tmp_2 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 2025; s.pc = 45; return s.tmp_2;
-  case 45:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim.Math_.idiv(s.tmp_0, s.tmp_1);
-    s.row___16644 = (r0);
-    r0 = s.arg0.fields["items"];
-    s.tmp_2 = r0;
-    r0 = pxsim_Array__length(s.tmp_2);
-    s.tmp_1 = r0;
-    s.tmp_4 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_4.arg0 = r0;
-    s.callLocIdx = 2026; s.pc = 46; return s.tmp_4;
-  case 46:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_1 / s.tmp_3);
-    s.tmp_0 = r0;
-    r0 = pxsim.Math_.ceil(s.tmp_0);
-    s.maxRows___16652 = (r0);
-    r0 = (s.arg1 === 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 19; continue; }
-    r0 = (s.row___16644 + s.maxRows___16652);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 - 1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 % s.maxRows___16652);
-    s.row___16644 = (r0);
-    s.tmp_2 = r0 = s.column___16637;
-    s.tmp_4 = r0 = s.row___16644;
-    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_6.arg0 = r0;
-    s.callLocIdx = 2027; s.pc = 47; return s.tmp_6;
-  case 47:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 * s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_2 + s.tmp_3);
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_8 = r0;
-    r0 = pxsim_Array__length(s.tmp_8);
-    s.tmp_7 = r0;
-    r0 = (s.tmp_1 >= s.tmp_7);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 17; continue; }
-    r0 = (s.maxRows___16652 - 2);
-    s.row___16644 = (r0);
-  case 17:
-  case 18:
-    { step = 32; continue; }
-  case 19:
-    r0 = (s.arg1 === 1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 22; continue; }
-    r0 = (s.row___16644 + 1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 % s.maxRows___16652);
-    s.row___16644 = (r0);
-    s.tmp_2 = r0 = s.column___16637;
-    s.tmp_4 = r0 = s.row___16644;
-    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_6.arg0 = r0;
-    s.callLocIdx = 2028; s.pc = 48; return s.tmp_6;
-  case 48:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 * s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_2 + s.tmp_3);
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_8 = r0;
-    r0 = pxsim_Array__length(s.tmp_8);
-    s.tmp_7 = r0;
-    r0 = (s.tmp_1 >= s.tmp_7);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 20; continue; }
-    s.row___16644 = (0);
-  case 20:
-  case 21:
-    { step = 31; continue; }
-  case 22:
-    r0 = (s.arg1 === 2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 25; continue; }
-    s.tmp_3 = r0 = s.column___16637;
-    s.tmp_5 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_5.arg0 = r0;
-    s.callLocIdx = 2029; s.pc = 49; return s.tmp_5;
-  case 49:
-    r0 = s.retval;
-    s.tmp_4 = r0;
-    r0 = (s.tmp_3 + s.tmp_4);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 - 1);
-    s.tmp_1 = r0;
-    s.tmp_7 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_7.arg0 = r0;
-    s.callLocIdx = 2030; s.pc = 50; return s.tmp_7;
-  case 50:
-    r0 = s.retval;
-    s.tmp_6 = r0;
-    r0 = (s.tmp_1 % s.tmp_6);
-    s.column___16637 = (r0);
-    s.tmp_2 = r0 = s.column___16637;
-    s.tmp_4 = r0 = s.row___16644;
-    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_6.arg0 = r0;
-    s.callLocIdx = 2031; s.pc = 51; return s.tmp_6;
-  case 51:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 * s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_2 + s.tmp_3);
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_8 = r0;
-    r0 = pxsim_Array__length(s.tmp_8);
-    s.tmp_7 = r0;
-    r0 = (s.tmp_1 >= s.tmp_7);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 23; continue; }
-    r0 = s.arg0.fields["items"];
-    s.tmp_11 = r0;
-    r0 = pxsim_Array__length(s.tmp_11);
-    s.tmp_10 = r0;
-    r0 = (s.tmp_10 - 1);
-    s.tmp_9 = r0;
-    s.tmp_13 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_13.arg0 = r0;
-    s.callLocIdx = 2032; s.pc = 52; return s.tmp_13;
-  case 52:
-    r0 = s.retval;
-    s.tmp_12 = r0;
-    r0 = (s.tmp_9 % s.tmp_12);
-    s.column___16637 = (r0);
-  case 23:
-  case 24:
-    { step = 30; continue; }
-  case 25:
-    r0 = (s.arg1 === 3);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 28; continue; }
-    r0 = (s.column___16637 + 1);
-    s.tmp_1 = r0;
-    s.tmp_3 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 2033; s.pc = 53; return s.tmp_3;
-  case 53:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 % s.tmp_2);
-    s.column___16637 = (r0);
-    s.tmp_2 = r0 = s.column___16637;
-    s.tmp_4 = r0 = s.row___16644;
-    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_6.arg0 = r0;
-    s.callLocIdx = 2034; s.pc = 54; return s.tmp_6;
-  case 54:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 * s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_2 + s.tmp_3);
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_8 = r0;
-    r0 = pxsim_Array__length(s.tmp_8);
-    s.tmp_7 = r0;
-    r0 = (s.tmp_1 >= s.tmp_7);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 26; continue; }
-    s.column___16637 = (0);
-  case 26:
-  case 27:
-  case 28:
-  case 29:
-  case 30:
-  case 31:
-  case 32:
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = r0 = s.column___16637;
-    s.tmp_4 = r0 = s.row___16644;
-    s.tmp_6 = miniMenu_MenuStyle_columns__P4422_mk(s);
-    r0 = s.arg0.fields["menuStyle"];
-    s.tmp_6.arg0 = r0;
-    s.callLocIdx = 2035; s.pc = 55; return s.tmp_6;
-  case 55:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 * s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_2 + s.tmp_3);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["selectedIndex"] = (s.tmp_1);
-    r0 = (s.arg0).fields["scrollAnimationTick"] = (0);
-  case 33:
-  case 34:
-    s.tmp_0 = miniMenu_MenuSprite_updateDimensions__P4512_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 2036; s.pc = 56; return s.tmp_0;
-  case 56:
-    r0 = s.retval;
-    r0 = s.arg0.fields["itemSelectedHandler"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 35; continue; }
-    r0 = s.tmp_0;
-    { step = 36; continue; }
-  case 35:
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_1 = r0;
-    r0 = (s.oldSelection___16550 !== s.tmp_1);
-  case 36:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 37; continue; }
-    s.tmp_3 = if_itemSelectedHandler_3_mk(s);
-    s.tmp_3.arg0 = s.arg0;
-    r0 = s.arg0.fields["items"];
-    s.tmp_4 = r0;
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_5 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_4, s.tmp_5);
-    r0 = r0.fields["text"];
-    s.tmp_3.arg1 = r0;
-    r0 = s.arg0.fields["selectedIndex"];
-    s.tmp_3.arg2 = r0;
-    if (!s.tmp_3.arg0.vtable.iface) {
-      setupLambda(s.tmp_3, pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "itemSelectedHandler"), 3);
-      s.callLocIdx = 2037; s.pc = 57; return s.tmp_3;
-    } else {
-      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["itemSelectedHandler"];
-      if (s.tmp_3.fn == null) { setupLambda(s.tmp_3, s.tmp_3.arg0.fields["itemSelectedHandler"], 3); s.callLocIdx = 2037; s.pc = 57; return s.tmp_3; }
-      else if (s.tmp_3.fn.isGetter) { s.tmp_3.stage2Call = true; s.callLocIdx = 2037; s.pc = 57; return s.tmp_3;; }
-     else { s.callLocIdx = 2037; s.pc = 57; return s.tmp_3; }
-    }
-  case 57:
-    r0 = s.retval;
-  case 37:
-  case 38:
-  case 39:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-miniMenu_MenuSprite_moveSelection__P4500.info = {"start":38857,"length":3157,"line":1089,"column":8,"endLine":1159,"endColumn":9,"fileName":"pxt_modules/arcade-mini-menu/custom.ts","functionName":"moveSelection","argumentNames":["this","direction"]}
-
-function miniMenu_MenuSprite_moveSelection__P4500_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: miniMenu_MenuSprite_moveSelection__P4500, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  tmp_11: undefined,
-  tmp_12: undefined,
-  tmp_13: undefined,
-  tmp_14: undefined,
-  tmp_15: undefined,
-  oldSelection___16550: undefined,
-  column___16637: undefined,
-  row___16644: undefined,
-  maxRows___16652: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function sprites_ExtendableSprite_constructor__P2452(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.scene___16884 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_ExtendableSprite__C2451_VT)) failedCast(r0);
-    s.tmp_0 = Sprite_constructor__P2403_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 682; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = game_currentScene__P3033_mk(s);
-    s.callLocIdx = 683; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.scene___16884 = (r0);
-    s.tmp_0 = Sprite_setKind__P2423_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.arg2;
-    s.callLocIdx = 684; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = PhysicsEngine__C2527_v0_2_mk(s);
-    r0 = s.scene___16884.fields["physicsEngine"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    if (!checkSubtype(s.tmp_0.arg0, PhysicsEngine__C2527_VT)) failedCast(s.tmp_0.arg0);
-    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.addSprite;
-    s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, forEach_inline__P16896);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg2);
-    r0 = pxsim_pxtcore_mkAction(1, sprites_ExtendableSprite_inline__P16902);
-    s.tmp_1 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_1, 0, s.arg0);
-    s.tmp_2 = helpers_arrayForEach__P109_mk(s);
-    s.tmp_3 = helpers_arrayFilter__P110_mk(s);
-    r0 = s.scene___16884.fields["createdHandlers"];
-    s.tmp_3.arg0 = r0;
-    s.tmp_3.arg1 = s.tmp_0;
-    s.callLocIdx = 685; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = s.tmp_1;
-    s.callLocIdx = 687; s.pc = 5; return s.tmp_2;
-  case 5:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["hasCustomDimensions"] = (false);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_ExtendableSprite_constructor__P2452.info = {"start":386,"length":437,"line":11,"column":8,"endLine":24,"endColumn":9,"fileName":"pxt_modules/game/extendableSprite.ts","functionName":"inline","argumentNames":["this","spriteImage","kind"]}
-
-function sprites_ExtendableSprite_constructor__P2452_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_ExtendableSprite_constructor__P2452, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  scene___16884: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function forEach_inline__P16896(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0.fields["kind"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 == s.caps[0]);
-    return leave(s, r0)
-  default: oops()
-} } }
-forEach_inline__P16896.info = {"start":698,"length":19,"line":20,"column":24,"endLine":20,"endColumn":43,"fileName":"pxt_modules/game/extendableSprite.ts","functionName":"inline","argumentNames":["h"]}
-
-function forEach_inline__P16896_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: forEach_inline__P16896, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function sprites_ExtendableSprite_inline__P16902(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = if_handler_2_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.caps[0];
-    if (!s.tmp_0.arg0.vtable.iface) {
-      setupLambda(s.tmp_0, pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "handler"), 2);
-      s.callLocIdx = 686; s.pc = 1; return s.tmp_0;
-    } else {
-      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["handler"];
-      if (s.tmp_0.fn == null) { setupLambda(s.tmp_0, s.tmp_0.arg0.fields["handler"], 2); s.callLocIdx = 686; s.pc = 1; return s.tmp_0; }
-      else if (s.tmp_0.fn.isGetter) { s.tmp_0.stage2Call = true; s.callLocIdx = 686; s.pc = 1; return s.tmp_0;; }
-     else { s.callLocIdx = 686; s.pc = 1; return s.tmp_0; }
-    }
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_ExtendableSprite_inline__P16902.info = {"start":744,"length":20,"line":21,"column":25,"endLine":21,"endColumn":45,"fileName":"pxt_modules/game/extendableSprite.ts","functionName":"inline","argumentNames":["h"]}
-
-function sprites_ExtendableSprite_inline__P16902_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_ExtendableSprite_inline__P16902, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function Sprite_y__P2371(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2355_VT)) failedCast(r0);
-    s.tmp_0 = Sprite_top__P2419_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_1 = r0 = s.arg1;
-    s.tmp_4 = Sprite_height__P2413_mk(s);
-    s.tmp_4.arg0 = s.arg0;
-    s.callLocIdx = 511; s.pc = 2; return s.tmp_4;
-  case 2:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 / 2);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 - s.tmp_2);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 512; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_y__P2371.info = {"start":3081,"length":65,"line":126,"column":4,"endLine":128,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"y","argumentNames":["this","v"]}
-
-function Sprite_y__P2371_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_y__P2371, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function Sprite_top__P2419(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.physics___16414 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2355_VT)) failedCast(r0);
-    s.tmp_0 = game_currentScene__P3033_mk(s);
-    s.callLocIdx = 560; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = r0.fields["physicsEngine"];
-    s.physics___16414 = (r0);
-    s.tmp_0 = PhysicsEngine__C2527_v2_4_mk(s);
-    s.tmp_0.arg0 = s.physics___16414;
-    s.tmp_0.arg1 = s.arg0;
-    s.tmp_0.arg2 = 0;
-    r0 = (s.arg1 * 256);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 | 0);
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["_y"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_1 - s.tmp_3);
-    s.tmp_0.arg3 = r0;
-    if (!checkSubtype(s.tmp_0.arg0, PhysicsEngine__C2527_VT)) failedCast(s.tmp_0.arg0);
-    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.moveSprite;
-    s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_top__P2419.info = {"start":11718,"length":256,"line":422,"column":4,"endLine":432,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"top","argumentNames":["this","value"]}
-
-function Sprite_top__P2419_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_top__P2419, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  physics___16414: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function PhysicsEngine_moveSprite__P2531(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.arg3 = (s.lambdaArgs[3]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, PhysicsEngine__C2527_VT)) failedCast(r0);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-PhysicsEngine_moveSprite__P2531.info = {"start":230,"length":43,"line":13,"column":4,"endLine":13,"endColumn":47,"fileName":"pxt_modules/game/physics.ts","functionName":"moveSprite","argumentNames":["this","s","dx","dy"]}
-
-function PhysicsEngine_moveSprite__P2531_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: PhysicsEngine_moveSprite__P2531, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-} }
-
-
-
-
-
-function Sprite_x__P2369(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2355_VT)) failedCast(r0);
-    s.tmp_0 = Sprite_left__P2415_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_1 = r0 = s.arg1;
-    s.tmp_4 = Sprite_width__P2412_mk(s);
-    s.tmp_4.arg0 = s.arg0;
-    s.callLocIdx = 506; s.pc = 2; return s.tmp_4;
-  case 2:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 / 2);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 - s.tmp_2);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 507; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_x__P2369.info = {"start":2724,"length":65,"line":115,"column":4,"endLine":117,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"x","argumentNames":["this","v"]}
-
-function Sprite_x__P2369_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_x__P2369, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function Sprite_left__P2415(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.physics___16439 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2355_VT)) failedCast(r0);
-    s.tmp_0 = game_currentScene__P3033_mk(s);
-    s.callLocIdx = 552; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = r0.fields["physicsEngine"];
-    s.physics___16439 = (r0);
-    s.tmp_0 = PhysicsEngine__C2527_v2_4_mk(s);
-    s.tmp_0.arg0 = s.physics___16439;
-    s.tmp_0.arg1 = s.arg0;
-    r0 = (s.arg1 * 256);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 | 0);
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["_x"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_1 - s.tmp_3);
-    s.tmp_0.arg2 = r0;
-    s.tmp_0.arg3 = 0;
-    if (!checkSubtype(s.tmp_0.arg0, PhysicsEngine__C2527_VT)) failedCast(s.tmp_0.arg0);
-    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.moveSprite;
-    s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_left__P2415.info = {"start":10884,"length":257,"line":392,"column":4,"endLine":402,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"left","argumentNames":["this","value"]}
-
-function Sprite_left__P2415_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_left__P2415, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  physics___16439: undefined,
-  arg0: undefined,
-  arg1: undefined,
 } }
 
 
@@ -35633,7 +35686,7 @@ function miniMenu_MenuSprite_close__P4501_mk(s) {
 
 
 
-function error__P32556(s) {
+function error__P118668(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -35647,11 +35700,11 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    r0 = (globals.App_Open___32240 !== "death");
+    r0 = (globals.App_Open___118348 !== "death");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.tmp_1 = close_apps__P32581_mk(s);
+    s.tmp_1 = close_apps__P118693_mk(s);
     s.callLocIdx = 202; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
@@ -35677,12 +35730,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-error__P32556.info = {"start":6761,"length":133,"line":135,"column":0,"endLine":140,"endColumn":1,"fileName":"main.ts","functionName":"error","argumentNames":["code"]}
+error__P118668.info = {"start":6813,"length":133,"line":137,"column":0,"endLine":142,"endColumn":1,"fileName":"main.ts","functionName":"error","argumentNames":["code"]}
 
-function error__P32556_mk(s) {
+function error__P118668_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: error__P32556, depth: s.depth + 1,
+        parent: s, fn: error__P118668, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -37784,7 +37837,7 @@ function Sprite_y__P2370_mk(s) {
 
 
 
-function Open_ProcessManager__P32643(s) {
+function Open_ProcessManager__P118755(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -37794,70 +37847,70 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 374; s.pc = 1; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 381; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.App_Open___32240 = ("Process Manager");
-    globals.SubMenu___32278 = ("Home");
-    globals.List_Scroll___32243 = (0);
+    globals.App_Open___118348 = ("Process Manager");
+    globals.SubMenu___118390 = ("Home");
+    globals.List_Scroll___118351 = (0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
-    s.callLocIdx = 375; s.pc = 3; return s.tmp_1;
+    s.callLocIdx = 382; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 376; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 383; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     s.tmp_0 = scene_setBackgroundColor__P2900_mk(s);
     s.tmp_0.arg0 = 1;
-    s.callLocIdx = 377; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 384; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
-    s.callLocIdx = 378; s.pc = 6; return s.tmp_1;
+    s.callLocIdx = 385; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 379; s.pc = 5; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 386; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
-    s.callLocIdx = 380; s.pc = 7; return s.tmp_0;
+    s.callLocIdx = 387; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Process Manager";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 381; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 388; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
-    globals.App_Title___32237 = (r0);
+    globals.App_Title___118345 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___32237;
+    s.tmp_0.arg0 = globals.App_Title___118345;
     s.tmp_0.arg1 = 46;
     s.tmp_0.arg2 = 4;
-    s.callLocIdx = 382; s.pc = 9; return s.tmp_0;
+    s.callLocIdx = 389; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.Active_Processes___32336;
-    s.callLocIdx = 383; s.pc = 10; return s.tmp_0;
+    s.tmp_0.arg0 = globals.Active_Processes___118448;
+    s.callLocIdx = 390; s.pc = 10; return s.tmp_0;
   case 10:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 160;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -37866,20 +37919,20 @@ switch (step) {
   case 11:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = false;
-    s.callLocIdx = 384; s.pc = 12; return s.tmp_0;
+    s.callLocIdx = 391; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 58;
-    s.callLocIdx = 385; s.pc = 13; return s.tmp_0;
+    s.callLocIdx = 392; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -37887,7 +37940,7 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 386; s.pc = 14; return s.tmp_0; }
+     else { s.callLocIdx = 393; s.pc = 14; return s.tmp_0; }
     }
   case 14:
     r0 = s.retval;
@@ -37895,12 +37948,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_ProcessManager__P32643.info = {"start":17185,"length":628,"line":415,"column":0,"endLine":431,"endColumn":1,"fileName":"main.ts","functionName":"Open_ProcessManager","argumentNames":[]}
+Open_ProcessManager__P118755.info = {"start":17595,"length":628,"line":423,"column":0,"endLine":439,"endColumn":1,"fileName":"main.ts","functionName":"Open_ProcessManager","argumentNames":[]}
 
-function Open_ProcessManager__P32643_mk(s) {
+function Open_ProcessManager__P118755_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_ProcessManager__P32643, depth: s.depth + 1,
+        parent: s, fn: Open_ProcessManager__P118755, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -37953,7 +38006,7 @@ function scene_setBackgroundColor__P2900_mk(s) {
 
 
 
-function Open_NanoCode__P32641(s) {
+function Open_NanoCode__P118753(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -37963,25 +38016,25 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 342; s.pc = 1; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 349; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.App_Open___32240 = ("NanoCode");
-    globals.SubMenu___32278 = ("Main");
+    globals.App_Open___118348 = ("NanoCode");
+    globals.SubMenu___118390 = ("Main");
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "NanoCode Menu";
-    s.callLocIdx = 343; s.pc = 3; return s.tmp_1;
+    s.callLocIdx = 350; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 344; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 351; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     s.tmp_0 = scene_setBackgroundColor__P2900_mk(s);
     s.tmp_0.arg0 = 15;
-    s.callLocIdx = 345; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 352; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     r0 = pxsim_Array__mk();
@@ -37989,7 +38042,7 @@ switch (step) {
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_2.arg0 = "New";
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 346; s.pc = 5; return s.tmp_2;
+    s.callLocIdx = 353; s.pc = 5; return s.tmp_2;
   case 5:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -37997,7 +38050,7 @@ switch (step) {
     s.tmp_4 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_4.arg0 = "Edit";
     s.tmp_4.arg1 = undefined;
-    s.callLocIdx = 347; s.pc = 6; return s.tmp_4;
+    s.callLocIdx = 354; s.pc = 6; return s.tmp_4;
   case 6:
     r0 = s.retval;
     s.tmp_3 = r0;
@@ -38005,7 +38058,7 @@ switch (step) {
     s.tmp_6 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_6.arg0 = "Compile";
     s.tmp_6.arg1 = undefined;
-    s.callLocIdx = 348; s.pc = 7; return s.tmp_6;
+    s.callLocIdx = 355; s.pc = 7; return s.tmp_6;
   case 7:
     r0 = s.retval;
     s.tmp_5 = r0;
@@ -38014,20 +38067,20 @@ switch (step) {
     r0 = pxsim_String_.mkEmpty();
     s.tmp_8.arg0 = r0;
     s.tmp_8.arg1 = undefined;
-    s.callLocIdx = 349; s.pc = 8; return s.tmp_8;
+    s.callLocIdx = 356; s.pc = 8; return s.tmp_8;
   case 8:
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
-    globals.ListMenuContents___32251 = (s.tmp_0);
+    globals.ListMenuContents___118363 = (s.tmp_0);
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___32251;
-    s.callLocIdx = 350; s.pc = 9; return s.tmp_0;
+    s.tmp_0.arg0 = globals.ListMenuContents___118363;
+    s.callLocIdx = 357; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 106;
     s.tmp_0.arg2 = 40;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -38036,20 +38089,20 @@ switch (step) {
   case 10:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = false;
-    s.callLocIdx = 351; s.pc = 11; return s.tmp_0;
+    s.callLocIdx = 358; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 104;
     s.tmp_0.arg2 = 82;
-    s.callLocIdx = 352; s.pc = 12; return s.tmp_0;
+    s.callLocIdx = 359; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -38057,54 +38110,54 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 353; s.pc = 13; return s.tmp_0; }
+     else { s.callLocIdx = 360; s.pc = 13; return s.tmp_0; }
     }
   case 13:
     r0 = s.retval;
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
-    s.callLocIdx = 354; s.pc = 15; return s.tmp_1;
+    s.callLocIdx = 361; s.pc = 15; return s.tmp_1;
   case 15:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 355; s.pc = 14; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 362; s.pc = 14; return s.tmp_0;
   case 14:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
-    s.callLocIdx = 356; s.pc = 16; return s.tmp_0;
+    s.callLocIdx = 363; s.pc = 16; return s.tmp_0;
   case 16:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "NanoCode";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 357; s.pc = 17; return s.tmp_0;
+    s.callLocIdx = 364; s.pc = 17; return s.tmp_0;
   case 17:
     r0 = s.retval;
-    globals.App_Title___32237 = (r0);
+    globals.App_Title___118345 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___32237;
+    s.tmp_0.arg0 = globals.App_Title___118345;
     s.tmp_0.arg1 = 25;
     s.tmp_0.arg2 = 4;
-    s.callLocIdx = 358; s.pc = 18; return s.tmp_0;
+    s.callLocIdx = 365; s.pc = 18; return s.tmp_0;
   case 18:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-Open_NanoCode__P32641.info = {"start":15712,"length":751,"line":380,"column":0,"endLine":396,"endColumn":1,"fileName":"main.ts","functionName":"Open_NanoCode","argumentNames":[]}
+Open_NanoCode__P118753.info = {"start":16122,"length":751,"line":388,"column":0,"endLine":404,"endColumn":1,"fileName":"main.ts","functionName":"Open_NanoCode","argumentNames":[]}
 
-function Open_NanoCode__P32641_mk(s) {
+function Open_NanoCode__P118753_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_NanoCode__P32641, depth: s.depth + 1,
+        parent: s, fn: Open_NanoCode__P118753, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -38121,7 +38174,7 @@ function Open_NanoCode__P32641_mk(s) {
 
 
 
-function Open_FileManager__P32642(s) {
+function Open_FileManager__P118754(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -38131,60 +38184,60 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 359; s.pc = 1; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 366; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.App_Open___32240 = ("File Manager");
-    globals.SubMenu___32278 = ("Home");
-    globals.List_Scroll___32243 = (0);
+    globals.App_Open___118348 = ("File Manager");
+    globals.SubMenu___118390 = ("Home");
+    globals.List_Scroll___118351 = (0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
-    s.callLocIdx = 360; s.pc = 3; return s.tmp_1;
+    s.callLocIdx = 367; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 361; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 368; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     s.tmp_0 = scene_setBackgroundColor__P2900_mk(s);
     s.tmp_0.arg0 = 1;
-    s.callLocIdx = 362; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 369; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
-    s.callLocIdx = 363; s.pc = 6; return s.tmp_1;
+    s.callLocIdx = 370; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 364; s.pc = 5; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 371; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
-    s.callLocIdx = 365; s.pc = 7; return s.tmp_0;
+    s.callLocIdx = 372; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "File Manager";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 366; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 373; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
-    globals.App_Title___32237 = (r0);
+    globals.App_Title___118345 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___32237;
+    s.tmp_0.arg0 = globals.App_Title___118345;
     s.tmp_0.arg1 = 37;
     s.tmp_0.arg2 = 4;
-    s.callLocIdx = 367; s.pc = 9; return s.tmp_0;
+    s.callLocIdx = 374; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
     r0 = pxsim_Array__mk();
@@ -38192,7 +38245,7 @@ switch (step) {
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_2.arg0 = "System";
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 368; s.pc = 10; return s.tmp_2;
+    s.callLocIdx = 375; s.pc = 10; return s.tmp_2;
   case 10:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -38200,20 +38253,20 @@ switch (step) {
     s.tmp_4 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_4.arg0 = "User Files";
     s.tmp_4.arg1 = undefined;
-    s.callLocIdx = 369; s.pc = 11; return s.tmp_4;
+    s.callLocIdx = 376; s.pc = 11; return s.tmp_4;
   case 11:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_3);
-    globals.ListMenuContents___32251 = (s.tmp_0);
+    globals.ListMenuContents___118363 = (s.tmp_0);
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___32251;
-    s.callLocIdx = 370; s.pc = 12; return s.tmp_0;
+    s.tmp_0.arg0 = globals.ListMenuContents___118363;
+    s.callLocIdx = 377; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -38222,20 +38275,20 @@ switch (step) {
   case 13:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = false;
-    s.callLocIdx = 371; s.pc = 14; return s.tmp_0;
+    s.callLocIdx = 378; s.pc = 14; return s.tmp_0;
   case 14:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
-    s.callLocIdx = 372; s.pc = 15; return s.tmp_0;
+    s.callLocIdx = 379; s.pc = 15; return s.tmp_0;
   case 15:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -38243,7 +38296,7 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 373; s.pc = 16; return s.tmp_0; }
+     else { s.callLocIdx = 380; s.pc = 16; return s.tmp_0; }
     }
   case 16:
     r0 = s.retval;
@@ -38251,12 +38304,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_FileManager__P32642.info = {"start":16465,"length":718,"line":397,"column":0,"endLine":414,"endColumn":1,"fileName":"main.ts","functionName":"Open_FileManager","argumentNames":[]}
+Open_FileManager__P118754.info = {"start":16875,"length":718,"line":405,"column":0,"endLine":422,"endColumn":1,"fileName":"main.ts","functionName":"Open_FileManager","argumentNames":[]}
 
-function Open_FileManager__P32642_mk(s) {
+function Open_FileManager__P118754_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_FileManager__P32642, depth: s.depth + 1,
+        parent: s, fn: Open_FileManager__P118754, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -38269,7 +38322,7 @@ function Open_FileManager__P32642_mk(s) {
 
 
 
-function Open_Settings__P32640(s) {
+function Open_Settings__P118752(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -38279,19 +38332,19 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 325; s.pc = 1; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 332; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.App_Open___32240 = ("Settings");
-    globals.SubMenu___32278 = ("Home");
-    globals.List_Scroll___32243 = (0);
+    globals.App_Open___118348 = ("Settings");
+    globals.SubMenu___118390 = ("Home");
+    globals.List_Scroll___118351 = (0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_2.arg0 = "Connectivity";
     s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 326; s.pc = 2; return s.tmp_2;
+    s.callLocIdx = 333; s.pc = 2; return s.tmp_2;
   case 2:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -38299,7 +38352,7 @@ switch (step) {
     s.tmp_4 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_4.arg0 = "Input";
     s.tmp_4.arg1 = undefined;
-    s.callLocIdx = 327; s.pc = 3; return s.tmp_4;
+    s.callLocIdx = 334; s.pc = 3; return s.tmp_4;
   case 3:
     r0 = s.retval;
     s.tmp_3 = r0;
@@ -38307,7 +38360,7 @@ switch (step) {
     s.tmp_6 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_6.arg0 = "Customization";
     s.tmp_6.arg1 = undefined;
-    s.callLocIdx = 328; s.pc = 4; return s.tmp_6;
+    s.callLocIdx = 335; s.pc = 4; return s.tmp_6;
   case 4:
     r0 = s.retval;
     s.tmp_5 = r0;
@@ -38315,69 +38368,69 @@ switch (step) {
     s.tmp_8 = miniMenu_createMenuItem__P4522_mk(s);
     s.tmp_8.arg0 = "System";
     s.tmp_8.arg1 = undefined;
-    s.callLocIdx = 329; s.pc = 5; return s.tmp_8;
+    s.callLocIdx = 336; s.pc = 5; return s.tmp_8;
   case 5:
     r0 = s.retval;
     s.tmp_7 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_7);
-    globals.ListMenuContents___32251 = (s.tmp_0);
+    globals.ListMenuContents___118363 = (s.tmp_0);
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
-    s.callLocIdx = 330; s.pc = 7; return s.tmp_1;
+    s.callLocIdx = 337; s.pc = 7; return s.tmp_1;
   case 7:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 331; s.pc = 6; return s.tmp_0;
+    s.callLocIdx = 338; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
     s.tmp_0 = scene_setBackgroundColor__P2900_mk(s);
     s.tmp_0.arg0 = 1;
-    s.callLocIdx = 332; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 339; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
-    s.callLocIdx = 333; s.pc = 10; return s.tmp_1;
+    s.callLocIdx = 340; s.pc = 10; return s.tmp_1;
   case 10:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 334; s.pc = 9; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 341; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
-    s.callLocIdx = 335; s.pc = 11; return s.tmp_0;
+    s.callLocIdx = 342; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Settings";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 336; s.pc = 12; return s.tmp_0;
+    s.callLocIdx = 343; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
-    globals.App_Title___32237 = (r0);
+    globals.App_Title___118345 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___32237;
+    s.tmp_0.arg0 = globals.App_Title___118345;
     s.tmp_0.arg1 = 25;
     s.tmp_0.arg2 = 4;
-    s.callLocIdx = 337; s.pc = 13; return s.tmp_0;
+    s.callLocIdx = 344; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuContents___32251;
-    s.callLocIdx = 338; s.pc = 14; return s.tmp_0;
+    s.tmp_0.arg0 = globals.ListMenuContents___118363;
+    s.callLocIdx = 345; s.pc = 14; return s.tmp_0;
   case 14:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 97;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -38386,20 +38439,20 @@ switch (step) {
   case 15:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = false;
-    s.callLocIdx = 339; s.pc = 16; return s.tmp_0;
+    s.callLocIdx = 346; s.pc = 16; return s.tmp_0;
   case 16:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 58;
-    s.callLocIdx = 340; s.pc = 17; return s.tmp_0;
+    s.callLocIdx = 347; s.pc = 17; return s.tmp_0;
   case 17:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -38407,7 +38460,7 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 341; s.pc = 18; return s.tmp_0; }
+     else { s.callLocIdx = 348; s.pc = 18; return s.tmp_0; }
     }
   case 18:
     r0 = s.retval;
@@ -38415,12 +38468,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_Settings__P32640.info = {"start":14926,"length":782,"line":361,"column":0,"endLine":378,"endColumn":1,"fileName":"main.ts","functionName":"Open_Settings","argumentNames":[]}
+Open_Settings__P118752.info = {"start":15336,"length":782,"line":369,"column":0,"endLine":386,"endColumn":1,"fileName":"main.ts","functionName":"Open_Settings","argumentNames":[]}
 
-function Open_Settings__P32640_mk(s) {
+function Open_Settings__P118752_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_Settings__P32640, depth: s.depth + 1,
+        parent: s, fn: Open_Settings__P118752, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -38437,7 +38490,7 @@ function Open_Settings__P32640_mk(s) {
 
 
 
-function Open_Web__P32637(s) {
+function Open_Web__P118749(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -38447,68 +38500,68 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 290; s.pc = 1; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 297; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.App_Open___32240 = ("Web Chat");
+    globals.App_Open___118348 = ("Web Chat");
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
-    s.callLocIdx = 291; s.pc = 3; return s.tmp_1;
+    s.callLocIdx = 298; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 292; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 299; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     s.tmp_0 = scene_setBackgroundColor__P2900_mk(s);
     s.tmp_0.arg0 = 1;
-    s.callLocIdx = 293; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 300; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
-    s.callLocIdx = 294; s.pc = 6; return s.tmp_1;
+    s.callLocIdx = 301; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 295; s.pc = 5; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 302; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
-    s.callLocIdx = 296; s.pc = 7; return s.tmp_0;
+    s.callLocIdx = 303; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Web Chat";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 297; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 304; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
-    globals.App_Title___32237 = (r0);
+    globals.App_Title___118345 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___32237;
+    s.tmp_0.arg0 = globals.App_Title___118345;
     s.tmp_0.arg1 = 26;
     s.tmp_0.arg2 = 4;
-    s.callLocIdx = 298; s.pc = 9; return s.tmp_0;
+    s.callLocIdx = 305; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
     s.tmp_0 = miniMenu_createMenuFromArray__P4524_mk(s);
-    s.tmp_0.arg0 = globals.WebChatMessages___32277;
-    s.callLocIdx = 299; s.pc = 10; return s.tmp_0;
+    s.tmp_0.arg0 = globals.WebChatMessages___118389;
+    s.callLocIdx = 306; s.pc = 10; return s.tmp_0;
   case 10:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
     s.tmp_0 = miniMenu_MenuSprite__C4478_v10_3_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 151;
     s.tmp_0.arg2 = 86;
     if (!checkSubtype(s.tmp_0.arg0, miniMenu_MenuSprite__C4478_VT)) failedCast(s.tmp_0.arg0);
@@ -38517,20 +38570,20 @@ switch (step) {
   case 11:
     r0 = s.retval;
     s.tmp_0 = miniMenu_MenuSprite_setButtonEventsEnabled__P4499_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = false;
-    s.callLocIdx = 300; s.pc = 12; return s.tmp_0;
+    s.callLocIdx = 307; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = 76;
     s.tmp_0.arg2 = 52;
-    s.callLocIdx = 301; s.pc = 13; return s.tmp_0;
+    s.callLocIdx = 308; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.ListMenuGUI___32217;
+    s.tmp_0.arg0 = globals.ListMenuGUI___118325;
     s.tmp_0.arg1 = -30;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -38538,7 +38591,7 @@ switch (step) {
       s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["set/z"];
       if (s.tmp_0.fn === null) { s.tmp_0.arg0.fields["z"] = s.tmp_0.arg1; }
       else if (s.tmp_0.fn === undefined) { failedCast(s.tmp_0.arg0) } 
-     else { s.callLocIdx = 302; s.pc = 14; return s.tmp_0; }
+     else { s.callLocIdx = 309; s.pc = 14; return s.tmp_0; }
     }
   case 14:
     r0 = s.retval;
@@ -38546,12 +38599,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Open_Web__P32637.info = {"start":13274,"length":559,"line":312,"column":0,"endLine":326,"endColumn":1,"fileName":"main.ts","functionName":"Open_Web","argumentNames":[]}
+Open_Web__P118749.info = {"start":13684,"length":559,"line":320,"column":0,"endLine":334,"endColumn":1,"fileName":"main.ts","functionName":"Open_Web","argumentNames":[]}
 
-function Open_Web__P32637_mk(s) {
+function Open_Web__P118749_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_Web__P32637, depth: s.depth + 1,
+        parent: s, fn: Open_Web__P118749, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -38561,7 +38614,7 @@ function Open_Web__P32637_mk(s) {
 
 
 
-function Open_Write__P32639(s) {
+function Open_Write__P118751(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -38571,79 +38624,79 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.write_document___33715 = undefined;
-    s.write_document___33716 = undefined;
+    s.write_document___119842 = undefined;
+    s.write_document___119843 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 314; s.pc = 3; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 321; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
-    globals.App_Open___32240 = ("Write");
+    globals.App_Open___118348 = ("Write");
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
-    s.callLocIdx = 315; s.pc = 5; return s.tmp_1;
+    s.callLocIdx = 322; s.pc = 5; return s.tmp_1;
   case 5:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 316; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 323; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = scene_setBackgroundColor__P2900_mk(s);
     s.tmp_0.arg0 = 1;
-    s.callLocIdx = 317; s.pc = 6; return s.tmp_0;
+    s.callLocIdx = 324; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
-    s.callLocIdx = 318; s.pc = 8; return s.tmp_1;
+    s.callLocIdx = 325; s.pc = 8; return s.tmp_1;
   case 8:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 319; s.pc = 7; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 326; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
-    s.callLocIdx = 320; s.pc = 9; return s.tmp_0;
+    s.callLocIdx = 327; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Write";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 321; s.pc = 10; return s.tmp_0;
+    s.callLocIdx = 328; s.pc = 10; return s.tmp_0;
   case 10:
     r0 = s.retval;
-    globals.App_Title___32237 = (r0);
+    globals.App_Title___118345 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___32237;
+    s.tmp_0.arg0 = globals.App_Title___118345;
     s.tmp_0.arg1 = 17;
     s.tmp_0.arg2 = 4;
-    s.callLocIdx = 322; s.pc = 11; return s.tmp_0;
+    s.callLocIdx = 329; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Unfinished";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 15;
-    s.callLocIdx = 323; s.pc = 12; return s.tmp_0;
+    s.callLocIdx = 330; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
-    globals.text___32250 = (r0);
+    globals.text___118362 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text___32250;
+    s.tmp_0.arg0 = globals.text___118362;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
-    s.callLocIdx = 324; s.pc = 13; return s.tmp_0;
+    s.callLocIdx = 331; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
     s.tmp_1 = r0 = s.arg0;
@@ -38654,27 +38707,27 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
     r0 = pxsim_String_.mkEmpty();
-    s.write_document___33715 = (r0);
+    s.write_document___119842 = (r0);
     { step = 2; continue; }
   case 1:
-    s.write_document___33716 = (s.arg0);
+    s.write_document___119843 = (s.arg0);
   case 2:
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-Open_Write__P32639.info = {"start":14282,"length":642,"line":342,"column":0,"endLine":360,"endColumn":1,"fileName":"main.ts","functionName":"Open_Write","argumentNames":["load_file"]}
+Open_Write__P118751.info = {"start":14692,"length":642,"line":350,"column":0,"endLine":368,"endColumn":1,"fileName":"main.ts","functionName":"Open_Write","argumentNames":["load_file"]}
 
-function Open_Write__P32639_mk(s) {
+function Open_Write__P118751_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_Write__P32639, depth: s.depth + 1,
+        parent: s, fn: Open_Write__P118751, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  write_document___33715: undefined,
-  write_document___33716: undefined,
+  write_document___119842: undefined,
+  write_document___119843: undefined,
   arg0: undefined,
 } }
 
@@ -38682,7 +38735,7 @@ function Open_Write__P32639_mk(s) {
 
 
 
-function Open_xCell__P32638(s) {
+function Open_xCell__P118750(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -38696,85 +38749,85 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = close_apps__P32581_mk(s);
-    s.callLocIdx = 303; s.pc = 1; return s.tmp_0;
+    s.tmp_0 = close_apps__P118693_mk(s);
+    s.callLocIdx = 310; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.App_Open___32240 = ("xCell");
+    globals.App_Open___118348 = ("xCell");
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "App";
-    s.callLocIdx = 304; s.pc = 3; return s.tmp_1;
+    s.callLocIdx = 311; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 305; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 312; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     s.tmp_0 = scene_setBackgroundColor__P2900_mk(s);
     s.tmp_0.arg0 = 1;
-    s.callLocIdx = 306; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 313; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Close";
-    s.callLocIdx = 307; s.pc = 6; return s.tmp_1;
+    s.callLocIdx = 314; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
-    s.callLocIdx = 308; s.pc = 5; return s.tmp_0;
+    s.tmp_0.arg1 = globals.App_UI___118318;
+    s.callLocIdx = 315; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = 156;
     s.tmp_0.arg2 = 5;
-    s.callLocIdx = 309; s.pc = 7; return s.tmp_0;
+    s.callLocIdx = 316; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "xCell";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 310; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 317; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
-    globals.App_Title___32237 = (r0);
+    globals.App_Title___118345 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.App_Title___32237;
+    s.tmp_0.arg0 = globals.App_Title___118345;
     s.tmp_0.arg1 = 16;
     s.tmp_0.arg2 = 4;
-    s.callLocIdx = 311; s.pc = 9; return s.tmp_0;
+    s.callLocIdx = 318; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Unfinished";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 15;
-    s.callLocIdx = 312; s.pc = 10; return s.tmp_0;
+    s.callLocIdx = 319; s.pc = 10; return s.tmp_0;
   case 10:
     r0 = s.retval;
-    globals.text___32250 = (r0);
+    globals.text___118362 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text___32250;
+    s.tmp_0.arg0 = globals.text___118362;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
-    s.callLocIdx = 313; s.pc = 11; return s.tmp_0;
+    s.callLocIdx = 320; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-Open_xCell__P32638.info = {"start":13839,"length":439,"line":329,"column":0,"endLine":340,"endColumn":1,"fileName":"main.ts","functionName":"Open_xCell","argumentNames":["load_file"]}
+Open_xCell__P118750.info = {"start":14249,"length":439,"line":337,"column":0,"endLine":348,"endColumn":1,"fileName":"main.ts","functionName":"Open_xCell","argumentNames":["load_file"]}
 
-function Open_xCell__P32638_mk(s) {
+function Open_xCell__P118750_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Open_xCell__P32638, depth: s.depth + 1,
+        parent: s, fn: Open_xCell__P118750, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -38785,7 +38838,7 @@ function Open_xCell__P32638_mk(s) {
 
 
 
-function fatalerror__P32557(s) {
+function fatalerror__P118669(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -38795,125 +38848,129 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.text2___33760 = undefined;
-    s.text3___33764 = undefined;
-    s.text4___33768 = undefined;
+    s.text2___119888 = undefined;
+    s.text3___119892 = undefined;
+    s.text4___119896 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    r0 = (globals.App_Open___32240 !== "death");
+    r0 = (globals.App_Open___118348 !== "death");
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    globals.App_Open___32240 = ("death");
-    s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
-    s.tmp_0.arg0 = globals.MiniMenu___4365;
-    s.tmp_0.arg1 = undefined;
-    s.tmp_0.arg2 = undefined;
+    globals.App_Open___118348 = ("death");
+    s.tmp_0 = close_apps__P118693_mk(s);
     s.callLocIdx = 204; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
-    s.tmp_0.arg0 = globals.Text___4590;
+    s.tmp_0.arg0 = globals.MiniMenu___4365;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 205; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
-    s.tmp_0.arg0 = globals.Mouse___32207;
+    s.tmp_0.arg0 = globals.Text___4590;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 206; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
-    s.tmp_0.arg0 = globals.Desktop_UI___32204;
+    s.tmp_0.arg0 = globals.Mouse___118315;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 207; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
+    s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
+    s.tmp_0.arg0 = globals.Desktop_UI___118312;
+    s.tmp_0.arg1 = undefined;
+    s.tmp_0.arg2 = undefined;
+    s.callLocIdx = 208; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "MicroOS has ran into a";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 208; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    s.text2___33760 = (r0);
-    s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = s.text2___33760;
-    s.tmp_0.arg1 = 72;
-    s.tmp_0.arg2 = 32;
     s.callLocIdx = 209; s.pc = 8; return s.tmp_0;
   case 8:
+    r0 = s.retval;
+    s.text2___119888 = (r0);
+    s.tmp_0 = Sprite_setPosition__P2424_mk(s);
+    s.tmp_0.arg0 = s.text2___119888;
+    s.tmp_0.arg1 = 72;
+    s.tmp_0.arg2 = 32;
+    s.callLocIdx = 210; s.pc = 9; return s.tmp_0;
+  case 9:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Fatal error.";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 210; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-    s.text3___33764 = (r0);
-    s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = s.text3___33764;
-    s.tmp_0.arg1 = 41;
-    s.tmp_0.arg2 = 41;
     s.callLocIdx = 211; s.pc = 10; return s.tmp_0;
   case 10:
     r0 = s.retval;
+    s.text3___119892 = (r0);
+    s.tmp_0 = Sprite_setPosition__P2424_mk(s);
+    s.tmp_0.arg0 = s.text3___119892;
+    s.tmp_0.arg1 = 41;
+    s.tmp_0.arg2 = 41;
+    s.callLocIdx = 212; s.pc = 11; return s.tmp_0;
+  case 11:
+    r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     if ((s.arg0) && (s.arg0).vtable) {
-    setupResume(s, 12);
+    setupResume(s, 13);
     pxsim_String__stringConv(s.arg0);
     checkResumeConsumed();
     return;
     } else { s.retval = (s.arg0) + ""; }
-  case 12:
+  case 13:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_String__concat("Error Code ", s.tmp_1);
     s.tmp_0.arg0 = r0;
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 212; s.pc = 11; return s.tmp_0;
-  case 11:
+    s.callLocIdx = 213; s.pc = 12; return s.tmp_0;
+  case 12:
     r0 = s.retval;
-    s.text4___33768 = (r0);
+    s.text4___119896 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = s.text4___33768;
+    s.tmp_0.arg0 = s.text4___119896;
     s.tmp_0.arg1 = 47;
     s.tmp_0.arg2 = 94;
-    s.callLocIdx = 213; s.pc = 13; return s.tmp_0;
-  case 13:
+    s.callLocIdx = 214; s.pc = 14; return s.tmp_0;
+  case 14:
     r0 = s.retval;
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Press Menu to reboot";
     s.tmp_0.arg1 = 0;
     s.tmp_0.arg2 = 1;
-    s.callLocIdx = 214; s.pc = 14; return s.tmp_0;
-  case 14:
-    r0 = s.retval;
-    globals.text___32250 = (r0);
-    s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.text___32250;
-    s.tmp_0.arg1 = 79;
-    s.tmp_0.arg2 = 111;
     s.callLocIdx = 215; s.pc = 15; return s.tmp_0;
   case 15:
+    r0 = s.retval;
+    globals.text___118362 = (r0);
+    s.tmp_0 = Sprite_setPosition__P2424_mk(s);
+    s.tmp_0.arg0 = globals.text___118362;
+    s.tmp_0.arg1 = 79;
+    s.tmp_0.arg2 = 111;
+    s.callLocIdx = 216; s.pc = 16; return s.tmp_0;
+  case 16:
     r0 = s.retval;
     s.tmp_0 = scene_setBackgroundImage__P2902_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Kernel Panic";
-    s.callLocIdx = 216; s.pc = 17; return s.tmp_1;
-  case 17:
+    s.callLocIdx = 217; s.pc = 18; return s.tmp_1;
+  case 18:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 217; s.pc = 16; return s.tmp_0;
-  case 16:
+    s.callLocIdx = 218; s.pc = 17; return s.tmp_0;
+  case 17:
     r0 = s.retval;
   case 1:
   case 2:
@@ -38921,18 +38978,18 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-fatalerror__P32557.info = {"start":6896,"length":813,"line":141,"column":0,"endLine":158,"endColumn":1,"fileName":"main.ts","functionName":"fatalerror","argumentNames":["code"]}
+fatalerror__P118669.info = {"start":6948,"length":835,"line":143,"column":0,"endLine":161,"endColumn":1,"fileName":"main.ts","functionName":"fatalerror","argumentNames":["code"]}
 
-function fatalerror__P32557_mk(s) {
+function fatalerror__P118669_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: fatalerror__P32557, depth: s.depth + 1,
+        parent: s, fn: fatalerror__P118669, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  text2___33760: undefined,
-  text3___33764: undefined,
-  text4___33768: undefined,
+  text2___119888: undefined,
+  text3___119892: undefined,
+  text4___119896: undefined,
   arg0: undefined,
 } }
 
@@ -39052,7 +39109,7 @@ function controller_Button_onEvent__P2210_mk(s) {
 
 
 
-function Define_Sprites__P32555(s) {
+function Define_Sprites__P118667(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -39062,7 +39119,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    globals.App_Open___32240 = ("null");
+    globals.App_Open___118348 = ("null");
     s.tmp_0 = sprites_create__P2289_mk(s);
     s.tmp_1 = helpers_getImageByName__P3369_mk(s);
     s.tmp_1.arg0 = "Taskbar";
@@ -39070,13 +39127,13 @@ switch (step) {
   case 2:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 162; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    globals.Taskbar___32213 = (r0);
+    globals.Taskbar___118321 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Taskbar___32213;
+    s.tmp_0.arg0 = globals.Taskbar___118321;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
     s.callLocIdx = 163; s.pc = 3; return s.tmp_0;
@@ -39089,13 +39146,13 @@ switch (step) {
   case 5:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 165; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    globals.Library_icon___32231 = (r0);
+    globals.Library_icon___118339 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Library_icon___32231;
+    s.tmp_0.arg0 = globals.Library_icon___118339;
     s.tmp_0.arg1 = 9;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 166; s.pc = 6; return s.tmp_0;
@@ -39108,13 +39165,13 @@ switch (step) {
   case 8:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 168; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    globals.xCell_Icon___32233 = (r0);
+    globals.xCell_Icon___118341 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.xCell_Icon___32233;
+    s.tmp_0.arg0 = globals.xCell_Icon___118341;
     s.tmp_0.arg1 = 22;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 169; s.pc = 9; return s.tmp_0;
@@ -39127,13 +39184,13 @@ switch (step) {
   case 11:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 171; s.pc = 10; return s.tmp_0;
   case 10:
     r0 = s.retval;
-    globals.Write_icon___32229 = (r0);
+    globals.Write_icon___118337 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Write_icon___32229;
+    s.tmp_0.arg0 = globals.Write_icon___118337;
     s.tmp_0.arg1 = 32;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 172; s.pc = 12; return s.tmp_0;
@@ -39146,13 +39203,13 @@ switch (step) {
   case 14:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 174; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
-    globals.NanoCode_Icon___32219 = (r0);
+    globals.NanoCode_Icon___118327 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.NanoCode_Icon___32219;
+    s.tmp_0.arg0 = globals.NanoCode_Icon___118327;
     s.tmp_0.arg1 = 42;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 175; s.pc = 15; return s.tmp_0;
@@ -39165,13 +39222,13 @@ switch (step) {
   case 17:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 177; s.pc = 16; return s.tmp_0;
   case 16:
     r0 = s.retval;
-    globals.Web_Chat_Icon___32227 = (r0);
+    globals.Web_Chat_Icon___118335 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Web_Chat_Icon___32227;
+    s.tmp_0.arg0 = globals.Web_Chat_Icon___118335;
     s.tmp_0.arg1 = 52;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 178; s.pc = 18; return s.tmp_0;
@@ -39184,13 +39241,13 @@ switch (step) {
   case 20:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 180; s.pc = 19; return s.tmp_0;
   case 19:
     r0 = s.retval;
-    globals.Settings_Icon___32225 = (r0);
+    globals.Settings_Icon___118333 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Settings_Icon___32225;
+    s.tmp_0.arg0 = globals.Settings_Icon___118333;
     s.tmp_0.arg1 = 62;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 181; s.pc = 21; return s.tmp_0;
@@ -39203,13 +39260,13 @@ switch (step) {
   case 23:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 183; s.pc = 22; return s.tmp_0;
   case 22:
     r0 = s.retval;
-    globals.File_Manager_Icon___32221 = (r0);
+    globals.File_Manager_Icon___118329 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.File_Manager_Icon___32221;
+    s.tmp_0.arg0 = globals.File_Manager_Icon___118329;
     s.tmp_0.arg1 = 72;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 184; s.pc = 24; return s.tmp_0;
@@ -39222,13 +39279,13 @@ switch (step) {
   case 26:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Desktop_UI___32204;
+    s.tmp_0.arg1 = globals.Desktop_UI___118312;
     s.callLocIdx = 186; s.pc = 25; return s.tmp_0;
   case 25:
     r0 = s.retval;
-    globals.Process_Icon___32223 = (r0);
+    globals.Process_Icon___118331 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Process_Icon___32223;
+    s.tmp_0.arg0 = globals.Process_Icon___118331;
     s.tmp_0.arg1 = 82;
     s.tmp_0.arg2 = 111;
     s.callLocIdx = 187; s.pc = 27; return s.tmp_0;
@@ -39241,33 +39298,33 @@ switch (step) {
   case 29:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.Mouse___32207;
+    s.tmp_0.arg1 = globals.Mouse___118315;
     s.callLocIdx = 189; s.pc = 28; return s.tmp_0;
   case 28:
     r0 = s.retval;
-    globals.Mouse_Cursor___32235 = (r0);
+    globals.Mouse_Cursor___118343 = (r0);
     s.tmp_0 = Sprite_setPosition__P2424_mk(s);
-    s.tmp_0.arg0 = globals.Mouse_Cursor___32235;
+    s.tmp_0.arg0 = globals.Mouse_Cursor___118343;
     s.tmp_0.arg1 = 80;
     s.tmp_0.arg2 = 60;
     s.callLocIdx = 190; s.pc = 30; return s.tmp_0;
   case 30:
     r0 = s.retval;
     s.tmp_0 = Sprite_setStayInScreen__P2432_mk(s);
-    s.tmp_0.arg0 = globals.Mouse_Cursor___32235;
+    s.tmp_0.arg0 = globals.Mouse_Cursor___118343;
     s.tmp_0.arg1 = true;
     s.callLocIdx = 191; s.pc = 31; return s.tmp_0;
   case 31:
     r0 = s.retval;
     s.tmp_0 = controller_moveSprite__P2181_mk(s);
-    s.tmp_0.arg0 = globals.Mouse_Cursor___32235;
+    s.tmp_0.arg0 = globals.Mouse_Cursor___118343;
     s.tmp_0.arg1 = 50;
     s.tmp_0.arg2 = 50;
     s.callLocIdx = 192; s.pc = 32; return s.tmp_0;
   case 32:
     r0 = s.retval;
     s.tmp_0 = if_z_2_mk(s);
-    s.tmp_0.arg0 = globals.Mouse_Cursor___32235;
+    s.tmp_0.arg0 = globals.Mouse_Cursor___118343;
     s.tmp_0.arg1 = 453453453453;
     if (!s.tmp_0.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapSetByString(s.tmp_0.arg0, "z", s.tmp_0.arg1);
@@ -39286,11 +39343,11 @@ switch (step) {
   case 35:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = globals.App_UI___32210;
+    s.tmp_0.arg1 = globals.App_UI___118318;
     s.callLocIdx = 195; s.pc = 34; return s.tmp_0;
   case 34:
     r0 = s.retval;
-    globals.Close_App___32239 = (r0);
+    globals.Close_App___118347 = (r0);
     s.tmp_0 = textsprite_create__P4602_mk(s);
     s.tmp_0.arg0 = "Write";
     s.tmp_0.arg1 = 0;
@@ -39298,7 +39355,7 @@ switch (step) {
     s.callLocIdx = 196; s.pc = 36; return s.tmp_0;
   case 36:
     r0 = s.retval;
-    globals.App_Title___32237 = (r0);
+    globals.App_Title___118345 = (r0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     s.tmp_2 = miniMenu_createMenuItem__P4522_mk(s);
@@ -39315,7 +39372,7 @@ switch (step) {
     s.callLocIdx = 198; s.pc = 38; return s.tmp_3;
   case 38:
     r0 = s.retval;
-    globals.ListMenuGUI___32217 = (r0);
+    globals.ListMenuGUI___118325 = (r0);
     s.tmp_0 = sprites_destroyAllSpritesOfKind__P2293_mk(s);
     s.tmp_0.arg0 = globals.MiniMenu___4365;
     s.tmp_0.arg1 = undefined;
@@ -39331,7 +39388,7 @@ switch (step) {
   case 40:
     r0 = s.retval;
     s.tmp_0 = sprites_destroy__P2291_mk(s);
-    s.tmp_0.arg0 = globals.Close_App___32239;
+    s.tmp_0.arg0 = globals.Close_App___118347;
     s.tmp_0.arg1 = undefined;
     s.tmp_0.arg2 = undefined;
     s.callLocIdx = 201; s.pc = 41; return s.tmp_0;
@@ -39341,12 +39398,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-Define_Sprites__P32555.info = {"start":4954,"length":1803,"line":101,"column":0,"endLine":133,"endColumn":1,"fileName":"main.ts","functionName":"Define_Sprites","argumentNames":[]}
+Define_Sprites__P118667.info = {"start":5006,"length":1803,"line":103,"column":0,"endLine":135,"endColumn":1,"fileName":"main.ts","functionName":"Define_Sprites","argumentNames":[]}
 
-function Define_Sprites__P32555_mk(s) {
+function Define_Sprites__P118667_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Define_Sprites__P32555, depth: s.depth + 1,
+        parent: s, fn: Define_Sprites__P118667, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -74393,6 +74450,83 @@ function if_id_2_mk(s) {
 } }
 
 
+function if_handler_3_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+function if_callback_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+function controller_Button__C2203_v0_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+function if_itemSelectedHandler_3_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+function PhysicsEngine__C2527_v2_4_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+} }
+
+
 function game_Prompt__C3075_v0_1_mk(s) {
     checkStack(s.depth);
     return {
@@ -74721,20 +74855,6 @@ function if_id_1_mk(s) {
 } }
 
 
-function controller_Button__C2203_v0_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
 function if_s_1_mk(s) {
     checkStack(s.depth);
     return {
@@ -74788,69 +74908,6 @@ function if_condition_1_mk(s) {
   tmp_3: undefined,
   tmp_4: undefined,
   arg0: undefined,
-} }
-
-
-function if_handler_3_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-function if_callback_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-function if_itemSelectedHandler_3_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-function PhysicsEngine__C2527_v2_4_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
 } }
 
 
@@ -76739,11 +76796,272 @@ const miniMenu_MenuSprite__C4478_VT = mkVTable({
     "__draw": sprites_BaseSprite___draw__P2114,
   },
 });
+const miniMenu_MenuStyle__C4404_VT = mkVTable({
+  name: "MenuStyle",
+  numFields: 11,
+  classNo: 42,
+  lastSubtypeNo: 42,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "_customWidth": null,
+    "set/_customWidth": null,
+    "_customHeight": null,
+    "set/_customHeight": null,
+    "_scrollSpeed": null,
+    "set/_scrollSpeed": null,
+    "_columns": null,
+    "set/_columns": null,
+    "_rows": null,
+    "set/_rows": null,
+    "_border": null,
+    "set/_border": null,
+    "_borderColor": null,
+    "set/_borderColor": null,
+    "_padding": null,
+    "set/_padding": null,
+    "_backgroundColor": null,
+    "set/_backgroundColor": null,
+    "_scrollColor": null,
+    "set/_scrollColor": null,
+    "parent": null,
+    "set/parent": null,
+    "customWidth": miniMenu_MenuStyle_customWidth__P4416,
+    "set/customWidth": miniMenu_MenuStyle_customWidth__P4417,
+    "customHeight": miniMenu_MenuStyle_customHeight__P4418,
+    "set/customHeight": miniMenu_MenuStyle_customHeight__P4419,
+    "scrollSpeed": miniMenu_MenuStyle_scrollSpeed__P4420,
+    "set/scrollSpeed": miniMenu_MenuStyle_scrollSpeed__P4421,
+    "columns": miniMenu_MenuStyle_columns__P4422,
+    "set/columns": miniMenu_MenuStyle_columns__P4423,
+    "rows": miniMenu_MenuStyle_rows__P4424,
+    "set/rows": miniMenu_MenuStyle_rows__P4425,
+    "border": miniMenu_MenuStyle_border__P4426,
+    "set/border": miniMenu_MenuStyle_border__P4427,
+    "borderColor": miniMenu_MenuStyle_borderColor__P4428,
+    "set/borderColor": miniMenu_MenuStyle_borderColor__P4429,
+    "padding": miniMenu_MenuStyle_padding__P4430,
+    "set/padding": miniMenu_MenuStyle_padding__P4431,
+    "backgroundColor": miniMenu_MenuStyle_backgroundColor__P4432,
+    "set/backgroundColor": miniMenu_MenuStyle_backgroundColor__P4433,
+    "scrollColor": miniMenu_MenuStyle_scrollColor__P4434,
+    "set/scrollColor": miniMenu_MenuStyle_scrollColor__P4435,
+    "setMenuStyleProperty": miniMenu_MenuStyle_setMenuStyleProperty__P4436,
+    "copyTo": miniMenu_MenuStyle_copyTo__P4437,
+  },
+});
+const miniMenu_Style__C4438_VT = mkVTable({
+  name: "Style",
+  numFields: 10,
+  classNo: 43,
+  lastSubtypeNo: 43,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "_padding": null,
+    "set/_padding": null,
+    "_foreground": null,
+    "set/_foreground": null,
+    "_background": null,
+    "set/_background": null,
+    "_borderColor": null,
+    "set/_borderColor": null,
+    "_border": null,
+    "set/_border": null,
+    "_margin": null,
+    "set/_margin": null,
+    "_iconTextSpacing": null,
+    "set/_iconTextSpacing": null,
+    "_iconOnly": null,
+    "set/_iconOnly": null,
+    "_alignment": null,
+    "set/_alignment": null,
+    "parent": null,
+    "set/parent": null,
+    "padding": miniMenu_Style_padding__P4448,
+    "set/padding": miniMenu_Style_padding__P4449,
+    "foreground": miniMenu_Style_foreground__P4450,
+    "set/foreground": miniMenu_Style_foreground__P4451,
+    "background": miniMenu_Style_background__P4452,
+    "set/background": miniMenu_Style_background__P4453,
+    "borderColor": miniMenu_Style_borderColor__P4454,
+    "set/borderColor": miniMenu_Style_borderColor__P4455,
+    "border": miniMenu_Style_border__P4456,
+    "set/border": miniMenu_Style_border__P4457,
+    "margin": miniMenu_Style_margin__P4458,
+    "set/margin": miniMenu_Style_margin__P4459,
+    "iconTextSpacing": miniMenu_Style_iconTextSpacing__P4460,
+    "set/iconTextSpacing": miniMenu_Style_iconTextSpacing__P4461,
+    "iconOnly": miniMenu_Style_iconOnly__P4462,
+    "set/iconOnly": miniMenu_Style_iconOnly__P4463,
+    "alignment": miniMenu_Style_alignment__P4464,
+    "set/alignment": miniMenu_Style_alignment__P4465,
+    "clone": miniMenu_Style_clone__P4467,
+    "copyTo": miniMenu_Style_copyTo__P4468,
+  },
+});
+const miniMenu_MenuItem__C4470_VT = mkVTable({
+  name: "MenuItem",
+  numFields: 3,
+  classNo: 44,
+  lastSubtypeNo: 44,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "font": null,
+    "set/font": null,
+    "text": null,
+    "set/text": null,
+    "icon": null,
+    "set/icon": null,
+    "getHeight": miniMenu_MenuItem_getHeight__P4473,
+    "getWidth": miniMenu_MenuItem_getWidth__P4474,
+    "drawTo": miniMenu_MenuItem_drawTo__P4475,
+  },
+});
+const miniMenu_MiniMenuState__C7336_VT = mkVTable({
+  name: "MiniMenuState",
+  numFields: 5,
+  classNo: 45,
+  lastSubtypeNo: 45,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "menuStyle": null,
+    "set/menuStyle": null,
+    "defaultStyle": null,
+    "set/defaultStyle": null,
+    "selectedStyle": null,
+    "set/selectedStyle": null,
+    "titleStyle": null,
+    "set/titleStyle": null,
+    "sprites": null,
+    "set/sprites": null,
+    "addSprite": miniMenu_MiniMenuState_addSprite__P7337,
+    "removeSprite": miniMenu_MiniMenuState_removeSprite__P7338,
+    "onStyleChange": miniMenu_MiniMenuState_onStyleChange__P7339,
+    "onMenuStyleChange": miniMenu_MiniMenuState_onMenuStyleChange__P7340,
+    "updateDimensions": miniMenu_MiniMenuState_updateDimensions__P7341,
+  },
+});
+const miniMenu_ButtonHandler__C7343_VT = mkVTable({
+  name: "ButtonHandler",
+  numFields: 3,
+  classNo: 46,
+  lastSubtypeNo: 46,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "enabled": null,
+    "set/enabled": null,
+    "button": null,
+    "set/button": null,
+    "handler": null,
+    "set/handler": null,
+    "fire": miniMenu_ButtonHandler_fire__P7344,
+  },
+});
+const controller_ButtonHandler__C2197_VT = mkVTable({
+  name: "ButtonHandler",
+  numFields: 2,
+  classNo: 47,
+  lastSubtypeNo: 47,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "event": null,
+    "set/event": null,
+    "callback": null,
+    "set/callback": null,
+  },
+});
+const controller_ButtonEventHandlerState__C2199_VT = mkVTable({
+  name: "ButtonEventHandlerState",
+  numFields: 3,
+  classNo: 48,
+  lastSubtypeNo: 48,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "id": null,
+    "set/id": null,
+    "user": null,
+    "set/user": null,
+    "system": null,
+    "set/system": null,
+  },
+});
+const control_EventContext__C395_VT = mkVTable({
+  name: "EventContext",
+  numFields: 10,
+  classNo: 49,
+  lastSubtypeNo: 49,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "handlers": null,
+    "set/handlers": null,
+    "frameCallbacks": null,
+    "set/frameCallbacks": null,
+    "frameWorker": null,
+    "set/frameWorker": null,
+    "framesInSample": null,
+    "set/framesInSample": null,
+    "timeInSample": null,
+    "set/timeInSample": null,
+    "lastPerfDump": null,
+    "set/lastPerfDump": null,
+    "deltaTimeMillis": null,
+    "set/deltaTimeMillis": null,
+    "prevTimeMillis": null,
+    "set/prevTimeMillis": null,
+    "idleCallbacks": null,
+    "set/idleCallbacks": null,
+    "runningCallbacks": null,
+    "set/runningCallbacks": null,
+    "deltaTime": control_EventContext_deltaTime__P400,
+    "runCallbacks": control_EventContext_runCallbacks__P4905,
+    "registerFrameCallbacks": control_EventContext_registerFrameCallbacks__P4906,
+    "register": control_EventContext_register__P401,
+    "unregister": control_EventContext_unregister__P402,
+    "registerFrameHandler": control_EventContext_registerFrameHandler__P403,
+    "registerHandler": control_EventContext_registerHandler__P405,
+  },
+});
+const control_EventHandler__C4900_VT = mkVTable({
+  name: "EventHandler",
+  numFields: 4,
+  classNo: 50,
+  lastSubtypeNo: 50,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "src": null,
+    "set/src": null,
+    "value": null,
+    "set/value": null,
+    "handler": null,
+    "set/handler": null,
+    "flags": null,
+    "set/flags": null,
+    "register": control_EventHandler_register__P4901,
+    "unregister": control_EventHandler_unregister__P4902,
+  },
+});
 const game_Prompt__C3075_VT = mkVTable({
   name: "Prompt",
   numFields: 15,
-  classNo: 42,
-  lastSubtypeNo: 42,
+  classNo: 51,
+  lastSubtypeNo: 51,
   maxBgInstances: null,
   methods: {
     "numbersOnly": game_Prompt_numbersOnly__P5521,
@@ -76832,70 +77150,11 @@ const scene_Renderable__C2817_VT = mkVTable({
     "__update": sprites_BaseSprite___update__P2116,
   },
 });
-const control_EventContext__C395_VT = mkVTable({
-  name: "EventContext",
-  numFields: 10,
-  classNo: 43,
-  lastSubtypeNo: 43,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "handlers": null,
-    "set/handlers": null,
-    "frameCallbacks": null,
-    "set/frameCallbacks": null,
-    "frameWorker": null,
-    "set/frameWorker": null,
-    "framesInSample": null,
-    "set/framesInSample": null,
-    "timeInSample": null,
-    "set/timeInSample": null,
-    "lastPerfDump": null,
-    "set/lastPerfDump": null,
-    "deltaTimeMillis": null,
-    "set/deltaTimeMillis": null,
-    "prevTimeMillis": null,
-    "set/prevTimeMillis": null,
-    "idleCallbacks": null,
-    "set/idleCallbacks": null,
-    "runningCallbacks": null,
-    "set/runningCallbacks": null,
-    "deltaTime": control_EventContext_deltaTime__P400,
-    "runCallbacks": control_EventContext_runCallbacks__P4905,
-    "registerFrameCallbacks": control_EventContext_registerFrameCallbacks__P4906,
-    "register": control_EventContext_register__P401,
-    "unregister": control_EventContext_unregister__P402,
-    "registerFrameHandler": control_EventContext_registerFrameHandler__P403,
-    "registerHandler": control_EventContext_registerHandler__P405,
-  },
-});
-const control_EventHandler__C4900_VT = mkVTable({
-  name: "EventHandler",
-  numFields: 4,
-  classNo: 44,
-  lastSubtypeNo: 44,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "src": null,
-    "set/src": null,
-    "value": null,
-    "set/value": null,
-    "handler": null,
-    "set/handler": null,
-    "flags": null,
-    "set/flags": null,
-    "register": control_EventHandler_register__P4901,
-    "unregister": control_EventHandler_unregister__P4902,
-  },
-});
 const scene_Camera__C2798_VT = mkVTable({
   name: "Camera",
   numFields: 10,
-  classNo: 45,
-  lastSubtypeNo: 45,
+  classNo: 52,
+  lastSubtypeNo: 52,
   maxBgInstances: null,
   methods: {
   },
@@ -76935,8 +77194,8 @@ const scene_Camera__C2798_VT = mkVTable({
 const scene_Background__C2685_VT = mkVTable({
   name: "Background",
   numFields: 4,
-  classNo: 46,
-  lastSubtypeNo: 46,
+  classNo: 53,
+  lastSubtypeNo: 53,
   maxBgInstances: null,
   methods: {
   },
@@ -76957,8 +77216,8 @@ const scene_Background__C2685_VT = mkVTable({
 const scene_BackgroundLayer__C2695_VT = mkVTable({
   name: "BackgroundLayer",
   numFields: 6,
-  classNo: 47,
-  lastSubtypeNo: 47,
+  classNo: 54,
+  lastSubtypeNo: 54,
   maxBgInstances: null,
   methods: {
   },
@@ -76981,8 +77240,8 @@ const scene_BackgroundLayer__C2695_VT = mkVTable({
 const tiles_TileMap__C2752_VT = mkVTable({
   name: "TileMap",
   numFields: 5,
-  classNo: 48,
-  lastSubtypeNo: 48,
+  classNo: 55,
+  lastSubtypeNo: 55,
   maxBgInstances: null,
   methods: {
   },
@@ -77018,8 +77277,8 @@ const tiles_TileMap__C2752_VT = mkVTable({
 const tiles_TileMapData__C2734_VT = mkVTable({
   name: "TileMapData",
   numFields: 7,
-  classNo: 49,
-  lastSubtypeNo: 49,
+  classNo: 56,
+  lastSubtypeNo: 56,
   maxBgInstances: null,
   methods: {
   },
@@ -77051,8 +77310,8 @@ const tiles_TileMapData__C2734_VT = mkVTable({
 const control_FrameCallback__C392_VT = mkVTable({
   name: "FrameCallback",
   numFields: 2,
-  classNo: 50,
-  lastSubtypeNo: 50,
+  classNo: 57,
+  lastSubtypeNo: 57,
   maxBgInstances: null,
   methods: {
   },
@@ -77112,8 +77371,8 @@ const ArcadePhysicsEngine__C2543_VT = mkVTable({
 const sprites_SpriteMap__C2461_VT = mkVTable({
   name: "SpriteMap",
   numFields: 6,
-  classNo: 51,
-  lastSubtypeNo: 51,
+  classNo: 58,
+  lastSubtypeNo: 58,
   maxBgInstances: null,
   methods: {
   },
@@ -77143,8 +77402,8 @@ const sprites_SpriteMap__C2461_VT = mkVTable({
 const control_PollEvent__C4879_VT = mkVTable({
   name: "PollEvent",
   numFields: 6,
-  classNo: 52,
-  lastSubtypeNo: 52,
+  classNo: 59,
+  lastSubtypeNo: 59,
   maxBgInstances: null,
   methods: {
   },
@@ -77161,208 +77420,6 @@ const control_PollEvent__C4879_VT = mkVTable({
     "set/condition": null,
     "once": null,
     "set/once": null,
-  },
-});
-const miniMenu_MenuStyle__C4404_VT = mkVTable({
-  name: "MenuStyle",
-  numFields: 11,
-  classNo: 53,
-  lastSubtypeNo: 53,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "_customWidth": null,
-    "set/_customWidth": null,
-    "_customHeight": null,
-    "set/_customHeight": null,
-    "_scrollSpeed": null,
-    "set/_scrollSpeed": null,
-    "_columns": null,
-    "set/_columns": null,
-    "_rows": null,
-    "set/_rows": null,
-    "_border": null,
-    "set/_border": null,
-    "_borderColor": null,
-    "set/_borderColor": null,
-    "_padding": null,
-    "set/_padding": null,
-    "_backgroundColor": null,
-    "set/_backgroundColor": null,
-    "_scrollColor": null,
-    "set/_scrollColor": null,
-    "parent": null,
-    "set/parent": null,
-    "customWidth": miniMenu_MenuStyle_customWidth__P4416,
-    "set/customWidth": miniMenu_MenuStyle_customWidth__P4417,
-    "customHeight": miniMenu_MenuStyle_customHeight__P4418,
-    "set/customHeight": miniMenu_MenuStyle_customHeight__P4419,
-    "scrollSpeed": miniMenu_MenuStyle_scrollSpeed__P4420,
-    "set/scrollSpeed": miniMenu_MenuStyle_scrollSpeed__P4421,
-    "columns": miniMenu_MenuStyle_columns__P4422,
-    "set/columns": miniMenu_MenuStyle_columns__P4423,
-    "rows": miniMenu_MenuStyle_rows__P4424,
-    "set/rows": miniMenu_MenuStyle_rows__P4425,
-    "border": miniMenu_MenuStyle_border__P4426,
-    "set/border": miniMenu_MenuStyle_border__P4427,
-    "borderColor": miniMenu_MenuStyle_borderColor__P4428,
-    "set/borderColor": miniMenu_MenuStyle_borderColor__P4429,
-    "padding": miniMenu_MenuStyle_padding__P4430,
-    "set/padding": miniMenu_MenuStyle_padding__P4431,
-    "backgroundColor": miniMenu_MenuStyle_backgroundColor__P4432,
-    "set/backgroundColor": miniMenu_MenuStyle_backgroundColor__P4433,
-    "scrollColor": miniMenu_MenuStyle_scrollColor__P4434,
-    "set/scrollColor": miniMenu_MenuStyle_scrollColor__P4435,
-    "setMenuStyleProperty": miniMenu_MenuStyle_setMenuStyleProperty__P4436,
-    "copyTo": miniMenu_MenuStyle_copyTo__P4437,
-  },
-});
-const miniMenu_Style__C4438_VT = mkVTable({
-  name: "Style",
-  numFields: 10,
-  classNo: 54,
-  lastSubtypeNo: 54,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "_padding": null,
-    "set/_padding": null,
-    "_foreground": null,
-    "set/_foreground": null,
-    "_background": null,
-    "set/_background": null,
-    "_borderColor": null,
-    "set/_borderColor": null,
-    "_border": null,
-    "set/_border": null,
-    "_margin": null,
-    "set/_margin": null,
-    "_iconTextSpacing": null,
-    "set/_iconTextSpacing": null,
-    "_iconOnly": null,
-    "set/_iconOnly": null,
-    "_alignment": null,
-    "set/_alignment": null,
-    "parent": null,
-    "set/parent": null,
-    "padding": miniMenu_Style_padding__P4448,
-    "set/padding": miniMenu_Style_padding__P4449,
-    "foreground": miniMenu_Style_foreground__P4450,
-    "set/foreground": miniMenu_Style_foreground__P4451,
-    "background": miniMenu_Style_background__P4452,
-    "set/background": miniMenu_Style_background__P4453,
-    "borderColor": miniMenu_Style_borderColor__P4454,
-    "set/borderColor": miniMenu_Style_borderColor__P4455,
-    "border": miniMenu_Style_border__P4456,
-    "set/border": miniMenu_Style_border__P4457,
-    "margin": miniMenu_Style_margin__P4458,
-    "set/margin": miniMenu_Style_margin__P4459,
-    "iconTextSpacing": miniMenu_Style_iconTextSpacing__P4460,
-    "set/iconTextSpacing": miniMenu_Style_iconTextSpacing__P4461,
-    "iconOnly": miniMenu_Style_iconOnly__P4462,
-    "set/iconOnly": miniMenu_Style_iconOnly__P4463,
-    "alignment": miniMenu_Style_alignment__P4464,
-    "set/alignment": miniMenu_Style_alignment__P4465,
-    "clone": miniMenu_Style_clone__P4467,
-    "copyTo": miniMenu_Style_copyTo__P4468,
-  },
-});
-const miniMenu_MenuItem__C4470_VT = mkVTable({
-  name: "MenuItem",
-  numFields: 3,
-  classNo: 55,
-  lastSubtypeNo: 55,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "font": null,
-    "set/font": null,
-    "text": null,
-    "set/text": null,
-    "icon": null,
-    "set/icon": null,
-    "getHeight": miniMenu_MenuItem_getHeight__P4473,
-    "getWidth": miniMenu_MenuItem_getWidth__P4474,
-    "drawTo": miniMenu_MenuItem_drawTo__P4475,
-  },
-});
-const miniMenu_MiniMenuState__C7336_VT = mkVTable({
-  name: "MiniMenuState",
-  numFields: 5,
-  classNo: 56,
-  lastSubtypeNo: 56,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "menuStyle": null,
-    "set/menuStyle": null,
-    "defaultStyle": null,
-    "set/defaultStyle": null,
-    "selectedStyle": null,
-    "set/selectedStyle": null,
-    "titleStyle": null,
-    "set/titleStyle": null,
-    "sprites": null,
-    "set/sprites": null,
-    "addSprite": miniMenu_MiniMenuState_addSprite__P7337,
-    "removeSprite": miniMenu_MiniMenuState_removeSprite__P7338,
-    "onStyleChange": miniMenu_MiniMenuState_onStyleChange__P7339,
-    "onMenuStyleChange": miniMenu_MiniMenuState_onMenuStyleChange__P7340,
-    "updateDimensions": miniMenu_MiniMenuState_updateDimensions__P7341,
-  },
-});
-const miniMenu_ButtonHandler__C7343_VT = mkVTable({
-  name: "ButtonHandler",
-  numFields: 3,
-  classNo: 57,
-  lastSubtypeNo: 57,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "enabled": null,
-    "set/enabled": null,
-    "button": null,
-    "set/button": null,
-    "handler": null,
-    "set/handler": null,
-    "fire": miniMenu_ButtonHandler_fire__P7344,
-  },
-});
-const controller_ButtonHandler__C2197_VT = mkVTable({
-  name: "ButtonHandler",
-  numFields: 2,
-  classNo: 58,
-  lastSubtypeNo: 58,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "event": null,
-    "set/event": null,
-    "callback": null,
-    "set/callback": null,
-  },
-});
-const controller_ButtonEventHandlerState__C2199_VT = mkVTable({
-  name: "ButtonEventHandlerState",
-  numFields: 3,
-  classNo: 59,
-  lastSubtypeNo: 59,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "id": null,
-    "set/id": null,
-    "user": null,
-    "set/user": null,
-    "system": null,
-    "set/system": null,
   },
 });
 const game_BaseDialog__C2920_VT = mkVTable({
@@ -77926,7 +77983,7 @@ const sprites_StaticObstacle__C2514_VT = mkVTable({
   },
 });
 
-const breakpoints = setupDebugger(1, ["transparency16___4820","Desktop_UI___32204","Mouse___32207","App_UI___32210","Settings___32247","System_Files___32256","text2___32291","text3___32296","text___32250","Username___32244","Active_Processes___32336","Current_Settings___32276","fileNamesString___32422","User_Files_Temp___32425","User_Files___32252","Wallpaper___32472","clock___32494","hour___32490","minute___32492","File_Manager_rigth_click___32542","App_Open___32240","WebChatMessages___32277","Mouse_Cursor___32235","xCell_Icon___32233","Write_icon___32229","Web_Chat_Icon___32227","Settings_Icon___32225","File_Manager_Icon___32221","NanoCode_Icon___32219","Process_Icon___32223","Library_icon___32231","SubMenu___32278","Close_App___32239","Taskbar___32213","ListMenuContents___32251","sillySpacingForListGUI___32288","List_Scroll___32243","defined_menu___32241","ListMenuGUI___32217","App_Title___32237"])
+const breakpoints = setupDebugger(1, ["transparency16___4820","Desktop_UI___118312","Mouse___118315","App_UI___118318","Settings___118359","System_Files___118368","text2___118403","text3___118408","text___118362","Username___118356","Active_Processes___118448","Current_Settings___118388","fileNamesString___118534","User_Files_Temp___118537","User_Files___118364","Wallpaper___118584","clock___118606","hour___118602","minute___118604","rclick_menu_files___118654","App_Open___118348","WebChatMessages___118389","Mouse_Cursor___118343","xCell_Icon___118341","Write_icon___118337","Web_Chat_Icon___118335","Settings_Icon___118333","File_Manager_Icon___118329","NanoCode_Icon___118327","Process_Icon___118331","Library_icon___118339","SubMenu___118390","Close_App___118347","Taskbar___118321","ListMenuContents___118363","sillySpacingForListGUI___118400","current_rclick_menu___118355","List_Scroll___118351","defined_menu___118349","rclick_override___118353","ListMenuGUI___118325","App_Title___118345"])
 
-return _main___P32191
+return _main___P118299
 })
