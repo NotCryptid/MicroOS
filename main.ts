@@ -360,7 +360,7 @@ function Open_Web() {
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Web Chat", 0, 1)
-    App_Title.setPosition(26, 4)
+    App_Title.setPosition(25, 4)
     ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
     ListMenuGUI.setDimensions(151, 86)
     ListMenuGUI.setButtonEventsEnabled(false)
@@ -377,7 +377,7 @@ function Open_xCell(load_file: string) {
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("xCell", 0, 1)
-    App_Title.setPosition(16, 4)
+    App_Title.setPosition(15, 4)
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
 }
@@ -390,7 +390,7 @@ function Open_Write(load_file: string) {
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Write", 0, 1)
-    App_Title.setPosition(17, 4)
+    App_Title.setPosition(16, 4)
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
     if (load_file === "") {
@@ -412,7 +412,7 @@ function Open_Settings() {
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Settings", 0, 1)
-    App_Title.setPosition(25, 4)
+    App_Title.setPosition(24, 4)
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
@@ -435,7 +435,7 @@ function Open_NanoCode() {
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("NanoCode", 0, 1)
-    App_Title.setPosition(25, 4)
+    App_Title.setPosition(24, 4)
 }
 function Open_FileManager() {
     close_apps()
@@ -447,7 +447,7 @@ function Open_FileManager() {
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("File Manager", 0, 1)
-    App_Title.setPosition(37, 4)
+    App_Title.setPosition(36, 4)
     ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
@@ -469,7 +469,7 @@ function Open_ProcessManager() {
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Process Manager", 0, 1)
-    App_Title.setPosition(46, 4)
+    App_Title.setPosition(45, 4)
     ListMenuGUI = miniMenu.createMenuFromArray(Active_Processes)
     ListMenuGUI.setDimensions(160, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
