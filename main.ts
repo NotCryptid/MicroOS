@@ -234,9 +234,10 @@ function MouseClick(button: number) {
                         } else {
                             RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - 30)
                         }
-                        RightClickMenu.setDimensions(50, 60)
-                        RightClickMenu.z = 350346
+                        RightClickMenu.setDimensions(50, 60)                    
                         outline = sprites.create(assets.image`Dot`, SpriteKind.Mouse)
+                        RightClickMenu.z = 350346
+                        outline.z = 350345
                         outline.setPosition(RightClickMenu.x, RightClickMenu.y)                       
                         scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
                         scaling.scaleToPixels(outline, 62, ScaleDirection.Vertically, ScaleAnchor.Middle)
