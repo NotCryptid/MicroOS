@@ -143,9 +143,11 @@ function error(code: number) {
     }
 }
 function kernel_panic(code: number) {
-    if (App_Open !== "death"){
-        App_Open = "death"
+    if (App_Open !== "death") {
         close_apps()
+        pause(10)
+        App_Open = "death"   
+        scene.setBackgroundImage(assets.image`Kernel Panic`)
         sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
         sprites.destroyAllSpritesOfKind(SpriteKind.Text)
         sprites.destroyAllSpritesOfKind(SpriteKind.Mouse)
@@ -158,7 +160,6 @@ function kernel_panic(code: number) {
         text4.setPosition(47, 94)
         text = textsprite.create("Press Menu to reboot", 0, 1)
         text.setPosition(79, 111)
-        scene.setBackgroundImage(assets.image`Kernel Panic`)
     }
 }
 
@@ -393,7 +394,7 @@ function Open_Settings() {
     App_Open = "Settings"
     SubMenu = "Home"
     List_Scroll = 0
-    ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System")]
+    ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("Error Test"),miniMenu.createMenuItem("Kernel Panic Test")]
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
@@ -579,6 +580,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else if (selectedOption == 4) {
                 ListMenuContents = SystemSettings
                 SubMenu = "System"
+            } else if (selectedOption == 5) {
+                error(501)
+                return
+            } else if (selectedOption == 6) {
+                kernel_panic(501)
+                return
             }
         } else if (submenu == "Connectivity") {
             if (selectedOption == 1) {
