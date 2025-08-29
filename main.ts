@@ -141,7 +141,7 @@ function error(code: number) {
         game.splash("Error " + code)
     }
 }
-function fatalerror(code: number) {
+function kernel_panic(code: number) {
     if (App_Open !== "death"){
         App_Open = "death"
         close_apps()
@@ -188,7 +188,7 @@ function MouseClick(button: number) {
     if (App_Open !== "App Library") {
         if (spriteutils.isDestroyed(Mouse_Cursor)) {
             // motherfucker why is this needed for the code to work you can't even kill the mouse cursor
-            fatalerror(202)
+            kernel_panic(202)
         } else if (Mouse_Cursor.overlapsWith(xCell_Icon) && button == 1) {
             Open_xCell("")
         } else if (Mouse_Cursor.overlapsWith(Write_icon) && button == 1) {
@@ -214,7 +214,7 @@ function MouseClick(button: number) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
                     } else {
-                        fatalerror(203)
+                        kernel_panic(203)
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
                         let RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
                         RightClickMenu.setPosition(Mouse_Cursor.x, Mouse_Cursor.y)
