@@ -22,6 +22,8 @@ let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
+let ArrowUp: Sprite = null
+let ArrowDown: Sprite = null
 let App_Open = "null"
 let List_Scroll = 0
 let rclick_override = 0
@@ -452,6 +454,10 @@ function Open_FileManager() {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
+    ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
+    ArrowUp.setPosition(156, 14)
+    ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
+    ArrowDown.setPosition(156, 101)
 }
 function Open_ProcessManager() {
     close_apps()
