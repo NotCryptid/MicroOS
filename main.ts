@@ -145,7 +145,6 @@ function error(code: number) {
 function kernel_panic(code: number) {
     if (App_Open !== "death") {
         close_apps()
-        pause(10)
         App_Open = "death"   
         scene.setBackgroundImage(assets.image`Kernel Panic`)
         sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
