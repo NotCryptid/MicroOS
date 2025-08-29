@@ -22,7 +22,6 @@ let Mouse_Cursor: Sprite = null
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
 let App_Open = "null"
-let defined_menu = "none"
 let List_Scroll = 0
 let rclick_override = 0
 let current_rclick_menu: miniMenu.MenuItem[] = null
@@ -214,7 +213,6 @@ function MouseClick(button: number) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
                     } else {
-                        kernel_panic(203)
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
                         let RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
                         RightClickMenu.setPosition(Mouse_Cursor.x, Mouse_Cursor.y)
@@ -472,7 +470,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         miniMenu.createMenuItem("Time Settings")
     ]
 
-    defined_menu = "none"
     if (app == "File Manager") {
         if (submenu == "System") {
             if (action == "rclick" && selectedOption !== 1) {
@@ -692,7 +689,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         ListMenuGUI.setPosition(76, 58)
         ListMenuGUI.z = -30
     }
-    return(defined_menu)
 }
 
 function changeSettings(selection: number) {
