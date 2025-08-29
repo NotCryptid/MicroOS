@@ -25,6 +25,7 @@ let App_Open = "null"
 let List_Scroll = 0
 let rclick_override = 0
 let current_rclick_menu: miniMenu.MenuItem[] = null
+let RightClickMenu: miniMenu.MenuSprite = null
 let Username = ""
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null
@@ -212,9 +213,10 @@ function MouseClick(button: number) {
                     if (button == 1) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
-                    } else {
+                    } else if (button == 2 && App_Open == "File Manager") {
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
-                        let RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
+                        RightClickMenu.destroy()
+                        RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
                         RightClickMenu.setPosition(Mouse_Cursor.x, Mouse_Cursor.y)
                         RightClickMenu.setDimensions(50, 60)
                         RightClickMenu.z = 350346
@@ -471,11 +473,13 @@ function listSelection(app: string, selection: number, submenu: string, action: 
     ]
 
     if (app == "File Manager") {
-        if (submenu == "System") {
-            if (action == "rclick" && selectedOption !== 1) {
-                rclick_override = selectedOption
-                current_rclick_menu = rclick_menu_files
-            } else if (action == "click" || action == "open") {
+        if (action == "rclick") {
+            rclick_override = selectedOption
+            current_rclick_menu = rclick_menu_files
+            kernel_panic(203)
+            return
+        } else if (submenu == "System") {
+            if (action == "click" || action == "open") {
                 if (selectedOption == 1) {    
                     SubMenu = "Home"
                     Open_FileManager()
