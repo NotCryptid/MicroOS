@@ -620,7 +620,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P172345(s) {
+function _main___P174915(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2197,13 +2197,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P172345.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P172345.continuations = [ 68,69,70,71,119,120,125,145,146,148,153,154,156 ]
+_main___P174915.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-mini-menu/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P174915.continuations = [ 68,69,70,71,119,120,125,145,146,148,153,154,156 ]
 
-function _main___P172345_mk(s) {
+function _main___P174915_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P172345, depth: s.depth + 1,
+        parent: s, fn: _main___P174915, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -78066,5 +78066,5 @@ const sprites_StaticObstacle__C2514_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency16___4821","Desktop_UI___172358","Mouse___172361","App_UI___172364","Settings___172406","System_Files___172415","text2___172450","text3___172455","text___172409","Username___172403","Active_Processes___172495","Current_Settings___172435","fileNamesString___172581","User_Files_Temp___172584","User_Files___172411","Wallpaper___172631","clock___172653","hour___172649","minute___172651","rclick_menu_files___172701","App_Open___172394","WebChatMessages___172436","Mouse_Cursor___172389","xCell_Icon___172387","Write_icon___172383","Web_Chat_Icon___172381","Settings_Icon___172379","File_Manager_Icon___172375","NanoCode_Icon___172373","Process_Icon___172377","Library_icon___172385","SubMenu___172437","Close_App___172393","Taskbar___172367","RightClickMenu___172402","ListMenuContents___172410","sillySpacingForListGUI___172447","current_rclick_menu___172400","List_Scroll___172396","rclick_override___172398","ListMenuGUI___172371","App_Title___172391"])
 
-return _main___P172345
+return _main___P174915
 })
