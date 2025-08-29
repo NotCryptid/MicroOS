@@ -18,6 +18,7 @@ let Web_Chat_Icon: Sprite = null
 let Write_icon: Sprite = null
 let Library_icon: Sprite = null
 let xCell_Icon: Sprite = null
+let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
@@ -186,6 +187,7 @@ function MouseClick(button: number) {
         close_apps()
     } else if (spriteutils.isDestroyed(RightClickMenu) == false) {
         RightClickMenu.destroy()
+        outline.destroy()
         if (button == 1) {
             return
         }
@@ -234,7 +236,10 @@ function MouseClick(button: number) {
                         }
                         RightClickMenu.setDimensions(50, 60)
                         RightClickMenu.z = 350346
-                        
+                        outline = sprites.create(assets.image`Dot`, SpriteKind.Mouse)
+                        outline.setPosition(RightClickMenu.x, RightClickMenu.y)                       
+                        scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
+                        scaling.scaleToPixels(outline, 62, ScaleDirection.Vertically, ScaleAnchor.Middle)
                     }
                 }
             }
