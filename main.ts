@@ -90,6 +90,10 @@ if (Settings.charAt(6) == "1") {
     clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
 }
 
+// Right click menus
+
+let File_Manager_rigth_click: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Open"),miniMenu.createMenuItem("Rename"),miniMenu.createMenuItem("Copy"),miniMenu.createMenuItem("Cut"),miniMenu.createMenuItem("Delete")]
+
 // OS Boot Sequence ends here
 
 // MARK: More Kernel
@@ -204,10 +208,10 @@ function MouseClick(button: number) {
                 if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12) {
                     menu_selection = i + 1;
                     if (button == 1) {
-                        listSelection(App_Open, menu_selection, SubMenu, "click")
+                        listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
                     } else {
-
+                        listSelection(App_Open, menu_selection, SubMenu, "rclick", 0)
                     }
                 }
             }
@@ -444,9 +448,14 @@ function close_apps () {
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
 }
 
-function listSelection(app: string, selection: number, submenu: string, action: string) {
+function listSelection(app: string, selection: number, submenu: string, action: string, override: number) {
 
-    const selectedOption = selection + List_Scroll
+    let selectedOption = 0
+    if (override == 0) {
+        selectedOption = selection + List_Scroll
+    } else {
+        selectedOption = override
+    }
 
     const SystemSettings = [
         miniMenu.createMenuItem("Back"),
@@ -459,7 +468,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
     if (app == "File Manager") {
         if (submenu == "System") {
             if (action == "rclick" && selectedOption !== 1) {
-                return('file')
+                return(1 + selectedOption)
             } else if (action == "click" || action == "open") {
                 if (selectedOption == 1) {    
                     SubMenu = "Home"
@@ -640,7 +649,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 ListMenuContents = SystemSettings
                 SubMenu = "System"
             } else if (selectedOption == 2) {
-                // nothing lol
+                // fuck you, nothing happens
+                // dipshit
+                // nobody likes you
             }
         } else if (submenu == "Time Settings") {
             if (selectedOption == 1) {
