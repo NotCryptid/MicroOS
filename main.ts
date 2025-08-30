@@ -257,31 +257,33 @@ function MouseClick(button: number) {
                         scaling.scaleToPixels(outline, 62, ScaleDirection.Vertically, ScaleAnchor.Middle)
                     }
                 } else if (button == 1 && App_Open == "File Manager") {
-                    if (Mouse_Cursor.overlapsWith(ArrowUp)) {
-                        if (List_Scroll > 8 && List_Scroll <= ListMenuContents.length - 8) {
-                            List_Scroll++
-                            ListMenuGUIHidden.push(ListMenuContents[0])
-                            ListMenuContents[0] = null
-                            ListMenuGUI.destroy()
-                            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-                            ListMenuGUI.setDimensions(151, 97)
-                            ListMenuGUI.setButtonEventsEnabled(false)
-                            ListMenuGUI.setPosition(76, 58)
-                            ListMenuGUI.z = -30
+                    if (Mouse_Cursor.overlapsWith(ArrowDown)) {
+                        if (List_Scroll > 8 && List_Scroll <= ListMenuContents.length - 8 && ListMenuContents.length > 0) {
+                            const item = ListMenuContents.shift();
+                            if (item !== undefined) {
+                                ListMenuGUIHidden.push(item);
+                                List_Scroll++;
+                                ListMenuGUI.destroy();
+                                ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
+                                ListMenuGUI.setDimensions(151, 97);
+                                ListMenuGUI.setButtonEventsEnabled(false);
+                                ListMenuGUI.setPosition(76, 58);
+                                ListMenuGUI.z = -30;
+                            }
                         }
-                    } else if (Mouse_Cursor.overlapsWith(ArrowDown)) {
+                    } else if (Mouse_Cursor.overlapsWith(ArrowUp)) {
                         if (List_Scroll > 0 && ListMenuGUIHidden.length > 0) {
-                            List_Scroll--;
                             const item = ListMenuGUIHidden.pop();
                             if (item !== undefined) {
-                                ListMenuContents = [item].concat(ListMenuContents);
+                                ListMenuContents.unshift(item);
+                                List_Scroll--;
+                                ListMenuGUI.destroy();
+                                ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
+                                ListMenuGUI.setDimensions(151, 97);
+                                ListMenuGUI.setButtonEventsEnabled(false);
+                                ListMenuGUI.setPosition(76, 58);
+                                ListMenuGUI.z = -30;
                             }
-                            ListMenuGUI.destroy()
-                            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-                            ListMenuGUI.setDimensions(151, 97)
-                            ListMenuGUI.setButtonEventsEnabled(false)
-                            ListMenuGUI.setPosition(76, 58)
-                            ListMenuGUI.z = -30
                         }
                     }
                 }
