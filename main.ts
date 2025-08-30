@@ -229,9 +229,12 @@ function MouseClick(button: number) {
             Open_Library()
         } else if (button == 1 && App_Open == "File Manager" && Mouse_Cursor.x > 151) {
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
+                ArrowDown.sayText("1", 0, false)
                 if (List_Scroll > 8 && List_Scroll <= ListMenuContents.length - 8 && ListMenuContents.length > 0) {
+                    ArrowDown.sayText("2", 0, false)
                     const item = ListMenuContents.shift();
                     if (item !== undefined) {
+                        ArrowDown.sayText("3", 0, false)
                         ListMenuGUIHidden.push(item);
                         List_Scroll++;
                         ListMenuGUI.destroy();
@@ -487,8 +490,10 @@ function Open_FileManager() {
     ListMenuGUI.z = -30
     ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
     ArrowUp.setPosition(156, 14)
+    ArrowUp.z = 53535
     ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
     ArrowDown.setPosition(156, 101)
+    ArrowDown.z = 53535
 }
 function Open_ProcessManager() {
     close_apps()
