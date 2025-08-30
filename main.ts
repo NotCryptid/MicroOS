@@ -227,6 +227,36 @@ function MouseClick(button: number) {
             Open_ProcessManager()
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
             Open_Library()
+        } else if (button == 1 && App_Open == "File Manager" && Mouse_Cursor.x > 151) {
+            if (Mouse_Cursor.overlapsWith(ArrowDown)) {
+                if (List_Scroll > 8 && List_Scroll <= ListMenuContents.length - 8 && ListMenuContents.length > 0) {
+                    const item = ListMenuContents.shift();
+                    if (item !== undefined) {
+                        ListMenuGUIHidden.push(item);
+                        List_Scroll++;
+                        ListMenuGUI.destroy();
+                        ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
+                        ListMenuGUI.setDimensions(151, 97);
+                        ListMenuGUI.setButtonEventsEnabled(false);
+                        ListMenuGUI.setPosition(76, 58);
+                        ListMenuGUI.z = -30;
+                    }
+                }
+            } else if (Mouse_Cursor.overlapsWith(ArrowUp)) {
+                if (List_Scroll > 0 && ListMenuGUIHidden.length > 0) {
+                    const item = ListMenuGUIHidden.pop();
+                    if (item !== undefined) {
+                        ListMenuContents.unshift(item);
+                        List_Scroll--;
+                        ListMenuGUI.destroy();
+                        ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
+                        ListMenuGUI.setDimensions(151, 97);
+                        ListMenuGUI.setButtonEventsEnabled(false);
+                        ListMenuGUI.setPosition(76, 58);
+                        ListMenuGUI.z = -30;
+                    }
+                }
+            }
         } else if (App_Open == "File Manager" || App_Open == "Settings") {
             let menu_selection = 0;
             for (let i = 0; i < ListMenuContents.length; i++) {
@@ -256,37 +286,7 @@ function MouseClick(button: number) {
                         scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
                         scaling.scaleToPixels(outline, 62, ScaleDirection.Vertically, ScaleAnchor.Middle)
                     }
-                } else if (button == 1 && App_Open == "File Manager") {
-                    if (Mouse_Cursor.overlapsWith(ArrowDown)) {
-                        if (List_Scroll > 8 && List_Scroll <= ListMenuContents.length - 8 && ListMenuContents.length > 0) {
-                            const item = ListMenuContents.shift();
-                            if (item !== undefined) {
-                                ListMenuGUIHidden.push(item);
-                                List_Scroll++;
-                                ListMenuGUI.destroy();
-                                ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
-                                ListMenuGUI.setDimensions(151, 97);
-                                ListMenuGUI.setButtonEventsEnabled(false);
-                                ListMenuGUI.setPosition(76, 58);
-                                ListMenuGUI.z = -30;
-                            }
-                        }
-                    } else if (Mouse_Cursor.overlapsWith(ArrowUp)) {
-                        if (List_Scroll > 0 && ListMenuGUIHidden.length > 0) {
-                            const item = ListMenuGUIHidden.pop();
-                            if (item !== undefined) {
-                                ListMenuContents.unshift(item);
-                                List_Scroll--;
-                                ListMenuGUI.destroy();
-                                ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
-                                ListMenuGUI.setDimensions(151, 97);
-                                ListMenuGUI.setButtonEventsEnabled(false);
-                                ListMenuGUI.setPosition(76, 58);
-                                ListMenuGUI.z = -30;
-                            }
-                        }
-                    }
-                }
+                } 
             }
         } else if (App_Open == "NanoCode") {
             if (SubMenu == "Main") {
