@@ -176,7 +176,7 @@ function kernel_panic(code: number) {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     MouseClick(1)
 })
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {  
     MouseClick(2)
 })
 
@@ -229,12 +229,9 @@ function MouseClick(button: number) {
             Open_Library()
         } else if (button == 1 && App_Open == "File Manager" && Mouse_Cursor.x > 151) {
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
-                ArrowDown.sayText("1", 0, false)
-                if (List_Scroll > 8 && List_Scroll <= ListMenuContents.length - 8 && ListMenuContents.length > 0) {
-                    ArrowDown.sayText("2", 0, false)
-                    const item = ListMenuContents.shift();
+                if (List_Scroll <= ListMenuContents.length - 8 && ListMenuContents.length > 0) {
+                    let item = ListMenuContents.shift();
                     if (item !== undefined) {
-                        ArrowDown.sayText("3", 0, false)
                         ListMenuGUIHidden.push(item);
                         List_Scroll++;
                         ListMenuGUI.destroy();
@@ -247,7 +244,7 @@ function MouseClick(button: number) {
                 }
             } else if (Mouse_Cursor.overlapsWith(ArrowUp)) {
                 if (List_Scroll > 0 && ListMenuGUIHidden.length > 0) {
-                    const item = ListMenuGUIHidden.pop();
+                    let item = ListMenuGUIHidden.pop();
                     if (item !== undefined) {
                         ListMenuContents.unshift(item);
                         List_Scroll--;
