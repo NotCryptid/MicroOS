@@ -193,6 +193,7 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 function MouseClick(button: number) {
     if (Mouse_Cursor.overlapsWith(Close_App) && button == 1) {
         close_apps()
+        return
     } else if (spriteutils.isDestroyed(RightClickMenu) == false) {
         if (button == 1) {
             if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
@@ -205,6 +206,9 @@ function MouseClick(button: number) {
         }
         RightClickMenu.destroy();
         outline.destroy();
+        if (button == 1) {
+            return
+        }
     }
     
     if (App_Open !== "App Library") {
@@ -518,6 +522,19 @@ function Open_NanoCode_App (app_name: string) {
 // MARK: App functions
 function close_apps () {
     // works good enough so no touching
+    while (List_Scroll > 0) {
+        let item = ListMenuGUIHidden.pop();
+        if (item !== undefined) {
+            ListMenuContents.unshift(item);
+            List_Scroll--;
+            ListMenuGUI.destroy();
+            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
+            ListMenuGUI.setDimensions(151, 97);
+            ListMenuGUI.setButtonEventsEnabled(false);
+            ListMenuGUI.setPosition(76, 58);
+            ListMenuGUI.z = -30;
+        }
+    }
     App_Open = "null"
     SubMenu = "null"
     Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
