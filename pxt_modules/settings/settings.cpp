@@ -164,4 +164,16 @@ RefCollection *_list(String prefix) {
     return res;
 }
 
+//%
+int storageSize() {
+    auto s = mountedStorage();
+    return s->fs.totalSize();
+}
+
+//%
+int storageFree() {
+    auto s = mountedStorage();
+    return s->fs.freeSize();
+}
+
 } // namespace settings

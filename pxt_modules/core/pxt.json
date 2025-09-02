@@ -41,6 +41,8 @@
         "keyvaluestorage.cpp",
         "keyvaluestorage.ts",
         "leveldetector.ts",
+        "ledmatrix.cpp",
+        "ledmatrix.ts",
         "pxtparts.json"
     ],
     "testFiles": [

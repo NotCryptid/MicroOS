@@ -92,6 +92,21 @@ Buffer getGCStats() {
 }
 
 //%
+uint32_t heapUsed() {
+    return gcStats.totalBytes - gcStats.lastFreeBytes;
+}
+
+//%
+uint32_t heapTotal() {
+    return gcStats.totalBytes;
+}
+
+//%
+uint32_t heapFree() {
+    return gcStats.lastFreeBytes;
+}
+
+//%
 void popThreadContext(ThreadContext *ctx);
 //%
 ThreadContext *pushThreadContext(void *sp, void *endSP);

@@ -13,6 +13,15 @@ namespace control {
         minFreeBytes: number;
     }
 
+    //% shim=pxt::heapUsed
+    export function heapUsed(): number;
+
+    //% shim=pxt::heapTotal
+    export function heapTotal(): number;
+
+    //% shim=pxt::heapFree
+    export function heapFree(): number;
+
     /**
      * Get various statistics about the garbage collector (GC)
      */

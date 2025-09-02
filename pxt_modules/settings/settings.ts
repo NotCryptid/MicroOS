@@ -25,6 +25,12 @@ namespace settings {
     //% shim=settings::_list
     declare function _list(prefix: string): string[];
 
+    //% shim=settings::storageSize
+    export function storageSize(): int32;
+
+    //% shim=settings::storageFree
+    export function storageFree(): int32;
+
     export function runNumber() {
         return readNumber(RUN_KEY) || 0
     }
