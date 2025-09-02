@@ -1,0 +1,45 @@
+{
+    "name": "arcade-sprite-util",
+    "version": "0.4.1",
+    "description": "",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "README.md",
+        "spriteutils.ts",
+        "docs/radians-to-degrees.md",
+        "docs/degrees-to-radians.md",
+        "docs/set-console-overlay.md",
+        "docs/create-renderable.md",
+        "docs/is-destroyed.md",
+        "docs/distance-between.md",
+        "docs/angle-from.md",
+        "docs/place-angle-from.md",
+        "docs/set-velocity-at-angle.md",
+        "docs/draw-transparent-image.md",
+        "docs/set-life-image.md",
+        "docs/draw-circle.md",
+        "docs/round-with-precision.md",
+        "docs/fill-circle.md",
+        "docs/get-sprites-within.md",
+        "docs/add-event-handler.md",
+        "docs/heading.md",
+        "docs/speed.md",
+        "docs/move-to.md",
+        "docs/move-to-at-speed.md",
+        "docs/pos.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "1.8.29",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}

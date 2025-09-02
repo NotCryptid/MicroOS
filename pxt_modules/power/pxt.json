@@ -1,0 +1,16 @@
+{
+    "name": "power",
+    "description": "Power and sleep management",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "power.ts"
+    ],
+    "testFiles": [],
+    "public": true,
+    "targetVersions": {
+        "target": "2.0.56",
+        "pxt": "11.3.59"
+    }
+}

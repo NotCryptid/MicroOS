@@ -1,0 +1,63 @@
+{
+    "name": "base",
+    "description": "The base library",
+    "dependencies": {},
+    "files": [
+        "README.md",
+        "pxt-core.d.ts",
+        "pxt.cpp",
+        "gc.cpp",
+        "configkeys.h",
+        "pxtbase.h",
+        "core.cpp",
+        "advmath.cpp",
+        "trig.cpp",
+        "pxt-helpers.ts",
+        "fixed.ts",
+        "buffer.cpp",
+        "buffer.ts",
+        "shims.d.ts",
+        "enums.d.ts",
+        "loops.cpp",
+        "math.ts",
+        "ns.ts",
+        "control.cpp",
+        "controlgc.cpp",
+        "control.ts",
+        "interval.ts",
+        "gcstats.ts",
+        "poll.ts",
+        "console.ts",
+        "json.ts",
+        "templates.ts",
+        "eventcontext.ts",
+        "pause.ts",
+        "forever.ts",
+        "utfdecoder.ts",
+        "scheduling.ts",
+        "controlmessage.ts",
+        "perfcounters.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "2.0.56",
+        "pxt": "11.3.59"
+    },
+    "partial": true,
+    "yotta": {
+        "optionalConfig": {
+            "PXT_GC_CHECKS": 0
+        },
+        "userConfigs": [
+            {
+                "description": "(Diagnostics) Garbage Collection checks.",
+                "config": {
+                    "PXT_GC_CHECKS": 1
+                }
+            }
+        ]
+    }
+}

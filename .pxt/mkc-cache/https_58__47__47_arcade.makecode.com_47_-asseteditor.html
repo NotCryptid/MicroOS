@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" x-manifest="/---manifest" data-framework="typescript" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" data-rtl="https://cdn.makecode.com/blob/2daf054d2cf18f51175ccdada4cdbe18a4a0c7d2/rtlsemantic.css" href="https_58__47__47_arcade.makecode.com_47_-semantic.css" type="text/css"/>
+    <title>MakeCode Asset Editor</title>
+    <style>
+        #asset-editor-field-div {
+            height: 100%;
+        }
+        .image-editor-wrapper {
+            border-radius: 0;
+        }
+        .image-editor-confirm {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // This line gets patched up by the cloud
+        var pxtConfig = {
+    "relprefix": "/---",
+    "verprefix": "",
+    "workerjs": "/---worker",
+    "tdworkerjs": "/---tdworker",
+    "monacoworkerjs": "/---monacoworker",
+    "gifworkerjs": "/---gifworker",
+    "serviceworkerjs": "/---serviceworker",
+    "typeScriptWorkerJs": "/---tsworker",
+    "pxtVersion": "?",
+    "pxtRelId": "85832ea12d72be40d83ebb22f862e2dadac4a4e1",
+    "pxtCdnUrl": "https://cdn.makecode.com/commit/85832ea12d72be40d83ebb22f862e2dadac4a4e1/",
+    "commitCdnUrl": "https://cdn.makecode.com/commit/85832ea12d72be40d83ebb22f862e2dadac4a4e1/",
+    "blobCdnUrl": "https://cdn.makecode.com/commit/85832ea12d72be40d83ebb22f862e2dadac4a4e1/",
+    "targetUrl": "https://arcade.makecode.com",
+    "targetVersion": "?",
+    "targetRelId": "85832ea12d72be40d83ebb22f862e2dadac4a4e1",
+    "targetCdnUrl": "https://cdn.makecode.com/commit/85832ea12d72be40d83ebb22f862e2dadac4a4e1/",
+    "targetId": "arcade",
+    "runUrl": "/---run",
+    "docsUrl": "/---docs",
+    "multiUrl": "/---multi",
+    "asseteditorUrl": "/---asseteditor",
+    "skillmapUrl": "/---skillmap",
+    "authcodeUrl": "/---authcode",
+    "multiplayerUrl": "/---multiplayer",
+    "kioskUrl": "/---kiosk",
+    "teacherToolUrl": "/---eval",
+    "partsUrl": "https://trg-arcade.userpxt.io/---siminstructions",
+    "simUrl": "https://trg-arcade.userpxt.io/---simulator",
+    "simserviceworkerUrl": "https://trg-arcade.userpxt.io/---simserviceworker",
+    "simworkerconfigUrl": "https://trg-arcade.userpxt.io/---simworkerconfig",
+    "cdnUrl": "https://cdn.makecode.com",
+    "ocv": {}
+};
+    </script>
+    <script type="text/javascript" src="https_58__47__47_arcade.makecode.com_47_-targetlight.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.makecode.com/blob/ec765d3ba50a09c8c8819ec80390b6ffa72e945a/target.js"></script> -->
+    <script type="text/javascript" src="https_58__47__47_arcade.makecode.com_47_-pxtapp.js"></script>
+    <script>
+        pxt.setAppTarget(pxtTargetBundle);
+        // This can be overridden via the messages sent to the page
+        pxt.appTarget.runtime.palette = ["#000000","#ffffff","#ff2121","#ff93c4","#ff8135","#fff609","#249ca3","#78dc52","#003fad","#87f2ff","#8e2ec4","#a4839f","#5c406c","#e5cdc4","#91463d","#000000"];
+
+        // this get rewritten to blob URLs with SHAs while uploading to the cloud
+        // keep in sync with index.html
+        window.MonacoPaths = {
+            "vs/loader": "https://cdn.makecode.com/blob/17e4c591ec47474f1e488f733acd77a1a528378d/vs/loader.js",
+            "vs/base/worker/workerMain": "https://cdn.makecode.com/blob/3edf5cb4f608aeb07473c5d7c333400e7e469dc0/vs/base/worker/workerMain.js",
+            "vs/basic-languages/bat/bat": "https://cdn.makecode.com/blob/c67b89bea8ad93bb58cd7686e001daa07e326c21/vs/basic-languages/bat/bat.js",
+            "vs/basic-languages/cpp/cpp": "https://cdn.makecode.com/blob/8743140f1aa68071ddaf925c836b045e1389bde8/vs/basic-languages/cpp/cpp.js",
+            "vs/basic-languages/markdown/markdown": "https://cdn.makecode.com/blob/e0cd73549d298474237961881b00500dbbad8638/vs/basic-languages/markdown/markdown.js",
+            "vs/basic-languages/python/python": "https://cdn.makecode.com/blob/e5e8a27fe42b8bd8079a5e770ed04a840f84832c/vs/basic-languages/python/python.js",
+            "vs/basic-languages/typescript/typescript": "https://cdn.makecode.com/blob/196f8e01f9716dee9f6da8fb53993c6100914d5f/vs/basic-languages/typescript/typescript.js",
+            "vs/editor/editor.main.css": "https://cdn.makecode.com/blob/88b279a451119201c6d16bf4a7ca982d3a2727d8/vs/editor/editor.main.css",
+            "vs/editor/editor.main": "https://cdn.makecode.com/blob/4d38796d4c9d7dae8546930fcae73edcbdbb1a52/vs/editor/editor.main.js",
+            "vs/editor/editor.main.nls": "https://cdn.makecode.com/blob/23ec988172113c78c24a7ed994c4628fb1a9fd32/vs/editor/editor.main.nls.js",
+            "vs/language/json/jsonMode": "https://cdn.makecode.com/blob/dfbe96a2b954d99771af6b680a09858c683ba123/vs/language/json/jsonMode.js",
+            "vs/language/json/jsonWorker": "https://cdn.makecode.com/blob/cf418d614a749960a65f0315e723d3dc36765940/vs/language/json/jsonWorker.js",
+            "vs/language/typescript/tsMode": "https://cdn.makecode.com/blob/1b9d76bcb69132f9f706a868da89b8220c2804fa/vs/language/typescript/tsMode.js",
+            "vs/language/typescript/tsWorker": "https://cdn.makecode.com/blob/39169161eed3b06ce4a6aab9a3fc0d93b678a558/vs/language/typescript/tsWorker.js",
+            "lzma/lzma_worker-min.js": "https://cdn.makecode.com/blob/d08e97ec4175dc71d21c6058a0d800eeeb1a8a0f/lzma/lzma_worker-min.js",
+            "smoothie/smoothie_compressed.js": "https://cdn.makecode.com/blob/1d99c2ee5b93a196114b16ef01bcf4be000c7ede/smoothie/smoothie_compressed.js",
+            "blockly.css": "https://cdn.makecode.com/blob/16ba5de0f1e13dd999e54f229a7fc00db8835e9e/blockly.css",
+            "rtlblockly.css": "https://cdn.makecode.com/blob/15d66b207c352f5d5e83b5e6ae409cc05163eddd/rtlblockly.css",
+            "gifjs/gif.js": "https://cdn.makecode.com/blob/15eaf38ac1eee2b2e4810a1ac13e8dbee035e546/gifjs/gif.js",
+            "qrcode/qrcode.min.js": "https://cdn.makecode.com/blob/b258d18871877debfef7348f75c2e52b954c053c/qrcode/qrcode.min.js",
+            "zip.js/zip.min.js": "https://cdn.makecode.com/blob/f01355117e534954c6d268457d9a73f11ebe3330/zip.js/zip.min.js",
+            "pdf-lib/pdf-lib.min.js": "https://cdn.makecode.com/blob/8eb336e6678d79fbc5d48c7808a7c4fcddda765a/pdf-lib/pdf-lib.min.js",
+            "music-editor/apple.png": "https://cdn.makecode.com/blob/73ef19074a264a2cfda67153087c296fa85b250b/music-editor/apple.png",
+            "music-editor/burger.png": "https://cdn.makecode.com/blob/b3d5ffa224f3de1e45b4d578abe96ef79f50e703/music-editor/burger.png",
+            "music-editor/cake.png": "https://cdn.makecode.com/blob/bbd922f5a142b7ccccd30e79711d4572a925abdd/music-editor/cake.png",
+            "music-editor/car.png": "https://cdn.makecode.com/blob/95426c52fcdf1cc5aa347c2271b6f7e15127add2/music-editor/car.png",
+            "music-editor/cat.png": "https://cdn.makecode.com/blob/4e82fb734dee2198aa547eda83f028e60dc6d964/music-editor/cat.png",
+            "music-editor/cherry.png": "https://cdn.makecode.com/blob/a59b245ee3961f3000433beac007e642f338897d/music-editor/cherry.png",
+            "music-editor/clam.png": "https://cdn.makecode.com/blob/e3834306653cc61af90f3f4fb2f437ade9cae13c/music-editor/clam.png",
+            "music-editor/computer.png": "https://cdn.makecode.com/blob/b290f4d481d3ad0b9d92c98dc4690c859a3f4781/music-editor/computer.png",
+            "music-editor/crab.png": "https://cdn.makecode.com/blob/bdb629f6b2748b1f8d791396c42bc09a900f1e2e/music-editor/crab.png",
+            "music-editor/dog.png": "https://cdn.makecode.com/blob/ed6a1811687fcbb8178e2132dc6d4ba7de1479b1/music-editor/dog.png",
+            "music-editor/duck.png": "https://cdn.makecode.com/blob/34c4c3b7338dfaae78da70617d9b47a24d228efe/music-editor/duck.png",
+            "music-editor/egg.png": "https://cdn.makecode.com/blob/f5fa4fb409effcfd952dc4a19e507e1b6077f9d6/music-editor/egg.png",
+            "music-editor/explosion.png": "https://cdn.makecode.com/blob/5dea8273ce0ca702e6b18881c1a2c79d51dc13f5/music-editor/explosion.png",
+            "music-editor/fish.png": "https://cdn.makecode.com/blob/b72c72622569457905d64cbc2807b83dd6aececa/music-editor/fish.png",
+            "music-editor/ice-cream.png": "https://cdn.makecode.com/blob/6c0d7afe8c5ea6e048b05fe4d001960b32ca7492/music-editor/ice-cream.png",
+            "music-editor/lemon.png": "https://cdn.makecode.com/blob/666ae7d337e9caaeaee4cab8e9774d9ed1c8a077/music-editor/lemon.png",
+            "music-editor/snake.png": "https://cdn.makecode.com/blob/27a03db4570069e4bb7e80226abaa97c3ba1659f/music-editor/snake.png",
+            "music-editor/star.png": "https://cdn.makecode.com/blob/de5695dfbb9d94a68770023c7d16a172a3760405/music-editor/star.png",
+            "music-editor/strawberry.png": "https://cdn.makecode.com/blob/e23907601862f30291b2f7702bdb4a430711f841/music-editor/strawberry.png",
+            "music-editor/taco.png": "https://cdn.makecode.com/blob/4bf3b89c751020043a1d199d65cf9d640359dd1d/music-editor/taco.png",
+            "music-editor/bass-clef.svg": "https://cdn.makecode.com/blob/6e5dab7887eeacdd81b16a9d0762db1d0a6172ff/music-editor/bass-clef.svg",
+            "music-editor/treble-clef.svg": "https://cdn.makecode.com/blob/3e0f47cf7d8c462f30e2e5d9422cf23cca731f86/music-editor/treble-clef.svg",
+        }
+    </script>
+    <script type="text/javascript" src="https_58__47__47_arcade.makecode.com_47_-pxtasseteditor.js"></script>
+    <div id="asset-editor-field-div">
+    </div>
+</body>
+
+</html>
