@@ -610,11 +610,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 if (selectedOption == 1) {
                     SubMenu = "System"
                     ListMenuContents = System_Files
-                    ListMenuGUI = miniMenu.createMenuFromArray(System_Files)
+                    ListMenuGUI = miniMenu.createMenuFromArray(compileFileList(System_Files))
                 } else if (selectedOption == 2) {
                     SubMenu = "User"
                     ListMenuContents = User_Files
-                    ListMenuGUI = miniMenu.createMenuFromArray(User_Files)
+                    ListMenuGUI = miniMenu.createMenuFromArray(compileFileList(User_Files))
             } 
             } else {
                 softerror(107)
@@ -725,6 +725,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.0.4"),
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
+                    miniMenu.createMenuItem("Storage - "), // add storage size once MicroUtils are done
+                    miniMenu.createMenuItem("Storage Free - "), // add available storage once MicroUtils are done
+                    miniMenu.createMenuItem("Clock Speed - "), // add clockspeed once MicroUtils are done
                 ]
                 SubMenu = "System Information"
             } else if (selectedOption == 4) {
@@ -836,6 +839,17 @@ function changeSettings(selection: number) {
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
+}
+
+function compileFileList(content: any) {
+    const tempfilelist = content
+    if (tempfilelist.length < 8) {
+        while (tempfilelist.length < 8) {
+            tempfilelist.push(miniMenu.createMenuItem(""))
+        }
+    }
+    tempfilelist[8] = miniMenu.createMenuItem("Dir Size - " + "503kb" + " Space Free - " + "256kb") // replace placeholders with logic once MicroUtils are done
+    return tempfilelist[8]
 }
 // App functions end here
 
