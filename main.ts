@@ -453,6 +453,7 @@ function Open_Settings() {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
+    createArrows()
 }
 
 function Open_NanoCode() {
@@ -489,12 +490,7 @@ function Open_FileManager() {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
-    ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
-    ArrowUp.setPosition(156, 14)
-    ArrowUp.z = 53535
-    ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
-    ArrowDown.setPosition(156, 101)
-    ArrowDown.z = 53535
+    createArrows()
 }
 function Open_ProcessManager() {
     close_apps()
@@ -850,6 +846,13 @@ function compileFileList(content: any) {
     }
     tempfilelist[8] = miniMenu.createMenuItem("Dir Size - " + "503kb" + " Space Free - " + "256kb") // replace placeholders with logic once MicroUtils are done
     return tempfilelist[8]
+}
+
+function createArrows() {
+    ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
+    ArrowUp.setPosition(156, 14)
+    ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
+    ArrowDown.setPosition(156, 101)
 }
 // App functions end here
 
