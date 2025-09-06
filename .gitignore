@@ -6,6 +6,7 @@ pxt_modules
 .pxt
 *.db
 *.tgz
+.pxt
 .header.json
 .simstate.json
 built/binary.js
