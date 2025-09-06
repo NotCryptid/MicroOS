@@ -47,7 +47,7 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 2.0.56", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading Micro:OS v0.0.4", 0, 1)
+text = textsprite.create("> Loading Micro:OS v0.0.5", 0, 1)
 text.setPosition(79, 26)
 
 // MARK: OS Boot Sequence
@@ -723,11 +723,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else if (selectedOption == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("MicroOS v0.0.4"),
+                    miniMenu.createMenuItem("MicroOS v0.0.5"),
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
-                    miniMenu.createMenuItem("Storage - "), // add storage size once MicroUtils are done
-                    miniMenu.createMenuItem("Storage Free - "), // add available storage once MicroUtils are done
-                    miniMenu.createMenuItem("Clock Speed - "), // add clockspeed once MicroUtils are done
+                    miniMenu.createMenuItem("Storage - "+ "512" +"KB"), // add storage size once MicroUtils are done
+                    miniMenu.createMenuItem("Storage Free - "+ "19" +"KB"), // add available storage once MicroUtils are done
+                    miniMenu.createMenuItem("Clock Speed - "+ "64" +"MHz"), // add clockspeed once MicroUtils are done
                 ]
                 SubMenu = "System Information"
             } else if (selectedOption == 4) {
