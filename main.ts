@@ -891,4 +891,10 @@ function encrypt(string: string, key: number): string {
     }
 }
 
+function EncodeToNumber(string: string) {
+    // TODO: this
+}
+function DecodeFromNumber(number: number) {
+
+}
 // Encryption ends here
