@@ -270,6 +270,7 @@ function MouseClick(button: number) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
                     } else if (button == 2 && App_Open == "File Manager") {
+                        ListMenuGUI.selectedIndex = menu_selection - 1
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
                         RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
                         RightClickMenu.setButtonEventsEnabled(false)
@@ -331,6 +332,23 @@ forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
     Start_Icon_Names()
+    if (spriteutils.isDestroyed(RightClickMenu) == false) {
+        if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
+            if (Mouse_Cursor.y > RightClickMenu.y - 30 && Mouse_Cursor.y < RightClickMenu.y + 30) {
+                let optionHeight = 60 / current_rclick_menu.length;
+                let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - 30)) / optionHeight);
+                RightClickMenu.selectedIndex = selectedIndex;
+            }
+        }
+    } else if (App_Open == "File Manager" || App_Open == "Settings") {
+        let menu_selection = 0;
+            for (let i = 0; i < ListMenuContents.length; i++) {
+                if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152 && i < 8) {
+                    ListMenuGUI.selectedIndex = i;
+                    break;
+                } 
+            }
+    }
 })
 
 forever(function () {
@@ -606,11 +624,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 if (selectedOption == 1) {
                     SubMenu = "System"
                     ListMenuContents = System_Files
-                    ListMenuGUI = miniMenu.createMenuFromArray(compileFileList(System_Files))
+                    ListMenuGUI = miniMenu.createMenuFromArray(System_Files)
                 } else if (selectedOption == 2) {
                     SubMenu = "User"
                     ListMenuContents = User_Files
-                    ListMenuGUI = miniMenu.createMenuFromArray(compileFileList(User_Files))
+                    ListMenuGUI = miniMenu.createMenuFromArray(User_Files)
             } 
             } else {
                 softerror(107)
@@ -835,17 +853,6 @@ function changeSettings(selection: number) {
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
-}
-
-function compileFileList(content: any) {
-    const tempfilelist = content
-    if (tempfilelist.length < 8) {
-        while (tempfilelist.length < 8) {
-            tempfilelist.push(miniMenu.createMenuItem(""))
-        }
-    }
-    tempfilelist[8] = miniMenu.createMenuItem("Dir Size - " + "503kb" + " Space Free - " + "256kb") // replace placeholders with logic once MicroUtils are done
-    return tempfilelist[8]
 }
 
 function createArrows() {
