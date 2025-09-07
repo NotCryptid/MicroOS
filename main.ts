@@ -20,8 +20,10 @@ let Library_icon: Sprite = null
 let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
+let RoomCode = "123456789"
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
+let CharacterMap = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.?!:;\"()~".split("");
 let ArrowUp: Sprite = null
 let ArrowDown: Sprite = null
 let App_Open = "null"
@@ -315,9 +317,15 @@ function MouseClick(button: number) {
 
 // MARK: Radio
 
-radio.onReceivedValue(function(name: string, value: number) {
-    if(value == 119101989910497116){
-        WebChatMessages.push(miniMenu.createMenuItem(name))
+radio.onReceivedValue(function (name: string, value: number) {
+    const metadata = DecodeFromNumber(value).split("~")
+    if (metadata[1] == RoomCode) {
+        if (metadata[2] == null) {
+            const verified = ""
+        } else {
+            const verified = "(Verified)"
+        }
+        WebChatMessages.push(miniMenu.createMenuItem(metadata[0]))
         if (WebChatMessages.length > 7) {
             WebChatMessages.shift();
         }
@@ -414,6 +422,7 @@ function Open_Web() {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(25, 4)
+    WebChatMessages = [miniMenu.createMenuItem("Cryptid (Verified)"),miniMenu.createMenuItem("Yo gng im verified"),miniMenu.createMenuItem("test345"),miniMenu.createMenuItem("test456"),miniMenu.createMenuItem("test567"),miniMenu.createMenuItem("test678"),miniMenu.createMenuItem("test789")]
     ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
     ListMenuGUI.setDimensions(151, 86)
     ListMenuGUI.setButtonEventsEnabled(false)
@@ -892,9 +901,11 @@ function encrypt(string: string, key: number): string {
 }
 
 function EncodeToNumber(string: string) {
-    // TODO: this
+    //temp thing
+    return string
 }
 function DecodeFromNumber(number: number) {
-
+    //temp thing
+    return "test~123456789~355905"
 }
 // Encryption ends here
