@@ -750,6 +750,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
                     miniMenu.createMenuItem("Storage - "+ "512" +"KB"), // add storage size once MicroUtils are done
                     miniMenu.createMenuItem("Storage Free - "+ "19" +"KB"), // add available storage once MicroUtils are done
+                    miniMenu.createMenuItem("RAM Avaiable - " + "128" + "KB"), // add clockspeed once MicroUtils are done
                     miniMenu.createMenuItem("Clock Speed - "+ "64" +"MHz"), // add clockspeed once MicroUtils are done
                 ]
                 SubMenu = "System Information"
