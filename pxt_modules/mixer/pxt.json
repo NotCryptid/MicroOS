@@ -1,0 +1,33 @@
+{
+    "name": "mixer",
+    "description": "The music library with a mixer",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "SoundOutput.h",
+        "sound.cpp",
+        "melody.h",
+        "melody.cpp",
+        "melody.ts",
+        "piano.ts",
+        "legacy.ts",
+        "ns.ts",
+        "targetoverrides.ts",
+        "music.ts",
+        "soundEffect.ts",
+        "instrument.ts",
+        "sequencer.ts",
+        "playable.ts",
+        "pxtparts.json",
+        "headphone.svg"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "2.0.56",
+        "pxt": "11.3.59"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "settings",
+    "description": "Settings storage in internal flash",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "RAFFS.cpp",
+        "RAFFS.h",
+        "Flash.h",
+        "STM32Flash.cpp",
+        "SAMDFlash.cpp",
+        "NRF52Flash.cpp",
+        "RP2040Flash.cpp",
+        "settings.cpp",
+        "settings.ts",
+        "shims.d.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "2.0.56",
+        "pxt": "11.3.59"
+    }
+}

@@ -20,8 +20,10 @@ let Library_icon: Sprite = null
 let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
+let RoomCode = "123456789"
 let App_Title: TextSprite = null
 let Close_App: Sprite = null
+let CharacterMap = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.?!:;\"()~".split("");
 let ArrowUp: Sprite = null
 let ArrowDown: Sprite = null
 let App_Open = "null"
@@ -36,7 +38,7 @@ let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
 let User_Apps: miniMenu.MenuItem[] = []
-let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.hex"),miniMenu.createMenuItem("assets.ts"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
+let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.sys"),miniMenu.createMenuItem("assets.ts"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
 let WebChatMessages: miniMenu.MenuItem[] = []
 let SubMenu = ""
@@ -47,7 +49,7 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 2.0.56", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading Micro:OS v0.0.4", 0, 1)
+text = textsprite.create("> Loading Micro:OS v0.0.5", 0, 1)
 text.setPosition(79, 26)
 
 // MARK: OS Boot Sequence
@@ -270,6 +272,7 @@ function MouseClick(button: number) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
                     } else if (button == 2 && App_Open == "File Manager") {
+                        ListMenuGUI.selectedIndex = menu_selection - 1
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
                         RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
                         RightClickMenu.setButtonEventsEnabled(false)
@@ -314,9 +317,15 @@ function MouseClick(button: number) {
 
 // MARK: Radio
 
-radio.onReceivedValue(function(name: string, value: number) {
-    if(value == 119101989910497116){
-        WebChatMessages.push(miniMenu.createMenuItem(name))
+radio.onReceivedValue(function (name: string, value: number) {
+    const metadata = DecodeFromNumber(value).split("~")
+    if (metadata[1] == RoomCode) {
+        if (metadata[2] == null) {
+            const verified = ""
+        } else {
+            const verified = "(Verified)"
+        }
+        WebChatMessages.push(miniMenu.createMenuItem(metadata[0]))
         if (WebChatMessages.length > 7) {
             WebChatMessages.shift();
         }
@@ -331,6 +340,23 @@ forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
     Start_Icon_Names()
+    if (spriteutils.isDestroyed(RightClickMenu) == false) {
+        if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
+            if (Mouse_Cursor.y > RightClickMenu.y - 30 && Mouse_Cursor.y < RightClickMenu.y + 30) {
+                let optionHeight = 60 / current_rclick_menu.length;
+                let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - 30)) / optionHeight);
+                RightClickMenu.selectedIndex = selectedIndex;
+            }
+        }
+    } else if (App_Open == "File Manager" || App_Open == "Settings") {
+        let menu_selection = 0;
+            for (let i = 0; i < ListMenuContents.length; i++) {
+                if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152 && i < 8) {
+                    ListMenuGUI.selectedIndex = i;
+                    break;
+                } 
+            }
+    }
 })
 
 forever(function () {
@@ -396,6 +422,7 @@ function Open_Web() {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(25, 4)
+    WebChatMessages = [miniMenu.createMenuItem("Cryptid (Verified)"),miniMenu.createMenuItem("Yo gng im verified"),miniMenu.createMenuItem("test345"),miniMenu.createMenuItem("test456"),miniMenu.createMenuItem("test567"),miniMenu.createMenuItem("test678"),miniMenu.createMenuItem("test789")]
     ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
     ListMenuGUI.setDimensions(151, 86)
     ListMenuGUI.setButtonEventsEnabled(false)
@@ -453,6 +480,7 @@ function Open_Settings() {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
+    createArrows()
 }
 
 function Open_NanoCode() {
@@ -489,12 +517,7 @@ function Open_FileManager() {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
-    ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
-    ArrowUp.setPosition(156, 14)
-    ArrowUp.z = 53535
-    ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
-    ArrowDown.setPosition(156, 101)
-    ArrowDown.z = 53535
+    createArrows()
 }
 function Open_ProcessManager() {
     close_apps()
@@ -723,8 +746,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else if (selectedOption == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("MicroOS v0.0.4"),
+                    miniMenu.createMenuItem("MicroOS v0.0.5"),
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
+                    miniMenu.createMenuItem("Storage - "+ "512" +"KB"), // add storage size once MicroUtils are done
+                    miniMenu.createMenuItem("Storage Free - "+ "19" +"KB"), // add available storage once MicroUtils are done
+                    miniMenu.createMenuItem("RAM Avaiable - " + "128" + "KB"), // add clockspeed once MicroUtils are done
+                    miniMenu.createMenuItem("Clock Speed - "+ "64" +"MHz"), // add clockspeed once MicroUtils are done
                 ]
                 SubMenu = "System Information"
             } else if (selectedOption == 4) {
@@ -837,6 +864,13 @@ function changeSettings(selection: number) {
     ListMenuGUI.z = -30
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
+
+function createArrows() {
+    ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
+    ArrowUp.setPosition(156, 14)
+    ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
+    ArrowDown.setPosition(156, 101)
+}
 // App functions end here
 
 // MARK: Encryption
@@ -867,4 +901,12 @@ function encrypt(string: string, key: number): string {
     }
 }
 
+function EncodeToNumber(string: string) {
+    //temp thing
+    return string
+}
+function DecodeFromNumber(number: number) {
+    //temp thing
+    return "test~123456789~355905"
+}
 // Encryption ends here
