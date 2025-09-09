@@ -68,7 +68,7 @@ Current_Settings = [
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
     miniMenu.createMenuItem("Name - " + blockSettings.readString("Username")),
-    miniMenu.createMenuItem(["Show Clock - False", "Show Clock - True", "Show Clock - False"][parseInt(Settings.charAt(6), 10)])
+    miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)])
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -816,7 +816,7 @@ function changeSettings(selection: number) {
         dingus51 = ["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
     } else if (selection == 6) {
         dingus52 = 1
-        dingus51 = ["Show Clock - False", "Show Clock - True", "Show Clock - False"][dingus53]
+        dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
         if (dingus53 == 1) {
             clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
         } else {
