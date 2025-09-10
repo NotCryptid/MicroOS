@@ -94,7 +94,7 @@ let clock = textsprite.create(hour.toString() + ":" + minute.toString().substr(1
 clock.setKind(SpriteKind.Desktop_UI)
 clock.setPosition(140, 111)
 clock.z = 2400
-if (Settings.charAt(6) == "1") {
+if (Settings.charAt(6) == "0") {
     clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
 }
 
@@ -844,7 +844,7 @@ function changeSettings(selection: number) {
     } else if (selection == 6) {
         dingus52 = 1
         dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
-        if (dingus53 == 1) {
+        if (dingus53 == 0) {
             clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
         } else {
             clock.setText("")
