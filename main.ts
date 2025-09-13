@@ -114,7 +114,8 @@ if (Settings.charAt(6) == "0") {
 
 // Right click menus
 
-const rclick_menu_files = [miniMenu.createMenuItem("Open"),miniMenu.createMenuItem("New File"),miniMenu.createMenuItem("Rename"),miniMenu.createMenuItem("Copy"),miniMenu.createMenuItem("Cut"),miniMenu.createMenuItem("Delete")]
+const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Cut"), miniMenu.createMenuItem("Paste"), miniMenu.createMenuItem("Delete")]
+const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Paste")]
 
 // OS Boot Sequence ends here
 
@@ -235,7 +236,7 @@ function MouseClick(button: number) {
         if (button == 1) {
             if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
                 if (Mouse_Cursor.y > RightClickMenu.y - 30 && Mouse_Cursor.y < RightClickMenu.y + 30) {
-                    let optionHeight = 60 / current_rclick_menu.length;
+                    let optionHeight = 84 / current_rclick_menu.length;
                     let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - 30)) / optionHeight);
                     listSelection(App_Open, menu_selection, SubMenu, "rclick" + selectedIndex, rclick_override);
                 }
@@ -320,13 +321,13 @@ function MouseClick(button: number) {
                         } else {
                             RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - 30)
                         }
-                        RightClickMenu.setDimensions(50, 60)
+                        RightClickMenu.setDimensions(50, 84)
                         outline = sprites.create(assets.image`Dot`, SpriteKind.App_UI)
                         RightClickMenu.z = 350346
                         outline.z = 350345
                         outline.setPosition(RightClickMenu.x, RightClickMenu.y)
                         scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
-                        scaling.scaleToPixels(outline, 62, ScaleDirection.Vertically, ScaleAnchor.Middle)
+                        scaling.scaleToPixels(outline, 86, ScaleDirection.Vertically, ScaleAnchor.Middle)
                     }
                 } 
             }
