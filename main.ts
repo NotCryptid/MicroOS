@@ -192,18 +192,16 @@ function kernel_panic(code: number) {
 
 // MARK: Button Presses
 
-// VM Stuff
-if (isVM){
-    if (browserEvents.MouseLeft.isPressed()){
+// VM Stuff (COMMENT OUT WHEN BUILDING FOR HARDWARE, THIS SHIT USES SO MUCH CPU CYCLES OML)
+game.onUpdate(function () {
+    if (browserEvents.MouseLeft.isPressed()) {
         MouseClick(1)
-        while (browserEvents.MouseLeft.isPressed()){}
     }
-
     if (browserEvents.MouseRight.isPressed()) {
         MouseClick(2)
-        while (browserEvents.MouseRight.isPressed()) { }
     }
-}
+})
+
 
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
