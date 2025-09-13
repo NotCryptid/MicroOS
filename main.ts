@@ -114,7 +114,7 @@ if (Settings.charAt(6) == "0") {
 
 // Right click menus
 
-const rclick_menu_files = [miniMenu.createMenuItem("Open"),miniMenu.createMenuItem("Rename"),miniMenu.createMenuItem("Copy"),miniMenu.createMenuItem("Cut"),miniMenu.createMenuItem("Delete")]
+const rclick_menu_files = [miniMenu.createMenuItem("Open"),miniMenu.createMenuItem("New File"),miniMenu.createMenuItem("Rename"),miniMenu.createMenuItem("Copy"),miniMenu.createMenuItem("Cut"),miniMenu.createMenuItem("Delete")]
 
 // OS Boot Sequence ends here
 
