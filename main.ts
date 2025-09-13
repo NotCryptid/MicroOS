@@ -315,7 +315,7 @@ function MouseClick(button: number) {
                             RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - 30)
                         }
                         RightClickMenu.setDimensions(50, 60)
-                        outline = sprites.create(assets.image`Dot`, SpriteKind.Mouse)
+                        outline = sprites.create(assets.image`Dot`, SpriteKind.App_UI)
                         RightClickMenu.z = 350346
                         outline.z = 350345
                         outline.setPosition(RightClickMenu.x, RightClickMenu.y)
@@ -609,7 +609,6 @@ function close_apps () {
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroyAllSpritesOfKind(SpriteKind.App_UI)
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
-    outline.destroy()
 }
 
 function listSelection(app: string, selection: number, submenu: string, action: string, override: number) {
