@@ -196,9 +196,11 @@ function kernel_panic(code: number) {
 game.onUpdate(function () {
     if (browserEvents.MouseLeft.isPressed()) {
         MouseClick(1)
+        while(browserEvents.MouseLeft.isPressed()){}
     }
     if (browserEvents.MouseRight.isPressed()) {
         MouseClick(2)
+        while(browserEvents.MouseRight.isPressed()){}
     }
 })
 
