@@ -6,13 +6,16 @@ namespace SpriteKind {
     export const App_UI = SpriteKind.create()
 }
 
+// VM Stuff
+const isVM = true
+let timePause = 60 - browserEvents.getSeconds(browserEvents.currentTime()) * 1000
+
 // this definitely does something
 let Taskbar: Sprite = null
 let menu_selection : number = null
 let ListMenuGUI: miniMenu.MenuSprite = null
 let NanoCode_Icon: Sprite = null
 let File_Manager_Icon: Sprite = null
-const isVM = "false"
 let Process_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
@@ -91,6 +94,10 @@ scene.setBackgroundImage(Wallpaper)
 
 let hour = 12
 let minute = 100
+if (isVM){
+    minute = browserEvents.getMinutes(browserEvents.currentTime()) + 100
+    hour = browserEvents.getHours(browserEvents.currentTime())
+}
 let clock = textsprite.create(hour.toString() + ":" + minute.toString().substr(1,2), 0, 1)
 clock.setKind(SpriteKind.Desktop_UI)
 clock.setPosition(140, 111)
@@ -132,7 +139,9 @@ function Define_Sprites () {
     Mouse_Cursor = sprites.create(assets.image`Cursor`, SpriteKind.Mouse)
     Mouse_Cursor.setPosition(80, 60)
     Mouse_Cursor.setStayInScreen(true)
-    controller.moveSprite(Mouse_Cursor, 50, 50)
+    if (isVM){} else {
+        controller.moveSprite(Mouse_Cursor, 50, 50)
+    }
     Mouse_Cursor.z = 453453453453
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     App_Title = textsprite.create("Write", 0, 1)
@@ -175,32 +184,21 @@ function kernel_panic(code: number) {
 
 // Okay kernel ends here
 
-// MARK: Button Presses and Mouse stuff
+// MARK: Button Presses
 
 // VM Stuff
-
-
-
-if (browserEvents.MouseLeft.isPressed()) {
-    if (isVM == "true") {
+if (isVM){
+    if (browserEvents.MouseLeft.isPressed()){
         MouseClick(1)
-        while (browserEvents.MouseLeft.isPressed() == true) { }
+        while (browserEvents.MouseLeft.isPressed()){}
     }
-}
 
-if (browserEvents.MouseRight.isPressed()) {
-    if (isVM == "true") {
+    if (browserEvents.MouseRight.isPressed()) {
         MouseClick(2)
-        while (browserEvents.MouseRight.isPressed() == true) { }
+        while (browserEvents.MouseRight.isPressed()) { }
     }
 }
 
-browserEvents.onMouseMove(function(x: number, y: number) {
-    if (isVM == "true") {
-    Mouse_Cursor.x = Mouse_Cursor.x + x
-    Mouse_Cursor.y = Mouse_Cursor.y + y
-    }
-})
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     MouseClick(1)
@@ -363,6 +361,13 @@ radio.onReceivedValue(function (name: string, value: number) {
 
 // MARK: Background tasks
 
+browserEvents.onMouseMove(function (x: number, y: number) {
+    if (isVM) {
+        Mouse_Cursor.x = x
+        Mouse_Cursor.y = y
+    }
+})
+
 forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
@@ -387,17 +392,25 @@ forever(function () {
 })
 
 forever(function () {
-    if (Settings.charAt(6) == "1") {
-        pause(60000)
-        minute++
-        if (minute > 159) {
-            minute = 100
-            hour++
-            if (hour > 23) {
-                hour = 0
+    if (isVM){
+        pause(timePause)
+        timePause = 60000
+        minute = browserEvents.getMinutes(browserEvents.currentTime()) + 100
+        hour = browserEvents.getHours(browserEvents.currentTime())
+        clock.setText(hour + ":" + minute.toString().substr(1, 2))
+    } else {
+        if (Settings.charAt(6) == "1") {
+            pause(60000)
+            minute++
+            if (minute > 159) {
+                minute = 100
+                hour++
+                if (hour > 23) {
+                    hour = 0
+                }
             }
+            clock.setText(hour + ":" + minute.toString().substr(1,2))
         }
-        clock.setText(hour + ":" + minute.toString().substr(1,2))
     }
 })
 
@@ -592,6 +605,7 @@ function close_apps () {
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroyAllSpritesOfKind(SpriteKind.App_UI)
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
+    outline.destroy()
 }
 
 function listSelection(app: string, selection: number, submenu: string, action: string, override: number) {
