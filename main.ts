@@ -64,9 +64,9 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
 }
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
-    miniMenu.createMenuItem(["Keyboard - Pin Header", "Keyboard - OnScreen", "Keyboard - Pin Header"][parseInt(Settings.charAt(1), 10) + 1]),
-    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Pin Header","Mouse - D-Pad"][parseInt(Settings.charAt(2), 10) + 1]),
-    miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
+    miniMenu.createMenuItem(["Keyboard - Jacdac", "Keyboard - OnScreen", "Keyboard - Jacdac"][parseInt(Settings.charAt(1), 10) + 1]),
+    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Jacdac","Mouse - D-Pad"][parseInt(Settings.charAt(2), 10) + 1]),
+    miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
     miniMenu.createMenuItem("Name - " + blockSettings.readString("Username")),
@@ -825,13 +825,13 @@ function changeSettings(selection: number) {
     let dingus51 = "spoingy"
     if (selection == 1) {
         dingus52 = 1
-        dingus51 = ["Keyboard - OnScreen", "Keyboard - Pin Header", "Keyboard - OnScreen"][dingus53]
+        dingus51 = ["Keyboard - OnScreen", "Keyboard - Jacdac", "Keyboard - OnScreen"][dingus53]
     } else if (selection == 2) {
         dingus52 = 1
-        dingus51 = ["Mouse - D-Pad", "Mouse - Pin Header", "Mouse - D-Pad"][dingus53]
+        dingus51 = ["Mouse - D-Pad", "Mouse - Jacdac", "Mouse - D-Pad"][dingus53]
     } else if (selection == 3) {
         dingus52 = 2
-        dingus51 = ["Connectivity - Radio", "Connectivity - Pin Header", "Connectivity - Off", "Connectivity - Radio"][dingus53]
+        dingus51 = ["Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off", "Connectivity - Radio"][dingus53]
     } else if (selection == 4) {
         dingus52 = 9
         if (dingus53 > dingus52) {
