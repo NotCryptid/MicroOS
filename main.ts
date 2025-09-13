@@ -7,8 +7,14 @@ namespace SpriteKind {
 }
 
 // VM Stuff
-const isVM = true
-let timePause = 60 - browserEvents.getSeconds(browserEvents.currentTime()) * 1000
+let isVM = false
+let timePause = 60000
+if (browserEvents.currentTime() == -1){
+    isVM = false
+} else {
+    isVM = true
+    timePause = 60 - browserEvents.getSeconds(browserEvents.currentTime()) * 1000
+}
 
 // this definitely does something
 let Taskbar: Sprite = null
