@@ -211,10 +211,10 @@ forever(function () {
 
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    MouseClick(1)
+    if (isVM) {} else {MouseClick(1)}
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {  
-    MouseClick(2)
+    if (isVM) {} else {MouseClick(2)}
 })
 
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
