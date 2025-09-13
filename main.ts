@@ -366,7 +366,7 @@ radio.onReceivedValue(function (name: string, value: number) {
 // MARK: Background tasks
 
 browserEvents.onMouseMove(function (x: number, y: number) {
-    if (isVM) {
+    if (isVM && spriteutils.isDestroyed(Mouse_Cursor) == false) {
         Mouse_Cursor.x = x
         Mouse_Cursor.y = y
     }
