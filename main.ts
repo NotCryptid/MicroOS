@@ -59,8 +59,8 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 2.0.56", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading Micro:OS v0.0.5", 0, 1)
-text.setPosition(79, 26)
+text = textsprite.create("> Loading MicroOS v0.0.5", 0, 1)
+text.setPosition(76, 26)
 
 // MARK: OS Boot Sequence
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
@@ -193,14 +193,18 @@ function kernel_panic(code: number) {
 // MARK: Button Presses
 
 // VM Stuff (COMMENT OUT WHEN BUILDING FOR HARDWARE, THIS SHIT USES SO MUCH CPU CYCLES OML)
-game.onUpdate(function () {
+forever(function () {
     if (browserEvents.MouseLeft.isPressed()) {
         MouseClick(1)
-        while(browserEvents.MouseLeft.isPressed()){}
+        while (browserEvents.MouseLeft.isPressed()) {
+            pause(10)
+        }
     }
     if (browserEvents.MouseRight.isPressed()) {
         MouseClick(2)
-        while(browserEvents.MouseRight.isPressed()){}
+        while (browserEvents.MouseRight.isPressed()) {
+            pause(10)
+        }
     }
 })
 
