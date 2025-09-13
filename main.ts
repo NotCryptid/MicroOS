@@ -12,6 +12,7 @@ let menu_selection : number = null
 let ListMenuGUI: miniMenu.MenuSprite = null
 let NanoCode_Icon: Sprite = null
 let File_Manager_Icon: Sprite = null
+const isVM = "false"
 let Process_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
@@ -174,7 +175,33 @@ function kernel_panic(code: number) {
 
 // Okay kernel ends here
 
-// MARK: Button Presses
+// MARK: Button Presses and Mouse stuff
+
+// VM Stuff
+
+
+
+if (browserEvents.MouseLeft.isPressed()) {
+    if (isVM == "true") {
+        MouseClick(1)
+        while (browserEvents.MouseLeft.isPressed() == true) { }
+    }
+}
+
+if (browserEvents.MouseRight.isPressed()) {
+    if (isVM == "true") {
+        MouseClick(2)
+        while (browserEvents.MouseRight.isPressed() == true) { }
+    }
+}
+
+browserEvents.onMouseMove(function(x: number, y: number) {
+    if (isVM == "true") {
+    Mouse_Cursor.x = Mouse_Cursor.x + x
+    Mouse_Cursor.y = Mouse_Cursor.y + y
+    }
+})
+
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     MouseClick(1)
 })
