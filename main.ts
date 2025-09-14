@@ -85,7 +85,10 @@ Current_Settings = [
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
-if (User_Files_Temp.length === 0 || controller.B.isPressed() && controller.up.isPressed()) {
+if (User_Files_Temp.length == 0 || controller.B.isPressed() && controller.up.isPressed()) {
+    if (User_Files_Temp.length !== 0) {
+
+    }
     User_Files_Temp = ["Home"];
     blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
@@ -115,8 +118,9 @@ if (Settings.charAt(6) == "0") {
 
 // Right click menus
 
-const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Cut"), miniMenu.createMenuItem("Delete")]
+const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
 const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Paste")]
+const rclick_menu_nsp = [miniMenu.createMenuItem("Edit"), miniMenu.createMenuItem("Compile"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
 
 // OS Boot Sequence ends here
 
@@ -262,7 +266,7 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(Settings_Icon) && button == 1) {
             Open_Settings()
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
-            Open_FileManager("Home")
+            Open_FileManager("Home", null)
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
             Open_NanoCode()
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
@@ -534,7 +538,7 @@ function Open_Settings() {
     createArrows()
 }
 
-function Open_NanoCode() {
+function Open_NanoCode(project: string = "") {
     close_apps()
     App_Open = "NanoCode"
     SubMenu = "Main"
@@ -551,7 +555,7 @@ function Open_NanoCode() {
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(24, 4)
 }
-function Open_FileManager(submenu: string = "Home") {
+function Open_FileManager(submenu: string = "Home", file: string = null) {
     close_apps()
     App_Open = "File Manager"
     SubMenu = submenu
@@ -689,14 +693,14 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 SubMenu = "Home"
                 Open_FileManager("Home")
             } else if (FileAtSelection == null || FileAtSelection == "Home") {
-                if (action !== "rclick") {
+                if (action == "rclick") {
                     current_rclick_menu = rclick_menu_files_empty
                     return
-                } else if (action === "rclick") {
+                } else if (action === "rclick0") {
                     const newName = game.askForString("New file name", 15)
                     while (newName == null) {            
                     }
-                    const fileType = game.askForString("File type (wrt, xcl, app)", 3)
+                    const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
                     while (fileType == null) {
                     }
                     blockSettings.writeString("file_" + fileType + newName, "~")
@@ -714,7 +718,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             Open_xCell(blockSettings.readString("file_xcell" + FileOpened[0]))
                         } else if (FileOpened[1] == "app") {
                             Open_NanoSDK_App(blockSettings.readString("file_app" + FileOpened[0]))
-                     }
+                        } else if (FileOpened[1] == "nsp") {
+                            Open_NanoCode(blockSettings.readString("file_nsp" + FileOpened[0]))
+                        }
                            
                     } else if (action == "rclick1") {
                         const newName = game.askForString("Rename file", 15)
@@ -725,7 +731,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     } else if (action == "rclick2") {
                         clipboard = "file_" + FileOpened[1] + FileOpened[0]
                     } else if (action == "rclick3") {
-                        clipboard = "c~file_" + FileOpened[1] + FileOpened[0]
+                        Open_FileManager("Details", FileAtSelection)
                     } else if (action == "rclick4") {
                         blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
                         User_Files.removeAt(selectedOption - 1)
@@ -859,10 +865,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.0.5"),
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
-                    miniMenu.createMenuItem("Storage - "+ "512" +"KB"), // add storage size once MicroUtils are done
-                    miniMenu.createMenuItem("Storage Free - "+ "19" +"KB"), // add available storage once MicroUtils are done
-                    miniMenu.createMenuItem("RAM Avaiable - " + "128" + "KB"), // add clockspeed once MicroUtils are done
-                    miniMenu.createMenuItem("Clock Speed - "+ "64" +"MHz"), // add clockspeed once MicroUtils are done
+                    // miniMenu.createMenuItem("Storage - "+ "512" +"KB"), // add storage size once MicroUtils are done
+                    // miniMenu.createMenuItem("Storage Free - "+ "19" +"KB"), // add available storage once MicroUtils are done
+                    // miniMenu.createMenuItem("RAM Avaiable - " + "128" + "KB"), // add clockspeed once MicroUtils are done
+                    // miniMenu.createMenuItem("Clock Speed - "+ "64" +"MHz"), // add clockspeed once MicroUtils are done
                 ]
                 SubMenu = "System Information"
             } else if (selectedOption == 4) {
