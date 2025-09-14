@@ -81,7 +81,8 @@ Current_Settings = [
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
     miniMenu.createMenuItem("Name - " + blockSettings.readString("Username")),
-    miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)])
+    miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)]),
+    miniMenu.createMenuItem("Room Code - " + RoomCode)
 ]
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
@@ -121,6 +122,7 @@ if (Settings.charAt(6) == "0") {
 const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
 const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Paste")]
 const rclick_menu_nsp = [miniMenu.createMenuItem("Edit"), miniMenu.createMenuItem("Compile"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
+const rclick_menu_webchat_message = [miniMenu.createMenuItem("Reply"), miniMenu.createMenuItem("Mention"), miniMenu.createMenuItem("Block")]
 
 // OS Boot Sequence ends here
 
@@ -523,7 +525,7 @@ function Open_Settings() {
     App_Open = "Settings"
     SubMenu = "Home"
     List_Scroll = 0
-    ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("Error Test"),miniMenu.createMenuItem("Kernel Panic Test")]
+    ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("App Settings")]
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
@@ -650,6 +652,13 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         miniMenu.createMenuItem("System Information"),
         miniMenu.createMenuItem("Time Settings")
     ]
+    const AppSettings = [
+        miniMenu.createMenuItem("Back"),
+        miniMenu.createMenuItem("WebChat"),
+        miniMenu.createMenuItem("NanoCode"),
+        miniMenu.createMenuItem("NanoSDK Apps")
+    ]
+
 
     if (app == "File Manager") {
         if (action == "rclick") {
@@ -802,11 +811,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 ListMenuContents = SystemSettings
                 SubMenu = "System"
             } else if (selectedOption == 5) {
-                error(501)
-                return
-            } else if (selectedOption == 6) {
-                kernel_panic(501)
-                return
+                ListMenuContents = AppSettings
+                SubMenu = "App Settings"
             }
         } else if (submenu == "Connectivity") {
             if (selectedOption == 1) {
@@ -887,7 +893,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     miniMenu.createMenuItem("Back"),
                     Current_Settings[6],
                     miniMenu.createMenuItem("Hour - " + hour),
-                    miniMenu.createMenuItem("Minute - " + minute.toString().substr(1,2)),
+                    miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2)),
                 ]
                 SubMenu = "Time Settings"
             }
@@ -928,15 +934,69 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     hour = 0
                 }
                 ListMenuContents[2] = miniMenu.createMenuItem("Hour - " + hour)
-                clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
+                clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
             } else if (selectedOption == 4) {
                 minute++
                 if (minute > 159) {
                     minute = 100
                 }
                 ListMenuContents[3] = miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2))
-                clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
-            }           
+                clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
+            }
+        } else if (submenu == "App Settings") {
+            if (selectedOption == 1) {
+                SubMenu = "Home"
+                Open_Settings()
+            } else if (selectedOption == 2) {
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    Current_Settings[7], // room code
+                    miniMenu.createMenuItem("Delete Chats")
+                ]
+                SubMenu = "WebChat Settings"
+            } else if (selectedOption == 3) {
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    // make something here later
+                ]
+                SubMenu = "NanoCode Settings"
+            } else if (selectedOption == 4) {
+                ListMenuContents = [
+                    miniMenu.createMenuItem("Back"),
+                    // debug mode
+                    // allow radio access
+                    // allow file system access
+                ]
+                SubMenu = "NanoSDK App Settings"
+            }
+        } else if (submenu == "WebChat Settings") {
+            if (selectedOption == 1) {
+                ListMenuContents = SystemSettings
+                SubMenu = "System"
+            } else if (selectedOption == 2) {
+                RoomCode = game.askForNumber("Enter new room code", 6).toString()
+                changeSettings(7)
+            } else if (selectedOption == 3) {
+                WebChatMessages = []
+            }
+        } else if (submenu == "NanoCode Settings") {
+            if (selectedOption == 1) {
+                ListMenuContents = SystemSettings
+                SubMenu = "System"
+            } else if (selectedOption == 2) {
+                // fuck you, nothing happens
+                // dipshit
+                // nobody likes you
+            }
+        } else if (submenu == "NanoSDK App Settings") {
+            if (selectedOption == 1) {
+                ListMenuContents = SystemSettings
+                SubMenu = "System"
+            } else if (selectedOption == 2) {
+                // fuck you, nothing happens
+                // dipshit
+                // nobody likes you
+            }
         }
         ListMenuGUI.close()
         ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
@@ -965,7 +1025,7 @@ function changeSettings(selection: number) {
         if (dingus53 > dingus52) {
             dingus53 = 1
         }
-        dingus51 = "Radio Channel - " + (dingus53).toString()  
+        dingus51 = "Radio Channel - " + (dingus53).toString()
     } else if (selection == 5) {
         dingus52 = 3
         dingus51 = ["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
@@ -973,10 +1033,12 @@ function changeSettings(selection: number) {
         dingus52 = 1
         dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
         if (dingus53 == 0) {
-            clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
+            clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
         } else {
             clock.setText("")
         }
+    } else if (selection == 7) {
+        dingus51 = "Room Code - " + RoomCode
     }
     if (dingus53 > dingus52) {
         dingus53 = 0
