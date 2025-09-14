@@ -865,10 +865,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.0.5"),
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
-                    // miniMenu.createMenuItem("Storage - "+ "512" +"KB"), // add storage size once MicroUtils are done
-                    // miniMenu.createMenuItem("Storage Free - "+ "19" +"KB"), // add available storage once MicroUtils are done
-                    // miniMenu.createMenuItem("RAM Avaiable - " + "128" + "KB"), // add clockspeed once MicroUtils are done
-                    // miniMenu.createMenuItem("Clock Speed - "+ "64" +"MHz"), // add clockspeed once MicroUtils are done
+                    // miniMenu.createMenuItem("Storage - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) +"KB"),
+                    // miniMenu.createMenuItem("Storage Free - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage() +"KB"),
+                    // miniMenu.createMenuItem("RAM Avaiable - " + microUtilities.ramCapacity() + "KB"),
+                    // miniMenu.createMenuItem("Clock Speed - "+ microUtilities.cpuSpeed() +"MHz"),
                 ]
                 SubMenu = "System Information"
             } else if (selectedOption == 4) {
