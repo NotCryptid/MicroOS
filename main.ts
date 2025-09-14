@@ -971,7 +971,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
         } else if (submenu == "WebChat Settings") {
             if (selectedOption == 1) {
-                ListMenuContents = SystemSettings
+                ListMenuContents = AppSettings
                 SubMenu = "System"
             } else if (selectedOption == 2) {
                 RoomCode = game.askForNumber("Enter new room code", 6).toString()
@@ -981,7 +981,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
         } else if (submenu == "NanoCode Settings") {
             if (selectedOption == 1) {
-                ListMenuContents = SystemSettings
+                ListMenuContents = AppSettings
                 SubMenu = "System"
             } else if (selectedOption == 2) {
                 // fuck you, nothing happens
@@ -990,7 +990,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
         } else if (submenu == "NanoSDK App Settings") {
             if (selectedOption == 1) {
-                ListMenuContents = SystemSettings
+                ListMenuContents = AppSettings
                 SubMenu = "System"
             } else if (selectedOption == 2) {
                 // fuck you, nothing happens
