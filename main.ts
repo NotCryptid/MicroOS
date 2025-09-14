@@ -972,9 +972,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         } else if (submenu == "WebChat Settings") {
             if (selectedOption == 1) {
                 ListMenuContents = AppSettings
-                SubMenu = "System"
+                SubMenu = "App Settings"
             } else if (selectedOption == 2) {
-                RoomCode = game.askForNumber("Enter new room code", 6).toString()
+                RoomCode = game.askForNumber("Enter new room code", 9).toString()
                 changeSettings(7)
             } else if (selectedOption == 3) {
                 WebChatMessages = []
@@ -982,7 +982,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         } else if (submenu == "NanoCode Settings") {
             if (selectedOption == 1) {
                 ListMenuContents = AppSettings
-                SubMenu = "System"
+                SubMenu = "App Settings"
             } else if (selectedOption == 2) {
                 // fuck you, nothing happens
                 // dipshit
@@ -991,7 +991,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         } else if (submenu == "NanoSDK App Settings") {
             if (selectedOption == 1) {
                 ListMenuContents = AppSettings
-                SubMenu = "System"
+                SubMenu = "App Settings"
             } else if (selectedOption == 2) {
                 // fuck you, nothing happens
                 // dipshit
