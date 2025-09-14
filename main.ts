@@ -300,10 +300,10 @@ function MouseClick(button: number) {
             }
         } else if (App_Open == "File Manager" || App_Open == "Settings") {
             let menu_selection = 0;
-            for (let i = 0; i < ListMenuContents.length; i++) {
+            for (let i = 0; i < 8; i++) {
                 if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
                     menu_selection = i + 1;
-                    if (button == 1) {
+                    if (button == 1 && ListMenuContents[menu_selection + List_Scroll - 1] != null) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
                     } else if (button == 2 && App_Open == "File Manager") {
@@ -311,7 +311,7 @@ function MouseClick(button: number) {
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
                         RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
                         RightClickMenu.setButtonEventsEnabled(false)
-                        let RightClickMenuX = Mouse_Cursor.x + 23
+                        let RightClickMenuX = Mouse_Cursor.x + 21
                         if (Mouse_Cursor.x > 107) {
                             RightClickMenuX = 130
                         }
@@ -320,12 +320,12 @@ function MouseClick(button: number) {
                         } else {
                             RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - current_rclick_menu.length * 6)
                         }
-                        RightClickMenu.setDimensions(50, current_rclick_menu.length * 12)
+                        RightClickMenu.setDimensions(52, current_rclick_menu.length * 12)
                         outline = sprites.create(assets.image`Dot`, SpriteKind.App_UI)
                         RightClickMenu.z = 350346
                         outline.z = 350345
                         outline.setPosition(RightClickMenu.x, RightClickMenu.y)
-                        scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
+                        scaling.scaleToPixels(outline, 54, ScaleDirection.Horizontally, ScaleAnchor.Middle)
                         scaling.scaleToPixels(outline, current_rclick_menu.length * 12 + 2, ScaleDirection.Vertically, ScaleAnchor.Middle)
                     }
                 } 
@@ -636,7 +636,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
     if (app == "File Manager") {
         if (action == "rclick") {
             rclick_override = selectedOption
-            current_rclick_menu = rclick_menu_files
+            if (ListMenuContents[selectedOption - 1] == null || ListMenuContents[selectedOption - 1].text == "Home") {
+                current_rclick_menu = rclick_menu_files_empty
+            } else {
+                current_rclick_menu = rclick_menu_files
+            }
             return
         } else if (submenu == "System") {
             if (action == "click" || action == "rclick0") {
