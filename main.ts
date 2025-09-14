@@ -37,6 +37,7 @@ let CharacterMap = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX
 let ArrowUp: Sprite = null
 let ArrowDown: Sprite = null
 let App_Open = "null"
+let clipboard = ""
 let List_Scroll = 0
 let rclick_override = 0
 let current_rclick_menu: miniMenu.MenuItem[] = null
@@ -261,7 +262,7 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(Settings_Icon) && button == 1) {
             Open_Settings()
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
-            Open_FileManager()
+            Open_FileManager("Home")
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
             Open_NanoCode()
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
@@ -550,10 +551,10 @@ function Open_NanoCode() {
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(24, 4)
 }
-function Open_FileManager() {
+function Open_FileManager(submenu: string = "Home") {
     close_apps()
     App_Open = "File Manager"
-    SubMenu = "Home"
+    SubMenu = submenu
     List_Scroll = 0
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
@@ -561,7 +562,11 @@ function Open_FileManager() {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("File Manager", 0, 1)
     App_Title.setPosition(36, 4)
-    ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
+    if (SubMenu == "User") {
+        ListMenuContents = User_Files
+    } else {
+        ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
+    }
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
@@ -586,8 +591,17 @@ function Open_ProcessManager() {
     ListMenuGUI.setPosition(80, 58)
     ListMenuGUI.z = -30
 }
-function Open_NanoCode_App (app_name: string) {
-    
+function Open_NanoSDK_App (app_binary: string) {
+    const compiled_app = app_binary.split("~")
+    close_apps()
+    App_Open = compiled_app[0]
+    SubMenu = compiled_app[2]
+    scene.setBackgroundImage(assets.image`App`)
+    scene.setBackgroundColor(1)
+    Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
+    Close_App.setPosition(156, 5)
+    App_Title = textsprite.create(compiled_app[0], 0, 1)
+    App_Title.setPosition(16, 4)
 }
 
 // Apps end here
@@ -646,13 +660,13 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             if (action == "click" || action == "rclick0") {
                 if (selectedOption == 1) {    
                     SubMenu = "Home"
-                    Open_FileManager()
+                    Open_FileManager("Home")
                 } else if (selectedOption == 2) {
                     game.reset()
                 } else if (selectedOption == 3) {
                     error(105)
                 } else if (selectedOption == 4) {
-                    Open_FileManager()
+                    Open_FileManager("Home")
                 } else if (selectedOption == 5) {
                     Open_Write("")
                 } else if (selectedOption == 6) {
@@ -671,14 +685,57 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
             const FileAtSelection = JSON.stringify(User_Files[selectedOption]).substr(JSON.stringify(User_Files[selectedOption]).indexOf('"') + 1,JSON.stringify(User_Files[selectedOption]).indexOf('"', JSON.stringify(User_Files[selectedOption]).indexOf('"') + 1));
-            if (FileAtSelection == "Home") {
+            if (FileAtSelection == "Home" && (action == "click" || action == "rclick0")) {
                 SubMenu = "Home"
-                Open_FileManager()
+                Open_FileManager("Home")
+            } else if (FileAtSelection == null || FileAtSelection == "Home") {
+                if (action !== "rclick") {
+                    current_rclick_menu = rclick_menu_files_empty
+                    return
+                } else if (action === "rclick") {
+                    const newName = game.askForString("New file name", 15)
+                    while (newName == null) {            
+                    }
+                    const fileType = game.askForString("File type (wrt, xcl, app)", 3)
+                    while (fileType == null) {
+                    }
+                    blockSettings.writeString("file_" + fileType + newName, "~")
+                    User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
+                    blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                    Open_FileManager("User")
+                }
             } else {
-                // temporary workaround
-                if (action == "click" || action == "open") {
-                    SubMenu = "Home"
-                    Open_FileManager()  
+                if (action !== "rclick") {
+                    const FileOpened = FileAtSelection.split(".")
+                    if (action == "click" || action == "rclick0") {
+                        if (FileOpened[1] == "wrt") {
+                            Open_Write(blockSettings.readString("file_wrt" + FileOpened[0]))
+                        } else if (FileOpened[1] == "xcl") {
+                            Open_xCell(blockSettings.readString("file_xcell" + FileOpened[0]))
+                        } else if (FileOpened[1] == "app") {
+                            Open_NanoSDK_App(blockSettings.readString("file_app" + FileOpened[0]))
+                     }
+                           
+                    } else if (action == "rclick1") {
+                        const newName = game.askForString("Rename file", 15)
+                        if (blockSettings.readString("file_" + FileOpened[1] + newName) == null) {
+                            blockSettings.writeString("file_" + FileOpened[1] + newName, blockSettings.readString("file_" + FileOpened[1] + FileOpened[0]))
+                            blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
+                        }
+                    } else if (action == "rclick2") {
+                        clipboard = "file_" + FileOpened[1] + FileOpened[0]
+                    } else if (action == "rclick3") {
+                        clipboard = "c~file_" + FileOpened[1] + FileOpened[0]
+                    } else if (action == "rclick4") {
+                        blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
+                        User_Files.removeAt(selectedOption - 1)
+                        blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                        Open_FileManager("User")
+                    }
+
+                } else {
+                    current_rclick_menu = rclick_menu_files
+                    return
                 }
             }
         } else if (submenu == "Home") {
