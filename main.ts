@@ -268,7 +268,7 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
             Open_FileManager("Home", null)
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
-            Open_NanoCode()
+            Open_NanoCode(null)
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
             Open_ProcessManager()
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
@@ -680,7 +680,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 } else if (selectedOption == 8) {
                     Open_Web()
                 } else if (selectedOption == 9) {
-                    Open_NanoCode()
+                    Open_NanoCode(null)
                 }
             } else {
                 softerror(107)
@@ -698,7 +698,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     return
                 } else if (action === "rclick0") {
                     const newName = game.askForString("New file name", 15)
-                    while (newName == null) {            
+                    while (newName == null) {
                     }
                     const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
                     while (fileType == null) {
@@ -707,7 +707,18 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
                     blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                     Open_FileManager("User")
-                }
+                } else if (action === "rclick1") {
+                    if (clipboard == "") {
+
+                    } else {
+                        const FileOpened = clipboard.split(".")
+                        blockSettings.writeString("file_" + FileOpened[1] + "Copy of " + FileOpened[0], blockSettings.readString(clipboard))
+                        User_Files.push(miniMenu.createMenuItem("Copy of " + clipboard))
+                        blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                        clipboard = null
+                        Open_FileManager("User")
+                    }
+                }    
             } else {
                 if (action !== "rclick") {
                     const FileOpened = FileAtSelection.split(".")
