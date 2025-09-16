@@ -706,6 +706,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     current_rclick_menu = rclick_menu_files_empty
                     return
                 } else if (action === "rclick0") {
+                    // work you dumbass
                     const newName = game.askForString("New file name", 15)
                     while (newName == null) {
                     }
