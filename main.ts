@@ -1032,7 +1032,7 @@ function changeSettings(selection: number) {
     } else if (selection == 6) {
         dingus52 = 1
         dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
-        if (dingus53 == 0) {
+        if (dingus53 !== 1) {
             clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
         } else {
             clock.setText("")
