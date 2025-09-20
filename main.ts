@@ -9,9 +9,7 @@ namespace SpriteKind {
 // VM Stuff
 let isVM = false
 let timePause = 60000
-if (browserEvents.currentTime() == -1){
-    isVM = false
-} else {
+if (browserEvents.currentTime() == -1){} else {
     isVM = true
     timePause = 60 - browserEvents.getSeconds(browserEvents.currentTime()) * 1000
 }
