@@ -9,9 +9,7 @@ namespace SpriteKind {
 // VM Stuff
 let isVM = false
 let timePause = 60000
-if (browserEvents.currentTime() == -1){
-    isVM = false
-} else {
+if (browserEvents.currentTime() == -1){} else {
     isVM = true
     timePause = 60 - browserEvents.getSeconds(browserEvents.currentTime()) * 1000
 }
@@ -706,6 +704,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     current_rclick_menu = rclick_menu_files_empty
                     return
                 } else if (action === "rclick0") {
+                    // work you dumbass
                     const newName = game.askForString("New file name", 15)
                     while (newName == null) {
                     }
@@ -1032,7 +1031,7 @@ function changeSettings(selection: number) {
     } else if (selection == 6) {
         dingus52 = 1
         dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
-        if (dingus53 == 0) {
+        if (dingus53 !== 1) {
             clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
         } else {
             clock.setText("")
