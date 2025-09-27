@@ -177,17 +177,6 @@ a a 1 a 1 a a
 a 1 a a a 1 a 
 . a a a a a . 
 `;
-            case "image4":
-            case "Write":return img`
-5 5 5 5 5 5 5 5 
-5 1 1 1 1 1 1 5 
-5 1 f f f f 1 5 
-5 1 1 1 1 1 1 5 
-5 4 4 4 4 4 4 5 
-5 4 4 4 4 4 4 5 
-5 4 4 4 4 4 4 5 
-5 5 5 5 5 5 5 5 
-`;
             case "image6":
             case "Web Chat":return img`
 . c c c 3 c c . 
@@ -1239,6 +1228,17 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 222222222222222222222222233333333333333333333333333333333333333333333333333333333333333aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 22222222222222222222222233333333333333333333333333333333333333333333333333333333333333aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 2222222222222222222222233333333333333333333333333333333333333333333333333333333333333aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+`;
+            case "image4":
+            case "Write":return img`
+. 1 1 1 1 1 1 . 
+1 2 2 2 2 2 2 1 
+1 1 1 1 1 1 1 1 
+1 3 3 3 3 1 a 1 
+1 1 1 1 1 1 d 1 
+1 7 7 7 7 1 b 1 
+. 1 1 1 1 1 1 b 
+. . . . . . . b 
 `;
         }
         return null;

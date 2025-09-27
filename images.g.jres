@@ -47,14 +47,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Close"
     },
-    "myImages.image4": {
-        "id": "myImages.image4",
-        "data": "hwQIAAgAAABVVVVVFRFEVBUfRFQVH0RUFR9EVBUfRFQVEURUVVVVVQ==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Write"
-    },
     "myImages.image6": {
         "id": "myImages.image6",
         "data": "hwQIAAgAAADAPMwMzDzMzMw8w8w8MzMzM8zDzMzMw8zMzMPMwMzDDA==",
@@ -174,5 +166,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Wallpaper - Stripes"
+    },
+    "myImages.image4": {
+        "id": "myImages.image4",
+        "data": "hwQIAAgAAAAQEREAITFxASExcQEhMXEBITFxASEREQEhob0BEBERuw==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Write"
     }
 }
