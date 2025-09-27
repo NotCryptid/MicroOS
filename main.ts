@@ -394,13 +394,12 @@ forever(function () {
             }
         }
     } else if (App_Open == "File Manager" || App_Open == "Settings") {
-        let menu_selection = 0;
-            for (let i = 0; i < ListMenuContents.length; i++) {
-                if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152 && i < 8) {
-                    ListMenuGUI.selectedIndex = i;
-                    break;
-                } 
-            }
+        for (let i = 0; i < ListMenuContents.length; i++) {
+            if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152 && i < 8) {
+                ListMenuGUI.selectedIndex = i;
+                break;
+            } 
+        }
     }
 })
 
