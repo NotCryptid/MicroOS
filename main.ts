@@ -8,10 +8,8 @@ namespace SpriteKind {
 
 // VM Stuff
 let isVM = false
-let timePause = 60000
 if (browserEvents.currentTime() == -1){} else {
     isVM = true
-    timePause = 60 - browserEvents.getSeconds(browserEvents.currentTime()) * 1000
 }
 
 // this definitely does something
@@ -408,8 +406,7 @@ forever(function () {
 
 forever(function () {
     if (isVM){
-        pause(timePause)
-        timePause = 60000
+        pause(60000)
         minute = browserEvents.getMinutes(browserEvents.currentTime()) + 100
         hour = browserEvents.getHours(browserEvents.currentTime())
         clock.setText(hour + ":" + minute.toString().substr(1, 2))
