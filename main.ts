@@ -1135,12 +1135,21 @@ function encrypt(string: string, key: number): string {
     return output;
 }
 
-function EncodeToNumber(string: string) {
-    //temp thing
-    return 123
+function EncodeToNumber(string: string): number {
+    const letters = string.split('')
+    let result = ''
+    for (let i = 0; i < letters.length; i++) {
+        result = result + (CharacterMap.indexOf(letters[i]) + 100).toString().slice(1)
+    }
+    return parseInt(result)
 }
-function DecodeFromNumber(number: number) {
-    //temp thing
-    return "test~123456789~355905"
+
+function DecodeFromNumber(number: number): string {
+    const numbers = number.toString().split('')
+    for (let i = 0; i < numbers.length / 2; i++) { 
+        numbers[i] = numbers[i] + numbers[i + 1]
+        numbers.splice(i + 1, 1);
+    }
+    return
 }
 // Encryption ends here
