@@ -910,7 +910,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     // miniMenu.createMenuItem("Storage - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) +"KB"),
                     // miniMenu.createMenuItem("Storage Free - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage() +"KB"),
                     // miniMenu.createMenuItem("RAM Avaiable - " + microUtilities.ramCapacity() + "KB"),
-                    // miniMenu.createMenuItem("Clock Speed - "+ microUtilities.cpuSpeed() +"MHz"),
+                    // miniMenu.createMenuItem("Clock Speed - "+ microUtilities.cpuSpeed() +"MHz")
                 ]
                 SubMenu = "System Information"
             } else if (selectedOption == 4) {
