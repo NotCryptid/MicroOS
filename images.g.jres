@@ -174,5 +174,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Write"
+    },
+    "myImages.image23": {
+        "id": "myImages.image23",
+        "data": "hwQMAAwAAAAiIiIiIiIAADIzMzMzIwAAMjMdETEjAAAyM9ERMSMAADIzER0xIwAAMjMRHTEjAAAyMxEdMSMAADIzER0xIwAAMjPRETEjAAAyMx0RMSMAADIzMzMzIwAAIiIiIiIiAAA=",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "WebSend"
     }
 }

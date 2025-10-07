@@ -1240,6 +1240,21 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 . 1 1 1 1 1 1 b 
 . . . . . . . b 
 `;
+            case "image23":
+            case "WebSend":return img`
+2 2 2 2 2 2 2 2 2 2 2 2 
+2 3 3 3 3 3 3 3 3 3 3 2 
+2 3 3 3 3 3 3 3 3 3 3 2 
+2 3 3 3 3 3 3 3 3 3 3 2 
+2 3 d 1 1 1 1 1 1 d 3 2 
+2 3 1 d 1 1 1 1 d 1 3 2 
+2 3 1 1 d d d d 1 1 3 2 
+2 3 1 1 1 1 1 1 1 1 3 2 
+2 3 1 1 1 1 1 1 1 1 3 2 
+2 3 3 3 3 3 3 3 3 3 3 2 
+2 3 3 3 3 3 3 3 3 3 3 2 
+2 2 2 2 2 2 2 2 2 2 2 2 
+`;
         }
         return null;
     })

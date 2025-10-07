@@ -21,6 +21,8 @@ let File_Manager_Icon: Sprite = null
 let Process_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
+let WEBmessage = ""
+let KeyboardVisible = false
 let Write_icon: Sprite = null
 let Library_icon: Sprite = null
 let RadioValueQueue: [string, number][] = []
@@ -29,6 +31,8 @@ let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
 let RoomCode = "123456789"
 let App_Title: TextSprite = null
+let WebChatSend: Sprite = null
+let Temp = ""
 let Close_App: Sprite = null
 let CharacterMap = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.?!:;\"()~".split("");
 let ArrowUp: Sprite = null
@@ -334,7 +338,7 @@ function MouseClick(button: number) {
                         scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
                         scaling.scaleToPixels(outline, current_rclick_menu.length * 12 + 2, ScaleDirection.Vertically, ScaleAnchor.Middle)
                     }
-                } 
+                }
             }
         } else if (App_Open == "NanoCode") {
             if (SubMenu == "Main") {
@@ -349,6 +353,25 @@ function MouseClick(button: number) {
                         // this would be new
                     }
                 }
+            }
+        } else if (App_Open == "Web Chat") {
+            
+            if (Mouse_Cursor.overlapsWith(WebChatSend) && button == 1 && WEBmessage != "" && WEBmessage != "Type here...") {
+                KeyboardVisible = true
+                WebChatMessages[7] = miniMenu.createMenuItem(Username + " (You)")
+                WebChatMessages.push(miniMenu.createMenuItem(WEBmessage))
+                Temp = "Type here..."
+                WebChatMessages.push(miniMenu.createMenuItem(Temp))
+                while (WebChatMessages.length > 8) {
+                    WebChatMessages.shift();
+                } 
+                KeyboardVisible = false
+                radio.sendValue(encrypt(WEBmessage, parseInt(RoomCode)), EncodeToNumber(encrypt("~" + Username + "~" + RoomCode + "~" + null, parseInt(RoomCode))))
+            } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
+                KeyboardVisible = true
+                WEBmessage = game.askForString("Type your message here", 36)
+                KeyboardVisible = false
+                Temp = WEBmessage
             }
         }
     }
@@ -365,34 +388,35 @@ radio.onReceivedValue(function (name: string, value: number) {
 })
 
 function processRadioQueue() {
-    if (App_Open == "Web Chat") {
+    if (App_Open == "Web Chat" && KeyboardVisible == false) {
         for (let i = 0; i < RadioValueQueue.length; i++) {
             let message = RadioValueQueue.shift()
-            let decryptemetadata = decrypt(message[1].toString(), parseInt(RoomCode))
+            let decryptemetadata = decrypt(DecodeFromNumber(message[1]), parseInt(RoomCode))
                 if (decryptemetadata.charAt(0) == "~") {
-                const metadata = DecodeFromNumber(parseInt(decryptemetadata)).split("~")
+                    const metadata = decryptemetadata.split("~")
                 if (metadata[2] == RoomCode) {
                     let verified = ""
                     if (metadata[3] == null) { } else {
                         // nobody other than system is verified yet cuz i've yet to crack accessing the serial number
                         verified = "(Verified)"
                     }
-                    WebChatMessages[WebChatMessages.length] = miniMenu.createMenuItem(metadata[1] + " " + verified)
+                    WebChatMessages[7] = miniMenu.createMenuItem(metadata[1] + " " + verified)
                     WebChatMessages.push(miniMenu.createMenuItem(decrypt(message[0], parseInt(RoomCode))))
-                    WebChatMessages.push(miniMenu.createMenuItem("Type here..."))
-                    if (WebChatMessages.length > 8) {
+                    WebChatMessages.push(miniMenu.createMenuItem(Temp))
+                    while (WebChatMessages.length > 8) {
                         WebChatMessages.shift();
-                    }
-                    ListMenuGUI.destroy()
-                    ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
-                    ListMenuGUI.setDimensions(160, 97)
-                    ListMenuGUI.setButtonEventsEnabled(false)
-                    ListMenuGUI.setPosition(80, 58)
-                    ListMenuGUI.selectedIndex = 7
-                    ListMenuGUI.z = -30
+                    } 
                 }
             }
         }
+        ListMenuGUI.destroy()
+        WebChatMessages[7] = miniMenu.createMenuItem(Temp)
+        ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
+        ListMenuGUI.setDimensions(160, 97)
+        ListMenuGUI.setButtonEventsEnabled(false)
+        ListMenuGUI.setPosition(80, 58)
+        ListMenuGUI.selectedIndex = 7
+        ListMenuGUI.z = -30
     }
 }
 
@@ -496,10 +520,13 @@ function Open_Library() {
 function Open_Web() {
     close_apps()
     App_Open = "Web Chat"
+    Temp = "Type here..."
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
+    WebChatSend = sprites.create(assets.image`WebSend`, SpriteKind.App_UI)
+    WebChatSend.setPosition(154, 99)
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(25, 4)
     WebChatMessages = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
@@ -654,6 +681,7 @@ function close_apps () {
     }
     App_Open = "null"
     SubMenu = "null"
+    Temp = ""
     Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
@@ -908,7 +936,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     miniMenu.createMenuItem("MicroOS v0.0.5"),
                     // miniMenu.createMenuItem("NanoSDK 2025.1")
                     // miniMenu.createMenuItem("Storage - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) +"KB"),
-                    // miniMenu.createMenuItem("Storage Free - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage() +"KB"),
+                    // miniMenu.createMenuItem("Storage Free - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes) +"KB"),
                     // miniMenu.createMenuItem("RAM Avaiable - " + microUtilities.ramCapacity() + "KB"),
                     // miniMenu.createMenuItem("Clock Speed - "+ microUtilities.cpuSpeed() +"MHz")
                 ]
@@ -1092,34 +1120,24 @@ function createArrows() {
 // MARK: Encryption
 
 function decrypt(string: string, key: number) {
-    if (Active_Processes.indexOf(miniMenu.createMenuItem("Aegis")) !== -1) {
-        let output = '';
-        for (let i = 0; i < string.length; i++) {
-            output += String.fromCharCode(string.charCodeAt(i) ^ key);
-        }
-        return output;
-    } else {
-        error(201)
-        return null
+    let output = '';
+    for (let i = 0; i < string.length; i++) {
+        output += String.fromCharCode(string.charCodeAt(i) ^ key);
     }
+    return output;
 }
 
 function encrypt(string: string, key: number): string {
-    if (Active_Processes.indexOf(miniMenu.createMenuItem("Aegis")) !== -1) {
-        let output = '';
-        for (let i = 0; i < string.length; i++) {
-            output += String.fromCharCode(string.charCodeAt(i) ^ key);
-        }
-        return output;
-    } else {
-        error(201)
-        return null
+    let output = '';
+    for (let i = 0; i < string.length; i++) {
+        output += String.fromCharCode(string.charCodeAt(i) ^ key);
     }
+    return output;
 }
 
 function EncodeToNumber(string: string) {
     //temp thing
-    return string
+    return 123
 }
 function DecodeFromNumber(number: number) {
     //temp thing
