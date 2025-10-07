@@ -66,9 +66,11 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
     blockSettings.writeString("Username", "User")
+    blockSettings.writeString("RoomCode", RoomCode)
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
     Username = blockSettings.readString("UserName")
+    RoomCode = blockSettings.readString("RoomCode")
 }
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
@@ -1062,6 +1064,7 @@ function changeSettings(selection: number) {
         }
     } else if (selection == 7) {
         dingus51 = "Room Code - " + RoomCode
+        blockSettings.writeString("RoomCode", RoomCode)
     }
     if (dingus53 > dingus52) {
         dingus53 = 0
