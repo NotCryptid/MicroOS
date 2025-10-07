@@ -58,7 +58,7 @@ const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
 pause(300)
 let text2 = textsprite.create("> Void Kernel Micro", 0, 1)
 text2.setPosition(61, 6)
-let text3 = textsprite.create("> PXT Build 2.0.56", 0, 1)
+let text3 = textsprite.create("> PXT Build 2.0.59", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
 text = textsprite.create("> Loading MicroOS v0.0.5", 0, 1)
@@ -73,7 +73,7 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     blockSettings.writeString("RoomCode", RoomCode)
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
-    Username = blockSettings.readString("UserName")
+    Username = blockSettings.readString("Username")
     RoomCode = blockSettings.readString("RoomCode")
 }
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
