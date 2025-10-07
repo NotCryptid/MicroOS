@@ -23,6 +23,7 @@ let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
 let Write_icon: Sprite = null
 let Library_icon: Sprite = null
+let WebChatQueue: [string, number][] = []
 let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
@@ -356,19 +357,29 @@ function MouseClick(button: number) {
 // MARK: Radio
 
 radio.onReceivedValue(function (name: string, value: number) {
-    const metadata = DecodeFromNumber(value).split("~")
-    if (metadata[1] == RoomCode) {
-        if (metadata[2] == null) {
-            const verified = ""
-        } else {
-            const verified = "(Verified)"
-        }
-        WebChatMessages.push(miniMenu.createMenuItem(metadata[0]))
-        if (WebChatMessages.length > 7) {
-            WebChatMessages.shift();
+    WebChatQueue.push([name, value])
+})
+
+function processRadioQueue() {
+    for (let i = 0; i < WebChatQueue.length; i++) {
+        let message = WebChatQueue.shift()
+        let decryptemetadata = decrypt(message[1].toString(), parseInt(RoomCode))
+        if (decryptemetadata.charAt(0) == "~") {
+            const metadata = DecodeFromNumber(parseInt(decryptemetadata)).split("~")
+            if (metadata[1] == RoomCode) {
+                let verified = ""
+                if (metadata[2] == null) {} else {
+                     verified = "(Verified)"
+                }
+                WebChatMessages.push(miniMenu.createMenuItem(metadata[0] + " " + verified))
+                WebChatMessages.push(miniMenu.createMenuItem(decrypt(message[0].toString(), parseInt(RoomCode))))
+                if (WebChatMessages.length > 7) {
+                    WebChatMessages.shift();
+                }
+            }
         }
     }
-})
+}
 
 // Radio ends here
 
@@ -385,6 +396,9 @@ forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
     Start_Icon_Names()
+    if (App_Open == "Web Chat") {
+        processRadioQueue()
+    }
     if (spriteutils.isDestroyed(RightClickMenu) == false) {
         if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
             if (Mouse_Cursor.y > RightClickMenu.y - 30 && Mouse_Cursor.y < RightClickMenu.y + 30) {
@@ -450,6 +464,8 @@ function Start_Icon_Names() {
         Library_icon.sayText(".    Library", 50, false, color24, otherColor)
     }
 }
+
+
 // Background tasks end here
 
 // MARK: Apps
