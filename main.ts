@@ -1150,6 +1150,10 @@ function DecodeFromNumber(number: number): string {
         numbers[i] = numbers[i] + numbers[i + 1]
         numbers.splice(i + 1, 1);
     }
-    return
+    let result = ''
+    for (let i = 0; i < numbers.length; i++) {
+        result = result + CharacterMap[parseInt(numbers[i])]
+    }
+    return result
 }
 // Encryption/Encoding ends here
