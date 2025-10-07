@@ -1117,7 +1117,7 @@ function createArrows() {
 }
 // App functions end here
 
-// MARK: Encryption
+// MARK: Encryption/Encoding
 
 function decrypt(string: string, key: number) {
     let output = '';
@@ -1152,4 +1152,4 @@ function DecodeFromNumber(number: number): string {
     }
     return
 }
-// Encryption ends here
+// Encryption/Encoding ends here
