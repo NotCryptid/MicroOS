@@ -23,7 +23,7 @@ let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
 let Write_icon: Sprite = null
 let Library_icon: Sprite = null
-let WebChatQueue: [string, number][] = []
+let RadioValueQueue: [string, number][] = []
 let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
@@ -357,21 +357,24 @@ function MouseClick(button: number) {
 // MARK: Radio
 
 radio.onReceivedValue(function (name: string, value: number) {
-    WebChatQueue.push([name, value])
+    RadioValueQueue.push([name, value])
+    // name is the encrypted message
+    // value contains metadata which goes ~Username~RoomCode~SerialNumber
 })
 
 function processRadioQueue() {
-    for (let i = 0; i < WebChatQueue.length; i++) {
-        let message = WebChatQueue.shift()
+    for (let i = 0; i < RadioValueQueue.length; i++) {
+        let message = RadioValueQueue.shift()
         let decryptemetadata = decrypt(message[1].toString(), parseInt(RoomCode))
         if (decryptemetadata.charAt(0) == "~") {
             const metadata = DecodeFromNumber(parseInt(decryptemetadata)).split("~")
-            if (metadata[1] == RoomCode) {
+            if (metadata[2] == RoomCode) {
                 let verified = ""
-                if (metadata[2] == null) {} else {
-                     verified = "(Verified)"
+                if (metadata[3] == null) { } else {
+                    // nobody is verified yet cuz i've yet to crack accessing the serial number
+                    verified = "(Verified)"
                 }
-                WebChatMessages.push(miniMenu.createMenuItem(metadata[0] + " " + verified))
+                WebChatMessages.push(miniMenu.createMenuItem(metadata[1] + " " + verified))
                 WebChatMessages.push(miniMenu.createMenuItem(decrypt(message[0].toString(), parseInt(RoomCode))))
                 if (WebChatMessages.length > 7) {
                     WebChatMessages.shift();
