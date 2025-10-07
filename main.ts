@@ -391,6 +391,7 @@ function processRadioQueue() {
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
         for (let i = 0; i < RadioValueQueue.length; i++) {
             let message = RadioValueQueue.shift()
+            const text = message[1].toString().split("~")
             let decryptemetadata = decrypt(DecodeFromNumber(message[1]), parseInt(RoomCode))
                 if (decryptemetadata.charAt(0) == "~") {
                     const metadata = decryptemetadata.split("~")
@@ -401,7 +402,7 @@ function processRadioQueue() {
                         verified = "(Verified)"
                     }
                     WebChatMessages[7] = miniMenu.createMenuItem(metadata[1] + " " + verified)
-                    WebChatMessages.push(miniMenu.createMenuItem(decrypt(message[0], parseInt(RoomCode))))
+                    WebChatMessages.push(miniMenu.createMenuItem(decrypt(text[0], parseInt(RoomCode))))
                     WebChatMessages.push(miniMenu.createMenuItem(Temp))
                     while (WebChatMessages.length > 8) {
                         WebChatMessages.shift();
