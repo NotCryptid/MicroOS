@@ -363,21 +363,31 @@ radio.onReceivedValue(function (name: string, value: number) {
 })
 
 function processRadioQueue() {
-    for (let i = 0; i < RadioValueQueue.length; i++) {
-        let message = RadioValueQueue.shift()
-        let decryptemetadata = decrypt(message[1].toString(), parseInt(RoomCode))
-        if (decryptemetadata.charAt(0) == "~") {
-            const metadata = DecodeFromNumber(parseInt(decryptemetadata)).split("~")
-            if (metadata[2] == RoomCode) {
-                let verified = ""
-                if (metadata[3] == null) { } else {
-                    // nobody is verified yet cuz i've yet to crack accessing the serial number
-                    verified = "(Verified)"
-                }
-                WebChatMessages.push(miniMenu.createMenuItem(metadata[1] + " " + verified))
-                WebChatMessages.push(miniMenu.createMenuItem(decrypt(message[0].toString(), parseInt(RoomCode))))
-                if (WebChatMessages.length > 7) {
-                    WebChatMessages.shift();
+    if (App_Open == "Web Chat") {
+        for (let i = 0; i < RadioValueQueue.length; i++) {
+            let message = RadioValueQueue.shift()
+            let decryptemetadata = decrypt(message[1].toString(), parseInt(RoomCode))
+                if (decryptemetadata.charAt(0) == "~") {
+                const metadata = DecodeFromNumber(parseInt(decryptemetadata)).split("~")
+                if (metadata[2] == RoomCode) {
+                    let verified = ""
+                    if (metadata[3] == null) { } else {
+                        // nobody other than system is verified yet cuz i've yet to crack accessing the serial number
+                        verified = "(Verified)"
+                    }
+                    WebChatMessages[WebChatMessages.length] = miniMenu.createMenuItem(metadata[1] + " " + verified)
+                    WebChatMessages.push(miniMenu.createMenuItem(decrypt(message[0], parseInt(RoomCode))))
+                    WebChatMessages.push(miniMenu.createMenuItem("Type here..."))
+                    if (WebChatMessages.length > 8) {
+                        WebChatMessages.shift();
+                    }
+                    ListMenuGUI.destroy()
+                    ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
+                    ListMenuGUI.setDimensions(160, 97)
+                    ListMenuGUI.setButtonEventsEnabled(false)
+                    ListMenuGUI.setPosition(80, 58)
+                    ListMenuGUI.selectedIndex = 7
+                    ListMenuGUI.z = -30
                 }
             }
         }
@@ -399,9 +409,7 @@ forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
     Start_Icon_Names()
-    if (App_Open == "Web Chat") {
-        processRadioQueue()
-    }
+    processRadioQueue()
     if (spriteutils.isDestroyed(RightClickMenu) == false) {
         if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
             if (Mouse_Cursor.y > RightClickMenu.y - 30 && Mouse_Cursor.y < RightClickMenu.y + 30) {
@@ -492,11 +500,12 @@ function Open_Web() {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(25, 4)
-    WebChatMessages = [miniMenu.createMenuItem("Cryptid (Verified)"),miniMenu.createMenuItem("Yo gng im verified"),miniMenu.createMenuItem("test345"),miniMenu.createMenuItem("test456"),miniMenu.createMenuItem("test567"),miniMenu.createMenuItem("test678"),miniMenu.createMenuItem("test789")]
+    WebChatMessages = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
     ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
-    ListMenuGUI.setDimensions(151, 86)
+    ListMenuGUI.setDimensions(160, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
-    ListMenuGUI.setPosition(76, 52)
+    ListMenuGUI.setPosition(80, 58)
+    ListMenuGUI.selectedIndex = 7
     ListMenuGUI.z = -30
 }
 
