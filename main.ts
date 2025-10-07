@@ -366,7 +366,7 @@ function MouseClick(button: number) {
                     WebChatMessages.shift();
                 } 
                 KeyboardVisible = false
-                radio.sendValue(encrypt(WEBmessage, parseInt(RoomCode)), EncodeToNumber(encrypt("~" + Username + "~" + RoomCode + "~" + null, parseInt(RoomCode))))
+                radio.sendValue(encrypt("WebChat", parseInt(RoomCode)), EncodeToNumber(encrypt(Username + "~" + RoomCode + "~" + null + WEBmessage, parseInt(RoomCode))))
             } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
                 KeyboardVisible = true
                 WEBmessage = game.askForString("Type your message here", 36)
@@ -384,25 +384,24 @@ function MouseClick(button: number) {
 radio.onReceivedValue(function (name: string, value: number) {
     RadioValueQueue.push([name, value])
     // name is the encrypted message
-    // value contains metadata which goes ~Username~RoomCode~SerialNumber
+    // value contains metadata which goes Username~RoomCode~SerialNumber~Message
 })
 
 function processRadioQueue() {
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
         for (let i = 0; i < RadioValueQueue.length; i++) {
             let message = RadioValueQueue.shift()
-            const text = message[1].toString().split("~")
             let decryptemetadata = decrypt(DecodeFromNumber(message[1]), parseInt(RoomCode))
-                if (decryptemetadata.charAt(0) == "~") {
+                if (decrypt(message[0], parseInt(RoomCode)) == "WebChat") {
                     const metadata = decryptemetadata.split("~")
-                if (metadata[2] == RoomCode) {
+                if (metadata[1] == RoomCode) {
                     let verified = ""
-                    if (metadata[3] == null) { } else {
+                    if (metadata[2] == null) { } else {
                         // nobody other than system is verified yet cuz i've yet to crack accessing the serial number
                         verified = "(Verified)"
                     }
-                    WebChatMessages[7] = miniMenu.createMenuItem(metadata[1] + " " + verified)
-                    WebChatMessages.push(miniMenu.createMenuItem(decrypt(text[0], parseInt(RoomCode))))
+                    WebChatMessages[7] = miniMenu.createMenuItem(metadata[0] + " " + verified)
+                    WebChatMessages.push(miniMenu.createMenuItem(metadata[3]))
                     WebChatMessages.push(miniMenu.createMenuItem(Temp))
                     while (WebChatMessages.length > 8) {
                         WebChatMessages.shift();
