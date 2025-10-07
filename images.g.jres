@@ -23,14 +23,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "App"
     },
-    "myImages.image3": {
-        "id": "myImages.image3",
-        "data": "hwQIAAgAAABmZmZmZm9vZmb2ZmZmb29mZmZmZhERHxHx8REf8REfHw==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "xCell"
-    },
     "myImages.image9": {
         "id": "myImages.image9",
         "data": "hwQFAAUAAADw/wAAHxEPAB8RDwAfEQ8A8P8AAA==",
@@ -182,5 +174,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "WebSend"
+    },
+    "myImages.image3": {
+        "id": "myImages.image3",
+        "data": "hwQIAAgAAABmZmZmZmFhZmYWZmZmYWFmZmZmZhERHxHx8REf8REfHw==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "xCell"
     }
 }
