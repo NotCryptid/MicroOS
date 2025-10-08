@@ -25,7 +25,7 @@ let WEBmessage = ""
 let KeyboardVisible = false
 let Write_icon: Sprite = null
 let Library_icon: Sprite = null
-let RadioValueQueue: [string, number][] = []
+let RadioValueQueue: string[] = []
 let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
@@ -366,9 +366,8 @@ function MouseClick(button: number) {
                     WebChatMessages.shift();
                 } 
                 KeyboardVisible = false
-                radio.sendValue(
+                radio.sendString(
                     encrypt("WebChat", Number(RoomCode)),
-                    EncodeToNumber(encrypt(Username + "~" + RoomCode + "~" + null + WEBmessage, Number(RoomCode)))
                 )
             } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
                 KeyboardVisible = true
@@ -384,33 +383,31 @@ function MouseClick(button: number) {
 
 // MARK: Radio
 
-radio.onReceivedValue(function (name: string, value: number) {
-    RadioValueQueue.push([name, value])
-    // name is the encrypted message
-    // value contains metadata which goes Username~RoomCode~SerialNumber~Message
+radio.onReceivedString(function (name: string) {
+    RadioValueQueue.push(name)
 })
 
 function processRadioQueue() {
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
         for (let i = 0; i < RadioValueQueue.length; i++) {
             let message = RadioValueQueue.shift()
-            let decryptemetadata = decrypt(DecodeFromNumber(message[1]).toString(), Number(RoomCode))
-                if (decrypt(message[0], Number(RoomCode)) == "WebChat") {
-                    const metadata = decryptemetadata.split("~")
-                if (metadata[1] == RoomCode) {
-                    let verified = ""
-                    if (metadata[2] == null) { } else {
-                        // nobody other than system is verified yet cuz i've yet to crack accessing the serial number
-                        verified = "(Verified)"
-                    }
-                    WebChatMessages[7] = miniMenu.createMenuItem(metadata[0] + " " + verified)
-                    WebChatMessages.push(miniMenu.createMenuItem(metadata[3]))
-                    WebChatMessages.push(miniMenu.createMenuItem(Temp))
-                    while (WebChatMessages.length > 8) {
-                        WebChatMessages.shift();
-                    } 
-                }
-            }
+            // let decryptemetadata = decrypt(DecodeFromNumber(message[1]).toString(), Number(RoomCode))
+            //     if (decrypt(message[0], Number(RoomCode)) == "WebChat") {
+            //         const metadata = decryptemetadata.split("~")
+            //     if (metadata[1] == RoomCode) {
+            //         let verified = ""
+            //         if (metadata[2] == null) { } else {
+            //             // nobody other than system is verified yet cuz i've yet to crack accessing the serial number
+            //             verified = "(Verified)"
+            //         }
+            //         WebChatMessages[7] = miniMenu.createMenuItem(metadata[0] + " " + verified)
+            //         WebChatMessages.push(miniMenu.createMenuItem(metadata[3]))
+            //         WebChatMessages.push(miniMenu.createMenuItem(Temp))
+            //         while (WebChatMessages.length > 8) {
+            //             WebChatMessages.shift();
+            //         } 
+            //     }
+            // }
         }
         ListMenuGUI.destroy()
         WebChatMessages[7] = miniMenu.createMenuItem(Temp)
@@ -1135,27 +1132,5 @@ function encrypt(string: string, key: number): string {
         output += String.fromCharCode(string.charCodeAt(i) ^ key);
     }
     return output;
-}
-
-function EncodeToNumber(string: string): number {
-    const letters = string.split('')
-    let result = ''
-    for (let i = 0; i < letters.length; i++) {
-        result = result + (CharacterMap.indexOf(letters[i]) + 100).toString().slice(1)
-    }
-    return Number(result)
-}
-
-function DecodeFromNumber(number: number): string {
-    const numbers = number.toString().split('')
-    for (let i = 0; i < numbers.length; i++) { 
-        numbers[i] = numbers[i] + numbers[i + 1]
-        numbers.splice(i + 1, 1);
-    }
-    let result = ''
-    for (let i = 0; i < numbers.length; i++) {
-        result = result + CharacterMap[Number(numbers[i])]
-    }
-    return result
 }
 // Encryption/Encoding ends here
