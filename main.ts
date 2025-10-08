@@ -1145,7 +1145,7 @@ function EncodeToNumber(string: string): number {
 
 function DecodeFromNumber(number: number): string {
     const numbers = number.toString().split('')
-    for (let i = 0; i < numbers.length / 2; i++) { 
+    for (let i = 0; i < numbers.length / 2 + 1; i++) { 
         numbers[i] = numbers[i] + numbers[i + 1]
         numbers.splice(i + 1, 1);
     }
