@@ -366,7 +366,10 @@ function MouseClick(button: number) {
                     WebChatMessages.shift();
                 } 
                 KeyboardVisible = false
-                radio.sendValue(encrypt("WebChat", parseInt(RoomCode)), EncodeToNumber(encrypt(Username + "~" + RoomCode + "~" + null + WEBmessage, parseInt(RoomCode))))
+                radio.sendValue(
+                    encrypt("WebChat", parseInt(RoomCode)),
+                    Number(EncodeToNumber(encrypt(Username + "~" + RoomCode + "~" + null + WEBmessage, parseInt(RoomCode))))
+                )
             } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
                 KeyboardVisible = true
                 WEBmessage = game.askForString("Type your message here", 36)
@@ -391,7 +394,7 @@ function processRadioQueue() {
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
         for (let i = 0; i < RadioValueQueue.length; i++) {
             let message = RadioValueQueue.shift()
-            let decryptemetadata = decrypt(DecodeFromNumber(message[1]), parseInt(RoomCode))
+            let decryptemetadata = decrypt(DecodeFromNumber(message[1] + ""), parseInt(RoomCode))
                 if (decrypt(message[0], parseInt(RoomCode)) == "WebChat") {
                     const metadata = decryptemetadata.split("~")
                 if (metadata[1] == RoomCode) {
@@ -1134,18 +1137,18 @@ function encrypt(string: string, key: number): string {
     return output;
 }
 
-function EncodeToNumber(string: string): number {
+function EncodeToNumber(string: string): string {
     const letters = string.split('')
     let result = ''
     for (let i = 0; i < letters.length; i++) {
         result = result + (CharacterMap.indexOf(letters[i]) + 100).toString().slice(1)
     }
-    return parseInt(result)
+    return result
 }
 
-function DecodeFromNumber(number: number): string {
-    const numbers = number.toString().split('')
-    for (let i = 0; i < numbers.length / 2 + 1; i++) { 
+function DecodeFromNumber(number: string): string {
+    const numbers = number.split('')
+    for (let i = 0; i < numbers.length; i++) { 
         numbers[i] = numbers[i] + numbers[i + 1]
         numbers.splice(i + 1, 1);
     }
