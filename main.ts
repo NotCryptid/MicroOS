@@ -29,7 +29,7 @@ let RadioValueQueue: [string, number][] = []
 let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
-let RoomCode = "123456789"
+let RoomCode = "12345678"
 let App_Title: TextSprite = null
 let WebChatSend: Sprite = null
 let Temp = ""
@@ -1029,7 +1029,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 ListMenuContents = AppSettings
                 SubMenu = "App Settings"
             } else if (selectedOption == 2) {
-                RoomCode = game.askForNumber("Enter new room code", 9).toString()
+                RoomCode = game.askForNumber("Enter new room code", 8).toString()
                 changeSettings(7)
             } else if (selectedOption == 3) {
                 WebChatMessages = []

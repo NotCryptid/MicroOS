@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-      "target": "ES2016",
-      "lib": ["ES2016", "DOM"],
+      "target": "ES2024",
+      "lib": ["ES2024", "DOM"],
       "noImplicitAny": true,
       "outDir": "built",
       "rootDir": "."
