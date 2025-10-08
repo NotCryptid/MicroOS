@@ -72,7 +72,7 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     blockSettings.writeString("Username", "User")
     blockSettings.writeString("RoomCode", RoomCode)
 } else {
-    radio.setGroup(113 + Number(Settings.charAt(4)))
+    radio.setGroup(113 + parseInt(Settings.charAt(4)))
     Username = blockSettings.readString("Username")
     RoomCode = blockSettings.readString("RoomCode")
 }
@@ -1105,7 +1105,7 @@ function changeSettings(selection: number) {
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
-    radio.setGroup(113 + Number(Settings.charAt(4)))
+    radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
 
 function createArrows() {
