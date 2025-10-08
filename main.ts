@@ -72,7 +72,7 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     blockSettings.writeString("Username", "User")
     blockSettings.writeString("RoomCode", RoomCode)
 } else {
-    radio.setGroup(113 + Number(Settings.charAt(4)))
+    radio.setGroup(113 + parseInt(Settings.charAt(4)))
     Username = blockSettings.readString("Username")
     RoomCode = blockSettings.readString("RoomCode")
 }
@@ -367,8 +367,8 @@ function MouseClick(button: number) {
                 } 
                 KeyboardVisible = false
                 radio.sendValue(
-                    encrypt("WebChat", Number(RoomCode)),
-                    EncodeToNumber(encrypt(Username + "~" + RoomCode + "~" + null + WEBmessage, Number(RoomCode)))
+                    encrypt("WebChat", parseInt(RoomCode)),
+                    EncodeToNumber(encrypt(Username + "~" + RoomCode + "~" + null + WEBmessage, parseInt(RoomCode)))
                 )
             } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
                 KeyboardVisible = true
@@ -394,8 +394,8 @@ function processRadioQueue() {
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
         for (let i = 0; i < RadioValueQueue.length; i++) {
             let message = RadioValueQueue.shift()
-            let decryptemetadata = decrypt(DecodeFromNumber(message[1]).toString(), Number(RoomCode))
-                if (decrypt(message[0], Number(RoomCode)) == "WebChat") {
+            let decryptemetadata = decrypt(DecodeFromNumber(message[1]), parseInt(RoomCode))
+                if (decrypt(message[0], parseInt(RoomCode)) == "WebChat") {
                     const metadata = decryptemetadata.split("~")
                 if (metadata[1] == RoomCode) {
                     let verified = ""
@@ -1108,7 +1108,7 @@ function changeSettings(selection: number) {
     ListMenuGUI.setDimensions(151, 97)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
-    radio.setGroup(113 + Number(Settings.charAt(4)))
+    radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
 
 function createArrows() {
@@ -1143,7 +1143,7 @@ function EncodeToNumber(string: string): number {
     for (let i = 0; i < letters.length; i++) {
         result = result + (CharacterMap.indexOf(letters[i]) + 100).toString().slice(1)
     }
-    return Number(result)
+    return parseInt(result)
 }
 
 function DecodeFromNumber(number: number): string {
@@ -1154,7 +1154,7 @@ function DecodeFromNumber(number: number): string {
     }
     let result = ''
     for (let i = 0; i < numbers.length; i++) {
-        result = result + CharacterMap[Number(numbers[i])]
+        result = result + CharacterMap[parseInt(numbers[i])]
     }
     return result
 }
