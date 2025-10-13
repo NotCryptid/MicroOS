@@ -806,11 +806,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         Open_FileManager("Details", FileAtSelection)
                     } else if (action == "rclick4") {
                         blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
-<<<<<<< Updated upstream
-                        // User_Files.removeAt(selectedOption - 1)
-=======
                         User_Files.splice(selectedOption - 1, 1)
->>>>>>> Stashed changes
                         blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         Open_FileManager("User")
                     }
