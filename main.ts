@@ -367,7 +367,7 @@ function MouseClick(button: number) {
                 } 
                 KeyboardVisible = false
                 radio.sendString(
-                    encrypt("WebChat", Number(RoomCode)),
+                    encrypt("WebChat", parseInt(RoomCode)),
                 )
             } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
                 KeyboardVisible = true
