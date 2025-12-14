@@ -8,4 +8,4 @@ pxt_modules/
 *.tgz
 .header.json
 .simstate.json
-built/binary.js
+built/
