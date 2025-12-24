@@ -749,11 +749,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
             const FileAtSelection = JSON.stringify(User_Files[selectedOption]).substr(JSON.stringify(User_Files[selectedOption]).indexOf('"') + 1,JSON.stringify(User_Files[selectedOption]).indexOf('"', JSON.stringify(User_Files[selectedOption]).indexOf('"') + 1));
-            if (FileAtSelection == "Home" && (action == "click" || action == "rclick0")) {
-                SubMenu = "Home"
-                Open_FileManager("Home")
-            } else if (FileAtSelection == null || FileAtSelection == "Home") {
-                if (action == "rclick") {
+            if (FileAtSelection == "Home" || FileAtSelection == null) {
+                if (FileAtSelection == "Home" && action == "click") {
+                    SubMenu = "Home"
+                    Open_FileManager("Home")
+                } else if (action == "rclick") {
                     current_rclick_menu = rclick_menu_files_empty
                     return
                 } else if (action === "rclick0") {
@@ -780,7 +780,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         Open_FileManager("User")
                     }
                 }    
-            } else {
+            } else if (FileAtSelection !== null) {
                 if (action !== "rclick") {
                     const FileOpened = FileAtSelection.split(".")
                     if (action == "click" || action == "rclick0") {
