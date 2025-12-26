@@ -61,7 +61,7 @@ const sillySpacingForListGUI = [10, 22, 34, 46, 58, 71, 83, 95];
 pause(300)
 let text2 = textsprite.create("> Void Kernel Micro", 0, 1)
 text2.setPosition(61, 6)
-let text3 = textsprite.create("> PXT Build 2.0.59", 0, 1)
+let text3 = textsprite.create("> PXT Build 2.0.63", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
 text = textsprite.create("> Loading MicroOS v0.0.5", 0, 1)
