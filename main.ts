@@ -759,7 +759,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     SubMenu = "Home"
                     Open_FileManager("Home")
                 } else if (action === "rclick0") {
-                    // work you dumbass
                     const newName = game.askForString("New file name", 15)
                     while (newName == null) {
                     }
@@ -794,10 +793,14 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             Open_NanoSDK_App(blockSettings.readString("file_app" + FileOpened[0]))
                         } else if (FileOpened[1] == "nsp") {
                             Open_NanoCode(blockSettings.readString("file_nsp" + FileOpened[0]))
+                        } else {
+                            softerror(109)
                         }
                            
                     } else if (action == "rclick1") {
                         const newName = game.askForString("Rename file", 15)
+                        while (newName == null) {
+                        }
                         if (blockSettings.readString("file_" + FileOpened[1] + newName) == null) {
                             blockSettings.writeString("file_" + FileOpened[1] + newName, blockSettings.readString("file_" + FileOpened[1] + FileOpened[0]))
                             blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
@@ -881,6 +884,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 ListMenuContents[2] = Current_Settings[2]
             } else if (selectedOption == 4) {
                 Username = game.askForString("Enter new username", 7)
+                if (Username == null || Username == "" || Username == " " || Username == "System") {
+                    softerror(204)
+                    return
+                }
                 blockSettings.writeString("Username", Username)
                 Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
                 ListMenuContents = [
