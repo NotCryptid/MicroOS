@@ -375,6 +375,14 @@ function MouseClick(button: number) {
                 WEBmessage = game.askForString("Type your message here", 36)
                 KeyboardVisible = false
                 Temp = WEBmessage
+                WebChatMessages[7] = miniMenu.createMenuItem(Temp)
+                ListMenuGUI.destroy()
+                ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
+                ListMenuGUI.setDimensions(160, 97)
+                ListMenuGUI.setButtonEventsEnabled(false)
+                ListMenuGUI.setPosition(80, 58)
+                ListMenuGUI.selectedIndex = 7
+                ListMenuGUI.z = -30
             }
         }
     }
