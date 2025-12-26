@@ -445,10 +445,15 @@ forever(function () {
                 RightClickMenu.selectedIndex = selectedIndex;
             }
         }
-    } else if (App_Open == "File Manager" || App_Open == "Settings") {
+    } else if (App_Open == "File Manager" || App_Open == "Settings" || App_Open == "Process Manager") {
         for (let i = 0; i < ListMenuContents.length; i++) {
-            if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152 && i < 8) {
-                ListMenuGUI.selectedIndex = i;
+            let maxX = App_Open == "Process Manager" ? 160 : 152;
+            if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < maxX && i < 8) {
+                if (ListMenuContents[i] && ListMenuContents[i].text !== "" && ListMenuContents[i].text !== " ") {
+                    if (App_Open == "Process Manager" && i == 0) {} else {
+                        ListMenuGUI.selectedIndex = i;
+                    }
+                }
                 break;
             } 
         }
@@ -641,6 +646,7 @@ function Open_ProcessManager() {
     App_Open = "Process Manager"
     SubMenu = "Home"
     List_Scroll = 0
+    ListMenuContents = Active_Processes
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
@@ -651,6 +657,7 @@ function Open_ProcessManager() {
     ListMenuGUI.setDimensions(160, 97)
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(80, 58)
+    ListMenuGUI.selectedIndex = 1
     ListMenuGUI.z = -30
 }
 function Open_NanoSDK_App (app_binary: string) {
