@@ -244,9 +244,10 @@ function MouseClick(button: number) {
         return
     } else if (spriteutils.isDestroyed(RightClickMenu) == false) {
         if (button == 1) {
+            let menuHalfHeight = current_rclick_menu.length * 6;
             if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
-                if (Mouse_Cursor.y > RightClickMenu.y - 30 && Mouse_Cursor.y < RightClickMenu.y + 30) {
-                    let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - 30)) / 12);
+                if (Mouse_Cursor.y > RightClickMenu.y - menuHalfHeight && Mouse_Cursor.y < RightClickMenu.y + menuHalfHeight) {
+                    let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - menuHalfHeight)) / 12);
                     listSelection(App_Open, menu_selection, SubMenu, "rclick" + selectedIndex, rclick_override);
                 }
             }
@@ -437,10 +438,10 @@ forever(function () {
     Start_Icon_Names()
     processRadioQueue()
     if (spriteutils.isDestroyed(RightClickMenu) == false) {
+        let menuHalfHeight = current_rclick_menu.length * 6;
         if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
-            if (Mouse_Cursor.y > RightClickMenu.y - 30 && Mouse_Cursor.y < RightClickMenu.y + 30) {
-                let optionHeight = 60 / current_rclick_menu.length;
-                let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - 30)) / optionHeight);
+            if (Mouse_Cursor.y > RightClickMenu.y - menuHalfHeight && Mouse_Cursor.y < RightClickMenu.y + menuHalfHeight) {
+                let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - menuHalfHeight)) / 12);
                 RightClickMenu.selectedIndex = selectedIndex;
             }
         }
@@ -748,14 +749,15 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
-            const FileAtSelection = JSON.stringify(User_Files[selectedOption]).substr(JSON.stringify(User_Files[selectedOption]).indexOf('"') + 1,JSON.stringify(User_Files[selectedOption]).indexOf('"', JSON.stringify(User_Files[selectedOption]).indexOf('"') + 1));
+            const fileIndex = selectedOption - 1;
+            const menuItem = fileIndex >= 0 && fileIndex < ListMenuContents.length 
+                ? ListMenuContents[fileIndex] 
+                : null;
+            const FileAtSelection = menuItem ? menuItem.text : null;
             if (FileAtSelection == "Home" || FileAtSelection == null) {
                 if (FileAtSelection == "Home" && action == "click") {
                     SubMenu = "Home"
                     Open_FileManager("Home")
-                } else if (action == "rclick") {
-                    current_rclick_menu = rclick_menu_files_empty
-                    return
                 } else if (action === "rclick0") {
                     // work you dumbass
                     const newName = game.askForString("New file name", 15)
