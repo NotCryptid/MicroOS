@@ -39,6 +39,7 @@ let Close_App: Sprite = null
 let CharacterMap = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.?!:;\"()~ ".split("");
 let ArrowUp: Sprite = null
 let ArrowDown: Sprite = null
+let scrollBar: Sprite = null
 let App_Open = "null"
 let clipboard = ""
 let List_Scroll = 0
@@ -703,6 +704,8 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
+    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.Desktop_UI)
+    scrollBar.setPosition(156, 57)
     App_Title = textsprite.create("File Manager", 0, 1)
     App_Title.setPosition(36, 4)
     if (SubMenu == "User") {
