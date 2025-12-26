@@ -54,7 +54,7 @@ let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMen
 let Current_Settings: miniMenu.MenuItem[] = []
 let WebChatMessages: miniMenu.MenuItem[] = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
 let SubMenu = ""
-const sillySpacingForListGUI = [10, 23, 36, 49, 62, 75, 88, 101, 114];
+const sillySpacingForListGUI = [10, 22, 34, 46, 58, 71, 83, 95];
 pause(300)
 let text2 = textsprite.create("> Void Kernel Micro", 0, 1)
 text2.setPosition(61, 6)
@@ -312,7 +312,7 @@ function MouseClick(button: number) {
         } else if (App_Open == "File Manager" || App_Open == "Settings") {
             let menu_selection = 0;
             for (let i = 0; i < 8; i++) {
-                if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
+                if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
                     menu_selection = i + 1;
                     if (button == 1 && ListMenuContents[menu_selection + List_Scroll - 1] != null) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
@@ -447,7 +447,7 @@ forever(function () {
         }
     } else if (App_Open == "File Manager" || App_Open == "Settings") {
         for (let i = 0; i < ListMenuContents.length; i++) {
-            if (Mouse_Cursor.y > sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152 && i < 8) {
+            if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152 && i < 8) {
                 ListMenuGUI.selectedIndex = i;
                 break;
             } 
@@ -621,6 +621,11 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     App_Title.setPosition(36, 4)
     if (SubMenu == "User") {
         ListMenuContents = User_Files
+    } else if (submenu == "Details") {
+        const splitFile = file.split(".")
+        const name = splitFile[0]
+        const extension = splitFile[1]
+        ListMenuContents = [miniMenu.createMenuItem("Name: " + name), miniMenu.createMenuItem("Type: " + extension + " file"), miniMenu.createMenuItem("Size: placeholder"), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem("Back")]
     } else {
         ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
     }
@@ -747,6 +752,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 softerror(107)
             } 
             
+        } else if (submenu == "Details") { 
+            if (action == "click" && selectedOption == 8) {
+                // good enough for now, might add details menu for system files later
+                SubMenu = "User"
+                Open_FileManager("User")
+            }
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
             const fileIndex = selectedOption - 1;
@@ -760,10 +771,14 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     Open_FileManager("Home")
                 } else if (action === "rclick0") {
                     const newName = game.askForString("New file name", 15)
-                    while (newName == null) {
+                    if (newName == null || newName == "" || newName == "Home") {
+                        softerror(110)
+                        return
                     }
                     const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
-                    while (fileType == null) {
+                    if (fileType == null || fileType == "") {
+                        softerror(111)
+                        return
                     }
                     blockSettings.writeString("file_" + fileType + newName, "~")
                     User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
@@ -799,11 +814,18 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                            
                     } else if (action == "rclick1") {
                         const newName = game.askForString("Rename file", 15)
-                        while (newName == null) {
+                        if (newName == null || newName == "" || newName == "Home") {
+                            softerror(110)
+                            return
                         }
                         if (blockSettings.readString("file_" + FileOpened[1] + newName) == null) {
                             blockSettings.writeString("file_" + FileOpened[1] + newName, blockSettings.readString("file_" + FileOpened[1] + FileOpened[0]))
                             blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
+                            User_Files[fileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
+                            blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                            Open_FileManager("User")
+                        } else {
+                            softerror(110)
                         }
                     } else if (action == "rclick2") {
                         clipboard = "file_" + FileOpened[1] + FileOpened[0]
