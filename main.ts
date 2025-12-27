@@ -872,7 +872,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         return
                     }
                     const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
-                    if (fileType == null || fileType == "") {
+                    if (fileType == null || fileType == "" || fileType.length < 3) {
                         softerror(111)
                         return
                     }
@@ -881,12 +881,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                     Open_FileManager("User")
                 } else if (action === "rclick1") {
-                    if (clipboard == "") {
+                    if (clipboard == "" || clipboard == null) {
 
                     } else {
                         const FileOpened = clipboard.split(".")
                         blockSettings.writeString("file_" + FileOpened[1] + "Copy of " + FileOpened[0], blockSettings.readString(clipboard))
-                        User_Files.push(miniMenu.createMenuItem("Copy of " + clipboard))
+                        User_Files.push(miniMenu.createMenuItem("Copy of " + FileOpened[0] + "." + FileOpened[1]))
                         blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         clipboard = null
                         Open_FileManager("User")
