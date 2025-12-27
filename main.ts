@@ -40,6 +40,7 @@ let CharacterMap = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX
 let ArrowUp: Sprite = null
 let ArrowDown: Sprite = null
 let scrollBar: Sprite = null
+let scrollBarRond: Sprite = null
 let App_Open = "null"
 let clipboard = ""
 let List_Scroll = 0
@@ -710,6 +711,8 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     Close_App.setPosition(156, 5)
     scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
     scrollBar.setPosition(156, 57)
+    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
+    scrollBarRond.setPosition(156, 96)
     App_Title = textsprite.create("File Manager", 0, 1)
     App_Title.setPosition(36, 4)
     if (SubMenu == "User") {
@@ -1257,10 +1260,11 @@ function updateScrollBar() {
     if (totalItems <= 8) {
         scaling.scaleToPixels(scrollBar, 78, ScaleDirection.Vertically, ScaleAnchor.Middle);
         scrollBar.y = 57;
+        scrollBarRond.y = 96;
     } else {
         let scrollBarHeight = Math.floor((8 / totalItems) * 78);
-        scrollBarHeight = Math.max(scrollBarHeight, 12);
-        scaling.scaleToPixels(scrollBar, scrollBarHeight, ScaleDirection.Vertically, ScaleAnchor.Middle);
+        scrollBarHeight = Math.max(scrollBarHeight, 6);
+        scaling.scaleToPixels(scrollBar, scrollBarHeight - 1, ScaleDirection.Vertically, ScaleAnchor.Middle);
 
         let trackTop = 19;
         let trackBottom = 93;
@@ -1271,7 +1275,8 @@ function updateScrollBar() {
         let maxScroll = totalItems - 8;
         let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
         
-        scrollBar.y = trackTop + Math.floor(scrollBarHeight / 2) + Math.floor(scrollProgress * travelDistance);
+        scrollBar.y = trackTop + Math.floor(scrollBarHeight / 2) + Math.floor(scrollProgress * travelDistance) - 1;
+        scrollBarRond.y = scrollBar.y + Math.floor(scrollBarHeight / 2);
     }
 }
 // App functions end here
