@@ -2,25 +2,8 @@
 namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
-        switch(helpers.stringTrim(name)) {
-            case "myTiles.transparency16":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`;
+        switch (helpers.stringTrim(name)) {
+            
         }
         return null;
     })
@@ -48,9 +31,7 @@ namespace myTiles {
     export const transparency16 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tile", function(name: string) {
-        switch(helpers.stringTrim(name)) {
-            case "transparency16":return myTiles.transparency16;
-        }
+        
         return null;
     })
 
