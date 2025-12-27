@@ -884,9 +884,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     if (clipboard == "" || clipboard == null) {
 
                     } else {
-                        const FileOpened = clipboard.split(".")
-                        blockSettings.writeString("file_" + FileOpened[1] + "Copy of " + FileOpened[0], blockSettings.readString(clipboard))
-                        User_Files.push(miniMenu.createMenuItem("Copy of " + FileOpened[0] + "." + FileOpened[1]))
+                        const FileOpened = clipboard.split("_")
+                        FileOpened[2] = FileOpened[1].substr(0, 3)
+                        FileOpened[1] = FileOpened[1].substr(3)
+                        blockSettings.writeString("file_" + FileOpened[2] + "Copy of " + FileOpened[1], blockSettings.readString(clipboard))
+                        User_Files.push(miniMenu.createMenuItem("Copy of " + FileOpened[1] + "." + FileOpened[2]))
                         blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         clipboard = null
                         Open_FileManager("User")
