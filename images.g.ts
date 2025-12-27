@@ -1257,7 +1257,6 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 `;
             case "image24":
             case "scrollBar":return img`
-.99999.
 9999999
 9999999
 9999999
@@ -1334,7 +1333,8 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 9999999
 9999999
 9999999
-.99999.
+9999999
+9999999
 `;
         }
         return null;

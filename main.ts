@@ -295,6 +295,7 @@ function MouseClick(button: number) {
                         ListMenuGUI.setButtonEventsEnabled(false);
                         ListMenuGUI.setPosition(76, 58);
                         ListMenuGUI.z = -30;
+                        updateScrollBar();
                     }
                 }
             } else if (Mouse_Cursor.overlapsWith(ArrowUp)) {
@@ -309,6 +310,7 @@ function MouseClick(button: number) {
                         ListMenuGUI.setButtonEventsEnabled(false);
                         ListMenuGUI.setPosition(76, 58);
                         ListMenuGUI.z = -30;
+                        updateScrollBar();
                     }
                 }
             }
@@ -700,16 +702,17 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     App_Open = "File Manager"
     SubMenu = submenu
     List_Scroll = 0
+    ListMenuGUIHidden = []
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.Desktop_UI)
+    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
     scrollBar.setPosition(156, 57)
     App_Title = textsprite.create("File Manager", 0, 1)
     App_Title.setPosition(36, 4)
     if (SubMenu == "User") {
-        ListMenuContents = User_Files
+        ListMenuContents = User_Files.slice()
     } else if (submenu == "Details") {
         const splitFile = file.split(".")
         const name = splitFile[0]
@@ -724,6 +727,7 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
     createArrows()
+    updateScrollBar()
 }
 function Open_ProcessManager() {
     close_apps()
@@ -937,14 +941,16 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         } else if (submenu == "Home") {
             if (action == "click" || action == "rclick0") {
                 ListMenuGUI.close()
+                ListMenuGUIHidden = []
+                List_Scroll = 0
                 if (selectedOption == 1) {
                     SubMenu = "System"
-                    ListMenuContents = System_Files
-                    ListMenuGUI = miniMenu.createMenuFromArray(System_Files)
+                    ListMenuContents = System_Files.slice()
+                    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
                 } else if (selectedOption == 2) {
                     SubMenu = "User"
-                    ListMenuContents = User_Files
-                    ListMenuGUI = miniMenu.createMenuFromArray(User_Files)
+                    ListMenuContents = User_Files.slice()
+                    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
             } 
             } else {
                 softerror(107)
@@ -953,6 +959,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             ListMenuGUI.setDimensions(151, 97)
             ListMenuGUI.setPosition(76, 58)
             ListMenuGUI.z = -30
+            updateScrollBar()
         }
     } else if (app == "Settings") {
         if (submenu == "Home") {
@@ -1235,6 +1242,34 @@ function createArrows() {
     ArrowUp.setPosition(156, 14)
     ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
     ArrowDown.setPosition(156, 101)
+}
+
+function updateScrollBar() {
+    if (App_Open !== "File Manager" || spriteutils.isDestroyed(scrollBar)) {
+        return;
+    }
+
+    let totalItems = ListMenuContents.length + ListMenuGUIHidden.length;
+    
+    if (totalItems <= 8) {
+        scaling.scaleToPixels(scrollBar, 78, ScaleDirection.Vertically, ScaleAnchor.Middle);
+        scrollBar.y = 57;
+    } else {
+        let scrollBarHeight = Math.floor((8 / totalItems) * 78);
+        scrollBarHeight = Math.max(scrollBarHeight, 12);
+        scaling.scaleToPixels(scrollBar, scrollBarHeight, ScaleDirection.Vertically, ScaleAnchor.Middle);
+
+        let trackTop = 19;
+        let trackBottom = 93;
+        let trackHeight = trackBottom - trackTop;
+
+        let travelDistance = trackHeight - scrollBarHeight;
+        
+        let maxScroll = totalItems - 8;
+        let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
+        
+        scrollBar.y = trackTop + Math.floor(scrollBarHeight / 2) + Math.floor(scrollProgress * travelDistance);
+    }
 }
 // App functions end here
 
