@@ -873,7 +873,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     }
                     const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
                     if (fileType == null || fileType == "") {
-                        softerror(110)
+                        softerror(111)
                         return
                     }
                     blockSettings.writeString("file_" + fileType + newName, "~")
