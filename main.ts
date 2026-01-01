@@ -1089,14 +1089,35 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 ListMenuContents = SystemSettings
                 SubMenu = "System"
             } else if (selectedOption == 2) {
-                User_Files = [miniMenu.createMenuItem("home")]
+                for (let i = 0; i < User_Files.length; i++) {
+                    if (User_Files[i].text !== "Home") {
+                        const fileParts = User_Files[i].text.split(".")
+                        if (fileParts.length === 2) {
+                            blockSettings.writeString("file_" + fileParts[1] + fileParts[0], null)
+                        }
+                    }
+                }
+                User_Files = [miniMenu.createMenuItem("Home")]
+                blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
             } else if (selectedOption == 3) {
-                Settings = "100010"
+                Settings = "1000100"
+                blockSettings.writeString("settings", Settings)
                 game.reset()
             } else if (selectedOption == 4) {
-                User_Files = [miniMenu.createMenuItem("home")]
-                Settings = "100010"
-                blockSettings.writeString("Settings", Settings)
+                for (let i = 0; i < User_Files.length; i++) {
+                    if (User_Files[i].text !== "Home") {
+                        const fileParts = User_Files[i].text.split(".")
+                        if (fileParts.length === 2) {
+                            blockSettings.writeString("file_" + fileParts[1] + fileParts[0], null)
+                        }
+                    }
+                }
+                User_Files = [miniMenu.createMenuItem("Home")]
+                blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                Settings = "1000100"
+                blockSettings.writeString("settings", Settings)
+                blockSettings.writeString("Username", "User")
+                blockSettings.writeString("RoomCode", "12345678")
                 game.reset()
             }
         } else if (submenu == "System Information") {
