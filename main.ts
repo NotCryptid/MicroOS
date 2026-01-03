@@ -410,7 +410,6 @@ function processRadioQueue() {
         while (RadioValueQueue.length > 0) {
             let message = RadioValueQueue.shift()
             if (message) {
-                // Message format: "username|message"
                 let parts = message.split("|")
                 if (parts.length >= 2) {
                     let senderName = parts[0]
