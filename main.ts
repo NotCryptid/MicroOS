@@ -83,7 +83,7 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
     miniMenu.createMenuItem(["Keyboard - Jacdac", "Keyboard - OnScreen", "Keyboard - Jacdac"][parseInt(Settings.charAt(1), 10) + 1]),
-    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Jacdac","Mouse - D-Pad"][parseInt(Settings.charAt(2), 10) + 1]),
+    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Jacdac","Mouse - D-Pad"][parseInt(Settings.charAt(2), 10)]),
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
