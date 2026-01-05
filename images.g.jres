@@ -183,14 +183,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "xCell"
     },
-    "myImages.image25": {
-        "id": "myImages.image25",
-        "data": "hwQHAAEAAAAAAAAACQAAAAkAAAAJAAAACQAAAAkAAAAAAAAA",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "scrollBar2"
-    },
     "myImages.image24": {
         "id": "myImages.image24",
         "data": "hwQHAE4AAACQmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQkAmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZAJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQCZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZkAmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZAJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQCQmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQkA",
@@ -198,5 +190,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "scrollBar"
+    },
+    "myImages.image25": {
+        "id": "myImages.image25",
+        "data": "hwQHAAMAAACZAAAAmQkAAJkJAACZCQAAmQkAAJkJAACZAAAA",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "scrollBar2"
     }
 }

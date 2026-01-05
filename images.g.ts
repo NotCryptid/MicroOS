@@ -1255,10 +1255,6 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 6 6 6 6 6 1 f f 
 6 6 6 6 6 1 1 1 
 `;
-            case "image25":
-            case "scrollBar2":return img`
-. 9 9 9 9 9 . 
-`;
             case "image24":
             case "scrollBar":return img`
 .99999.
@@ -1339,6 +1335,12 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 9999999
 9999999
 .99999.
+`;
+            case "image25":
+            case "scrollBar2":return img`
+9 9 9 9 9 9 9 
+9 9 9 9 9 9 9 
+. 9 9 9 9 9 . 
 `;
         }
         return null;
