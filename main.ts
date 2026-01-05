@@ -1282,7 +1282,7 @@ function updateScrollBar() {
         scrollBar.y = 57;
         scrollBarRond.y = 94;
     } else {
-        let scrollBarHeight = Math.floor((8 / totalItems) * 78);
+        let scrollBarHeight = Math.ceil((8 / totalItems) * 78);
         scrollBarHeight = Math.max(scrollBarHeight, 6);
         scaling.scaleToPixels(scrollBar, scrollBarHeight - 1, ScaleDirection.Vertically, ScaleAnchor.Middle);
 
@@ -1295,8 +1295,8 @@ function updateScrollBar() {
         let maxScroll = totalItems - 8;
         let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
         
-        scrollBar.y = trackTop + Math.floor(scrollBarHeight / 2) + Math.floor(scrollProgress * travelDistance) - 1;
-        scrollBarRond.y = scrollBar.y + Math.floor(scrollBarHeight / 2) - 2;
+        scrollBar.y = trackTop + Math.ceil(scrollBarHeight / 2) + Math.ceil(scrollProgress * travelDistance) - 1;
+        scrollBarRond.y = scrollBar.y + Math.ceil(scrollBarHeight / 2) - 2;
     }
 }
 // App functions end here
