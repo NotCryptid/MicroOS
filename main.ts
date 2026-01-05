@@ -818,7 +818,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
     if (app == "File Manager") {
         if (action == "rclick") {
             rclick_override = selectedOption
-            if (ListMenuContents[selectedOption - 1] == null || ListMenuContents[selectedOption - 1].text == "Home") {
+            if (ListMenuContents[selection - 1] == null || ListMenuContents[selection - 1].text == "Home") {
                 current_rclick_menu = rclick_menu_files_empty
             } else {
                 current_rclick_menu = rclick_menu_files
