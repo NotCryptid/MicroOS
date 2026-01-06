@@ -286,7 +286,7 @@ function MouseClick(button: number) {
             Open_Library()
         } else if (button == 1 && App_Open == "File Manager" && Mouse_Cursor.x > 151) {
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
-                if (List_Scroll <= ListMenuContents.length - 7 && ListMenuContents.length > 0) {
+                if (ListMenuContents.length > 7 && ListMenuContents.length > 0) {
                     let item = ListMenuContents.shift();
                     if (item !== undefined) {
                         ListMenuGUIHidden.push(item);
@@ -710,8 +710,10 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     Close_App.setPosition(156, 5)
     scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
     scrollBar.setPosition(156, 57)
+    scrollBar.z = -2
     scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
     scrollBarRond.setPosition(156, 96)
+    scrollBar.z = -1
     App_Title = textsprite.create("File Manager", 0, 1)
     App_Title.setPosition(36, 4)
     if (SubMenu == "User") {
@@ -1296,7 +1298,7 @@ function updateScrollBar() {
         let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
         
         scrollBar.y = trackTop + Math.ceil(scrollBarHeight / 2) + Math.ceil(scrollProgress * travelDistance) - 1;
-        scrollBarRond.y = scrollBar.y + Math.ceil(scrollBarHeight / 2) - 2;
+        scrollBarRond.y = Math.min(scrollBar.y + Math.floor(scrollBarHeight / 2) - 2, trackBottom + 2);
     }
 }
 // App functions end here

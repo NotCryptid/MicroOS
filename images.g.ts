@@ -1340,7 +1340,7 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
             case "scrollBar2":return img`
 9 9 9 9 9 9 9 
 9 9 9 9 9 9 9 
-. 9 9 9 9 9 . 
+1 9 9 9 9 9 1 
 `;
         }
         return null;
