@@ -8,7 +8,7 @@ namespace SpriteKind {
 
 // VM Stuff
 let isVM = false
-if (browserEvents.currentTime() == -1){} else {
+if (browserEvents.currentTime() > -1) {
     isVM = true
 }
 
