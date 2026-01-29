@@ -280,7 +280,7 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
             Open_FileManager("Home", null)
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
-            Open_NanoSDK_App("test~default~test~16~105§test~202§inf~201§b§a§t~106§test~201§e~202§e")
+            Open_NanoSDK_App("test~default~test~16~105§test~202§inf~201§b§u§t~106§test~201§e~202§e")
             // Open_NanoCode(null)
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
             Open_ProcessManager()
@@ -785,17 +785,17 @@ function Open_NanoSDK_App(app_binary: string) {
     let loop_repeats_left = [""]
     let loop_line = [0]
 
-    // Example compiled app for later: test~default~test~16~105§test~202§inf~201§b§a§t~106§test~201§e~202§e
+    // Example compiled app for later: test~default~test~16~105§test~202§inf~201§b§u§t~106§test~201§e~202§e
 
     // Runtime
     while (NanoSDK_App_Running) {
         // Split up command
-        command_data = binary[line + 1].split("§")
+        command_data = binary[line - 1].split("§")
         current_command = command_data[0].split("")
         command_category = current_command[0]
         current_command = current_command[1] + current_command[2]
 
-        if (line > binary.length - 1 && when_checks.length == 0) {
+        if (line > binary.length && when_checks.length == 0) {
             // Quit if out of code to run
             close_apps()
         } else {
@@ -945,6 +945,7 @@ function Open_NanoSDK_App(app_binary: string) {
                     } else if (current_command == "02") {
                         // Loop
                         if (command_data[1] == "e") {
+                            pause(1)
                             if (loop_repeats_left[loop_repeats_left.length - 1] == "inf") {
                                 line = loop_line[loop_repeats_left.length - 1]
                             } else if (loop_repeats_left[loop_repeats_left.length - 1] !== "0") {
