@@ -937,7 +937,7 @@ function Open_NanoSDK_App(app_binary: string) {
                                 loop_repeats_left.pop()
                             }
                         } else {
-                            loop_repeats_left.push(command_data[2])
+                            loop_repeats_left.push(command_data[1])
                             loop_line.push(line)
                         }
                     }
