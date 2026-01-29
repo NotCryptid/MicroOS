@@ -280,7 +280,8 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
             Open_FileManager("Home", null)
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
-            Open_NanoCode(null)
+            Open_NanoSDK_App("test~default~test~16~105§test~202§inf~201§b§a§t~106§test~201§e~202§e")
+            // Open_NanoCode(null)
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
             Open_ProcessManager()
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
@@ -784,6 +785,8 @@ function Open_NanoSDK_App(app_binary: string) {
     let loop_repeats_left = [""]
     let loop_line = [0]
 
+    // Example compiled app for later: test~default~test~16~105§test~202§inf~201§b§a§t~106§test~201§e~202§e
+
     // Runtime
     while (NanoSDK_App_Running) {
         // Split up command
@@ -815,12 +818,12 @@ function Open_NanoSDK_App(app_binary: string) {
                 case "1":
                     if (current_command == "05") {
                         // Print
-                        game.splash(command_data)
+                        game.splash(command_data[1])
                     } else if (current_command == "06") {
                         // End
                         close_apps()
                         if (command_data !== null) {
-                            game.splash(command_data)
+                            game.splash(command_data[1])
                         }
                     } else {
                         error(301)
@@ -868,53 +871,56 @@ function Open_NanoSDK_App(app_binary: string) {
                             // If Button
                             case "b":
                                 let button_down = false
-                                switch (command_data[3]) {
+                                switch (command_data[2]) {
                                     case "a":
-                                        if (controller.A.isPressed) {
+                                        if (controller.A.isPressed()) {
                                             button_down = true
                                         }
 
                                     case "b":
-                                        if (controller.B.isPressed) {
+                                        if (controller.B.isPressed()) {
                                             button_down = true
                                         }
 
                                     case "u":
-                                        if (controller.up.isPressed) {
+                                        if (controller.up.isPressed()) {
                                             button_down = true
                                         }
 
                                     case "d":
-                                        if (controller.down.isPressed) {
+                                        if (controller.down.isPressed()) {
                                             button_down = true
                                         }
 
                                     case "l":
-                                        if (controller.left.isPressed) {
+                                        if (controller.left.isPressed()) {
                                             button_down = true
                                         }
 
                                     case "r":
-                                        if (controller.right.isPressed) {
+                                        if (controller.right.isPressed()) {
                                             button_down = true
                                         }
                                 }
 
-                                if (command_data[2] == "t") {
+                                if (command_data[3] == "t") {
                                     if (button_down) {
                                         condition_met[condition_met.length] = "true"
                                     }
-                                } else if (command_data[2] == "f") {
+                                } else if (command_data[3] == "f") {
                                     if (button_down) { } else {
                                         condition_met[condition_met.length] = "true"
                                     }
                                 } else {
                                     error(301)
                                 }
+
+                            case "e":
+                                condition_met.pop()
                         }
                     } else if (current_command == "02") {
                         // Loop
-                        if (command_data[1] == "end") {
+                        if (command_data[1] == "e") {
                             if (loop_repeats_left[loop_repeats_left.length - 1] == "inf") {
                                 line == loop_line[loop_repeats_left.length - 1]
                             } else if (loop_repeats_left[loop_repeats_left.length - 1] !== "0") {
