@@ -280,7 +280,7 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
             Open_FileManager("Home", null)
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
-            Open_NanoSDK_App("test~default~test~16~105§test~202§inf~201§b§u§t~106§test~201§e~202§e")
+            Open_NanoSDK_App("test~default~test~12~105§test~202§inf~201§b§u§t~106§test~201§e~202§e")
             // Open_NanoCode(null)
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
             Open_ProcessManager()
@@ -785,7 +785,7 @@ function Open_NanoSDK_App(app_binary: string) {
     let loop_repeats_left = [""]
     let loop_line = [0]
 
-    // Example compiled app for later: test~default~test~16~105§test~202§inf~201§b§u§t~106§test~201§e~202§e
+    // Example compiled app for later: test~default~test~12~105§test~202§inf~201§b§u§t~106§test~201§e~202§e
 
     // Runtime
     while (NanoSDK_App_Running) {
@@ -795,10 +795,7 @@ function Open_NanoSDK_App(app_binary: string) {
         command_category = current_command[0]
         current_command = current_command[1] + current_command[2]
 
-        if (line > binary.length && when_checks.length == 0) {
-            // Quit if out of code to run
-            close_apps()
-        } else {
+        if (line > binary.length && when_checks.length == 0) {} else {
             // Set next line to run
             line++
         }
