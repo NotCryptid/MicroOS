@@ -781,8 +781,8 @@ function Open_NanoSDK_App(app_binary: string) {
     let variables = {}
     let condition_met = ["null"]
     let when_checks = []
-    let loop_repeats_left = []
-    let loop_line = []
+    let loop_repeats_left = [""]
+    let loop_line = [0]
 
     // Runtime
     while (NanoSDK_App_Running) {
@@ -914,7 +914,20 @@ function Open_NanoSDK_App(app_binary: string) {
                         }
                     } else if (current_command == "02") {
                         // Loop
-
+                        if (command_data[1] == "end") {
+                            if (loop_repeats_left[loop_repeats_left.length - 1] == "inf") {
+                                line == loop_line[loop_repeats_left.length - 1]
+                            } else if (loop_repeats_left[loop_repeats_left.length - 1] !== "0") {
+                                line == loop_line[loop_repeats_left.length - 1]
+                                loop_repeats_left[loop_repeats_left.length - 1] = (parseInt(loop_repeats_left[loop_repeats_left.length - 1]) - 1).toString()
+                            } else {
+                                loop_line.pop()
+                                loop_repeats_left.pop()
+                            }
+                        } else {
+                            loop_repeats_left.push(command_data[2])
+                            loop_line.push(line - 1)
+                        }
                     }
             }
         }
