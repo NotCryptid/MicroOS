@@ -828,45 +828,53 @@ function Open_NanoSDK_App(app_binary: string) {
                     } else {
                         error(301)
                     }
+                    break
 
                 // Basic Logic
                 case "2":
                     if (current_command == "01") {
                         // If Bracket
-                        condition_met[condition_met.length] = "false"
+                        condition_met.push("false")
                         switch (command_data[1]) {
                             // If Variable
                             case "v":
                                 switch (command_data[3]) {
                                     case "=":
                                         if (command_data[2] == command_data[4]) {
-                                            condition_met[condition_met.length] = "true"
+                                            condition_met[condition_met.length - 1] = "true"
                                         }
+                                        break
 
                                     case ">":
                                         if (command_data[2] > command_data[4]) {
-                                            condition_met[condition_met.length] = "true"
+                                            condition_met[condition_met.length - 1] = "true"
                                         }
+                                        break
 
                                     case "<":
                                         if (command_data[2] < command_data[4]) {
-                                            condition_met[condition_met.length] = "true"
+                                            condition_met[condition_met.length - 1] = "true"
                                         }
+                                        break
 
                                     case "≥":
                                         if (command_data[2] >= command_data[4]) {
-                                            condition_met[condition_met.length] = "true"
+                                            condition_met[condition_met.length - 1] = "true"
                                         }
+                                        break
 
                                     case "≤":
                                         if (command_data[2] <= command_data[4]) {
-                                            condition_met[condition_met.length] = "true"
+                                            condition_met[condition_met.length - 1] = "true"
                                         }
+                                        break
                                 }
+                                break
 
                             // If Sprite
                             case "s":
                                 // I'll do this later
+                                break
                                 
                             // If Button
                             case "b":
@@ -876,61 +884,71 @@ function Open_NanoSDK_App(app_binary: string) {
                                         if (controller.A.isPressed()) {
                                             button_down = true
                                         }
+                                        break
 
                                     case "b":
                                         if (controller.B.isPressed()) {
                                             button_down = true
                                         }
+                                        break
 
                                     case "u":
                                         if (controller.up.isPressed()) {
                                             button_down = true
                                         }
+                                        break
 
                                     case "d":
                                         if (controller.down.isPressed()) {
                                             button_down = true
                                         }
+                                        break
 
                                     case "l":
                                         if (controller.left.isPressed()) {
                                             button_down = true
                                         }
+                                        break
 
                                     case "r":
                                         if (controller.right.isPressed()) {
                                             button_down = true
                                         }
+                                        break
 
                                     default:
                                         error(302)
+                                        break
                                 }
 
                                 if (command_data[3] == "t") {
                                     if (button_down) {
-                                        condition_met[condition_met.length] = "true"
+                                        condition_met[condition_met.length - 1] = "true"
                                     }
                                 } else if (command_data[3] == "f") {
-                                    if (button_down) { } else {
-                                        condition_met[condition_met.length] = "true"
+                                    if (!button_down) {
+                                        condition_met[condition_met.length - 1] = "true"
                                     }
                                 } else {
                                     error(302)
                                 }
+                                break
 
                             case "e":
                                 condition_met.pop()
+                                break
 
                             default:
                                 error(301)
+                                break
                         }
                     } else if (current_command == "02") {
                         // Loop
                         if (command_data[1] == "e") {
                             if (loop_repeats_left[loop_repeats_left.length - 1] == "inf") {
-                                line == loop_line[loop_repeats_left.length - 1]
+                                line = loop_line[loop_repeats_left.length - 1]
                             } else if (loop_repeats_left[loop_repeats_left.length - 1] !== "0") {
-                                line == loop_line[loop_repeats_left.length - 1]
+                                line = loop_line[loop_repeats_left.length - 1]
                                 loop_repeats_left[loop_repeats_left.length - 1] = (parseInt(loop_repeats_left[loop_repeats_left.length - 1]) - 1).toString()
                             } else {
                                 loop_line.pop()
@@ -941,6 +959,7 @@ function Open_NanoSDK_App(app_binary: string) {
                             loop_line.push(line)
                         }
                     }
+                    break
             }
         }
     }
