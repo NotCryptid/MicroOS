@@ -915,7 +915,7 @@ function Open_NanoSDK_App(app_binary: string) {
 
                     }
             }
-        }    
+        }
     }
 }
 
