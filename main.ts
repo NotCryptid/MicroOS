@@ -781,6 +781,8 @@ function Open_NanoSDK_App(app_binary: string) {
     let variables = {}
     let condition_met = ["null"]
     let when_checks = []
+    let loop_repeats_left = []
+    let loop_line = []
 
     // Runtime
     while (NanoSDK_App_Running) {
