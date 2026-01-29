@@ -760,7 +760,7 @@ function Open_ProcessManager() {
 // MARK: NanoSDK Runtime
 
 function Open_NanoSDK_App(app_binary: string) {
-    // prepare app
+    // Prepare app
     const binary = app_binary.split("~")
     close_apps()
     NanoSDK_App_Running = true
@@ -773,36 +773,36 @@ function Open_NanoSDK_App(app_binary: string) {
     App_Title = textsprite.create(binary[0], 0, 1)
     App_Title.setPosition(parseInt(binary[3]), 4)
 
-    // variable definitions and shit
+    // Variable definitions and shit
     let command_data = null
     let current_command = null
     let command_category = null
-    let line = 5 // line 5 cuz the first 4 have already ran during app preparation
+    let line = 5 // Line 5 cuz the first 4 have already ran during app preparation
     let variables = {}
     let condition_met = ["null"]
     let when_checks = []
 
-    // runtime
+    // Runtime
     while (NanoSDK_App_Running) {
-        // split up command
+        // Split up command
         command_data = binary[line + 1].split("§")
         current_command = command_data[0].split("")
         command_category = current_command[0]
         current_command = current_command[1] + current_command[2]
 
-        // set next line to run
+        // Set next line to run
         line++
 
-        // check for if bracket end
+        // Check for if bracket end
         if (command_category == "2" && command_data[1] == "e") {
             condition_met.pop()
         }
 
-        // check if bracket conditions met
+        // Check if bracket conditions met
         if (condition_met[condition_met.length - 1] == "false") {
-            // skip if condition not met
+            // Skip if condition not met
         } else {
-            // continue if conditions met
+            // Continue if conditions met
             switch (command_category) {
                 // Basic Commands
                 case "1":
