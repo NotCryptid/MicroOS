@@ -33,6 +33,7 @@ let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
 let RoomCode = "12345678"
 let App_Title: TextSprite = null
+let NanoSDK_App_Running = false
 let WebChatSend: Sprite = null
 let Temp = ""
 let Close_App: Sprite = null
@@ -754,16 +755,43 @@ function Open_ProcessManager() {
     ListMenuGUI.z = -30
 }
 function Open_NanoSDK_App (app_binary: string) {
-    const compiled_app = app_binary.split("~")
+    const binary = app_binary.split("~")
     close_apps()
-    App_Open = compiled_app[0]
-    SubMenu = compiled_app[2]
+    NanoSDK_App_Running = true
+    App_Open = binary[0]
+    SubMenu = binary[2]
     scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    App_Title = textsprite.create(compiled_app[0], 0, 1)
-    App_Title.setPosition(16, 4)
+    App_Title = textsprite.create(binary[0], 0, 1)
+    App_Title.setPosition(parseInt(binary[3]), 4)
+    let command_data = null
+    let current_command = null
+    let command_category = null
+    let line = 4
+
+    // MARK: NanoSDK Runtime
+
+    while (NanoSDK_App_Running) {
+        command_data = binary[line].split("§")
+        current_command = command_data[0].split("")
+        command_data = command_data[1]
+        command_category = current_command[0]
+        current_command = current_command[1] + current_command[2]
+        
+        switch (command_category) {
+            case "1":
+                if (current_command == "05") {
+                    game.splash(command_data)
+                } else if (current_command == "06") {
+                    close_apps()
+                    if (command_data !== null) {
+                        game.splash(command_data)
+                    }
+                }
+        }
+    }
 }
 
 // Apps end here
@@ -787,6 +815,7 @@ function close_apps () {
     App_Open = "null"
     SubMenu = "null"
     Temp = ""
+    NanoSDK_App_Running = false
     Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
