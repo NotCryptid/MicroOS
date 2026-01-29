@@ -815,6 +815,8 @@ function Open_NanoSDK_App(app_binary: string) {
                         if (command_data !== null) {
                             game.splash(command_data)
                         }
+                    } else {
+                        error(301)
                     }
 
                 // Basic Logic
@@ -828,33 +830,83 @@ function Open_NanoSDK_App(app_binary: string) {
                                 switch (command_data[3]) {
                                     case "=":
                                         if (command_data[2] == command_data[4]) {
-                                            condition_met[condition_met.length] = "false"
+                                            condition_met[condition_met.length] = "true"
                                         }
 
                                     case ">":
                                         if (command_data[2] > command_data[4]) {
-                                            condition_met[condition_met.length] = "false"
+                                            condition_met[condition_met.length] = "true"
                                         }
 
                                     case "<":
                                         if (command_data[2] < command_data[4]) {
-                                            condition_met[condition_met.length] = "false"
+                                            condition_met[condition_met.length] = "true"
                                         }
 
                                     case "≥":
                                         if (command_data[2] >= command_data[4]) {
-                                            condition_met[condition_met.length] = "false"
+                                            condition_met[condition_met.length] = "true"
                                         }
 
                                     case "≤":
                                         if (command_data[2] <= command_data[4]) {
-                                            condition_met[condition_met.length] = "false"
+                                            condition_met[condition_met.length] = "true"
                                         }
                                 }
 
                             // If Sprite
                             case "s":
+                                // I'll do this later
+                                
+                            // If Button
+                            case "b":
+                                let button_down = false
+                                switch (command_data[3]) {
+                                    case "a":
+                                        if (controller.A.isPressed) {
+                                            button_down = true
+                                        }
+
+                                    case "b":
+                                        if (controller.B.isPressed) {
+                                            button_down = true
+                                        }
+
+                                    case "u":
+                                        if (controller.up.isPressed) {
+                                            button_down = true
+                                        }
+
+                                    case "d":
+                                        if (controller.down.isPressed) {
+                                            button_down = true
+                                        }
+
+                                    case "l":
+                                        if (controller.left.isPressed) {
+                                            button_down = true
+                                        }
+
+                                    case "r":
+                                        if (controller.right.isPressed) {
+                                            button_down = true
+                                        }
+                                }
+
+                                if (command_data[2] == "t") {
+                                    if (button_down) {
+                                        condition_met[condition_met.length] = "true"
+                                    }
+                                } else if (command_data[2] == "f") {
+                                    if (button_down) { } else {
+                                        condition_met[condition_met.length] = "true"
+                                    }
+                                } else {
+                                    error(301)
+                                }
                         }
+                    } else if (false) {
+                        
                     }
             }
         }    
