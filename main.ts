@@ -790,8 +790,13 @@ function Open_NanoSDK_App(app_binary: string) {
         command_category = current_command[0]
         current_command = current_command[1] + current_command[2]
 
-        // Set next line to run
-        line++
+        if (line > binary.length - 1 && when_checks.length == 0) {
+            // Quit if out of code to run
+            close_apps()
+        } else {
+            // Set next line to run
+            line++
+        }
 
         // Check for if bracket end
         if (command_category == "2" && command_data[1] == "e") {
