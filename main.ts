@@ -775,7 +775,8 @@ function Open_NanoSDK_App (app_binary: string) {
     let command_category = null
     let line = 4
     let variables = {}
-    let condition_met = false
+    let condition_met = ["null"]
+    let when_checks = []
 
     // runtime
     while (NanoSDK_App_Running) {
@@ -783,57 +784,72 @@ function Open_NanoSDK_App (app_binary: string) {
         current_command = command_data[0].split("")
         command_category = current_command[0]
         current_command = current_command[1] + current_command[2]
-        
-        switch (command_category) {
-            // Basic Commands
-            case "1":
-                if (current_command == "05") {
-                    // Print
-                    game.splash(command_data)
-                } else if (current_command == "06") {
-                    // End
-                    close_apps()
-                    if (command_data !== null) {
-                        game.splash(command_data)
-                    }
-                }
 
-            // Basic Logic
-            case "2":
-                if (current_command == "01") {
-                    // If Bracket
-                    switch (command_data[1]) {
-                        // If Variable
-                        case "v":
-                            switch (command_data[3]) {
-                                case "=":
-                                    if (command_data[2] == command_data[4]) {
-                                        condition_met = true
-                                    }
+        line++
 
-                                case ">":
-                                    if (command_data[2] > command_data[4]) {
-                                        condition_met = true
-                                    } 
-
-                                case "<":
-                                    if (command_data[2] < command_data[4]) {
-                                        condition_met = true
-                                    } 
-
-                                case "≥":
-                                    if (command_data[2] >= command_data[4]) {
-                                        condition_met = true
-                                    } 
-
-                                case "≤":
-                                    if (command_data[2] <= command_data[4]) {
-                                        condition_met = true
-                                    } 
-                            }
-                    }
-                }
+        if (command_category == "2" && command_data[1] == "e") {
+            condition_met.pop()
         }
+
+        if (condition_met[condition_met.length - 1] == "false") {
+            // skip if condition not met
+        } else {
+        
+            switch (command_category) {
+                // Basic Commands
+                case "1":
+                    if (current_command == "05") {
+                        // Print
+                        game.splash(command_data)
+                    } else if (current_command == "06") {
+                        // End
+                        close_apps()
+                        if (command_data !== null) {
+                            game.splash(command_data)
+                        }
+                    }
+
+                // Basic Logic
+                case "2":
+                    if (current_command == "01") {
+                        // If Bracket
+                        condition_met[condition_met.length] = "false"
+                        switch (command_data[1]) {
+                            // If Variable
+                            case "v":
+                                switch (command_data[3]) {
+                                    case "=":
+                                        if (command_data[2] == command_data[4]) {
+                                            condition_met[condition_met.length] = "false"
+                                        }
+
+                                    case ">":
+                                        if (command_data[2] > command_data[4]) {
+                                            condition_met[condition_met.length] = "false"
+                                        }
+
+                                    case "<":
+                                        if (command_data[2] < command_data[4]) {
+                                            condition_met[condition_met.length] = "false"
+                                        }
+
+                                    case "≥":
+                                        if (command_data[2] >= command_data[4]) {
+                                            condition_met[condition_met.length] = "false"
+                                        }
+
+                                    case "≤":
+                                        if (command_data[2] <= command_data[4]) {
+                                            condition_met[condition_met.length] = "false"
+                                        }
+                                }
+
+                            // If Sprite
+                            case "s":
+                        }
+                    }
+            }
+        }    
     }
 }
 
