@@ -901,6 +901,9 @@ function Open_NanoSDK_App(app_binary: string) {
                                         if (controller.right.isPressed()) {
                                             button_down = true
                                         }
+
+                                    default:
+                                        error(302)
                                 }
 
                                 if (command_data[3] == "t") {
@@ -912,11 +915,14 @@ function Open_NanoSDK_App(app_binary: string) {
                                         condition_met[condition_met.length] = "true"
                                     }
                                 } else {
-                                    error(301)
+                                    error(302)
                                 }
 
                             case "e":
                                 condition_met.pop()
+
+                            default:
+                                error(301)
                         }
                     } else if (current_command == "02") {
                         // Loop
