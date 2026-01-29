@@ -905,8 +905,9 @@ function Open_NanoSDK_App(app_binary: string) {
                                     error(301)
                                 }
                         }
-                    } else if (false) {
-                        
+                    } else if (current_command == "02") {
+                        // Loop
+
                     }
             }
         }    
