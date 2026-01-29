@@ -766,28 +766,71 @@ function Open_NanoSDK_App (app_binary: string) {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create(binary[0], 0, 1)
     App_Title.setPosition(parseInt(binary[3]), 4)
+
+    // MARK: NanoSDK Runtime
+
+    // variable definitions and shit
     let command_data = null
     let current_command = null
     let command_category = null
     let line = 4
+    let variables = {}
+    let condition_met = false
 
-    // MARK: NanoSDK Runtime
-
+    // runtime
     while (NanoSDK_App_Running) {
         command_data = binary[line].split("§")
         current_command = command_data[0].split("")
-        command_data = command_data[1]
         command_category = current_command[0]
         current_command = current_command[1] + current_command[2]
         
         switch (command_category) {
+            // Basic Commands
             case "1":
                 if (current_command == "05") {
+                    // Print
                     game.splash(command_data)
                 } else if (current_command == "06") {
+                    // End
                     close_apps()
                     if (command_data !== null) {
                         game.splash(command_data)
+                    }
+                }
+
+            // Basic Logic
+            case "2":
+                if (current_command == "01") {
+                    // If Bracket
+                    switch (command_data[1]) {
+                        // If Variable
+                        case "v":
+                            switch (command_data[3]) {
+                                case "=":
+                                    if (command_data[2] == command_data[4]) {
+                                        condition_met = true
+                                    }
+
+                                case ">":
+                                    if (command_data[2] > command_data[4]) {
+                                        condition_met = true
+                                    } 
+
+                                case "<":
+                                    if (command_data[2] < command_data[4]) {
+                                        condition_met = true
+                                    } 
+
+                                case "≥":
+                                    if (command_data[2] >= command_data[4]) {
+                                        condition_met = true
+                                    } 
+
+                                case "≤":
+                                    if (command_data[2] <= command_data[4]) {
+                                        condition_met = true
+                                    } 
+                            }
                     }
                 }
         }
