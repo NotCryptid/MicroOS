@@ -1407,9 +1407,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else if (selectedOption == 4) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
-                    // debug mode
-                    // allow radio access
-                    // allow file system access
+                    // edit files (Never, Ask, Allow)
+                    // edit system settings (Never, Ask, Allow)
+                    // delete files (Never, Ask, Allow)
+                    // use radio (Never, Ask, Allow)
                 ]
                 SubMenu = "NanoSDK App Settings"
             }
