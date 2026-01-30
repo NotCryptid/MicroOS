@@ -842,7 +842,7 @@ function Open_NanoSDK_App(app_binary: string) {
                     }
                     break
 
-                // Basic Logic
+                // Logic
                 case "2":
                     if (current_command == "01") {
                         // If Bracket
@@ -945,11 +945,21 @@ function Open_NanoSDK_App(app_binary: string) {
                                     error(302)
                                 }
                                 break
-
+                            
+                            // If End
                             case "e":
                                 condition_met.pop()
                                 break
-
+                            
+                            // If Else
+                            case "l":
+                                if (condition_met[condition_met.length - 1] == "true") {
+                                    condition_met[condition_met.length - 1] = "false"
+                                } else {
+                                    condition_met[condition_met.length - 1] = "true"
+                                }
+                                break
+                        
                             default:
                                 error(301)
                                 break
