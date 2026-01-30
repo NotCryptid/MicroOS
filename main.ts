@@ -280,7 +280,7 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
             Open_FileManager("Home", null)
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
-            Open_NanoSDK_App("test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test3~202§inf~201§b§u§t~106§test~201§e~202§e")
+            Open_NanoSDK_App("test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§u§t~106§test~201§e~202§e")
             // Open_NanoCode(null)
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
             Open_ProcessManager()
@@ -767,8 +767,8 @@ function Reload_ListGUI(data: miniMenu.MenuItem[], x: number, y: number, width: 
     }  
     ListMenuGUI = miniMenu.createMenuFromArray(data)
     ListMenuGUI.setButtonEventsEnabled(false)
-    ListMenuGUI.setPosition(x, y)
     ListMenuGUI.setDimensions(width, height)
+    ListMenuGUI.setPosition(x, y)
     ListMenuGUI.z = -30
 }
 
@@ -797,10 +797,10 @@ function Open_NanoSDK_App(app_binary: string) {
     let loop_repeats_left = [""]
     let loop_line = [0]
     let menu_array: miniMenu.MenuItem[] = []
-    let menu_data = [160,97,80,58]
+    let menu_data = [80,58,160,97]
     
 
-    // Example compiled app for later: test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test3~202§inf~201§b§u§t~106§test~201§e~202§e
+    // Example compiled app for later: test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§u§t~106§test~201§e~202§e
 
     // Runtime
     while (NanoSDK_App_Running) {
@@ -983,16 +983,20 @@ function Open_NanoSDK_App(app_binary: string) {
                         // Set ListGUI Position
                         menu_data[0] = parseInt(command_data[1])
                         menu_data[1] = parseInt(command_data[2])
-                        ListMenuGUI.setPosition(menu_data[0], menu_data[1])
+                        if (ListMenuGUI) {
+                            ListMenuGUI.setPosition(menu_data[0], menu_data[1])
+                        }
                     } else if (current_command == "03") {
                         // Set ListGUI Size
                         menu_data[2] = parseInt(command_data[1])
                         menu_data[3] = parseInt(command_data[2])
-                        ListMenuGUI.setDimensions(menu_data[2], menu_data[3])
+                        if (ListMenuGUI) {
+                            ListMenuGUI.setDimensions(menu_data[2], menu_data[3])
+                        }
                     } else if (current_command == "04") {
                         // Set ListGUI Contents to Array
                         menu_array = []
-                        for (let i = 1; i < command_data.length - 1; i++) {
+                        for (let i = 1; i < command_data.length; i++) {
                             menu_array.push(miniMenu.createMenuItem(command_data[i]))
                         }
                         Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
