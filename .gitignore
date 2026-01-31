@@ -6,6 +6,7 @@ pxt_modules/
 .pxt/
 *.db
 *.tgz
+binary/
 .header.json
 .simstate.json
 .DS_Store
