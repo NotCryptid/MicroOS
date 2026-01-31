@@ -85102,3 +85102,29 @@ const breakpoints = setupDebugger(1, ["transparency16___4987","Desktop_UI___3364
 
 return _main___P33568
 })
+
+// Custom theme override injected by GitHub Action
+(function() {
+    if (typeof document !== 'undefined') {
+        var observer = new MutationObserver(function(mutations) {
+            var wrap = document.getElementById('wrap');
+            if (wrap && !wrap.hasAttribute('data-custom-theme')) {
+                wrap.setAttribute('data-custom-theme', 'true');
+                wrap.style.setProperty('--sim-background-color', '#000000', 'important');
+                wrap.style.setProperty('--sim-button-stroke', '#fffff0', 'important');
+                wrap.style.setProperty('--sim-button-fill', '#418081', 'important');
+                wrap.style.setProperty('--sim-dpad-fill', '#fffff0', 'important');
+            }
+            // Hide game-player-msft
+            var msft = document.querySelectorAll('.game-player-msft, .game-player-hidden');
+            msft.forEach(function(el) { el.style.display = 'none'; });
+        });
+        if (document.body) {
+            observer.observe(document.body, { childList: true, subtree: true });
+        } else {
+            document.addEventListener('DOMContentLoaded', function() {
+                observer.observe(document.body, { childList: true, subtree: true });
+            });
+        }
+    }
+})();
