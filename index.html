@@ -184,24 +184,85 @@
             }
         }
 
-        // Inject custom CSS into iframe after it loads
+        // Customize iframe: remove unwanted elements and apply custom theme
+        function customizeIframe() {
+            try {
+                var iframe = document.getElementById('simframe');
+                if (!iframe) return;
+                
+                var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (!iframeDoc) return;
+                
+                // Remove all .game-player-msft elements
+                var msftElements = iframeDoc.querySelectorAll('.game-player-msft');
+                msftElements.forEach(function(el) {
+                    el.remove();
+                });
+                
+                // Inject custom CSS if not already present
+                if (!iframeDoc.getElementById('custom-theme-styles')) {
+                    var style = iframeDoc.createElement('style');
+                    style.id = 'custom-theme-styles';
+                    style.textContent = `
+                        .game-player-msft {
+                            display: none !important;
+                            visibility: hidden !important;
+                        }
+                        
+                        #wrap {
+                            --sim-background-color: #000000 !important;
+                            --sim-button-stroke: #fffff0 !important;
+                            --sim-button-fill: #418081 !important;
+                            --sim-dpad-fill: var(--sim-button-stroke) !important;
+                        }
+                    `;
+                    iframeDoc.head.appendChild(style);
+                }
+                
+                // Set up MutationObserver to watch for dynamically added .game-player-msft elements
+                if (!iframeDoc.body._customThemeObserver) {
+                    var observer = new MutationObserver(function(mutations) {
+                        mutations.forEach(function(mutation) {
+                            mutation.addedNodes.forEach(function(node) {
+                                if (node.nodeType === 1) { // Element node
+                                    if (node.classList && node.classList.contains('game-player-msft')) {
+                                        node.remove();
+                                    }
+                                    // Check descendants
+                                    if (node.querySelectorAll) {
+                                        var descendantMsft = node.querySelectorAll('.game-player-msft');
+                                        descendantMsft.forEach(function(el) {
+                                            el.remove();
+                                        });
+                                    }
+                                }
+                            });
+                        });
+                    });
+                    
+                    observer.observe(iframeDoc.body, {
+                        childList: true,
+                        subtree: true
+                    });
+                    
+                    iframeDoc.body._customThemeObserver = observer;
+                }
+            } catch (e) {
+                console.error('Could not customize iframe:', e);
+            }
+        }
+        
+        // Apply customizations after iframe loads
         var iframe = document.getElementById('simframe');
         iframe.addEventListener('load', function() {
-            try {
-                var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                var style = iframeDoc.createElement('style');
-                style.textContent = `
-                    #wrap {
-                        --sim-background-color: #000000 !important;
-                        --sim-button-stroke: #fffff0 !important;
-                        --sim-button-fill: #418081 !important;
-                        --sim-dpad-fill: var(--sim-button-stroke) !important;
-                    }
-                `;
-                iframeDoc.head.appendChild(style);
-            } catch (e) {
-                console.error('Could not inject styles into iframe:', e);
-            }
+            // Call immediately
+            customizeIframe();
+            
+            // Call at intervals to catch dynamically loaded content
+            setTimeout(customizeIframe, 500);
+            setTimeout(customizeIframe, 1000);
+            setTimeout(customizeIframe, 2000);
+            setTimeout(customizeIframe, 3000);
         });
     </script>
 </body>
