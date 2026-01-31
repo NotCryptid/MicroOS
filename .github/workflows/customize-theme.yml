@@ -2,8 +2,6 @@ name: Customize Theme on Binary Update
 
 on:
   push:
-    paths:
-      - 'assets/js/binary.js'
     branches:
       - main
       - master
@@ -85,35 +83,34 @@ jobs:
       - name: Inject custom style override
         if: steps.check_customized.outputs.already_customized == 'false'
         run: |
-          # Add a style injection at the end of binary.js
-          cat >> assets/js/binary.js << 'EOF'
+          cat >> assets/js/binary.js << 'EOFMARKER'
 
-// Custom theme override injected by GitHub Action
-(function() {
-    if (typeof document !== 'undefined') {
-        var observer = new MutationObserver(function(mutations) {
-            var wrap = document.getElementById('wrap');
-            if (wrap && !wrap.hasAttribute('data-custom-theme')) {
-                wrap.setAttribute('data-custom-theme', 'true');
-                wrap.style.setProperty('--sim-background-color', '#000000', 'important');
-                wrap.style.setProperty('--sim-button-stroke', '#fffff0', 'important');
-                wrap.style.setProperty('--sim-button-fill', '#418081', 'important');
-                wrap.style.setProperty('--sim-dpad-fill', '#fffff0', 'important');
-            }
-            // Hide game-player-msft
-            var msft = document.querySelectorAll('.game-player-msft, .game-player-hidden');
-            msft.forEach(function(el) { el.style.display = 'none'; });
-        });
-        if (document.body) {
-            observer.observe(document.body, { childList: true, subtree: true });
-        } else {
-            document.addEventListener('DOMContentLoaded', function() {
-                observer.observe(document.body, { childList: true, subtree: true });
-            });
-        }
-    }
-})();
-EOF
+          // Custom theme override injected by GitHub Action
+          (function() {
+              if (typeof document !== 'undefined') {
+                  var observer = new MutationObserver(function(mutations) {
+                      var wrap = document.getElementById('wrap');
+                      if (wrap && !wrap.hasAttribute('data-custom-theme')) {
+                          wrap.setAttribute('data-custom-theme', 'true');
+                          wrap.style.setProperty('--sim-background-color', '#000000', 'important');
+                          wrap.style.setProperty('--sim-button-stroke', '#fffff0', 'important');
+                          wrap.style.setProperty('--sim-button-fill', '#418081', 'important');
+                          wrap.style.setProperty('--sim-dpad-fill', '#fffff0', 'important');
+                      }
+                      // Hide game-player-msft
+                      var msft = document.querySelectorAll('.game-player-msft, .game-player-hidden');
+                      msft.forEach(function(el) { el.style.display = 'none'; });
+                  });
+                  if (document.body) {
+                      observer.observe(document.body, { childList: true, subtree: true });
+                  } else {
+                      document.addEventListener('DOMContentLoaded', function() {
+                          observer.observe(document.body, { childList: true, subtree: true });
+                      });
+                  }
+              }
+          })();
+          EOFMARKER
           
           echo "Custom style override injected into binary.js"
       
