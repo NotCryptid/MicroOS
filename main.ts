@@ -770,6 +770,7 @@ function Reload_ListGUI(data: miniMenu.MenuItem[], x: number, y: number, width: 
     ListMenuGUI.setDimensions(width, height)
     ListMenuGUI.setPosition(x, y)
     ListMenuGUI.z = -30
+    ListMenuGUI.selectedIndex = -1
 }
 
 function Open_NanoSDK_App(app_binary: string) {
@@ -1025,6 +1026,16 @@ function Open_NanoSDK_App(app_binary: string) {
                         // Destroy ListGUI
                         menu_array = []
                         ListMenuGUI.destroy()
+                    } else if (current_command == "09") {
+                        // Highlight ListGUI Item
+                        if (command_data[1] == "o") {
+                            // Off
+                            ListMenuGUI.selectedIndex = -1
+                        } else if (command_data[1] == "a") {
+
+                        } else {
+                            ListMenuGUI.selectedIndex = parseInt(command_data[1])
+                        }
                     } else {
                         error(301)
                     }
