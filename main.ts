@@ -535,6 +535,7 @@ forever(function () {
             }
         }
     } else if (App_Open == "File Manager" || App_Open == "Settings" || App_Open == "Process Manager") {
+        ListMenuGUI.selectedIndex = -1;
         for (let i = 0; i < ListMenuContents.length; i++) {
             let maxX = App_Open == "Process Manager" ? 160 : 152;
             if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < maxX && i < 8) {
