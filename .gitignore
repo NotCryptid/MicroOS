@@ -8,5 +8,4 @@ pxt_modules/
 *.tgz
 .header.json
 .simstate.json
-built/
 .DS_Store
