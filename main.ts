@@ -92,6 +92,8 @@ Current_Settings = [
     miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)]),
     miniMenu.createMenuItem("Room Code - " + RoomCode)
 ]
+
+// NanoFS Shit
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
 if (User_Files_Temp.length == 0 || controller.B.isPressed() && controller.up.isPressed()) {
@@ -104,7 +106,8 @@ if (User_Files_Temp.length == 0 || controller.B.isPressed() && controller.up.isP
 for (let i = 0; i < User_Files_Temp.length; i++) {
     User_Files.push(miniMenu.createMenuItem(User_Files_Temp[i]));
 }
-pause(randint(1000, 2000))
+pause(randint(1000, 2000)) // haha funny delay
+
 // Post startup tasks
 sprites.destroy(text)
 sprites.destroy(text2)
@@ -126,7 +129,6 @@ if (Settings.charAt(6) == "0") {
 }
 
 // Right click menus
-
 const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
 const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Paste")]
 const rclick_menu_nsp = [miniMenu.createMenuItem("Edit"), miniMenu.createMenuItem("Compile"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
@@ -280,7 +282,7 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
             Open_FileManager("Home", null)
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
-            Open_NanoSDK_App("test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§u§t~106§test~201§e~202§e")
+            Open_NanoSDK_App("test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§b§t~106§test~201§e~202§e")
             // Open_NanoCode(null)
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
             Open_ProcessManager()
@@ -798,10 +800,11 @@ function Open_NanoSDK_App(app_binary: string) {
     let loop_repeats_left = [""]
     let loop_line = [0]
     let menu_array: miniMenu.MenuItem[] = []
-    let menu_data = [80,58,160,97]
+    let menu_data = [80, 58, 160, 97]
+    let line_delay = 1
     
 
-    // Example compiled app for later: test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§u§t~106§test~201§e~202§e
+    // Example compiled app for later: test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§b§t~106§test~201§e~202§e
 
     // Runtime
     while (NanoSDK_App_Running) {
@@ -825,6 +828,9 @@ function Open_NanoSDK_App(app_binary: string) {
         if (condition_met[condition_met.length - 1] == "false") {
             // Skip if condition not met
         } else {
+            // Delay between lines in order to not implode the CPU
+            pause(line_delay)
+
             // Continue if conditions met
             switch (command_category) {
                 // Basic Commands
@@ -968,7 +974,6 @@ function Open_NanoSDK_App(app_binary: string) {
                     } else if (current_command == "02") {
                         // Loop
                         if (command_data[1] == "e") {
-                            pause(1)
                             if (loop_repeats_left[loop_repeats_left.length - 1] == "inf") {
                                 line = loop_line[loop_repeats_left.length - 1]
                             } else if (loop_repeats_left[loop_repeats_left.length - 1] !== "0") {
@@ -977,10 +982,12 @@ function Open_NanoSDK_App(app_binary: string) {
                             } else {
                                 loop_line.pop()
                                 loop_repeats_left.pop()
+                                line_delay -= 10
                             }
                         } else {
                             loop_repeats_left.push(command_data[1])
                             loop_line.push(line)
+                            line_delay += 10
                         }
                     }
                     break
@@ -1075,7 +1082,6 @@ function close_apps () {
 }
 
 function listSelection(app: string, selection: number, submenu: string, action: string, override: number) {
-
     let selectedOption = 0
     if (override == 0) {
         selectedOption = selection + List_Scroll
