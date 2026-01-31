@@ -66,7 +66,7 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 2.0.63", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading MicroOS v0.0.6", 0, 1)
+text = textsprite.create("> Loading MicroOS v0.1.0", 0, 1)
 text.setPosition(76, 26)
 
 // MARK: OS Boot Sequence
@@ -1348,8 +1348,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else if (selectedOption == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("MicroOS v0.0.6"),
-                    // miniMenu.createMenuItem("NanoSDK 2025.1")
+                    miniMenu.createMenuItem("MicroOS v0.1.0"),
+                    miniMenu.createMenuItem("NanoSDK 2026.1")
                     // miniMenu.createMenuItem("Storage - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) +"KB"),
                     // miniMenu.createMenuItem("Storage Free - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes) +"KB"),
                     // miniMenu.createMenuItem("RAM Avaiable - " + microUtilities.ramCapacity() + "KB"),
