@@ -86631,3 +86631,48 @@ const breakpoints = setupDebugger(1, ["Desktop_UI___4895","Mouse___4896","App_UI
 
 return _main___P35127
 })
+
+// Custom theme override injected by GitHub Action
+(function() {
+    if (typeof document !== 'undefined') {
+        function applyCustomTheme() {
+            // Apply theme to #wrap element
+            var wrap = document.getElementById('wrap');
+            if (wrap && !wrap.hasAttribute('data-custom-theme')) {
+                wrap.setAttribute('data-custom-theme', 'true');
+                wrap.style.setProperty('--sim-background-color', '#000000', 'important');
+                wrap.style.setProperty('--sim-button-stroke', '#fffff0', 'important');
+                wrap.style.setProperty('--sim-button-fill', '#418081', 'important');
+                wrap.style.setProperty('--sim-dpad-fill', '#fffff0', 'important');
+            }
+            
+            // Hide game-player-msft elements
+            var msftElements = document.querySelectorAll('.game-player-msft');
+            msftElements.forEach(function(el) { 
+                el.style.display = 'none';
+                el.style.visibility = 'hidden';
+            });
+        }
+        
+        // Apply immediately if DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyCustomTheme);
+        } else {
+            applyCustomTheme();
+        }
+        
+        // Watch for dynamic additions
+        var observer = new MutationObserver(function(mutations) {
+            applyCustomTheme();
+        });
+        
+        // Start observing once body is available
+        if (document.body) {
+            observer.observe(document.body, { childList: true, subtree: true });
+        } else {
+            document.addEventListener('DOMContentLoaded', function() {
+                observer.observe(document.body, { childList: true, subtree: true });
+            });
+        }
+    }
+})();
