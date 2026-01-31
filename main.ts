@@ -1018,7 +1018,9 @@ function Open_NanoSDK_App(app_binary: string) {
                         // Set Variable to ListGUI Item Value
                         variables[parseInt(command_data[1])] = menu_array[parseInt(command_data[1])] + ""
                     } else if (current_command == "07") {
-
+                        // Remove ListGUI Item
+                        menu_array.splice(parseInt(command_data[1]), 1)
+                        Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
                     } else if (current_command == "08") {
                         // Destroy ListGUI
                         menu_array = []
