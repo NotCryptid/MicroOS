@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "target": "ES2017",
+      "lib": ["ES2017", "DOM"],
+      "noImplicitAny": true,
+      "outDir": "built",
+      "rootDir": "."
+    },
+    "exclude": ["pxt_modules/**/*test.ts"]
+  }
+  

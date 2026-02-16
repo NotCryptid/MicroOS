@@ -1,0 +1,28 @@
+{
+    "nextPaletteID": 1,
+    "palettes": {
+        "custom0": {
+            "id": "custom0",
+            "name": "NanoColor",
+            "colors": [
+                "#000000",
+                "#32008F",
+                "#590094",
+                "#7A00B3",
+                "#0148EF",
+                "#0091FF",
+                "#5C6FFF",
+                "#B67CFE",
+                "#D5B3FF",
+                "#EF9EFF",
+                "#FF00AE",
+                "#FFAE00",
+                "#FFFFFF",
+                "#969696",
+                "#373737",
+                "#000000"
+            ],
+            "custom": true
+        }
+    }
+}

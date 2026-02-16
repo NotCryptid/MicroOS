@@ -1,0 +1,12 @@
+node_modules
+yotta_modules
+yotta_targets
+_site
+pxt_modules/
+.pxt/
+*.db
+*.tgz
+built/
+.header.json
+.simstate.json
+.DS_Store
