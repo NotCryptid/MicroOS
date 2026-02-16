@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "ES2017",
         "lib": ["ES2017", "DOM"],
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "strictNullChecks": false,
         "outDir": "built",
         "rootDir": "."
