@@ -1,8 +1,0 @@
-makecode:
-  target: arcade
-  platform: arcade
-  home_url: https://cryptid.is-a.dev/
-theme: jekyll-theme-slate
-include:
-  - assets
-  - README.md
