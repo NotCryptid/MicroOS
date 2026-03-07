@@ -550,6 +550,19 @@ forever(function () {
                 break;
             } 
         }
+    } else if (NanoSDK_App_Running && nanoSDK_hover_highlight) {
+        ListMenuGUI.selectedIndex = -1;
+        let menuTop = menu_data[1] - Math.floor(menu_data[3] / 2);
+        let menuLeft = menu_data[0] - Math.floor(menu_data[2] / 2);
+        let menuRight = menu_data[0] + Math.floor(menu_data[2] / 2);
+        if (Mouse_Cursor.x >= menuLeft && Mouse_Cursor.x < menuRight) {
+            let row = Math.floor((Mouse_Cursor.y - menuTop) / 12);
+            if (row >= 0 && row < menu_array.length) {
+                if (menu_array[row] && menu_array[row].text !== "" && menu_array[row].text !== " ") {
+                    ListMenuGUI.selectedIndex = row;
+                }
+            }
+        }
     }
 })
 
@@ -793,6 +806,7 @@ let loop_repeats_left = [""]
 let loop_line = [0]
 let menu_array: miniMenu.MenuItem[] = []
 let menu_data = [80, 58, 160, 97]
+let nanoSDK_hover_highlight = false
 
 function Open_NanoSDK_App(app_binary: string) {
     // Prepare app
@@ -820,6 +834,7 @@ function Open_NanoSDK_App(app_binary: string) {
     loop_line = [0]
     menu_array = []
     menu_data = [80, 58, 160, 97]
+    nanoSDK_hover_highlight = false
 }
 
 // Example compiled app for later: test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§b§t~106§test~201§e~202§e
@@ -1051,9 +1066,11 @@ function executeNanoSDKLine() {
                     // Highlight ListGUI Item
                     if (command_data[1] == "o") {
                         // Off
+                        nanoSDK_hover_highlight = false
                         ListMenuGUI.selectedIndex = -1
                     } else if (command_data[1] == "a") {
-
+                        // Hover mode
+                        nanoSDK_hover_highlight = true
                     } else {
                         ListMenuGUI.selectedIndex = parseInt(command_data[1])
                     }
@@ -1087,6 +1104,7 @@ function close_apps () {
     SubMenu = "null"
     Temp = ""
     NanoSDK_App_Running = false
+    nanoSDK_hover_highlight = false
     Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
