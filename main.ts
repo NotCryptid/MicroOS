@@ -32,13 +32,11 @@ let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
 let RoomCode = "12345678"
-let Apps_In_Library: String[] = ["Process Manager", "Settings"]
 let App_Title: TextSprite = null
 let NanoSDK_App_Running = false
 let WebChatSend: Sprite = null
 let Temp = ""
 let Close_App: Sprite = null
-let CharacterMap = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.?!:;\"()~ ".split("");
 let ArrowUp: Sprite = null
 let ArrowDown: Sprite = null
 let scrollBar: Sprite = null
@@ -132,8 +130,7 @@ if (Settings.charAt(6) == "0") {
 // Right click menus
 const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
 const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Paste")]
-const rclick_menu_nsp = [miniMenu.createMenuItem("Edit"), miniMenu.createMenuItem("Compile"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
-const rclick_menu_webchat_message = [miniMenu.createMenuItem("Reply"), miniMenu.createMenuItem("Mention"), miniMenu.createMenuItem("Block")]
+
 
 // OS Boot Sequence ends here
 
@@ -350,20 +347,6 @@ function MouseClick(button: number) {
                         outline.setPosition(RightClickMenu.x, RightClickMenu.y)
                         scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
                         scaling.scaleToPixels(outline, current_rclick_menu.length * 12 + 2, ScaleDirection.Vertically, ScaleAnchor.Middle)
-                    }
-                }
-            }
-        } else if (App_Open == "NanoCode") {
-            if (SubMenu == "Main") {
-                if (Mouse_Cursor.x > 50 && Mouse_Cursor.x < 158) {
-                    if (Mouse_Cursor.y < 100) {
-                        // nothin happens fucker
-                    } else if (Mouse_Cursor.y < 87) {
-                        // this would be compile
-                    } else if (Mouse_Cursor.y < 74) {
-                        // this would be edit
-                    } else if (Mouse_Cursor.y < 61) {
-                        // this would be new
                     }
                 }
             }
@@ -618,6 +601,14 @@ function Start_Icon_Names() {
 
 // Background tasks end here
 
+function createAppBar() {
+    let appBar = sprites.create(assets.image`App`, SpriteKind.App_UI)
+    appBar.setPosition(80, 4)
+    appBar.z = -5
+    scaling.scaleToPixels(appBar, 160, ScaleDirection.Horizontally, ScaleAnchor.Middle)
+    scaling.scaleToPixels(appBar, 9, ScaleDirection.Vertically, ScaleAnchor.Middle)
+}
+
 // MARK: Apps
 // Running every app at a kernel level is such a good idea ikr
 function Open_Library() {
@@ -634,8 +625,8 @@ function Open_Web() {
     close_apps()
     App_Open = "Web Chat"
     Temp = "Type here..."
-    scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
+    createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     WebChatSend = sprites.create(assets.image`WebSend`, SpriteKind.App_UI)
@@ -654,8 +645,8 @@ function Open_Web() {
 function Open_xCell(load_file: string) {
     close_apps()
     App_Open = "xCell"
-    scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
+    createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("xCell", 0, 1)
@@ -667,21 +658,14 @@ function Open_xCell(load_file: string) {
 function Open_Write(load_file: string) {
     close_apps()
     App_Open = "Write"
-    scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
+    createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Write", 0, 1)
     App_Title.setPosition(16, 4)
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
-    if (load_file === "") {
-        // create empty file or whatever
-        let write_document = "";
-    } else {
-        // load document type shit
-        let write_document = load_file;
-    }
 }
 function Open_Settings() {
     close_apps()
@@ -689,8 +673,8 @@ function Open_Settings() {
     SubMenu = "Home"
     List_Scroll = 0
     ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("App Settings")]
-    scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
+    createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Settings", 0, 1)
@@ -726,8 +710,8 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     SubMenu = submenu
     List_Scroll = 0
     ListMenuGUIHidden = []
-    scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
+    createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
@@ -762,8 +746,8 @@ function Open_ProcessManager() {
     SubMenu = "Home"
     List_Scroll = 0
     ListMenuContents = Active_Processes
-    scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
+    createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Process Manager", 0, 1)
@@ -816,8 +800,8 @@ function Open_NanoSDK_App(app_binary: string) {
     NanoSDK_App_Running = true
     App_Open = binary[0]
     SubMenu = binary[2]
-    scene.setBackgroundImage(assets.image`App`)
     scene.setBackgroundColor(1)
+    createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create(binary[0], 0, 1)
@@ -1087,20 +1071,8 @@ function executeNanoSDKLine() {
 
 // MARK: App functions
 function close_apps () {
-    // works good enough so no touching
-    while (List_Scroll > 0) {
-        let item = ListMenuGUIHidden.pop();
-        if (item !== undefined) {
-            ListMenuContents.unshift(item);
-            List_Scroll--;
-            ListMenuGUI.destroy();
-            ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
-            ListMenuGUI.setDimensions(151, 97);
-            ListMenuGUI.setButtonEventsEnabled(false);
-            ListMenuGUI.setPosition(76, 58);
-            ListMenuGUI.z = -30;
-        }
-    }
+    ListMenuGUIHidden = []
+    List_Scroll = 0
     App_Open = "null"
     SubMenu = "null"
     Temp = ""
@@ -1624,21 +1596,3 @@ function updateScrollBar() {
 }
 // App functions end here
 
-// MARK: Encryption/Encoding
-
-function decrypt(string: string, key: number) {
-    let output = '';
-    for (let i = 0; i < string.length; i++) {
-        output += String.fromCharCode(string.charCodeAt(i) ^ key);
-    }
-    return output;
-}
-
-function encrypt(string: string, key: number): string {
-    let output = '';
-    for (let i = 0; i < string.length; i++) {
-        output += String.fromCharCode(string.charCodeAt(i) ^ key);
-    }
-    return output;
-}
-// Encryption/Encoding ends here
