@@ -56,7 +56,7 @@ let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
 let User_Apps: miniMenu.MenuItem[] = []
-let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.sys"),miniMenu.createMenuItem("assets.ts"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
+let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.sys"),miniMenu.createMenuItem("assets.ts"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("runtime.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
 let WebChatMessages: miniMenu.MenuItem[] = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
 let SubMenu = ""
@@ -1146,7 +1146,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             return
         } else if (submenu == "System") {
             if (action == "click" || action == "rclick0") {
-                if (selectedOption == 1) {    
+                if (selectedOption == 1) {
                     SubMenu = "Home"
                     Open_FileManager("Home")
                 } else if (selectedOption == 2) {
@@ -1156,14 +1156,16 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 } else if (selectedOption == 4) {
                     Open_FileManager("Home")
                 } else if (selectedOption == 5) {
-                    Open_Write("")
+                    softerror(302)
                 } else if (selectedOption == 6) {
-                    Open_xCell("")
+                    Open_Write("")
                 } else if (selectedOption == 7) {
-                    Open_Settings()
+                    Open_xCell("")
                 } else if (selectedOption == 8) {
-                    Open_Web()
+                    Open_Settings()
                 } else if (selectedOption == 9) {
+                    Open_Web()
+                } else if (selectedOption == 10) {
                     Open_NanoCode(null)
                 }
             } else {
