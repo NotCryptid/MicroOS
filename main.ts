@@ -142,7 +142,7 @@ function Define_Sprites () {
     App_Open = "null"
     Taskbar = sprites.create(assets.image`Taskbar`, SpriteKind.Desktop_UI)
     Taskbar.z = -11
-    Taskbar.setPosition(80, 60)
+    Taskbar.setPosition(80, 111)
     Library_icon = sprites.create(assets.image`Library_icon`, SpriteKind.Desktop_UI)
     Library_icon.setPosition(9, 111)
     xCell_Icon = sprites.create(assets.image`xCell`, SpriteKind.Desktop_UI)
@@ -602,11 +602,14 @@ function Start_Icon_Names() {
 // Background tasks end here
 
 function createAppBar() {
+    let bg = image.create(160, 120)
+    bg.fill(1)
+    scene.setBackgroundImage(bg)
     let appBar = sprites.create(assets.image`App`, SpriteKind.App_UI)
     appBar.setPosition(80, 4)
     appBar.z = -5
     scaling.scaleToPixels(appBar, 160, ScaleDirection.Horizontally, ScaleAnchor.Middle)
-    scaling.scaleToPixels(appBar, 9, ScaleDirection.Vertically, ScaleAnchor.Middle)
+    scaling.scaleToPixels(appBar, 10, ScaleDirection.Vertically, ScaleAnchor.Middle)
 }
 
 // MARK: Apps
@@ -625,7 +628,6 @@ function Open_Web() {
     close_apps()
     App_Open = "Web Chat"
     Temp = "Type here..."
-    scene.setBackgroundColor(1)
     createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
@@ -645,7 +647,6 @@ function Open_Web() {
 function Open_xCell(load_file: string) {
     close_apps()
     App_Open = "xCell"
-    scene.setBackgroundColor(1)
     createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
@@ -658,7 +659,6 @@ function Open_xCell(load_file: string) {
 function Open_Write(load_file: string) {
     close_apps()
     App_Open = "Write"
-    scene.setBackgroundColor(1)
     createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
@@ -673,7 +673,6 @@ function Open_Settings() {
     SubMenu = "Home"
     List_Scroll = 0
     ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("App Settings")]
-    scene.setBackgroundColor(1)
     createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
@@ -684,7 +683,6 @@ function Open_Settings() {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
-    createArrows()
 }
 
 function Open_NanoCode(project: string = "") {
@@ -710,7 +708,6 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     SubMenu = submenu
     List_Scroll = 0
     ListMenuGUIHidden = []
-    scene.setBackgroundColor(1)
     createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
@@ -746,7 +743,6 @@ function Open_ProcessManager() {
     SubMenu = "Home"
     List_Scroll = 0
     ListMenuContents = Active_Processes
-    scene.setBackgroundColor(1)
     createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
@@ -800,7 +796,6 @@ function Open_NanoSDK_App(app_binary: string) {
     NanoSDK_App_Running = true
     App_Open = binary[0]
     SubMenu = binary[2]
-    scene.setBackgroundColor(1)
     createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
