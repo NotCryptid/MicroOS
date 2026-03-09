@@ -32,6 +32,7 @@ let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
 let RoomCode = "12345678"
+let Apps_In_Library: String[] = ["Process Manager", "Settings"]
 let App_Title: TextSprite = null
 let NanoSDK_App_Running = false
 let WebChatSend: Sprite = null
