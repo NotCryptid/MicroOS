@@ -86,7 +86,7 @@ Current_Settings = [
     miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Jacdac","Mouse - D-Pad"][parseInt(Settings.charAt(2), 10)]),
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
-    miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
+    miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
     miniMenu.createMenuItem("Name - " + blockSettings.readString("Username")),
     miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)]),
     miniMenu.createMenuItem("Room Code - " + RoomCode)
@@ -110,7 +110,7 @@ pause(randint(1000, 2000)) // haha funny delay
 // Post startup tasks
 sprites.destroy(text)
 sprites.destroy(text2)
-let Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
+let Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
 scene.setBackgroundImage(Wallpaper)
 
 let hour = 12
@@ -1078,7 +1078,7 @@ function close_apps () {
     Temp = ""
     NanoSDK_App_Running = false
     nanoSDK_hover_highlight = false
-    Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Sunrise`, assets.image`Wallpaper - Stripes`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
+    Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroyAllSpritesOfKind(SpriteKind.App_UI)
@@ -1529,8 +1529,8 @@ function changeSettings(selection: number) {
         }
         dingus51 = "Radio Channel - " + (dingus53).toString()
     } else if (selection == 5) {
-        dingus52 = 3
-        dingus51 = ["Wallpaper - Strings", "Wallpaper - Sunrise", "Wallpaper - Stripes", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
+        dingus52 = 1
+        dingus51 = ["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
     } else if (selection == 6) {
         dingus52 = 1
         dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
