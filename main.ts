@@ -624,7 +624,7 @@ function Open_Library() {
     close_apps()
     App_Open = "App Library"
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
-    Close_App.setPosition(149, 12)
+    Close_App.setPosition(148, 13)
     Close_App.z = 23
     Taskbar = sprites.create(assets.image`Library Background`, SpriteKind.App_UI)
     Taskbar.setPosition(80, 60)
