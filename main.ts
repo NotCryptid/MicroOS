@@ -142,11 +142,8 @@ function Define_Sprites () {
     App_Open = "null"
     // generate taskbar asset
     let taskbarImg = image.create(154, 12)
-    taskbarImg.fill(7)
-    taskbarImg.setPixel(0, 0, 0)
-    taskbarImg.setPixel(153, 0, 0)
-    taskbarImg.setPixel(0, 11, 0)
-    taskbarImg.setPixel(153, 11, 0)
+    taskbarImg.fillRect(0, 1, 154, 10, 7)
+    taskbarImg.fillRect(1, 0, 152, 12, 7)
     taskbarImg.drawLine(12, 2, 12, 9, 8)
     Taskbar = sprites.create(taskbarImg, SpriteKind.Desktop_UI)
     Taskbar.z = -11
