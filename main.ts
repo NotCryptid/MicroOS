@@ -140,7 +140,15 @@ Define_Sprites()
 function Define_Sprites () {
     // remember to add new sprites here or the whole os will shit itself
     App_Open = "null"
-    Taskbar = sprites.create(assets.image`Taskbar`, SpriteKind.Desktop_UI)
+    // generate taskbar asset
+    let taskbarImg = image.create(154, 12)
+    taskbarImg.fill(7)
+    taskbarImg.setPixel(0, 0, 0)
+    taskbarImg.setPixel(153, 0, 0)
+    taskbarImg.setPixel(0, 11, 0)
+    taskbarImg.setPixel(153, 11, 0)
+    taskbarImg.drawLine(12, 2, 12, 9, 8)
+    Taskbar = sprites.create(taskbarImg, SpriteKind.Desktop_UI)
     Taskbar.z = -11
     Taskbar.setPosition(80, 111)
     Library_icon = sprites.create(assets.image`Library_icon`, SpriteKind.Desktop_UI)
