@@ -96,15 +96,14 @@ Current_Settings = [
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
 if (User_Files_Temp.length == 0 || controller.B.isPressed() && controller.up.isPressed()) {
-    if (User_Files_Temp.length !== 0) {
-
-    }
+    if (User_Files_Temp.length !== 0) {}
     User_Files_Temp = ["Home"];
     blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
 for (let i = 0; i < User_Files_Temp.length; i++) {
     User_Files.push(miniMenu.createMenuItem(User_Files_Temp[i]));
 }
+
 pause(randint(1000, 2000)) // haha funny delay
 
 // Post startup tasks
