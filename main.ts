@@ -622,7 +622,7 @@ function Open_Library() {
     Close_App.setPosition(148, 13)
     Close_App.z = 23
     Taskbar = sprites.create(assets.image`Library Background`, SpriteKind.App_UI)
-    Taskbar.setPosition(80, 60)
+    Taskbar.setPosition(80, 53)
 }
 
 function Open_Web() {
