@@ -609,19 +609,16 @@ function Start_Icon_Names() {
 
 // Background tasks end here
 
+// MARK: Apps
+// Running every app at a kernel level is such a good idea ikr
+
 function createAppBar() {
     let bg = image.create(160, 120)
     bg.fill(1)
+    bg.fillRect(0, 0, 160, 9, 2)
     scene.setBackgroundImage(bg)
-    let appBar = sprites.create(assets.image`App`, SpriteKind.App_UI)
-    appBar.setPosition(80, 4)
-    appBar.z = -5
-    scaling.scaleToPixels(appBar, 160, ScaleDirection.Horizontally, ScaleAnchor.Middle)
-    scaling.scaleToPixels(appBar, 10, ScaleDirection.Vertically, ScaleAnchor.Middle)
 }
 
-// MARK: Apps
-// Running every app at a kernel level is such a good idea ikr
 function Open_Library() {
     close_apps()
     App_Open = "App Library"
