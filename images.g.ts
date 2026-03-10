@@ -727,10 +727,6 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 9 9 9 9 9 9 9 
 1 9 9 9 9 9 1 
 `;
-            case "image13":
-            case "App":return img`
-2 
-`;
             case "image16":
             case "Library Background":return img`
 ...777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777...
