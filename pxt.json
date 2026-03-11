@@ -13,13 +13,20 @@
         "browser-events": "*"
     },
     "files": [
-        "main.ts",
-        "README.md",
-        "assets.json",
         "images.g.jres",
         "images.g.ts",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "assets.json",
+        "main.ts",
+        "boot.ts",
+        "input.ts",
+        "webchat.ts",
+        "background.ts",
+        "apps.ts",
+        "nano_runtime.ts",
+        "app_backend.ts",
+        "README.md"
     ],
     "testFiles": [
         "test.ts"
