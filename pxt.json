@@ -18,18 +18,18 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "assets.json",
-        "main.ts",
-        "boot.ts",
-        "input.ts",
-        "webchat.ts",
-        "background.ts",
-        "apps.ts",
-        "nano_runtime.ts",
-        "app_backend.ts",
+        "src/main.ts",
+        "src/boot.ts",
+        "src/input.ts",
+        "src/webchat.ts",
+        "src/background.ts",
+        "src/apps.ts",
+        "src/nano_runtime.ts",
+        "src/app_backend.ts",
         "README.md"
     ],
     "testFiles": [
-        "test.ts"
+        "src/test.ts"
     ],
     "targetVersions": {
         "target": "4.0.10",
