@@ -21,10 +21,10 @@
         "src/main.ts",
         "src/boot.ts",
         "src/input.ts",
-        "src/webchat.ts",
+        "src/webchat_v1.ts",
         "src/background.ts",
         "src/apps.ts",
-        "src/nano_runtime.ts",
+        "src/nanosdk_runtime.ts",
         "src/app_backend.ts",
         "README.md"
     ],

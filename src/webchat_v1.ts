@@ -1,4 +1,4 @@
-// MARK: Radio
+// MARK: Web Chat v1 Protocol
 
 radio.onReceivedString(function (name: string) {
     RadioValueQueue.push(name)
