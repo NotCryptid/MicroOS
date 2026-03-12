@@ -1,9 +1,9 @@
 // MARK: Apps
 // Running every app at a kernel level is such a good idea ikr
 
-function createAppBar() {
+function createAppBar(fill: number = 1) {
     let bg = image.create(160, 120)
-    bg.fill(1)
+    bg.fill(fill)
     bg.fillRect(0, 0, 160, 9, 2)
     scene.setBackgroundImage(bg)
 }
@@ -87,7 +87,7 @@ function Open_NanoCode(project: string = "") {
     close_apps()
     App_Open = "NanoCode"
     SubMenu = "Editor"
-    createAppBar()
+    createAppBar(15)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("NanoCode", 0, 1)
@@ -100,8 +100,11 @@ function Open_NanoCode(project: string = "") {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
-    // Note: ForegroundColor property doesn't exist in MenuStyleProperty enum
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.DefaultAndSelected, miniMenu.StyleProperty.Foreground, 1)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.DefaultAndSelected, miniMenu.StyleProperty.Background, 15)
     ListMenuGUI.z = -30
+    List_Scroll = 0
+    ListMenuGUIHidden = []
     createArrows()
     updateScrollBar()
 }

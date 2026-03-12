@@ -495,7 +495,7 @@ function createArrows() {
 }
 
 function updateScrollBar() {
-    if (App_Open !== "File Manager" || spriteutils.isDestroyed(scrollBar)) {
+    if ((App_Open !== "File Manager" && App_Open !== "NanoCode") || spriteutils.isDestroyed(scrollBar)) {
         return;
     }
 
