@@ -15,7 +15,7 @@ if (browserEvents.currentTime() > -1) {
 // this definitely does something
 let Taskbar: Sprite = null
 let menu_selection : number = null
-let ListMenuGUI: miniMenu.MenuSprite = null
+let ListMenuGUI: any = null
 let NanoCode_Icon: Sprite = null
 let File_Manager_Icon: Sprite = null
 let Process_Icon: Sprite = null
@@ -47,7 +47,7 @@ let List_Scroll = 0
 let rclick_override = 0
 let current_rclick_menu: miniMenu.MenuItem[] = null
 let ListMenuGUIHidden: miniMenu.MenuItem[] = []
-let RightClickMenu: miniMenu.MenuSprite = null
+let RightClickMenu: any = null
 let Username = ""
 let Settings = blockSettings.readString("settings")
 let text: TextSprite = null

@@ -86,19 +86,24 @@ function Open_Settings() {
 function Open_NanoCode(project: string = "") {
     close_apps()
     App_Open = "NanoCode"
-    SubMenu = "Main"
-    scene.setBackgroundImage(assets.image`NanoCode Menu`)
-    scene.setBackgroundColor(15)
-    ListMenuContents = [miniMenu.createMenuItem("New"),miniMenu.createMenuItem("Edit"),miniMenu.createMenuItem("Compile"),miniMenu.createMenuItem("")]
-    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-    ListMenuGUI.setDimensions(106, 40)
-    ListMenuGUI.setButtonEventsEnabled(false)
-    ListMenuGUI.setPosition(104, 82)
-    ListMenuGUI.z = -30
+    SubMenu = "Editor"
+    createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(24, 4)
+    if (project == null) {
+        ListMenuContents = [miniMenu.createMenuItem("New | Open | Compile"), miniMenu.createMenuItem("")]
+    }
+    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+    ListMenuGUI.setDimensions(151, 97)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setPosition(76, 58)
+    ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
+    // Note: ForegroundColor property doesn't exist in MenuStyleProperty enum
+    ListMenuGUI.z = -30
+    createArrows()
+    updateScrollBar()
 }
 function Open_FileManager(submenu: string = "Home", file: string = null) {
     close_apps()

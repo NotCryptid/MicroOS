@@ -9,7 +9,7 @@
         "sprite-scaling": "*",
         "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.5.0",
-        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1",
+        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.1.0",
         "browser-events": "*"
     },
     "files": [
