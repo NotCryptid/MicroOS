@@ -54,7 +54,7 @@ forever(function () {
 
 forever(function () {
     if (isVM){
-        pause(60000)
+        pause(1000)
         minute = browserEvents.getMinutes(browserEvents.currentTime()) + 100
         hour = browserEvents.getHours(browserEvents.currentTime())
         clock.setText(hour + ":" + minute.toString().substr(1, 2))
