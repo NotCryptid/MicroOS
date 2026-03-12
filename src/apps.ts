@@ -93,7 +93,7 @@ function Open_NanoCode(project: string = "") {
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(24, 4)
     if (project == null) {
-        ListMenuContents = [miniMenu.createMenuItem("New | Open | Compile"), miniMenu.createMenuItem("")]
+        ListMenuContents = [miniMenu.createMenuItem("Save | Open | Compile"), miniMenu.createMenuItem("")]
     }
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
