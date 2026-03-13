@@ -93,7 +93,7 @@ function Open_NanoCode(project: string = "") {
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(24, 4)
     if (project == null) {
-        ListMenuContents = [miniMenu.createMenuItem("New | Open | Compile"), miniMenu.createMenuItem("DAN example"), miniMenu.createMenuItem("DAI default"), miniMenu.createMenuItem("ASM home"), miniMenu.createMenuItem("TXP 22"), miniMenu.createMenuItem("")]
+        ListMenuContents = [miniMenu.createMenuItem("Save | Open | Compile"), miniMenu.createMenuItem("DAN example"), miniMenu.createMenuItem("DAI default"), miniMenu.createMenuItem("ASM home"), miniMenu.createMenuItem("TXP 22"), miniMenu.createMenuItem("")]
     }
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
@@ -102,6 +102,8 @@ function Open_NanoCode(project: string = "") {
     ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
     ListMenuGUI.setStyleProperty(miniMenu.StyleKind.DefaultAndSelected, miniMenu.StyleProperty.Foreground, 1)
     ListMenuGUI.setStyleProperty(miniMenu.StyleKind.DefaultAndSelected, miniMenu.StyleProperty.Background, 15)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
     ListMenuGUI.z = -30
     List_Scroll = 0
     ListMenuGUIHidden = []
