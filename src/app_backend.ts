@@ -183,11 +183,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else {
                 softerror(107)
             } 
-            ListMenuGUI.setButtonEventsEnabled(false)
-            ListMenuGUI.setDimensions(151, 97)
-            ListMenuGUI.setPosition(76, 58)
-            ListMenuGUI.z = -30
-            updateScrollBar()
+            reloadListGUI(76, 58, 151, 97, false)
+            updateScrollBar(8)
         }
     } else if (app == "Settings") {
         if (submenu == "Home") {
@@ -429,12 +426,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 // nobody likes you
             }
         }
-        ListMenuGUI.close()
-        ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-        ListMenuGUI.setButtonEventsEnabled(false)
-        ListMenuGUI.setDimensions(151, 97)
-        ListMenuGUI.setPosition(76, 58)
-        ListMenuGUI.z = -30
+        reloadListGUI(76, 58, 151, 97, false)
     }
 }
 
@@ -478,13 +470,24 @@ function changeSettings(selection: number) {
     Settings = Settings.slice(0, selection) + dingus53.toString() + Settings.slice(selection + 1)
     Current_Settings[selection - 1] = miniMenu.createMenuItem(dingus51)
     blockSettings.writeString("settings", Settings)
-    ListMenuGUI.close()
-    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-    ListMenuGUI.setButtonEventsEnabled(false)
-    ListMenuGUI.setDimensions(151, 97)
-    ListMenuGUI.setPosition(76, 58)
-    ListMenuGUI.z = -30
+    reloadListGUI(76, 58, 151, 97, false)
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
+}
+
+function reloadListGUI(x: number, y: number, width: number, height: number, dark_mode: boolean) {
+    ListMenuGUI.destroy()
+    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+    ListMenuGUI.setDimensions(width, height)
+    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI.setPosition(x, y)
+    ListMenuGUI.z = -30
+    if (dark_mode) {
+        ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
+        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 1)
+        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
+        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
+        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
+    }
 }
 
 function createArrows() {
@@ -494,20 +497,19 @@ function createArrows() {
     ArrowDown.setPosition(156, 101)
 }
 
-function updateScrollBar() {
+function updateScrollBar(maxVisible: number = 8) {
     if ((App_Open !== "File Manager" && App_Open !== "NanoCode") || spriteutils.isDestroyed(scrollBar)) {
         return;
     }
 
     let totalItems = ListMenuContents.length + ListMenuGUIHidden.length;
-    let visibleRows = App_Open == "NanoCode" ? 7 : 8;
 
-    if (totalItems <= visibleRows) {
+    if (totalItems <= maxVisible) {
         scaling.scaleToPixels(scrollBar, 78, ScaleDirection.Vertically, ScaleAnchor.Middle);
         scrollBar.y = 57;
         scrollBarRond.y = 94;
     } else {
-        let scrollBarHeight = Math.ceil((visibleRows / totalItems) * 78);
+        let scrollBarHeight = Math.ceil((maxVisible / totalItems) * 78);
         scrollBarHeight = Math.max(scrollBarHeight, 6);
         scaling.scaleToPixels(scrollBar, scrollBarHeight - 1, ScaleDirection.Vertically, ScaleAnchor.Middle);
 
@@ -517,7 +519,7 @@ function updateScrollBar() {
 
         let travelDistance = trackHeight - scrollBarHeight;
 
-        let maxScroll = totalItems - visibleRows;
+        let maxScroll = totalItems - maxVisible;
         let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
 
         scrollBar.y = trackTop + Math.ceil(scrollBarHeight / 2) + Math.ceil(scrollProgress * travelDistance) - 1;

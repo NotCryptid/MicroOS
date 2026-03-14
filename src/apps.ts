@@ -104,18 +104,10 @@ function Open_NanoCode(project: string = "") {
     if (ListMenuContents.length == 0 || ListMenuContents[ListMenuContents.length - 1].text !== " ") {
         ListMenuContents.push(miniMenu.createMenuItem(" "))
     }
-    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-    ListMenuGUI.setDimensions(151, 84)
-    ListMenuGUI.setButtonEventsEnabled(false)
-    ListMenuGUI.setPosition(76, 64)
-    ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 1)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
-    ListMenuGUI.z = -30
     List_Scroll = 0
     ListMenuGUIHidden = []
+    ListMenuGUI = miniMenu.createMenuFromArray([])
+    reloadListGUI(76, 64, 151, 84, true)
     scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
     scrollBar.setPosition(156, 57)
     scrollBar.z = -2
@@ -123,7 +115,7 @@ function Open_NanoCode(project: string = "") {
     scrollBarRond.setPosition(156, 96)
     scrollBarRond.z = -1
     createArrows()
-    updateScrollBar()
+    updateScrollBar(7)
 }
 function Open_FileManager(submenu: string = "Home", file: string = null) {
     close_apps()
@@ -158,7 +150,7 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
     createArrows()
-    updateScrollBar()
+    updateScrollBar(8)
 }
 function Open_ProcessManager() {
     close_apps()

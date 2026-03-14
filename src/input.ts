@@ -78,19 +78,20 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
             Open_Library()
         } else if (button == 1 && (App_Open == "File Manager" || App_Open == "NanoCode") && Mouse_Cursor.x > 151) {
+            let visibleRows = App_Open == "NanoCode" ? 7 : 8;
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
-                if (ListMenuContents.length > 7 && ListMenuContents.length > 0) {
+                if (ListMenuContents.length > visibleRows) {
                     let item = ListMenuContents.shift();
                     if (item !== undefined) {
                         ListMenuGUIHidden.push(item);
                         List_Scroll++;
-                        ListMenuGUI.destroy();
-                        ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
-                        ListMenuGUI.setDimensions(151, 97);
-                        ListMenuGUI.setButtonEventsEnabled(false);
-                        ListMenuGUI.setPosition(76, 58);
-                        ListMenuGUI.z = -30;
-                        updateScrollBar();
+                        if (App_Open == "NanoCode") {
+                            reloadListGUI(76, 64, 151, 84, true);
+                            updateScrollBar(7);
+                        } else {
+                            reloadListGUI(76, 58, 151, 97, false);
+                            updateScrollBar(8);
+                        }
                     }
                 }
             } else if (Mouse_Cursor.overlapsWith(ArrowUp)) {
@@ -99,13 +100,13 @@ function MouseClick(button: number) {
                     if (item !== undefined) {
                         ListMenuContents.unshift(item);
                         List_Scroll--;
-                        ListMenuGUI.destroy();
-                        ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
-                        ListMenuGUI.setDimensions(151, 97);
-                        ListMenuGUI.setButtonEventsEnabled(false);
-                        ListMenuGUI.setPosition(76, 58);
-                        ListMenuGUI.z = -30;
-                        updateScrollBar();
+                        if (App_Open == "NanoCode") {
+                            reloadListGUI(76, 64, 151, 84, true);
+                            updateScrollBar(7);
+                        } else {
+                            reloadListGUI(76, 58, 151, 97, false);
+                            updateScrollBar(8);
+                        }
                     }
                 }
             }
@@ -147,22 +148,13 @@ function MouseClick(button: number) {
                 if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
                     if (button == 1 && ListMenuContents[i + List_Scroll - 1] != null) {
                         const changed_selection = game.askForString(ListMenuContents[i + List_Scroll - 1].text, 36)
-                        ListMenuContents[i + List_Scroll - 1] = miniMenu.createMenuItem(changed_selection)
-                        ListMenuGUI.destroy();
-                        ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
-                        ListMenuGUI.setDimensions(151, 84)
-                        ListMenuGUI.setButtonEventsEnabled(false)
-                        ListMenuGUI.setPosition(76, 64)
-                        ListMenuGUI.z = -30;
-                        ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
-                        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 1)
-                        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
-                        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
-                        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
-                        if (ListMenuContents[i + List_Scroll - 1].text == null) { 
+                        if (changed_selection == null) {
                             ListMenuContents[i + List_Scroll - 1] = miniMenu.createMenuItem("")
+                        } else {
+                            ListMenuContents[i + List_Scroll - 1] = miniMenu.createMenuItem(changed_selection)
                         }
-                        updateScrollBar();
+                        reloadListGUI(76, 64, 151, 84, true);
+                        updateScrollBar(7);
                         break;
                     }
                 }
