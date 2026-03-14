@@ -61,6 +61,7 @@ function Open_NanoSDK_App(app_binary: string) {
 
 // Runtime
 function executeNanoSDKLine() {
+    try {
     // Split up command
     command_data = binary[line - 1].split("§")
     current_command = command_data[0].split("")
@@ -299,6 +300,9 @@ function executeNanoSDKLine() {
                 }
                 break
         }
+    }
+    } catch (e) {
+        kernel_panic(205)
     }
 }
 

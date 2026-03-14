@@ -110,6 +110,12 @@ function Open_NanoCode(project: string = "") {
     ListMenuGUI.z = -30
     List_Scroll = 0
     ListMenuGUIHidden = []
+    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
+    scrollBar.setPosition(156, 57)
+    scrollBar.z = -2
+    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
+    scrollBarRond.setPosition(156, 96)
+    scrollBarRond.z = -1
     createArrows()
     updateScrollBar()
 }
