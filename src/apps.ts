@@ -1,10 +1,10 @@
 // MARK: Apps
 // Running every app at a kernel level is such a good idea ikr
 
-function createAppBar(fill: number = 1) {
+function createAppBar(fill: number = 1, accent: number = 2) {
     let bg = image.create(160, 120)
     bg.fill(fill)
-    bg.fillRect(0, 0, 160, 9, 2)
+    bg.fillRect(0, 0, 160, 9, accent)
     scene.setBackgroundImage(bg)
 }
 
@@ -88,23 +88,27 @@ function Open_NanoCode(project: string = "") {
     App_Open = "NanoCode"
     SubMenu = "Editor"
     createAppBar(15)
+    text = textsprite.create(" Save | Open | Compile   ", 1, 15)
+    text.setPosition(72, 13)
+    text.setBorder(2,1,0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(24, 4)
     if (project == null) {
-        ListMenuContents = [miniMenu.createMenuItem("Save | Open | Compile"), miniMenu.createMenuItem("DAN example"), miniMenu.createMenuItem("DAI default"), miniMenu.createMenuItem("ASM home"), miniMenu.createMenuItem("TXP 22"), miniMenu.createMenuItem("")]
+        ListMenuContents = [miniMenu.createMenuItem("DAN example"), miniMenu.createMenuItem("DAI default"), miniMenu.createMenuItem("ASM home"), miniMenu.createMenuItem("TXP 22"), miniMenu.createMenuItem("PRN Hello World!"), miniMenu.createMenuItem(""), miniMenu.createMenuItem("")]
     }
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-    ListMenuGUI.setDimensions(151, 97)
+    ListMenuGUI.setDimensions(151, 84)
     ListMenuGUI.setButtonEventsEnabled(false)
-    ListMenuGUI.setPosition(76, 58)
+    ListMenuGUI.setPosition(76, 64)
     ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.DefaultAndSelected, miniMenu.StyleProperty.Foreground, 1)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.DefaultAndSelected, miniMenu.StyleProperty.Background, 15)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 1)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
     ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
     ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
     ListMenuGUI.z = -30
+    ListMenuGUI.selectedIndex = 4
     List_Scroll = 0
     ListMenuGUIHidden = []
     createArrows()

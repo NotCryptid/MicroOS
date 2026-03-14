@@ -136,17 +136,11 @@ const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.c
 // MARK: More Kernel
 Define_Sprites()
 
+generateTaskbar()
+
 function Define_Sprites () {
     // remember to add new sprites here or the whole os will shit itself
     App_Open = "null"
-    // generate taskbar asset
-    let taskbarImg = image.create(154, 12)
-    taskbarImg.fillRect(0, 1, 154, 10, 7)
-    taskbarImg.fillRect(1, 0, 152, 12, 7)
-    taskbarImg.drawLine(12, 2, 12, 9, 8)
-    Taskbar = sprites.create(taskbarImg, SpriteKind.Desktop_UI)
-    Taskbar.z = -11
-    Taskbar.setPosition(80, 111)
     Library_icon = sprites.create(assets.image`Library_icon`, SpriteKind.Desktop_UI)
     Library_icon.setPosition(9, 111)
     xCell_Icon = sprites.create(assets.image`xCell`, SpriteKind.Desktop_UI)
@@ -176,6 +170,19 @@ function Define_Sprites () {
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroy(Close_App)
+}
+
+function generateTaskbar(primary: number = 7, accent: number = 8) {
+    if (spriteutils.isDestroyed(Taskbar)) { } else {
+        Taskbar.destroy()
+    }
+    let taskbarImg = image.create(154, 12)
+    taskbarImg.fillRect(0, 1, 154, 10, primary)
+    taskbarImg.fillRect(1, 0, 152, 12, primary)
+    taskbarImg.drawLine(12, 2, 12, 9, accent)
+    Taskbar = sprites.create(taskbarImg, SpriteKind.Desktop_UI)
+    Taskbar.z = -11
+    Taskbar.setPosition(80, 111)
 }
 
 function softerror(code: number) {
