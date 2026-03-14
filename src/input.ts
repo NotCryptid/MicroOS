@@ -145,9 +145,9 @@ function MouseClick(button: number) {
             let menu_selection = 1;
             for (let i = 1; i < 8; i++) {
                 if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
-                    if (button == 1 && ListMenuContents[menu_selection + List_Scroll - 1] != null) {
-                        const changed_selection = game.askForString(ListMenuContents[i + List_Scroll - 2].text, 36)
-                        ListMenuContents[i + List_Scroll - 2] = miniMenu.createMenuItem(changed_selection)
+                    if (button == 1 && ListMenuContents[i + List_Scroll - 1] != null) {
+                        const changed_selection = game.askForString(ListMenuContents[i + List_Scroll - 1].text, 36)
+                        ListMenuContents[i + List_Scroll - 1] = miniMenu.createMenuItem(changed_selection)
                         ListMenuGUI.destroy();
                         ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
                         ListMenuGUI.setDimensions(151, 84)
