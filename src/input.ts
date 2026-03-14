@@ -143,8 +143,8 @@ function MouseClick(button: number) {
                 }
             }
         } else if (App_Open == "NanoCode" ) {
-            for (let i = 1; i < 8; i++) {
-                if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
+            for (let i = 0; i < 7; i++) {
+                if (Mouse_Cursor.y >= sillySpacingForListGUI[i + 1] && Mouse_Cursor.y < sillySpacingForListGUI[i + 1] + 12 && Mouse_Cursor.x < 152) {
                     if (button == 1 && ListMenuContents[i] != null) {
                         const changed_selection = game.askForString(ListMenuContents[i].text, 36)
                         if (changed_selection == null) {
@@ -152,12 +152,11 @@ function MouseClick(button: number) {
                         } else {
                             ListMenuContents[i] = miniMenu.createMenuItem(changed_selection)
                         }
-                        // If the last item is no longer empty, add a new trailing empty line
                         if (ListMenuContents[ListMenuContents.length - 1].text !== " ") {
                             ListMenuContents.push(miniMenu.createMenuItem(" "))
                         }
                         reloadListGUI(76, 64, 151, 84, true);
-                        updateScrollBar(7);
+                        updateScrollBar(7, true);
                         break;
                     }
                 }

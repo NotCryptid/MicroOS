@@ -497,12 +497,19 @@ function createArrows() {
     ArrowDown.setPosition(156, 101)
 }
 
-function updateScrollBar(maxVisible: number = 8) {
+function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
     if ((App_Open !== "File Manager" && App_Open !== "NanoCode") || spriteutils.isDestroyed(scrollBar)) {
         return;
     }
 
     let totalItems = ListMenuContents.length + ListMenuGUIHidden.length;
+
+    if (dark) {
+        let darkimg = assets.image`scrollBar2`
+        darkimg.setPixel(0, 2, 15)
+        darkimg.setPixel(6, 2, 15)
+        scrollBarRond.setImage(darkimg)
+    }
 
     if (totalItems <= maxVisible) {
         scaling.scaleToPixels(scrollBar, 78, ScaleDirection.Vertically, ScaleAnchor.Middle);

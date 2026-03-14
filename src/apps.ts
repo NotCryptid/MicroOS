@@ -115,7 +115,7 @@ function Open_NanoCode(project: string = "") {
     scrollBarRond.setPosition(156, 96)
     scrollBarRond.z = -1
     createArrows()
-    updateScrollBar(7)
+    updateScrollBar(7, true)
 }
 function Open_FileManager(submenu: string = "Home", file: string = null) {
     close_apps()
