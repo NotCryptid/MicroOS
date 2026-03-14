@@ -36,6 +36,16 @@ forever(function () {
                 break;
             } 
         }
+    } else if (App_Open == "NanoCode") {
+        ListMenuGUI.selectedIndex = -1;
+        for (let i = 0; i < ListMenuContents.length && i < 7; i++) {
+            if (Mouse_Cursor.y >= sillySpacingForListGUI[i + 1] && Mouse_Cursor.y < sillySpacingForListGUI[i + 1] + 12 && Mouse_Cursor.x < 152) {
+                if (ListMenuContents[i]) {
+                    ListMenuGUI.selectedIndex = i;
+                }
+                break;
+            }
+        }
     } else if (NanoSDK_App_Running && nanoSDK_hover_highlight) {
         ListMenuGUI.selectedIndex = -1;
         let menuTop = menu_data[1] - Math.floor(menu_data[3] / 2);

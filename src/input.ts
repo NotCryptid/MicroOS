@@ -77,7 +77,7 @@ function MouseClick(button: number) {
             Open_ProcessManager()
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
             Open_Library()
-        } else if (button == 1 && App_Open == "File Manager" && Mouse_Cursor.x > 151) {
+        } else if (button == 1 && (App_Open == "File Manager" || App_Open == "NanoCode") && Mouse_Cursor.x > 151) {
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
                 if (ListMenuContents.length > 7 && ListMenuContents.length > 0) {
                     let item = ListMenuContents.shift();
@@ -138,6 +138,31 @@ function MouseClick(button: number) {
                         outline.setPosition(RightClickMenu.x, RightClickMenu.y)
                         scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
                         scaling.scaleToPixels(outline, current_rclick_menu.length * 12 + 2, ScaleDirection.Vertically, ScaleAnchor.Middle)
+                    }
+                }
+            }
+        } else if (App_Open == "NanoCode" ) {
+            let menu_selection = 1;
+            for (let i = 1; i < 8; i++) {
+                if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
+                    if (button == 1 && ListMenuContents[menu_selection + List_Scroll - 1] != null) {
+                        const changed_selection = game.askForString(ListMenuContents[i + List_Scroll - 2].text, 36)
+                        ListMenuContents[i + List_Scroll - 2] = miniMenu.createMenuItem(changed_selection)
+                        ListMenuGUI.destroy();
+                        ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents);
+                        ListMenuGUI.setDimensions(151, 84)
+                        ListMenuGUI.setButtonEventsEnabled(false)
+                        ListMenuGUI.setPosition(76, 64)
+                        ListMenuGUI.z = -30;
+                        ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
+                        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 1)
+                        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
+                        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
+                        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
+                        if (ListMenuContents[i + List_Scroll - 1].text == null) { 
+                            ListMenuContents[i + List_Scroll - 1] = miniMenu.createMenuItem("")
+                        }
+                        break;
                     }
                 }
             }
