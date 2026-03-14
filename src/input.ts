@@ -162,6 +162,7 @@ function MouseClick(button: number) {
                         if (ListMenuContents[i + List_Scroll - 1].text == null) { 
                             ListMenuContents[i + List_Scroll - 1] = miniMenu.createMenuItem("")
                         }
+                        updateScrollBar();
                         break;
                     }
                 }
