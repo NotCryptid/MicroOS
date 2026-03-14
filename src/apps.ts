@@ -107,7 +107,7 @@ function Open_NanoCode(project: string = "") {
     List_Scroll = 0
     ListMenuGUIHidden = []
     ListMenuGUI = miniMenu.createMenuFromArray([])
-    reloadListGUI(76, 64, 151, 84, true)
+    reloadListGUI(76, 63, 151, 84, true)
     scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
     scrollBar.setPosition(156, 57)
     scrollBar.z = -2
