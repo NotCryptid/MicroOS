@@ -95,8 +95,10 @@ function Open_NanoCode(project: string = "") {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(24, 4)
-    if (project == null) {
+    if (project == null || project == "") {
         ListMenuContents = [miniMenu.createMenuItem("DAN example"), miniMenu.createMenuItem("DAI default"), miniMenu.createMenuItem("ASM home"), miniMenu.createMenuItem("TXP 22"), miniMenu.createMenuItem("PRN Hello World!")]
+    } else {
+        ListMenuContents = project.split("\n").map(line => miniMenu.createMenuItem(line))
     }
     // Always ensure a trailing empty line so the scrollbar has something to show
     if (ListMenuContents.length == 0 || ListMenuContents[ListMenuContents.length - 1].text !== " ") {
