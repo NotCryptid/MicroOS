@@ -502,7 +502,8 @@ function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
         return;
     }
 
-    let totalItems = ListMenuContents.length + ListMenuGUIHidden.length;
+    // +1 accounts for the virtual blank line beyond the last item
+    let totalItems = ListMenuContents.length + ListMenuGUIHidden.length + 1;
 
     if (dark) {
         let darkimg = assets.image`scrollBar2`
@@ -511,26 +512,28 @@ function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
         scrollBarRond.setImage(darkimg)
     }
 
+    const trackTop = 18;  // top pixel of track
+    const trackBottom = 94; // bottom pixel of track (exclusive of scrollBarRond)
+    const trackHeight = trackBottom - trackTop; // 76 usable pixels for thumb travel
+
     if (totalItems <= maxVisible) {
         scaling.scaleToPixels(scrollBar, 78, ScaleDirection.Vertically, ScaleAnchor.Middle);
         scrollBar.y = 57;
-        scrollBarRond.y = 94;
+        scrollBarRond.y = 95;
     } else {
-        let scrollBarHeight = Math.ceil((maxVisible / totalItems) * 78);
-        scrollBarHeight = Math.max(scrollBarHeight, 6);
+        let scrollBarHeight = Math.max(6, Math.floor((maxVisible / totalItems) * 78));
         scaling.scaleToPixels(scrollBar, scrollBarHeight - 1, ScaleDirection.Vertically, ScaleAnchor.Middle);
-
-        let trackTop = 19;
-        let trackBottom = 93;
-        let trackHeight = trackBottom - trackTop;
-
-        let travelDistance = trackHeight - scrollBarHeight;
 
         let maxScroll = totalItems - maxVisible;
         let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
+        let travelDistance = trackHeight - scrollBarHeight;
 
-        scrollBar.y = trackTop + Math.ceil(scrollBarHeight / 2) + Math.ceil(scrollProgress * travelDistance) - 1;
-        scrollBarRond.y = Math.min(scrollBar.y + Math.floor(scrollBarHeight / 2) - 2, trackBottom + 2);
+        let centreY = trackTop + Math.ceil(scrollBarHeight / 2) + Math.round(scrollProgress * travelDistance);
+        // clamp so thumb never escapes track
+        centreY = Math.max(trackTop + Math.ceil(scrollBarHeight / 2), centreY);
+        centreY = Math.min(trackBottom - Math.floor(scrollBarHeight / 2), centreY);
+        scrollBar.y = centreY;
+        scrollBarRond.y = Math.min(centreY + Math.floor(scrollBarHeight / 2), 94);
     }
 }
 // App functions end here

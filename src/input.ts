@@ -80,7 +80,7 @@ function MouseClick(button: number) {
         } else if (button == 1 && (App_Open == "File Manager" || App_Open == "NanoCode") && Mouse_Cursor.x > 151) {
             let visibleRows = App_Open == "NanoCode" ? 7 : 8;
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
-                if (ListMenuContents.length > visibleRows) {
+                if (ListMenuContents.length >= visibleRows) {
                     let item = ListMenuContents.shift();
                     if (item !== undefined) {
                         ListMenuGUIHidden.push(item);
@@ -115,7 +115,7 @@ function MouseClick(button: number) {
             for (let i = 0; i < 8; i++) {
                 if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
                     menu_selection = i + 1;
-                    if (button == 1 && ListMenuContents[menu_selection + List_Scroll - 1] != null) {
+                    if (button == 1 && ListMenuContents[menu_selection - 1] != null) {
                         listSelection(App_Open, menu_selection, SubMenu, "click", 0)
                         break;
                     } else if (button == 2 && App_Open == "File Manager") {
