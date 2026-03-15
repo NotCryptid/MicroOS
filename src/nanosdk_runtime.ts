@@ -61,17 +61,23 @@ function Open_NanoSDK_App(app_binary: string) {
 
 // MARK: Runtime
 function executeNanoSDKLine() {
-    try {
+    // Stop execution when program runs out of instructions
+    // Keep running if there are active when checks waiting for events
+    if (line > binary.length) {
+        if (when_checks.length == 0) {
+            NanoSDK_App_Running = false
+        }
+        return
+    }
+
     // Split up command
     command_data = binary[line - 1].split("§")
     current_command = command_data[0].split("")
     command_category = current_command[0]
     current_command = current_command[1] + current_command[2]
 
-    if (line > binary.length && when_checks.length == 0) {} else {
-        // Set next line to run
-        line++
-    }
+    // Advance to next line
+    line++
 
     // Check for if bracket end
     if (command_category == "2" && command_data[1] == "e") {
@@ -300,8 +306,5 @@ function executeNanoSDKLine() {
                 }
                 break
         }
-    }
-    } catch (e) {
-        kernel_panic(205)
     }
 }
