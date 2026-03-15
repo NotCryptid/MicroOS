@@ -123,5 +123,3 @@ function nsc_pad(s: string): string {
     if (Math.abs(n) < 100) return (n < 0 ? "-"  : "0")  + Math.abs(n)
     return n.toString()
 }
-
-// MARK: NanoSDK Compiler end
