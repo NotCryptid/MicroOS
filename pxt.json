@@ -26,6 +26,7 @@
         "src/apps.ts",
         "src/nanosdk_runtime.ts",
         "src/app_backend.ts",
+        "src/compiler.ts",
         "README.md"
     ],
     "testFiles": [

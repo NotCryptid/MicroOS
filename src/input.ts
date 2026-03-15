@@ -149,15 +149,24 @@ function MouseClick(button: number) {
                         const x = Mouse_Cursor.x
                         if (x > 88) {} else if (x > 38) {
                             // compile app
+                            const newName = game.askForString("App file name", 15)
+                            if (!isValidFileName(newName, "nsa")) { return }
+                            const allLines = ListMenuGUIHidden.concat(ListMenuContents)
+                            const serialized: string = allLines
+                                .map(item => item.text)
+                                .filter(t => t !== " ")
+                                .join("~")
+                            blockSettings.writeString("file_nsa" + newName, compile_nanosdk_code(serialized))
+                            User_Files.push(miniMenu.createMenuItem(newName + ".nsa"))
+                            blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         } else if (x > 4) {
                             // save file
                             const allLines = ListMenuGUIHidden.concat(ListMenuContents)
-                            const serialized = allLines
+                            const serialized: string = allLines
                                 .map(item => item.text)
                                 .filter(t => t !== " ")
                                 .join("~")
                             if (open_nanocode_file == null) {
-                                // new file — ask for name
                                 const newName = game.askForString("Project name", 15)
                                 if (!isValidFileName(newName, "nsp")) { return }
                                 open_nanocode_file = newName
@@ -165,7 +174,6 @@ function MouseClick(button: number) {
                                 User_Files.push(miniMenu.createMenuItem(newName + ".nsp"))
                                 blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             } else {
-                                // overwrite existing file
                                 blockSettings.writeString("file_nsp" + open_nanocode_file, serialized)
                             }
                         }
