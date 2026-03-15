@@ -143,19 +143,26 @@ function MouseClick(button: number) {
                 }
             }
         } else if (App_Open == "NanoCode" ) {
-            for (let i = 0; i < 7; i++) {
-                if (Mouse_Cursor.y >= sillySpacingForListGUI[i + 1] && Mouse_Cursor.y < sillySpacingForListGUI[i + 1] + 12 && Mouse_Cursor.x < 152) {
-                    if (button == 1 && ListMenuContents[i] != null) {
-                        const changed_selection = game.askForString(ListMenuContents[i].text, 36)
+            for (let i = 0; i < 8; i++) {
+                if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
+                    if (i == 0) {
+                        const x = Mouse_Cursor.x
+                        if (x > 88) {} else if (x > 38) {
+                            // compile app
+                        } else if (x > 4) {
+                            // save project
+                        }
+                    } else if (button == 1 && ListMenuContents[i - 1] != null) {
+                        const changed_selection = game.askForString(ListMenuContents[i - 1].text, 36)
                         if (changed_selection == null) {
-                            ListMenuContents[i] = miniMenu.createMenuItem("")
+                            ListMenuContents[i - 1] = miniMenu.createMenuItem("")
                         } else {
-                            ListMenuContents[i] = miniMenu.createMenuItem(changed_selection)
+                            ListMenuContents[i - 1] = miniMenu.createMenuItem(changed_selection)
                         }
                         if (ListMenuContents[ListMenuContents.length - 1].text !== " ") {
                             ListMenuContents.push(miniMenu.createMenuItem(" "))
                         }
-                        reloadListGUI(76, 64, 151, 84, true);
+                        reloadListGUI(76, 63, 151, 84, true);
                         updateScrollBar(7, true);
                         break;
                     }

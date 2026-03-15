@@ -83,12 +83,12 @@ function Open_Settings() {
     ListMenuGUI.z = -30
 }
 
-function Open_NanoCode(project: string = "") {
+function Open_NanoCode(project: string = null, file: string = null) {
     close_apps()
     App_Open = "NanoCode"
     SubMenu = "Editor"
     createAppBar(15)
-    text = textsprite.create(" Save | Open | Compile   ", 1, 15)
+    text = textsprite.create(" Save | Compile          ", 1, 15)
     text.setPosition(72, 13)
     text.setBorder(2,1,0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
@@ -98,9 +98,8 @@ function Open_NanoCode(project: string = "") {
     if (project == null || project == "") {
         ListMenuContents = [miniMenu.createMenuItem("DAN example"), miniMenu.createMenuItem("DAI default"), miniMenu.createMenuItem("ASM home"), miniMenu.createMenuItem("TXP 22"), miniMenu.createMenuItem("PRN Hello World!")]
     } else {
-        ListMenuContents = project.split("\n").map(line => miniMenu.createMenuItem(line))
+        ListMenuContents = project.split("~").map(line => miniMenu.createMenuItem(line))
     }
-    // Always ensure a trailing empty line so the scrollbar has something to show
     if (ListMenuContents.length == 0 || ListMenuContents[ListMenuContents.length - 1].text !== " ") {
         ListMenuContents.push(miniMenu.createMenuItem(" "))
     }
