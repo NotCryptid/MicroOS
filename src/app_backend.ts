@@ -129,7 +129,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             Open_NanoSDK_App(blockSettings.readString("file_app" + FileOpened[0]))
                         } else if (FileOpened[1] == "nsp") {
                             Open_NanoCode(blockSettings.readString("file_nsp" + FileOpened[0]), FileOpened[0])
-                        } else {
+                        } else if (FileOpened[1] == "nsa") {
+                            Open_NanoSDK_App(blockSettings.readString("file_nsa" + FileOpened[0]))
+                        } else{
                             softerror(109)
                         }
                            
