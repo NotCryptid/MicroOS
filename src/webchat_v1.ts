@@ -1,13 +1,14 @@
-// MARK: Web Chat v1 Protocol
-
+// MARK: Radio Recieve Name
 radio.onReceivedString(function (name: string) {
     RadioValueQueue.push(name)
 })
 
+// MARK: Radio Recieve Value
 radio.onReceivedValue(function (name: string, value: number) {
     handleWebChatChunk(name, value)
 })
 
+// MARK: Web Chat Queue
 function processRadioQueue() {
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
         while (RadioValueQueue.length > 0) {
@@ -39,6 +40,7 @@ function processRadioQueue() {
     }
 }
 
+// MARK: Web Chat Send
 function sendWebChatMessage(username: string, message: string) {
     let fullMessage = username + "|" + message
     let chunkSize = 18
@@ -63,6 +65,7 @@ function sendWebChatMessage(username: string, message: string) {
     radio.sendValue("WCE", parseInt(RoomCode.substr(0, 4)))
 }
 
+// MARK: Web Chat Encode
 function encodeStringToValues(text: string): number[] {
     let values: number[] = []
     for (let i = 0; i < text.length; i += 3) {
@@ -75,6 +78,7 @@ function encodeStringToValues(text: string): number[] {
     return values
 }
 
+// MARK: Web Chat Decode
 function decodeValueToString(value: number, length: number): string {
     let result = ""
     let chars: number[] = []
@@ -88,6 +92,7 @@ function decodeValueToString(value: number, length: number): string {
     return result
 }
 
+// MARK: Web Chat Chunk Handler
 function handleWebChatChunk(name: string, value: number) {
     if (name.substr(0, 2) == "WC") {
         if (name == "WCH") {
@@ -108,5 +113,3 @@ function handleWebChatChunk(name: string, value: number) {
         }
     }
 }
-
-// Radio ends here

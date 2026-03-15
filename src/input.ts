@@ -1,5 +1,4 @@
-// MARK: Button Presses
-
+// MARK: VM Mouse Button Loop
 // VM Stuff (COMMENT OUT WHEN BUILDING FOR HARDWARE, THIS SHIT USES SO MUCH CPU CYCLES OML)
 forever(function () {
     if (browserEvents.MouseLeft.isPressed()) {
@@ -16,15 +15,17 @@ forever(function () {
     }
 })
 
-
-
+// MARK: A Button
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (isVM) {} else {MouseClick(1)}
 })
+
+// MARK: B Button
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {  
     if (isVM) {} else {MouseClick(2)}
 })
 
+// MARK: Menu Button
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
     if (App_Open == "death") {
         game.reset()
@@ -35,6 +36,7 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
     } 
 })
 
+// MARK: Mouse Click
 function MouseClick(button: number) {
     if (Mouse_Cursor.overlapsWith(Close_App) && button == 1) {
         close_apps()
@@ -223,5 +225,3 @@ function MouseClick(button: number) {
         }
     }
 }
-
-// Button presses end here

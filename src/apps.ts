@@ -1,6 +1,6 @@
-// MARK: Apps
 // Running every app at a kernel level is such a good idea ikr
 
+// MARK: createAppBar
 function createAppBar(fill: number = 1, accent: number = 2) {
     let bg = image.create(160, 120)
     bg.fill(fill)
@@ -8,6 +8,7 @@ function createAppBar(fill: number = 1, accent: number = 2) {
     scene.setBackgroundImage(bg)
 }
 
+// MARK: Open Library
 function Open_Library() {
     close_apps()
     App_Open = "App Library"
@@ -22,6 +23,7 @@ function Open_Library() {
     Taskbar.setPosition(80, 53)
 }
 
+// MARK: Open Web Chat
 function Open_Web() {
     close_apps()
     App_Open = "Web Chat"
@@ -41,7 +43,7 @@ function Open_Web() {
     ListMenuGUI.z = -30
 }
 
-
+// MARK: Open xCell
 function Open_xCell(load_file: string) {
     close_apps()
     App_Open = "xCell"
@@ -54,6 +56,7 @@ function Open_xCell(load_file: string) {
     text.setPosition(80, 60)
 }
 
+// MARK: Open Write
 function Open_Write(load_file: string) {
     close_apps()
     App_Open = "Write"
@@ -65,6 +68,8 @@ function Open_Write(load_file: string) {
     text = textsprite.create("Unfinished", 0, 15)
     text.setPosition(80, 60)
 }
+
+// MARK: Open Settings
 function Open_Settings() {
     close_apps()
     App_Open = "Settings"
@@ -83,6 +88,7 @@ function Open_Settings() {
     ListMenuGUI.z = -30
 }
 
+// MARK: Open NanoCode
 function Open_NanoCode(project: string = null, file: string = null) {
     close_apps()
     App_Open = "NanoCode"
@@ -117,6 +123,8 @@ function Open_NanoCode(project: string = null, file: string = null) {
     createArrows()
     updateScrollBar(7, true)
 }
+
+// MARK: Open File Manager
 function Open_FileManager(submenu: string = "Home", file: string = null) {
     close_apps()
     App_Open = "File Manager"
@@ -152,6 +160,8 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     createArrows()
     updateScrollBar(8)
 }
+
+// MARK: Open Process Manager
 function Open_ProcessManager() {
     close_apps()
     App_Open = "Process Manager"
@@ -171,4 +181,3 @@ function Open_ProcessManager() {
     ListMenuGUI.z = -30
 }
 
-// Apps end here

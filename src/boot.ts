@@ -1,4 +1,4 @@
-// MARK: Kernel
+// MARK: Sprite Kinds
 // do not touch this for the love of god
 namespace SpriteKind {
     export const Desktop_UI = SpriteKind.create()
@@ -6,13 +6,13 @@ namespace SpriteKind {
     export const App_UI = SpriteKind.create()
 }
 
-// VM Stuff
+// MARK: VM Detector
 let isVM = false
 if (browserEvents.currentTime() > -1) {
     isVM = true
 }
 
-// this definitely does something
+// MARK: Global Variables
 let Taskbar: Sprite = null
 let menu_selection : number = null
 let ListMenuGUI: any = null
@@ -69,7 +69,7 @@ pause(200)
 text = textsprite.create("> Loading MicroOS v0.1.0", 0, 1)
 text.setPosition(76, 26)
 
-// MARK: OS Boot Sequence
+// MARK: Load Settings
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     Settings = "1000100"
     radio.setGroup(113)
@@ -93,7 +93,7 @@ Current_Settings = [
     miniMenu.createMenuItem("Room Code - " + RoomCode)
 ]
 
-// NanoFS Shit
+// MARK: NanoFS Init
 let fileNamesString = blockSettings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
 if (User_Files_Temp.length == 0 || controller.B.isPressed() && controller.up.isPressed()) {
@@ -107,7 +107,7 @@ for (let i = 0; i < User_Files_Temp.length; i++) {
 
 pause(randint(1000, 2000)) // haha funny delay
 
-// Post startup tasks
+// MARK: Post Startup Tasks
 sprites.destroy(text)
 sprites.destroy(text2)
 let Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
@@ -127,18 +127,16 @@ if (Settings.charAt(6) == "0") {
     clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
 }
 
-// Right click menus
+// MARK: Right Click Menus
 const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
 const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Paste")]
 
 
-// OS Boot Sequence ends here
-
-// MARK: More Kernel
 Define_Sprites()
 
 generateTaskbar()
 
+// MARK: Define Sprites
 function Define_Sprites () {
     // remember to add new sprites here or the whole os will shit itself
     App_Open = "null"
@@ -173,6 +171,7 @@ function Define_Sprites () {
     sprites.destroy(Close_App)
 }
 
+// MARK: Generate Taskbar
 function generateTaskbar(primary: number = 7, accent: number = 8) {
     if (spriteutils.isDestroyed(Taskbar)) { } else {
         Taskbar.destroy()
@@ -186,17 +185,22 @@ function generateTaskbar(primary: number = 7, accent: number = 8) {
     Taskbar.setPosition(80, 111)
 }
 
+// MARK: Soft Error
 function softerror(code: number) {
     if (App_Open !== "death") {
         game.splash("Error " + code)
     }
 }
+
+// MARK: Error
 function error(code: number) {
     if (App_Open !== "death") {
         close_apps()
         game.splash("Error " + code)
     }
 }
+
+// MARK: Kernel Panic
 function kernel_panic(code: number) {
     if (App_Open !== "death") {
         close_apps()
@@ -216,5 +220,3 @@ function kernel_panic(code: number) {
         text.setPosition(79, 111)
     }
 }
-
-// Okay kernel ends here

@@ -1,4 +1,4 @@
-// MARK: App functions
+// MARK: Close Apps
 function close_apps () {
     ListMenuGUIHidden = []
     List_Scroll = 0
@@ -36,7 +36,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         miniMenu.createMenuItem("NanoSDK Apps")
     ]
 
-
+    // MARK: File Manager
     if (app == "File Manager") {
         if (action == "rclick") {
             rclick_override = selectedOption
@@ -181,6 +181,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             reloadListGUI(76, 58, 151, 97, false)
             updateScrollBar(8)
         }
+    // MARK: Settings
     } else if (app == "Settings") {
         if (submenu == "Home") {
             if (selectedOption == 1) {
@@ -425,6 +426,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
     }
 }
 
+// Mark: Write Settings
 function changeSettings(selection: number) {
     let dingus53 = parseInt(Settings.charAt(selection), 10) + 1;
     let dingus52 = 0
@@ -469,8 +471,7 @@ function changeSettings(selection: number) {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
 
-// Returns true if the name is valid for use as a file name.
-// Blocks empty, reserved names, forbidden characters (~ §), and duplicates.
+// MARK: Valid File Name Check
 function isValidFileName(name: string, ext: string): boolean {
     if (name == null || name == "" || name == "Home") {
         softerror(110)
@@ -494,6 +495,7 @@ function isValidFileName(name: string, ext: string): boolean {
     return true
 }
 
+// MARK: Reload ListGUI
 function reloadListGUI(x: number, y: number, width: number, height: number, dark_mode: boolean) {
     ListMenuGUI.destroy()
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
@@ -510,6 +512,7 @@ function reloadListGUI(x: number, y: number, width: number, height: number, dark
     }
 }
 
+// MARK: Create Arrows
 function createArrows() {
     ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
     ArrowUp.setPosition(156, 14)
@@ -517,12 +520,12 @@ function createArrows() {
     ArrowDown.setPosition(156, 101)
 }
 
+// MARK: Update ScrollBar
 function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
     if ((App_Open !== "File Manager" && App_Open !== "NanoCode") || spriteutils.isDestroyed(scrollBar)) {
         return;
     }
 
-    // +1 accounts for the virtual blank line beyond the last item
     let totalItems = ListMenuContents.length + ListMenuGUIHidden.length + 1;
 
     if (dark) {
@@ -549,11 +552,9 @@ function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
         let travelDistance = trackHeight - scrollBarHeight;
 
         let centreY = trackTop + Math.ceil(scrollBarHeight / 2) + Math.round(scrollProgress * travelDistance);
-        // clamp so thumb never escapes track
         centreY = Math.max(trackTop + Math.ceil(scrollBarHeight / 2), centreY);
         centreY = Math.min(trackBottom - Math.floor(scrollBarHeight / 2), centreY);
         scrollBar.y = centreY;
         scrollBarRond.y = Math.min(centreY + Math.floor(scrollBarHeight / 2), 94);
     }
 }
-// App functions end here

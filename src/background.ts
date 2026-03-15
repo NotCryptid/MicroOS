@@ -1,5 +1,4 @@
-// MARK: Background tasks
-
+// MARK: VM Mouse Move
 browserEvents.onMouseMove(function (x: number, y: number) {
     if (isVM && spriteutils.isDestroyed(Mouse_Cursor) == false) {
         Mouse_Cursor.x = x
@@ -7,6 +6,7 @@ browserEvents.onMouseMove(function (x: number, y: number) {
     }
 })
 
+// MARK: Main Background Loop (10ms)
 forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
@@ -62,6 +62,7 @@ forever(function () {
     }
 })
 
+// MARK: Clock Loop
 forever(function () {
     if (isVM){
         pause(1000)
@@ -84,6 +85,7 @@ forever(function () {
     }
 })
 
+// MARK: Start Icon Names
 function Start_Icon_Names() {
     let otherColor = 12
     let color24 = 1
@@ -109,6 +111,3 @@ function Start_Icon_Names() {
         Library_icon.sayText(".    Library", 50, false, color24, otherColor)
     }
 }
-
-
-// Background tasks end here

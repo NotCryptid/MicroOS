@@ -1,6 +1,5 @@
-// MARK: NanoSDK Runtime
-
-// ListGUI Reload Function
+// MARK: ListGUI Reload Function
+// why does this exist twice
 function Reload_ListGUI(data: miniMenu.MenuItem[], x: number, y: number, width: number, height: number, destroy: Boolean) {
     if (destroy) {
         ListMenuGUI.destroy()
@@ -29,6 +28,7 @@ let menu_array: miniMenu.MenuItem[] = []
 let menu_data = [80, 58, 160, 97]
 let nanoSDK_hover_highlight = false
 
+// MARK: Start Runtime
 function Open_NanoSDK_App(app_binary: string) {
     // Prepare app
     binary = app_binary.split("~")
@@ -59,7 +59,7 @@ function Open_NanoSDK_App(app_binary: string) {
 
 // Example compiled app for later: test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§b§t~106§test~201§e~202§e
 
-// Runtime
+// MARK: Runtime
 function executeNanoSDKLine() {
     try {
     // Split up command
@@ -85,7 +85,7 @@ function executeNanoSDKLine() {
 
         // Continue if conditions met
         switch (command_category) {
-            // Basic Commands
+            // MARK: Basic Commands
             case "1":
                 if (current_command == "05") {
                     // Print
@@ -101,7 +101,7 @@ function executeNanoSDKLine() {
                 }
                 break
 
-            // Logic
+            // MARK: Logic
             case "2":
                 if (current_command == "01") {
                     // If Bracket
@@ -242,7 +242,7 @@ function executeNanoSDKLine() {
                 }
                 break
 
-            // ListGUIs
+            // MARK: ListGUIs
             case "3":
                 if (current_command == "01") {
                     // Create ListGUI
@@ -305,5 +305,3 @@ function executeNanoSDKLine() {
         kernel_panic(205)
     }
 }
-
-// NanoSDK Runtime ends here
