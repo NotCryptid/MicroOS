@@ -140,7 +140,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         if (!isValidFileName(newName, FileOpened[1])) { return }
                         if (blockSettings.readString("file_" + FileOpened[1] + newName) == null) {
                             blockSettings.writeString("file_" + FileOpened[1] + newName, blockSettings.readString("file_" + FileOpened[1] + FileOpened[0]))
-                            blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
+                            blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
                             User_Files[fileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
                             blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             Open_FileManager("User")
@@ -152,7 +152,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     } else if (action == "rclick3") {
                         Open_FileManager("Details", FileAtSelection)
                     } else if (action == "rclick4") {
-                        blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
+                        blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
                         User_Files.splice(selectedOption - 1, 1)
                         blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         Open_FileManager("User")
@@ -310,7 +310,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     if (User_Files[i].text !== "Home") {
                         const fileParts = User_Files[i].text.split(".")
                         if (fileParts.length === 2) {
-                            blockSettings.writeString("file_" + fileParts[1] + fileParts[0], null)
+                            blockSettings.writeString("file_" + fileParts[1] + fileParts[0], "")
                         }
                     }
                 }
@@ -325,7 +325,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     if (User_Files[i].text !== "Home") {
                         const fileParts = User_Files[i].text.split(".")
                         if (fileParts.length === 2) {
-                            blockSettings.writeString("file_" + fileParts[1] + fileParts[0], null)
+                            blockSettings.writeString("file_" + fileParts[1] + fileParts[0], "")
                         }
                     }
                 }
