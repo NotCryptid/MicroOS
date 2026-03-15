@@ -150,7 +150,24 @@ function MouseClick(button: number) {
                         if (x > 88) {} else if (x > 38) {
                             // compile app
                         } else if (x > 4) {
-                            // save project
+                            // save file
+                            const allLines = ListMenuGUIHidden.concat(ListMenuContents)
+                            const serialized = allLines
+                                .map(item => item.text)
+                                .filter(t => t !== " ")
+                                .join("~")
+                            if (open_nanocode_file == null) {
+                                // new file — ask for name
+                                const newName = game.askForString("Project name", 15)
+                                if (!isValidFileName(newName, "nsp")) { return }
+                                open_nanocode_file = newName
+                                blockSettings.writeString("file_nsp" + newName, serialized)
+                                User_Files.push(miniMenu.createMenuItem(newName + ".nsp"))
+                                blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                            } else {
+                                // overwrite existing file
+                                blockSettings.writeString("file_nsp" + open_nanocode_file, serialized)
+                            }
                         }
                     } else if (button == 1 && ListMenuContents[i - 1] != null) {
                         const changed_selection = game.askForString(ListMenuContents[i - 1].text, 36)

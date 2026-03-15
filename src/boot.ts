@@ -36,6 +36,7 @@ let App_Title: TextSprite = null
 let NanoSDK_App_Running = false
 let WebChatSend: Sprite = null
 let Temp = ""
+let open_nanocode_file: String = null
 let Close_App: Sprite = null
 let ArrowUp: Sprite = null
 let ArrowDown: Sprite = null

@@ -7,6 +7,7 @@ function close_apps () {
     Temp = ""
     NanoSDK_App_Running = false
     nanoSDK_hover_highlight = false
+    open_nanocode_file = null
     Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
@@ -92,15 +93,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     Open_FileManager("Home")
                 } else if (action === "rclick0") {
                     const newName = game.askForString("New file name", 15)
-                    if (newName == null || newName == "" || newName == "Home") {
-                        softerror(110)
-                        return
-                    }
                     const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
                     if (fileType == null || fileType == "" || fileType.length < 3) {
                         softerror(111)
                         return
                     }
+                    if (!isValidFileName(newName, fileType)) { return }
                     blockSettings.writeString("file_" + fileType + newName, "~")
                     User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
                     blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
@@ -130,17 +128,14 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         } else if (FileOpened[1] == "app") {
                             Open_NanoSDK_App(blockSettings.readString("file_app" + FileOpened[0]))
                         } else if (FileOpened[1] == "nsp") {
-                            Open_NanoCode(blockSettings.readString("file_nsp" + FileOpened[0]))
+                            Open_NanoCode(blockSettings.readString("file_nsp" + FileOpened[0]), FileOpened[0])
                         } else {
                             softerror(109)
                         }
                            
                     } else if (action == "rclick1") {
                         const newName = game.askForString("Rename file", 15)
-                        if (newName == null || newName == "" || newName == "Home") {
-                            softerror(110)
-                            return
-                        }
+                        if (!isValidFileName(newName, FileOpened[1])) { return }
                         if (blockSettings.readString("file_" + FileOpened[1] + newName) == null) {
                             blockSettings.writeString("file_" + FileOpened[1] + newName, blockSettings.readString("file_" + FileOpened[1] + FileOpened[0]))
                             blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], null)
@@ -472,6 +467,31 @@ function changeSettings(selection: number) {
     blockSettings.writeString("settings", Settings)
     reloadListGUI(76, 58, 151, 97, false)
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
+}
+
+// Returns true if the name is valid for use as a file name.
+// Blocks empty, reserved names, forbidden characters (~ §), and duplicates.
+function isValidFileName(name: string, ext: string): boolean {
+    if (name == null || name == "" || name == "Home") {
+        softerror(110)
+        return false
+    }
+    if (name.indexOf("~") >= 0 || name.indexOf("\u00a7") >= 0) {
+        softerror(110)
+        return false
+    }
+    if (ext.indexOf("~") >= 0 || ext.indexOf("\u00a7") >= 0) {
+        softerror(111)
+        return false
+    }
+    const fullName = name + "." + ext
+    for (let i = 0; i < User_Files.length; i++) {
+        if (User_Files[i].text == fullName) {
+            softerror(112)
+            return false
+        }
+    }
+    return true
 }
 
 function reloadListGUI(x: number, y: number, width: number, height: number, dark_mode: boolean) {
