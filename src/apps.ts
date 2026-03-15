@@ -1,6 +1,6 @@
 // Running every app at a kernel level is such a good idea ikr
 
-// MARK: createAppBar
+// MARK: Create App Bar
 function createAppBar(fill: number = 1, accent: number = 2) {
     let bg = image.create(160, 120)
     bg.fill(fill)
