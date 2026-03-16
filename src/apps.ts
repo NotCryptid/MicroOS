@@ -20,6 +20,7 @@ function Open_Library() {
     library_background.fillRect(0, 3, 150, 89, 7)
     library_background.fillRect(3, 3, 144, 89, 8)
     Taskbar = sprites.create(library_background, SpriteKind.App_UI)
+    Taskbar.z = -30
     Taskbar.setPosition(80, 53)
 }
 
