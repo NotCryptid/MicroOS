@@ -1,6 +1,6 @@
 {
     "name": "Micro:OS",
-    "version": "0.0.5",
+    "version": "0.1.0",
     "description": "Lightweight Operating System made in PTX",
     "dependencies": {
         "device": "*",
@@ -33,7 +33,7 @@
         "src/test.ts"
     ],
     "targetVersions": {
-        "target": "4.1.2",
+        "target": "4.0.12",
         "targetId": "arcade"
     },
     "supportedTargets": [
