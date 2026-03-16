@@ -82,7 +82,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
         } else if (submenu == "User") {
             // i don't even know whats going on here anymore
-            const fileIndex = selectedOption - 1;
+            // fileIndex is into ListMenuContents (the visible window, already shifted by scroll)
+            // globalFileIndex is into User_Files (the full backing array)
+            const fileIndex = selection - 1;
+            const globalFileIndex = ListMenuGUIHidden.length + selection - 1;
             const menuItem = fileIndex >= 0 && fileIndex < ListMenuContents.length 
                 ? ListMenuContents[fileIndex] 
                 : null;
@@ -141,7 +144,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         if (blockSettings.readString("file_" + FileOpened[1] + newName) == null) {
                             blockSettings.writeString("file_" + FileOpened[1] + newName, blockSettings.readString("file_" + FileOpened[1] + FileOpened[0]))
                             blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
-                            User_Files[fileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
+                            User_Files[globalFileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
                             blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             Open_FileManager("User")
                         } else {
@@ -153,7 +156,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         Open_FileManager("Details", FileAtSelection)
                     } else if (action == "rclick4") {
                         blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
-                        User_Files.splice(selectedOption - 1, 1)
+                        User_Files.splice(globalFileIndex, 1)
                         blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         Open_FileManager("User")
                     }
@@ -537,26 +540,29 @@ function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
         scrollBarRond.setImage(darkimg)
     }
 
-    const trackTop = 18;  // top pixel of track
-    const trackBottom = 94; // bottom pixel of track (exclusive of scrollBarRond)
-    const trackHeight = trackBottom - trackTop; // 76 usable pixels for thumb travel
+    const trackTop = 19;
+    const trackBottom = 95;
+    const trackHeight = trackBottom - trackTop;
 
     if (totalItems <= maxVisible) {
         scaling.scaleToPixels(scrollBar, 78, ScaleDirection.Vertically, ScaleAnchor.Middle);
         scrollBar.y = 57;
         scrollBarRond.y = 95;
     } else {
-        let scrollBarHeight = Math.max(6, Math.floor((maxVisible / totalItems) * 78));
-        scaling.scaleToPixels(scrollBar, scrollBarHeight - 1, ScaleDirection.Vertically, ScaleAnchor.Middle);
+        let scrollBarHeight = Math.max(5, Math.floor((maxVisible / totalItems) * 78));
+        if (scrollBarHeight % 2 == 0) { scrollBarHeight-- }
+        let halfH = (scrollBarHeight - 1) / 2;
+
+        scaling.scaleToPixels(scrollBar, scrollBarHeight, ScaleDirection.Vertically, ScaleAnchor.Middle);
 
         let maxScroll = totalItems - maxVisible;
         let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
         let travelDistance = trackHeight - scrollBarHeight;
 
-        let centreY = trackTop + Math.ceil(scrollBarHeight / 2) + Math.round(scrollProgress * travelDistance);
-        centreY = Math.max(trackTop + Math.ceil(scrollBarHeight / 2), centreY);
-        centreY = Math.min(trackBottom - Math.floor(scrollBarHeight / 2), centreY);
+        let centreY = trackTop + halfH + Math.round(scrollProgress * travelDistance);
+        centreY = Math.max(trackTop + halfH, centreY);
+        centreY = Math.min(trackBottom - halfH, centreY);
         scrollBar.y = centreY;
-        scrollBarRond.y = Math.min(centreY + Math.floor(scrollBarHeight / 2), 94);
+        scrollBarRond.y = Math.min(centreY + halfH + 1, 96);
     }
 }
