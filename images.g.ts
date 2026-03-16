@@ -87,10 +87,6 @@ f f f f f f f f
 2 1 2 1 2 1 1 f 
 2 2 2 2 2 f f f 
 `;
-            case "image20":
-            case "Dot":return img`
-f 
-`;
             case "image19":
             case "Kernel Panic":return img`
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
