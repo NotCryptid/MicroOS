@@ -9,7 +9,6 @@ function Reload_ListGUI(data: miniMenu.MenuItem[], x: number, y: number, width: 
     ListMenuGUI.setDimensions(width, height)
     ListMenuGUI.setPosition(x, y)
     ListMenuGUI.z = -30
-    ListMenuGUI.selectedIndex = -1
 }
 
 // MARK: Variable Definitions
@@ -200,7 +199,9 @@ function nanoSDK_run_line() {
         // MARK: Basic Commands
         case "1":
             if (current_command == "05") {
+                NanoSDK_App_Running = false
                 game.splash(command_data[1])
+                NanoSDK_App_Running = true
             } else if (current_command == "06") {
                 close_apps()
                 if (command_data[1] && command_data[1] != "") {
