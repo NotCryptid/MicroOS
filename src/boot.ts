@@ -66,7 +66,7 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 4.0.12", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading MicroOS v0.1.0", 0, 1)
+text = textsprite.create("> Loading MicroOS v0.1.1", 0, 1)
 text.setPosition(76, 26)
 
 // MARK: Load Settings

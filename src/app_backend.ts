@@ -268,9 +268,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 changeSettings(5)
                 ListMenuContents[1] = Current_Settings[4]
             } else if (selectedOption == 3) {
-
+                changeSettings(8)
+                ListMenuContents[2] = Current_Settings[8]
             } else if (selectedOption == 4) {
-                
+                changeSettings(9)
+                ListMenuContents[2] = Current_Settings[9]
             } else if (selectedOption == 5) {
                 
             }
@@ -289,7 +291,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else if (selectedOption == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("MicroOS v0.1.0"),
+                    miniMenu.createMenuItem("MicroOS v0.1.1"),
                     miniMenu.createMenuItem("NanoSDK 2026.1")
                     // miniMenu.createMenuItem("Storage - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) +"KB"),
                     // miniMenu.createMenuItem("Storage Free - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes) +"KB"),
@@ -440,12 +442,21 @@ function changeSettings(selection: number) {
     let dingus51 = "spoingy"
     if (selection == 1) {
         dingus52 = 1
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
         dingus51 = ["Keyboard - OnScreen", "Keyboard - Jacdac", "Keyboard - OnScreen"][dingus53]
     } else if (selection == 2) {
         dingus52 = 1
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
         dingus51 = ["Mouse - D-Pad", "Mouse - Jacdac", "Mouse - D-Pad"][dingus53]
     } else if (selection == 3) {
         dingus52 = 2
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
         dingus51 = ["Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off", "Connectivity - Radio"][dingus53]
     } else if (selection == 4) {
         dingus52 = 9
@@ -455,9 +466,15 @@ function changeSettings(selection: number) {
         dingus51 = "Radio Channel - " + (dingus53).toString()
     } else if (selection == 5) {
         dingus52 = 1
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
         dingus51 = ["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
     } else if (selection == 6) {
         dingus52 = 1
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
         dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
         if (dingus53 !== 1) {
             clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
@@ -469,18 +486,21 @@ function changeSettings(selection: number) {
         blockSettings.writeString("RoomCode", RoomCode)
     } else if (selection == 8) {
         dingus52 = 4
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
         dingus51 = ["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][dingus53]
     } else if (selection == 9) {
         dingus52 = 2
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
         dingus51 = ["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][dingus53]
         if (dingus53 == 1) { 
             darkMode = true
         } else {
             darkMode = false
         }
-    }
-    if (dingus53 > dingus52) {
-        dingus53 = 0
     }
     Settings = Settings.slice(0, selection) + dingus53.toString() + Settings.slice(selection + 1)
     Current_Settings[selection - 1] = miniMenu.createMenuItem(dingus51)
