@@ -207,7 +207,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else if (selectedOption == 3) {
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
-                    Current_Settings[4]
+                    Current_Settings[4],
+                    Current_Settings[8],
+                    Current_Settings[9]
                 ]
                 SubMenu = "Customization"
             } else if (selectedOption == 4) {
@@ -465,6 +467,17 @@ function changeSettings(selection: number) {
     } else if (selection == 7) {
         dingus51 = "Room Code - " + RoomCode
         blockSettings.writeString("RoomCode", RoomCode)
+    } else if (selection == 8) {
+        dingus52 = 4
+        dingus51 = ["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][dingus53]
+    } else if (selection == 9) {
+        dingus52 = 2
+        dingus51 = ["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][dingus53]
+        if (dingus53 == 1) { 
+            darkMode = true
+        } else {
+            darkMode = false
+        }
     }
     if (dingus53 > dingus52) {
         dingus53 = 0

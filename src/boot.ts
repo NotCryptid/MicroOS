@@ -71,7 +71,7 @@ text.setPosition(76, 26)
 
 // MARK: Load Settings
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
-    Settings = "1000100"
+    Settings = "100010000"
     radio.setGroup(113)
     blockSettings.writeString("settings", Settings)
     blockSettings.writeString("Username", "User")
@@ -80,6 +80,10 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
     Username = blockSettings.readString("Username")
     RoomCode = blockSettings.readString("RoomCode")
+}
+let darkMode = false
+if (parseInt(Settings.charAt(7)) == 1) {
+        darkMode = true
 }
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
@@ -90,7 +94,9 @@ Current_Settings = [
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
     miniMenu.createMenuItem("Name - " + blockSettings.readString("Username")),
     miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)]),
-    miniMenu.createMenuItem("Room Code - " + RoomCode)
+    miniMenu.createMenuItem("Room Code - " + RoomCode),
+    miniMenu.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(7), 10)]),
+    miniMenu.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(8), 10)])
 ]
 
 // MARK: NanoFS Init
