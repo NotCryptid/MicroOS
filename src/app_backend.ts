@@ -272,7 +272,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 ListMenuContents[2] = Current_Settings[8]
             } else if (selectedOption == 4) {
                 changeSettings(9)
-                ListMenuContents[2] = Current_Settings[9]
+                ListMenuContents[3] = Current_Settings[9]
             } else if (selectedOption == 5) {
                 
             }
@@ -324,7 +324,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 User_Files = [miniMenu.createMenuItem("Home")]
                 blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
             } else if (selectedOption == 3) {
-                Settings = "1000100"
+                Settings = "100010000"
                 blockSettings.writeString("settings", Settings)
                 game.reset()
             } else if (selectedOption == 4) {
@@ -338,7 +338,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 }
                 User_Files = [miniMenu.createMenuItem("Home")]
                 blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                Settings = "1000100"
+                Settings = "100010000"
                 blockSettings.writeString("settings", Settings)
                 blockSettings.writeString("Username", "User")
                 blockSettings.writeString("RoomCode", "12345678")
@@ -359,7 +359,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 SubMenu = "System"
             } else if (selectedOption == 2) {
                 changeSettings(6)
-                ListMenuContents[1] = Current_Settings[5]
+                ListMenuContents[1] = Current_Settings[6]
             } else if (selectedOption == 3) {
                 hour++
                 if (hour > 23) {
@@ -437,9 +437,25 @@ function listSelection(app: string, selection: number, submenu: string, action: 
 
 // Mark: Write Settings
 function changeSettings(selection: number) {
-    let dingus53 = parseInt(Settings.charAt(selection), 10) + 1;
+    let settingDigitIndex = selection
+    if (selection == 7) {
+        settingDigitIndex = -1
+    } else if (selection == 8) {
+        settingDigitIndex = 7
+    } else if (selection == 9) {
+        settingDigitIndex = 8
+    }
+    let dingus53 = 0
+    if (settingDigitIndex >= 0) {
+        let currentDigit = parseInt(Settings.charAt(settingDigitIndex), 10)
+        if (isNaN(currentDigit)) {
+            currentDigit = 0
+        }
+        dingus53 = currentDigit + 1
+    }
     let dingus52 = 0
     let dingus51 = "spoingy"
+    let currentSettingsIndex = selection - 1
     if (selection == 1) {
         dingus52 = 1
         if (dingus53 > dingus52) {
@@ -476,34 +492,41 @@ function changeSettings(selection: number) {
             dingus53 = 0
         }
         dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
+        currentSettingsIndex = 6
         if (dingus53 !== 1) {
             clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
         } else {
             clock.setText("")
         }
     } else if (selection == 7) {
+        dingus53 = 0
         dingus51 = "Room Code - " + RoomCode
+        currentSettingsIndex = 7
         blockSettings.writeString("RoomCode", RoomCode)
     } else if (selection == 8) {
-        dingus52 = 4
-        if (dingus53 > dingus52) {
-            dingus53 = 0
-        }
-        dingus51 = ["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][dingus53]
-    } else if (selection == 9) {
-        dingus52 = 2
+        dingus52 = 1
         if (dingus53 > dingus52) {
             dingus53 = 0
         }
         dingus51 = ["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][dingus53]
+        currentSettingsIndex = 8
         if (dingus53 == 1) { 
             darkMode = true
         } else {
             darkMode = false
         }
+    } else if (selection == 9) {
+        dingus52 = 3
+        if (dingus53 > dingus52) {
+            dingus53 = 0
+        }
+        dingus51 = ["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][dingus53]
+        currentSettingsIndex = 9
     }
-    Settings = Settings.slice(0, selection) + dingus53.toString() + Settings.slice(selection + 1)
-    Current_Settings[selection - 1] = miniMenu.createMenuItem(dingus51)
+    if (settingDigitIndex >= 0) {
+        Settings = Settings.slice(0, settingDigitIndex) + dingus53.toString() + Settings.slice(settingDigitIndex + 1)
+    }
+    Current_Settings[currentSettingsIndex] = miniMenu.createMenuItem(dingus51)
     blockSettings.writeString("settings", Settings)
     reloadListGUI(76, 58, 151, 97, false)
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
