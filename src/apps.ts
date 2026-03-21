@@ -47,13 +47,9 @@ function Open_Web() {
     WebChatSend.setPosition(154, 99)
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(25, 4)
-    ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
-    ListMenuGUI.setDimensions(160, 97)
-    ListMenuGUI.setButtonEventsEnabled(false)
-    ListMenuGUI.setPosition(80, 58)
-    ListMenuGUI.selectedIndex = 7
-    ListMenuGUI.z = -30
+    ListMenuContents = WebChatMessages.slice()
     reloadListGUI(80, 58, 160, 97, darkMode)
+    ListMenuGUI.selectedIndex = 7
 }
 
 // MARK: Open xCell
@@ -61,11 +57,15 @@ function Open_xCell(load_file: string) {
     close_apps()
     App_Open = "xCell"
     createAppBar(0)
+    let text_color = 15
+    if (darkMode) {
+        text_color = 1
+    }
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("xCell", 0, 1)
     App_Title.setPosition(15, 4)
-    text = textsprite.create("Unfinished", 0, 15)
+    text = textsprite.create("Unfinished", 0, text_color)
     text.setPosition(80, 60)
 }
 
@@ -76,9 +76,13 @@ function Open_Write(load_file: string) {
     createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
+    let text_color = 15
+    if (darkMode) {
+        text_color = 1
+    }
     App_Title = textsprite.create("Write", 0, 1)
     App_Title.setPosition(16, 4)
-    text = textsprite.create("Unfinished", 0, 15)
+    text = textsprite.create("Unfinished", 0, text_color)
     text.setPosition(80, 60)
 }
 

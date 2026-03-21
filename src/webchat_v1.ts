@@ -8,6 +8,13 @@ radio.onReceivedValue(function (name: string, value: number) {
     handleWebChatChunk(name, value)
 })
 
+// MARK: Refresh Web Chat List
+function refreshWebChatList() {
+    ListMenuContents = WebChatMessages.slice()
+    reloadListGUI(80, 58, 160, 97, darkMode)
+    ListMenuGUI.selectedIndex = 7
+}
+
 // MARK: Web Chat Queue
 function processRadioQueue() {
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
@@ -25,15 +32,9 @@ function processRadioQueue() {
                     while (WebChatMessages.length > 8) {
                         WebChatMessages.shift();
                     }
-                    
-                    ListMenuGUI.destroy()
+
                     WebChatMessages[7] = miniMenu.createMenuItem(Temp)
-                    ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
-                    ListMenuGUI.setDimensions(160, 97)
-                    ListMenuGUI.setButtonEventsEnabled(false)
-                    ListMenuGUI.setPosition(80, 58)
-                    ListMenuGUI.selectedIndex = 7
-                    ListMenuGUI.z = -30
+                    refreshWebChatList()
                 }
             }
         }

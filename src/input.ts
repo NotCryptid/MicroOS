@@ -205,7 +205,8 @@ function MouseClick(button: number) {
                 WebChatMessages.push(miniMenu.createMenuItem(Temp))
                 while (WebChatMessages.length > 8) {
                     WebChatMessages.shift();
-                } 
+                }
+                refreshWebChatList()
                 KeyboardVisible = false
                 sendWebChatMessage(Username, WEBmessage)
             } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
@@ -214,13 +215,7 @@ function MouseClick(button: number) {
                 KeyboardVisible = false
                 Temp = WEBmessage
                 WebChatMessages[7] = miniMenu.createMenuItem(Temp)
-                ListMenuGUI.destroy()
-                ListMenuGUI = miniMenu.createMenuFromArray(WebChatMessages)
-                ListMenuGUI.setDimensions(160, 97)
-                ListMenuGUI.setButtonEventsEnabled(false)
-                ListMenuGUI.setPosition(80, 58)
-                ListMenuGUI.selectedIndex = 7
-                ListMenuGUI.z = -30
+                refreshWebChatList()
             }
         }
     }
