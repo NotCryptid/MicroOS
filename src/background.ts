@@ -87,9 +87,9 @@ forever(function () {
 
 // MARK: Start Icon Names
 function Start_Icon_Names() {
-    let otherColor = 12
+    let otherColor = theme[2]
     let color24 = 1
-    if (App_Open == "null" || App_Open == "NanoCode") {
+    if ((darkMode || App_Open == "NanoCode") && App_Open !== "null") {
         otherColor = 1
         color24 = 15
     }
