@@ -183,8 +183,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             } else {
                 softerror(107)
             } 
-            reloadListGUI(76, 58, 151, 97, false)
-            updateScrollBar(8)
+            reloadListGUI(76, 58, 151, 97, darkMode)
+            updateScrollBar(8, darkMode)
         }
     // MARK: Settings
     } else if (app == "Settings") {
@@ -431,11 +431,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 // nobody likes you
             }
         }
-        reloadListGUI(76, 58, 151, 97, false)
+        reloadListGUI(76, 58, 151, 97, darkMode)
     }
 }
 
-// Mark: Write Settings
+// MARK: Write Settings
 function changeSettings(selection: number) {
     let settingDigitIndex = selection
     if (selection == 7) {
@@ -524,14 +524,14 @@ function changeSettings(selection: number) {
         currentSettingsIndex = 9
         theme = themes[dingus53]
         generateTaskbar(theme[0], theme[1])
-        createAppBar(1, theme[2])
     }
+    createAppBar(0, theme[2])
     if (settingDigitIndex >= 0) {
         Settings = Settings.slice(0, settingDigitIndex) + dingus53.toString() + Settings.slice(settingDigitIndex + 1)
     }
     Current_Settings[currentSettingsIndex] = miniMenu.createMenuItem(dingus51)
     blockSettings.writeString("settings", Settings)
-    reloadListGUI(76, 58, 151, 97, false)
+    reloadListGUI(76, 58, 151, 97, darkMode)
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
 
@@ -560,7 +560,7 @@ function isValidFileName(name: string, ext: string): boolean {
 }
 
 // MARK: Reload ListGUI
-function reloadListGUI(x: number, y: number, width: number, height: number, dark_mode: boolean) {
+function reloadListGUI(x: number, y: number, width: number, height: number, dark_mode: boolean = false) {
     ListMenuGUI.destroy()
     ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(width, height)

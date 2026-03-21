@@ -2,11 +2,19 @@
 
 // MARK: Create App Bar
 function createAppBar(fill: number = 1, accent: number = 2) {
+    let fill2 = fill
+    if (fill == 0) {
+        if (darkMode) {
+            fill2 = 15
+        } else {
+            fill2 = 1
+        }
+    }
     if (accent == 2) {
         accent = theme[2]
     }
     let bg = image.create(160, 120)
-    bg.fill(fill)
+    bg.fill(fill2)
     bg.fillRect(0, 0, 160, 9, accent)
     scene.setBackgroundImage(bg)
 }
@@ -32,7 +40,7 @@ function Open_Web() {
     close_apps()
     App_Open = "Web Chat"
     Temp = "Type here..."
-    createAppBar()
+    createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     WebChatSend = sprites.create(assets.image`WebSend`, SpriteKind.App_UI)
@@ -45,13 +53,14 @@ function Open_Web() {
     ListMenuGUI.setPosition(80, 58)
     ListMenuGUI.selectedIndex = 7
     ListMenuGUI.z = -30
+    reloadListGUI(80, 58, 160, 97, darkMode)
 }
 
 // MARK: Open xCell
 function Open_xCell(load_file: string) {
     close_apps()
     App_Open = "xCell"
-    createAppBar()
+    createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("xCell", 0, 1)
@@ -64,7 +73,7 @@ function Open_xCell(load_file: string) {
 function Open_Write(load_file: string) {
     close_apps()
     App_Open = "Write"
-    createAppBar()
+    createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Write", 0, 1)
@@ -80,7 +89,7 @@ function Open_Settings() {
     SubMenu = "Home"
     List_Scroll = 0
     ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("App Settings")]
-    createAppBar()
+    createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Settings", 0, 1)
@@ -90,6 +99,7 @@ function Open_Settings() {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
+    reloadListGUI(76, 58, 151, 97, darkMode)
 }
 
 // MARK: Open NanoCode
@@ -135,7 +145,7 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     SubMenu = submenu
     List_Scroll = 0
     ListMenuGUIHidden = []
-    createAppBar()
+    createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
@@ -161,8 +171,9 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
+    reloadListGUI(76, 58, 151, 97, darkMode)
     createArrows()
-    updateScrollBar(8)
+    updateScrollBar(8, darkMode)
 }
 
 // MARK: Open Process Manager
@@ -172,7 +183,7 @@ function Open_ProcessManager() {
     SubMenu = "Home"
     List_Scroll = 0
     ListMenuContents = Active_Processes
-    createAppBar()
+    createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Process Manager", 0, 1)
@@ -183,5 +194,6 @@ function Open_ProcessManager() {
     ListMenuGUI.setPosition(80, 58)
     ListMenuGUI.selectedIndex = 1
     ListMenuGUI.z = -30
+    reloadListGUI(80, 58, 160, 97, darkMode)
 }
 

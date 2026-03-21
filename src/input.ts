@@ -89,10 +89,10 @@ function MouseClick(button: number) {
                         List_Scroll++;
                         if (App_Open == "NanoCode") {
                             reloadListGUI(76, 63, 151, 84, true);
-                            updateScrollBar(7);
+                            updateScrollBar(7, true);
                         } else {
-                            reloadListGUI(76, 58, 151, 97, false);
-                            updateScrollBar(8);
+                            reloadListGUI(76, 58, 151, 97, darkMode);
+                            updateScrollBar(8, darkMode);
                         }
                     }
                 }
@@ -104,10 +104,10 @@ function MouseClick(button: number) {
                         List_Scroll--;
                         if (App_Open == "NanoCode") {
                             reloadListGUI(76, 64, 151, 84, true);
-                            updateScrollBar(7);
+                            updateScrollBar(7, true);
                         } else {
-                            reloadListGUI(76, 58, 151, 97, false);
-                            updateScrollBar(8);
+                            reloadListGUI(76, 58, 151, 97, darkMode);
+                            updateScrollBar(8, darkMode);
                         }
                     }
                 }
