@@ -522,6 +522,9 @@ function changeSettings(selection: number) {
         }
         dingus51 = ["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][dingus53]
         currentSettingsIndex = 9
+        theme = themes[dingus53]
+        generateTaskbar(theme[0], theme[1])
+        createAppBar(1, theme[2])
     }
     if (settingDigitIndex >= 0) {
         Settings = Settings.slice(0, settingDigitIndex) + dingus53.toString() + Settings.slice(settingDigitIndex + 1)

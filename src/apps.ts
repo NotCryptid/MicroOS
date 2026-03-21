@@ -2,6 +2,9 @@
 
 // MARK: Create App Bar
 function createAppBar(fill: number = 1, accent: number = 2) {
+    if (accent == 2) {
+        accent = theme[2]
+    }
     let bg = image.create(160, 120)
     bg.fill(fill)
     bg.fillRect(0, 0, 160, 9, accent)

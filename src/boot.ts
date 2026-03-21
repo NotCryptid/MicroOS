@@ -69,6 +69,10 @@ pause(200)
 text = textsprite.create("> Loading MicroOS v0.1.1", 0, 1)
 text.setPosition(76, 26)
 
+const themes = [[7, 8, 2], [10, 9, 10], [5, 6, 6], [11, 10, 10], [8, 9, 9]]
+
+let theme = themes[0]
+
 // MARK: Load Settings
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     Settings = "100010000"
@@ -98,6 +102,8 @@ Current_Settings = [
     miniMenu.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(7), 10)]),
     miniMenu.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(8), 10)])
 ]
+
+theme = themes[parseInt(Settings.charAt(8), 10)]
 
 // MARK: NanoFS Init
 let fileNamesString = blockSettings.readString("file_names");
@@ -140,7 +146,7 @@ const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.c
 
 Define_Sprites()
 
-generateTaskbar()
+generateTaskbar(theme[0], theme[1])
 
 // MARK: Define Sprites
 function Define_Sprites () {
