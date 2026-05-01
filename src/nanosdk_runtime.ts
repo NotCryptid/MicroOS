@@ -358,6 +358,11 @@ function nanoSDK_run_line() {
         // MARK: ListGUI
         case "3":
             if (current_command == "01") {
+                if (command_data[1] == "f") {
+                    Reload_ListGUI(menu_array, 80, 58, 160, 97, true)
+                } else if (command_data[1] == "s") { 
+                    Reload_ListGUI(menu_array, 76, 58, 151, 97, true)
+                }
                 Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], false)
             } else if (current_command == "02") {
                 menu_data[0] = parseInt(command_data[1])
