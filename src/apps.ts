@@ -70,20 +70,38 @@ function Open_xCell(load_file: string) {
 }
 
 // MARK: Open Write
-function Open_Write(load_file: string) {
+function Open_Write(file: string) {
     close_apps()
     App_Open = "Write"
+    SubMenu = "Editor"
     createAppBar(0)
+    text = textsprite.create("Save", 0, 15)
+    text.setPosition(14, 16)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    let text_color = 15
-    if (darkMode) {
-        text_color = 1
-    }
     App_Title = textsprite.create("Write", 0, 1)
     App_Title.setPosition(16, 4)
-    text = textsprite.create("Unfinished", 0, text_color)
-    text.setPosition(80, 60)
+    open_write_document = file
+    if (file == null || file == "") {
+        ListMenuContents = [miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem(""), miniMenu.createMenuItem("")]
+    } else {
+        ListMenuContents = file.split("~").map(line => miniMenu.createMenuItem(line))
+    }
+    if (ListMenuContents.length == 0 || ListMenuContents[ListMenuContents.length - 1].text !== " ") {
+        ListMenuContents.push(miniMenu.createMenuItem(" "))
+    }
+    List_Scroll = 0
+    ListMenuGUIHidden = []
+    ListMenuGUI = miniMenu.createMenuFromArray([])
+    reloadListGUI(76, 63, 151, 84, darkMode)
+    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
+    scrollBar.setPosition(156, 57)
+    scrollBar.z = -2
+    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
+    scrollBarRond.setPosition(156, 96)
+    scrollBarRond.z = -1
+    createArrows()
+    updateScrollBar(7, darkMode)
 }
 
 // MARK: Open Settings
