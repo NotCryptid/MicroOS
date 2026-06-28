@@ -141,7 +141,7 @@ function MouseClick(button: number) {
                 if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
                     if (i == 0) {
                         const x = Mouse_Cursor.x
-                        if (x > 88) { } else if (x > 38) {
+                        if (x > 152) { } else if (x > 98) {
                             if (App_Open == "Write") { return }
                             // compile app
                             const newName = game.askForString("App file name", 15)
@@ -168,7 +168,7 @@ function MouseClick(button: number) {
                                 .map(item => item.text)
                                 .filter(t => t !== " ")
                                 .join("~")
-                            if (open_document == null) {
+                            if (open_document == null || x > 38) {
                                 const newName = game.askForString(saveIndentifier + " name", 15)
                                 if (!isValidFileName(newName, appID)) { return }
                                 open_document = newName
