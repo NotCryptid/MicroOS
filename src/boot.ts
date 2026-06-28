@@ -21,6 +21,7 @@ let File_Manager_Icon: Sprite = null
 let Process_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
+let visibleRows: number = 8
 let WEBmessage = ""
 let KeyboardVisible = false
 let Write_icon: Sprite = null

@@ -79,21 +79,13 @@ function MouseClick(button: number) {
             Open_ProcessManager()
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
             Open_Library()
-        } else if (button == 1 && (App_Open == "File Manager" || App_Open == "NanoCode") && Mouse_Cursor.x > 151) {
-            let visibleRows = App_Open == "NanoCode" ? 7 : 8;
+        } else if (button == 1 && !(spriteutils.isDestroyed(scrollBar)) && Mouse_Cursor.x > 151) {
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
                 if (ListMenuContents.length >= visibleRows) {
                     let item = ListMenuContents.shift();
                     if (item !== undefined) {
                         ListMenuGUIHidden.push(item);
                         List_Scroll++;
-                        if (App_Open == "NanoCode") {
-                            reloadListGUI(76, 63, 151, 84, true);
-                            updateScrollBar(7, true);
-                        } else {
-                            reloadListGUI(76, 58, 151, 97, darkMode);
-                            updateScrollBar(8, darkMode);
-                        }
                     }
                 }
             } else if (Mouse_Cursor.overlapsWith(ArrowUp)) {
@@ -102,15 +94,15 @@ function MouseClick(button: number) {
                     if (item !== undefined) {
                         ListMenuContents.unshift(item);
                         List_Scroll--;
-                        if (App_Open == "NanoCode") {
-                            reloadListGUI(76, 64, 151, 84, true);
-                            updateScrollBar(7, true);
-                        } else {
-                            reloadListGUI(76, 58, 151, 97, darkMode);
-                            updateScrollBar(8, darkMode);
-                        }
                     }
                 }
+            }
+            if (App_Open == "NanoCode") {
+                reloadListGUI(76, 64, 151, 84, true);
+                updateScrollBar(visibleRows, true);
+            } else {
+                reloadListGUI(76, 58, 151, 97, darkMode);
+                updateScrollBar(visibleRows, darkMode);
             }
         } else if (App_Open == "File Manager" || App_Open == "Settings") {
             let menu_selection = 0;
@@ -209,7 +201,6 @@ function MouseClick(button: number) {
                 }
             }
         } else if (App_Open == "Web Chat") {
-            
             if (Mouse_Cursor.overlapsWith(WebChatSend) && button == 1 && WEBmessage != "" && WEBmessage != "Type here...") {
                 KeyboardVisible = true
                 WebChatMessages[7] = miniMenu.createMenuItem(Username + " (You)")

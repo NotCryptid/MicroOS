@@ -590,6 +590,8 @@ function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
         return;
     }
 
+    visibleRows = maxVisible
+
     let totalItems = ListMenuContents.length + ListMenuGUIHidden.length + 1;
 
     if (dark) {
