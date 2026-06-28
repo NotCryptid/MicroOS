@@ -168,15 +168,15 @@ function MouseClick(button: number) {
                                 .map(item => item.text)
                                 .filter(t => t !== " ")
                                 .join("~")
-                            if (open_nanocode_file == null) {
+                            if (open_document == null) {
                                 const newName = game.askForString(saveIndentifier + " name", 15)
                                 if (!isValidFileName(newName, appID)) { return }
-                                open_nanocode_file = newName
+                                open_document = newName
                                 blockSettings.writeString("file_" + appID + newName, serialized)
                                 User_Files.push(miniMenu.createMenuItem(newName + "." + appID))
                                 blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             } else {
-                                blockSettings.writeString("file_" + appID + open_nanocode_file, serialized)
+                                blockSettings.writeString("file_" + appID + open_document, serialized)
                             }
                         }
                     } else if (button == 1 && ListMenuContents[i - 1] != null) {

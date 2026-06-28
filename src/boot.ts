@@ -37,7 +37,7 @@ let App_Title: TextSprite = null
 let NanoSDK_App_Running = false
 let WebChatSend: Sprite = null
 let Temp = ""
-let open_nanocode_file: String = null
+let open_document: String = null
 let Close_App: Sprite = null
 let ArrowUp: Sprite = null
 let ArrowDown: Sprite = null
@@ -60,7 +60,6 @@ let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMen
 let Current_Settings: miniMenu.MenuItem[] = []
 let WebChatMessages: miniMenu.MenuItem[] = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
 let SubMenu = ""
-let open_write_document: string = null
 const sillySpacingForListGUI = [10, 22, 34, 46, 58, 71, 83, 95];
 pause(300)
 let text2 = textsprite.create("> Void Kernel Micro", 0, 1)

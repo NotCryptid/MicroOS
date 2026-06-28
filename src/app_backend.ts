@@ -7,7 +7,7 @@ function close_apps () {
     Temp = ""
     NanoSDK_App_Running = false
     nanoSDK_hover_highlight = false
-    open_nanocode_file = null
+    open_document = null
     Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)

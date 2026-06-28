@@ -82,7 +82,7 @@ function Open_Write(file: string) {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Write", 0, 1)
     App_Title.setPosition(16, 4)
-    open_write_document = file
+    open_document = file
     if (file == null || file == "") {
         ListMenuContents = [miniMenu.createMenuItem(" ")]
     } else {
@@ -138,7 +138,7 @@ function Open_NanoCode(project: string = null, file: string = null) {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("NanoCode", 0, 1)
     App_Title.setPosition(24, 4)
-    open_nanocode_file = file
+    open_document = file
     if (project == null || project == "") {
         ListMenuContents = [miniMenu.createMenuItem("DAN example"), miniMenu.createMenuItem("DAI default"), miniMenu.createMenuItem("ASM home"), miniMenu.createMenuItem("TXP 22"), miniMenu.createMenuItem("PRN Hello World!")]
     } else {
