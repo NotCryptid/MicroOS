@@ -60,15 +60,15 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 } else if (selectedOption == 5) {
                     softerror(302)
                 } else if (selectedOption == 6) {
-                    Open_Write("")
+                    Open_Write()
                 } else if (selectedOption == 7) {
-                    Open_xCell("")
+                    Open_xCell()
                 } else if (selectedOption == 8) {
                     Open_Settings()
                 } else if (selectedOption == 9) {
                     Open_Web()
                 } else if (selectedOption == 10) {
-                    Open_NanoCode(null)
+                    Open_NanoCode()
                 }
             } else {
                 softerror(107)
@@ -125,7 +125,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     const FileOpened = FileAtSelection.split(".")
                     if (action == "click" || action == "rclick0") {
                         if (FileOpened[1] == "wrt") {
-                            Open_Write(blockSettings.readString("file_wrt" + FileOpened[0]))
+                            Open_Write(blockSettings.readString("file_wrt" + FileOpened[0]), FileOpened[0])
                         } else if (FileOpened[1] == "xcl") {
                             Open_xCell(blockSettings.readString("file_xcell" + FileOpened[0]))
                         } else if (FileOpened[1] == "app") {
