@@ -84,7 +84,7 @@ function Open_Write(file: string) {
     App_Title.setPosition(16, 4)
     open_write_document = file
     if (file == null || file == "") {
-        ListMenuContents = [miniMenu.createMenuItem("")]
+        ListMenuContents = [miniMenu.createMenuItem(" ")]
     } else {
         ListMenuContents = file.split("~").map(line => miniMenu.createMenuItem(line))
     }
