@@ -199,10 +199,11 @@ function MouseClick(button: number) {
                         }
                         if (App_Open == "NanoCode") {
                             reloadListGUI(76, 63, 151, 84, true);
+                            updateScrollBar(7, true);
                         } else { 
-                            reloadListGUI(76, 63, 151, 84, false);
+                            reloadListGUI(76, 63, 151, 84, darkMode);
+                            updateScrollBar(7, darkMode);
                         }
-                        updateScrollBar(7, true);
                         break;
                     }
                 }

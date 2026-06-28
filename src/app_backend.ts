@@ -586,7 +586,7 @@ function createArrows() {
 
 // MARK: Update ScrollBar
 function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
-    if ((App_Open !== "File Manager" && App_Open !== "NanoCode") || spriteutils.isDestroyed(scrollBar)) {
+    if (spriteutils.isDestroyed(scrollBar)) {
         return;
     }
 
