@@ -75,8 +75,9 @@ function Open_Write(file: string) {
     App_Open = "Write"
     SubMenu = "Editor"
     createAppBar(0)
-    text = textsprite.create("Save", 0, 15)
-    text.setPosition(14, 16)
+    text = textsprite.create(" Save                    ", 1, 15)
+    text.setPosition(72, 13)
+    text.setBorder(2,1,0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Write", 0, 1)
