@@ -144,12 +144,13 @@ function MouseClick(button: number) {
                     }
                 }
             }
-        } else if (App_Open == "NanoCode" ) {
+        } else if (App_Open == "NanoCode" || App_Open == "Write" ) {
             for (let i = 0; i < 8; i++) {
                 if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
                     if (i == 0) {
                         const x = Mouse_Cursor.x
-                        if (x > 88) {} else if (x > 38) {
+                        if (x > 88) { } else if (x > 38) {
+                            if (App_Open == "Write") { return }
                             // compile app
                             const newName = game.askForString("App file name", 15)
                             if (!isValidFileName(newName, "nsa")) { return }
@@ -163,20 +164,27 @@ function MouseClick(button: number) {
                             blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         } else if (x > 4) {
                             // save file
+                            let appID = "nsp"
+                            let saveIndentifier = "Project"
+                            if (App_Open == "Write") { 
+                                appID = "wrt"
+                                saveIndentifier = "Document"
+                            }
+
                             const allLines = ListMenuGUIHidden.concat(ListMenuContents)
                             const serialized: string = allLines
                                 .map(item => item.text)
                                 .filter(t => t !== " ")
                                 .join("~")
                             if (open_nanocode_file == null) {
-                                const newName = game.askForString("Project name", 15)
-                                if (!isValidFileName(newName, "nsp")) { return }
+                                const newName = game.askForString(saveIndentifier + " name", 15)
+                                if (!isValidFileName(newName, appID)) { return }
                                 open_nanocode_file = newName
-                                blockSettings.writeString("file_nsp" + newName, serialized)
-                                User_Files.push(miniMenu.createMenuItem(newName + ".nsp"))
+                                blockSettings.writeString("file_" + appID + newName, serialized)
+                                User_Files.push(miniMenu.createMenuItem(newName + "." + appID))
                                 blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             } else {
-                                blockSettings.writeString("file_nsp" + open_nanocode_file, serialized)
+                                blockSettings.writeString("file_" + appID + open_nanocode_file, serialized)
                             }
                         }
                     } else if (button == 1 && ListMenuContents[i - 1] != null) {
@@ -189,7 +197,11 @@ function MouseClick(button: number) {
                         if (ListMenuContents[ListMenuContents.length - 1].text !== " ") {
                             ListMenuContents.push(miniMenu.createMenuItem(" "))
                         }
-                        reloadListGUI(76, 63, 151, 84, true);
+                        if (App_Open == "NanoCode") {
+                            reloadListGUI(76, 63, 151, 84, true);
+                        } else { 
+                            reloadListGUI(76, 63, 151, 84, false);
+                        }
                         updateScrollBar(7, true);
                         break;
                     }

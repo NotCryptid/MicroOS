@@ -36,7 +36,7 @@ forever(function () {
                 break;
             } 
         }
-    } else if (App_Open == "NanoCode") {
+    } else if (App_Open == "NanoCode" || App_Open == "Write") {
         ListMenuGUI.selectedIndex = -1;
         for (let i = 0; i < ListMenuContents.length && i < 7; i++) {
             if (Mouse_Cursor.y >= sillySpacingForListGUI[i + 1] && Mouse_Cursor.y < sillySpacingForListGUI[i + 1] + 12 && Mouse_Cursor.x < 152) {
