@@ -89,7 +89,11 @@ function compile_nanosdk_code(source: string): string {
         }
 
         // MARK: ListGUI
-        if (cmd == "CLG") { out.push("301"); continue }
+        if (cmd == "CLG") {
+            let p = a.length > 0 ? a[0].toLowerCase() : ""
+            let enc = p == "ful" ? "f" : p == "scl" ? "s" : ""
+            out.push(enc ? "301§" + enc : "301"); continue
+        }
         if (cmd == "LGP") { out.push("302§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue }
         if (cmd == "LGD") { out.push("303§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue }
         if (cmd == "LGO") { lgoN = parseInt(a[0].toLowerCase().substr(3)); lgoA = []; continue }
@@ -100,6 +104,11 @@ function compile_nanosdk_code(source: string): string {
         if (cmd == "LGH") {
             let m = a[0].toLowerCase()
             out.push("309§" + (m == "off" ? "o" : m == "auto" ? "a" : parseInt(m).toString())); continue
+        }
+        if (cmd == "LGT") { out.push("310§" + a[0].toLowerCase()); continue }
+        if (cmd == "LSB") {
+            let m = a[0].toLowerCase()
+            out.push("311§" + (m == "on" ? "t" : "f")); continue
         }
 
         out.push("000") // unknown — no-op passthrough

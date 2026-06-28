@@ -3,12 +3,29 @@
 function Reload_ListGUI(data: miniMenu.MenuItem[], x: number, y: number, width: number, height: number, destroy: Boolean) {
     if (destroy) {
         ListMenuGUI.destroy()
-    }  
+    }
     ListMenuGUI = miniMenu.createMenuFromArray(data)
     ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setDimensions(width, height)
     ListMenuGUI.setPosition(x, y)
     ListMenuGUI.z = -30
+    nanoSDK_apply_theme(nanoSDK_theme)
+    nanoSDK_apply_scrollbar(nanoSDK_scrollbar)
+}
+
+// MARK: ListGUI Theme
+function nanoSDK_apply_theme(mode: string) {
+    let dark = mode == "d" || (mode == "m" && darkMode)
+    ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, dark ? 15 : 0)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 1)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, dark ? 15 : 1)
+    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, dark ? 1 : 15)
+}
+
+// MARK: ListGUI Scroll Bar
+function nanoSDK_apply_scrollbar(enabled: boolean) {
+    ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.ScrollIndicatorColor, enabled ? 1 : 0)
 }
 
 // MARK: Variable Definitions
@@ -26,6 +43,8 @@ let loop_condition: string[][] = [] // stores condition params for conditional l
 let menu_array: miniMenu.MenuItem[] = []
 let menu_data = [80, 58, 160, 97]
 let nanoSDK_hover_highlight = false
+let nanoSDK_theme = "l"
+let nanoSDK_scrollbar = false
 
 // WHN (When) registry
 // Each entry: [condType, ...condParams, bodyStart, bodyEnd]
@@ -60,6 +79,8 @@ function Open_NanoSDK_App(app_binary: string) {
     menu_array = []
     menu_data = [80, 58, 160, 97]
     nanoSDK_hover_highlight = false
+    nanoSDK_theme = "l"
+    nanoSDK_scrollbar = false
     when_cond_data = []
     when_ranges = []
 }
@@ -398,6 +419,12 @@ function nanoSDK_run_line() {
                 } else {
                     ListMenuGUI.selectedIndex = parseInt(command_data[1])
                 }
+            } else if (current_command == "10") {
+                nanoSDK_theme = command_data[1]
+                if (ListMenuGUI) { nanoSDK_apply_theme(nanoSDK_theme) }
+            } else if (current_command == "11") {
+                nanoSDK_scrollbar = command_data[1] == "t"
+                if (ListMenuGUI) { nanoSDK_apply_scrollbar(nanoSDK_scrollbar) }
             } else {
                 error(301)
             }
