@@ -51,7 +51,7 @@ let current_rclick_menu: miniMenu.MenuItem[] = null
 let ListMenuGUIHidden: miniMenu.MenuItem[] = []
 let RightClickMenu: any = null
 let Username = ""
-let Settings = blockSettings.readString("settings")
+let Settings = settings.readString("settings")
 let text: TextSprite = null
 let ListMenuContents: miniMenu.MenuItem[] = []
 let User_Files: miniMenu.MenuItem[] = []
@@ -78,13 +78,13 @@ let theme = themes[0]
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     Settings = "100010000"
     radio.setGroup(113)
-    blockSettings.writeString("settings", Settings)
-    blockSettings.writeString("Username", "User")
-    blockSettings.writeString("RoomCode", RoomCode)
+    settings.writeString("settings", Settings)
+    settings.writeString("Username", "User")
+    settings.writeString("RoomCode", RoomCode)
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
-    Username = blockSettings.readString("Username")
-    RoomCode = blockSettings.readString("RoomCode")
+    Username = settings.readString("Username")
+    RoomCode = settings.readString("RoomCode")
 }
 let darkMode = false
 if (parseInt(Settings.charAt(7)) == 1) {
@@ -97,7 +97,7 @@ Current_Settings = [
     miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
     miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
     miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
-    miniMenu.createMenuItem("Name - " + blockSettings.readString("Username")),
+    miniMenu.createMenuItem("Name - " + settings.readString("Username")),
     miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)]),
     miniMenu.createMenuItem("Room Code - " + RoomCode),
     miniMenu.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(7), 10)]),
@@ -107,12 +107,12 @@ Current_Settings = [
 theme = themes[parseInt(Settings.charAt(8), 10)]
 
 // MARK: NanoFS Init
-let fileNamesString = blockSettings.readString("file_names");
+let fileNamesString = settings.readString("file_names");
 let User_Files_Temp: string[] = fileNamesString ? JSON.parse(fileNamesString) : [];
 if (User_Files_Temp.length == 0 || controller.B.isPressed() && controller.up.isPressed()) {
     if (User_Files_Temp.length !== 0) {}
     User_Files_Temp = ["Home"];
-    blockSettings.writeString("file_names", JSON.stringify(User_Files_Temp));
+    settings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
 for (let i = 0; i < User_Files_Temp.length; i++) {
     User_Files.push(miniMenu.createMenuItem(User_Files_Temp[i]));

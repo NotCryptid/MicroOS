@@ -128,7 +128,7 @@ function MouseClick(button: number) {
                         }
                         RightClickMenu.setDimensions(50, current_rclick_menu.length * 12)
                         outline = sprites.create(image.create(1, 1), SpriteKind.App_UI)
-                        outline.image.setPixel(0, 0, 1)
+                        outline.image.setPixel(0, 0, 15)
                         RightClickMenu.z = 350346
                         outline.z = 350345
                         outline.setPosition(RightClickMenu.x, RightClickMenu.y)
@@ -152,9 +152,9 @@ function MouseClick(button: number) {
                                 .map(item => item.text)
                                 .filter(t => t !== " ")
                                 .join("~")
-                            blockSettings.writeString("file_nsa" + newName, compile_nanosdk_code(serialized))
+                            settings.writeString("file_nsa" + newName, compile_nanosdk_code(serialized))
                             User_Files.push(miniMenu.createMenuItem(newName + ".nsa"))
-                            blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                            settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         } else if (x > 4) {
                             // save file
                             let appID = "nsp"
@@ -173,11 +173,11 @@ function MouseClick(button: number) {
                                 const newName = game.askForString(saveIndentifier + " name", 15)
                                 if (!isValidFileName(newName, appID)) { return }
                                 open_document = newName
-                                blockSettings.writeString("file_" + appID + newName, serialized)
+                                settings.writeString("file_" + appID + newName, serialized)
                                 User_Files.push(miniMenu.createMenuItem(newName + "." + appID))
-                                blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             } else {
-                                blockSettings.writeString("file_" + appID + open_document, serialized)
+                                settings.writeString("file_" + appID + open_document, serialized)
                             }
                         }
                     } else if (button == 1 && ListMenuContents[i - 1] != null) {

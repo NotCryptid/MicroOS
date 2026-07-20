@@ -185,7 +185,8 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
         const splitFile = file.split(".")
         const name = splitFile[0]
         const extension = splitFile[1]
-        ListMenuContents = [miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Name: " + name), miniMenu.createMenuItem("Type: " + extension + " file"), miniMenu.createMenuItem("Size: 0KB"), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem("Back")]
+        const sizeBytes = fileEntrySize("file_" + extension + name)
+        ListMenuContents = [miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Name: " + name), miniMenu.createMenuItem("Type: " + extension + " file"), miniMenu.createMenuItem("Size: " + sizeBytes + " bytes"), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem("Back")]
     } else {
         ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
     }

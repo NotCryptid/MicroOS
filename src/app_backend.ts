@@ -102,9 +102,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         return
                     }
                     if (!isValidFileName(newName, fileType)) { return }
-                    blockSettings.writeString("file_" + fileType + newName, "~")
+                    settings.writeString("file_" + fileType + newName, "~")
                     User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
-                    blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                    settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                     Open_FileManager("User")
                 } else if (action === "rclick1") {
                     if (clipboard == "" || clipboard == null) {
@@ -113,9 +113,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         const FileOpened = clipboard.split("_")
                         FileOpened[2] = FileOpened[1].substr(0, 3)
                         FileOpened[1] = FileOpened[1].substr(3)
-                        blockSettings.writeString("file_" + FileOpened[2] + "Copy of " + FileOpened[1], blockSettings.readString(clipboard))
+                        settings.writeString("file_" + FileOpened[2] + "Copy of " + FileOpened[1], settings.readString(clipboard))
                         User_Files.push(miniMenu.createMenuItem("Copy of " + FileOpened[1] + "." + FileOpened[2]))
-                        blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                        settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         clipboard = null
                         Open_FileManager("User")
                     }
@@ -125,15 +125,15 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     const FileOpened = FileAtSelection.split(".")
                     if (action == "click" || action == "rclick0") {
                         if (FileOpened[1] == "wrt") {
-                            Open_Write(blockSettings.readString("file_wrt" + FileOpened[0]), FileOpened[0])
+                            Open_Write(settings.readString("file_wrt" + FileOpened[0]), FileOpened[0])
                         } else if (FileOpened[1] == "xcl") {
-                            Open_xCell(blockSettings.readString("file_xcell" + FileOpened[0]))
+                            Open_xCell(settings.readString("file_xcell" + FileOpened[0]))
                         } else if (FileOpened[1] == "app") {
-                            Open_NanoSDK_App(blockSettings.readString("file_app" + FileOpened[0]))
+                            Open_NanoSDK_App(settings.readString("file_app" + FileOpened[0]))
                         } else if (FileOpened[1] == "nsp") {
-                            Open_NanoCode(blockSettings.readString("file_nsp" + FileOpened[0]), FileOpened[0])
+                            Open_NanoCode(settings.readString("file_nsp" + FileOpened[0]), FileOpened[0])
                         } else if (FileOpened[1] == "nsa") {
-                            Open_NanoSDK_App(blockSettings.readString("file_nsa" + FileOpened[0]))
+                            Open_NanoSDK_App(settings.readString("file_nsa" + FileOpened[0]))
                         } else{
                             softerror(109)
                         }
@@ -141,11 +141,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     } else if (action == "rclick1") {
                         const newName = game.askForString("Rename file", 15)
                         if (!isValidFileName(newName, FileOpened[1])) { return }
-                        if (blockSettings.readString("file_" + FileOpened[1] + newName) == null) {
-                            blockSettings.writeString("file_" + FileOpened[1] + newName, blockSettings.readString("file_" + FileOpened[1] + FileOpened[0]))
-                            blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
+                        if (settings.readString("file_" + FileOpened[1] + newName) == null) {
+                            settings.writeString("file_" + FileOpened[1] + newName, settings.readString("file_" + FileOpened[1] + FileOpened[0]))
+                            settings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
                             User_Files[globalFileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
-                            blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                            settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             Open_FileManager("User")
                         } else {
                             softerror(110)
@@ -155,9 +155,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     } else if (action == "rclick3") {
                         Open_FileManager("Details", FileAtSelection)
                     } else if (action == "rclick4") {
-                        blockSettings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
+                        settings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
                         User_Files.splice(globalFileIndex, 1)
-                        blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                        settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         Open_FileManager("User")
                     }
 
@@ -236,7 +236,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     softerror(204)
                     return
                 }
-                blockSettings.writeString("Username", Username)
+                settings.writeString("Username", Username)
                 Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
                 ListMenuContents = [
                     miniMenu.createMenuItem("Back"),
@@ -318,31 +318,31 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     if (User_Files[i].text !== "Home") {
                         const fileParts = User_Files[i].text.split(".")
                         if (fileParts.length === 2) {
-                            blockSettings.writeString("file_" + fileParts[1] + fileParts[0], "")
+                            settings.writeString("file_" + fileParts[1] + fileParts[0], "")
                         }
                     }
                 }
                 User_Files = [miniMenu.createMenuItem("Home")]
-                blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
             } else if (selectedOption == 3) {
                 Settings = "100010000"
-                blockSettings.writeString("settings", Settings)
+                settings.writeString("settings", Settings)
                 game.reset()
             } else if (selectedOption == 4) {
                 for (let i = 0; i < User_Files.length; i++) {
                     if (User_Files[i].text !== "Home") {
                         const fileParts = User_Files[i].text.split(".")
                         if (fileParts.length === 2) {
-                            blockSettings.writeString("file_" + fileParts[1] + fileParts[0], "")
+                            settings.writeString("file_" + fileParts[1] + fileParts[0], "")
                         }
                     }
                 }
                 User_Files = [miniMenu.createMenuItem("Home")]
-                blockSettings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                 Settings = "100010000"
-                blockSettings.writeString("settings", Settings)
-                blockSettings.writeString("Username", "User")
-                blockSettings.writeString("RoomCode", "12345678")
+                settings.writeString("settings", Settings)
+                settings.writeString("Username", "User")
+                settings.writeString("RoomCode", "12345678")
                 game.reset()
             }
         } else if (submenu == "System Information") {
@@ -503,7 +503,7 @@ function changeSettings(selection: number) {
         dingus53 = 0
         dingus51 = "Room Code - " + RoomCode
         currentSettingsIndex = 7
-        blockSettings.writeString("RoomCode", RoomCode)
+        settings.writeString("RoomCode", RoomCode)
     } else if (selection == 8) {
         dingus52 = 1
         if (dingus53 > dingus52) {
@@ -531,7 +531,7 @@ function changeSettings(selection: number) {
         Settings = Settings.slice(0, settingDigitIndex) + dingus53.toString() + Settings.slice(settingDigitIndex + 1)
     }
     Current_Settings[currentSettingsIndex] = miniMenu.createMenuItem(dingus51)
-    blockSettings.writeString("settings", Settings)
+    settings.writeString("settings", Settings)
     reloadListGUI(76, 58, 151, 97, darkMode)
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
 }
@@ -558,6 +558,39 @@ function isValidFileName(name: string, ext: string): boolean {
         }
     }
     return true
+}
+
+// MARK: File Storage Size
+function utf8ByteLength(str: string): number {
+    let bytes = 0
+    for (let i = 0; i < str.length; i++) {
+        const code = str.charCodeAt(i)
+        if (code < 0x80) {
+            bytes += 1
+        } else if (code < 0x800) {
+            bytes += 2
+        } else if (code >= 0xd800 && code <= 0xdbff) {
+            // high surrogate, paired with the following low surrogate makes one 4-byte codepoint
+            bytes += 4
+            i++
+        } else {
+            bytes += 3
+        }
+    }
+    return bytes
+}
+
+// mirrors settings::FS::write's szneeded/RAFFS_ROUND math (RAFFS.cpp) so the
+// reported size matches what the flash filesystem actually reserves for the
+// entry (8-byte MetaEntry header + key name + content, rounded to 8 bytes)
+function fileEntrySize(key: string): number {
+    const content = settings.readString(key)
+    if (content == null) {
+        return 0
+    }
+    const szNeeded = utf8ByteLength(content) + utf8ByteLength(key) + 1
+    const raffsRound = ((szNeeded + 7) >> 3) << 3
+    return 8 + raffsRound
 }
 
 // MARK: Reload ListGUI
