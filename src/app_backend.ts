@@ -293,9 +293,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     miniMenu.createMenuItem("Back"),
                     miniMenu.createMenuItem("MicroOS v0.3.0"),
                     miniMenu.createMenuItem("NanoSDK 2026.2"),
-                    miniMenu.createMenuItem("Storage - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) +"KB"),
-                    miniMenu.createMenuItem("Storage Free - " + (microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes)) +"KB"),
-                    miniMenu.createMenuItem("RAM Avaiable - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),
+                    miniMenu.createMenuItem("Storage - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
+                    miniMenu.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) +"KB"),
+                    miniMenu.createMenuItem("RAM Capacity - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),
+                    miniMenu.createMenuItem("RAM Used - " + Math.floor(microUtilities.ramUsage(StorageUnit.Kilobytes)) + "KB"),
                     miniMenu.createMenuItem("Clock Speed - "+ microUtilities.cpuSpeed() +"MHz")
                 ]
                 SubMenu = "System Information"
