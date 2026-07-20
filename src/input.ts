@@ -105,7 +105,7 @@ function MouseClick(button: number) {
                 updateScrollBar(visibleRows, darkMode);
             }
         } else if (App_Open == "File Manager" || App_Open == "Settings") {
-            let menu_selection = 0;
+            menu_selection = 0;
             for (let i = 0; i < 8; i++) {
                 if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
                     menu_selection = i + 1;
@@ -127,7 +127,8 @@ function MouseClick(button: number) {
                             RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - current_rclick_menu.length * 6)
                         }
                         RightClickMenu.setDimensions(50, current_rclick_menu.length * 12)
-                        outline = sprites.create(assets.image`Dot`, SpriteKind.App_UI)
+                        outline = sprites.create(image.create(1, 1), SpriteKind.App_UI)
+                        outline.image.setPixel(0, 0, 1)
                         RightClickMenu.z = 350346
                         outline.z = 350345
                         outline.setPosition(RightClickMenu.x, RightClickMenu.y)
