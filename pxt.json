@@ -11,7 +11,7 @@
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.6.0",
         "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.1.0",
         "browser-events": "*",
-        "MicroUtilities": "github:NotCryptid/MicroUtilities#v1.0.0"
+        "MicroUtilities": "github:NotCryptid/MicroUtilities#v1.0.1"
     },
     "files": [
         "images.g.jres",
