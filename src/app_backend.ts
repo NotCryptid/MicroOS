@@ -97,53 +97,76 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 } else if (action === "rclick0") {
                     const newName = game.askForString("New file name", 15)
                     const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
-                    if (fileType == null || fileType == "" || fileType.length < 3) {
+                    if (fileType == null || fileType == "" || fileType.length !== 3) {
                         softerror(111)
                         return
                     }
                     if (!isValidFileName(newName, fileType)) { return }
-                    settings.writeString("file_" + fileType + newName, "~")
+                    const newKey = fileKey(fileType, newName)
+                    const newContent = "~"
+                    if (!hasStorageSpaceFor(newKey, newContent)) {
+                        softerror(113)
+                        return
+                    }
+                    settings.writeString(newKey, newContent)
                     User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
                     settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                     Open_FileManager("User")
                 } else if (action === "rclick1") {
-                    if (clipboard == "" || clipboard == null) {
+                    if (clipboardName == "" || clipboardExt == "") {
 
                     } else {
-                        const FileOpened = clipboard.split("_")
-                        FileOpened[2] = FileOpened[1].substr(0, 3)
-                        FileOpened[1] = FileOpened[1].substr(3)
-                        settings.writeString("file_" + FileOpened[2] + "Copy of " + FileOpened[1], settings.readString(clipboard))
-                        User_Files.push(miniMenu.createMenuItem("Copy of " + FileOpened[1] + "." + FileOpened[2]))
+                        const sourceContent = settings.readString(fileKey(clipboardExt, clipboardName))
+                        if (sourceContent == null) {
+                            softerror(110)
+                            return
+                        }
+                        const copyName = "Copy of " + clipboardName
+                        if (!isValidFileName(copyName, clipboardExt)) { return }
+                        const destKey = fileKey(clipboardExt, copyName)
+                        if (!hasStorageSpaceFor(destKey, sourceContent)) {
+                            softerror(113)
+                            return
+                        }
+                        settings.writeString(destKey, sourceContent)
+                        User_Files.push(miniMenu.createMenuItem(copyName + "." + clipboardExt))
                         settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                        clipboard = null
+                        clipboardName = ""
+                        clipboardExt = ""
                         Open_FileManager("User")
                     }
-                }    
+                }
             } else if (FileAtSelection !== null) {
                 if (action !== "rclick") {
                     const FileOpened = FileAtSelection.split(".")
                     if (action == "click" || action == "rclick0") {
                         if (FileOpened[1] == "wrt") {
-                            Open_Write(settings.readString("file_wrt" + FileOpened[0]), FileOpened[0])
+                            Open_Write(settings.readString(fileKey("wrt", FileOpened[0])), FileOpened[0])
                         } else if (FileOpened[1] == "xcl") {
-                            Open_xCell(settings.readString("file_xcell" + FileOpened[0]))
+                            Open_xCell(settings.readString(fileKey("xcl", FileOpened[0])))
                         } else if (FileOpened[1] == "app") {
-                            Open_NanoSDK_App(settings.readString("file_app" + FileOpened[0]))
+                            Open_NanoSDK_App(settings.readString(fileKey("app", FileOpened[0])))
                         } else if (FileOpened[1] == "nsp") {
-                            Open_NanoCode(settings.readString("file_nsp" + FileOpened[0]), FileOpened[0])
+                            Open_NanoCode(settings.readString(fileKey("nsp", FileOpened[0])), FileOpened[0])
                         } else if (FileOpened[1] == "nsa") {
-                            Open_NanoSDK_App(settings.readString("file_nsa" + FileOpened[0]))
+                            Open_NanoSDK_App(settings.readString(fileKey("nsa", FileOpened[0])))
                         } else{
                             softerror(109)
                         }
-                           
+
                     } else if (action == "rclick1") {
                         const newName = game.askForString("Rename file", 15)
                         if (!isValidFileName(newName, FileOpened[1])) { return }
-                        if (settings.readString("file_" + FileOpened[1] + newName) == null) {
-                            settings.writeString("file_" + FileOpened[1] + newName, settings.readString("file_" + FileOpened[1] + FileOpened[0]))
-                            settings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
+                        const oldKey = fileKey(FileOpened[1], FileOpened[0])
+                        const newKey = fileKey(FileOpened[1], newName)
+                        if (settings.readString(newKey) == null) {
+                            const content = settings.readString(oldKey)
+                            if (!hasStorageSpaceFor(newKey, content)) {
+                                softerror(113)
+                                return
+                            }
+                            settings.writeString(newKey, content)
+                            settings.remove(oldKey)
                             User_Files[globalFileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
                             settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             Open_FileManager("User")
@@ -151,11 +174,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             softerror(110)
                         }
                     } else if (action == "rclick2") {
-                        clipboard = "file_" + FileOpened[1] + FileOpened[0]
+                        clipboardExt = FileOpened[1]
+                        clipboardName = FileOpened[0]
                     } else if (action == "rclick3") {
                         Open_FileManager("Details", FileAtSelection)
                     } else if (action == "rclick4") {
-                        settings.writeString("file_" + FileOpened[1] + FileOpened[0], "")
+                        settings.remove(fileKey(FileOpened[1], FileOpened[0]))
                         User_Files.splice(globalFileIndex, 1)
                         settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         Open_FileManager("User")
@@ -318,7 +342,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     if (User_Files[i].text !== "Home") {
                         const fileParts = User_Files[i].text.split(".")
                         if (fileParts.length === 2) {
-                            settings.writeString("file_" + fileParts[1] + fileParts[0], "")
+                            settings.remove(fileKey(fileParts[1], fileParts[0]))
                         }
                     }
                 }
@@ -333,7 +357,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     if (User_Files[i].text !== "Home") {
                         const fileParts = User_Files[i].text.split(".")
                         if (fileParts.length === 2) {
-                            settings.writeString("file_" + fileParts[1] + fileParts[0], "")
+                            settings.remove(fileKey(fileParts[1], fileParts[0]))
                         }
                     }
                 }
@@ -542,11 +566,11 @@ function isValidFileName(name: string, ext: string): boolean {
         softerror(110)
         return false
     }
-    if (name.indexOf("~") >= 0 || name.indexOf("\u00a7") >= 0) {
+    if (name.indexOf("~") >= 0 || name.indexOf("\u00a7") >= 0 || name.indexOf(".") >= 0) {
         softerror(110)
         return false
     }
-    if (ext.indexOf("~") >= 0 || ext.indexOf("\u00a7") >= 0) {
+    if (ext.indexOf("~") >= 0 || ext.indexOf("\u00a7") >= 0 || ext.indexOf(".") >= 0) {
         softerror(111)
         return false
     }
@@ -558,6 +582,13 @@ function isValidFileName(name: string, ext: string): boolean {
         }
     }
     return true
+}
+
+// MARK: File Storage Key
+// "~" is rejected by isValidFileName in both name and ext, so it's a safe,
+// unambiguous separator between the two parts of the storage key
+function fileKey(ext: string, name: string): string {
+    return "file_" + ext + "~" + name
 }
 
 // MARK: File Storage Size
@@ -583,14 +614,25 @@ function utf8ByteLength(str: string): number {
 // mirrors settings::FS::write's szneeded/RAFFS_ROUND math (RAFFS.cpp) so the
 // reported size matches what the flash filesystem actually reserves for the
 // entry (8-byte MetaEntry header + key name + content, rounded to 8 bytes)
+function raffsEntrySize(key: string, content: string): number {
+    const szNeeded = utf8ByteLength(content) + utf8ByteLength(key) + 1
+    const raffsRound = ((szNeeded + 7) >> 3) << 3
+    return 8 + raffsRound
+}
+
 function fileEntrySize(key: string): number {
     const content = settings.readString(key)
     if (content == null) {
         return 0
     }
-    const szNeeded = utf8ByteLength(content) + utf8ByteLength(key) + 1
-    const raffsRound = ((szNeeded + 7) >> 3) << 3
-    return 8 + raffsRound
+    return raffsEntrySize(key, content)
+}
+
+// MARK: Storage Space Check
+function hasStorageSpaceFor(key: string, content: string): boolean {
+    const needed = raffsEntrySize(key, content)
+    const free = microUtilities.storageCapacity(StorageUnit.Bytes) - microUtilities.storageUsage(StorageUnit.Bytes)
+    return needed <= free
 }
 
 // MARK: Reload ListGUI

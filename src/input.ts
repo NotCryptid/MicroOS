@@ -152,7 +152,13 @@ function MouseClick(button: number) {
                                 .map(item => item.text)
                                 .filter(t => t !== " ")
                                 .join("~")
-                            settings.writeString("file_nsa" + newName, compile_nanosdk_code(serialized))
+                            const compiled = compile_nanosdk_code(serialized)
+                            const nsaKey = fileKey("nsa", newName)
+                            if (!hasStorageSpaceFor(nsaKey, compiled)) {
+                                softerror(113)
+                                return
+                            }
+                            settings.writeString(nsaKey, compiled)
                             User_Files.push(miniMenu.createMenuItem(newName + ".nsa"))
                             settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         } else if (x > 4) {
@@ -172,12 +178,22 @@ function MouseClick(button: number) {
                             if (open_document == null || x > 38) {
                                 const newName = game.askForString(saveIndentifier + " name", 15)
                                 if (!isValidFileName(newName, appID)) { return }
+                                const newKey = fileKey(appID, newName)
+                                if (!hasStorageSpaceFor(newKey, serialized)) {
+                                    softerror(113)
+                                    return
+                                }
                                 open_document = newName
-                                settings.writeString("file_" + appID + newName, serialized)
+                                settings.writeString(newKey, serialized)
                                 User_Files.push(miniMenu.createMenuItem(newName + "." + appID))
                                 settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             } else {
-                                settings.writeString("file_" + appID + open_document, serialized)
+                                const existingKey = fileKey(appID, open_document + "")
+                                if (!hasStorageSpaceFor(existingKey, serialized)) {
+                                    softerror(113)
+                                    return
+                                }
+                                settings.writeString(existingKey, serialized)
                             }
                         }
                     } else if (button == 1 && ListMenuContents[i - 1] != null) {
