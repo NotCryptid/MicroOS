@@ -67,7 +67,7 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 4.0.13", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading MicroOS v0.1.2", 0, 1)
+text = textsprite.create("> Loading MicroOS v0.3.0", 0, 1)
 text.setPosition(76, 26)
 
 const themes = [[7, 8, 2], [10, 9, 10], [5, 6, 6], [11, 10, 10], [8, 9, 9]]
