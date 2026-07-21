@@ -509,12 +509,16 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 2:
                             RoomCode = game.askForNumber("Enter new room code", 8).toString()
                             changeSettings(7)
+                            ListMenuContents[1] = Current_Settings[7]
                             break
                         case 3:
                             WebChatMessages = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
                             break
                         case 4:
                             changeSettings(10)
+                            if (microUtilities.isMicrobit()) {
+                                ListMenuContents[3] = Current_Settings[10]
+                            }
                             break
                     }
                     break
@@ -573,6 +577,9 @@ function changeSettings(selection: number) {
             break
         case 9:
             settingDigitIndex = 8
+            break
+        case 10:
+            settingDigitIndex = -1
             break
     }
     let dingus53 = 0
