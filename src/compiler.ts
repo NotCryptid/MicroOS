@@ -47,68 +47,78 @@ function compile_nanosdk_code(source: string): string {
         let cmd = tk[0].toUpperCase()
         let a = tk.slice(1)
 
-        // MARK: Basic Commands
-        if (cmd == "PRN") { out.push("105§" + a.join(" ")); continue }
-        if (cmd == "END") { out.push("106§" + a.join(" ")); continue }
-        if (cmd == "ASM") { out.push("107§" + a.join(" ")); continue }
+        switch (cmd) {
+            // MARK: Basic Commands
+            case "PRN": out.push("105§" + a.join(" ")); continue
+            case "END": out.push("106§" + a.join(" ")); continue
+            case "ASM": out.push("107§" + a.join(" ")); continue
 
-        // MARK: Logic — IFB and WHN share the same condition encoding
-        if (cmd == "IFB" || cmd == "WHN") {
-            let pfx = cmd == "IFB" ? "201" : "401"
-            let ac = a[0].toLowerCase()
-            if (ac == "end") { out.push(pfx + "§e"); continue }
-            if (ac == "els") { out.push(pfx + "§l"); continue }
-            if (ac == "var") { out.push(pfx + "§v§" + a[1] + "§" + nsc_cmp(a[2]) + "§" + a.slice(3).join(" ")); continue }
-            if (ac == "btn") { out.push(pfx + "§b§" + nsc_btn(a[1]) + "§" + nsc_bs(a[2])); continue }
-            if (ac == "spr") { out.push(pfx + "§s§" + a[1] + "§" + (a[2].toLowerCase() == "tch" ? "tch" : nsc_cmp(a[2])) + "§" + a.slice(3).join(" ")); continue }
-            if (cmd == "WHN" && ac == "sel") { out.push("401§sel§" + nsc_pad(a[1])); continue }
-        }
-
-        // MARK: Loop
-        if (cmd == "LOP") {
-            let p = a.length > 0 ? a[0].toLowerCase() : ""
-            if (p == "end") { out.push("202§e"); continue }
-            if (p == "ext") { out.push("202§x"); continue }
-            if (p == "inf") { out.push("202§inf"); continue }
-            if (p == ":blw") {
-                // LOP :BLW — next line is the condition (IFB btn/var/spr)
-                li++
-                if (li < body.length) {
-                    let ctk = nsc_tokens(body[li])
-                    let cac = ctk.length > 1 ? ctk[1].toLowerCase() : ""
-                    let ca = ctk.slice(2)
-                    let condStr = ""
-                    if (cac == "btn") condStr = "b§" + nsc_btn(ca[0]) + "§" + nsc_bs(ca[1])
-                    else if (cac == "var") condStr = "v§" + ca[0] + "§" + nsc_cmp(ca[1]) + "§" + ca.slice(2).join(" ")
-                    else if (cac == "spr") condStr = "s§" + ca[0] + "§" + (ca[1].toLowerCase() == "tch" ? "tch" : nsc_cmp(ca[1])) + "§" + ca.slice(2).join(" ")
-                    out.push("202§BLW§" + condStr)
+            // MARK: Logic — IFB and WHN share the same condition encoding
+            case "IFB":
+            case "WHN": {
+                let pfx = cmd == "IFB" ? "201" : "401"
+                let ac = a[0].toLowerCase()
+                switch (ac) {
+                    case "end": out.push(pfx + "§e"); continue
+                    case "els": out.push(pfx + "§l"); continue
+                    case "var": out.push(pfx + "§v§" + a[1] + "§" + nsc_cmp(a[2]) + "§" + a.slice(3).join(" ")); continue
+                    case "btn": out.push(pfx + "§b§" + nsc_btn(a[1]) + "§" + nsc_bs(a[2])); continue
+                    case "spr": out.push(pfx + "§s§" + a[1] + "§" + (a[2].toLowerCase() == "tch" ? "tch" : nsc_cmp(a[2])) + "§" + a.slice(3).join(" ")); continue
+                    case "sel": if (cmd == "WHN") { out.push("401§sel§" + nsc_pad(a[1])); continue }
                 }
-                continue
+                break
             }
-            out.push("202§" + parseInt(p).toString()); continue
-        }
 
-        // MARK: ListGUI
-        if (cmd == "CLG") {
-            let p = a.length > 0 ? a[0].toLowerCase() : ""
-            let enc = p == "ful" ? "f" : p == "scl" ? "s" : ""
-            out.push(enc ? "301§" + enc : "301"); continue
-        }
-        if (cmd == "LGP") { out.push("302§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue }
-        if (cmd == "LGD") { out.push("303§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue }
-        if (cmd == "LGO") { lgoN = parseInt(a[0].toLowerCase().substr(3)); lgoA = []; continue }
-        if (cmd == "LGS") { out.push("305§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue }
-        if (cmd == "LGV") { out.push("306§" + nsc_pad(a[0]) + "§" + a[1]); continue }
-        if (cmd == "LGR") { out.push("307§" + nsc_pad(a[0])); continue }
-        if (cmd == "DLG") { out.push("308"); continue }
-        if (cmd == "LGH") {
-            let m = a[0].toLowerCase()
-            out.push("309§" + (m == "off" ? "o" : m == "auto" ? "a" : parseInt(m).toString())); continue
-        }
-        if (cmd == "LGT") { out.push("310§" + a[0].toLowerCase()); continue }
-        if (cmd == "LSB") {
-            let m = a[0].toLowerCase()
-            out.push("311§" + (m == "on" ? "t" : "f")); continue
+            // MARK: Loop
+            case "LOP": {
+                let p = a.length > 0 ? a[0].toLowerCase() : ""
+                switch (p) {
+                    case "end": out.push("202§e"); continue
+                    case "ext": out.push("202§x"); continue
+                    case "inf": out.push("202§inf"); continue
+                    case ":blw": {
+                        // LOP :BLW — next line is the condition (IFB btn/var/spr)
+                        li++
+                        if (li < body.length) {
+                            let ctk = nsc_tokens(body[li])
+                            let cac = ctk.length > 1 ? ctk[1].toLowerCase() : ""
+                            let ca = ctk.slice(2)
+                            let condStr = ""
+                            switch (cac) {
+                                case "btn": condStr = "b§" + nsc_btn(ca[0]) + "§" + nsc_bs(ca[1]); break
+                                case "var": condStr = "v§" + ca[0] + "§" + nsc_cmp(ca[1]) + "§" + ca.slice(2).join(" "); break
+                                case "spr": condStr = "s§" + ca[0] + "§" + (ca[1].toLowerCase() == "tch" ? "tch" : nsc_cmp(ca[1])) + "§" + ca.slice(2).join(" "); break
+                            }
+                            out.push("202§BLW§" + condStr)
+                        }
+                        continue
+                    }
+                    default: out.push("202§" + parseInt(p).toString()); continue
+                }
+            }
+
+            // MARK: ListGUI
+            case "CLG": {
+                let p = a.length > 0 ? a[0].toLowerCase() : ""
+                let enc = p == "ful" ? "f" : p == "scl" ? "s" : ""
+                out.push(enc ? "301§" + enc : "301"); continue
+            }
+            case "LGP": out.push("302§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
+            case "LGD": out.push("303§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
+            case "LGO": lgoN = parseInt(a[0].toLowerCase().substr(3)); lgoA = []; continue
+            case "LGS": out.push("305§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
+            case "LGV": out.push("306§" + nsc_pad(a[0]) + "§" + a[1]); continue
+            case "LGR": out.push("307§" + nsc_pad(a[0])); continue
+            case "DLG": out.push("308"); continue
+            case "LGH": {
+                let m = a[0].toLowerCase()
+                out.push("309§" + (m == "off" ? "o" : m == "auto" ? "a" : parseInt(m).toString())); continue
+            }
+            case "LGT": out.push("310§" + a[0].toLowerCase()); continue
+            case "LSB": {
+                let m = a[0].toLowerCase()
+                out.push("311§" + (m == "on" ? "t" : "f")); continue
+            }
         }
 
         out.push("000") // unknown — no-op passthrough
@@ -134,29 +144,35 @@ function nsc_tokens(line: string): string[] {
 
 function nsc_cmp(s: string): string {
     let c = s.toLowerCase()
-    if (c == "eql") return "="
-    if (c == "mor") return ">"
-    if (c == "les") return "<"
-    if (c == "moe") return "≥"
-    if (c == "loe") return "≤"
-    return s
+    switch (c) {
+        case "eql": return "="
+        case "mor": return ">"
+        case "les": return "<"
+        case "moe": return "≥"
+        case "loe": return "≤"
+        default: return s
+    }
 }
 
 function nsc_btn(s: string): string {
     let b = s.toLowerCase()
-    if (b == "btna") return "a"
-    if (b == "btnb") return "b"
-    if (b == "dpdu") return "u"
-    if (b == "dpdd") return "d"
-    if (b == "dpdl") return "l"
-    if (b == "dpdr") return "r"
-    return b
+    switch (b) {
+        case "btna": return "a"
+        case "btnb": return "b"
+        case "dpdu": return "u"
+        case "dpdd": return "d"
+        case "dpdl": return "l"
+        case "dpdr": return "r"
+        default: return b
+    }
 }
 
 function nsc_bs(s: string): string {
-    if (s.toLowerCase() == "dwn") return "t"
-    if (s.toLowerCase() == "ndn") return "f"
-    return s
+    switch (s.toLowerCase()) {
+        case "dwn": return "t"
+        case "ndn": return "f"
+        default: return s
+    }
 }
 
 function nsc_pad(s: string): string {

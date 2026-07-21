@@ -91,35 +91,42 @@ function nanoSDK_check_when(idx: number): boolean {
     let cond = when_cond_data[idx]
     let ctype = cond[0]
 
-    // MARK: When Button
-    if (ctype == "b") {
-        let down = false
-        let btn = cond[1]
-        if (btn == "a") down = controller.A.isPressed()
-        else if (btn == "b") down = controller.B.isPressed()
-        else if (btn == "u") down = controller.up.isPressed()
-        else if (btn == "d") down = controller.down.isPressed()
-        else if (btn == "l") down = controller.left.isPressed()
-        else if (btn == "r") down = controller.right.isPressed()
-        return cond[2] == "t" ? down : !down
-    }
+    switch (ctype) {
+        // MARK: When Button
+        case "b": {
+            let down = false
+            let btn = cond[1]
+            switch (btn) {
+                case "a": down = controller.A.isPressed(); break
+                case "b": down = controller.B.isPressed(); break
+                case "u": down = controller.up.isPressed(); break
+                case "d": down = controller.down.isPressed(); break
+                case "l": down = controller.left.isPressed(); break
+                case "r": down = controller.right.isPressed(); break
+            }
+            return cond[2] == "t" ? down : !down
+        }
 
-    // MARK: When Variable
-    if (ctype == "v") {
-        let val = variables[cond[1]] != null ? variables[cond[1]] : cond[1]
-        let target = cond[3]
-        let op = cond[2]
-        if (op == "=")  return val == target
-        if (op == ">")  return parseFloat(val) > parseFloat(target)
-        if (op == "<")  return parseFloat(val) < parseFloat(target)
-        if (op == "≥") return parseFloat(val) >= parseFloat(target)
-        if (op == "≤") return parseFloat(val) <= parseFloat(target)
-    }
+        // MARK: When Variable
+        case "v": {
+            let val = variables[cond[1]] != null ? variables[cond[1]] : cond[1]
+            let target = cond[3]
+            let op = cond[2]
+            switch (op) {
+                case "=": return val == target
+                case ">": return parseFloat(val) > parseFloat(target)
+                case "<": return parseFloat(val) < parseFloat(target)
+                case "≥": return parseFloat(val) >= parseFloat(target)
+                case "≤": return parseFloat(val) <= parseFloat(target)
+            }
+            break
+        }
 
-    // MARK: When ListGUI Select
-    if (ctype == "sel") {
-        let targetIdx = parseInt(cond[1]) - 1
-        return ListMenuGUI.selectedIndex == targetIdx
+        // MARK: When ListGUI Select
+        case "sel": {
+            let targetIdx = parseInt(cond[1]) - 1
+            return ListMenuGUI.selectedIndex == targetIdx
+        }
     }
 
     return false
@@ -219,20 +226,24 @@ function nanoSDK_run_line() {
 
         // MARK: Basic Commands
         case "1":
-            if (current_command == "05") {
-                NanoSDK_App_Running = false
-                game.splash(command_data[1])
-                NanoSDK_App_Running = true
-            } else if (current_command == "06") {
-                close_apps()
-                if (command_data[1] && command_data[1] != "") {
+            switch (current_command) {
+                case "05":
+                    NanoSDK_App_Running = false
                     game.splash(command_data[1])
-                }
-            } else if (current_command == "07") {
-                // ASM mid-code submenu change
-                SubMenu = command_data[1]
-            } else {
-                error(301)
+                    NanoSDK_App_Running = true
+                    break
+                case "06":
+                    close_apps()
+                    if (command_data[1] && command_data[1] != "") {
+                        game.splash(command_data[1])
+                    }
+                    break
+                case "07":
+                    // ASM mid-code submenu change
+                    SubMenu = command_data[1]
+                    break
+                default:
+                    error(301)
             }
             break
 
@@ -243,35 +254,47 @@ function nanoSDK_run_line() {
                 condition_met.push("false")
                 let action = command_data[1]
 
-                if (action == "l") {
-                    // IFB els — flip top condition
-                    condition_met.pop()
-                    let top = condition_met[condition_met.length - 1]
-                    condition_met[condition_met.length - 1] = top == "true" ? "false" : "true"
-                } else if (action == "v") {
-                    // IFB var
-                    let lhs = variables[command_data[2]] != null ? variables[command_data[2]] : command_data[2]
-                    let rhs = command_data[4]
-                    let met = false
-                    if (command_data[3] == "=")  met = lhs == rhs
-                    if (command_data[3] == ">")  met = parseFloat(lhs) > parseFloat(rhs)
-                    if (command_data[3] == "<")  met = parseFloat(lhs) < parseFloat(rhs)
-                    if (command_data[3] == "≥") met = parseFloat(lhs) >= parseFloat(rhs)
-                    if (command_data[3] == "≤") met = parseFloat(lhs) <= parseFloat(rhs)
-                    if (met) { condition_met[condition_met.length - 1] = "true" }
-                } else if (action == "b") {
-                    // IFB btn
-                    let down = false
-                    if (command_data[2] == "a") down = controller.A.isPressed()
-                    else if (command_data[2] == "b") down = controller.B.isPressed()
-                    else if (command_data[2] == "u") down = controller.up.isPressed()
-                    else if (command_data[2] == "d") down = controller.down.isPressed()
-                    else if (command_data[2] == "l") down = controller.left.isPressed()
-                    else if (command_data[2] == "r") down = controller.right.isPressed()
-                    let met = command_data[3] == "t" ? down : !down
-                    if (met) { condition_met[condition_met.length - 1] = "true" }
-                } else if (action == "s") {
-                    // IFB spr — stub
+                switch (action) {
+                    case "l": {
+                        // IFB els — flip top condition
+                        condition_met.pop()
+                        let top = condition_met[condition_met.length - 1]
+                        condition_met[condition_met.length - 1] = top == "true" ? "false" : "true"
+                        break
+                    }
+                    case "v": {
+                        // IFB var
+                        let lhs = variables[command_data[2]] != null ? variables[command_data[2]] : command_data[2]
+                        let rhs = command_data[4]
+                        let met = false
+                        switch (command_data[3]) {
+                            case "=": met = lhs == rhs; break
+                            case ">": met = parseFloat(lhs) > parseFloat(rhs); break
+                            case "<": met = parseFloat(lhs) < parseFloat(rhs); break
+                            case "≥": met = parseFloat(lhs) >= parseFloat(rhs); break
+                            case "≤": met = parseFloat(lhs) <= parseFloat(rhs); break
+                        }
+                        if (met) { condition_met[condition_met.length - 1] = "true" }
+                        break
+                    }
+                    case "b": {
+                        // IFB btn
+                        let down = false
+                        switch (command_data[2]) {
+                            case "a": down = controller.A.isPressed(); break
+                            case "b": down = controller.B.isPressed(); break
+                            case "u": down = controller.up.isPressed(); break
+                            case "d": down = controller.down.isPressed(); break
+                            case "l": down = controller.left.isPressed(); break
+                            case "r": down = controller.right.isPressed(); break
+                        }
+                        let met = command_data[3] == "t" ? down : !down
+                        if (met) { condition_met[condition_met.length - 1] = "true" }
+                        break
+                    }
+                    case "s":
+                        // IFB spr — stub
+                        break
                 }
                 // "e" already handled above
             } else if (current_command == "02") {
@@ -282,23 +305,32 @@ function nanoSDK_run_line() {
                     if (cond && cond.length > 0) {
                         // Conditional loop (LOP :BLW) — re-evaluate condition
                         let met = false
-                        if (cond[0] == "b") {
-                            let down = false
-                            if (cond[1] == "a") down = controller.A.isPressed()
-                            else if (cond[1] == "b") down = controller.B.isPressed()
-                            else if (cond[1] == "u") down = controller.up.isPressed()
-                            else if (cond[1] == "d") down = controller.down.isPressed()
-                            else if (cond[1] == "l") down = controller.left.isPressed()
-                            else if (cond[1] == "r") down = controller.right.isPressed()
-                            met = cond[2] == "t" ? down : !down
-                        } else if (cond[0] == "v") {
-                            let lhs = variables[cond[1]] != null ? variables[cond[1]] : cond[1]
-                            let rhs = cond[3]
-                            if (cond[2] == "=")  met = lhs == rhs
-                            if (cond[2] == ">")  met = parseFloat(lhs) > parseFloat(rhs)
-                            if (cond[2] == "<")  met = parseFloat(lhs) < parseFloat(rhs)
-                            if (cond[2] == "≥") met = parseFloat(lhs) >= parseFloat(rhs)
-                            if (cond[2] == "≤") met = parseFloat(lhs) <= parseFloat(rhs)
+                        switch (cond[0]) {
+                            case "b": {
+                                let down = false
+                                switch (cond[1]) {
+                                    case "a": down = controller.A.isPressed(); break
+                                    case "b": down = controller.B.isPressed(); break
+                                    case "u": down = controller.up.isPressed(); break
+                                    case "d": down = controller.down.isPressed(); break
+                                    case "l": down = controller.left.isPressed(); break
+                                    case "r": down = controller.right.isPressed(); break
+                                }
+                                met = cond[2] == "t" ? down : !down
+                                break
+                            }
+                            case "v": {
+                                let lhs = variables[cond[1]] != null ? variables[cond[1]] : cond[1]
+                                let rhs = cond[3]
+                                switch (cond[2]) {
+                                    case "=": met = lhs == rhs; break
+                                    case ">": met = parseFloat(lhs) > parseFloat(rhs); break
+                                    case "<": met = parseFloat(lhs) < parseFloat(rhs); break
+                                    case "≥": met = parseFloat(lhs) >= parseFloat(rhs); break
+                                    case "≤": met = parseFloat(lhs) <= parseFloat(rhs); break
+                                }
+                                break
+                            }
                         }
                         if (met) {
                             line = loop_line[loop_line.length - 1]
@@ -378,55 +410,69 @@ function nanoSDK_run_line() {
 
         // MARK: ListGUI
         case "3":
-            if (current_command == "01") {
-                if (command_data[1] == "f") {
-                    Reload_ListGUI(menu_array, 80, 58, 160, 97, true)
-                } else if (command_data[1] == "s") { 
-                    Reload_ListGUI(menu_array, 76, 58, 151, 97, true)
-                }
-                Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], false)
-            } else if (current_command == "02") {
-                menu_data[0] = parseInt(command_data[1])
-                menu_data[1] = parseInt(command_data[2])
-                if (ListMenuGUI) { ListMenuGUI.setPosition(menu_data[0], menu_data[1]) }
-            } else if (current_command == "03") {
-                menu_data[2] = parseInt(command_data[1])
-                menu_data[3] = parseInt(command_data[2])
-                if (ListMenuGUI) { ListMenuGUI.setDimensions(menu_data[2], menu_data[3]) }
-            } else if (current_command == "04") {
-                menu_array = []
-                for (let i = 1; i < command_data.length; i++) {
-                    menu_array.push(miniMenu.createMenuItem(command_data[i]))
-                }
-                Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
-            } else if (current_command == "05") {
-                menu_array[parseInt(command_data[1])] = miniMenu.createMenuItem(command_data[2])
-                Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
-            } else if (current_command == "06") {
-                variables[command_data[2]] = menu_array[parseInt(command_data[1])].text
-            } else if (current_command == "07") {
-                menu_array.splice(parseInt(command_data[1]), 1)
-                Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
-            } else if (current_command == "08") {
-                menu_array = []
-                ListMenuGUI.destroy()
-            } else if (current_command == "09") {
-                if (command_data[1] == "o") {
-                    nanoSDK_hover_highlight = false
-                    ListMenuGUI.selectedIndex = -1
-                } else if (command_data[1] == "a") {
-                    nanoSDK_hover_highlight = true
-                } else {
-                    ListMenuGUI.selectedIndex = parseInt(command_data[1])
-                }
-            } else if (current_command == "10") {
-                nanoSDK_theme = command_data[1]
-                if (ListMenuGUI) { nanoSDK_apply_theme(nanoSDK_theme) }
-            } else if (current_command == "11") {
-                nanoSDK_scrollbar = command_data[1] == "t"
-                if (ListMenuGUI) { nanoSDK_apply_scrollbar(nanoSDK_scrollbar) }
-            } else {
-                error(301)
+            switch (current_command) {
+                case "01":
+                    switch (command_data[1]) {
+                        case "f": Reload_ListGUI(menu_array, 80, 58, 160, 97, true); break
+                        case "s": Reload_ListGUI(menu_array, 76, 58, 151, 97, true); break
+                    }
+                    Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], false)
+                    break
+                case "02":
+                    menu_data[0] = parseInt(command_data[1])
+                    menu_data[1] = parseInt(command_data[2])
+                    if (ListMenuGUI) { ListMenuGUI.setPosition(menu_data[0], menu_data[1]) }
+                    break
+                case "03":
+                    menu_data[2] = parseInt(command_data[1])
+                    menu_data[3] = parseInt(command_data[2])
+                    if (ListMenuGUI) { ListMenuGUI.setDimensions(menu_data[2], menu_data[3]) }
+                    break
+                case "04":
+                    menu_array = []
+                    for (let i = 1; i < command_data.length; i++) {
+                        menu_array.push(miniMenu.createMenuItem(command_data[i]))
+                    }
+                    Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+                    break
+                case "05":
+                    menu_array[parseInt(command_data[1])] = miniMenu.createMenuItem(command_data[2])
+                    Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+                    break
+                case "06":
+                    variables[command_data[2]] = menu_array[parseInt(command_data[1])].text
+                    break
+                case "07":
+                    menu_array.splice(parseInt(command_data[1]), 1)
+                    Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+                    break
+                case "08":
+                    menu_array = []
+                    ListMenuGUI.destroy()
+                    break
+                case "09":
+                    switch (command_data[1]) {
+                        case "o":
+                            nanoSDK_hover_highlight = false
+                            ListMenuGUI.selectedIndex = -1
+                            break
+                        case "a":
+                            nanoSDK_hover_highlight = true
+                            break
+                        default:
+                            ListMenuGUI.selectedIndex = parseInt(command_data[1])
+                    }
+                    break
+                case "10":
+                    nanoSDK_theme = command_data[1]
+                    if (ListMenuGUI) { nanoSDK_apply_theme(nanoSDK_theme) }
+                    break
+                case "11":
+                    nanoSDK_scrollbar = command_data[1] == "t"
+                    if (ListMenuGUI) { nanoSDK_apply_scrollbar(nanoSDK_scrollbar) }
+                    break
+                default:
+                    error(301)
             }
             break
     }
