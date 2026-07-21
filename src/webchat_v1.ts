@@ -1,6 +1,5 @@
 // MARK: Radio Recieve Value
 radio.onReceivedValue(function (name: string, value: number) {
-    DebugAnyPacketPending = true // TEMP DEBUG - remove once delivery is confirmed working
     handleWebChatChunk(name, value)
 })
 
@@ -18,22 +17,6 @@ function processRadioQueue() {
         if (microUtilities.isMicrobit() && App_Open !== "Web Chat" && parseInt(Settings.charAt(9), 10) !== 1) {
             microUtilities.setPixel(0, 0, true)
         }
-    }
-    // TEMP DEBUG block - remove once delivery is confirmed working.
-    // Lights pixels (1,0)/(2,0)/(3,0) on the arcade shield's emulated micro:bit display
-    // so we can see how far a real incoming packet gets: any packet at all -> room header
-    // matched -> at least one data chunk decoded. Column 0 stays the real "message delivered" light.
-    if (DebugAnyPacketPending) {
-        DebugAnyPacketPending = false
-        microUtilities.setPixel(1, 0, true)
-    }
-    if (DebugHeaderMatchPending) {
-        DebugHeaderMatchPending = false
-        microUtilities.setPixel(2, 0, true)
-    }
-    if (DebugChunkPending) {
-        DebugChunkPending = false
-        microUtilities.setPixel(3, 0, true)
     }
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
         while (RadioValueQueue.length > 0) {
@@ -119,7 +102,6 @@ function handleWebChatChunk(name: string, value: number) {
             if (roomCheck == parseInt(RoomCode.substr(0, 3))) {
                 IncomingMessageChunks = []
                 ExpectedChunks = Math.floor(value / 1000)
-                DebugHeaderMatchPending = true // TEMP DEBUG - remove once delivery is confirmed working
             }
         } else if (name == "WCE") {
             if (value == parseInt(RoomCode.substr(0, 4)) && IncomingMessageChunks.length > 0) {
@@ -131,7 +113,6 @@ function handleWebChatChunk(name: string, value: number) {
         } else if (name.length == 4) {
             let decoded = decodeValueToString(value, 3)
             IncomingMessageChunks.push(decoded)
-            DebugChunkPending = true // TEMP DEBUG - remove once delivery is confirmed working
         }
     }
 }
