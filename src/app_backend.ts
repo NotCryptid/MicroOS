@@ -759,6 +759,7 @@ function reloadListGUI(x: number, y: number, width: number, height: number, dark
         ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
         ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
     }
+    updateListMenuHover()
 }
 
 // MARK: Create Arrows

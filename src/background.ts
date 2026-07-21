@@ -24,28 +24,9 @@ forever(function () {
             }
         }
     } else if (App_Open == "File Manager" || App_Open == "Settings" || App_Open == "Process Manager") {
-        ListMenuGUI.selectedIndex = -1;
-        for (let i = 0; i < ListMenuContents.length; i++) {
-            let maxX = App_Open == "Process Manager" ? 160 : 152;
-            if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < maxX && i < 8) {
-                if (ListMenuContents[i] && ListMenuContents[i].text !== "" && ListMenuContents[i].text !== " ") {
-                    if (App_Open == "Process Manager" && i == 0) {} else {
-                        ListMenuGUI.selectedIndex = i;
-                    }
-                }
-                break;
-            } 
-        }
+        updateListMenuHover();
     } else if (App_Open == "NanoCode" || App_Open == "Write") {
-        ListMenuGUI.selectedIndex = -1;
-        for (let i = 0; i < ListMenuContents.length && i < 7; i++) {
-            if (Mouse_Cursor.y >= sillySpacingForListGUI[i + 1] && Mouse_Cursor.y < sillySpacingForListGUI[i + 1] + 12 && Mouse_Cursor.x < 152) {
-                if (ListMenuContents[i]) {
-                    ListMenuGUI.selectedIndex = i;
-                }
-                break;
-            }
-        }
+        updateListMenuHover();
     } else if ((NanoSDK_App_Running || when_cond_data.length > 0) && nanoSDK_hover_highlight) {
         ListMenuGUI.selectedIndex = -1;
         let menuTop = menu_data[1] - Math.floor(menu_data[3] / 2);
@@ -61,6 +42,34 @@ forever(function () {
         }
     }
 })
+
+// MARK: Update List Menu Hover
+function updateListMenuHover() {
+    if (App_Open == "File Manager" || App_Open == "Settings" || App_Open == "Process Manager") {
+        ListMenuGUI.selectedIndex = -1;
+        for (let i = 0; i < ListMenuContents.length; i++) {
+            let maxX = App_Open == "Process Manager" ? 160 : 152;
+            if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < maxX && i < 8) {
+                if (ListMenuContents[i] && ListMenuContents[i].text !== "" && ListMenuContents[i].text !== " ") {
+                    if (App_Open == "Process Manager" && i == 0) {} else {
+                        ListMenuGUI.selectedIndex = i;
+                    }
+                }
+                break;
+            }
+        }
+    } else if (App_Open == "NanoCode" || App_Open == "Write") {
+        ListMenuGUI.selectedIndex = -1;
+        for (let i = 0; i < ListMenuContents.length && i < 7; i++) {
+            if (Mouse_Cursor.y >= sillySpacingForListGUI[i + 1] && Mouse_Cursor.y < sillySpacingForListGUI[i + 1] + 12 && Mouse_Cursor.x < 152) {
+                if (ListMenuContents[i]) {
+                    ListMenuGUI.selectedIndex = i;
+                }
+                break;
+            }
+        }
+    }
+}
 
 // MARK: Clock Loop
 forever(function () {
