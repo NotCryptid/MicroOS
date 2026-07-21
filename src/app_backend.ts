@@ -376,7 +376,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 3:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                miniMenu.createMenuItem("MicroOS v0.3.0"),
+                                miniMenu.createMenuItem("MicroOS v0.3.1"),
                                 miniMenu.createMenuItem("NanoSDK 2026.2"),
                                 miniMenu.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
                                 miniMenu.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
