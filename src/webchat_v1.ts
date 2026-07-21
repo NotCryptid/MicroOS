@@ -1,14 +1,8 @@
-// MARK: Radio Recieve Name
-radio.onReceivedString(function (name: string) {
-    RadioValueQueue.push(name)
-    if (microUtilities.isMicrobit() && App_Open !== "Web Chat" && parseInt(Settings.charAt(9), 10) !== 1) { 
-        microUtilities.setPixel(0,0, true)
-    }
-})
-
 // MARK: Radio Recieve Value
 radio.onReceivedValue(function (name: string, value: number) {
-    handleWebChatChunk(name, value)
+    if (name.substr(0, 2) == "WC") {
+        handleWebChatChunk(name, value)
+    }
 })
 
 // MARK: Refresh Web Chat List
@@ -110,6 +104,9 @@ function handleWebChatChunk(name: string, value: number) {
                 let fullMessage = IncomingMessageChunks.join("")
                 RadioValueQueue.push(fullMessage)
                 IncomingMessageChunks = []
+                if (microUtilities.isMicrobit() && App_Open !== "Web Chat" && parseInt(Settings.charAt(9), 10) !== 1) {
+                    microUtilities.setPixel(0, 0, true)
+                }
             }
         } else if (name.length == 4) {
             let decoded = decodeValueToString(value, 3)
