@@ -506,7 +506,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             changeSettings(7)
                             break
                         case 3:
-                            WebChatMessages = []
+                            WebChatMessages = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
                             break
                     }
                     break
