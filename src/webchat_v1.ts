@@ -1,6 +1,9 @@
 // MARK: Radio Recieve Name
 radio.onReceivedString(function (name: string) {
     RadioValueQueue.push(name)
+    if (microUtilities.isMicrobit() && App_Open !== "Web Chat" && parseInt(Settings.charAt(9), 10) !== 1) { 
+        microUtilities.setPixel(0,0, true)
+    }
 })
 
 // MARK: Radio Recieve Value

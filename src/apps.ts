@@ -37,6 +37,9 @@ function Open_Library() {
 
 // MARK: Open Web Chat
 function Open_Web() {
+    if (microUtilities.isMicrobit()) { 
+        microUtilities.setPixel(0,0, false)
+    }
     close_apps()
     App_Open = "Web Chat"
     Temp = "Type here..."

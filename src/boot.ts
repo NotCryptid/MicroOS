@@ -77,7 +77,7 @@ let theme = themes[0]
 
 // MARK: Load Settings
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
-    Settings = "100010000"
+    Settings = "1000100000"
     radio.setGroup(113)
     settings.writeString("settings", Settings)
     settings.writeString("Username", "User")
@@ -102,7 +102,8 @@ Current_Settings = [
     miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)]),
     miniMenu.createMenuItem("Room Code - " + RoomCode),
     miniMenu.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(7), 10)]),
-    miniMenu.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(8), 10)])
+    miniMenu.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(8), 10)]),
+    miniMenu.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(9), 10)])
 ]
 
 theme = themes[parseInt(Settings.charAt(8), 10)]

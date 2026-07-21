@@ -15,460 +15,561 @@ function close_apps () {
     sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
 }
 
-function listSelection(app: string, selection: number, submenu: string, action: string, override: number) {
-    let selectedOption = 0
-    if (override == 0) {
-        selectedOption = selection + List_Scroll
-    } else {
-        selectedOption = override
-    }
-
-    const SystemSettings = [
+function getSystemSettingsMenu() {
+    return [
         miniMenu.createMenuItem("Back"),
         miniMenu.createMenuItem("Data Management"),
         miniMenu.createMenuItem("System Information"),
         miniMenu.createMenuItem("Time Settings")
     ]
-    const AppSettings = [
+}
+
+function getAppSettingsMenu() {
+    return [
         miniMenu.createMenuItem("Back"),
         miniMenu.createMenuItem("WebChat"),
         miniMenu.createMenuItem("NanoCode"),
         miniMenu.createMenuItem("NanoSDK Apps")
     ]
+}
 
-    // MARK: File Manager
-    if (app == "File Manager") {
-        if (action == "rclick") {
-            rclick_override = selectedOption
-            if (ListMenuContents[selection - 1] == null || ListMenuContents[selection - 1].text == "Home") {
-                current_rclick_menu = rclick_menu_files_empty
-            } else {
-                current_rclick_menu = rclick_menu_files
-            }
-            return
-        } else if (submenu == "System") {
-            if (action == "click" || action == "rclick0") {
-                if (selectedOption == 1) {
-                    SubMenu = "Home"
-                    Open_FileManager("Home")
-                } else if (selectedOption == 2) {
-                    game.reset()
-                } else if (selectedOption == 3) {
-                    error(105)
-                } else if (selectedOption == 4) {
-                    Open_FileManager("Home")
-                } else if (selectedOption == 5) {
-                    softerror(302)
-                } else if (selectedOption == 6) {
-                    Open_Write()
-                } else if (selectedOption == 7) {
-                    Open_xCell()
-                } else if (selectedOption == 8) {
-                    Open_Settings()
-                } else if (selectedOption == 9) {
-                    Open_Web()
-                } else if (selectedOption == 10) {
-                    Open_NanoCode()
+function listSelection(app: string, selection: number, submenu: string, action: string, override: number) {
+    const selectedOption = override == 0 ? selection + List_Scroll : override
+
+    switch (app) {
+        // MARK: File Manager
+        case "File Manager": {
+            if (action == "rclick") {
+                rclick_override = selectedOption
+                if (ListMenuContents[selection - 1] == null || ListMenuContents[selection - 1].text == "Home") {
+                    current_rclick_menu = rclick_menu_files_empty
+                } else {
+                    current_rclick_menu = rclick_menu_files
                 }
-            } else {
-                softerror(107)
-            } 
-            
-        } else if (submenu == "Details") { 
-            if (action == "click" && selectedOption == 8) {
-                // good enough for now, might add details menu for system files later
-                SubMenu = "User"
-                Open_FileManager("User")
+                return
             }
-        } else if (submenu == "User") {
-            // i don't even know whats going on here anymore
-            // fileIndex is into ListMenuContents (the visible window, already shifted by scroll)
-            // globalFileIndex is into User_Files (the full backing array)
-            const fileIndex = selection - 1;
-            const globalFileIndex = ListMenuGUIHidden.length + selection - 1;
-            const menuItem = fileIndex >= 0 && fileIndex < ListMenuContents.length 
-                ? ListMenuContents[fileIndex] 
-                : null;
-            const FileAtSelection = menuItem ? menuItem.text : null;
-            if (FileAtSelection == "Home" || FileAtSelection == null) {
-                if (FileAtSelection == "Home" && action == "click") {
-                    SubMenu = "Home"
-                    Open_FileManager("Home")
-                } else if (action === "rclick0") {
-                    const newName = game.askForString("New file name", 15)
-                    const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
-                    if (fileType == null || fileType == "" || fileType.length !== 3) {
-                        softerror(111)
-                        return
-                    }
-                    if (!isValidFileName(newName, fileType)) { return }
-                    const newKey = fileKey(fileType, newName)
-                    const newContent = "~"
-                    if (!hasStorageSpaceFor(newKey, newContent)) {
-                        softerror(113)
-                        return
-                    }
-                    settings.writeString(newKey, newContent)
-                    User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
-                    settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                    Open_FileManager("User")
-                } else if (action === "rclick1") {
-                    if (clipboardName == "" || clipboardExt == "") {
 
+            switch (submenu) {
+                case "System": {
+                    if (action == "click" || action == "rclick0") {
+                        switch (selectedOption) {
+                            case 1:
+                                SubMenu = "Home"
+                                Open_FileManager("Home")
+                                break
+                            case 2:
+                                game.reset()
+                                break
+                            case 3:
+                                error(105)
+                                break
+                            case 4:
+                                Open_FileManager("Home")
+                                break
+                            case 5:
+                                softerror(302)
+                                break
+                            case 6:
+                                Open_Write()
+                                break
+                            case 7:
+                                Open_xCell()
+                                break
+                            case 8:
+                                Open_Settings()
+                                break
+                            case 9:
+                                Open_Web()
+                                break
+                            case 10:
+                                Open_NanoCode()
+                                break
+                        }
                     } else {
-                        const sourceContent = settings.readString(fileKey(clipboardExt, clipboardName))
-                        if (sourceContent == null) {
-                            softerror(110)
-                            return
-                        }
-                        const copyName = "Copy of " + clipboardName
-                        if (!isValidFileName(copyName, clipboardExt)) { return }
-                        const destKey = fileKey(clipboardExt, copyName)
-                        if (!hasStorageSpaceFor(destKey, sourceContent)) {
-                            softerror(113)
-                            return
-                        }
-                        settings.writeString(destKey, sourceContent)
-                        User_Files.push(miniMenu.createMenuItem(copyName + "." + clipboardExt))
-                        settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                        clipboardName = ""
-                        clipboardExt = ""
+                        softerror(107)
+                    }
+                    break
+                }
+                case "Details": {
+                    if (action == "click" && selectedOption == 8) {
+                        // good enough for now, might add details menu for system files later
+                        SubMenu = "User"
                         Open_FileManager("User")
                     }
+                    break
                 }
-            } else if (FileAtSelection !== null) {
-                if (action !== "rclick") {
-                    const FileOpened = FileAtSelection.split(".")
-                    if (action == "click" || action == "rclick0") {
-                        if (FileOpened[1] == "wrt") {
-                            Open_Write(settings.readString(fileKey("wrt", FileOpened[0])), FileOpened[0])
-                        } else if (FileOpened[1] == "xcl") {
-                            Open_xCell(settings.readString(fileKey("xcl", FileOpened[0])))
-                        } else if (FileOpened[1] == "app") {
-                            Open_NanoSDK_App(settings.readString(fileKey("app", FileOpened[0])))
-                        } else if (FileOpened[1] == "nsp") {
-                            Open_NanoCode(settings.readString(fileKey("nsp", FileOpened[0])), FileOpened[0])
-                        } else if (FileOpened[1] == "nsa") {
-                            Open_NanoSDK_App(settings.readString(fileKey("nsa", FileOpened[0])))
-                        } else{
-                            softerror(109)
-                        }
-
-                    } else if (action == "rclick1") {
-                        const newName = game.askForString("Rename file", 15)
-                        if (!isValidFileName(newName, FileOpened[1])) { return }
-                        const oldKey = fileKey(FileOpened[1], FileOpened[0])
-                        const newKey = fileKey(FileOpened[1], newName)
-                        if (settings.readString(newKey) == null) {
-                            const content = settings.readString(oldKey)
-                            if (!hasStorageSpaceFor(newKey, content)) {
+                case "User": {
+                    // i don't even know whats going on here anymore
+                    // fileIndex is into ListMenuContents (the visible window, already shifted by scroll)
+                    // globalFileIndex is into User_Files (the full backing array)
+                    const fileIndex = selection - 1;
+                    const globalFileIndex = ListMenuGUIHidden.length + selection - 1;
+                    const menuItem = fileIndex >= 0 && fileIndex < ListMenuContents.length
+                        ? ListMenuContents[fileIndex]
+                        : null;
+                    const FileAtSelection = menuItem ? menuItem.text : null;
+                    if (FileAtSelection == "Home" || FileAtSelection == null) {
+                        if (FileAtSelection == "Home" && action == "click") {
+                            SubMenu = "Home"
+                            Open_FileManager("Home")
+                        } else if (action === "rclick0") {
+                            const newName = game.askForString("New file name", 15)
+                            const fileType = game.askForString("File type (wrt, xcl, nsp)", 3)
+                            if (fileType == null || fileType == "" || fileType.length !== 3) {
+                                softerror(111)
+                                return
+                            }
+                            if (!isValidFileName(newName, fileType)) { return }
+                            const newKey = fileKey(fileType, newName)
+                            const newContent = "~"
+                            if (!hasStorageSpaceFor(newKey, newContent)) {
                                 softerror(113)
                                 return
                             }
-                            settings.writeString(newKey, content)
-                            settings.remove(oldKey)
-                            User_Files[globalFileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
+                            settings.writeString(newKey, newContent)
+                            User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
                             settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             Open_FileManager("User")
-                        } else {
-                            softerror(110)
+                        } else if (action === "rclick1") {
+                            if (clipboardName != "" && clipboardExt != "") {
+                                const sourceContent = settings.readString(fileKey(clipboardExt, clipboardName))
+                                if (sourceContent == null) {
+                                    softerror(110)
+                                    return
+                                }
+                                const copyName = "Copy of " + clipboardName
+                                if (!isValidFileName(copyName, clipboardExt)) { return }
+                                const destKey = fileKey(clipboardExt, copyName)
+                                if (!hasStorageSpaceFor(destKey, sourceContent)) {
+                                    softerror(113)
+                                    return
+                                }
+                                settings.writeString(destKey, sourceContent)
+                                User_Files.push(miniMenu.createMenuItem(copyName + "." + clipboardExt))
+                                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                                clipboardName = ""
+                                clipboardExt = ""
+                                Open_FileManager("User")
+                            }
                         }
-                    } else if (action == "rclick2") {
-                        clipboardExt = FileOpened[1]
-                        clipboardName = FileOpened[0]
-                    } else if (action == "rclick3") {
-                        Open_FileManager("Details", FileAtSelection)
-                    } else if (action == "rclick4") {
-                        settings.remove(fileKey(FileOpened[1], FileOpened[0]))
-                        User_Files.splice(globalFileIndex, 1)
-                        settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                        Open_FileManager("User")
+                    } else if (action !== "rclick") {
+                        const FileOpened = FileAtSelection.split(".")
+                        switch (action) {
+                            case "click":
+                            case "rclick0":
+                                switch (FileOpened[1]) {
+                                    case "wrt":
+                                        Open_Write(settings.readString(fileKey("wrt", FileOpened[0])), FileOpened[0])
+                                        break
+                                    case "xcl":
+                                        Open_xCell(settings.readString(fileKey("xcl", FileOpened[0])))
+                                        break
+                                    case "app":
+                                        Open_NanoSDK_App(settings.readString(fileKey("app", FileOpened[0])))
+                                        break
+                                    case "nsp":
+                                        Open_NanoCode(settings.readString(fileKey("nsp", FileOpened[0])), FileOpened[0])
+                                        break
+                                    case "nsa":
+                                        Open_NanoSDK_App(settings.readString(fileKey("nsa", FileOpened[0])))
+                                        break
+                                    default:
+                                        softerror(109)
+                                        break
+                                }
+                                break
+                            case "rclick1": {
+                                const newName = game.askForString("Rename file", 15)
+                                if (!isValidFileName(newName, FileOpened[1])) { return }
+                                const oldKey = fileKey(FileOpened[1], FileOpened[0])
+                                const newKey = fileKey(FileOpened[1], newName)
+                                if (settings.readString(newKey) == null) {
+                                    const content = settings.readString(oldKey)
+                                    if (!hasStorageSpaceFor(newKey, content)) {
+                                        softerror(113)
+                                        return
+                                    }
+                                    settings.writeString(newKey, content)
+                                    settings.remove(oldKey)
+                                    User_Files[globalFileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
+                                    settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                                    Open_FileManager("User")
+                                } else {
+                                    softerror(110)
+                                }
+                                break
+                            }
+                            case "rclick2":
+                                clipboardExt = FileOpened[1]
+                                clipboardName = FileOpened[0]
+                                break
+                            case "rclick3":
+                                Open_FileManager("Details", FileAtSelection)
+                                break
+                            case "rclick4":
+                                settings.remove(fileKey(FileOpened[1], FileOpened[0]))
+                                User_Files.splice(globalFileIndex, 1)
+                                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                                Open_FileManager("User")
+                                break
+                        }
+                    } else {
+                        current_rclick_menu = rclick_menu_files
+                        return
                     }
-
-                } else {
-                    current_rclick_menu = rclick_menu_files
-                    return
+                    break
+                }
+                case "Home": {
+                    if (action == "click" || action == "rclick0") {
+                        ListMenuGUI.close()
+                        ListMenuGUIHidden = []
+                        List_Scroll = 0
+                        switch (selectedOption) {
+                            case 1:
+                                SubMenu = "System"
+                                ListMenuContents = System_Files.slice()
+                                ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+                                break
+                            case 2:
+                                SubMenu = "User"
+                                ListMenuContents = User_Files.slice()
+                                ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+                                break
+                        }
+                    } else {
+                        softerror(107)
+                    }
+                    reloadListGUI(76, 58, 151, 97, darkMode)
+                    updateScrollBar(8, darkMode)
+                    break
                 }
             }
-        } else if (submenu == "Home") {
-            if (action == "click" || action == "rclick0") {
-                ListMenuGUI.close()
-                ListMenuGUIHidden = []
-                List_Scroll = 0
-                if (selectedOption == 1) {
-                    SubMenu = "System"
-                    ListMenuContents = System_Files.slice()
-                    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-                } else if (selectedOption == 2) {
-                    SubMenu = "User"
-                    ListMenuContents = User_Files.slice()
-                    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
-            } 
-            } else {
-                softerror(107)
-            } 
+            break
+        }
+        // MARK: Settings
+        case "Settings": {
+            switch (submenu) {
+                case "Home":
+                    switch (selectedOption) {
+                        case 1:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                Current_Settings[3],
+                                Current_Settings[2],
+                                Current_Settings[5]
+                            ]
+                            if (microUtilities.isMicrobit()) {
+                                ListMenuContents.push(Current_Settings[10])
+                            }
+                            SubMenu = "Connectivity"
+                            break
+                        case 2:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                Current_Settings[0],
+                                Current_Settings[1]
+                            ]
+                            SubMenu = "Input"
+                            break
+                        case 3:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                Current_Settings[4],
+                                Current_Settings[8],
+                                Current_Settings[9]
+                            ]
+                            SubMenu = "Customization"
+                            break
+                        case 4:
+                            ListMenuContents = getSystemSettingsMenu()
+                            SubMenu = "System"
+                            break
+                        case 5:
+                            ListMenuContents = getAppSettingsMenu()
+                            SubMenu = "App Settings"
+                            break
+                    }
+                    break
+                case "Connectivity":
+                    switch (selectedOption) {
+                        case 1:
+                            close_apps()
+                            SubMenu = "Home"
+                            Open_Settings()
+                            break
+                        case 2:
+                            changeSettings(4)
+                            ListMenuContents[1] = Current_Settings[3]
+                            break
+                        case 3:
+                            changeSettings(3)
+                            ListMenuContents[2] = Current_Settings[2]
+                            break
+                        case 4:
+                            Username = game.askForString("Enter new username", 7)
+                            if (Username == null || Username == "" || Username == " " || Username == "System") {
+                                softerror(204)
+                                return
+                            }
+                            settings.writeString("Username", Username)
+                            Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                Current_Settings[3],
+                                Current_Settings[2],
+                                Current_Settings[5]
+                            ]
+                            break
+                    }
+                    break
+                case "Input":
+                    switch (selectedOption) {
+                        case 1:
+                            SubMenu = "Home"
+                            Open_Settings()
+                            break
+                        case 2:
+                            changeSettings(1)
+                            ListMenuContents[1] = Current_Settings[0]
+                            break
+                        case 3:
+                            changeSettings(2)
+                            ListMenuContents[2] = Current_Settings[1]
+                            break
+                    }
+                    break
+                case "Customization":
+                    switch (selectedOption) {
+                        case 1:
+                            SubMenu = "Home"
+                            Open_Settings()
+                            break
+                        case 2:
+                            changeSettings(5)
+                            ListMenuContents[1] = Current_Settings[4]
+                            break
+                        case 3:
+                            changeSettings(8)
+                            ListMenuContents[2] = Current_Settings[8]
+                            break
+                        case 4:
+                            changeSettings(9)
+                            ListMenuContents[3] = Current_Settings[9]
+                            break
+                    }
+                    break
+                case "System":
+                    switch (selectedOption) {
+                        case 1:
+                            SubMenu = "Home"
+                            Open_Settings()
+                            break
+                        case 2:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                miniMenu.createMenuItem("Delete all user files"),
+                                miniMenu.createMenuItem("Set settings to default"),
+                                miniMenu.createMenuItem("Wipe Device")
+                            ]
+                            SubMenu = "Data Management"
+                            break
+                        case 3:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                miniMenu.createMenuItem("MicroOS v0.3.0"),
+                                miniMenu.createMenuItem("NanoSDK 2026.2"),
+                                miniMenu.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
+                                miniMenu.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
+                                miniMenu.createMenuItem("RAM Capacity - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),
+                                miniMenu.createMenuItem("RAM Used - " + Math.floor(microUtilities.ramUsage(StorageUnit.Kilobytes)) + "KB"),
+                                miniMenu.createMenuItem("Clock Speed - " + microUtilities.cpuSpeed() + "MHz")
+                            ]
+                            SubMenu = "System Information"
+                            break
+                        case 4:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                Current_Settings[6],
+                                miniMenu.createMenuItem("Hour - " + hour),
+                                miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2)),
+                            ]
+                            SubMenu = "Time Settings"
+                            break
+                    }
+                    break
+                case "Data Management":
+                    switch (selectedOption) {
+                        case 1:
+                            ListMenuContents = getSystemSettingsMenu()
+                            SubMenu = "System"
+                            break
+                        case 2:
+                            deleteAllUserFiles()
+                            break
+                        case 3:
+                            Settings = "100010000"
+                            settings.writeString("settings", Settings)
+                            game.reset()
+                            break
+                        case 4:
+                            deleteAllUserFiles()
+                            Settings = "100010000"
+                            settings.writeString("settings", Settings)
+                            settings.writeString("Username", "User")
+                            settings.writeString("RoomCode", "12345678")
+                            game.reset()
+                            break
+                    }
+                    break
+                case "System Information":
+                    switch (selectedOption) {
+                        case 1:
+                            ListMenuContents = getSystemSettingsMenu()
+                            SubMenu = "System"
+                            break
+                        case 2:
+                            // fuck you, nothing happens
+                            // dipshit
+                            // nobody likes you
+                            break
+                    }
+                    break
+                case "Time Settings":
+                    switch (selectedOption) {
+                        case 1:
+                            ListMenuContents = getSystemSettingsMenu()
+                            SubMenu = "System"
+                            break
+                        case 2:
+                            changeSettings(6)
+                            ListMenuContents[1] = Current_Settings[6]
+                            break
+                        case 3:
+                            hour++
+                            if (hour > 23) {
+                                hour = 0
+                            }
+                            ListMenuContents[2] = miniMenu.createMenuItem("Hour - " + hour)
+                            clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
+                            break
+                        case 4:
+                            minute++
+                            if (minute > 159) {
+                                minute = 100
+                            }
+                            ListMenuContents[3] = miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2))
+                            clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
+                            break
+                    }
+                    break
+                case "App Settings":
+                    switch (selectedOption) {
+                        case 1:
+                            SubMenu = "Home"
+                            Open_Settings()
+                            break
+                        case 2:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                Current_Settings[7], // room code
+                                miniMenu.createMenuItem("Delete Chats")
+                            ]
+                            SubMenu = "WebChat Settings"
+                            break
+                        case 3:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                // make something here later
+                            ]
+                            SubMenu = "NanoCode Settings"
+                            break
+                        case 4:
+                            ListMenuContents = [
+                                miniMenu.createMenuItem("Back"),
+                                // edit files (Never, Ask, Allow)
+                                // edit system settings (Never, Ask, Allow)
+                                // delete files (Never, Ask, Allow)
+                                // use radio (Never, Ask, Allow)
+                            ]
+                            SubMenu = "NanoSDK App Settings"
+                            break
+                    }
+                    break
+                case "WebChat Settings":
+                    switch (selectedOption) {
+                        case 1:
+                            ListMenuContents = getAppSettingsMenu()
+                            SubMenu = "App Settings"
+                            break
+                        case 2:
+                            RoomCode = game.askForNumber("Enter new room code", 8).toString()
+                            changeSettings(7)
+                            break
+                        case 3:
+                            WebChatMessages = []
+                            break
+                    }
+                    break
+                case "NanoCode Settings":
+                    switch (selectedOption) {
+                        case 1:
+                            ListMenuContents = getAppSettingsMenu()
+                            SubMenu = "App Settings"
+                            break
+                        case 2:
+                            // fuck you, nothing happens
+                            // dipshit
+                            // nobody likes you
+                            break
+                    }
+                    break
+                case "NanoSDK App Settings":
+                    switch (selectedOption) {
+                        case 1:
+                            ListMenuContents = getAppSettingsMenu()
+                            SubMenu = "App Settings"
+                            break
+                        case 2:
+                            // fuck you, nothing happens
+                            // dipshit
+                            // nobody likes you
+                            break
+                    }
+                    break
+            }
             reloadListGUI(76, 58, 151, 97, darkMode)
-            updateScrollBar(8, darkMode)
+            break
         }
-    // MARK: Settings
-    } else if (app == "Settings") {
-        if (submenu == "Home") {
-            if (selectedOption == 1) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[3],
-                    Current_Settings[2],
-                    Current_Settings[5]
-                ]
-                SubMenu = "Connectivity"
-            } else if (selectedOption == 2) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[0],
-                    Current_Settings[1]
-                ]
-                SubMenu = "Input"
-            } else if (selectedOption == 3) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[4],
-                    Current_Settings[8],
-                    Current_Settings[9]
-                ]
-                SubMenu = "Customization"
-            } else if (selectedOption == 4) {
-                ListMenuContents = SystemSettings
-                SubMenu = "System"
-            } else if (selectedOption == 5) {
-                ListMenuContents = AppSettings
-                SubMenu = "App Settings"
-            }
-        } else if (submenu == "Connectivity") {
-            if (selectedOption == 1) {
-                close_apps()
-                SubMenu = "Home"
-                Open_Settings()
-            } else if (selectedOption == 2) {
-                changeSettings(4)
-                ListMenuContents[1] = Current_Settings[3]
-            } else if (selectedOption == 3) {
-                changeSettings(3)
-                ListMenuContents[2] = Current_Settings[2]
-            } else if (selectedOption == 4) {
-                Username = game.askForString("Enter new username", 7)
-                if (Username == null || Username == "" || Username == " " || Username == "System") {
-                    softerror(204)
-                    return
-                }
-                settings.writeString("Username", Username)
-                Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[3],
-                    Current_Settings[2],
-                    Current_Settings[5]
-                ]
-            }
-        } else if (submenu == "Input") {
-            if (selectedOption == 1) {
-                SubMenu = "Home"
-                Open_Settings()
-            } else if (selectedOption == 2) {
-                changeSettings(1)
-                ListMenuContents[1] = Current_Settings[0]
-            } else if (selectedOption == 3) {
-                changeSettings(2)
-                ListMenuContents[2] = Current_Settings[1]
-            } else if (selectedOption == 4) {
-                
-            } else if (selectedOption == 5) {
-                
-            }
-        } else if (submenu == "Customization") {
-            if (selectedOption == 1) {
-                SubMenu = "Home"
-                Open_Settings()
-            } else if (selectedOption == 2) {
-                changeSettings(5)
-                ListMenuContents[1] = Current_Settings[4]
-            } else if (selectedOption == 3) {
-                changeSettings(8)
-                ListMenuContents[2] = Current_Settings[8]
-            } else if (selectedOption == 4) {
-                changeSettings(9)
-                ListMenuContents[3] = Current_Settings[9]
-            } else if (selectedOption == 5) {
-                
-            }
-        } else if (submenu == "System") {
-            if (selectedOption == 1) {
-                SubMenu = "Home"
-                Open_Settings()
-            } else if (selectedOption == 2) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("Delete all user files"),
-                    miniMenu.createMenuItem("Set settings to default"),
-                    miniMenu.createMenuItem("Wipe Device")
-                ]
-                SubMenu = "Data Management"
-            } else if (selectedOption == 3) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    miniMenu.createMenuItem("MicroOS v0.3.0"),
-                    miniMenu.createMenuItem("NanoSDK 2026.2"),
-                    miniMenu.createMenuItem("Storage - "+ microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
-                    miniMenu.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) +"KB"),
-                    miniMenu.createMenuItem("RAM Capacity - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),
-                    miniMenu.createMenuItem("RAM Used - " + Math.floor(microUtilities.ramUsage(StorageUnit.Kilobytes)) + "KB"),
-                    miniMenu.createMenuItem("Clock Speed - "+ microUtilities.cpuSpeed() +"MHz")
-                ]
-                SubMenu = "System Information"
-            } else if (selectedOption == 4) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[6],
-                    miniMenu.createMenuItem("Hour - " + hour),
-                    miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2)),
-                ]
-                SubMenu = "Time Settings"
-            }
-        } else if (submenu == "Data Management") {
-            if (selectedOption == 1) {
-                ListMenuContents = SystemSettings
-                SubMenu = "System"
-            } else if (selectedOption == 2) {
-                for (let i = 0; i < User_Files.length; i++) {
-                    if (User_Files[i].text !== "Home") {
-                        const fileParts = User_Files[i].text.split(".")
-                        if (fileParts.length === 2) {
-                            settings.remove(fileKey(fileParts[1], fileParts[0]))
-                        }
-                    }
-                }
-                User_Files = [miniMenu.createMenuItem("Home")]
-                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-            } else if (selectedOption == 3) {
-                Settings = "100010000"
-                settings.writeString("settings", Settings)
-                game.reset()
-            } else if (selectedOption == 4) {
-                for (let i = 0; i < User_Files.length; i++) {
-                    if (User_Files[i].text !== "Home") {
-                        const fileParts = User_Files[i].text.split(".")
-                        if (fileParts.length === 2) {
-                            settings.remove(fileKey(fileParts[1], fileParts[0]))
-                        }
-                    }
-                }
-                User_Files = [miniMenu.createMenuItem("Home")]
-                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                Settings = "100010000"
-                settings.writeString("settings", Settings)
-                settings.writeString("Username", "User")
-                settings.writeString("RoomCode", "12345678")
-                game.reset()
-            }
-        } else if (submenu == "System Information") {
-            if (selectedOption == 1) {
-                ListMenuContents = SystemSettings
-                SubMenu = "System"
-            } else if (selectedOption == 2) {
-                // fuck you, nothing happens
-                // dipshit
-                // nobody likes you
-            }
-        } else if (submenu == "Time Settings") {
-            if (selectedOption == 1) {
-                ListMenuContents = SystemSettings
-                SubMenu = "System"
-            } else if (selectedOption == 2) {
-                changeSettings(6)
-                ListMenuContents[1] = Current_Settings[6]
-            } else if (selectedOption == 3) {
-                hour++
-                if (hour > 23) {
-                    hour = 0
-                }
-                ListMenuContents[2] = miniMenu.createMenuItem("Hour - " + hour)
-                clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
-            } else if (selectedOption == 4) {
-                minute++
-                if (minute > 159) {
-                    minute = 100
-                }
-                ListMenuContents[3] = miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2))
-                clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
-            }
-        } else if (submenu == "App Settings") {
-            if (selectedOption == 1) {
-                SubMenu = "Home"
-                Open_Settings()
-            } else if (selectedOption == 2) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    Current_Settings[7], // room code
-                    miniMenu.createMenuItem("Delete Chats")
-                ]
-                SubMenu = "WebChat Settings"
-            } else if (selectedOption == 3) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    // make something here later
-                ]
-                SubMenu = "NanoCode Settings"
-            } else if (selectedOption == 4) {
-                ListMenuContents = [
-                    miniMenu.createMenuItem("Back"),
-                    // edit files (Never, Ask, Allow)
-                    // edit system settings (Never, Ask, Allow)
-                    // delete files (Never, Ask, Allow)
-                    // use radio (Never, Ask, Allow)
-                ]
-                SubMenu = "NanoSDK App Settings"
-            }
-        } else if (submenu == "WebChat Settings") {
-            if (selectedOption == 1) {
-                ListMenuContents = AppSettings
-                SubMenu = "App Settings"
-            } else if (selectedOption == 2) {
-                RoomCode = game.askForNumber("Enter new room code", 8).toString()
-                changeSettings(7)
-            } else if (selectedOption == 3) {
-                WebChatMessages = []
-            }
-        } else if (submenu == "NanoCode Settings") {
-            if (selectedOption == 1) {
-                ListMenuContents = AppSettings
-                SubMenu = "App Settings"
-            } else if (selectedOption == 2) {
-                // fuck you, nothing happens
-                // dipshit
-                // nobody likes you
-            }
-        } else if (submenu == "NanoSDK App Settings") {
-            if (selectedOption == 1) {
-                ListMenuContents = AppSettings
-                SubMenu = "App Settings"
-            } else if (selectedOption == 2) {
-                // fuck you, nothing happens
-                // dipshit
-                // nobody likes you
-            }
-        }
-        reloadListGUI(76, 58, 151, 97, darkMode)
     }
+}
+
+// MARK: Delete All User Files
+function deleteAllUserFiles() {
+    for (let i = 0; i < User_Files.length; i++) {
+        if (User_Files[i].text !== "Home") {
+            const fileParts = User_Files[i].text.split(".")
+            if (fileParts.length === 2) {
+                settings.remove(fileKey(fileParts[1], fileParts[0]))
+            }
+        }
+    }
+    User_Files = [miniMenu.createMenuItem("Home")]
+    settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
 }
 
 // MARK: Write Settings
 function changeSettings(selection: number) {
     let settingDigitIndex = selection
-    if (selection == 7) {
-        settingDigitIndex = -1
-    } else if (selection == 8) {
-        settingDigitIndex = 7
-    } else if (selection == 9) {
-        settingDigitIndex = 8
+    switch (selection) {
+        case 7:
+            settingDigitIndex = -1
+            break
+        case 8:
+            settingDigitIndex = 7
+            break
+        case 9:
+            settingDigitIndex = 8
+            break
     }
     let dingus53 = 0
     if (settingDigitIndex >= 0) {
@@ -481,74 +582,88 @@ function changeSettings(selection: number) {
     let dingus52 = 0
     let dingus51 = "spoingy"
     let currentSettingsIndex = selection - 1
-    if (selection == 1) {
-        dingus52 = 1
-        if (dingus53 > dingus52) {
+    switch (selection) {
+        case 1:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Keyboard - OnScreen", "Keyboard - Jacdac", "Keyboard - OnScreen"][dingus53]
+            break
+        case 2:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Mouse - D-Pad", "Mouse - Jacdac", "Mouse - D-Pad"][dingus53]
+            break
+        case 3:
+            dingus52 = 2
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off", "Connectivity - Radio"][dingus53]
+            break
+        case 4:
+            dingus52 = 9
+            if (dingus53 > dingus52) {
+                dingus53 = 1
+            }
+            dingus51 = "Radio Channel - " + (dingus53).toString()
+            break
+        case 5:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
+            break
+        case 6:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
+            currentSettingsIndex = 6
+            if (dingus53 !== 1) {
+                clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
+            } else {
+                clock.setText("")
+            }
+            break
+        case 7:
             dingus53 = 0
-        }
-        dingus51 = ["Keyboard - OnScreen", "Keyboard - Jacdac", "Keyboard - OnScreen"][dingus53]
-    } else if (selection == 2) {
-        dingus52 = 1
-        if (dingus53 > dingus52) {
-            dingus53 = 0
-        }
-        dingus51 = ["Mouse - D-Pad", "Mouse - Jacdac", "Mouse - D-Pad"][dingus53]
-    } else if (selection == 3) {
-        dingus52 = 2
-        if (dingus53 > dingus52) {
-            dingus53 = 0
-        }
-        dingus51 = ["Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off", "Connectivity - Radio"][dingus53]
-    } else if (selection == 4) {
-        dingus52 = 9
-        if (dingus53 > dingus52) {
-            dingus53 = 1
-        }
-        dingus51 = "Radio Channel - " + (dingus53).toString()
-    } else if (selection == 5) {
-        dingus52 = 1
-        if (dingus53 > dingus52) {
-            dingus53 = 0
-        }
-        dingus51 = ["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
-    } else if (selection == 6) {
-        dingus52 = 1
-        if (dingus53 > dingus52) {
-            dingus53 = 0
-        }
-        dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
-        currentSettingsIndex = 6
-        if (dingus53 !== 1) {
-            clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
-        } else {
-            clock.setText("")
-        }
-    } else if (selection == 7) {
-        dingus53 = 0
-        dingus51 = "Room Code - " + RoomCode
-        currentSettingsIndex = 7
-        settings.writeString("RoomCode", RoomCode)
-    } else if (selection == 8) {
-        dingus52 = 1
-        if (dingus53 > dingus52) {
-            dingus53 = 0
-        }
-        dingus51 = ["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][dingus53]
-        currentSettingsIndex = 8
-        if (dingus53 == 1) { 
-            darkMode = true
-        } else {
-            darkMode = false
-        }
-    } else if (selection == 9) {
-        dingus52 = 3
-        if (dingus53 > dingus52) {
-            dingus53 = 0
-        }
-        dingus51 = ["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][dingus53]
-        currentSettingsIndex = 9
-        theme = themes[dingus53]
-        generateTaskbar(theme[0], theme[1])
+            dingus51 = "Room Code - " + RoomCode
+            currentSettingsIndex = 7
+            settings.writeString("RoomCode", RoomCode)
+            break
+        case 8:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][dingus53]
+            currentSettingsIndex = 8
+            darkMode = dingus53 == 1
+            break
+        case 9:
+            dingus52 = 3
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][dingus53]
+            currentSettingsIndex = 9
+            theme = themes[dingus53]
+            generateTaskbar(theme[0], theme[1])
+            break
+        case 10:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Indicator - On", "Indicator - Off", "Indicator - On"][dingus53]
+            currentSettingsIndex = 10
+            break
     }
     createAppBar(0, theme[2])
     if (settingDigitIndex >= 0) {
@@ -585,8 +700,6 @@ function isValidFileName(name: string, ext: string): boolean {
 }
 
 // MARK: File Storage Key
-// "~" is rejected by isValidFileName in both name and ext, so it's a safe,
-// unambiguous separator between the two parts of the storage key
 function fileKey(ext: string, name: string): string {
     return "file_" + ext + "~" + name
 }
@@ -601,7 +714,6 @@ function utf8ByteLength(str: string): number {
         } else if (code < 0x800) {
             bytes += 2
         } else if (code >= 0xd800 && code <= 0xdbff) {
-            // high surrogate, paired with the following low surrogate makes one 4-byte codepoint
             bytes += 4
             i++
         } else {
@@ -611,9 +723,6 @@ function utf8ByteLength(str: string): number {
     return bytes
 }
 
-// mirrors settings::FS::write's szneeded/RAFFS_ROUND math (RAFFS.cpp) so the
-// reported size matches what the flash filesystem actually reserves for the
-// entry (8-byte MetaEntry header + key name + content, rounded to 8 bytes)
 function raffsEntrySize(key: string, content: string): number {
     const szNeeded = utf8ByteLength(content) + utf8ByteLength(key) + 1
     const raffsRound = ((szNeeded + 7) >> 3) << 3
