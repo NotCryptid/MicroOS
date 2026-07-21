@@ -1,8 +1,6 @@
 // MARK: Radio Recieve Value
 radio.onReceivedValue(function (name: string, value: number) {
-    if (name.substr(0, 2) == "WC") {
-        handleWebChatChunk(name, value)
-    }
+    handleWebChatChunk(name, value)
 })
 
 // MARK: Refresh Web Chat List
