@@ -1,5 +1,5 @@
 // MARK: VM Mouse Button Loop
-// VM Stuff (COMMENT OUT WHEN BUILDING FOR HARDWARE, THIS SHIT USES SO MUCH CPU CYCLES OML)
+// VM Stuff (COMMENT OUT WHEN BUILDING FOR HARDWARE, THIS USES SO MUCH CPU CYCLES OMG)
 forever(function () {
     if (browserEvents.MouseLeft.isPressed()) {
         MouseClick(1)
@@ -60,7 +60,7 @@ function MouseClick(button: number) {
     
     if (App_Open !== "App Library") {
         if (spriteutils.isDestroyed(Mouse_Cursor)) {
-            // motherfucker why is this needed for the code to work you can't even kill the mouse cursor
+            // ugh, why is this needed for the code to work, you can't even destroy the mouse cursor
             kernel_panic(202)
         } else if (Mouse_Cursor.overlapsWith(xCell_Icon) && button == 1) {
             Open_xCell("")

@@ -100,8 +100,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                 }
                 case "User": {
                     // i don't even know whats going on here anymore
-                    // fileIndex is into ListMenuContents (the visible window, already shifted by scroll)
-                    // globalFileIndex is into User_Files (the full backing array)
                     const fileIndex = selection - 1;
                     const globalFileIndex = ListMenuGUIHidden.length + selection - 1;
                     const menuItem = fileIndex >= 0 && fileIndex < ListMenuContents.length
@@ -428,9 +426,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             SubMenu = "System"
                             break
                         case 2:
-                            // fuck you, nothing happens
-                            // dipshit
-                            // nobody likes you
                             break
                     }
                     break
@@ -517,9 +512,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             SubMenu = "App Settings"
                             break
                         case 2:
-                            // fuck you, nothing happens
-                            // dipshit
-                            // nobody likes you
                             break
                     }
                     break
@@ -530,9 +522,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             SubMenu = "App Settings"
                             break
                         case 2:
-                            // fuck you, nothing happens
-                            // dipshit
-                            // nobody likes you
                             break
                     }
                     break

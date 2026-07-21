@@ -154,7 +154,7 @@ generateTaskbar(theme[0], theme[1])
 
 // MARK: Define Sprites
 function Define_Sprites () {
-    // remember to add new sprites here or the whole os will shit itself
+    // remember to add new sprites here or the whole os will break itself
     App_Open = "null"
     Library_icon = sprites.create(assets.image`Library_icon`, SpriteKind.Desktop_UI)
     Library_icon.setPosition(9, 111)
