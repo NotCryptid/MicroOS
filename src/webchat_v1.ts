@@ -14,6 +14,12 @@ function refreshWebChatList() {
 
 // MARK: Web Chat Queue
 function processRadioQueue() {
+    if (WebChatIndicatorPending) {
+        WebChatIndicatorPending = false
+        if (microUtilities.isMicrobit() && App_Open !== "Web Chat" && parseInt(Settings.charAt(9), 10) !== 1) {
+            microUtilities.setPixel(0, 0, true)
+        }
+    }
     if (App_Open == "Web Chat" && KeyboardVisible == false) {
         while (RadioValueQueue.length > 0) {
             let message = RadioValueQueue.shift()
@@ -104,9 +110,7 @@ function handleWebChatChunk(name: string, value: number) {
                 let fullMessage = IncomingMessageChunks.join("")
                 RadioValueQueue.push(fullMessage)
                 IncomingMessageChunks = []
-                if (microUtilities.isMicrobit() && App_Open !== "Web Chat" && parseInt(Settings.charAt(9), 10) !== 1) {
-                    microUtilities.setPixel(0, 0, true)
-                }
+                WebChatIndicatorPending = true
             }
         } else if (name.length == 4) {
             let decoded = decodeValueToString(value, 3)

@@ -29,6 +29,7 @@ let Library_icon: Sprite = null
 let RadioValueQueue: string[] = []
 let IncomingMessageChunks: string[] = []
 let ExpectedChunks = 0
+let WebChatIndicatorPending = false
 let xCell_Icon: Sprite = null
 let outline: Sprite = null
 let Mouse_Cursor: Sprite = null
