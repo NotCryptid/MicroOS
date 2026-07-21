@@ -16,16 +16,12 @@ function close_apps () {
 }
 
 function getSystemSettingsMenu() {
-    let tempListMenuContentsSystemSettings = [
+    return [
         miniMenu.createMenuItem("Back"),
         miniMenu.createMenuItem("Data Management"),
         miniMenu.createMenuItem("System Information"),
         miniMenu.createMenuItem("Time Settings")
     ]
-    // if (microUtilities.isMicrobit()) {
-    //     tempListMenuContentsSystemSettings.push(miniMenu.createMenuItem("Resource Monitor"))
-    // }
-    return tempListMenuContentsSystemSettings
 }
 
 function getAppSettingsMenu() {
