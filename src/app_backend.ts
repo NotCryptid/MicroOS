@@ -247,6 +247,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         // MARK: Settings
         case "Settings": {
             switch (submenu) {
+                // MARK: Settings Home
                 case "Home":
                     switch (selectedOption) {
                         case 1:
@@ -256,9 +257,6 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 Current_Settings[2],
                                 Current_Settings[5]
                             ]
-                            if (microUtilities.isMicrobit()) {
-                                ListMenuContents.push(Current_Settings[10])
-                            }
                             SubMenu = "Connectivity"
                             break
                         case 2:
@@ -288,6 +286,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings Connectivity
                 case "Connectivity":
                     switch (selectedOption) {
                         case 1:
@@ -320,6 +319,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings Input
                 case "Input":
                     switch (selectedOption) {
                         case 1:
@@ -336,6 +336,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings Customization
                 case "Customization":
                     switch (selectedOption) {
                         case 1:
@@ -356,6 +357,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings System
                 case "System":
                     switch (selectedOption) {
                         case 1:
@@ -374,7 +376,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 3:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                miniMenu.createMenuItem("MicroOS v0.3.1"),
+                                miniMenu.createMenuItem("MicroOS v0.3.2"),
                                 miniMenu.createMenuItem("NanoSDK 2026.2"),
                                 miniMenu.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
                                 miniMenu.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
@@ -395,6 +397,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings Data Management
                 case "Data Management":
                     switch (selectedOption) {
                         case 1:
@@ -419,6 +422,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings System Information
                 case "System Information":
                     switch (selectedOption) {
                         case 1:
@@ -429,6 +433,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings Time
                 case "Time Settings":
                     switch (selectedOption) {
                         case 1:
@@ -457,6 +462,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings App
                 case "App Settings":
                     switch (selectedOption) {
                         case 1:
@@ -469,6 +475,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 Current_Settings[7], // room code
                                 miniMenu.createMenuItem("Delete Chats")
                             ]
+                            if (microUtilities.isMicrobit()) {
+                                ListMenuContents.push(Current_Settings[10])
+                            }
                             SubMenu = "WebChat Settings"
                             break
                         case 3:
@@ -490,6 +499,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings WebChat
                 case "WebChat Settings":
                     switch (selectedOption) {
                         case 1:
@@ -503,8 +513,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 3:
                             WebChatMessages = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
                             break
+                        case 4:
+                            changeSettings(10)
+                            break
                     }
                     break
+                // MARK: Settings NanoCode
                 case "NanoCode Settings":
                     switch (selectedOption) {
                         case 1:
@@ -515,6 +529,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                     }
                     break
+                // MARK: Settings NanoSDK App
                 case "NanoSDK App Settings":
                     switch (selectedOption) {
                         case 1:
@@ -651,6 +666,9 @@ function changeSettings(selection: number) {
                 dingus53 = 0
             }
             dingus51 = ["Indicator - On", "Indicator - Off", "Indicator - On"][dingus53]
+            if (dingus53 == 1) {
+                microUtilities.setPixel(0,0,false)
+            }
             currentSettingsIndex = 10
             break
     }
