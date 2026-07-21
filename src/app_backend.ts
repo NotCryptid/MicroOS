@@ -579,7 +579,7 @@ function changeSettings(selection: number) {
             settingDigitIndex = 8
             break
         case 10:
-            settingDigitIndex = -1
+            settingDigitIndex = 9
             break
     }
     let dingus53 = 0
