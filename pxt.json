@@ -7,9 +7,8 @@
         "arcade-text": "github:microsoft/arcade-text#v1.3.0",
         "sprite-scaling": "*",
         "settings": "*",
-        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.1.0",
         "browser-events": "*",
-        "MicroUtilities": "github:notcryptid/microutilities#v2.0.0"
+        "MicroUtilities": "github:notcryptid/microutilities#v2.0.2"
     },
     "files": [
         "images.g.jres",

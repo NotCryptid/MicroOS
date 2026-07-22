@@ -108,16 +108,16 @@ function Open_Write(file_contents: string = null, file_name: string = null) {
     App_Title.setPosition(16, 4)
     open_document = file_name
     if (file_contents == null || file_contents == "") {
-        ListMenuContents = [miniMenu.createMenuItem(" ")]
+        ListMenuContents = [microUtilities.createMenuItem(" ")]
     } else {
-        ListMenuContents = file_contents.split("~").map(line => miniMenu.createMenuItem(line))
+        ListMenuContents = file_contents.split("~").map(line => microUtilities.createMenuItem(line))
     }
     if (ListMenuContents.length == 0 || ListMenuContents[ListMenuContents.length - 1].text !== " ") {
-        ListMenuContents.push(miniMenu.createMenuItem(" "))
+        ListMenuContents.push(microUtilities.createMenuItem(" "))
     }
     List_Scroll = 0
     ListMenuGUIHidden = []
-    ListMenuGUI = miniMenu.createMenuFromArray([])
+    ListMenuGUI = microUtilities.createMenuFromArray([])
     reloadListGUI(76, 63, 151, 84, darkMode)
     createScrollBarSprites()
     createArrows()
@@ -130,15 +130,14 @@ function Open_Settings() {
     App_Open = "Settings"
     SubMenu = "Home"
     List_Scroll = 0
-    ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("App Settings")]
+    ListMenuContents = [microUtilities.createMenuItem("Connectivity"),microUtilities.createMenuItem("Customization"),microUtilities.createMenuItem("System"),microUtilities.createMenuItem("App Settings")]
     createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Settings", 0, 1)
     App_Title.setPosition(24, 4)
-    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+    ListMenuGUI = microUtilities.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
-    ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
     reloadListGUI(76, 58, 151, 97, darkMode)
@@ -162,16 +161,16 @@ function Open_NanoCode(project: string = null, file_name: string = null) {
     App_Title.setPosition(24, 4)
     open_document = file_name
     if (project == null || project == "") {
-        ListMenuContents = [miniMenu.createMenuItem("DAN example"), miniMenu.createMenuItem("DAI default"), miniMenu.createMenuItem("ASM home"), miniMenu.createMenuItem("TXP 22"), miniMenu.createMenuItem("PRN Hello World!")]
+        ListMenuContents = [microUtilities.createMenuItem("DAN example"), microUtilities.createMenuItem("DAI default"), microUtilities.createMenuItem("ASM home"), microUtilities.createMenuItem("TXP 22"), microUtilities.createMenuItem("PRN Hello World!")]
     } else {
-        ListMenuContents = project.split("~").map(line => miniMenu.createMenuItem(line))
+        ListMenuContents = project.split("~").map(line => microUtilities.createMenuItem(line))
     }
     if (ListMenuContents.length == 0 || ListMenuContents[ListMenuContents.length - 1].text !== " ") {
-        ListMenuContents.push(miniMenu.createMenuItem(" "))
+        ListMenuContents.push(microUtilities.createMenuItem(" "))
     }
     List_Scroll = 0
     ListMenuGUIHidden = []
-    ListMenuGUI = miniMenu.createMenuFromArray([])
+    ListMenuGUI = microUtilities.createMenuFromArray([])
     reloadListGUI(76, 63, 151, 84, true)
     createScrollBarSprites()
     createArrows()
@@ -198,13 +197,12 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
         const name = splitFile[0]
         const extension = splitFile[1]
         const sizeBytes = fileEntrySize(fileKey(extension, name))
-        ListMenuContents = [miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Name: " + name), miniMenu.createMenuItem("Type: " + extension + " file"), miniMenu.createMenuItem("Size: " + sizeBytes + " bytes"), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem(" "), miniMenu.createMenuItem("Back")]
+        ListMenuContents = [microUtilities.createMenuItem("Details"), microUtilities.createMenuItem("Name: " + name), microUtilities.createMenuItem("Type: " + extension + " file"), microUtilities.createMenuItem("Size: " + sizeBytes + " bytes"), microUtilities.createMenuItem(" "), microUtilities.createMenuItem(" "), microUtilities.createMenuItem(" "), microUtilities.createMenuItem("Back")]
     } else {
-        ListMenuContents = [miniMenu.createMenuItem("System"), miniMenu.createMenuItem("User Files")]
+        ListMenuContents = [microUtilities.createMenuItem("System"), microUtilities.createMenuItem("User Files")]
     }
-    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+    ListMenuGUI = microUtilities.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
-    ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
     reloadListGUI(76, 58, 151, 97, darkMode)
@@ -224,9 +222,8 @@ function Open_ProcessManager() {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("Process Manager", 0, 1)
     App_Title.setPosition(45, 4)
-    ListMenuGUI = miniMenu.createMenuFromArray(Active_Processes)
+    ListMenuGUI = microUtilities.createMenuFromArray(Active_Processes)
     ListMenuGUI.setDimensions(160, 97)
-    ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(80, 58)
     ListMenuGUI.selectedIndex = 1
     ListMenuGUI.z = -30

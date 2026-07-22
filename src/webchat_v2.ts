@@ -517,15 +517,15 @@ function webChatRowAt(visibleRowIndex: number): _WebChatRow {
 // MARK: Refresh Web Chat List
 function refreshWebChatList() {
     const rows = _webChatRows()
-    const displayRows = rows.map(row => miniMenu.createMenuItem(_webChatRowText(row)))
+    const displayRows = rows.map(row => microUtilities.createMenuItem(_webChatRowText(row)))
     const total = displayRows.length
     if (total <= visibleRows) {
         // Not enough real content to fill the box yet -- pad the top so
         // "Type here..." (always the last row) still lands on the bottom
         // row instead of floating wherever the short list ends.
-        let padded: miniMenu.MenuItem[] = []
+        let padded: microUtilities.MenuItem[] = []
         for (let i = 0; i < visibleRows - total; i++) {
-            padded.push(miniMenu.createMenuItem(" "))
+            padded.push(microUtilities.createMenuItem(" "))
         }
         ListMenuGUIHidden = []
         ListMenuContents = padded.concat(displayRows)
@@ -596,7 +596,7 @@ function importWebChatAttachment(entry: WebChatEntry): void {
         return
     }
     settings.writeString(key, content)
-    User_Files.push(miniMenu.createMenuItem(name + "." + ext))
+    User_Files.push(microUtilities.createMenuItem(name + "." + ext))
     settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
 }
 

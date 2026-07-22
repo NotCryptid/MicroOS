@@ -56,20 +56,20 @@ let clipboardName = ""
 let clipboardExt = ""
 let List_Scroll = 0
 let rclick_override = 0
-let current_rclick_menu: miniMenu.MenuItem[] = null
+let current_rclick_menu: microUtilities.MenuItem[] = null
 // Which message the Web Chat right-click menu (Serial/Save) is currently
 // for -- set right before that menu is created, read when "Save" is clicked.
 let rclickWebChatEntry: WebChatEntry = null
-let ListMenuGUIHidden: miniMenu.MenuItem[] = []
+let ListMenuGUIHidden: microUtilities.MenuItem[] = []
 let RightClickMenu: any = null
 let Username = ""
 let Settings = settings.readString("settings")
 let text: TextSprite = null
-let ListMenuContents: miniMenu.MenuItem[] = []
-let User_Files: miniMenu.MenuItem[] = []
-let User_Apps: miniMenu.MenuItem[] = []
-let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.sys"),miniMenu.createMenuItem("assets.ts"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("runtime.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
-let Current_Settings: miniMenu.MenuItem[] = []
+let ListMenuContents: microUtilities.MenuItem[] = []
+let User_Files: microUtilities.MenuItem[] = []
+let User_Apps: microUtilities.MenuItem[] = []
+let System_Files: microUtilities.MenuItem[] = [microUtilities.createMenuItem("Home"),microUtilities.createMenuItem("MicroOS.sys"),microUtilities.createMenuItem("assets.ts"),microUtilities.createMenuItem("File.moa"),microUtilities.createMenuItem("runtime.moa"),microUtilities.createMenuItem("Write.moa"),microUtilities.createMenuItem("xCell.moa"),microUtilities.createMenuItem("Settings.moa"),microUtilities.createMenuItem("WebChat.moa"),microUtilities.createMenuItem("NanoCode.moa")]
+let Current_Settings: microUtilities.MenuItem[] = []
 // WebChatEntry is declared in webchat_v2.ts -- it's an interface (erased at
 // compile time), so referencing it here doesn't depend on file load order,
 // but constructing one with `new` would, hence the plain object literal.
@@ -113,16 +113,16 @@ let darkMode = false
 if (parseInt(Settings.charAt(4)) == 1) {
         darkMode = true
 }
-let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
+let Active_Processes: microUtilities.MenuItem[] = [microUtilities.createMenuItem("Name       | System Load"), microUtilities.createMenuItem("Kyrios     | High"), microUtilities.createMenuItem("Aegis      | Low"), microUtilities.createMenuItem("Horizon    | Medium"), microUtilities.createMenuItem("process.moa| Low")]
 Current_Settings = [
-    miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(1))) + ""),
-    miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(2), 10)]),
-    miniMenu.createMenuItem("Name - " + settings.readString("Username")),
-    miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(3), 10)]),
-    miniMenu.createMenuItem("Room Code - " + RoomCode),
-    miniMenu.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(4), 10)]),
-    miniMenu.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(5), 10)]),
-    miniMenu.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(6), 10)]),
+    microUtilities.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(1))) + ""),
+    microUtilities.createMenuItem(["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(2), 10)]),
+    microUtilities.createMenuItem("Name - " + settings.readString("Username")),
+    microUtilities.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(3), 10)]),
+    microUtilities.createMenuItem("Room Code - " + RoomCode),
+    microUtilities.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(4), 10)]),
+    microUtilities.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(5), 10)]),
+    microUtilities.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(6), 10)]),
 ]
 
 theme = themes[parseInt(Settings.charAt(5), 10)]
@@ -136,7 +136,7 @@ if (User_Files_Temp.length == 0 || controller.B.isPressed() && controller.up.isP
     settings.writeString("file_names", JSON.stringify(User_Files_Temp));
 }
 for (let i = 0; i < User_Files_Temp.length; i++) {
-    User_Files.push(miniMenu.createMenuItem(User_Files_Temp[i]));
+    User_Files.push(microUtilities.createMenuItem(User_Files_Temp[i]));
 }
 
 pause(randint(1000, 2000)) // haha funny delay
@@ -162,8 +162,8 @@ if (Settings.charAt(3) == "0") {
 }
 
 // MARK: Right Click Menus
-const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Share"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
-const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Paste")]
+const rclick_menu_files = [microUtilities.createMenuItem("Open"), microUtilities.createMenuItem("Rename"), microUtilities.createMenuItem("Copy"), microUtilities.createMenuItem("Share"), microUtilities.createMenuItem("Details"), microUtilities.createMenuItem("Delete")]
+const rclick_menu_files_empty = [microUtilities.createMenuItem("New File"), microUtilities.createMenuItem("Paste")]
 
 
 Define_Sprites()
@@ -199,8 +199,8 @@ function Define_Sprites () {
     Mouse_Cursor.z = 453453453453
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     App_Title = textsprite.create("Write", 0, 1)
-    ListMenuGUI = miniMenu.createMenuFromArray([miniMenu.createMenuItem("")])
-    sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
+    ListMenuGUI = microUtilities.createMenuFromArray([microUtilities.createMenuItem("")])
+    sprites.destroyAllSpritesOfKind(SpriteKind.SimpleMenu)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroy(Close_App)
 }
@@ -240,7 +240,7 @@ function kernel_panic(code: number) {
         close_apps()
         App_Open = "death"   
         scene.setBackgroundImage(assets.image`Kernel Panic`)
-        sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
+        sprites.destroyAllSpritesOfKind(SpriteKind.SimpleMenu)
         sprites.destroyAllSpritesOfKind(SpriteKind.Text)
         sprites.destroyAllSpritesOfKind(SpriteKind.Mouse)
         sprites.destroyAllSpritesOfKind(SpriteKind.Desktop_UI)

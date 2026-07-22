@@ -12,24 +12,24 @@ function close_apps () {
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroyAllSpritesOfKind(SpriteKind.App_UI)
-    sprites.destroyAllSpritesOfKind(SpriteKind.MiniMenu)
+    sprites.destroyAllSpritesOfKind(SpriteKind.SimpleMenu)
 }
 
 function getSystemSettingsMenu() {
     return [
-        miniMenu.createMenuItem("Back"),
-        miniMenu.createMenuItem("Data Management"),
-        miniMenu.createMenuItem("System Information"),
-        miniMenu.createMenuItem("Time Settings")
+        microUtilities.createMenuItem("Back"),
+        microUtilities.createMenuItem("Data Management"),
+        microUtilities.createMenuItem("System Information"),
+        microUtilities.createMenuItem("Time Settings")
     ]
 }
 
 function getAppSettingsMenu() {
     return [
-        miniMenu.createMenuItem("Back"),
-        miniMenu.createMenuItem("WebChat"),
-        miniMenu.createMenuItem("NanoCode"),
-        miniMenu.createMenuItem("NanoSDK Apps")
+        microUtilities.createMenuItem("Back"),
+        microUtilities.createMenuItem("WebChat"),
+        microUtilities.createMenuItem("NanoCode"),
+        microUtilities.createMenuItem("NanoSDK Apps")
     ]
 }
 
@@ -125,7 +125,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 return
                             }
                             settings.writeString(newKey, newContent)
-                            User_Files.push(miniMenu.createMenuItem(newName + "." + fileType))
+                            User_Files.push(microUtilities.createMenuItem(newName + "." + fileType))
                             settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             Open_FileManager("User")
                         } else if (action === "rclick1") {
@@ -143,7 +143,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                     return
                                 }
                                 settings.writeString(destKey, sourceContent)
-                                User_Files.push(miniMenu.createMenuItem(copyName + "." + clipboardExt))
+                                User_Files.push(microUtilities.createMenuItem(copyName + "." + clipboardExt))
                                 settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                                 clipboardName = ""
                                 clipboardExt = ""
@@ -189,7 +189,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                     }
                                     settings.writeString(newKey, content)
                                     settings.remove(oldKey)
-                                    User_Files[globalFileIndex] = miniMenu.createMenuItem(newName + "." + FileOpened[1])
+                                    User_Files[globalFileIndex] = microUtilities.createMenuItem(newName + "." + FileOpened[1])
                                     settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                                     Open_FileManager("User")
                                 } else {
@@ -229,12 +229,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             case 1:
                                 SubMenu = "System"
                                 ListMenuContents = System_Files.slice()
-                                ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+                                ListMenuGUI = microUtilities.createMenuFromArray(ListMenuContents)
                                 break
                             case 2:
                                 SubMenu = "User"
                                 ListMenuContents = User_Files.slice()
-                                ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+                                ListMenuGUI = microUtilities.createMenuFromArray(ListMenuContents)
                                 break
                         }
                     } else {
@@ -256,18 +256,18 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     switch (selectedOption) {
                         case 1:
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Back"),
                                 Current_Settings[0], // radio channel
                                 Current_Settings[2] // username
                             ]
                             if (microUtilities.isMicrobit()) {
-                                ListMenuContents.push(miniMenu.createMenuItem("Serial - " + microUtilities.serialNumber()))
+                                ListMenuContents.push(microUtilities.createMenuItem("Serial - " + microUtilities.serialNumber()))
                             }
                             SubMenu = "Connectivity"
                             break
                         case 2:
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Back"),
                                 Current_Settings[1], // wallpaper
                                 Current_Settings[5], // dark mode
                                 Current_Settings[6] // theme
@@ -304,9 +304,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             }
                             settings.writeString("Username", Username)
                             webChatProtocol.setUsername(Username)
-                            Current_Settings[2] = miniMenu.createMenuItem("Name - " + Username)
+                            Current_Settings[2] = microUtilities.createMenuItem("Name - " + Username)
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Back"),
                                 Current_Settings[0],
                                 Current_Settings[2]
                             ]
@@ -343,32 +343,32 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                         case 2:
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
-                                miniMenu.createMenuItem("Delete all user files"),
-                                miniMenu.createMenuItem("Set settings to default"),
-                                miniMenu.createMenuItem("Wipe Device")
+                                microUtilities.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Delete all user files"),
+                                microUtilities.createMenuItem("Set settings to default"),
+                                microUtilities.createMenuItem("Wipe Device")
                             ]
                             SubMenu = "Data Management"
                             break
                         case 3:
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
-                                miniMenu.createMenuItem("MicroOS v0.4.0"),
-                                miniMenu.createMenuItem("NanoSDK 2026.2"),
-                                miniMenu.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
-                                miniMenu.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
-                                miniMenu.createMenuItem("RAM Capacity - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),
-                                miniMenu.createMenuItem("RAM Usage - " + Math.floor(microUtilities.ramUsage(StorageUnit.Kilobytes)) + "KB"),
-                                miniMenu.createMenuItem("Clock Speed - " + microUtilities.cpuSpeed() + "MHz")
+                                microUtilities.createMenuItem("Back"),
+                                microUtilities.createMenuItem("MicroOS v0.4.0"),
+                                microUtilities.createMenuItem("NanoSDK 2026.2"),
+                                microUtilities.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
+                                microUtilities.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
+                                microUtilities.createMenuItem("RAM Capacity - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),
+                                microUtilities.createMenuItem("RAM Usage - " + Math.floor(microUtilities.ramUsage(StorageUnit.Kilobytes)) + "KB"),
+                                microUtilities.createMenuItem("Clock Speed - " + microUtilities.cpuSpeed() + "MHz")
                             ]
                             SubMenu = "System Information"
                             break
                         case 4:
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Back"),
                                 Current_Settings[3], // show clock
-                                miniMenu.createMenuItem("Hour - " + hour),
-                                miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2)),
+                                microUtilities.createMenuItem("Hour - " + hour),
+                                microUtilities.createMenuItem("Minute - " + minute.toString().substr(1, 2)),
                             ]
                             SubMenu = "Time Settings"
                             break
@@ -426,7 +426,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             if (hour > 23) {
                                 hour = 0
                             }
-                            ListMenuContents[2] = miniMenu.createMenuItem("Hour - " + hour)
+                            ListMenuContents[2] = microUtilities.createMenuItem("Hour - " + hour)
                             clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
                             break
                         case 4:
@@ -434,7 +434,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             if (minute > 159) {
                                 minute = 100
                             }
-                            ListMenuContents[3] = miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2))
+                            ListMenuContents[3] = microUtilities.createMenuItem("Minute - " + minute.toString().substr(1, 2))
                             clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
                             break
                     }
@@ -448,9 +448,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                         case 2:
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Back"),
                                 Current_Settings[4], // room code
-                                miniMenu.createMenuItem("Delete Chats")
+                                microUtilities.createMenuItem("Delete Chats")
                             ]
                             if (microUtilities.isMicrobit()) {
                                 ListMenuContents.push(Current_Settings[7]) // indicator
@@ -459,14 +459,14 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                         case 3:
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Back"),
                                 // make something here later
                             ]
                             SubMenu = "NanoCode Settings"
                             break
                         case 4:
                             ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Back"),
                                 // edit files (Never, Ask, Allow)
                                 // edit system settings (Never, Ask, Allow)
                                 // delete files (Never, Ask, Allow)
@@ -548,7 +548,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     return
                 }
                 settings.writeString(key, content)
-                User_Files.push(miniMenu.createMenuItem(newName + ".wrt"))
+                User_Files.push(microUtilities.createMenuItem(newName + ".wrt"))
                 settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
             }
             break
@@ -566,7 +566,7 @@ function deleteAllUserFiles() {
             }
         }
     }
-    User_Files = [miniMenu.createMenuItem("Home")]
+    User_Files = [microUtilities.createMenuItem("Home")]
     settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
 }
 
@@ -672,7 +672,7 @@ function changeSettings(selection: number) {
     if (settingDigitIndex >= 0) {
         Settings = Settings.slice(0, settingDigitIndex) + dingus53.toString() + Settings.slice(settingDigitIndex + 1)
     }
-    Current_Settings[currentSettingsIndex] = miniMenu.createMenuItem(dingus51)
+    Current_Settings[currentSettingsIndex] = microUtilities.createMenuItem(dingus51)
     settings.writeString("settings", Settings)
     reloadListGUI(76, 58, 151, 97, darkMode)
     radio.setGroup(113 + parseInt(Settings.charAt(1)))
@@ -752,8 +752,9 @@ function hasStorageSpaceFor(key: string, content: string): boolean {
 // current_rclick_menu, positioned near the mouse cursor. Caller must set
 // current_rclick_menu first.
 function openRightClickMenu() {
-    RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu)
-    RightClickMenu.setButtonEventsEnabled(false)
+    RightClickMenu = microUtilities.createMenuFromArray(current_rclick_menu)
+    RightClickMenu.setDimensions(50, current_rclick_menu.length * 12)
+    RightClickMenu.setColors(darkMode ? 1 : 15, darkMode ? 15 : 1, 1, 3)
     let RightClickMenuX = Mouse_Cursor.x + 23
     if (Mouse_Cursor.x > 107) {
         RightClickMenuX = 130
@@ -763,7 +764,6 @@ function openRightClickMenu() {
     } else {
         RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - current_rclick_menu.length * 6)
     }
-    RightClickMenu.setDimensions(50, current_rclick_menu.length * 12)
     outline = sprites.create(image.create(1, 1), SpriteKind.App_UI)
     outline.image.setPixel(0, 0, 15)
     RightClickMenu.z = 350346
@@ -776,17 +776,14 @@ function openRightClickMenu() {
 // MARK: Reload ListGUI
 function reloadListGUI(x: number, y: number, width: number, height: number, dark_mode: boolean = false) {
     ListMenuGUI.destroy()
-    ListMenuGUI = miniMenu.createMenuFromArray(ListMenuContents)
+    ListMenuGUI = microUtilities.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(width, height)
-    ListMenuGUI.setButtonEventsEnabled(false)
     ListMenuGUI.setPosition(x, y)
     ListMenuGUI.z = -30
     if (dark_mode) {
-        ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, 15)
-        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 1)
-        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
-        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 15)
-        ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 1)
+        ListMenuGUI.setColors(1, 15, 15, 1)
+    } else {
+        ListMenuGUI.setColors(15, 1, 1, 3)
     }
     updateListMenuHover()
 }

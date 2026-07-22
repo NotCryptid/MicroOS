@@ -146,7 +146,7 @@ function MouseClick(button: number) {
                                 return
                             }
                             settings.writeString(nsaKey, compiled)
-                            User_Files.push(miniMenu.createMenuItem(newName + ".nsa"))
+                            User_Files.push(microUtilities.createMenuItem(newName + ".nsa"))
                             settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                         } else if (x > 4) {
                             // save file
@@ -172,7 +172,7 @@ function MouseClick(button: number) {
                                 }
                                 open_document = newName
                                 settings.writeString(newKey, serialized)
-                                User_Files.push(miniMenu.createMenuItem(newName + "." + appID))
+                                User_Files.push(microUtilities.createMenuItem(newName + "." + appID))
                                 settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                             } else {
                                 const existingKey = fileKey(appID, open_document + "")
@@ -186,12 +186,12 @@ function MouseClick(button: number) {
                     } else if (button == 1 && ListMenuContents[i - 1] != null) {
                         const changed_selection = game.askForString(ListMenuContents[i - 1].text, 36)
                         if (changed_selection == null) {
-                            ListMenuContents[i - 1] = miniMenu.createMenuItem("")
+                            ListMenuContents[i - 1] = microUtilities.createMenuItem("")
                         } else {
-                            ListMenuContents[i - 1] = miniMenu.createMenuItem(changed_selection)
+                            ListMenuContents[i - 1] = microUtilities.createMenuItem(changed_selection)
                         }
                         if (ListMenuContents[ListMenuContents.length - 1].text !== " ") {
-                            ListMenuContents.push(miniMenu.createMenuItem(" "))
+                            ListMenuContents.push(microUtilities.createMenuItem(" "))
                         }
                         if (App_Open == "NanoCode") {
                             reloadListGUI(76, 63, 151, 84, true);
@@ -207,6 +207,7 @@ function MouseClick(button: number) {
         } else if (App_Open == "Web Chat") {
             if (Mouse_Cursor.overlapsWith(WebChatSend) && button == 1 && WEBmessage != "" && WEBmessage != "Type here...") {
                 KeyboardVisible = true
+                const sentText = WEBmessage
                 let attachmentData: Buffer = null
                 if (attachement != null) {
                     const parts = attachement.split(".")
@@ -218,19 +219,23 @@ function MouseClick(button: number) {
                     }
                 }
                 const sentAttachmentName = attachement != null ? attachement : ""
-                pushWebChatEntry({
-                    senderId: microUtilities.serialNumber(), senderName: Username + " (You)",
-                    verified: microUtilities.isMicrobit(), text: WEBmessage,
-                    attachmentId: "", attachmentName: sentAttachmentName,
-                    attachmentData: attachmentData, attachmentReady: attachmentData != null
-                })
-                webChatProtocol.sendMessage(WEBmessage, sentAttachmentName, attachmentData)
                 if (!isDestroyed(WebChatRemoveAttachment)) {
                     WebChatRemoveAttachment.destroy()
                 }
                 attachement = null
+                // Reset before pushWebChatEntry, which redraws the list
+                // immediately (reading Temp for the placeholder row) --
+                // resetting after would redraw with the just-sent text
+                // still showing as the placeholder.
                 WEBmessage = "Type here..."
                 Temp = "Type here..."
+                pushWebChatEntry({
+                    senderId: microUtilities.serialNumber(), senderName: Username + " (You)",
+                    verified: microUtilities.isMicrobit(), text: sentText,
+                    attachmentId: "", attachmentName: sentAttachmentName,
+                    attachmentData: attachmentData, attachmentReady: attachmentData != null
+                })
+                webChatProtocol.sendMessage(sentText, sentAttachmentName, attachmentData)
                 KeyboardVisible = false
             } else if (!isDestroyed(WebChatRemoveAttachment) && Mouse_Cursor.overlapsWith(WebChatRemoveAttachment) && button == 1) {
                 WebChatRemoveAttachment.destroy()
@@ -243,9 +248,9 @@ function MouseClick(button: number) {
                             if (button == 2 && row.part == "name" && row.entry.verified) {
                                 rclickWebChatEntry = row.entry
                                 current_rclick_menu = [
-                                    miniMenu.createMenuItem("Serial"),
-                                    miniMenu.createMenuItem(row.entry.senderId),
-                                    miniMenu.createMenuItem("Save")
+                                    microUtilities.createMenuItem("Serial"),
+                                    microUtilities.createMenuItem(row.entry.senderId),
+                                    microUtilities.createMenuItem("Save")
                                 ]
                                 openRightClickMenu()
                             } else if (button == 1 && row.part == "attachment" && row.entry.attachmentReady) {

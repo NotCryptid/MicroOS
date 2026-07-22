@@ -1,11 +1,10 @@
 // MARK: ListGUI Reload Function
 // why does this exist twice
-function Reload_ListGUI(data: miniMenu.MenuItem[], x: number, y: number, width: number, height: number, destroy: Boolean) {
+function Reload_ListGUI(data: microUtilities.MenuItem[], x: number, y: number, width: number, height: number, destroy: Boolean) {
     if (destroy) {
         ListMenuGUI.destroy()
     }
-    ListMenuGUI = miniMenu.createMenuFromArray(data)
-    ListMenuGUI.setButtonEventsEnabled(false)
+    ListMenuGUI = microUtilities.createMenuFromArray(data)
     ListMenuGUI.setDimensions(width, height)
     ListMenuGUI.setPosition(x, y)
     ListMenuGUI.z = -30
@@ -16,16 +15,13 @@ function Reload_ListGUI(data: miniMenu.MenuItem[], x: number, y: number, width: 
 // MARK: ListGUI Theme
 function nanoSDK_apply_theme(mode: string) {
     let dark = mode == "d" || (mode == "m" && darkMode)
-    ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.BackgroundColor, dark ? 15 : 0)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 1)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, dark ? 15 : 1)
-    ListMenuGUI.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, dark ? 1 : 15)
+    ListMenuGUI.setColors(1, 15, dark ? 15 : 1, dark ? 1 : 15)
 }
 
 // MARK: ListGUI Scroll Bar
+// No-op: SimpleMenu (MicroUtilities) doesn't have a built-in scroll
+// indicator -- NanoCode draws its own scrollbar sprites separately.
 function nanoSDK_apply_scrollbar(enabled: boolean) {
-    ListMenuGUI.setMenuStyleProperty(miniMenu.MenuStyleProperty.ScrollIndicatorColor, enabled ? 1 : 0)
 }
 
 // MARK: Variable Definitions
@@ -40,7 +36,7 @@ let condition_met = ["null"]
 let loop_repeats_left: string[] = []
 let loop_line: number[] = []
 let loop_condition: string[][] = [] // stores condition params for conditional loops (LOP :BLW)
-let menu_array: miniMenu.MenuItem[] = []
+let menu_array: microUtilities.MenuItem[] = []
 let menu_data = [80, 58, 160, 97]
 let nanoSDK_hover_highlight = false
 let nanoSDK_theme = "l"
@@ -431,12 +427,12 @@ function nanoSDK_run_line() {
                 case "04":
                     menu_array = []
                     for (let i = 1; i < command_data.length; i++) {
-                        menu_array.push(miniMenu.createMenuItem(command_data[i]))
+                        menu_array.push(microUtilities.createMenuItem(command_data[i]))
                     }
                     Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
                     break
                 case "05":
-                    menu_array[parseInt(command_data[1])] = miniMenu.createMenuItem(command_data[2])
+                    menu_array[parseInt(command_data[1])] = microUtilities.createMenuItem(command_data[2])
                     Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
                     break
                 case "06":
