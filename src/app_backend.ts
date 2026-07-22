@@ -806,7 +806,7 @@ function createArrows(bottomY: number = 101) {
 // Chat, to keep it clear of the send button) -- keep it in sync with the
 // bottomY passed to createArrows.
 function updateScrollBar(maxVisible: number = 8, dark: boolean = false, trackBottom: number = 95) {
-    if (spriteutils.isDestroyed(scrollBar)) {
+    if (isDestroyed(scrollBar)) {
         return;
     }
 

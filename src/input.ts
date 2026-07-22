@@ -41,7 +41,7 @@ function MouseClick(button: number) {
     if (Mouse_Cursor.overlapsWith(Close_App) && button == 1) {
         close_apps()
         return
-    } else if (spriteutils.isDestroyed(RightClickMenu) == false) {
+    } else if (isDestroyed(RightClickMenu) == false) {
         if (button == 1) {
             let menuHalfHeight = current_rclick_menu.length * 6;
             if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
@@ -59,7 +59,7 @@ function MouseClick(button: number) {
     }
     
     if (App_Open !== "App Library") {
-        if (spriteutils.isDestroyed(Mouse_Cursor)) {
+        if (isDestroyed(Mouse_Cursor)) {
             // ugh, why is this needed for the code to work, you can't even destroy the mouse cursor
             kernel_panic(202)
         } else if (Mouse_Cursor.overlapsWith(xCell_Icon) && button == 1) {
@@ -78,7 +78,7 @@ function MouseClick(button: number) {
             Open_ProcessManager()
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
             Open_Library()
-        } else if (button == 1 && !(spriteutils.isDestroyed(scrollBar)) && (Mouse_Cursor.overlapsWith(ArrowDown) || Mouse_Cursor.overlapsWith(ArrowUp))) {
+        } else if (button == 1 && !(isDestroyed(scrollBar)) && (Mouse_Cursor.overlapsWith(ArrowDown) || Mouse_Cursor.overlapsWith(ArrowUp))) {
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
                 if (ListMenuContents.length > visibleRows) {
                     let item = ListMenuContents.shift();
@@ -225,14 +225,14 @@ function MouseClick(button: number) {
                     attachmentData: attachmentData, attachmentReady: attachmentData != null
                 })
                 webChatProtocol.sendMessage(WEBmessage, sentAttachmentName, attachmentData)
-                if (!spriteutils.isDestroyed(WebChatRemoveAttachment)) {
+                if (!isDestroyed(WebChatRemoveAttachment)) {
                     WebChatRemoveAttachment.destroy()
                 }
                 attachement = null
                 WEBmessage = "Type here..."
                 Temp = "Type here..."
                 KeyboardVisible = false
-            } else if (!spriteutils.isDestroyed(WebChatRemoveAttachment) && Mouse_Cursor.overlapsWith(WebChatRemoveAttachment) && button == 1) {
+            } else if (!isDestroyed(WebChatRemoveAttachment) && Mouse_Cursor.overlapsWith(WebChatRemoveAttachment) && button == 1) {
                 WebChatRemoveAttachment.destroy()
                 attachement = null
             } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y < 92) {

@@ -6,6 +6,14 @@ namespace SpriteKind {
     export const App_UI = SpriteKind.create()
 }
 
+// MARK: Is Destroyed
+// The only thing MicroOS ever used from the arcade-sprite-util extension --
+// inlined so the whole (otherwise unused) package doesn't have to be a
+// dependency.
+function isDestroyed(sprite: Sprite): boolean {
+    return !sprite || !!(sprite.flags & sprites.Flag.Destroyed)
+}
+
 // MARK: VM Detector
 let isVM = false
 if (browserEvents.currentTime() > -1) {
@@ -199,7 +207,7 @@ function Define_Sprites () {
 
 // MARK: Generate Taskbar
 function generateTaskbar(primary: number = 7, accent: number = 8) {
-    if (spriteutils.isDestroyed(Taskbar)) { } else {
+    if (isDestroyed(Taskbar)) { } else {
         Taskbar.destroy()
     }
     let taskbarImg = image.create(154, 12)

@@ -1,6 +1,6 @@
 // MARK: VM Mouse Move
 browserEvents.onMouseMove(function (x: number, y: number) {
-    if (isVM && spriteutils.isDestroyed(Mouse_Cursor) == false) {
+    if (isVM && isDestroyed(Mouse_Cursor) == false) {
         Mouse_Cursor.x = x
         Mouse_Cursor.y = y
     }
@@ -15,7 +15,7 @@ forever(function () {
         executeNanoSDKLine()
     }
     processRadioQueue()
-    if (spriteutils.isDestroyed(RightClickMenu) == false) {
+    if (isDestroyed(RightClickMenu) == false) {
         let menuHalfHeight = current_rclick_menu.length * 6;
         if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
             if (Mouse_Cursor.y > RightClickMenu.y - menuHalfHeight && Mouse_Cursor.y < RightClickMenu.y + menuHalfHeight) {
