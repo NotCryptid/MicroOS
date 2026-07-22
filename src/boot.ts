@@ -23,12 +23,11 @@ let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
 let visibleRows: number = 8
 let WEBmessage = ""
+let WebChatRemoveAttachment: Sprite = null
+let attachement: string = null
 let KeyboardVisible = false
 let Write_icon: Sprite = null
 let Library_icon: Sprite = null
-let RadioValueQueue: string[] = []
-let IncomingMessageChunks: string[] = []
-let ExpectedChunks = 0
 let WebChatIndicatorPending = false
 let xCell_Icon: Sprite = null
 let outline: Sprite = null
@@ -50,6 +49,9 @@ let clipboardExt = ""
 let List_Scroll = 0
 let rclick_override = 0
 let current_rclick_menu: miniMenu.MenuItem[] = null
+// Which message the Web Chat right-click menu (Serial/Save) is currently
+// for -- set right before that menu is created, read when "Save" is clicked.
+let rclickWebChatEntry: WebChatEntry = null
 let ListMenuGUIHidden: miniMenu.MenuItem[] = []
 let RightClickMenu: any = null
 let Username = ""
@@ -60,7 +62,12 @@ let User_Files: miniMenu.MenuItem[] = []
 let User_Apps: miniMenu.MenuItem[] = []
 let System_Files: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Home"),miniMenu.createMenuItem("MicroOS.sys"),miniMenu.createMenuItem("assets.ts"),miniMenu.createMenuItem("File.moa"),miniMenu.createMenuItem("runtime.moa"),miniMenu.createMenuItem("Write.moa"),miniMenu.createMenuItem("xCell.moa"),miniMenu.createMenuItem("Settings.moa"),miniMenu.createMenuItem("WebChat.moa"),miniMenu.createMenuItem("NanoCode.moa")]
 let Current_Settings: miniMenu.MenuItem[] = []
-let WebChatMessages: miniMenu.MenuItem[] = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
+// WebChatEntry is declared in webchat_v2.ts -- it's an interface (erased at
+// compile time), so referencing it here doesn't depend on file load order,
+// but constructing one with `new` would, hence the plain object literal.
+let WebChatHistory: WebChatEntry[] = [
+    { senderId: "000000000", senderName: "System", verified: true, text: "Welcome to Web Chat!", attachmentId: "", attachmentName: "", attachmentData: null, attachmentReady: false }
+]
 let SubMenu = ""
 const sillySpacingForListGUI = [10, 22, 34, 46, 58, 71, 83, 95];
 pause(300)
@@ -69,10 +76,10 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 4.0.14", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading MicroOS v0.3.2", 0, 1)
+text = textsprite.create("> Loading MicroOS v0.4.0", 0, 1)
 text.setPosition(76, 26)
 
-const themes = [[7, 8, 2], [10, 9, 10], [5, 6, 6], [11, 10, 10], [8, 9, 9]]
+const themes = [[7, 9, 2], [10, 9, 10], [5, 6, 6], [11, 10, 10], [1, 9, 9]]
 
 let theme = themes[0]
 
@@ -83,11 +90,14 @@ if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
     settings.writeString("settings", Settings)
     settings.writeString("Username", "User")
     settings.writeString("RoomCode", RoomCode)
+    Username = "User"
 } else {
     radio.setGroup(113 + parseInt(Settings.charAt(4)))
     Username = settings.readString("Username")
     RoomCode = settings.readString("RoomCode")
 }
+webChatProtocol.setUsername(Username)
+webChatProtocol.setRoomCode(RoomCode)
 let darkMode = false
 if (parseInt(Settings.charAt(7)) == 1) {
         darkMode = true
@@ -104,7 +114,7 @@ Current_Settings = [
     miniMenu.createMenuItem("Room Code - " + RoomCode),
     miniMenu.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(7), 10)]),
     miniMenu.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(8), 10)]),
-    miniMenu.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(9), 10)])
+    miniMenu.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(9), 10)]),
 ]
 
 theme = themes[parseInt(Settings.charAt(8), 10)]
@@ -144,7 +154,7 @@ if (Settings.charAt(6) == "0") {
 }
 
 // MARK: Right Click Menus
-const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
+const rclick_menu_files = [miniMenu.createMenuItem("Open"), miniMenu.createMenuItem("Rename"), miniMenu.createMenuItem("Copy"), miniMenu.createMenuItem("Share"), miniMenu.createMenuItem("Details"), miniMenu.createMenuItem("Delete")]
 const rclick_menu_files_empty = [miniMenu.createMenuItem("New File"), miniMenu.createMenuItem("Paste")]
 
 

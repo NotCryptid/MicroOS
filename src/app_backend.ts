@@ -202,9 +202,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 clipboardName = FileOpened[0]
                                 break
                             case "rclick3":
-                                Open_FileManager("Details", FileAtSelection)
+                                Open_Web(FileAtSelection)
                                 break
                             case "rclick4":
+                                Open_FileManager("Details", FileAtSelection)
+                                break
+                            case "rclick5":
                                 settings.remove(fileKey(FileOpened[1], FileOpened[0]))
                                 User_Files.splice(globalFileIndex, 1)
                                 settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
@@ -246,6 +249,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
         }
         // MARK: Settings
         case "Settings": {
+            const previousSubMenu = SubMenu
             switch (submenu) {
                 // MARK: Settings Home
                 case "Home":
@@ -253,26 +257,29 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 1:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[3],
-                                Current_Settings[2],
-                                Current_Settings[5]
+                                Current_Settings[3], // radio channel
+                                Current_Settings[2], // connection method
+                                Current_Settings[5] // username
                             ]
+                            if (microUtilities.isMicrobit()) {
+                                ListMenuContents.push(miniMenu.createMenuItem("Serial - " + microUtilities.serialNumber()))
+                            }
                             SubMenu = "Connectivity"
                             break
                         case 2:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[0],
-                                Current_Settings[1]
+                                Current_Settings[0], // keyboard
+                                Current_Settings[1] // mouse
                             ]
                             SubMenu = "Input"
                             break
                         case 3:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[4],
-                                Current_Settings[8],
-                                Current_Settings[9]
+                                Current_Settings[4], // wallpaper
+                                Current_Settings[8], // dark mode
+                                Current_Settings[9] // theme
                             ]
                             SubMenu = "Customization"
                             break
@@ -309,6 +316,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 return
                             }
                             settings.writeString("Username", Username)
+                            webChatProtocol.setUsername(Username)
                             Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
@@ -376,7 +384,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 3:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                miniMenu.createMenuItem("MicroOS v0.3.2"),
+                                miniMenu.createMenuItem("MicroOS v0.4.0"),
                                 miniMenu.createMenuItem("NanoSDK 2026.2"),
                                 miniMenu.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
                                 miniMenu.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
@@ -389,7 +397,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 4:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[6],
+                                Current_Settings[6], // show clock
                                 miniMenu.createMenuItem("Hour - " + hour),
                                 miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2)),
                             ]
@@ -476,7 +484,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 miniMenu.createMenuItem("Delete Chats")
                             ]
                             if (microUtilities.isMicrobit()) {
-                                ListMenuContents.push(Current_Settings[10])
+                                ListMenuContents.push(Current_Settings[10]) // indicator
                             }
                             SubMenu = "WebChat Settings"
                             break
@@ -512,12 +520,14 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             ListMenuContents[1] = Current_Settings[7]
                             break
                         case 3:
-                            WebChatMessages = [miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem(" "),miniMenu.createMenuItem("System (Verified)"),miniMenu.createMenuItem("Welcome to Web Chat!"),miniMenu.createMenuItem("Type here...")]
+                            WebChatHistory = [
+                                { senderId: "000000000", senderName: "System", verified: true, text: "Welcome to Web Chat!", attachmentId: "", attachmentName: "", attachmentData: null, attachmentReady: false }
+                            ]
                             break
                         case 4:
-                            changeSettings(10)
                             if (microUtilities.isMicrobit()) {
-                                ListMenuContents[3] = Current_Settings[10]
+                                changeSettings(10)
+                                ListMenuContents[4] = Current_Settings[10]
                             }
                             break
                     }
@@ -545,7 +555,33 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                     }
                     break
             }
+            if (SubMenu !== previousSubMenu) {
+                ListMenuGUIHidden = []
+                List_Scroll = 0
+            }
             reloadListGUI(76, 58, 151, 97, darkMode)
+            updateScrollBar(8, darkMode)
+            break
+        }
+        // MARK: Web Chat
+        case "Web Chat": {
+            if (action == "rclick2" && rclickWebChatEntry != null) {
+                let wcUserIndex = 0
+                while (_fileNameTaken("wc_user_" + wcUserIndex + ".wrt")) {
+                    wcUserIndex++
+                }
+                const newName = "wc_user_" + wcUserIndex
+                if (!isValidFileName(newName, "wrt")) return
+                const content = ["Name: " + rclickWebChatEntry.senderName, "Serial: " + rclickWebChatEntry.senderId].join("~")
+                const key = fileKey("wrt", newName)
+                if (!hasStorageSpaceFor(key, content)) {
+                    softerror(113)
+                    return
+                }
+                settings.writeString(key, content)
+                User_Files.push(miniMenu.createMenuItem(newName + ".wrt"))
+                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+            }
             break
         }
     }
@@ -647,6 +683,7 @@ function changeSettings(selection: number) {
             dingus51 = "Room Code - " + RoomCode
             currentSettingsIndex = 7
             settings.writeString("RoomCode", RoomCode)
+            webChatProtocol.setRoomCode(RoomCode)
             break
         case 8:
             dingus52 = 1
@@ -777,22 +814,30 @@ function reloadListGUI(x: number, y: number, width: number, height: number, dark
 }
 
 // MARK: Create Arrows
-function createArrows() {
+// bottomY lets callers pull the down arrow up off its default spot (eg. Web
+// Chat, where the default position sits under the send button).
+function createArrows(bottomY: number = 101) {
     ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
     ArrowUp.setPosition(156, 14)
     ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
-    ArrowDown.setPosition(156, 101)
+    ArrowDown.setPosition(156, bottomY)
 }
 
 // MARK: Update ScrollBar
-function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
+// trackBottom lets callers shrink the scrollbar's travel range (eg. Web
+// Chat, to keep it clear of the send button) -- keep it in sync with the
+// bottomY passed to createArrows.
+function updateScrollBar(maxVisible: number = 8, dark: boolean = false, trackBottom: number = 95) {
     if (spriteutils.isDestroyed(scrollBar)) {
         return;
     }
 
     visibleRows = maxVisible
 
-    let totalItems = ListMenuContents.length + ListMenuGUIHidden.length + 1;
+    // Real item count -- no padding. Padding this used to make the bar
+    // read as "always slightly short of full", even with nothing left to
+    // scroll to (eg. Web Chat sitting at exactly maxVisible items).
+    let totalItems = ListMenuContents.length + ListMenuGUIHidden.length;
 
     if (dark) {
         let darkimg = assets.image`scrollBar2`
@@ -802,28 +847,26 @@ function updateScrollBar(maxVisible: number = 8, dark: boolean = false) {
     }
 
     const trackTop = 19;
-    const trackBottom = 95;
     const trackHeight = trackBottom - trackTop;
 
-    if (totalItems <= maxVisible) {
-        scaling.scaleToPixels(scrollBar, 78, ScaleDirection.Vertically, ScaleAnchor.Middle);
-        scrollBar.y = 57;
-        scrollBarRond.y = 95;
-    } else {
-        let scrollBarHeight = Math.max(5, Math.floor((maxVisible / totalItems) * 78));
-        if (scrollBarHeight % 2 == 0) { scrollBarHeight-- }
-        let halfH = (scrollBarHeight - 1) / 2;
+    // Same formula for the full-track and partial-thumb cases -- having
+    // the full case skip the odd-height rounding used to give it a
+    // different (1px larger) gap above the top arrow than a partial thumb.
+    let scrollBarHeight = totalItems <= maxVisible
+        ? trackHeight
+        : Math.max(5, Math.floor((maxVisible / totalItems) * trackHeight));
+    if (scrollBarHeight % 2 == 0) { scrollBarHeight-- }
+    let halfH = (scrollBarHeight - 1) / 2;
 
-        scaling.scaleToPixels(scrollBar, scrollBarHeight, ScaleDirection.Vertically, ScaleAnchor.Middle);
+    scaling.scaleToPixels(scrollBar, scrollBarHeight, ScaleDirection.Vertically, ScaleAnchor.Middle);
 
-        let maxScroll = totalItems - maxVisible;
-        let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
-        let travelDistance = trackHeight - scrollBarHeight;
+    let maxScroll = totalItems - maxVisible;
+    let scrollProgress = maxScroll > 0 ? List_Scroll / maxScroll : 0;
+    let travelDistance = trackHeight - scrollBarHeight;
 
-        let centreY = trackTop + halfH + Math.round(scrollProgress * travelDistance);
-        centreY = Math.max(trackTop + halfH, centreY);
-        centreY = Math.min(trackBottom - halfH, centreY);
-        scrollBar.y = centreY;
-        scrollBarRond.y = Math.min(centreY + halfH + 1, 96);
-    }
+    let centreY = trackTop + halfH + Math.round(scrollProgress * travelDistance);
+    centreY = Math.max(trackTop + halfH, centreY);
+    centreY = Math.min(trackBottom - halfH, centreY);
+    scrollBar.y = centreY;
+    scrollBarRond.y = Math.min(centreY + halfH + 1, trackBottom + 1);
 }

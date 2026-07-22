@@ -4,14 +4,13 @@
     "description": "Lightweight Operating System made in PTX",
     "dependencies": {
         "device": "*",
-        "radio-broadcast": "*",
         "arcade-text": "github:microsoft/arcade-text#v1.3.0",
         "sprite-scaling": "*",
         "settings": "*",
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.6.0",
         "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.1.0",
         "browser-events": "*",
-        "MicroUtilities": "github:notcryptid/microutilities#v1.0.2"
+        "MicroUtilities": "github:notcryptid/microutilities#v1.1.0"
     },
     "files": [
         "images.g.jres",
@@ -22,7 +21,7 @@
         "src/main.ts",
         "src/boot.ts",
         "src/input.ts",
-        "src/webchat_v1.ts",
+        "src/webchat_v2.ts",
         "src/background.ts",
         "src/apps.ts",
         "src/nanosdk_runtime.ts",
@@ -50,7 +49,7 @@
         "#0091FF",
         "#5C6FFF",
         "#B67CFE",
-        "#D5B3FF",
+        "#008033",
         "#EF9EFF",
         "#FF00AE",
         "#FFAE00",

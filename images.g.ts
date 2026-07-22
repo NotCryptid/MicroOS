@@ -600,6 +600,21 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 9 9 9 9 9 9 9 
 1 9 9 9 9 9 1 
 `;
+            case "image1":
+            case "WebAttachementRemove":return img`
+2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 d d d d d d d d 2 2 
+2 d a 9 1 1 1 1 9 a d 2 
+2 d 9 a 9 1 1 9 a 9 d 2 
+2 d 1 9 a 9 9 a 9 1 d 2 
+2 d 1 1 9 a a 9 1 1 d 2 
+2 d 1 1 9 a a 9 1 1 d 2 
+2 d 1 9 a 9 9 a 9 1 e 2 
+2 d 9 a 9 1 1 9 a 9 e 2 
+2 d a 9 1 1 1 1 9 a e 2 
+2 2 e e e e e e e e 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 
+`;
         }
         return null;
     })

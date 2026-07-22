@@ -36,7 +36,7 @@ function Open_Library() {
 }
 
 // MARK: Open Web Chat
-function Open_Web() {
+function Open_Web(included_attachement: string = null) {
     if (microUtilities.isMicrobit()) { 
         microUtilities.setPixel(0,0, false)
     }
@@ -48,11 +48,27 @@ function Open_Web() {
     Close_App.setPosition(156, 5)
     WebChatSend = sprites.create(assets.image`WebSend`, SpriteKind.App_UI)
     WebChatSend.setPosition(154, 99)
+    if (included_attachement !== null) { 
+        WebChatRemoveAttachment = sprites.create(assets.image`WebAttachementRemove`, SpriteKind.App_UI)
+        WebChatRemoveAttachment.setPosition(142, 99)
+        attachement = included_attachement
+    }
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(25, 4)
-    ListMenuContents = WebChatMessages.slice()
-    reloadListGUI(80, 58, 160, 97, darkMode)
-    ListMenuGUI.selectedIndex = 7
+    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
+    scrollBar.setPosition(156, 51)
+    scrollBar.z = -2
+    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
+    scrollBarRond.setPosition(156, 83)
+    scrollBarRond.z = -1
+    // refreshWebChatList reads visibleRows to decide the padding/scroll
+    // split -- set it before calling in case a previous app left it stale.
+    visibleRows = 8
+    refreshWebChatList()
+    // Pulled up off their default spots so they don't sit under the send
+    // button (WebChatSend, centred at y=99).
+    createArrows(88)
+    updateScrollBar(8, darkMode, 82)
 }
 
 // MARK: Open xCell
@@ -126,6 +142,14 @@ function Open_Settings() {
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
     reloadListGUI(76, 58, 151, 97, darkMode)
+    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
+    scrollBar.setPosition(156, 57)
+    scrollBar.z = -2
+    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
+    scrollBarRond.setPosition(156, 96)
+    scrollBarRond.z = -1
+    createArrows()
+    updateScrollBar(8, darkMode)
 }
 
 // MARK: Open NanoCode

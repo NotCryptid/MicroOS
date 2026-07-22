@@ -73,15 +73,14 @@ function MouseClick(button: number) {
         } else if (Mouse_Cursor.overlapsWith(File_Manager_Icon) && button == 1) {
             Open_FileManager("Home", null)
         } else if (Mouse_Cursor.overlapsWith(NanoCode_Icon) && button == 1) {
-            // Open_NanoSDK_App("test~default~test~12~105§test~301~302§80§58~303§160§97~304§test1§test2§test3§test4~202§inf~201§b§b§t~106§test~201§e~202§e")
             Open_NanoCode(null)
         } else if (Mouse_Cursor.overlapsWith(Process_Icon) && button == 1) {
             Open_ProcessManager()
         } else if (Mouse_Cursor.overlapsWith(Library_icon) && button == 1) {
             Open_Library()
-        } else if (button == 1 && !(spriteutils.isDestroyed(scrollBar)) && Mouse_Cursor.x > 151) {
+        } else if (button == 1 && !(spriteutils.isDestroyed(scrollBar)) && (Mouse_Cursor.overlapsWith(ArrowDown) || Mouse_Cursor.overlapsWith(ArrowUp))) {
             if (Mouse_Cursor.overlapsWith(ArrowDown)) {
-                if (ListMenuContents.length >= visibleRows) {
+                if (ListMenuContents.length > visibleRows) {
                     let item = ListMenuContents.shift();
                     if (item !== undefined) {
                         ListMenuGUIHidden.push(item);
@@ -100,6 +99,12 @@ function MouseClick(button: number) {
             if (App_Open == "NanoCode") {
                 reloadListGUI(76, 64, 151, 84, true);
                 updateScrollBar(visibleRows, true);
+            } else if (App_Open == "Web Chat") {
+                reloadListGUI(80, 58, 160, 97, darkMode);
+                updateScrollBar(visibleRows, darkMode, 82);
+                if (ListMenuContents.length == visibleRows) {
+                    ListMenuGUI.selectedIndex = ListMenuContents.length - 1;
+                }
             } else {
                 reloadListGUI(76, 58, 151, 97, darkMode);
                 updateScrollBar(visibleRows, darkMode);
@@ -220,22 +225,80 @@ function MouseClick(button: number) {
         } else if (App_Open == "Web Chat") {
             if (Mouse_Cursor.overlapsWith(WebChatSend) && button == 1 && WEBmessage != "" && WEBmessage != "Type here...") {
                 KeyboardVisible = true
-                WebChatMessages[7] = miniMenu.createMenuItem(Username + " (You)")
-                WebChatMessages.push(miniMenu.createMenuItem(WEBmessage))
-                Temp = "Type here..."
-                WebChatMessages.push(miniMenu.createMenuItem(Temp))
-                while (WebChatMessages.length > 8) {
-                    WebChatMessages.shift();
+                let attachmentData: Buffer = null
+                if (attachement != null) {
+                    const parts = attachement.split(".")
+                    if (parts.length == 2) {
+                        const content = settings.readString(fileKey(parts[1], parts[0]))
+                        if (content != null) {
+                            attachmentData = Buffer.fromUTF8(content)
+                        }
+                    }
                 }
-                refreshWebChatList()
+                const sentAttachmentName = attachement != null ? attachement : ""
+                pushWebChatEntry({
+                    senderId: microUtilities.serialNumber(), senderName: Username + " (You)",
+                    verified: microUtilities.isMicrobit(), text: WEBmessage,
+                    attachmentId: "", attachmentName: sentAttachmentName,
+                    attachmentData: attachmentData, attachmentReady: attachmentData != null
+                })
+                webChatProtocol.sendMessage(WEBmessage, sentAttachmentName, attachmentData)
+                if (!spriteutils.isDestroyed(WebChatRemoveAttachment)) {
+                    WebChatRemoveAttachment.destroy()
+                }
+                attachement = null
+                WEBmessage = "Type here..."
+                Temp = "Type here..."
                 KeyboardVisible = false
-                sendWebChatMessage(Username, WEBmessage)
-            } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
+            } else if (!spriteutils.isDestroyed(WebChatRemoveAttachment) && Mouse_Cursor.overlapsWith(WebChatRemoveAttachment) && button == 1) {
+                WebChatRemoveAttachment.destroy()
+                attachement = null
+            } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 148 && Mouse_Cursor.y < 92) {
+                for (let i = 0; i < 7; i++) {
+                    if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12) {
+                        const row = webChatRowAt(i)
+                        if (row) {
+                            if (button == 2 && row.part == "name" && row.entry.verified) {
+                                rclickWebChatEntry = row.entry
+                                current_rclick_menu = [
+                                    miniMenu.createMenuItem("Serial"),
+                                    miniMenu.createMenuItem(row.entry.senderId),
+                                    miniMenu.createMenuItem("Save")
+                                ]
+                                RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu)
+                                RightClickMenu.setButtonEventsEnabled(false)
+                                let RightClickMenuX = Mouse_Cursor.x + 23
+                                if (Mouse_Cursor.x > 107) {
+                                    RightClickMenuX = 130
+                                }
+                                if (Mouse_Cursor.y < 60) {
+                                    RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y + current_rclick_menu.length * 6)
+                                } else {
+                                    RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - current_rclick_menu.length * 6)
+                                }
+                                RightClickMenu.setDimensions(50, current_rclick_menu.length * 12)
+                                outline = sprites.create(image.create(1, 1), SpriteKind.App_UI)
+                                outline.image.setPixel(0, 0, 15)
+                                RightClickMenu.z = 350346
+                                outline.z = 350345
+                                outline.setPosition(RightClickMenu.x, RightClickMenu.y)
+                                scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
+                                scaling.scaleToPixels(outline, current_rclick_menu.length * 12 + 2, ScaleDirection.Vertically, ScaleAnchor.Middle)
+                            } else if (button == 1 && row.part == "attachment" && row.entry.attachmentReady) {
+                                importWebChatAttachment(row.entry)
+                            }
+                        }
+                        break
+                    }
+                }
+            } else if (Mouse_Cursor.x > 0 && Mouse_Cursor.x < 136 && Mouse_Cursor.y > 92 && Mouse_Cursor.y < 105 && button == 1) {
                 KeyboardVisible = true
                 WEBmessage = game.askForString("Type your message here", 36)
                 KeyboardVisible = false
+                if (WEBmessage == null || WEBmessage == "") {
+                    WEBmessage = "Type here..."
+                }
                 Temp = WEBmessage
-                WebChatMessages[7] = miniMenu.createMenuItem(Temp)
                 refreshWebChatList()
             }
         }

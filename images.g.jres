@@ -142,5 +142,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "scrollBar2"
+    },
+    "myImages.image1": {
+        "id": "myImages.image1",
+        "data": "hwQMAAwAAAAiIiIiIiIAACLd3d3dIgAA0poREakuAADSqRmRmi4AANKRmqkZLgAA0hGpmhEuAADSEamaES4AANKRmqkZLgAA0qkZkZouAADSmhERqS4AACLd3e3uIgAAIiIiIiIiAAA=",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "WebAttachementRemove"
     }
 }
