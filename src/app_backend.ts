@@ -8,7 +8,7 @@ function close_apps () {
     NanoSDK_App_Running = false
     nanoSDK_hover_highlight = false
     open_document = null
-    Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
+    Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(2), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     sprites.destroyAllSpritesOfKind(SpriteKind.App_UI)
@@ -257,9 +257,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 1:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[3], // radio channel
-                                Current_Settings[2], // connection method
-                                Current_Settings[5] // username
+                                Current_Settings[0], // radio channel
+                                Current_Settings[2] // username
                             ]
                             if (microUtilities.isMicrobit()) {
                                 ListMenuContents.push(miniMenu.createMenuItem("Serial - " + microUtilities.serialNumber()))
@@ -269,25 +268,17 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 2:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[0], // keyboard
-                                Current_Settings[1] // mouse
-                            ]
-                            SubMenu = "Input"
-                            break
-                        case 3:
-                            ListMenuContents = [
-                                miniMenu.createMenuItem("Back"),
-                                Current_Settings[4], // wallpaper
-                                Current_Settings[8], // dark mode
-                                Current_Settings[9] // theme
+                                Current_Settings[1], // wallpaper
+                                Current_Settings[5], // dark mode
+                                Current_Settings[6] // theme
                             ]
                             SubMenu = "Customization"
                             break
-                        case 4:
+                        case 3:
                             ListMenuContents = getSystemSettingsMenu()
                             SubMenu = "System"
                             break
-                        case 5:
+                        case 4:
                             ListMenuContents = getAppSettingsMenu()
                             SubMenu = "App Settings"
                             break
@@ -302,14 +293,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             Open_Settings()
                             break
                         case 2:
-                            changeSettings(4)
-                            ListMenuContents[1] = Current_Settings[3]
+                            changeSettings(1)
+                            ListMenuContents[1] = Current_Settings[0]
                             break
                         case 3:
-                            changeSettings(3)
-                            ListMenuContents[2] = Current_Settings[2]
-                            break
-                        case 4:
                             Username = game.askForString("Enter new username", 7)
                             if (Username == null || Username == "" || Username == " " || Username == "System") {
                                 softerror(204)
@@ -317,30 +304,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             }
                             settings.writeString("Username", Username)
                             webChatProtocol.setUsername(Username)
-                            Current_Settings[5] = miniMenu.createMenuItem("Name - " + Username)
+                            Current_Settings[2] = miniMenu.createMenuItem("Name - " + Username)
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[3],
-                                Current_Settings[2],
-                                Current_Settings[5]
+                                Current_Settings[0],
+                                Current_Settings[2]
                             ]
-                            break
-                    }
-                    break
-                // MARK: Settings Input
-                case "Input":
-                    switch (selectedOption) {
-                        case 1:
-                            SubMenu = "Home"
-                            Open_Settings()
-                            break
-                        case 2:
-                            changeSettings(1)
-                            ListMenuContents[1] = Current_Settings[0]
-                            break
-                        case 3:
-                            changeSettings(2)
-                            ListMenuContents[2] = Current_Settings[1]
                             break
                     }
                     break
@@ -352,16 +321,16 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             Open_Settings()
                             break
                         case 2:
-                            changeSettings(5)
-                            ListMenuContents[1] = Current_Settings[4]
+                            changeSettings(2)
+                            ListMenuContents[1] = Current_Settings[1]
                             break
                         case 3:
-                            changeSettings(8)
-                            ListMenuContents[2] = Current_Settings[8]
+                            changeSettings(5)
+                            ListMenuContents[2] = Current_Settings[5]
                             break
                         case 4:
-                            changeSettings(9)
-                            ListMenuContents[3] = Current_Settings[9]
+                            changeSettings(6)
+                            ListMenuContents[3] = Current_Settings[6]
                             break
                     }
                     break
@@ -397,7 +366,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 4:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[6], // show clock
+                                Current_Settings[3], // show clock
                                 miniMenu.createMenuItem("Hour - " + hour),
                                 miniMenu.createMenuItem("Minute - " + minute.toString().substr(1, 2)),
                             ]
@@ -416,13 +385,13 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             deleteAllUserFiles()
                             break
                         case 3:
-                            Settings = "100010000"
+                            Settings = "1100000"
                             settings.writeString("settings", Settings)
                             game.reset()
                             break
                         case 4:
                             deleteAllUserFiles()
-                            Settings = "100010000"
+                            Settings = "1100000"
                             settings.writeString("settings", Settings)
                             settings.writeString("Username", "User")
                             settings.writeString("RoomCode", "12345678")
@@ -449,8 +418,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             SubMenu = "System"
                             break
                         case 2:
-                            changeSettings(6)
-                            ListMenuContents[1] = Current_Settings[6]
+                            changeSettings(3)
+                            ListMenuContents[1] = Current_Settings[3]
                             break
                         case 3:
                             hour++
@@ -480,11 +449,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 2:
                             ListMenuContents = [
                                 miniMenu.createMenuItem("Back"),
-                                Current_Settings[7], // room code
+                                Current_Settings[4], // room code
                                 miniMenu.createMenuItem("Delete Chats")
                             ]
                             if (microUtilities.isMicrobit()) {
-                                ListMenuContents.push(Current_Settings[10]) // indicator
+                                ListMenuContents.push(Current_Settings[7]) // indicator
                             }
                             SubMenu = "WebChat Settings"
                             break
@@ -516,8 +485,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                         case 2:
                             RoomCode = game.askForNumber("Enter new room code", 8).toString()
-                            changeSettings(7)
-                            ListMenuContents[1] = Current_Settings[7]
+                            changeSettings(4)
+                            ListMenuContents[1] = Current_Settings[4]
                             break
                         case 3:
                             WebChatHistory = [
@@ -526,8 +495,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                         case 4:
                             if (microUtilities.isMicrobit()) {
-                                changeSettings(10)
-                                ListMenuContents[4] = Current_Settings[10]
+                                changeSettings(7)
+                                ListMenuContents[4] = Current_Settings[7]
                             }
                             break
                     }
@@ -602,20 +571,24 @@ function deleteAllUserFiles() {
 }
 
 // MARK: Write Settings
+// selection: 1 radio channel, 2 wallpaper, 3 show clock, 4 room code
+// (no digit -- stored as its own string), 5 dark mode, 6 theme,
+// 7 indicator. Matches Current_Settings' layout 1:1 except room code,
+// which sits at Current_Settings[4] with no corresponding Settings digit.
 function changeSettings(selection: number) {
     let settingDigitIndex = selection
     switch (selection) {
-        case 7:
+        case 4:
             settingDigitIndex = -1
             break
-        case 8:
-            settingDigitIndex = 7
+        case 5:
+            settingDigitIndex = 4
             break
-        case 9:
-            settingDigitIndex = 8
+        case 6:
+            settingDigitIndex = 5
             break
-        case 10:
-            settingDigitIndex = 9
+        case 7:
+            settingDigitIndex = 6
             break
     }
     let dingus53 = 0
@@ -631,80 +604,59 @@ function changeSettings(selection: number) {
     let currentSettingsIndex = selection - 1
     switch (selection) {
         case 1:
-            dingus52 = 1
-            if (dingus53 > dingus52) {
-                dingus53 = 0
-            }
-            dingus51 = ["Keyboard - OnScreen", "Keyboard - Jacdac", "Keyboard - OnScreen"][dingus53]
-            break
-        case 2:
-            dingus52 = 1
-            if (dingus53 > dingus52) {
-                dingus53 = 0
-            }
-            dingus51 = ["Mouse - D-Pad", "Mouse - Jacdac", "Mouse - D-Pad"][dingus53]
-            break
-        case 3:
-            dingus52 = 2
-            if (dingus53 > dingus52) {
-                dingus53 = 0
-            }
-            dingus51 = ["Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off", "Connectivity - Radio"][dingus53]
-            break
-        case 4:
             dingus52 = 9
             if (dingus53 > dingus52) {
                 dingus53 = 1
             }
             dingus51 = "Radio Channel - " + (dingus53).toString()
             break
-        case 5:
+        case 2:
             dingus52 = 1
             if (dingus53 > dingus52) {
                 dingus53 = 0
             }
             dingus51 = ["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][dingus53]
             break
-        case 6:
+        case 3:
             dingus52 = 1
             if (dingus53 > dingus52) {
                 dingus53 = 0
             }
             dingus51 = ["Show Clock - True", "Show Clock - False", "Show Clock - True"][dingus53]
-            currentSettingsIndex = 6
+            currentSettingsIndex = 3
             if (dingus53 !== 1) {
                 clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
             } else {
                 clock.setText("")
             }
             break
-        case 7:
+        case 4:
             dingus53 = 0
             dingus51 = "Room Code - " + RoomCode
-            currentSettingsIndex = 7
+            currentSettingsIndex = 4
             settings.writeString("RoomCode", RoomCode)
             webChatProtocol.setRoomCode(RoomCode)
             break
-        case 8:
+        case 5:
             dingus52 = 1
             if (dingus53 > dingus52) {
                 dingus53 = 0
             }
             dingus51 = ["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][dingus53]
-            currentSettingsIndex = 8
+            currentSettingsIndex = 5
             darkMode = dingus53 == 1
             break
-        case 9:
+        case 6:
             dingus52 = 3
             if (dingus53 > dingus52) {
                 dingus53 = 0
             }
             dingus51 = ["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][dingus53]
-            currentSettingsIndex = 9
+            currentSettingsIndex = 6
             theme = themes[dingus53]
             generateTaskbar(theme[0], theme[1])
             break
-        case 10:
+        case 7:
             dingus52 = 1
             if (dingus53 > dingus52) {
                 dingus53 = 0
@@ -713,7 +665,7 @@ function changeSettings(selection: number) {
             if (dingus53 == 1) {
                 microUtilities.setPixel(0,0,false)
             }
-            currentSettingsIndex = 10
+            currentSettingsIndex = 7
             break
     }
     createAppBar(0, theme[2])
@@ -723,7 +675,7 @@ function changeSettings(selection: number) {
     Current_Settings[currentSettingsIndex] = miniMenu.createMenuItem(dingus51)
     settings.writeString("settings", Settings)
     reloadListGUI(76, 58, 151, 97, darkMode)
-    radio.setGroup(113 + parseInt(Settings.charAt(4)))
+    radio.setGroup(113 + parseInt(Settings.charAt(1)))
 }
 
 // MARK: Valid File Name Check

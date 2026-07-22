@@ -130,7 +130,7 @@ function Open_Settings() {
     App_Open = "Settings"
     SubMenu = "Home"
     List_Scroll = 0
-    ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Input"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("App Settings")]
+    ListMenuContents = [miniMenu.createMenuItem("Connectivity"),miniMenu.createMenuItem("Customization"),miniMenu.createMenuItem("System"),miniMenu.createMenuItem("App Settings")]
     createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)

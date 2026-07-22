@@ -55,7 +55,6 @@ namespace webChatProtocol {
 
     let _onMessageReceived: (senderId: string, senderName: string, verified: boolean, text: string, attachmentId: string, attachmentName: string) => void
     let _onFileReceived: (fileId: string, senderId: string, senderName: string, fileName: string, data: Buffer) => void
-    let _onFileLost: (senderId: string, senderName: string, fileName: string, receivedChunks: number, totalChunks: number) => void
 
     // MARK: Room code / identity
 
@@ -160,9 +159,6 @@ namespace webChatProtocol {
             const pending = _pendingFiles[i]
             if (now - pending.lastSeen > _FILE_REASSEMBLY_TIMEOUT_MS) {
                 _pendingFiles.splice(i, 1)
-                if (_onFileLost) {
-                    _onFileLost(pending.senderId, pending.senderName, pending.fileName, pending.received, pending.total)
-                }
             }
         }
     }
@@ -370,17 +366,6 @@ namespace webChatProtocol {
     export function onFileReceived(cb: (fileId: string, senderId: string, senderName: string, fileName: string, data: Buffer) => void): void {
         _init()
         _onFileReceived = cb
-    }
-
-    /**
-     * Registers code to run when an in-progress file transfer is abandoned
-     * because some of its chunks never arrived. There's no retry -- this
-     * only reports that a file was dropped, with how much of it got
-     * through, so the app can ask the sender to try again.
-     */
-    export function onFileLost(cb: (senderId: string, senderName: string, fileName: string, receivedChunks: number, totalChunks: number) => void): void {
-        _init()
-        _onFileLost = cb
     }
 }
 
@@ -619,7 +604,7 @@ function importWebChatAttachment(entry: WebChatEntry): void {
 function processRadioQueue() {
     if (WebChatIndicatorPending) {
         WebChatIndicatorPending = false
-        if (microUtilities.isMicrobit() && App_Open !== "Web Chat" && parseInt(Settings.charAt(9), 10) !== 1) {
+        if (microUtilities.isMicrobit() && App_Open !== "Web Chat" && parseInt(Settings.charAt(6), 10) !== 1) {
             microUtilities.setPixel(0, 0, true)
         }
     }

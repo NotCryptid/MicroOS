@@ -93,7 +93,7 @@ forever(function () {
         hour = browserEvents.getHours(browserEvents.currentTime())
         clock.setText(hour + ":" + minute.toString().substr(1, 2))
     } else {
-        if (Settings.charAt(6) == "1") {
+        if (Settings.charAt(3) == "1") {
             pause(60000)
             minute++
             if (minute > 159) {

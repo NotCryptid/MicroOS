@@ -84,40 +84,40 @@ const themes = [[7, 9, 2], [10, 9, 10], [5, 6, 6], [11, 10, 10], [1, 9, 9]]
 let theme = themes[0]
 
 // MARK: Load Settings
+// Settings digit layout: 0 unused, 1 radio channel, 2 wallpaper,
+// 3 show clock, 4 dark mode, 5 theme, 6 indicator. (Username/RoomCode are
+// stored as their own separate strings, not digits here.)
 if (Settings == null || controller.B.isPressed() && controller.up.isPressed()) {
-    Settings = "1000100000"
+    Settings = "1100000"
     radio.setGroup(113)
     settings.writeString("settings", Settings)
     settings.writeString("Username", "User")
     settings.writeString("RoomCode", RoomCode)
     Username = "User"
 } else {
-    radio.setGroup(113 + parseInt(Settings.charAt(4)))
+    radio.setGroup(113 + parseInt(Settings.charAt(1)))
     Username = settings.readString("Username")
     RoomCode = settings.readString("RoomCode")
 }
 webChatProtocol.setUsername(Username)
 webChatProtocol.setRoomCode(RoomCode)
 let darkMode = false
-if (parseInt(Settings.charAt(7)) == 1) {
+if (parseInt(Settings.charAt(4)) == 1) {
         darkMode = true
 }
 let Active_Processes: miniMenu.MenuItem[] = [miniMenu.createMenuItem("Name       | System Load"), miniMenu.createMenuItem("Kyrios     | High"), miniMenu.createMenuItem("Aegis      | Low"), miniMenu.createMenuItem("Horizon    | Medium"), miniMenu.createMenuItem("process.moa| Low")]
 Current_Settings = [
-    miniMenu.createMenuItem(["Keyboard - Jacdac", "Keyboard - OnScreen", "Keyboard - Jacdac"][parseInt(Settings.charAt(1), 10) + 1]),
-    miniMenu.createMenuItem(["Mouse - D-Pad", "Mouse - Jacdac","Mouse - D-Pad"][parseInt(Settings.charAt(2), 10)]),
-    miniMenu.createMenuItem(["Connectivity - Off", "Connectivity - Radio", "Connectivity - Jacdac", "Connectivity - Off"][parseInt(Settings.charAt(3), 10) + 1]),
-    miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(4))) + ""),
-    miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(5), 10)]),
+    miniMenu.createMenuItem("Radio Channel - " + (parseInt(Settings.charAt(1))) + ""),
+    miniMenu.createMenuItem(["Wallpaper - Strings", "Wallpaper - Squiggles", "Wallpaper - Strings"][parseInt(Settings.charAt(2), 10)]),
     miniMenu.createMenuItem("Name - " + settings.readString("Username")),
-    miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(6), 10)]),
+    miniMenu.createMenuItem(["Show Clock - True", "Show Clock - False", "Show Clock - True"][parseInt(Settings.charAt(3), 10)]),
     miniMenu.createMenuItem("Room Code - " + RoomCode),
-    miniMenu.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(7), 10)]),
-    miniMenu.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(8), 10)]),
-    miniMenu.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(9), 10)]),
+    miniMenu.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(4), 10)]),
+    miniMenu.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(5), 10)]),
+    miniMenu.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(6), 10)]),
 ]
 
-theme = themes[parseInt(Settings.charAt(8), 10)]
+theme = themes[parseInt(Settings.charAt(5), 10)]
 
 // MARK: NanoFS Init
 let fileNamesString = settings.readString("file_names");
@@ -136,7 +136,7 @@ pause(randint(1000, 2000)) // haha funny delay
 // MARK: Post Startup Tasks
 sprites.destroy(text)
 sprites.destroy(text2)
-let Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(5), 10)]
+let Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(2), 10)]
 scene.setBackgroundImage(Wallpaper)
 
 let hour = 12
@@ -149,7 +149,7 @@ let clock = textsprite.create(hour.toString() + ":" + minute.toString().substr(1
 clock.setKind(SpriteKind.Desktop_UI)
 clock.setPosition(140, 111)
 clock.z = -10
-if (Settings.charAt(6) == "0") {
+if (Settings.charAt(3) == "0") {
     clock.setText(hour.toString() + ":" + minute.toString().substr(1,2))
 }
 
