@@ -1,5 +1,5 @@
 {
-    "name": "Micro:OS",
+    "name": "MicroOS",
     "version": "0.3.2",
     "description": "Lightweight Operating System made in PTX",
     "dependencies": {
