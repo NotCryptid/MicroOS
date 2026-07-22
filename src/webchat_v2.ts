@@ -488,7 +488,8 @@ function _webChatRows(): _WebChatRow[] {
 function _webChatRowText(row: _WebChatRow): string {
     if (row.part === "typehere") return Temp
     const entry = row.entry
-    if (row.part === "name") return entry.senderName + (entry.verified ? " (Verified)" : "")
+    const isSelf = entry.senderName.endsWith(" (You)")
+    if (row.part === "name") return entry.senderName + (entry.verified && !isSelf ? " (Verified)" : "")
     if (row.part === "text") return entry.text
     // attachment
     return (entry.attachmentReady ? "Attached " : "Receiving ") + entry.attachmentName + (entry.attachmentReady ? "" : "...")
