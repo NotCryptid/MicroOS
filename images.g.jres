@@ -69,15 +69,7 @@
         "dataEncoding": "base64",
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
-        "displayName": "ArrowUp"
-    },
-    "myImages.image22": {
-        "id": "myImages.image22",
-        "data": "hwQHAAcAAACQmZkAmZGZCZkRmQmZEZEJmRGZCZmRmQmQmZkA",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "ArrowDown"
+        "displayName": "Arrow"
     },
     "myImages.image15": {
         "id": "myImages.image15",

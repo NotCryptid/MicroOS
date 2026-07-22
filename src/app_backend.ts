@@ -792,9 +792,10 @@ function reloadListGUI(x: number, y: number, width: number, height: number, dark
 // bottomY lets callers pull the down arrow up off its default spot (eg. Web
 // Chat, where the default position sits under the send button).
 function createArrows(bottomY: number = 101) {
-    ArrowUp = sprites.create(assets.image`ArrowUp`, SpriteKind.App_UI)
+    ArrowUp = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
     ArrowUp.setPosition(156, 14)
-    ArrowDown = sprites.create(assets.image`ArrowDown`, SpriteKind.App_UI)
+    ArrowDown = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
+    microUtilities.setSpriteRotation(ArrowDown, 180)
     ArrowDown.setPosition(156, bottomY)
 }
 
