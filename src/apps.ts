@@ -37,9 +37,9 @@ function Open_Library() {
     Close_App.setPosition(148, 13)
     Close_App.z = 23
     let library_background = image.create(150, 95)
-    library_background.fillRect(3, 0, 144, 95, 7)
-    library_background.fillRect(0, 3, 150, 89, 7)
-    library_background.fillRect(3, 3, 144, 89, 9)
+    library_background.fillRect(3, 0, 144, 95, 7) // outline
+    library_background.fillRect(0, 3, 150, 89, 7) // outline
+    library_background.fillRect(3, 3, 144, 89, 9) // background
     Taskbar = sprites.create(library_background, SpriteKind.App_UI)
     Taskbar.z = -30
     Taskbar.setPosition(80, 53)
