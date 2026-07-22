@@ -17,6 +17,7 @@ forever(function () {
     processRadioQueue()
     if (isDestroyed(RightClickMenu) == false) {
         let menuHalfHeight = current_rclick_menu.length * 6;
+        RightClickMenu.selectedIndex = -1;
         if (Mouse_Cursor.x > RightClickMenu.x - 25 && Mouse_Cursor.x < RightClickMenu.x + 25) {
             if (Mouse_Cursor.y > RightClickMenu.y - menuHalfHeight && Mouse_Cursor.y < RightClickMenu.y + menuHalfHeight) {
                 let selectedIndex = Math.floor((Mouse_Cursor.y - (RightClickMenu.y - menuHalfHeight)) / 12);
