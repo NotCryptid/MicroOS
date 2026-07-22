@@ -8,7 +8,7 @@
         "sprite-scaling": "*",
         "settings": "*",
         "browser-events": "*",
-        "MicroUtilities": "github:notcryptid/microutilities#v2.0.3"
+        "MicroUtilities": "github:notcryptid/microutilities#v2.0.5"
     },
     "files": [
         "images.g.jres",
