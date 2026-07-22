@@ -43,8 +43,6 @@ function Open_Library() {
     Taskbar = sprites.create(library_background, SpriteKind.App_UI)
     Taskbar.z = -30
     Taskbar.setPosition(80, 53)
-    App_Title = textsprite.create("Library", 0, 1)
-    App_Title.setPosition(29, 12)
 }
 
 // MARK: Open Web Chat
