@@ -120,25 +120,7 @@ function MouseClick(button: number) {
                     } else if (button == 2 && App_Open == "File Manager") {
                         ListMenuGUI.selectedIndex = menu_selection - 1
                         listSelection(App_Open, menu_selection, SubMenu, "rclick", 0);
-                        RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu);
-                        RightClickMenu.setButtonEventsEnabled(false)
-                        let RightClickMenuX = Mouse_Cursor.x + 23
-                        if (Mouse_Cursor.x > 107) {
-                            RightClickMenuX = 130
-                        }
-                        if (Mouse_Cursor.y < 60) {
-                            RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y + current_rclick_menu.length * 6)
-                        } else {
-                            RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - current_rclick_menu.length * 6)
-                        }
-                        RightClickMenu.setDimensions(50, current_rclick_menu.length * 12)
-                        outline = sprites.create(image.create(1, 1), SpriteKind.App_UI)
-                        outline.image.setPixel(0, 0, 15)
-                        RightClickMenu.z = 350346
-                        outline.z = 350345
-                        outline.setPosition(RightClickMenu.x, RightClickMenu.y)
-                        scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
-                        scaling.scaleToPixels(outline, current_rclick_menu.length * 12 + 2, ScaleDirection.Vertically, ScaleAnchor.Middle)
+                        openRightClickMenu()
                     }
                 }
             }
@@ -265,25 +247,7 @@ function MouseClick(button: number) {
                                     miniMenu.createMenuItem(row.entry.senderId),
                                     miniMenu.createMenuItem("Save")
                                 ]
-                                RightClickMenu = miniMenu.createMenuFromArray(current_rclick_menu)
-                                RightClickMenu.setButtonEventsEnabled(false)
-                                let RightClickMenuX = Mouse_Cursor.x + 23
-                                if (Mouse_Cursor.x > 107) {
-                                    RightClickMenuX = 130
-                                }
-                                if (Mouse_Cursor.y < 60) {
-                                    RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y + current_rclick_menu.length * 6)
-                                } else {
-                                    RightClickMenu.setPosition(RightClickMenuX, Mouse_Cursor.y - current_rclick_menu.length * 6)
-                                }
-                                RightClickMenu.setDimensions(50, current_rclick_menu.length * 12)
-                                outline = sprites.create(image.create(1, 1), SpriteKind.App_UI)
-                                outline.image.setPixel(0, 0, 15)
-                                RightClickMenu.z = 350346
-                                outline.z = 350345
-                                outline.setPosition(RightClickMenu.x, RightClickMenu.y)
-                                scaling.scaleToPixels(outline, 52, ScaleDirection.Horizontally, ScaleAnchor.Middle)
-                                scaling.scaleToPixels(outline, current_rclick_menu.length * 12 + 2, ScaleDirection.Vertically, ScaleAnchor.Middle)
+                                openRightClickMenu()
                             } else if (button == 1 && row.part == "attachment" && row.entry.attachmentReady) {
                                 importWebChatAttachment(row.entry)
                             }

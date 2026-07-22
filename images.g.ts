@@ -43,17 +43,6 @@ a a 1 a 1 a a
 a 1 a a a 1 a 
 . a a a a a . 
 `;
-            case "image6":
-            case "Web Chat":return img`
-. c c c 3 c c . 
-c c c 3 3 c c c 
-c c c 3 c c c c 
-3 3 3 3 c c c c 
-c c 3 3 3 3 3 3 
-c c c 3 c c c c 
-c c c 3 c c c c 
-. c c 3 c c c . 
-`;
             case "image10":
             case "Process Manager":return img`
 e e e e e e e e 
@@ -614,6 +603,17 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 2 d a 9 1 1 1 1 9 a e 2 
 2 2 e e e e e e e e 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 
+`;
+            case "image6":
+            case "Web Chat":return img`
+. . 1 1 1 4 . . 
+. 4 4 4 4 4 8 . 
+4 4 4 8 8 8 8 b 
+8 4 4 4 4 8 8 8 
+8 4 4 4 4 8 8 8 
+8 4 4 4 4 4 4 b 
+. 4 4 4 4 4 c . 
+. . c c c c . . 
 `;
         }
         return null;

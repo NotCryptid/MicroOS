@@ -31,14 +31,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Close"
     },
-    "myImages.image6": {
-        "id": "myImages.image6",
-        "data": "hwQIAAgAAADAPMwMzDzMzMw8w8w8MzMzM8zDzMzMw8zMzMPMwMzDDA==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Web Chat"
-    },
     "myImages.image10": {
         "id": "myImages.image10",
         "data": "hwQIAAgAAADu7u7u/v//7/4/M+/+qqrv/v+Z7/7MzO/+///v7u7u7g==",
@@ -150,5 +142,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "WebAttachementRemove"
+    },
+    "myImages.image6": {
+        "id": "myImages.image6",
+        "data": "hwQIAAgAAAAAhIgAQEREBEFERMRBSETEQUhExESISMSAiEgMAIu4AA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Web Chat"
     }
 }

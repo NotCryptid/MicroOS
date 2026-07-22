@@ -1,5 +1,15 @@
 // Running every app at a kernel level is such a good idea ikr
 
+// MARK: Create ScrollBar Sprites
+function createScrollBarSprites(barY: number = 57, rondY: number = 96) {
+    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
+    scrollBar.setPosition(156, barY)
+    scrollBar.z = -2
+    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
+    scrollBarRond.setPosition(156, rondY)
+    scrollBarRond.z = -1
+}
+
 // MARK: Create App Bar
 function createAppBar(fill: number = 1, accent: number = 2) {
     let fill2 = fill
@@ -55,12 +65,7 @@ function Open_Web(included_attachement: string = null) {
     }
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(25, 4)
-    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
-    scrollBar.setPosition(156, 51)
-    scrollBar.z = -2
-    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
-    scrollBarRond.setPosition(156, 83)
-    scrollBarRond.z = -1
+    createScrollBarSprites(51, 83)
     // refreshWebChatList reads visibleRows to decide the padding/scroll
     // split -- set it before calling in case a previous app left it stale.
     visibleRows = 8
@@ -114,12 +119,7 @@ function Open_Write(file_contents: string = null, file_name: string = null) {
     ListMenuGUIHidden = []
     ListMenuGUI = miniMenu.createMenuFromArray([])
     reloadListGUI(76, 63, 151, 84, darkMode)
-    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
-    scrollBar.setPosition(156, 57)
-    scrollBar.z = -2
-    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
-    scrollBarRond.setPosition(156, 96)
-    scrollBarRond.z = -1
+    createScrollBarSprites()
     createArrows()
     updateScrollBar(7, darkMode)
 }
@@ -142,12 +142,7 @@ function Open_Settings() {
     ListMenuGUI.setPosition(76, 58)
     ListMenuGUI.z = -30
     reloadListGUI(76, 58, 151, 97, darkMode)
-    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
-    scrollBar.setPosition(156, 57)
-    scrollBar.z = -2
-    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
-    scrollBarRond.setPosition(156, 96)
-    scrollBarRond.z = -1
+    createScrollBarSprites()
     createArrows()
     updateScrollBar(8, darkMode)
 }
@@ -178,12 +173,7 @@ function Open_NanoCode(project: string = null, file_name: string = null) {
     ListMenuGUIHidden = []
     ListMenuGUI = miniMenu.createMenuFromArray([])
     reloadListGUI(76, 63, 151, 84, true)
-    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
-    scrollBar.setPosition(156, 57)
-    scrollBar.z = -2
-    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
-    scrollBarRond.setPosition(156, 96)
-    scrollBarRond.z = -1
+    createScrollBarSprites()
     createArrows()
     updateScrollBar(7, true)
 }
@@ -198,12 +188,7 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
     createAppBar(0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
-    scrollBar = sprites.create(assets.image`scrollBar`, SpriteKind.App_UI)
-    scrollBar.setPosition(156, 57)
-    scrollBar.z = -2
-    scrollBarRond = sprites.create(assets.image`scrollBar2`, SpriteKind.App_UI)
-    scrollBarRond.setPosition(156, 96)
-    scrollBar.z = -1
+    createScrollBarSprites()
     App_Title = textsprite.create("File Manager", 0, 1)
     App_Title.setPosition(36, 4)
     if (SubMenu == "User") {
