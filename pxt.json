@@ -9,7 +9,7 @@
         "settings": "*",
         "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.1.0",
         "browser-events": "*",
-        "MicroUtilities": "github:notcryptid/microutilities#v1.1.0"
+        "MicroUtilities": "github:notcryptid/microutilities#v2.0.0"
     },
     "files": [
         "images.g.jres",
