@@ -43,6 +43,8 @@ function Open_Library() {
     Taskbar = sprites.create(library_background, SpriteKind.App_UI)
     Taskbar.z = -30
     Taskbar.setPosition(80, 53)
+    App_Title = textsprite.create("Library", 0, 1)
+    App_Title.setPosition(29, 12)
 }
 
 // MARK: Open Web Chat
@@ -66,12 +68,8 @@ function Open_Web(included_attachement: string = null) {
     App_Title = textsprite.create("Web Chat", 0, 1)
     App_Title.setPosition(25, 4)
     createScrollBarSprites(51, 83)
-    // refreshWebChatList reads visibleRows to decide the padding/scroll
-    // split -- set it before calling in case a previous app left it stale.
     visibleRows = 8
     refreshWebChatList()
-    // Pulled up off their default spots so they don't sit under the send
-    // button (WebChatSend, centred at y=99).
     createArrows(88)
     updateScrollBar(8, darkMode, 82)
 }
