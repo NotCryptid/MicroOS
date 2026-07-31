@@ -482,7 +482,7 @@ function nanoSDK_run_line() {
             switch (current_command) { 
                 case "01":
                     const DefinedVariable = {[command_data[1]]: variableDataTemp}
-                    //variables = {...variables, ...DefinedVariable}
+                    // Object.assign(variables, DefinedVariable); 
                     break
                 case "02":
                     variables[command_data[1]] = variableDataTemp
