@@ -519,15 +519,15 @@ function xcellCreateSprites() {
 
     xcellArrowLeft = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
     microUtilities.setSpriteRotation(xcellArrowLeft, 270)
-    xcellArrowLeft.setPosition(128, 15)
+    xcellArrowLeft.setPosition(118, 15)
     xcellArrowUp = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
-    xcellArrowUp.setPosition(138, 15)
+    xcellArrowUp.setPosition(128, 15)
     xcellArrowDown = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
     microUtilities.setSpriteRotation(xcellArrowDown, 180)
-    xcellArrowDown.setPosition(148, 15)
+    xcellArrowDown.setPosition(138, 15)
     xcellArrowRight = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
     microUtilities.setSpriteRotation(xcellArrowRight, 90)
-    xcellArrowRight.setPosition(158, 15)
+    xcellArrowRight.setPosition(148, 15)
 }
 
 // Rebuilds the visible window (xcellScroll/xcellColScroll onward) into
@@ -593,20 +593,66 @@ function xcellScrollDown() {
 // column's selectedIndex and clearing every other column's -- called every
 // tick from background.ts instead of the shared updateListMenuHover(),
 // which only knows how to highlight a whole row within one shared sprite.
+// Tracks which column-letter header sprite is currently drawn in its
+// "active" colors, so xcellUpdateHover only touches a TextSprite (which
+// redraws its whole image on every color change) when the hovered column
+// actually changes, not on every 10ms background tick.
+let xcellHoverCol = -1
+
+function xcellSetHeaderActive(slot: number, active: boolean) {
+    const header = xcellHeaderTexts[slot]
+    if (active) {
+        header.bg = darkMode ? 1 : 3
+        header.fg = darkMode ? 15 : 1
+    } else {
+        header.bg = 0
+        header.fg = darkMode ? 1 : 15
+    }
+    header.update()
+}
+
 function xcellUpdateHover() {
     xcellLabelGUI.selectedIndex = -1
     for (let c = 0; c < xcellColumnGUIs.length; c++) {
         xcellColumnGUIs[c].selectedIndex = -1
     }
-    for (let i = 0; i < XCELL_VISIBLE_ROWS; i++) {
-        const y = sillySpacingForListGUI[i + 2]
-        if (Mouse_Cursor.y >= y && Mouse_Cursor.y < y + XCELL_ROW_HEIGHT) {
-            const col = xcellColumnAt(Mouse_Cursor.x)
-            if (col >= 0) {
-                xcellColumnGUIs[col - xcellColScroll].selectedIndex = i
-            }
-            break
+
+    // The column-letter header row is its own band above the data rows --
+    // hovering it highlights just that column's header, like hovering a
+    // cell highlights just that cell, with no row/cell selected below it.
+    let hoveredSlot = -1
+    const headerY = sillySpacingForListGUI[1]
+    if (Mouse_Cursor.y >= headerY && Mouse_Cursor.y < headerY + XCELL_ROW_HEIGHT) {
+        const col = xcellColumnAt(Mouse_Cursor.x)
+        if (col >= 0) {
+            hoveredSlot = col - xcellColScroll
         }
+    } else {
+        for (let i = 0; i < XCELL_VISIBLE_ROWS; i++) {
+            const y = sillySpacingForListGUI[i + 2]
+            if (Mouse_Cursor.y >= y && Mouse_Cursor.y < y + XCELL_ROW_HEIGHT) {
+                // The row-number gutter is part of this same row band --
+                // hovering it (col < 0) still highlights the row label
+                // itself, same as hovering any other cell in the row.
+                xcellLabelGUI.selectedIndex = i
+                const col = xcellColumnAt(Mouse_Cursor.x)
+                if (col >= 0) {
+                    hoveredSlot = col - xcellColScroll
+                    xcellColumnGUIs[hoveredSlot].selectedIndex = i
+                }
+                break
+            }
+        }
+    }
+
+    if (hoveredSlot != xcellHoverCol) {
+        if (xcellHoverCol >= 0) {
+            xcellSetHeaderActive(xcellHoverCol, false)
+        }
+        if (hoveredSlot >= 0) {
+            xcellSetHeaderActive(hoveredSlot, true)
+        }
+        xcellHoverCol = hoveredSlot
     }
 }
 

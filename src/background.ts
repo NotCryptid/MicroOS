@@ -34,7 +34,7 @@ forever(function () {
                 updateListMenuHover();
                 break
             case "xCell":
-                xcellUpdateHover();
+                xcellUpdateHover()
                 break
             default:
                 if ((NanoSDK_App_Running || when_cond_data.length > 0) && nanoSDK_hover_highlight) {

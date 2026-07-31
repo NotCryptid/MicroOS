@@ -88,6 +88,7 @@ function Open_xCell(file_contents: string = null, file_name: string = null) {
     open_document = file_name
     xcellScroll = 0
     xcellColScroll = 0
+    xcellHoverCol = -1
     xcellLoad(file_contents)
     xcellCreateSprites()
     xcellRefresh()
