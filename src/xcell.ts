@@ -1,20 +1,38 @@
 // MARK: xCell Grid Engine
-// A lightweight spreadsheet: a fixed 4-column (A-D) x 6-row grid, rendered
-// through the same SimpleMenu row list every other app uses (see
-// microUtilities.SimpleMenu) rather than a bespoke sprite grid -- one
-// header row of column letters plus six data rows fits exactly in the
-// 7-row list area Open_Write/Open_NanoCode already use.
-const XCELL_COLS = ["A", "B", "C", "D"]
-const XCELL_ROWS = 6
+// A lightweight spreadsheet: XCELL_TOTAL_COLS columns (A, B, C...) x
+// XCELL_TOTAL_ROWS rows, scrolling XCELL_VISIBLE_COLS/XCELL_VISIBLE_ROWS at
+// a time in each direction. Each *visible* column (plus the row-number
+// gutter) is its own microUtilities.SimpleMenu sprite rather than one wide
+// shared row list -- that's what lets a single cell be highlighted on its
+// own (SimpleMenu only highlights whole rows *within its own sprite*, so
+// one column highlighting a row doesn't touch its neighbours) and lets the
+// grid use the full screen width, since there's no shared scrollbar sprite
+// competing for the rightmost columns (see xcellArrowUp/Down/Left/Right).
+// Scrolling sideways just changes *which* grid columns those 5 fixed
+// physical sprites currently display (xcellColScroll), the same way
+// scrolling down changes which grid rows they display (xcellScroll).
+const XCELL_TOTAL_COLS = 10
+const XCELL_VISIBLE_COLS = 5
+const XCELL_COL_LETTERS = xcellBuildColLetters(XCELL_TOTAL_COLS)
+const XCELL_TOTAL_ROWS = 20
+const XCELL_VISIBLE_ROWS = 6
 const XCELL_CELL_WIDTH = 4
+
+function xcellBuildColLetters(n: number): string[] {
+    let letters: string[] = []
+    for (let i = 0; i < n; i++) {
+        letters.push(String.fromCharCode(65 + i))
+    }
+    return letters
+}
 
 let xcellGrid: string[][] = xcellNewGrid()
 
 function xcellNewGrid(): string[][] {
     let grid: string[][] = []
-    for (let r = 0; r < XCELL_ROWS; r++) {
+    for (let r = 0; r < XCELL_TOTAL_ROWS; r++) {
         let row: string[] = []
-        for (let c = 0; c < XCELL_COLS.length; c++) {
+        for (let c = 0; c < XCELL_TOTAL_COLS; c++) {
             row.push("")
         }
         grid.push(row)
@@ -23,7 +41,7 @@ function xcellNewGrid(): string[][] {
 }
 
 function xcellCellRef(row: number, col: number): string {
-    return XCELL_COLS[col] + (row + 1)
+    return XCELL_COL_LETTERS[col] + (row + 1)
 }
 
 // Returns [row, col] for a ref like "A1", or null if it's out of range.
@@ -33,8 +51,8 @@ function xcellParseRef(ref: string): number[] {
     }
     const colChar = ref.charAt(0).toUpperCase()
     let col = -1
-    for (let c = 0; c < XCELL_COLS.length; c++) {
-        if (XCELL_COLS[c] == colChar) {
+    for (let c = 0; c < XCELL_COL_LETTERS.length; c++) {
+        if (XCELL_COL_LETTERS[c] == colChar) {
             col = c
             break
         }
@@ -43,7 +61,7 @@ function xcellParseRef(ref: string): number[] {
         return null
     }
     const rowNum = parseInt(ref.substr(1), 10)
-    if (isNaN(rowNum) || rowNum < 1 || rowNum > XCELL_ROWS) {
+    if (isNaN(rowNum) || rowNum < 1 || rowNum > XCELL_TOTAL_ROWS) {
         return null
     }
     return [rowNum - 1, col]
@@ -73,8 +91,8 @@ function xcellLoad(contents: string) {
 
 function xcellSerialize(): string {
     let lines: string[] = []
-    for (let r = 0; r < XCELL_ROWS; r++) {
-        for (let c = 0; c < XCELL_COLS.length; c++) {
+    for (let r = 0; r < XCELL_TOTAL_ROWS; r++) {
+        for (let c = 0; c < XCELL_TOTAL_COLS; c++) {
             const raw = xcellGrid[r][c]
             if (raw != null && raw != "") {
                 lines.push(xcellCellRef(r, c) + "=" + raw)
@@ -91,6 +109,24 @@ function xcellIsDigit(ch: string): boolean {
 
 function xcellIsAlpha(ch: string): boolean {
     return (ch >= "A" && ch <= "Z") || (ch >= "a" && ch <= "z")
+}
+
+// The in-game on-screen keyboard (game.askForString on real hardware) only
+// ever offers letters, digits and this fixed punctuation set: space , . ? !
+// : ; " ( ) -- see pxt_modules/game/prompt.ts's digitsUpper row. It has no
+// key for + - * / = at all, in either shift state, so a formula typed on
+// hardware can't use them. Each arithmetic operator therefore has a second,
+// keyboard-reachable spelling; the classic symbol is still accepted too
+// since typing on the simulator goes through a real keyboard that can send
+// it directly (that's how "=A1*B2" can show up while the on-screen picker
+// itself never offers "=" or "*").
+//   +  ,        -  ;        *  !        /  ?
+function xcellOperatorFor(c: string): string {
+    if (c == "+" || c == ",") { return "+" }
+    if (c == "-" || c == ";") { return "-" }
+    if (c == "*" || c == "!") { return "*" }
+    if (c == "/" || c == "?") { return "/" }
+    return null
 }
 
 function xcellTokenize(s: string): string[] {
@@ -114,8 +150,11 @@ function xcellTokenize(s: string): string[] {
             }
             tokens.push(s.substr(i, j - i).toUpperCase())
             i = j
-        } else if ("+-*/(),:".indexOf(c) >= 0) {
+        } else if (c == "(" || c == ")" || c == ":") {
             tokens.push(c)
+            i++
+        } else if (xcellOperatorFor(c) != null) {
+            tokens.push(xcellOperatorFor(c))
             i++
         } else {
             // Unrecognized character -- push it as its own token so the
@@ -308,9 +347,9 @@ function xcellEvaluateCell(row: number, col: number, visiting: string[]): XcellR
     if (raw == null || raw == "") {
         return { value: 0, error: false }
     }
-    if (raw.charAt(0) == "=") {
+    if (xcellIsFormula(raw)) {
         visiting.push(ref)
-        const parser = new XcellParser(xcellTokenize(raw.substr(1)), visiting)
+        const parser = new XcellParser(xcellTokenize(xcellFormulaBody(raw)), visiting)
         const value = parser.parseExpr()
         const failed = parser.error || parser.pos < parser.tokens.length
         visiting.pop()
@@ -323,6 +362,21 @@ function xcellEvaluateCell(row: number, col: number, visiting: string[]): XcellR
         }
     }
     return { value: 0, error: false }
+}
+
+// A cell holds a formula if it starts with "=" (the classic, real-keyboard
+// spelling) or "(" (the on-screen-keyboard-typable spelling -- the leading
+// paren doubles as the formula marker and the expression's own opening
+// grouping paren, e.g. "(A1+B2)"). xcellFormulaBody returns the text to
+// hand the tokenizer: the "=" marker itself isn't a token so it's
+// stripped, but the "(" marker is a real token so it's kept.
+function xcellIsFormula(raw: string): boolean {
+    const c = raw.charAt(0)
+    return c == "=" || c == "("
+}
+
+function xcellFormulaBody(raw: string): string {
+    return raw.charAt(0) == "=" ? raw.substr(1) : raw
 }
 
 function xcellLooksNumeric(raw: string): boolean {
@@ -347,7 +401,7 @@ function xcellDisplayCell(row: number, col: number): string {
     if (raw == null || raw == "") {
         return ""
     }
-    if (raw.charAt(0) == "=") {
+    if (xcellIsFormula(raw)) {
         const result = xcellEvaluateCell(row, col, [])
         return result.error ? "#ERR" : xcellFormatNumber(result.value)
     }
@@ -361,22 +415,60 @@ function xcellDisplayCell(row: number, col: number): string {
 }
 
 // MARK: Rendering
+// Layout: a narrow row-number gutter followed by XCELL_VISIBLE_COLS
+// equal-width data columns, flush against each other so the grid reads as
+// one continuous table. This spans the full screen width (through the
+// gutter other apps reserve for a scrollbar) since xCell scrolls via the
+// 4 arrow sprites below instead of a scrollbar sprite -- see
+// xcellCreateSprites. The 5 column sprites are physical slots; scrolling
+// sideways (xcellColScroll) just changes which absolute grid column each
+// slot currently shows, the same way xcellScroll does for rows.
+const XCELL_LEFT = 1
+const XCELL_LABEL_WIDTH = 16
+const XCELL_COL_WIDTH = 28
+const XCELL_ROW_HEIGHT = 12
+const XCELL_GRID_CENTER_Y = 70
+
+let xcellLabelGUI: any = null
+let xcellColumnGUIs: any[] = []
+let xcellHeaderTexts: TextSprite[] = []
+let xcellArrowUp: Sprite = null
+let xcellArrowDown: Sprite = null
+let xcellArrowLeft: Sprite = null
+let xcellArrowRight: Sprite = null
+let xcellScroll = 0
+let xcellColScroll = 0
+
+function xcellColumnLeft(slot: number): number {
+    return XCELL_LEFT + XCELL_LABEL_WIDTH + slot * XCELL_COL_WIDTH
+}
+
+// Maps a click's x position to an absolute grid column, or -1 if it landed
+// on the row-number gutter/margin instead of a cell.
+function xcellColumnAt(x: number): number {
+    if (x < XCELL_LEFT + XCELL_LABEL_WIDTH) {
+        return -1
+    }
+    for (let slot = 0; slot < XCELL_VISIBLE_COLS; slot++) {
+        if (x < xcellColumnLeft(slot) + XCELL_COL_WIDTH) {
+            return xcellColScroll + slot
+        }
+    }
+    return -1
+}
+
 // Pads/truncates a cell's display text to exactly XCELL_CELL_WIDTH
 // characters. Numbers that don't fit become "###" (Excel's own "column too
-// narrow" tell) instead of a silently truncated, misleading value.
+// narrow" tell) instead of a silently truncated, misleading value. (Empty
+// space within a cell's own width doesn't need manual padding -- each
+// column is its own SimpleMenu, which already fills its unused row width
+// with plain background.)
 function xcellFormattedCellSlot(row: number, col: number): string {
     const display = xcellDisplayCell(row, col)
-    if (display.length <= XCELL_CELL_WIDTH) {
-        let out = display
-        while (out.length < XCELL_CELL_WIDTH) {
-            out += " "
-        }
-        return out
-    }
-    if (display == "#ERR") {
+    if (display.length <= XCELL_CELL_WIDTH || display == "#ERR") {
         return display
     }
-    if (xcellLooksNumeric(xcellGrid[row][col]) || xcellGrid[row][col].charAt(0) == "=") {
+    if (xcellLooksNumeric(xcellGrid[row][col]) || xcellIsFormula(xcellGrid[row][col])) {
         let out = ""
         for (let i = 0; i < XCELL_CELL_WIDTH; i++) {
             out += "#"
@@ -386,35 +478,78 @@ function xcellFormattedCellSlot(row: number, col: number): string {
     return display.substr(0, XCELL_CELL_WIDTH)
 }
 
-function xcellBuildHeaderRow(): string {
-    let s = "  "
-    for (let c = 0; c < XCELL_COLS.length; c++) {
-        let cell = XCELL_COLS[c]
-        while (cell.length < XCELL_CELL_WIDTH) {
-            cell += " "
-        }
-        s += cell + " "
+function xcellApplyColors(gui: any) {
+    if (darkMode) {
+        gui.setColors(1, 15, 15, 1)
+    } else {
+        gui.setColors(15, 1, 1, 3)
     }
-    return s
 }
 
-function xcellBuildDataRow(row: number): string {
-    let s = (row + 1).toString() + " "
-    for (let c = 0; c < XCELL_COLS.length; c++) {
-        s += xcellFormattedCellSlot(row, c) + " "
+// Builds the physical sprites: the row-number gutter, XCELL_VISIBLE_COLS
+// data-column SimpleMenus, their column-letter header labels, and the 4
+// scroll arrows -- all in the toolbar row, since that's the space that's
+// free now the grid itself uses the full screen width instead of leaving
+// room for a scrollbar. Called once from Open_xCell; close_apps() tears it
+// all down again (SimpleMenu sprites via SpriteKind.SimpleMenu, header
+// labels via SpriteKind.Text, arrows via SpriteKind.App_UI).
+function xcellCreateSprites() {
+    xcellLabelGUI = microUtilities.createMenuFromArray([])
+    xcellLabelGUI.setDimensions(XCELL_LABEL_WIDTH, XCELL_VISIBLE_ROWS * XCELL_ROW_HEIGHT)
+    xcellLabelGUI.setPosition(XCELL_LEFT + XCELL_LABEL_WIDTH / 2, XCELL_GRID_CENTER_Y)
+    xcellLabelGUI.z = -30
+    xcellApplyColors(xcellLabelGUI)
+
+    xcellColumnGUIs = []
+    xcellHeaderTexts = []
+    const headerColor = darkMode ? 1 : 15
+    for (let slot = 0; slot < XCELL_VISIBLE_COLS; slot++) {
+        const gui = microUtilities.createMenuFromArray([])
+        gui.setDimensions(XCELL_COL_WIDTH, XCELL_VISIBLE_ROWS * XCELL_ROW_HEIGHT)
+        const centerX = xcellColumnLeft(slot) + XCELL_COL_WIDTH / 2
+        gui.setPosition(centerX, XCELL_GRID_CENTER_Y)
+        gui.z = -30
+        xcellApplyColors(gui)
+        xcellColumnGUIs.push(gui)
+
+        const header = textsprite.create("", 0, headerColor)
+        header.setPosition(centerX, 26)
+        xcellHeaderTexts.push(header)
     }
-    return s
+
+    xcellArrowLeft = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
+    microUtilities.setSpriteRotation(xcellArrowLeft, 270)
+    xcellArrowLeft.setPosition(128, 15)
+    xcellArrowUp = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
+    xcellArrowUp.setPosition(138, 15)
+    xcellArrowDown = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
+    microUtilities.setSpriteRotation(xcellArrowDown, 180)
+    xcellArrowDown.setPosition(148, 15)
+    xcellArrowRight = sprites.create(assets.image`Arrow`, SpriteKind.App_UI)
+    microUtilities.setSpriteRotation(xcellArrowRight, 90)
+    xcellArrowRight.setPosition(158, 15)
 }
 
-// Rebuilds the on-screen grid from xcellGrid. Row 0 of the list is the
-// (never-edited) column header; rows 1-6 are the data rows.
+// Rebuilds the visible window (xcellScroll/xcellColScroll onward) into
+// each column sprite's own `.items` and its header label -- cheaper than
+// the destroy-and-recreate reloadListGUI() every other app uses, and each
+// sprite only ever needs to know about its own column.
 function xcellRefresh() {
-    let items: microUtilities.MenuItem[] = [microUtilities.createMenuItem(xcellBuildHeaderRow())]
-    for (let r = 0; r < XCELL_ROWS; r++) {
-        items.push(microUtilities.createMenuItem(xcellBuildDataRow(r)))
+    let labelItems: microUtilities.MenuItem[] = []
+    for (let i = 0; i < XCELL_VISIBLE_ROWS; i++) {
+        labelItems.push(microUtilities.createMenuItem((xcellScroll + i + 1).toString()))
     }
-    ListMenuContents = items
-    reloadListGUI(76, 63, 151, 84, darkMode)
+    xcellLabelGUI.items = labelItems
+
+    for (let slot = 0; slot < XCELL_VISIBLE_COLS; slot++) {
+        const col = xcellColScroll + slot
+        xcellHeaderTexts[slot].setText(XCELL_COL_LETTERS[col])
+        let colItems: microUtilities.MenuItem[] = []
+        for (let i = 0; i < XCELL_VISIBLE_ROWS; i++) {
+            colItems.push(microUtilities.createMenuItem(xcellFormattedCellSlot(xcellScroll + i, col)))
+        }
+        xcellColumnGUIs[slot].items = colItems
+    }
 }
 
 function xcellSetCell(row: number, col: number, raw: string) {
@@ -422,25 +557,57 @@ function xcellSetCell(row: number, col: number, raw: string) {
     xcellRefresh()
 }
 
-// Maps a click's x position (within the list sprite) to a data column, or
-// -1 if it landed on the row-label gutter/margin instead of a cell.
-function xcellColumnAt(x: number): number {
-    if (x < 12) {
-        return -1
+function xcellScrollLeft() {
+    if (xcellColScroll <= 0) {
+        return
     }
-    if (x < 42) {
-        return 0
+    xcellColScroll--
+    xcellRefresh()
+}
+
+function xcellScrollRight() {
+    if (xcellColScroll >= XCELL_TOTAL_COLS - XCELL_VISIBLE_COLS) {
+        return
     }
-    if (x < 72) {
-        return 1
+    xcellColScroll++
+    xcellRefresh()
+}
+
+function xcellScrollUp() {
+    if (xcellScroll <= 0) {
+        return
     }
-    if (x < 102) {
-        return 2
+    xcellScroll--
+    xcellRefresh()
+}
+
+function xcellScrollDown() {
+    if (xcellScroll >= XCELL_TOTAL_ROWS - XCELL_VISIBLE_ROWS) {
+        return
     }
-    if (x < 148) {
-        return 3
+    xcellScroll++
+    xcellRefresh()
+}
+
+// Highlights the single cell under the mouse (if any) by setting just that
+// column's selectedIndex and clearing every other column's -- called every
+// tick from background.ts instead of the shared updateListMenuHover(),
+// which only knows how to highlight a whole row within one shared sprite.
+function xcellUpdateHover() {
+    xcellLabelGUI.selectedIndex = -1
+    for (let c = 0; c < xcellColumnGUIs.length; c++) {
+        xcellColumnGUIs[c].selectedIndex = -1
     }
-    return -1
+    for (let i = 0; i < XCELL_VISIBLE_ROWS; i++) {
+        const y = sillySpacingForListGUI[i + 2]
+        if (Mouse_Cursor.y >= y && Mouse_Cursor.y < y + XCELL_ROW_HEIGHT) {
+            const col = xcellColumnAt(Mouse_Cursor.x)
+            if (col >= 0) {
+                xcellColumnGUIs[col - xcellColScroll].selectedIndex = i
+            }
+            break
+        }
+    }
 }
 
 // MARK: Right-Click Clipboard
@@ -479,7 +646,7 @@ function xcellClearCell(row: number, col: number) {
 
 function xcellCopyRow(row: number) {
     let values: string[] = []
-    for (let c = 0; c < XCELL_COLS.length; c++) {
+    for (let c = 0; c < XCELL_TOTAL_COLS; c++) {
         values.push(xcellGrid[row][c])
     }
     xcellRowClipboard = values
@@ -489,14 +656,14 @@ function xcellPasteRow(row: number) {
     if (xcellRowClipboard == null) {
         return
     }
-    for (let c = 0; c < XCELL_COLS.length; c++) {
+    for (let c = 0; c < XCELL_TOTAL_COLS; c++) {
         xcellGrid[row][c] = xcellRowClipboard[c]
     }
     xcellRefresh()
 }
 
 function xcellClearRow(row: number) {
-    for (let c = 0; c < XCELL_COLS.length; c++) {
+    for (let c = 0; c < XCELL_TOTAL_COLS; c++) {
         xcellGrid[row][c] = ""
     }
     xcellRefresh()
@@ -504,7 +671,7 @@ function xcellClearRow(row: number) {
 
 function xcellCopyCol(col: number) {
     let values: string[] = []
-    for (let r = 0; r < XCELL_ROWS; r++) {
+    for (let r = 0; r < XCELL_TOTAL_ROWS; r++) {
         values.push(xcellGrid[r][col])
     }
     xcellColClipboard = values
@@ -514,14 +681,14 @@ function xcellPasteCol(col: number) {
     if (xcellColClipboard == null) {
         return
     }
-    for (let r = 0; r < XCELL_ROWS; r++) {
+    for (let r = 0; r < XCELL_TOTAL_ROWS; r++) {
         xcellGrid[r][col] = xcellColClipboard[r]
     }
     xcellRefresh()
 }
 
 function xcellClearCol(col: number) {
-    for (let r = 0; r < XCELL_ROWS; r++) {
+    for (let r = 0; r < XCELL_TOTAL_ROWS; r++) {
         xcellGrid[r][col] = ""
     }
     xcellRefresh()

@@ -205,73 +205,83 @@ function MouseClick(button: number) {
                 }
             }
         } else if (App_Open == "xCell") {
-            for (let i = 0; i < 8; i++) {
-                if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
-                    if (i == 0) {
-                        const x = Mouse_Cursor.x
-                        if (x > 152) { } else if (x > 4) {
-                            const serialized = xcellSerialize()
-                            if (open_document == null || x > 38) {
-                                const newName = game.askForString("Sheet name", 15)
-                                if (!isValidFileName(newName, "xcl")) { return }
-                                const newKey = fileKey("xcl", newName)
-                                if (!hasStorageSpaceFor(newKey, serialized)) {
-                                    softerror(113)
-                                    return
+            if (button == 1 && Mouse_Cursor.overlapsWith(xcellArrowUp)) {
+                xcellScrollUp()
+            } else if (button == 1 && Mouse_Cursor.overlapsWith(xcellArrowDown)) {
+                xcellScrollDown()
+            } else if (button == 1 && Mouse_Cursor.overlapsWith(xcellArrowLeft)) {
+                xcellScrollLeft()
+            } else if (button == 1 && Mouse_Cursor.overlapsWith(xcellArrowRight)) {
+                xcellScrollRight()
+            } else {
+                for (let i = 0; i < 8; i++) {
+                    if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 160) {
+                        if (i == 0) {
+                            const x = Mouse_Cursor.x
+                            if (x > 152) { } else if (x > 4) {
+                                const serialized = xcellSerialize()
+                                if (open_document == null || x > 38) {
+                                    const newName = game.askForString("Sheet name", 15)
+                                    if (!isValidFileName(newName, "xcl")) { return }
+                                    const newKey = fileKey("xcl", newName)
+                                    if (!hasStorageSpaceFor(newKey, serialized)) {
+                                        softerror(113)
+                                        return
+                                    }
+                                    open_document = newName
+                                    settings.writeString(newKey, serialized)
+                                    User_Files.push(microUtilities.createMenuItem(newName + ".xcl"))
+                                    settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                                } else {
+                                    const existingKey = fileKey("xcl", open_document + "")
+                                    if (!hasStorageSpaceFor(existingKey, serialized)) {
+                                        softerror(113)
+                                        return
+                                    }
+                                    settings.writeString(existingKey, serialized)
                                 }
-                                open_document = newName
-                                settings.writeString(newKey, serialized)
-                                User_Files.push(microUtilities.createMenuItem(newName + ".xcl"))
-                                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                            } else {
-                                const existingKey = fileKey("xcl", open_document + "")
-                                if (!hasStorageSpaceFor(existingKey, serialized)) {
-                                    softerror(113)
-                                    return
-                                }
-                                settings.writeString(existingKey, serialized)
                             }
-                        }
-                    } else if (i == 1) {
-                        // header row -- column letters, not editable by click, but rclick opens a column menu
-                        const col = xcellColumnAt(Mouse_Cursor.x)
-                        if (button == 2 && col >= 0) {
-                            xcellRclickTarget = "col"
-                            xcellRclickCol = col
-                            current_rclick_menu = [microUtilities.createMenuItem("Copy"), microUtilities.createMenuItem("Paste"), microUtilities.createMenuItem("Clear")]
-                            openRightClickMenu()
-                        }
-                    } else {
-                        const row = i - 2
-                        if (row >= 0 && row < XCELL_ROWS) {
+                        } else if (i == 1) {
+                            // header row -- column letters, not editable by click, but rclick opens a column menu
                             const col = xcellColumnAt(Mouse_Cursor.x)
-                            if (button == 1 && col >= 0) {
-                                const current = xcellGrid[row][col]
-                                const label = xcellCellRef(row, col) + (current != "" ? (": " + current) : "")
-                                const input = game.askForString(label, 20)
-                                xcellSetCell(row, col, input == null ? "" : input)
-                            } else if (button == 2 && col >= 0) {
-                                xcellRclickTarget = "cell"
-                                xcellRclickRow = row
+                            if (button == 2 && col >= 0) {
+                                xcellRclickTarget = "col"
                                 xcellRclickCol = col
-                                const current = xcellGrid[row][col]
-                                current_rclick_menu = [
-                                    microUtilities.createMenuItem(current == "" ? "(empty)" : current),
-                                    microUtilities.createMenuItem("Copy"),
-                                    microUtilities.createMenuItem("Copy Output"),
-                                    microUtilities.createMenuItem("Paste"),
-                                    microUtilities.createMenuItem("Clear")
-                                ]
-                                openRightClickMenu()
-                            } else if (button == 2 && col < 0) {
-                                xcellRclickTarget = "row"
-                                xcellRclickRow = row
                                 current_rclick_menu = [microUtilities.createMenuItem("Copy"), microUtilities.createMenuItem("Paste"), microUtilities.createMenuItem("Clear")]
                                 openRightClickMenu()
                             }
+                        } else {
+                            const row = xcellScroll + (i - 2)
+                            if (row >= 0 && row < XCELL_TOTAL_ROWS) {
+                                const col = xcellColumnAt(Mouse_Cursor.x)
+                                if (button == 1 && col >= 0) {
+                                    const current = xcellGrid[row][col]
+                                    const label = xcellCellRef(row, col) + (current != "" ? (": " + current) : "")
+                                    const input = game.askForString(label, 20)
+                                    xcellSetCell(row, col, input == null ? "" : input)
+                                } else if (button == 2 && col >= 0) {
+                                    xcellRclickTarget = "cell"
+                                    xcellRclickRow = row
+                                    xcellRclickCol = col
+                                    const current = xcellGrid[row][col]
+                                    current_rclick_menu = [
+                                        microUtilities.createMenuItem(current == "" ? "(empty)" : current),
+                                        microUtilities.createMenuItem("Copy"),
+                                        microUtilities.createMenuItem("Copy Output"),
+                                        microUtilities.createMenuItem("Paste"),
+                                        microUtilities.createMenuItem("Clear")
+                                    ]
+                                    openRightClickMenu()
+                                } else if (button == 2 && col < 0) {
+                                    xcellRclickTarget = "row"
+                                    xcellRclickRow = row
+                                    current_rclick_menu = [microUtilities.createMenuItem("Copy"), microUtilities.createMenuItem("Paste"), microUtilities.createMenuItem("Clear")]
+                                    openRightClickMenu()
+                                }
+                            }
                         }
+                        break
                     }
-                    break
                 }
             }
         } else if (App_Open == "Web Chat") {
