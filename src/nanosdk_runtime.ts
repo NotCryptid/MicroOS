@@ -471,5 +471,42 @@ function nanoSDK_run_line() {
                     error(301)
             }
             break
+        case "4":
+            let variableDataTemp = command_data[2]
+            if (current_command == "03") { 
+                variableDataTemp = command_data[3]
+            }
+            if (command_data[2].substr(0, 0) == "!") { 
+                variableDataTemp = variables[command_data[2].split("!")[1]]
+            }
+            switch (current_command) { 
+                case "01":
+                    const DefinedVariable = {[command_data[1]]: variableDataTemp}
+                    //variables = {...variables, ...DefinedVariable}
+                    break
+                case "02":
+                    variables[command_data[1]] = variableDataTemp
+                    break
+                case "03":
+                    const variableDataTemp2 = parseInt(variables[command_data[1]])
+                    let operationOutput
+                    switch (command_data[2]) { 
+                        case "a":
+                            operationOutput = variableDataTemp2 + parseInt(variableDataTemp)
+                            return
+                        case "s":
+                            operationOutput = variableDataTemp2 - parseInt(variableDataTemp)
+                            return
+                        case "m":
+                            operationOutput = variableDataTemp2 * parseInt(variableDataTemp)
+                            return
+                        case "d":
+                            operationOutput = variableDataTemp2 / parseInt(variableDataTemp)
+                            return
+                    }
+                    variables[command_data[1]] = operationOutput + ""
+                    break
+            }            
+            break
     }
 }
