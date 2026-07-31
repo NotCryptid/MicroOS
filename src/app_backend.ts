@@ -160,7 +160,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                         Open_Write(settings.readString(fileKey("wrt", FileOpened[0])), FileOpened[0])
                                         break
                                     case "xcl":
-                                        Open_xCell(settings.readString(fileKey("xcl", FileOpened[0])))
+                                        Open_xCell(settings.readString(fileKey("xcl", FileOpened[0])), FileOpened[0])
                                         break
                                     case "app":
                                         Open_NanoSDK_App(settings.readString(fileKey("app", FileOpened[0])))
@@ -353,8 +353,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 3:
                             ListMenuContents = [
                                 microUtilities.createMenuItem("Back"),
-                                microUtilities.createMenuItem("MicroOS v0.4.0"),
-                                microUtilities.createMenuItem("NanoSDK 2026.2"),
+                                microUtilities.createMenuItem("MicroOS v1.0.0"),
+                                microUtilities.createMenuItem("NanoSDK 2026.3"),
                                 microUtilities.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
                                 microUtilities.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
                                 microUtilities.createMenuItem("RAM Capacity - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),

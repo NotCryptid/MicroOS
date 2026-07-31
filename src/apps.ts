@@ -76,15 +76,19 @@ function Open_Web(included_attachement: string = null) {
 function Open_xCell(file_contents: string = null, file_name: string = null) {
     close_apps()
     App_Open = "xCell"
+    SubMenu = "Editor"
     createAppBar(0)
-    let text_color = 15
-    if (darkMode) {
-        text_color = 1
-    }
+    text = textsprite.create(" Save | Save As          ", 1, 15)
+    text.setPosition(72, 13)
+    text.setBorder(2, 1, 0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("xCell", 0, 1)
     App_Title.setPosition(15, 4)
+    open_document = file_name
+    xcellLoad(file_contents)
+    ListMenuGUI = microUtilities.createMenuFromArray([])
+    xcellRefresh()
 }
 
 // MARK: Open Write

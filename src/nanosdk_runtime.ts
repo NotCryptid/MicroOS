@@ -103,8 +103,8 @@ function nanoSDK_resolve_vars(str: string): string {
         if (str.charAt(i) == "!") {
             let end = str.indexOf("!", i + 1)
             if (end > i) {
-                let name = str.substring(i + 1, end)
-                result += variables[name] != null ? variables[name] : str.substring(i, end + 1)
+                let name = str.substr(i + 1, end - (i + 1))
+                result += variables[name] != null ? variables[name] : str.substr(i, end + 1 - i)
                 i = end + 1
                 continue
             }

@@ -31,6 +31,7 @@ forever(function () {
             case "Process Manager":
             case "NanoCode":
             case "Write":
+            case "xCell":
                 updateListMenuHover();
                 break
             default:
@@ -73,6 +74,7 @@ function updateListMenuHover() {
             break
         case "NanoCode":
         case "Write":
+        case "xCell":
             ListMenuGUI.selectedIndex = -1;
             for (let i = 0; i < ListMenuContents.length && i < 7; i++) {
                 if (Mouse_Cursor.y >= sillySpacingForListGUI[i + 1] && Mouse_Cursor.y < sillySpacingForListGUI[i + 1] + 12 && Mouse_Cursor.x < 152) {

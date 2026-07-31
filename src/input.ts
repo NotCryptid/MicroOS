@@ -204,6 +204,49 @@ function MouseClick(button: number) {
                     }
                 }
             }
+        } else if (App_Open == "xCell") {
+            for (let i = 0; i < 8; i++) {
+                if (Mouse_Cursor.y >= sillySpacingForListGUI[i] && Mouse_Cursor.y < sillySpacingForListGUI[i] + 12 && Mouse_Cursor.x < 152) {
+                    if (i == 0) {
+                        const x = Mouse_Cursor.x
+                        if (x > 152) { } else if (x > 4) {
+                            const serialized = xcellSerialize()
+                            if (open_document == null || x > 38) {
+                                const newName = game.askForString("Sheet name", 15)
+                                if (!isValidFileName(newName, "xcl")) { return }
+                                const newKey = fileKey("xcl", newName)
+                                if (!hasStorageSpaceFor(newKey, serialized)) {
+                                    softerror(113)
+                                    return
+                                }
+                                open_document = newName
+                                settings.writeString(newKey, serialized)
+                                User_Files.push(microUtilities.createMenuItem(newName + ".xcl"))
+                                settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
+                            } else {
+                                const existingKey = fileKey("xcl", open_document + "")
+                                if (!hasStorageSpaceFor(existingKey, serialized)) {
+                                    softerror(113)
+                                    return
+                                }
+                                settings.writeString(existingKey, serialized)
+                            }
+                        }
+                    } else if (i == 1) {
+                        // header row -- column letters, not editable
+                    } else if (button == 1) {
+                        const row = i - 2
+                        const col = xcellColumnAt(Mouse_Cursor.x)
+                        if (row >= 0 && row < XCELL_ROWS && col >= 0) {
+                            const current = xcellGrid[row][col]
+                            const label = xcellCellRef(row, col) + (current != "" ? (": " + current) : "")
+                            const input = game.askForString(label, 20)
+                            xcellSetCell(row, col, input == null ? "" : input)
+                        }
+                    }
+                    break
+                }
+            }
         } else if (App_Open == "Web Chat") {
             if (Mouse_Cursor.overlapsWith(WebChatSend) && button == 1 && WEBmessage != "" && WEBmessage != "Type here...") {
                 KeyboardVisible = true

@@ -18,6 +18,7 @@
         "assets.json",
         "src/main.ts",
         "src/boot.ts",
+        "src/xcell.ts",
         "src/input.ts",
         "src/webchat_v2.ts",
         "src/background.ts",
