@@ -81,6 +81,40 @@ function Open_NanoSDK_App(app_binary: string) {
     when_ranges = []
 }
 
+// MARK: Variable String/Value Resolution
+// !VAR! embedded inside a larger string is replaced with that variable's value.
+// A value that is *only* a variable reference doesn't need the closing "!"
+// (e.g. "!score" or "!score!" both work when the whole argument is the reference).
+function nanoSDK_resolve_vars(str: string): string {
+    if (str == null || str.indexOf("!") == -1) { return str }
+
+    if (str.charAt(0) == "!") {
+        let rest = str.substr(1)
+        let bang = rest.indexOf("!")
+        if (bang == -1 || bang == rest.length - 1) {
+            let name = bang == -1 ? rest : rest.substr(0, bang)
+            return variables[name] != null ? variables[name] : str
+        }
+    }
+
+    let result = ""
+    let i = 0
+    while (i < str.length) {
+        if (str.charAt(i) == "!") {
+            let end = str.indexOf("!", i + 1)
+            if (end > i) {
+                let name = str.substring(i + 1, end)
+                result += variables[name] != null ? variables[name] : str.substring(i, end + 1)
+                i = end + 1
+                continue
+            }
+        }
+        result += str.charAt(i)
+        i++
+    }
+    return result
+}
+
 // MARK: When Condition Check
 // Returns true if a registered when's condition is currently met
 function nanoSDK_check_when(idx: number): boolean {
@@ -225,13 +259,13 @@ function nanoSDK_run_line() {
             switch (current_command) {
                 case "05":
                     NanoSDK_App_Running = false
-                    game.splash(command_data[1])
+                    game.splash(nanoSDK_resolve_vars(command_data[1]))
                     NanoSDK_App_Running = true
                     break
                 case "06":
                     close_apps()
                     if (command_data[1] && command_data[1] != "") {
-                        game.splash(command_data[1])
+                        game.splash(nanoSDK_resolve_vars(command_data[1]))
                     }
                     break
                 case "07":
@@ -427,12 +461,12 @@ function nanoSDK_run_line() {
                 case "04":
                     menu_array = []
                     for (let i = 1; i < command_data.length; i++) {
-                        menu_array.push(microUtilities.createMenuItem(command_data[i]))
+                        menu_array.push(microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[i])))
                     }
                     Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
                     break
                 case "05":
-                    menu_array[parseInt(command_data[1])] = microUtilities.createMenuItem(command_data[2])
+                    menu_array[parseInt(command_data[1])] = microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[2]))
                     Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
                     break
                 case "06":
@@ -471,42 +505,44 @@ function nanoSDK_run_line() {
                     error(301)
             }
             break
-        case "4":
+
+        // MARK: Variable Commands
+        case "5": {
             let variableDataTemp = command_data[2]
-            if (current_command == "03") { 
+            if (current_command == "03") {
                 variableDataTemp = command_data[3]
             }
-            if (command_data[2].substr(0, 0) == "!") { 
-                variableDataTemp = variables[command_data[2].split("!")[1]]
-            }
-            switch (current_command) { 
+            variableDataTemp = nanoSDK_resolve_vars(variableDataTemp)
+
+            switch (current_command) {
+                // Define Variable
                 case "01":
-                    const DefinedVariable = {[command_data[1]]: variableDataTemp}
-                    // Object.assign(variables, DefinedVariable); 
+                    variables[command_data[1]] = variableDataTemp
                     break
+                // Set Variable
                 case "02":
                     variables[command_data[1]] = variableDataTemp
                     break
-                case "03":
-                    const variableDataTemp2 = parseInt(variables[command_data[1]])
-                    let operationOutput
-                    switch (command_data[2]) { 
-                        case "a":
-                            operationOutput = variableDataTemp2 + parseInt(variableDataTemp)
-                            return
-                        case "s":
-                            operationOutput = variableDataTemp2 - parseInt(variableDataTemp)
-                            return
-                        case "m":
-                            operationOutput = variableDataTemp2 * parseInt(variableDataTemp)
-                            return
-                        case "d":
-                            operationOutput = variableDataTemp2 / parseInt(variableDataTemp)
-                            return
+                // Variable Operation
+                case "03": {
+                    const lhs = parseFloat(variables[command_data[1]])
+                    const rhs = parseFloat(variableDataTemp)
+                    let operationOutput = 0
+                    switch (command_data[2]) {
+                        case "a": operationOutput = lhs + rhs; break
+                        case "s": operationOutput = lhs - rhs; break
+                        case "m": operationOutput = lhs * rhs; break
+                        case "d": operationOutput = lhs / rhs; break
                     }
                     variables[command_data[1]] = operationOutput + ""
                     break
-            }            
+                }
+                // VCJ — Variable Content Join: var = var + (text or !var!)
+                case "04":
+                    variables[command_data[1]] = (variables[command_data[1]] != null ? variables[command_data[1]] : "") + variableDataTemp
+                    break
+            }
             break
+        }
     }
 }

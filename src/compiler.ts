@@ -122,9 +122,10 @@ function compile_nanosdk_code(source: string): string {
 
 
             // MARK: Variables
-            case "DVR": out.push("401§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "SVR": out.push("402§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "VRM": out.push("403§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1]) + "§" + nsc_pad(a[2])); continue
+            case "DVR": out.push("501§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
+            case "SVR": out.push("502§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
+            case "VRM": out.push("503§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1]) + "§" + nsc_pad(a[2])); continue
+            case "VCJ": out.push("504§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
         }
 
         out.push("000") // unknown — no-op passthrough
