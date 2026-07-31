@@ -85,8 +85,6 @@ function Open_xCell(file_contents: string = null, file_name: string = null) {
     Close_App.setPosition(156, 5)
     App_Title = textsprite.create("xCell", 0, 1)
     App_Title.setPosition(15, 4)
-    text = textsprite.create("Unfinished", 0, text_color)
-    text.setPosition(80, 60)
 }
 
 // MARK: Open Write
