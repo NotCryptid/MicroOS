@@ -442,3 +442,87 @@ function xcellColumnAt(x: number): number {
     }
     return -1
 }
+
+// MARK: Right-Click Clipboard
+// Which cell/row/column the currently-open right-click menu was opened
+// for -- set in input.ts right before openRightClickMenu(), read back in
+// listSelection's "xCell" case once the user picks an action.
+let xcellRclickTarget = ""
+let xcellRclickRow = -1
+let xcellRclickCol = -1
+
+let xcellCellClipboard: string = null
+let xcellRowClipboard: string[] = null
+let xcellColClipboard: string[] = null
+
+function xcellCopyCell(row: number, col: number) {
+    xcellCellClipboard = xcellGrid[row][col]
+}
+
+// "Copy Output" grabs the computed display value rather than the raw
+// formula, so pasting it elsewhere drops in a plain value (like Excel's
+// paste-values-only).
+function xcellCopyCellOutput(row: number, col: number) {
+    xcellCellClipboard = xcellDisplayCell(row, col)
+}
+
+function xcellPasteCell(row: number, col: number) {
+    if (xcellCellClipboard == null) {
+        return
+    }
+    xcellSetCell(row, col, xcellCellClipboard)
+}
+
+function xcellClearCell(row: number, col: number) {
+    xcellSetCell(row, col, "")
+}
+
+function xcellCopyRow(row: number) {
+    let values: string[] = []
+    for (let c = 0; c < XCELL_COLS.length; c++) {
+        values.push(xcellGrid[row][c])
+    }
+    xcellRowClipboard = values
+}
+
+function xcellPasteRow(row: number) {
+    if (xcellRowClipboard == null) {
+        return
+    }
+    for (let c = 0; c < XCELL_COLS.length; c++) {
+        xcellGrid[row][c] = xcellRowClipboard[c]
+    }
+    xcellRefresh()
+}
+
+function xcellClearRow(row: number) {
+    for (let c = 0; c < XCELL_COLS.length; c++) {
+        xcellGrid[row][c] = ""
+    }
+    xcellRefresh()
+}
+
+function xcellCopyCol(col: number) {
+    let values: string[] = []
+    for (let r = 0; r < XCELL_ROWS; r++) {
+        values.push(xcellGrid[r][col])
+    }
+    xcellColClipboard = values
+}
+
+function xcellPasteCol(col: number) {
+    if (xcellColClipboard == null) {
+        return
+    }
+    for (let r = 0; r < XCELL_ROWS; r++) {
+        xcellGrid[r][col] = xcellColClipboard[r]
+    }
+    xcellRefresh()
+}
+
+function xcellClearCol(col: number) {
+    for (let r = 0; r < XCELL_ROWS; r++) {
+        xcellGrid[r][col] = ""
+    }
+    xcellRefresh()
+}

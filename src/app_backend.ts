@@ -532,6 +532,44 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             updateScrollBar(8, darkMode)
             break
         }
+        // MARK: xCell
+        case "xCell": {
+            switch (xcellRclickTarget) {
+                case "cell": {
+                    const row = xcellRclickRow
+                    const col = xcellRclickCol
+                    if (row < 0 || col < 0) { break }
+                    switch (action) {
+                        case "rclick1": xcellCopyCell(row, col); break
+                        case "rclick2": xcellCopyCellOutput(row, col); break
+                        case "rclick3": xcellPasteCell(row, col); break
+                        case "rclick4": xcellClearCell(row, col); break
+                    }
+                    break
+                }
+                case "row": {
+                    const row = xcellRclickRow
+                    if (row < 0) { break }
+                    switch (action) {
+                        case "rclick0": xcellCopyRow(row); break
+                        case "rclick1": xcellPasteRow(row); break
+                        case "rclick2": xcellClearRow(row); break
+                    }
+                    break
+                }
+                case "col": {
+                    const col = xcellRclickCol
+                    if (col < 0) { break }
+                    switch (action) {
+                        case "rclick0": xcellCopyCol(col); break
+                        case "rclick1": xcellPasteCol(col); break
+                        case "rclick2": xcellClearCol(col); break
+                    }
+                    break
+                }
+            }
+            break
+        }
         // MARK: Web Chat
         case "Web Chat": {
             if (action == "rclick2" && rclickWebChatEntry != null) {

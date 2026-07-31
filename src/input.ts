@@ -233,15 +233,42 @@ function MouseClick(button: number) {
                             }
                         }
                     } else if (i == 1) {
-                        // header row -- column letters, not editable
-                    } else if (button == 1) {
-                        const row = i - 2
+                        // header row -- column letters, not editable by click, but rclick opens a column menu
                         const col = xcellColumnAt(Mouse_Cursor.x)
-                        if (row >= 0 && row < XCELL_ROWS && col >= 0) {
-                            const current = xcellGrid[row][col]
-                            const label = xcellCellRef(row, col) + (current != "" ? (": " + current) : "")
-                            const input = game.askForString(label, 20)
-                            xcellSetCell(row, col, input == null ? "" : input)
+                        if (button == 2 && col >= 0) {
+                            xcellRclickTarget = "col"
+                            xcellRclickCol = col
+                            current_rclick_menu = [microUtilities.createMenuItem("Copy"), microUtilities.createMenuItem("Paste"), microUtilities.createMenuItem("Clear")]
+                            openRightClickMenu()
+                        }
+                    } else {
+                        const row = i - 2
+                        if (row >= 0 && row < XCELL_ROWS) {
+                            const col = xcellColumnAt(Mouse_Cursor.x)
+                            if (button == 1 && col >= 0) {
+                                const current = xcellGrid[row][col]
+                                const label = xcellCellRef(row, col) + (current != "" ? (": " + current) : "")
+                                const input = game.askForString(label, 20)
+                                xcellSetCell(row, col, input == null ? "" : input)
+                            } else if (button == 2 && col >= 0) {
+                                xcellRclickTarget = "cell"
+                                xcellRclickRow = row
+                                xcellRclickCol = col
+                                const current = xcellGrid[row][col]
+                                current_rclick_menu = [
+                                    microUtilities.createMenuItem(current == "" ? "(empty)" : current),
+                                    microUtilities.createMenuItem("Copy"),
+                                    microUtilities.createMenuItem("Copy Output"),
+                                    microUtilities.createMenuItem("Paste"),
+                                    microUtilities.createMenuItem("Clear")
+                                ]
+                                openRightClickMenu()
+                            } else if (button == 2 && col < 0) {
+                                xcellRclickTarget = "row"
+                                xcellRclickRow = row
+                                current_rclick_menu = [microUtilities.createMenuItem("Copy"), microUtilities.createMenuItem("Paste"), microUtilities.createMenuItem("Clear")]
+                                openRightClickMenu()
+                            }
                         }
                     }
                     break
