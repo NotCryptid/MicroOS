@@ -7,9 +7,6 @@ namespace SpriteKind {
 }
 
 // MARK: Is Destroyed
-// The only thing MicroOS ever used from the arcade-sprite-util extension --
-// inlined so the whole (otherwise unused) package doesn't have to be a
-// dependency.
 function isDestroyed(sprite: Sprite): boolean {
     return !sprite || !!(sprite.flags & sprites.Flag.Destroyed)
 }
@@ -57,8 +54,6 @@ let clipboardExt = ""
 let List_Scroll = 0
 let rclick_override = 0
 let current_rclick_menu: microUtilities.MenuItem[] = null
-// Which message the Web Chat right-click menu (Serial/Save) is currently
-// for -- set right before that menu is created, read when "Save" is clicked.
 let rclickWebChatEntry: WebChatEntry = null
 let ListMenuGUIHidden: microUtilities.MenuItem[] = []
 let RightClickMenu: any = null
@@ -70,9 +65,6 @@ let User_Files: microUtilities.MenuItem[] = []
 let User_Apps: microUtilities.MenuItem[] = []
 let System_Files: microUtilities.MenuItem[] = [microUtilities.createMenuItem("Home"),microUtilities.createMenuItem("MicroOS.sys"),microUtilities.createMenuItem("assets.ts"),microUtilities.createMenuItem("File.moa"),microUtilities.createMenuItem("runtime.moa"),microUtilities.createMenuItem("Write.moa"),microUtilities.createMenuItem("xCell.moa"),microUtilities.createMenuItem("Settings.moa"),microUtilities.createMenuItem("WebChat.moa"),microUtilities.createMenuItem("NanoCode.moa")]
 let Current_Settings: microUtilities.MenuItem[] = []
-// WebChatEntry is declared in webchat_v2.ts -- it's an interface (erased at
-// compile time), so referencing it here doesn't depend on file load order,
-// but constructing one with `new` would, hence the plain object literal.
 let WebChatHistory: WebChatEntry[] = [
     { senderId: "000000000", senderName: "System", verified: true, text: "Welcome to Web Chat!", attachmentId: "", attachmentName: "", attachmentData: null, attachmentReady: false }
 ]

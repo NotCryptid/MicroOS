@@ -432,6 +432,7 @@ const XCELL_GRID_CENTER_Y = 70
 let xcellLabelGUI: any = null
 let xcellColumnGUIs: any[] = []
 let xcellHeaderTexts: TextSprite[] = []
+let xcellHeaderBgs: Sprite[] = []
 let xcellArrowUp: Sprite = null
 let xcellArrowDown: Sprite = null
 let xcellArrowLeft: Sprite = null
@@ -502,6 +503,7 @@ function xcellCreateSprites() {
 
     xcellColumnGUIs = []
     xcellHeaderTexts = []
+    xcellHeaderBgs = []
     const headerColor = darkMode ? 1 : 15
     for (let slot = 0; slot < XCELL_VISIBLE_COLS; slot++) {
         const gui = microUtilities.createMenuFromArray([])
@@ -512,8 +514,19 @@ function xcellCreateSprites() {
         xcellApplyColors(gui)
         xcellColumnGUIs.push(gui)
 
+        // A plain fixed-size sprite drawn behind the header text, matching
+        // the exact XCELL_COL_WIDTH x XCELL_ROW_HEIGHT footprint of a data
+        // cell's own highlight rect (see SimpleMenu.draw in simpleMenu.ts)
+        // -- the TextSprite itself only ever auto-sizes to its glyph, so its
+        // own .bg can't be used to make the header highlight match the cell
+        // highlight's width/height.
+        const headerBg = sprites.create(image.create(XCELL_COL_WIDTH, XCELL_ROW_HEIGHT), SpriteKind.App_UI)
+        headerBg.setPosition(centerX, 28)
+        headerBg.z = -30
+        xcellHeaderBgs.push(headerBg)
+
         const header = textsprite.create("", 0, headerColor)
-        header.setPosition(centerX, 26)
+        header.setPosition(centerX, 28)
         xcellHeaderTexts.push(header)
     }
 
@@ -601,11 +614,12 @@ let xcellHoverCol = -1
 
 function xcellSetHeaderActive(slot: number, active: boolean) {
     const header = xcellHeaderTexts[slot]
+    const headerBg = xcellHeaderBgs[slot]
     if (active) {
-        header.bg = darkMode ? 1 : 3
+        headerBg.image.fill(darkMode ? 1 : 3)
         header.fg = darkMode ? 15 : 1
     } else {
-        header.bg = 0
+        headerBg.image.fill(0)
         header.fg = darkMode ? 1 : 15
     }
     header.update()
