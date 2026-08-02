@@ -3,17 +3,6 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "image8":
-            case "File Manager":return img`
-b b b a a a 9 9 
-b b b a a a 9 9 
-b b b b b b b b 
-b b b b b b b b 
-b b b b b b b b 
-b b b b b b b b 
-b b b b b b b b 
-b b b b b b b b 
-`;
             case "image9":
             case "Cursor":return img`
 . f f f . 
@@ -572,17 +561,6 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 . 4 4 4 4 4 c . 
 . . c c c c . . 
 `;
-            case "image7":
-            case "Settings":return img`
-d d f d e f 1 d 
-e d d d e 1 d e 
-f e e e d d e f 
-d d e f f d d d 
-e e d f f 1 e e 
-f 1 d d 1 1 d f 
-1 d e d e e d d 
-d e f d e f e d 
-`;
             case "image3":
             case "xCell":return img`
 5 5 5 5 5 1 1 1 
@@ -604,6 +582,28 @@ d e f d e f e d
 2 1 1 7 9 5 9 2 
 2 1 7 1 5 9 9 2 
 2 2 2 2 2 2 2 2 
+`;
+            case "image7":
+            case "Settings":return img`
+1 d . 1 d . 1 d 
+d d 1 d 1 1 d d 
+. 1 1 1 d d 1 . 
+1 d 1 . . d 1 d 
+d 1 d . . d d d 
+. 1 d d d d 1 . 
+1 d 1 1 d 1 1 d 
+d d . d d . d d 
+`;
+            case "image8":
+            case "File Manager":return img`
+b b b . . . . . 
+b b b a 3 2 4 5 
+b b b b b b b b 
+b b b b b b b b 
+b b b b b b b b 
+b b b b b b b b 
+b b b b b b b b 
+6 6 6 6 6 6 6 6 
 `;
         }
         return null;
