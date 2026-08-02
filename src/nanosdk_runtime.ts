@@ -55,7 +55,7 @@ let when_ranges: number[][] = []     // [[bodyStart, bodyEnd], ...] for each whe
 // nsc_compile_icon in compiler.ts) as a flat string of hex nibbles, one per
 // pixel, row-major, matching the Write-app icon-asset palette. "default"
 // (or anything malformed) falls back to the built-in icon below.
-const NANO_SDK_DEFAULT_ICON = "0AAAABB0AACABCB3AACCBC33AACCBC33ABCBCC32BBC3CC22BBC33C2203332220"
+const NANO_SDK_DEFAULT_ICON = "0AAAABB0AA1AB1B3AA11B133AA11B133AB1B1132BB131122BB13312203332220"
 
 function nanoSDK_decode_icon(hex: string, size: number = 8): Image {
     let source = (hex == null || hex == "" || hex.toLowerCase() == "default") ? NANO_SDK_DEFAULT_ICON : hex
