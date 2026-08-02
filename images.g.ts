@@ -599,11 +599,11 @@ d d d d d d d d
 `;
             case "image9":
             case "Cursor":return img`
-f f f f . 
-f 1 1 f . 
-f 1 d f . 
-f f f 1 f 
-. . . f . 
+. f f f . 
+f 1 1 1 f 
+f 1 1 1 f 
+f 1 1 1 f 
+. f f f . 
 `;
         }
         return null;
