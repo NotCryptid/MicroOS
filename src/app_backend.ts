@@ -894,7 +894,10 @@ function updateScrollBar(maxVisible: number = 8, dark: boolean = false, trackBot
     let scrollBarHeight = totalItems <= maxVisible
         ? trackHeight
         : Math.max(5, Math.floor((maxVisible / totalItems) * trackHeight));
-    if (scrollBarHeight % 2 == 0) { scrollBarHeight-- }
+    // Only snap the partial thumb to an odd height (for exact integer
+    // centering) -- doing this to the full-track case as well shaves a
+    // pixel off the bottom, leaving the thumb short of trackBottom.
+    if (totalItems > maxVisible && scrollBarHeight % 2 == 0) { scrollBarHeight-- }
     let halfH = (scrollBarHeight - 1) / 2;
 
     scaling.scaleToPixels(scrollBar, scrollBarHeight, ScaleDirection.Vertically, ScaleAnchor.Middle);

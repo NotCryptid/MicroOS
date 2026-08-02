@@ -115,14 +115,22 @@ forever(function () {
     }
 })
 
-// MARK: Start Icon Names
-function Start_Icon_Names() {
+// MARK: Icon Name Colors
+function iconNameColors(): number[] {
     let otherColor = theme[2]
     let color24 = 1
     if ((darkMode || App_Open == "NanoCode") && App_Open !== "null") {
         otherColor = 1
         color24 = 15
     }
+    return [color24, otherColor]
+}
+
+// MARK: Start Icon Names
+function Start_Icon_Names() {
+    const colors = iconNameColors()
+    const color24 = colors[0]
+    const otherColor = colors[1]
     if (Mouse_Cursor.overlapsWith(xCell_Icon)) {
         xCell_Icon.sayText("xCell", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Write_icon)) {
@@ -144,10 +152,11 @@ function Start_Icon_Names() {
 
 // MARK: Start Library Icon Names
 function Start_Library_Icon_Names() {
+    const colors = iconNameColors()
     for (let i = 0; i < Library_Icons.length; i++) {
         if (isDestroyed(Library_Icons[i])) { continue }
         if (Mouse_Cursor.overlapsWith(Library_Icons[i])) {
-            Library_Icons[i].sayText(Library_Icon_Names[i], 50, false, 1, 15)
+            Library_Icons[i].sayText(Library_Icon_Names[i], 50, false, colors[0], colors[1])
             return
         }
     }
