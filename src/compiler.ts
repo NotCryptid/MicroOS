@@ -24,7 +24,7 @@ function compile_nanosdk_code(source: string): string {
     // MARK: Pass 2 - Header
     let t0 = lines[0].split(" "); let t1 = lines[1].split(" ")
     let t2 = lines[2].split(" "); let t3 = lines[3].split(" ")
-    let hdr = [t0.slice(1).join(" "), t1.slice(1).join(" "), t2.slice(1).join(" "), t3[1]]
+    let hdr = [t0.slice(1).join(" "), nsc_compile_icon(t1.slice(1).join(" ")), t2.slice(1).join(" "), t3[1]]
 
     // MARK: Pass 3 - Body
     let out: string[] = []
@@ -135,6 +135,26 @@ function compile_nanosdk_code(source: string): string {
 }
 
 // MARK: Compiler Helpers
+
+// MARK: DAI Icon Resolution
+// Resolves a DAI parameter at compile time: "default" (or empty) passes
+// through as-is, otherwise the parameter is treated as a Write asset file
+// name WITH extension (eg. "icon.wrt") whose hex-pixel content gets baked
+// directly into the compiled binary, so the runtime never has to touch the
+// file system to render an app's icon.
+function nsc_compile_icon(param: string): string {
+    if (param == null || param == "" || param.toLowerCase() == "default") {
+        return "default"
+    }
+    let dot = -1
+    for (let ci = param.length - 1; ci >= 0; ci--) {
+        if (param.charAt(ci) == ".") { dot = ci; break }
+    }
+    if (dot <= 0) { return "default" }
+    let assetContent = settings.readString(fileKey(param.substr(dot + 1), param.substr(0, dot)))
+    if (assetContent == null) { return "default" }
+    return assetContent.split("~").join("")
+}
 
 function nsc_tokens(line: string): string[] {
     let parts: string[] = []

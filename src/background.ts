@@ -11,6 +11,9 @@ forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
     Start_Icon_Names()
+    if (App_Open == "App Library") {
+        Start_Library_Icon_Names()
+    }
     if (NanoSDK_App_Running) {
         executeNanoSDKLine()
     }
@@ -136,5 +139,16 @@ function Start_Icon_Names() {
         Process_Icon.sayText("Process Manager", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Library_icon)) {
         Library_icon.sayText(".    Library", 50, false, color24, otherColor)
+    }
+}
+
+// MARK: Start Library Icon Names
+function Start_Library_Icon_Names() {
+    for (let i = 0; i < Library_Icons.length; i++) {
+        if (isDestroyed(Library_Icons[i])) { continue }
+        if (Mouse_Cursor.overlapsWith(Library_Icons[i])) {
+            Library_Icons[i].sayText(Library_Icon_Names[i], 50, false, 1, 15)
+            return
+        }
     }
 }

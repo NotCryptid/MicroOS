@@ -43,6 +43,34 @@ function Open_Library() {
     Taskbar = sprites.create(library_background, SpriteKind.App_UI)
     Taskbar.z = -30
     Taskbar.setPosition(80, 53)
+
+    // MARK: Populate App Grid
+    Library_Icons = []
+    Library_Icon_Names = []
+    Library_Icon_Files = []
+    const libColumns = 6
+    const libRows = 6
+    const libStartX = 17
+    const libStartY = 21
+    const libSpacingX = 13
+    const libSpacingY = 13
+    let slot = 0
+    for (let i = 0; i < User_Files.length && slot < libColumns * libRows; i++) {
+        const fileParts = User_Files[i].text.split(".")
+        if (fileParts.length !== 2 || fileParts[1] !== "nsa") { continue }
+        const appBinary = settings.readString(fileKey("nsa", fileParts[0]))
+        if (appBinary == null) { continue }
+        const appFields = appBinary.split("~")
+        const col = slot % libColumns
+        const row = Math.floor(slot / libColumns)
+        const appIcon = sprites.create(nanoSDK_decode_icon(appFields[1]), SpriteKind.App_UI)
+        appIcon.setPosition(libStartX + col * libSpacingX, libStartY + row * libSpacingY)
+        appIcon.z = 24
+        Library_Icons.push(appIcon)
+        Library_Icon_Names.push(appFields[0])
+        Library_Icon_Files.push(fileParts[0])
+        slot++
+    }
 }
 
 // MARK: Open Web Chat

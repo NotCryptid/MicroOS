@@ -50,6 +50,27 @@ let when_registry: number[][] = []   // [condType_encoded, ...params, bodyStart,
 let when_cond_data: string[][] = []  // [condType, param1, param2, ...] for each when
 let when_ranges: number[][] = []     // [[bodyStart, bodyEnd], ...] for each when
 
+// MARK: DAI Icon Decoding
+// Icon pixel data is baked into the compiled binary at compile time (see
+// nsc_compile_icon in compiler.ts) as a flat string of hex nibbles, one per
+// pixel, row-major, matching the Write-app icon-asset palette. "default"
+// (or anything malformed) falls back to the built-in icon below.
+const NANO_SDK_DEFAULT_ICON = "0DDDDDD0DDDDDDDDDDEEEEDDDDEDDEDDDDEDDEDDDDEEEEDDDDDDDDDD0DDDDDD0"
+
+function nanoSDK_decode_icon(hex: string, size: number = 8): Image {
+    let source = (hex == null || hex == "" || hex.toLowerCase() == "default") ? NANO_SDK_DEFAULT_ICON : hex
+    let img = image.create(size, size)
+    for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+            let idx = y * size + x
+            let ch = idx < source.length ? source.charAt(idx) : "0"
+            let val = parseInt(ch, 16)
+            img.setPixel(x, y, isNaN(val) ? 0 : val)
+        }
+    }
+    return img
+}
+
 // MARK: Start Runtime
 function Open_NanoSDK_App(app_binary: string) {
     binary = app_binary.split("~")

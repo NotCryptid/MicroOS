@@ -99,6 +99,9 @@ function MouseClick(button: number) {
             if (App_Open == "NanoCode") {
                 reloadListGUI(76, 64, 151, 84, true);
                 updateScrollBar(visibleRows, true);
+            } else if (App_Open == "Write") {
+                reloadListGUI(76, 63, 151, 84, darkMode);
+                updateScrollBar(visibleRows, darkMode);
             } else if (App_Open == "Web Chat") {
                 reloadListGUI(80, 58, 160, 97, darkMode);
                 updateScrollBar(visibleRows, darkMode, 82);
@@ -196,10 +199,15 @@ function MouseClick(button: number) {
                         if (App_Open == "NanoCode") {
                             reloadListGUI(76, 63, 151, 84, true);
                             updateScrollBar(7, true);
-                        } else { 
+                        } else {
                             reloadListGUI(76, 63, 151, 84, darkMode);
                             updateScrollBar(7, darkMode);
                         }
+                        break;
+                    } else if (button == 2 && App_Open == "Write" && ListMenuContents[i - 1] != null) {
+                        writeRclickRow = i - 1
+                        current_rclick_menu = [microUtilities.createMenuItem("Copy"), microUtilities.createMenuItem("Paste"), microUtilities.createMenuItem("Clear")]
+                        openRightClickMenu()
                         break;
                     }
                 }
@@ -349,6 +357,16 @@ function MouseClick(button: number) {
                 }
                 Temp = WEBmessage
                 refreshWebChatList()
+            }
+        }
+    } else if (button == 1) {
+        for (let i = 0; i < Library_Icons.length; i++) {
+            if (!isDestroyed(Library_Icons[i]) && Mouse_Cursor.overlapsWith(Library_Icons[i])) {
+                const appBinary = settings.readString(fileKey("nsa", Library_Icon_Files[i]))
+                if (appBinary != null) {
+                    Open_NanoSDK_App(appBinary)
+                }
+                break
             }
         }
     }

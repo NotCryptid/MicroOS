@@ -3,14 +3,6 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "image9":
-            case "Cursor":return img`
-. f f f . 
-f 1 1 1 f 
-f 1 1 1 f 
-f 1 1 1 f 
-. f f f . 
-`;
             case "image11":
             case "Close":return img`
 . a a a a a . 
@@ -604,6 +596,14 @@ d d d d d d d d
 3 1 d e f d 1 3 
 3 1 1 1 1 1 1 3 
 3 1 d f e d 1 3 
+`;
+            case "image9":
+            case "Cursor":return img`
+f f f f . 
+f 1 1 f . 
+f 1 d f . 
+f f f 1 f 
+. . . f . 
 `;
         }
         return null;

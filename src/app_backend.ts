@@ -570,6 +570,31 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
             break
         }
+        // MARK: Write
+        case "Write": {
+            if (writeRclickRow < 0 || writeRclickRow >= ListMenuContents.length) { break }
+            switch (action) {
+                case "rclick0":
+                    writeLineClipboard = ListMenuContents[writeRclickRow].text
+                    break
+                case "rclick1":
+                    if (writeLineClipboard != null) {
+                        ListMenuContents[writeRclickRow] = microUtilities.createMenuItem(writeLineClipboard)
+                        if (ListMenuContents[ListMenuContents.length - 1].text !== " ") {
+                            ListMenuContents.push(microUtilities.createMenuItem(" "))
+                        }
+                        reloadListGUI(76, 63, 151, 84, darkMode)
+                        updateScrollBar(7, darkMode)
+                    }
+                    break
+                case "rclick2":
+                    ListMenuContents[writeRclickRow] = microUtilities.createMenuItem("")
+                    reloadListGUI(76, 63, 151, 84, darkMode)
+                    updateScrollBar(7, darkMode)
+                    break
+            }
+            break
+        }
         // MARK: Web Chat
         case "Web Chat": {
             if (action == "rclick2" && rclickWebChatEntry != null) {
