@@ -422,17 +422,6 @@ fffffffffffffffffffffffffffffff3333ffffffffffffffffffffffffff777ffffffffffffffff
 fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 `;
-            case "image4":
-            case "Write":return img`
-. 1 1 1 1 1 1 . 
-1 2 2 2 2 2 2 1 
-1 1 1 1 1 1 1 1 
-1 3 3 3 3 1 a 1 
-1 1 1 1 1 1 d 1 
-1 7 7 7 7 1 b 1 
-. 1 1 1 1 1 1 b 
-. . . . . . . b 
-`;
             case "image23":
             case "WebSend":return img`
 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -583,17 +572,6 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 2 1 7 1 5 9 9 2 
 2 2 2 2 2 2 2 2 
 `;
-            case "image7":
-            case "Settings":return img`
-1 d . 1 d . 1 d 
-d d 1 d 1 1 d d 
-. 1 1 1 d d 1 . 
-1 d 1 . . d 1 d 
-d 1 d . . d d d 
-. 1 d d d d 1 . 
-1 d 1 1 d 1 1 d 
-d d . d d . d d 
-`;
             case "image8":
             case "File Manager":return img`
 b b b . . . . . 
@@ -604,6 +582,28 @@ b b b b b b b b
 b b b b b b b b 
 b b b b b b b b 
 6 6 6 6 6 6 6 6 
+`;
+            case "image7":
+            case "Settings":return img`
+. d d d d d d . 
+d d d d d d d d 
+d d e e e e d d 
+d d e d d e d d 
+d d e d d e d d 
+d d e e e e d d 
+d d d d d d d d 
+. d d d d d d . 
+`;
+            case "image4":
+            case "Write":return img`
+. . e d d e . . 
+3 3 d e e d 3 3 
+3 1 1 1 1 1 1 3 
+3 1 f e d e 1 3 
+3 1 1 1 1 1 1 3 
+3 1 d e f d 1 3 
+3 1 1 1 1 1 1 3 
+3 1 d f e d 1 3 
 `;
         }
         return null;

@@ -63,14 +63,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Wallpaper - Strings"
     },
-    "myImages.image4": {
-        "id": "myImages.image4",
-        "data": "hwQIAAgAAAAQEREAITFxASExcQEhMXEBITFxASEREQEhob0BEBERuw==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Write"
-    },
     "myImages.image23": {
         "id": "myImages.image23",
         "data": "hwQMAAwAAAAiIiIiIiIAACLf3d3dIgAA0t4REREuAADS4R0RES4AANIR3hERLgAA0hGhGhEuAADSEaEaES4AANIR3hHRLgAA0uEdEdEuAADS3hER3S4AACLf3e3uIgAAIiIiIiIiAAA=",
@@ -127,14 +119,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Library_icon"
     },
-    "myImages.image7": {
-        "id": "myImages.image7",
-        "data": "hwQIAAgAAADREA3R3dER3RAR3QHRAdDRHQ3Q3RDd3QHRER3R3dAN3Q==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Settings"
-    },
     "myImages.image8": {
         "id": "myImages.image8",
         "data": "hwQIAAgAAAC7u7tru7u7a7u7u2ugu7trMLu7ayC7u2tAu7trULu7aw==",
@@ -142,5 +126,21 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "File Manager"
+    },
+    "myImages.image7": {
+        "id": "myImages.image7",
+        "data": "hwQIAAgAAADQ3d0N3d3d3d3u7t3d3u3d3d7t3d3u7t3d3d3d0N3dDQ==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Settings"
+    },
+    "myImages.image4": {
+        "id": "myImages.image4",
+        "data": "hwQIAAgAAAAwMzMzMBEREd7x0dHt4eHx7dHx4d7h0dEwERERMDMzMw==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Write"
     }
 }
