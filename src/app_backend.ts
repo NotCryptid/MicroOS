@@ -385,13 +385,13 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             deleteAllUserFiles()
                             break
                         case 3:
-                            Settings = "1100000"
+                            Settings = defaultSettings
                             settings.writeString("settings", Settings)
                             game.reset()
                             break
                         case 4:
                             deleteAllUserFiles()
-                            Settings = "1100000"
+                            Settings = defaultSettings
                             settings.writeString("settings", Settings)
                             settings.writeString("Username", "User")
                             settings.writeString("RoomCode", "12345678")
