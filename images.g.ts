@@ -3,17 +3,6 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "image7":
-            case "Settings":return img`
-. d d d d d d . 
-d d d d d d d d 
-d d e e e e d d 
-d d e d d e d d 
-d d e d d e d d 
-d d e e e e d d 
-d d d d d d d d 
-. d d d d d d . 
-`;
             case "image8":
             case "File Manager":return img`
 b b b a a a 9 9 
@@ -604,6 +593,17 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 8 4 4 4 4 4 4 b 
 . 4 4 4 4 4 c . 
 . . c c c c . . 
+`;
+            case "image7":
+            case "Settings":return img`
+d d . d e . 1 d 
+e d d d e 1 d e 
+. e e e d d e . 
+d d e . . d d d 
+e e d . . 1 e e 
+. 1 d d 1 1 d . 
+1 d e d e e d d 
+d e . d e . e d 
 `;
         }
         return null;

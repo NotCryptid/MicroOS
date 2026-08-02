@@ -1,12 +1,4 @@
 {
-    "myImages.image7": {
-        "id": "myImages.image7",
-        "data": "hwQIAAgAAADQ3d0N3d3d3d3u7t3d3u3d3d7t3d3u7t3d3d3d0N3dDQ==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Settings"
-    },
     "myImages.image8": {
         "id": "myImages.image8",
         "data": "hwQIAAgAAAC7u7u7u7u7u7u7u7uqu7u7qru7u6q7u7uZu7u7mbu7uw==",
@@ -142,5 +134,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Web Chat"
+    },
+    "myImages.image7": {
+        "id": "myImages.image7",
+        "data": "hwQIAAgAAADt0A7R3d4e7dDu3Q7dDtDd7g0Q7hDdEQ7R3t7t7dAO3Q==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Settings"
     }
 }
