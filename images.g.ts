@@ -43,17 +43,6 @@ e f 3 a 9 c f e
 e f f f f f f e 
 e e e e e e e e 
 `;
-            case "image17":
-            case "Library_icon":return img`
-2 2 2 2 2 2 2 2 
-2 a a a 3 3 b 2 
-2 a 1 a b b 3 2 
-2 1 a 1 3 b 3 2 
-2 7 7 7 6 9 9 2 
-2 1 1 7 9 6 9 2 
-2 1 7 1 6 9 9 2 
-2 2 2 2 2 2 2 2 
-`;
             case "image5":
             case "NanoCode":return img`
 f f f f f f f f 
@@ -470,17 +459,6 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 2 2 e e e e e e e e 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 
 `;
-            case "image3":
-            case "xCell":return img`
-6 6 6 6 6 1 1 1 
-6 6 6 6 6 1 f f 
-6 1 6 1 6 1 1 1 
-6 6 1 6 6 1 f 1 
-6 1 6 1 6 f 1 f 
-6 6 6 6 6 1 1 1 
-6 6 6 6 6 1 f f 
-6 6 6 6 6 1 1 1 
-`;
             case "image24":
             case "scrollBar":return img`
 .99999.
@@ -596,14 +574,36 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 `;
             case "image7":
             case "Settings":return img`
-d d . d e . 1 d 
+d d f d e f 1 d 
 e d d d e 1 d e 
-. e e e d d e . 
-d d e . . d d d 
-e e d . . 1 e e 
-. 1 d d 1 1 d . 
+f e e e d d e f 
+d d e f f d d d 
+e e d f f 1 e e 
+f 1 d d 1 1 d f 
 1 d e d e e d d 
-d e . d e . e d 
+d e f d e f e d 
+`;
+            case "image3":
+            case "xCell":return img`
+5 5 5 5 5 1 1 1 
+5 5 5 5 5 1 f f 
+5 1 5 1 5 1 1 1 
+5 5 1 5 5 1 f 1 
+5 1 5 1 5 f 1 f 
+5 5 5 5 5 1 1 1 
+5 5 5 5 5 1 f f 
+5 5 5 5 5 1 1 1 
+`;
+            case "image17":
+            case "Library_icon":return img`
+2 2 2 2 2 2 2 2 
+2 a a a 3 3 b 2 
+2 a 1 a b b 3 2 
+2 1 a 1 3 b 3 2 
+2 7 7 7 5 9 9 2 
+2 1 1 7 9 5 9 2 
+2 1 7 1 5 9 9 2 
+2 2 2 2 2 2 2 2 
 `;
         }
         return null;

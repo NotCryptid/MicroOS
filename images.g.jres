@@ -31,14 +31,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Process Manager"
     },
-    "myImages.image17": {
-        "id": "myImages.image17",
-        "data": "hwQIAAgAAAAiIiIiohoXIaKhFyeiGnchMjuWJjK7aSmyM5kpIiIiIg==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Library_icon"
-    },
     "myImages.image5": {
         "id": "myImages.image5",
         "data": "hwQIAAgAAAD/LyIiHy8RIR8vISL/LxIhH/8iIh//8fEfH/Hx/////w==",
@@ -95,14 +87,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "WebSend"
     },
-    "myImages.image3": {
-        "id": "myImages.image3",
-        "data": "hwQIAAgAAABmZmZmZmFhZmYWZmZmYWFmZmZmZhERHxHx8REf8REfHw==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "xCell"
-    },
     "myImages.image24": {
         "id": "myImages.image24",
         "data": "hwQHAE4AAACQmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQkAmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZAJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQCZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZkAmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZAJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQCQmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQkA",
@@ -137,10 +121,26 @@
     },
     "myImages.image7": {
         "id": "myImages.image7",
-        "data": "hwQIAAgAAADt0A7R3d4e7dDu3Q7dDtDd7g0Q7hDdEQ7R3t7t7dAO3Q==",
+        "data": "hwQIAAgAAADt3/7R3d4e7d/u3f7d/t/d7v0f7h/dEf7R3t7t7d/+3Q==",
         "dataEncoding": "base64",
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Settings"
+    },
+    "myImages.image3": {
+        "id": "myImages.image3",
+        "data": "hwQIAAgAAABVVVVVVVFRVVUVVVVVUVFVVVVVVRERHxHx8REf8REfHw==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "xCell"
+    },
+    "myImages.image17": {
+        "id": "myImages.image17",
+        "data": "hwQIAAgAAAAiIiIiohoXIaKhFyeiGnchMjuVJTK7WSmyM5kpIiIiIg==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Library_icon"
     }
 }
