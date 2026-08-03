@@ -154,7 +154,14 @@ function handleScrollArrowClick(): boolean {
     if (isDestroyed(scrollBar) || !(Mouse_Cursor.overlapsWith(ArrowDown) || Mouse_Cursor.overlapsWith(ArrowUp))) {
         return false
     }
-    if (Mouse_Cursor.overlapsWith(ArrowDown)) {
+    scrollListByRow(Mouse_Cursor.overlapsWith(ArrowDown))
+    return true
+}
+
+// MARK: Scroll List By One Row
+// Shared by the arrow-click and wheel-scroll paths.
+function scrollListByRow(down: boolean) {
+    if (down) {
         if (ListMenuContents.length > visibleRows) {
             let item = ListMenuContents.shift();
             if (item !== undefined) {
@@ -162,7 +169,7 @@ function handleScrollArrowClick(): boolean {
                 List_Scroll++;
             }
         }
-    } else if (Mouse_Cursor.overlapsWith(ArrowUp)) {
+    } else {
         if (List_Scroll > 0 && ListMenuGUIHidden.length > 0) {
             let item = ListMenuGUIHidden.pop();
             if (item !== undefined) {
@@ -172,7 +179,16 @@ function handleScrollArrowClick(): boolean {
         }
     }
     refreshScrollableListGUI()
-    return true
+}
+
+// MARK: VM Mouse Wheel Scroll
+if (isVM) {
+    browserEvents.onWheel(function (dx: number, dy: number, dz: number) {
+        if (isDestroyed(scrollBar) || dy == 0) {
+            return
+        }
+        scrollListByRow(dy > 0)
+    })
 }
 
 // MARK: Refresh Scrollable List GUI
