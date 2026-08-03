@@ -1,7 +1,6 @@
 // MARK: NanoSDK Compiler
 
 function compile_nanosdk_code(source: string): string {
-
     // MARK: Pass 1 - :BLW resolution
     // LOP :BLW is special — we do NOT join it here, instead we handle it
     // in the body pass so we can keep the IFB line separate for parsing.
@@ -22,6 +21,7 @@ function compile_nanosdk_code(source: string): string {
     }
 
     // MARK: Pass 2 - Header
+    if (lines.length < 4) { return null }
     let t0 = lines[0].split(" "); let t1 = lines[1].split(" ")
     let t2 = lines[2].split(" "); let t3 = lines[3].split(" ")
     let hdr = [t0.slice(1).join(" "), nsc_compile_icon(t1.slice(1).join(" ")), t2.slice(1).join(" "), t3[1]]
@@ -56,15 +56,19 @@ function compile_nanosdk_code(source: string): string {
             // MARK: Logic — IFB and WHN share the same condition encoding
             case "IFB":
             case "WHN": {
+                if (a.length == 0) { break }
                 let pfx = cmd == "IFB" ? "201" : "401"
                 let ac = a[0].toLowerCase()
                 switch (ac) {
                     case "end": out.push(pfx + "§e"); continue
                     case "els": out.push(pfx + "§l"); continue
-                    case "var": out.push(pfx + "§v§" + a[1] + "§" + nsc_cmp(a[2]) + "§" + a.slice(3).join(" ")); continue
-                    case "btn": out.push(pfx + "§b§" + nsc_btn(a[1]) + "§" + nsc_bs(a[2])); continue
-                    case "spr": out.push(pfx + "§s§" + a[1] + "§" + (a[2].toLowerCase() == "tch" ? "tch" : nsc_cmp(a[2])) + "§" + a.slice(3).join(" ")); continue
-                    case "sel": if (cmd == "WHN") { out.push("401§sel§" + nsc_pad(a[1])); continue }
+                    case "var": if (a.length < 3) { break }
+                        out.push(pfx + "§v§" + a[1] + "§" + nsc_cmp(a[2]) + "§" + a.slice(3).join(" ")); continue
+                    case "btn": if (a.length < 3) { break }
+                        out.push(pfx + "§b§" + nsc_btn(a[1]) + "§" + nsc_bs(a[2])); continue
+                    case "spr": if (a.length < 3) { break }
+                        out.push(pfx + "§s§" + a[1] + "§" + (a[2].toLowerCase() == "tch" ? "tch" : nsc_cmp(a[2])) + "§" + a.slice(3).join(" ")); continue
+                    case "sel": if (cmd == "WHN" && a.length >= 2) { out.push("401§sel§" + nsc_pad(a[1])); continue }
                 }
                 break
             }
@@ -85,11 +89,11 @@ function compile_nanosdk_code(source: string): string {
                             let ca = ctk.slice(2)
                             let condStr = ""
                             switch (cac) {
-                                case "btn": condStr = "b§" + nsc_btn(ca[0]) + "§" + nsc_bs(ca[1]); break
-                                case "var": condStr = "v§" + ca[0] + "§" + nsc_cmp(ca[1]) + "§" + ca.slice(2).join(" "); break
-                                case "spr": condStr = "s§" + ca[0] + "§" + (ca[1].toLowerCase() == "tch" ? "tch" : nsc_cmp(ca[1])) + "§" + ca.slice(2).join(" "); break
+                                case "btn": if (ca.length >= 2) { condStr = "b§" + nsc_btn(ca[0]) + "§" + nsc_bs(ca[1]) }; break
+                                case "var": if (ca.length >= 2) { condStr = "v§" + ca[0] + "§" + nsc_cmp(ca[1]) + "§" + ca.slice(2).join(" ") }; break
+                                case "spr": if (ca.length >= 2) { condStr = "s§" + ca[0] + "§" + (ca[1].toLowerCase() == "tch" ? "tch" : nsc_cmp(ca[1])) + "§" + ca.slice(2).join(" ") }; break
                             }
-                            out.push("202§BLW§" + condStr)
+                            if (condStr != "") { out.push("202§BLW§" + condStr) }
                         }
                         continue
                     }
@@ -103,29 +107,42 @@ function compile_nanosdk_code(source: string): string {
                 let enc = p == "ful" ? "f" : p == "scl" ? "s" : ""
                 out.push(enc ? "301§" + enc : "301"); continue
             }
-            case "LGP": out.push("302§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "LGD": out.push("303§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "LGO": lgoN = parseInt(a[0].toLowerCase().substr(3)); lgoA = []; continue
-            case "LGS": out.push("305§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
-            case "LGV": out.push("306§" + nsc_pad(a[0]) + "§" + a[1]); continue
-            case "LGR": out.push("307§" + nsc_pad(a[0])); continue
+            case "LGP": if (a.length < 2) { break }
+                out.push("302§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
+            case "LGD": if (a.length < 2) { break }
+                out.push("303§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
+            case "LGO": if (a.length < 1) { break }
+                lgoN = parseInt(a[0].toLowerCase().substr(3)); lgoA = []; continue
+            case "LGS": if (a.length < 1) { break }
+                out.push("305§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
+            case "LGV": if (a.length < 2) { break }
+                out.push("306§" + nsc_pad(a[0]) + "§" + a[1]); continue
+            case "LGR": if (a.length < 1) { break }
+                out.push("307§" + nsc_pad(a[0])); continue
             case "DLG": out.push("308"); continue
             case "LGH": {
+                if (a.length < 1) { break }
                 let m = a[0].toLowerCase()
                 out.push("309§" + (m == "off" ? "o" : m == "auto" ? "a" : parseInt(m).toString())); continue
             }
-            case "LGT": out.push("310§" + a[0].toLowerCase()); continue
+            case "LGT": if (a.length < 1) { break }
+                out.push("310§" + a[0].toLowerCase()); continue
             case "LSB": {
+                if (a.length < 1) { break }
                 let m = a[0].toLowerCase()
                 out.push("311§" + (m == "on" ? "t" : "f")); continue
             }
 
 
             // MARK: Variables
-            case "DVR": out.push("501§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "SVR": out.push("502§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "VRM": out.push("503§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1]) + "§" + nsc_pad(a[2])); continue
-            case "VCJ": out.push("504§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
+            case "DVR": if (a.length < 2) { break }
+                out.push("501§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
+            case "SVR": if (a.length < 2) { break }
+                out.push("502§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
+            case "VRM": if (a.length < 3) { break }
+                out.push("503§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1]) + "§" + nsc_pad(a[2])); continue
+            case "VCJ": if (a.length < 1) { break }
+                out.push("504§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
         }
 
         out.push("000") // unknown — no-op passthrough

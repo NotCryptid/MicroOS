@@ -1,28 +1,30 @@
 // MARK: VM Mouse Button Loop
-// VM Stuff (COMMENT OUT WHEN BUILDING FOR HARDWARE, THIS USES SO MUCH CPU CYCLES OMG)
-forever(function () {
-    if (browserEvents.MouseLeft.isPressed()) {
-        if (isOverScrollBarThumb()) {
-            beginScrollBarDrag()
-            while (browserEvents.MouseLeft.isPressed()) {
-                updateScrollBarDrag()
-                pause(10)
+if (isVM) {
+    forever(function () {
+        if (browserEvents.MouseLeft.isPressed()) {
+            if (isOverScrollBarThumb()) {
+                beginScrollBarDrag()
+                while (browserEvents.MouseLeft.isPressed()) {
+                    updateScrollBarDrag()
+                    pause(10)
+                }
+                endScrollBarDrag()
+            } else {
+                MouseClick(1)
+                while (browserEvents.MouseLeft.isPressed()) {
+                    pause(10)
+                }
             }
-            endScrollBarDrag()
-        } else {
-            MouseClick(1)
-            while (browserEvents.MouseLeft.isPressed()) {
+        }
+        if (browserEvents.MouseRight.isPressed()) {
+            MouseClick(2)
+            while (browserEvents.MouseRight.isPressed()) {
                 pause(10)
             }
         }
-    }
-    if (browserEvents.MouseRight.isPressed()) {
-        MouseClick(2)
-        while (browserEvents.MouseRight.isPressed()) {
-            pause(10)
-        }
-    }
-})
+        pause(10)
+    })
+}
 
 // MARK: A Button
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -340,6 +342,10 @@ function handleNanoCodeWriteToolbarClick() {
             .filter(t => t !== " ")
             .join("~")
         const compiled = compile_nanosdk_code(serialized)
+        if (compiled == null) {
+            softerror(114)
+            return
+        }
         const nsaKey = fileKey("nsa", newName)
         if (!hasStorageSpaceFor(nsaKey, compiled)) {
             softerror(113)

@@ -499,7 +499,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 4:
                             if (microUtilities.isMicrobit()) {
                                 changeSettings(7)
-                                ListMenuContents[4] = Current_Settings[7]
+                                ListMenuContents[3] = Current_Settings[7]
                             }
                             break
                     }

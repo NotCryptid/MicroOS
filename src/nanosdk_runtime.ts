@@ -492,13 +492,21 @@ function nanoSDK_run_line() {
                     }
                     Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
                     break
-                case "05":
-                    menu_array[parseInt(nanoSDK_resolve_vars(command_data[1]))] = microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[2]))
-                    Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+                case "05": {
+                    let lgsIndex = parseInt(nanoSDK_resolve_vars(command_data[1]))
+                    if (lgsIndex >= 0 && lgsIndex < menu_array.length) {
+                        menu_array[lgsIndex] = microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[2]))
+                        Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+                    }
                     break
-                case "06":
-                    variables[command_data[2]] = menu_array[parseInt(command_data[1])].text
+                }
+                case "06": {
+                    let lgvIndex = parseInt(command_data[1])
+                    if (lgvIndex >= 0 && lgvIndex < menu_array.length) {
+                        variables[command_data[2]] = menu_array[lgvIndex].text
+                    }
                     break
+                }
                 case "07":
                     menu_array.splice(parseInt(command_data[1]), 1)
                     Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
