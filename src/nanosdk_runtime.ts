@@ -15,7 +15,7 @@ function Reload_ListGUI(data: microUtilities.MenuItem[], x: number, y: number, w
 // MARK: ListGUI Theme
 function nanoSDK_apply_theme(mode: string) {
     let dark = mode == "d" || (mode == "m" && darkMode)
-    ListMenuGUI.setColors(1, 15, dark ? 15 : 1, dark ? 1 : 15)
+    ListMenuGUI.setColors(dark ? 1 : 15, dark ? 15 : 1, dark ? 15 : 1, dark ? 1 : 15)
 }
 
 // MARK: ListGUI Scroll Bar
@@ -39,7 +39,7 @@ let loop_condition: string[][] = [] // stores condition params for conditional l
 let menu_array: microUtilities.MenuItem[] = []
 let menu_data = [80, 58, 160, 97]
 let nanoSDK_hover_highlight = false
-let nanoSDK_theme = "l"
+let nanoSDK_theme = "m"
 let nanoSDK_scrollbar = false
 
 // WHN (When) registry
@@ -102,7 +102,7 @@ function Open_NanoSDK_App(app_binary: string) {
     menu_array = []
     menu_data = [80, 58, 160, 97]
     nanoSDK_hover_highlight = false
-    nanoSDK_theme = "l"
+    nanoSDK_theme = "m"
     nanoSDK_scrollbar = false
     when_cond_data = []
     when_ranges = []
