@@ -10,6 +10,7 @@ browserEvents.onMouseMove(function (x: number, y: number) {
 forever(function () {
     // Don't set this pause to anything above 25 or you will get a seizure 
     pause(10)
+    updateAppIndicator()
     Start_Icon_Names()
     if (App_Open == "App Library") {
         Start_Library_Icon_Names()
@@ -147,6 +148,8 @@ function Start_Icon_Names() {
         Process_Icon.sayText("Process Manager", 50, false, color24, otherColor)
     } else if (Mouse_Cursor.overlapsWith(Library_icon)) {
         Library_icon.sayText(".    Library", 50, false, color24, otherColor)
+    } else if (!isDestroyed(NanoSDK_Taskbar_Icon) && Mouse_Cursor.overlapsWith(NanoSDK_Taskbar_Icon)) {
+        NanoSDK_Taskbar_Icon.sayText(NanoSDK_Taskbar_Name, 50, false, color24, otherColor)
     }
 }
 

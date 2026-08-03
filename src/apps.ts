@@ -48,9 +48,9 @@ function Open_Library() {
     Library_Icons = []
     Library_Icon_Names = []
     Library_Icon_Files = []
-    const libColumns = 6
+    const libColumns = 10
     const libRows = 6
-    const libStartX = 17
+    const libStartX = 21
     const libStartY = 21
     const libSpacingX = 13
     const libSpacingY = 13

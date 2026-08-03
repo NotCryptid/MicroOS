@@ -26,6 +26,9 @@ let File_Manager_Icon: Sprite = null
 let Process_Icon: Sprite = null
 let Settings_Icon: Sprite = null
 let Web_Chat_Icon: Sprite = null
+let NanoSDK_Taskbar_Icon: Sprite = null
+let NanoSDK_Taskbar_Name: string = ""
+let AppIndicator: Sprite = null
 let visibleRows: number = 8
 let WEBmessage = ""
 let WebChatRemoveAttachment: Sprite = null
@@ -216,6 +219,44 @@ function generateTaskbar(primary: number = 7, accent: number = 8) {
     Taskbar = sprites.create(taskbarImg, SpriteKind.Desktop_UI)
     Taskbar.z = -11
     Taskbar.setPosition(80, 111)
+}
+
+// MARK: Active Taskbar Icon
+// Maps the currently open app to its taskbar icon sprite, if it has one.
+function getActiveTaskbarIcon(): Sprite {
+    if (!isDestroyed(NanoSDK_Taskbar_Icon)) {
+        return NanoSDK_Taskbar_Icon
+    }
+    switch (App_Open) {
+        case "App Library": return Library_icon
+        case "xCell": return xCell_Icon
+        case "Write": return Write_icon
+        case "NanoCode": return NanoCode_Icon
+        case "Web Chat": return Web_Chat_Icon
+        case "Settings": return Settings_Icon
+        case "File Manager": return File_Manager_Icon
+        case "Process Manager": return Process_Icon
+    }
+    return null
+}
+
+// MARK: Active App Indicator
+// Keeps a 2x1 white pixel positioned just below the taskbar icon of whichever app is currently open.
+function updateAppIndicator() {
+    const icon = getActiveTaskbarIcon()
+    if (icon == null || isDestroyed(icon)) {
+        if (!isDestroyed(AppIndicator)) {
+            AppIndicator.destroy()
+        }
+        return
+    }
+    if (isDestroyed(AppIndicator)) {
+        let indicatorImg = image.create(2, 1)
+        indicatorImg.fill(1)
+        AppIndicator = sprites.create(indicatorImg, SpriteKind.Desktop_UI)
+        AppIndicator.z = -9
+    }
+    AppIndicator.setPosition(icon.x, icon.y + 5)
 }
 
 // MARK: Soft Error

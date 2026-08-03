@@ -8,6 +8,9 @@ function close_apps () {
     NanoSDK_App_Running = false
     nanoSDK_hover_highlight = false
     open_document = null
+    if (!isDestroyed(NanoSDK_Taskbar_Icon)) {
+        NanoSDK_Taskbar_Icon.destroy()
+    }
     Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][parseInt(Settings.charAt(2), 10)]
     scene.setBackgroundImage(Wallpaper)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)

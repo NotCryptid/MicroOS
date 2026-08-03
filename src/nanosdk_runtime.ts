@@ -78,6 +78,12 @@ function Open_NanoSDK_App(app_binary: string) {
     NanoSDK_App_Running = true
     App_Open = binary[0]
     SubMenu = binary[2]
+    if (!isDestroyed(NanoSDK_Taskbar_Icon)) {
+        NanoSDK_Taskbar_Icon.destroy()
+    }
+    NanoSDK_Taskbar_Icon = sprites.create(nanoSDK_decode_icon(binary[1]), SpriteKind.Desktop_UI)
+    NanoSDK_Taskbar_Icon.setPosition(92, 111)
+    NanoSDK_Taskbar_Name = binary[0]
     createAppBar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
     Close_App.setPosition(156, 5)
