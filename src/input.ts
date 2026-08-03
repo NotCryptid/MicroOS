@@ -2,9 +2,18 @@
 // VM Stuff (COMMENT OUT WHEN BUILDING FOR HARDWARE, THIS USES SO MUCH CPU CYCLES OMG)
 forever(function () {
     if (browserEvents.MouseLeft.isPressed()) {
-        MouseClick(1)
-        while (browserEvents.MouseLeft.isPressed()) {
-            pause(10)
+        if (isOverScrollBarThumb()) {
+            beginScrollBarDrag()
+            while (browserEvents.MouseLeft.isPressed()) {
+                updateScrollBarDrag()
+                pause(10)
+            }
+            endScrollBarDrag()
+        } else {
+            MouseClick(1)
+            while (browserEvents.MouseLeft.isPressed()) {
+                pause(10)
+            }
         }
     }
     if (browserEvents.MouseRight.isPressed()) {
@@ -17,7 +26,17 @@ forever(function () {
 
 // MARK: A Button
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (isVM) {} else {MouseClick(1)}
+    if (isVM) { return }
+    if (isOverScrollBarThumb()) {
+        beginScrollBarDrag()
+        while (controller.A.isPressed()) {
+            updateScrollBarDrag()
+            pause(10)
+        }
+        endScrollBarDrag()
+    } else {
+        MouseClick(1)
+    }
 })
 
 // MARK: B Button
@@ -150,6 +169,13 @@ function handleScrollArrowClick(): boolean {
             }
         }
     }
+    refreshScrollableListGUI()
+    return true
+}
+
+// MARK: Refresh Scrollable List GUI
+// Shared by the arrow-click and scrollbar-drag scroll paths.
+function refreshScrollableListGUI() {
     if (App_Open == "NanoCode") {
         reloadListGUI(76, 64, 151, 84, true);
         updateScrollBar(visibleRows, true);
@@ -166,7 +192,78 @@ function handleScrollArrowClick(): boolean {
         reloadListGUI(76, 58, 151, 97, darkMode);
         updateScrollBar(visibleRows, darkMode);
     }
-    return true
+}
+
+// MARK: ScrollBar Track Bottom For Current App
+// Keep in sync with the trackBottom values used in refreshScrollableListGUI.
+function scrollBarTrackBottomForCurrentApp(): number {
+    return App_Open == "Web Chat" ? 82 : 95
+}
+
+// MARK: ScrollBar Drag Start
+// Returns true if the mouse is over the scrollbar thumb and there's a
+// scrollable list app open.
+function isOverScrollBarThumb(): boolean {
+    return !isDestroyed(scrollBar) && !isDestroyed(Mouse_Cursor) && Mouse_Cursor.overlapsWith(scrollBar)
+}
+
+function beginScrollBarDrag() {
+    scrollBarDragging = true
+    scrollBarDragStartY = Mouse_Cursor.y
+    scrollBarDragStartScroll = List_Scroll
+}
+
+function endScrollBarDrag() {
+    scrollBarDragging = false
+}
+
+// MARK: ScrollBar Drag Update
+// Moves items between ListMenuContents / ListMenuGUIHidden to track the
+// mouse's vertical offset from where the drag started, mirroring how
+// updateScrollBar maps List_Scroll to a thumb position.
+function updateScrollBarDrag() {
+    if (isDestroyed(scrollBar)) {
+        return
+    }
+    const totalItems = ListMenuContents.length + ListMenuGUIHidden.length
+    const maxScroll = totalItems - visibleRows
+    if (maxScroll <= 0) {
+        return
+    }
+
+    const trackTop = 19
+    const trackBottom = scrollBarTrackBottomForCurrentApp()
+    const trackHeight = trackBottom - trackTop
+    let scrollBarHeight = totalItems <= visibleRows
+        ? trackHeight
+        : Math.max(5, Math.floor((visibleRows / totalItems) * trackHeight))
+    if (totalItems > visibleRows && scrollBarHeight % 2 == 0) { scrollBarHeight-- }
+    const travelDistance = trackHeight - scrollBarHeight
+    if (travelDistance <= 0) {
+        return
+    }
+
+    const deltaY = Mouse_Cursor.y - scrollBarDragStartY
+    const deltaScroll = Math.round(deltaY * maxScroll / travelDistance)
+    const target = Math.max(0, Math.min(maxScroll, scrollBarDragStartScroll + deltaScroll))
+    if (target == List_Scroll) {
+        return
+    }
+
+    while (List_Scroll < target && ListMenuContents.length > visibleRows) {
+        let item = ListMenuContents.shift()
+        if (item === undefined) { break }
+        ListMenuGUIHidden.push(item)
+        List_Scroll++
+    }
+    while (List_Scroll > target && ListMenuGUIHidden.length > 0) {
+        let item = ListMenuGUIHidden.pop()
+        if (item === undefined) { break }
+        ListMenuContents.unshift(item)
+        List_Scroll--
+    }
+
+    refreshScrollableListGUI()
 }
 
 // MARK: File Manager / Settings Click
@@ -203,21 +300,27 @@ function handleNanoCodeWriteClick(button: number) {
                 if (ListMenuContents[ListMenuContents.length - 1].text !== " ") {
                     ListMenuContents.push(microUtilities.createMenuItem(" "))
                 }
-                if (App_Open == "NanoCode") {
-                    reloadListGUI(76, 63, 151, 84, true);
-                    updateScrollBar(7, true);
-                } else {
-                    reloadListGUI(76, 63, 151, 84, darkMode);
-                    updateScrollBar(7, darkMode);
-                }
+                refreshNanoCodeWriteListGUI()
                 break;
-            } else if (button == 2 && App_Open == "Write" && ListMenuContents[i - 1] != null) {
+            } else if (button == 2 && (App_Open == "Write" || App_Open == "NanoCode") && ListMenuContents[i - 1] != null) {
                 writeRclickRow = i - 1
                 current_rclick_menu = [microUtilities.createMenuItem("Copy"), microUtilities.createMenuItem("Paste"), microUtilities.createMenuItem("Clear")]
                 openRightClickMenu()
                 break;
             }
         }
+    }
+}
+
+// MARK: Refresh NanoCode / Write List GUI
+// Shared by line-edit and copy/paste/clear row actions.
+function refreshNanoCodeWriteListGUI() {
+    if (App_Open == "NanoCode") {
+        reloadListGUI(76, 63, 151, 84, true);
+        updateScrollBar(7, true);
+    } else {
+        reloadListGUI(76, 63, 151, 84, darkMode);
+        updateScrollBar(7, darkMode);
     }
 }
 

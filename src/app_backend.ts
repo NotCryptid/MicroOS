@@ -130,7 +130,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             settings.writeString(newKey, newContent)
                             User_Files.push(microUtilities.createMenuItem(newName + "." + fileType))
                             settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                            Open_FileManager("User")
+                            Open_FileManager("User", null, true)
                         } else if (action === "rclick1") {
                             if (clipboardName != "" && clipboardExt != "") {
                                 const sourceContent = settings.readString(fileKey(clipboardExt, clipboardName))
@@ -150,7 +150,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
                                 clipboardName = ""
                                 clipboardExt = ""
-                                Open_FileManager("User")
+                                Open_FileManager("User", null, true)
                             }
                         }
                     } else if (action !== "rclick") {
@@ -194,7 +194,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                     settings.remove(oldKey)
                                     User_Files[globalFileIndex] = microUtilities.createMenuItem(newName + "." + FileOpened[1])
                                     settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                                    Open_FileManager("User")
+                                    Open_FileManager("User", null, true)
                                 } else {
                                     softerror(110)
                                 }
@@ -214,7 +214,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 settings.remove(fileKey(FileOpened[1], FileOpened[0]))
                                 User_Files.splice(globalFileIndex, 1)
                                 settings.writeString("file_names", JSON.stringify(User_Files.map(item => item.text)))
-                                Open_FileManager("User")
+                                Open_FileManager("User", null, true)
                                 break
                         }
                     } else {
@@ -573,7 +573,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
             }
             break
         }
-        // MARK: Write
+        // MARK: NanoCode / Write
+        case "NanoCode":
         case "Write": {
             if (writeRclickRow < 0 || writeRclickRow >= ListMenuContents.length) { break }
             switch (action) {
@@ -586,14 +587,12 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         if (ListMenuContents[ListMenuContents.length - 1].text !== " ") {
                             ListMenuContents.push(microUtilities.createMenuItem(" "))
                         }
-                        reloadListGUI(76, 63, 151, 84, darkMode)
-                        updateScrollBar(7, darkMode)
+                        refreshNanoCodeWriteListGUI()
                     }
                     break
                 case "rclick2":
                     ListMenuContents[writeRclickRow] = microUtilities.createMenuItem("")
-                    reloadListGUI(76, 63, 151, 84, darkMode)
-                    updateScrollBar(7, darkMode)
+                    refreshNanoCodeWriteListGUI()
                     break
             }
             break

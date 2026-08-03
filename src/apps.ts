@@ -207,10 +207,11 @@ function Open_NanoCode(project: string = null, file_name: string = null) {
 }
 
 // MARK: Open File Manager
-function Open_FileManager(submenu: string = "Home", file: string = null) {
+function Open_FileManager(submenu: string = "Home", file: string = null, preserveScroll: boolean = false) {
     close_apps()
     App_Open = "File Manager"
     SubMenu = submenu
+    const scrollToRestore = preserveScroll ? List_Scroll : 0
     List_Scroll = 0
     ListMenuGUIHidden = []
     createAppBar(0)
@@ -229,6 +230,12 @@ function Open_FileManager(submenu: string = "Home", file: string = null) {
         ListMenuContents = [microUtilities.createMenuItem("Details"), microUtilities.createMenuItem("Name: " + name), microUtilities.createMenuItem("Type: " + extension + " file"), microUtilities.createMenuItem("Size: " + sizeBytes + " bytes"), microUtilities.createMenuItem(" "), microUtilities.createMenuItem(" "), microUtilities.createMenuItem(" "), microUtilities.createMenuItem("Back")]
     } else {
         ListMenuContents = [microUtilities.createMenuItem("System"), microUtilities.createMenuItem("User Files")]
+    }
+    while (List_Scroll < scrollToRestore && ListMenuContents.length > visibleRows) {
+        let item = ListMenuContents.shift()
+        if (item === undefined) { break }
+        ListMenuGUIHidden.push(item)
+        List_Scroll++
     }
     ListMenuGUI = microUtilities.createMenuFromArray(ListMenuContents)
     ListMenuGUI.setDimensions(151, 97)
