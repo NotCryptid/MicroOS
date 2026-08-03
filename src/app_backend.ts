@@ -459,7 +459,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                         case 3:
                             ListMenuContents = [
-                                microUtilities.createMenuItem("Back"),
+                                microUtilities.createMenuItem("Back")
                                 // make something here later
                             ]
                             SubMenu = "NanoCode Settings"
