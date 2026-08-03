@@ -167,7 +167,7 @@ function nanoSDK_check_when(idx: number): boolean {
         // MARK: When Variable
         case "v": {
             let val = variables[cond[1]] != null ? variables[cond[1]] : cond[1]
-            let target = cond[3]
+            let target = nanoSDK_resolve_vars(cond[3])
             let op = cond[2]
             switch (op) {
                 case "=": return val == target
@@ -322,7 +322,7 @@ function nanoSDK_run_line() {
                     case "v": {
                         // IFB var
                         let lhs = variables[command_data[2]] != null ? variables[command_data[2]] : command_data[2]
-                        let rhs = command_data[4]
+                        let rhs = nanoSDK_resolve_vars(command_data[4])
                         let met = false
                         switch (command_data[3]) {
                             case "=": met = lhs == rhs; break
@@ -378,7 +378,7 @@ function nanoSDK_run_line() {
                             }
                             case "v": {
                                 let lhs = variables[cond[1]] != null ? variables[cond[1]] : cond[1]
-                                let rhs = cond[3]
+                                let rhs = nanoSDK_resolve_vars(cond[3])
                                 switch (cond[2]) {
                                     case "=": met = lhs == rhs; break
                                     case ">": met = parseFloat(lhs) > parseFloat(rhs); break
@@ -493,7 +493,7 @@ function nanoSDK_run_line() {
                     Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
                     break
                 case "05":
-                    menu_array[parseInt(command_data[1])] = microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[2]))
+                    menu_array[parseInt(nanoSDK_resolve_vars(command_data[1]))] = microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[2]))
                     Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
                     break
                 case "06":
