@@ -57,5 +57,6 @@
         "#373737",
         "#000000"
     ],
+    "languageRestriction": "javascript-only",
     "disableTargetTemplateFiles": true
 }
