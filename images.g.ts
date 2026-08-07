@@ -575,17 +575,6 @@ b b b b b b b b
 b b b b b b b b 
 6 6 6 6 6 6 6 6 
 `;
-            case "image7":
-            case "Settings":return img`
-. d d d d d d . 
-d d d d d d d d 
-d d e e e e d d 
-d d e d d e d d 
-d d e d d e d d 
-d d e e e e d d 
-d d d d d d d d 
-. d d d d d d . 
-`;
             case "image4":
             case "Write":return img`
 . . e d d e . . 
@@ -604,6 +593,17 @@ f 1 1 1 f
 f 1 1 1 f 
 f 1 1 1 f 
 . f f f . 
+`;
+            case "image7":
+            case "Settings":return img`
+. . e e e e . . 
+. e d d d d e . 
+e d d e e d d e 
+e d e d d e d e 
+e d e d d e d e 
+e d d e e d d e 
+. e d d d d e . 
+. . e e e e . . 
 `;
         }
         return null;

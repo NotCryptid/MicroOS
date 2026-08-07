@@ -119,14 +119,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "File Manager"
     },
-    "myImages.image7": {
-        "id": "myImages.image7",
-        "data": "hwQIAAgAAADQ3d0N3d3d3d3u7t3d3u3d3d7t3d3u7t3d3d3d0N3dDQ==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Settings"
-    },
     "myImages.image4": {
         "id": "myImages.image4",
         "data": "hwQIAAgAAAAwMzMzMBEREd7x0dHt4eHx7dHx4d7h0dEwERERMDMzMw==",
@@ -142,5 +134,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Cursor"
+    },
+    "myImages.image7": {
+        "id": "myImages.image7",
+        "data": "hwQIAAgAAAAA7u4A4N3dDt7t3u3e3u3t3t7t7d7t3u3g3d0OAO7uAA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Settings"
     }
 }
