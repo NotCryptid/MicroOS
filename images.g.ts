@@ -632,9 +632,3 @@ e d d e e d d e
 
 }
 // Auto-generated code. Do not edit.
-
-// Auto-generated code. Do not edit.
-namespace myTiles {
-
-}
-// Auto-generated code. Do not edit.
