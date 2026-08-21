@@ -89,12 +89,14 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Settings"
     },
-    "myImages.image2": {
-        "id": "myImages.image2",
+    "image2": {
         "data": "hwQHAAcAAACwu7sAuxu7C7sbuwu7G7sLuxu7C7sbuwuwu7sA",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Minimize"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
     }
 }
