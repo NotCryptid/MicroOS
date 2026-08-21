@@ -6,6 +6,9 @@ namespace SpriteKind {
     export const App_UI = SpriteKind.create()
 }
 
+// MARK: OS Version
+const MicroOS_Version = "v1.1.0"
+
 // MARK: Is Destroyed
 function isDestroyed(sprite: Sprite): boolean {
     return !sprite || !!(sprite.flags & sprites.Flag.Destroyed)
@@ -87,7 +90,7 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 4.0.14", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading MicroOS v1.0.0", 0, 1)
+text = textsprite.create("> Loading MicroOS " + MicroOS_Version, 0, 1)
 text.setPosition(76, 26)
 
 const themes = [[7, 9, 2], [10, 9, 10], [5, 5, 5], [11, 10, 10], [1, 9, 9]]
