@@ -605,6 +605,16 @@ e d d e e d d e
 . e d d d d e . 
 . . e e e e . . 
 `;
+            case "image2":
+            case "Minimize":return img`
+. b b b b b . 
+b b b b b b b 
+b b b b b b b 
+b 1 1 1 1 1 b 
+b b b b b b b 
+b b b b b b b 
+. b b b b b . 
+`;
         }
         return null;
     })
