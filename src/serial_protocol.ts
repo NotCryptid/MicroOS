@@ -65,7 +65,7 @@ const SERIAL_SETTINGS_FIELDS = ["radioChannel", "wallpaper", "username", "showCl
 // ever shows up, TX itself (or the physical bridge) is the actual problem,
 // independent of anything the poll loop below does. Remove once USB serial
 // is confirmed working end-to-end.
-control.inBackground(function () {
+control.runInParallel(function () {
     let n = 0
     while (true) {
         pause(3000)
