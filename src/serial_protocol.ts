@@ -26,73 +26,12 @@ let serialRecvBuffer = ""
 // Username/RoomCode are their own string keys, not digits.
 const SERIAL_SETTINGS_FIELDS = ["radioChannel", "wallpaper", "username", "showClock", "roomCode", "darkMode", "theme", "indicator"]
 
-// MARK: Boot Diagnostic
-// TEMPORARY -- pinpoints, via the indicator LED alone, which USB-serial
-// backend actually got compiled into this build. isSerialSupported() being
-// false (poll loop below permanently no-ops) looks identical from a Web
-// Serial client's point of view to a genuine runtime failure in a backend
-// that IS compiled in, and there's no other way to tell those apart without
-// a debugger. Runs once at boot, before the poll loop starts ticking.
-// Remove once USB serial is confirmed working end-to-end.
-//   1 blink  = Arcade-on-micro:bit backend compiled in (expected on hw---n3)
-//   2 blinks = plain pxt-microbit target's uBit.serial compiled in
-//   solid 3s = no serial backend compiled in at all -- isSerialSupported()
-//              is false and everything below this point is a no-op
-;(function serialBootDiagnostic() {
-    const backend = microUtilities.serialBackend()
-    if (backend === 0) {
-        microUtilities.setPixel(0, 0, true)
-        pause(3000)
-        microUtilities.setPixel(0, 0, false)
-        return
-    }
-    const blinks = backend === 1 ? 1 : 2
-    for (let i = 0; i < blinks; i++) {
-        microUtilities.setPixel(0, 0, true)
-        pause(150)
-        microUtilities.setPixel(0, 0, false)
-        pause(150)
-    }
-})()
-
-// MARK: TX Diagnostic
-// TEMPORARY -- transmits an unsolicited line every 3s regardless of whether
-// anything was ever received, so TX can be tested in isolation from RX (and
-// from the request/response protocol entirely). Point a raw terminal at the
-// port and just wait: if "MICROOS-TX-TEST" lines show up, TX -- and by
-// extension the DAPLink USB-CDC bridge itself -- genuinely works, and the
-// fault is confined to RX or to handleSerialLine()'s dispatch. If nothing
-// ever shows up, TX itself (or the physical bridge) is the actual problem,
-// independent of anything the poll loop below does.
-//
-// rxTotal=<n> in the message is a *cumulative* count of raw bytes the poll
-// loop has ever pulled out of readSerialString() -- not a live snapshot,
-// since the 20ms poll loop would almost always have already drained
-// anything by the time this 3s heartbeat checked serialBytesAvailable()
-// itself. If rxTotal climbs after you send something, RX bytes genuinely
-// reach the firmware and the bug is in parsing/dispatch, not the buffer/HW.
-// If it stays at 0 forever no matter what's sent, RX itself (or the bridge)
-// never delivers anything. Remove all of this once USB serial is confirmed
-// working end-to-end.
-let serialRxTotalBytes = 0
-control.runInParallel(function () {
-    let n = 0
-    while (true) {
-        pause(3000)
-        if (!microUtilities.isSerialSupported()) continue
-        n += 1
-        microUtilities.writeSerialString("MICROOS-TX-TEST " + n + " rxTotal=" + serialRxTotalBytes + "\n")
-    }
-})
-
 // MARK: Poll Loop
 forever(function () {
     pause(20)
     if (!microUtilities.isSerialSupported()) return
     if (microUtilities.serialBytesAvailable() > 0) {
-        const chunk = microUtilities.readSerialString()
-        serialRxTotalBytes += chunk.length
-        serialRecvBuffer += chunk
+        serialRecvBuffer += microUtilities.readSerialString()
         if (serialRecvBuffer.length > SERIAL_MAX_LINE) {
             serialRecvBuffer = ""
             serialSendError(null, "line too long, buffer reset")
