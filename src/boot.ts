@@ -115,6 +115,10 @@ if (Settings == null || (controller.B.isPressed() && controller.up.isPressed()))
     Username = settings.readString("Username")
     RoomCode = settings.readString("RoomCode")
 }
+
+if (Settings.length < defaultSettings.length) { 
+    Settings = Settings + defaultSettings.slice(Settings.length);
+}
 webChatProtocol.setUsername(Username)
 webChatProtocol.setRoomCode(RoomCode)
 let darkMode = false
