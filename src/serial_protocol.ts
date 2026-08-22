@@ -55,6 +55,26 @@ const SERIAL_SETTINGS_FIELDS = ["radioChannel", "wallpaper", "username", "showCl
     }
 })()
 
+// MARK: TX Diagnostic
+// TEMPORARY -- transmits an unsolicited line every 3s regardless of whether
+// anything was ever received, so TX can be tested in isolation from RX (and
+// from the request/response protocol entirely). Point a raw terminal at the
+// port and just wait: if "MICROOS-TX-TEST" lines show up, TX -- and by
+// extension the DAPLink USB-CDC bridge itself -- genuinely works, and the
+// fault is confined to RX or to handleSerialLine()'s dispatch. If nothing
+// ever shows up, TX itself (or the physical bridge) is the actual problem,
+// independent of anything the poll loop below does. Remove once USB serial
+// is confirmed working end-to-end.
+control.inBackground(function () {
+    let n = 0
+    while (true) {
+        pause(3000)
+        if (!microUtilities.isSerialSupported()) continue
+        n += 1
+        microUtilities.writeSerialString("MICROOS-TX-TEST " + n + "\n")
+    }
+})
+
 // MARK: Poll Loop
 forever(function () {
     pause(20)
