@@ -103,7 +103,7 @@ const defaultSettings = "1100000"
 // Settings digit layout: 0 unused, 1 radio channel, 2 wallpaper,
 // 3 show clock, 4 dark mode, 5 theme, 6 indicator. (Username/RoomCode are
 // stored as their own separate strings, not digits here.)
-if (Settings == null || Settings.length !== defaultSettings.length || (controller.B.isPressed() && controller.up.isPressed())) {
+if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
     Settings = defaultSettings
     radio.setGroup(113)
     settings.writeString("settings", Settings)
