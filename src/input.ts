@@ -76,7 +76,6 @@ function MouseClick(button: number) {
 
     if (isDestroyed(Mouse_Cursor)) {
         // ugh, why is this needed for the code to work, you can't even destroy the mouse cursor
-        kernel_panic(202)
         return
     }
     if (button == 1 && handleTaskbarIconClick()) {

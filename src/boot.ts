@@ -279,24 +279,3 @@ function error(code: number) {
         game.splash("Error " + code)
     }
 }
-
-// MARK: Kernel Panic
-function kernel_panic(code: number) {
-    if (App_Open !== "death") {
-        close_apps()
-        App_Open = "death"   
-        scene.setBackgroundImage(assets.image`Kernel Panic`)
-        sprites.destroyAllSpritesOfKind(SpriteKind.SimpleMenu)
-        sprites.destroyAllSpritesOfKind(SpriteKind.Text)
-        sprites.destroyAllSpritesOfKind(SpriteKind.Mouse)
-        sprites.destroyAllSpritesOfKind(SpriteKind.Desktop_UI)
-        let text2 = textsprite.create("MicroOS has ran into a", 0, 1)
-        text2.setPosition(72, 32)
-        let text3 = textsprite.create("fatal error.", 0, 1)
-        text3.setPosition(41, 41)
-        let text4 = textsprite.create("Error Code " + code, 0, 1)
-        text4.setPosition(47, 94)
-        text = textsprite.create("Press Menu to reboot", 0, 1)
-        text.setPosition(79, 111)
-    }
-}
