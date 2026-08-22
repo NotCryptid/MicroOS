@@ -118,9 +118,6 @@ function dispatchSerialCommand(id: any, cmd: string, req: any) {
         case "clock.set":
             serialCmdClockSet(id, req)
             break
-        case "debug.boardRevisionI2C":
-            serialCmdDebugBoardRevisionI2C(id)
-            break
         default:
             serialSendError(id, "unknown command")
             break
@@ -436,15 +433,3 @@ function serialCmdClockSet(id: any, req: any) {
     serialSendResponse(id, { hour: hour, minute: minute - 100 })
 }
 
-// MARK: debug.boardRevisionI2C
-// TEMPORARY -- diagnoses the hand-rolled I2C board-revision query in
-// MicroUtilities (microutils.cpp's arcadeMbitReadBoardIdViaI2C /
-// _boardRevisionDebug), which is currently always falling through to the
-// "2.x" RAM-only fallback instead of reading a real V2.0/V2.2 id. Calling
-// boardRevision() first ensures the debug capture buffer reflects the most
-// recent attempt. Remove this command once that's fixed.
-function serialCmdDebugBoardRevisionI2C(id: any) {
-    const revision = microUtilities.boardRevision()
-    const debugHex = microUtilities.boardRevisionDebug()
-    serialSendResponse(id, { revision: revision, debugHex: debugHex })
-}
