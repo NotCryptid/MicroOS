@@ -26,6 +26,35 @@ let serialRecvBuffer = ""
 // Username/RoomCode are their own string keys, not digits.
 const SERIAL_SETTINGS_FIELDS = ["radioChannel", "wallpaper", "username", "showClock", "roomCode", "darkMode", "theme", "indicator"]
 
+// MARK: Boot Diagnostic
+// TEMPORARY -- pinpoints, via the indicator LED alone, which USB-serial
+// backend actually got compiled into this build. isSerialSupported() being
+// false (poll loop below permanently no-ops) looks identical from a Web
+// Serial client's point of view to a genuine runtime failure in a backend
+// that IS compiled in, and there's no other way to tell those apart without
+// a debugger. Runs once at boot, before the poll loop starts ticking.
+// Remove once USB serial is confirmed working end-to-end.
+//   1 blink  = Arcade-on-micro:bit backend compiled in (expected on hw---n3)
+//   2 blinks = plain pxt-microbit target's uBit.serial compiled in
+//   solid 3s = no serial backend compiled in at all -- isSerialSupported()
+//              is false and everything below this point is a no-op
+;(function serialBootDiagnostic() {
+    const backend = microUtilities.serialBackend()
+    if (backend === 0) {
+        microUtilities.setPixel(0, 0, true)
+        pause(3000)
+        microUtilities.setPixel(0, 0, false)
+        return
+    }
+    const blinks = backend === 1 ? 1 : 2
+    for (let i = 0; i < blinks; i++) {
+        microUtilities.setPixel(0, 0, true)
+        pause(150)
+        microUtilities.setPixel(0, 0, false)
+        pause(150)
+    }
+})()
+
 // MARK: Poll Loop
 forever(function () {
     pause(20)
