@@ -112,6 +112,12 @@ function dispatchSerialCommand(id: any, cmd: string, req: any) {
         case "settings.setRaw":
             serialCmdSettingsSetRaw(id, req)
             break
+        case "clock.get":
+            serialCmdClockGet(id)
+            break
+        case "clock.set":
+            serialCmdClockSet(id, req)
+            break
         default:
             serialSendError(id, "unknown command")
             break
@@ -260,6 +266,21 @@ function serialCmdSettingsSet(id: any, req: any) {
             digitValue = v.toString()
             displayText = ["Wallpaper - Strings", "Wallpaper - Squiggles"][v]
             currentSettingsIndex = 1
+            // Unlike theme (generateTaskbar) and darkMode/indicator above, nothing
+            // else re-applies the background image on its own -- normally that only
+            // happens on close_apps() when returning to the desktop (see
+            // app_backend.ts), which a serial-driven change never triggers. Apply it
+            // directly here so it's visible immediately instead of only after the
+            // user happens to back out to the desktop -- but only where the
+            // wallpaper is actually the visible backdrop (the desktop itself, and
+            // App Library, which sits over it without its own opaque background);
+            // any other app owns the screen at that point and swapping the scene
+            // background out from under it would be visually wrong. It'll still
+            // apply the next time the user backs out to the desktop regardless.
+            if (App_Open == "null" || App_Open == "App Library") {
+                Wallpaper = [assets.image`Wallpaper - Strings`, assets.image`Wallpaper - Squiggles`][v]
+                scene.setBackgroundImage(Wallpaper)
+            }
             break
         }
         case "username": {
@@ -383,4 +404,31 @@ function serialCmdSettingsSetRaw(id: any, req: any) {
     }
     settings.writeString(key, value)
     serialSendResponse(id, { key: key })
+}
+
+// MARK: clock.get
+// hour/minute are pure in-RAM runtime state (see boot.ts) -- there is no
+// persisted clock setting to read or write; this reports whatever the
+// device currently thinks the time is, which always restarts at 12:00 on
+// cold boot (there's nowhere on-device this is persisted to either).
+// minute is stored internally offset by +100 (see boot.ts/background.ts),
+// purely so minute.toString().substr(1,2) gives a zero-padded MM without a
+// real padStart -- unwrapped back to a normal 0-59 value here.
+function serialCmdClockGet(id: any) {
+    serialSendResponse(id, { hour: hour, minute: minute - 100 })
+}
+
+// MARK: clock.set
+// Mirrors the on-device Settings app's own Hour/Minute controls
+// (app_backend.ts) exactly: same range clamps, same immediate
+// clock.setText() refresh, same +100 minute encoding.
+function serialCmdClockSet(id: any, req: any) {
+    if (typeof req.hour !== "number" || typeof req.minute !== "number") {
+        serialSendError(id, "missing hour/minute")
+        return
+    }
+    hour = Math.max(0, Math.min(23, req.hour | 0))
+    minute = Math.max(0, Math.min(59, req.minute | 0)) + 100
+    clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
+    serialSendResponse(id, { hour: hour, minute: minute - 100 })
 }
