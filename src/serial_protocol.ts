@@ -63,15 +63,25 @@ const SERIAL_SETTINGS_FIELDS = ["radioChannel", "wallpaper", "username", "showCl
 // extension the DAPLink USB-CDC bridge itself -- genuinely works, and the
 // fault is confined to RX or to handleSerialLine()'s dispatch. If nothing
 // ever shows up, TX itself (or the physical bridge) is the actual problem,
-// independent of anything the poll loop below does. Remove once USB serial
-// is confirmed working end-to-end.
+// independent of anything the poll loop below does.
+//
+// rxTotal=<n> in the message is a *cumulative* count of raw bytes the poll
+// loop has ever pulled out of readSerialString() -- not a live snapshot,
+// since the 20ms poll loop would almost always have already drained
+// anything by the time this 3s heartbeat checked serialBytesAvailable()
+// itself. If rxTotal climbs after you send something, RX bytes genuinely
+// reach the firmware and the bug is in parsing/dispatch, not the buffer/HW.
+// If it stays at 0 forever no matter what's sent, RX itself (or the bridge)
+// never delivers anything. Remove all of this once USB serial is confirmed
+// working end-to-end.
+let serialRxTotalBytes = 0
 control.runInParallel(function () {
     let n = 0
     while (true) {
         pause(3000)
         if (!microUtilities.isSerialSupported()) continue
         n += 1
-        microUtilities.writeSerialString("MICROOS-TX-TEST " + n + "\n")
+        microUtilities.writeSerialString("MICROOS-TX-TEST " + n + " rxTotal=" + serialRxTotalBytes + "\n")
     }
 })
 
@@ -80,7 +90,9 @@ forever(function () {
     pause(20)
     if (!microUtilities.isSerialSupported()) return
     if (microUtilities.serialBytesAvailable() > 0) {
-        serialRecvBuffer += microUtilities.readSerialString()
+        const chunk = microUtilities.readSerialString()
+        serialRxTotalBytes += chunk.length
+        serialRecvBuffer += chunk
         if (serialRecvBuffer.length > SERIAL_MAX_LINE) {
             serialRecvBuffer = ""
             serialSendError(null, "line too long, buffer reset")
