@@ -264,6 +264,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 Current_Settings[2] // username
                             ]
                             if (microUtilities.isMicrobit()) {
+                                Current_Settings[7]
                                 ListMenuContents.push(microUtilities.createMenuItem("Serial - " + microUtilities.serialNumber()))
                             }
                             SubMenu = "Connectivity"
@@ -313,6 +314,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 Current_Settings[0],
                                 Current_Settings[2]
                             ]
+                            break
+                        case 4:
+                            if (microUtilities.isMicrobit()) {
+                                changeSettings(8)
+                            }
                             break
                     }
                     break
@@ -512,6 +518,9 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             SubMenu = "App Settings"
                             break
                         case 2:
+                            if (microUtilities.isMicrobit()) {
+                                changeSettings(8)
+                            }
                             break
                     }
                     break
@@ -731,6 +740,22 @@ function changeSettings(selection: number) {
                 microUtilities.setPixel(0,0,false)
             }
             currentSettingsIndex = 7
+            break
+        case 8:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Serial USB - On", "Serial USB - Off", "Serial USB - On"][dingus53]
+            currentSettingsIndex = 8
+            break
+        case 9:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["MCP - On", "MCP - Off", "MCP - On"][dingus53]
+            currentSettingsIndex = 9
             break
     }
     createAppBar(0, theme[2])

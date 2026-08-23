@@ -135,6 +135,8 @@ Current_Settings = [
     microUtilities.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(4), 10)]),
     microUtilities.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(5), 10)]),
     microUtilities.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(6), 10)]),
+    microUtilities.createMenuItem(["Serial USB - On", "Serial USB - Off", "Serial USB - On"][parseInt(Settings.charAt(7), 10)]),
+    microUtilities.createMenuItem(["MCP - On", "MCP - Off", "MCP - On"][parseInt(Settings.charAt(8), 10)])
 ]
 
 theme = themes[parseInt(Settings.charAt(5), 10)]

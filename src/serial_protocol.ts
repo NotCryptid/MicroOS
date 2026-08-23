@@ -49,9 +49,14 @@ forever(function () {
 
 // MARK: Send Response
 function serialSendResponse(id: any, fields: any) {
-    fields["id"] = id
-    fields["ok"] = true
-    microUtilities.writeSerialString(JSON.stringify(fields) + "\n")
+    if (parseInt(Settings.charAt(7), 10) == 0) {
+        fields["id"] = id
+        fields["ok"] = true
+        microUtilities.writeSerialString(JSON.stringify(fields) + "\n")
+    } else { 
+        serialSendError(id, "serial USB disabled")
+    }
+    
 }
 
 // MARK: Send Error
