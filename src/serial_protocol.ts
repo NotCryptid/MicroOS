@@ -125,6 +125,15 @@ function dispatchSerialCommand(id: any, cmd: string, req: any) {
         case "clock.set":
             serialCmdClockSet(id, req)
             break
+        case "editor.status":
+            serialCmdEditorStatus(id)
+            break
+        case "editor.read":
+            serialCmdEditorRead(id, req)
+            break
+        case "editor.edit":
+            serialCmdEditorEdit(id, req)
+            break
         default:
             serialSendError(id, "unknown command")
             break
@@ -447,5 +456,108 @@ function serialCmdClockSet(id: any, req: any) {
     minute = Math.max(0, Math.min(59, req.minute | 0)) + 100
     clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
     serialSendResponse(id, { hour: hour, minute: minute - 100 })
+}
+
+// MARK: NanoCode Editor Bridge
+// These commands read/write the NanoCode app's *live* in-memory buffer
+// (ListMenuGUIHidden + ListMenuContents), not the saved file on disk --
+// fs.read/fs.write only ever see what was last explicitly Saved from the
+// device UI (see handleNanoCodeWriteToolbarClick in input.ts), so a serial
+// client wanting to see/change what's actually on screen (and have the
+// human's next Save pick up those changes, rather than clobber them) has
+// to go through the live buffer instead.
+
+// Reconstructs the full document as an ordered line array, same as the
+// Save/Compile toolbar actions do: concatenate the scrolled-off-top items
+// back with the currently visible ones, and drop the trailing blank-row
+// placeholder that the editor keeps appended for new-line entry.
+function nanoCodeBufferLines(): string[] {
+    return ListMenuGUIHidden.concat(ListMenuContents)
+        .map(item => item.text)
+        .filter(t => t !== " ")
+}
+
+// Replaces the live buffer wholesale and redraws the on-screen list if
+// NanoCode is the foreground app. Always resets scroll to the top --
+// simplest safe option, and the same starting state Open_NanoCode() itself
+// uses when it first loads a project's lines into the buffer.
+function setNanoCodeBufferLines(lines: string[]) {
+    ListMenuGUIHidden = []
+    ListMenuContents = lines.map(line => microUtilities.createMenuItem(line))
+    if (ListMenuContents.length == 0 || ListMenuContents[ListMenuContents.length - 1].text !== " ") {
+        ListMenuContents.push(microUtilities.createMenuItem(" "))
+    }
+    List_Scroll = 0
+    refreshNanoCodeWriteListGUI()
+}
+
+// MARK: editor.status
+function serialCmdEditorStatus(id: any) {
+    if (App_Open !== "NanoCode") {
+        serialSendResponse(id, { open: false })
+        return
+    }
+    serialSendResponse(id, {
+        open: true,
+        name: open_document,
+        lineCount: nanoCodeBufferLines().length
+    })
+}
+
+// MARK: editor.read
+function serialCmdEditorRead(id: any, req: any) {
+    if (App_Open !== "NanoCode") {
+        serialSendError(id, "NanoCode is not open")
+        return
+    }
+    const lineStart: number = req.line_start
+    const lineEnd: number = req.line_end
+    if (typeof lineStart !== "number" || typeof lineEnd !== "number" || lineStart < 1 || lineEnd < lineStart) {
+        serialSendError(id, "invalid line_start/line_end")
+        return
+    }
+    const lines = nanoCodeBufferLines()
+    if (lineStart > lines.length) {
+        serialSendError(id, "line_start out of range")
+        return
+    }
+    const clampedEnd = Math.min(lineEnd, lines.length)
+    serialSendResponse(id, {
+        name: open_document,
+        line_start: lineStart,
+        line_end: clampedEnd,
+        lines: lines.slice(lineStart - 1, clampedEnd)
+    })
+}
+
+// MARK: editor.edit
+// old_string must match the live buffer's text (lines joined with "\n")
+// exactly once -- same contract as the extension's own file-editing tool --
+// so an ambiguous or stale match is rejected rather than guessed at.
+function serialCmdEditorEdit(id: any, req: any) {
+    if (App_Open !== "NanoCode") {
+        serialSendError(id, "NanoCode is not open")
+        return
+    }
+    const oldString: string = req.old_string
+    const newString: string = req.new_string
+    if (!oldString || typeof newString !== "string") {
+        serialSendError(id, "missing old_string/new_string")
+        return
+    }
+    const content = nanoCodeBufferLines().join("\n")
+    const firstIdx = content.indexOf(oldString)
+    if (firstIdx < 0) {
+        serialSendError(id, "old_string not found")
+        return
+    }
+    if (content.indexOf(oldString, firstIdx + 1) >= 0) {
+        serialSendError(id, "old_string is not unique in the open project")
+        return
+    }
+    const newContent = content.slice(0, firstIdx) + newString + content.slice(firstIdx + oldString.length)
+    const newLines = newContent.split("\n")
+    setNanoCodeBufferLines(newLines)
+    serialSendResponse(id, { name: open_document, lineCount: newLines.length })
 }
 
