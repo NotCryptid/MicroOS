@@ -126,13 +126,13 @@ function dispatchSerialCommand(id: any, cmd: string, req: any) {
             serialCmdClockSet(id, req)
             break
         case "editor.status":
-            serialCmdEditorStatus(id)
+            serialCmdEditor(id, "status", req)
             break
         case "editor.read":
-            serialCmdEditorRead(id, req)
+            serialCmdEditor(id, "read", req)
             break
         case "editor.edit":
-            serialCmdEditorEdit(id, req)
+            serialCmdEditor(id, "edit", req)
             break
         default:
             serialSendError(id, "unknown command")
@@ -491,65 +491,42 @@ function setNanoCodeBufferLines(lines: string[]) {
     refreshNanoCodeWriteListGUI()
 }
 
-// Shared "is NanoCode open" gate for the three commands below -- sends the
-// error and returns false if not, so callers can just `if (!nanoCodeGate(id)) return`.
-function nanoCodeGate(id: any): boolean {
+// MARK: editor.status / editor.read / editor.edit
+// Single dispatcher for all three NanoCode-buffer commands (mode: "status" |
+// "read" | "edit") -- shares the not-open check, buffer fetch, and response
+// helpers across all three instead of triplicating them.
+function serialCmdEditor(id: any, mode: string, req: any) {
     if (App_Open !== "NanoCode") {
-        serialSendError(id, "not open")
-        return false
-    }
-    return true
-}
-
-// MARK: editor.status
-function serialCmdEditorStatus(id: any) {
-    if (App_Open !== "NanoCode") {
-        serialSendResponse(id, { open: false })
-        return
-    }
-    serialSendResponse(id, {
-        open: true,
-        name: open_document,
-        lineCount: nanoCodeBufferLines().length
-    })
-}
-
-// MARK: editor.read
-function serialCmdEditorRead(id: any, req: any) {
-    if (!nanoCodeGate(id)) return
-    const lineStart: number = req.line_start
-    const lineEnd: number = req.line_end
-    if (typeof lineStart !== "number" || typeof lineEnd !== "number" || lineStart < 1 || lineEnd < lineStart) {
-        serialSendError(id, "bad range")
+        if (mode == "status") serialSendResponse(id, { open: false })
+        else serialSendError(id, "not open")
         return
     }
     const lines = nanoCodeBufferLines()
-    if (lineStart > lines.length) {
-        serialSendError(id, "out of range")
+    if (mode == "status") {
+        serialSendResponse(id, { open: true, name: open_document, lineCount: lines.length })
         return
     }
-    const clampedEnd = Math.min(lineEnd, lines.length)
-    serialSendResponse(id, {
-        name: open_document,
-        line_start: lineStart,
-        line_end: clampedEnd,
-        lines: lines.slice(lineStart - 1, clampedEnd)
-    })
-}
-
-// MARK: editor.edit
-// old_string must match the live buffer's text (lines joined with "\n")
-// exactly once -- same contract as the extension's own file-editing tool --
-// so an ambiguous or stale match is rejected rather than guessed at.
-function serialCmdEditorEdit(id: any, req: any) {
-    if (!nanoCodeGate(id)) return
+    if (mode == "read") {
+        const s: number = req.line_start
+        const e: number = req.line_end
+        if (typeof s !== "number" || typeof e !== "number" || s < 1 || e < s || s > lines.length) {
+            serialSendError(id, "bad range")
+            return
+        }
+        const clampedEnd = Math.min(e, lines.length)
+        serialSendResponse(id, { name: open_document, line_start: s, line_end: clampedEnd, lines: lines.slice(s - 1, clampedEnd) })
+        return
+    }
+    // edit -- old_string must match the joined buffer text exactly once,
+    // same contract as the extension's own file-editing tool, so an
+    // ambiguous or stale match is rejected rather than guessed at.
     const oldString: string = req.old_string
     const newString: string = req.new_string
     if (!oldString || typeof newString !== "string") {
         serialSendError(id, "missing args")
         return
     }
-    const content = nanoCodeBufferLines().join("\n")
+    const content = lines.join("\n")
     const firstIdx = content.indexOf(oldString)
     if (firstIdx < 0) {
         serialSendError(id, "not found")
@@ -559,8 +536,7 @@ function serialCmdEditorEdit(id: any, req: any) {
         serialSendError(id, "not unique")
         return
     }
-    const newContent = content.slice(0, firstIdx) + newString + content.slice(firstIdx + oldString.length)
-    const newLines = newContent.split("\n")
+    const newLines = (content.slice(0, firstIdx) + newString + content.slice(firstIdx + oldString.length)).split("\n")
     setNanoCodeBufferLines(newLines)
     serialSendResponse(id, { name: open_document, lineCount: newLines.length })
 }
