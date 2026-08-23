@@ -469,8 +469,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 3:
                             ListMenuContents = [
                                 microUtilities.createMenuItem("Back")
-                                // make something here later
                             ]
+                            if (microUtilities.isMicrobit()) {
+                                ListMenuContents.push(Current_Settings[9]) // MCP
+                            }
                             SubMenu = "NanoCode Settings"
                             break
                         case 4:
@@ -519,7 +521,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             break
                         case 2:
                             if (microUtilities.isMicrobit()) {
-                                changeSettings(8)
+                                changeSettings(9)
+                                ListMenuContents[1] = Current_Settings[9]
                             }
                             break
                     }
@@ -647,8 +650,10 @@ function deleteAllUserFiles() {
 // MARK: Write Settings
 // selection: 1 radio channel, 2 wallpaper, 3 show clock, 4 room code
 // (no digit -- stored as its own string), 5 dark mode, 6 theme,
-// 7 indicator. Matches Current_Settings' layout 1:1 except room code,
-// which sits at Current_Settings[4] with no corresponding Settings digit.
+// 7 indicator, 8 serial USB, 9 MCP. Matches Current_Settings' layout 1:1
+// except room code, which sits at Current_Settings[4] with no
+// corresponding Settings digit -- every selection past it is offset by
+// one digit index below its selection number.
 function changeSettings(selection: number) {
     let settingDigitIndex = selection
     switch (selection) {
@@ -663,6 +668,12 @@ function changeSettings(selection: number) {
             break
         case 7:
             settingDigitIndex = 6
+            break
+        case 8:
+            settingDigitIndex = 7
+            break
+        case 9:
+            settingDigitIndex = 8
             break
     }
     let dingus53 = 0

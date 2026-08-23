@@ -97,12 +97,18 @@ const themes = [[7, 9, 2], [10, 9, 10], [5, 5, 5], [11, 10, 10], [1, 9, 9]]
 
 let theme = themes[0]
 
-const defaultSettings = "1100000"
+const defaultSettings = "110000000"
 
 // MARK: Load Settings
 // Settings digit layout: 0 unused, 1 radio channel, 2 wallpaper,
-// 3 show clock, 4 dark mode, 5 theme, 6 indicator. (Username/RoomCode are
-// stored as their own separate strings, not digits here.)
+// 3 show clock, 4 dark mode, 5 theme, 6 indicator, 7 serial USB, 8 MCP.
+// (Username/RoomCode are stored as their own separate strings, not digits
+// here.) defaultSettings must stay padded out to cover every digit up to
+// 8 -- devices with a Settings string persisted before serial/MCP existed
+// only have 7 digits, and the padding below only fills in what's missing
+// from defaultSettings, so a short defaultSettings here means charAt(7)/
+// charAt(8) come back as "" (NaN when parsed) on those devices instead of
+// the intended "0" (on).
 if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
     Settings = defaultSettings
     radio.setGroup(113)

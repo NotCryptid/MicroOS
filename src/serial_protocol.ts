@@ -22,9 +22,11 @@ let serialRecvBuffer = ""
 
 // MARK: Settings Field Map
 // Mirrors the digit layout documented in boot.ts: index 0 unused, 1 radio
-// channel, 2 wallpaper, 3 show clock, 4 dark mode, 5 theme, 6 indicator.
-// Username/RoomCode are their own string keys, not digits.
-const SERIAL_SETTINGS_FIELDS = ["radioChannel", "wallpaper", "username", "showClock", "roomCode", "darkMode", "theme", "indicator"]
+// channel, 2 wallpaper, 3 show clock, 4 dark mode, 5 theme, 6 indicator,
+// 7 serial USB (not settable over serial -- see serialCmdSettingsSet),
+// 8 MCP (NanoCode's Model Context Protocol toggle). Username/RoomCode are
+// their own string keys, not digits.
+const SERIAL_SETTINGS_FIELDS = ["radioChannel", "wallpaper", "username", "showClock", "roomCode", "darkMode", "theme", "indicator", "mcp"]
 
 // MARK: Poll Loop
 forever(function () {
@@ -234,7 +236,8 @@ function serialCmdSettingsList(id: any) {
             roomCode: RoomCode,
             darkMode: Settings.charAt(4) == "1",
             theme: parseInt(Settings.charAt(5), 10) || 0,
-            indicator: Settings.charAt(6) != "1"
+            indicator: Settings.charAt(6) != "1",
+            mcp: Settings.charAt(8) != "1"
         }
     })
 }
@@ -355,6 +358,14 @@ function serialCmdSettingsSet(id: any, req: any) {
             if (!value) {
                 microUtilities.setPixel(0, 0, false)
             }
+            break
+        }
+        case "mcp": {
+            const v = value ? "0" : "1"
+            digitIndex = 8
+            digitValue = v
+            displayText = value ? "MCP - On" : "MCP - Off"
+            currentSettingsIndex = 9
             break
         }
     }
