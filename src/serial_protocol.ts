@@ -491,6 +491,16 @@ function setNanoCodeBufferLines(lines: string[]) {
     refreshNanoCodeWriteListGUI()
 }
 
+// Shared "is NanoCode open" gate for the three commands below -- sends the
+// error and returns false if not, so callers can just `if (!nanoCodeGate(id)) return`.
+function nanoCodeGate(id: any): boolean {
+    if (App_Open !== "NanoCode") {
+        serialSendError(id, "not open")
+        return false
+    }
+    return true
+}
+
 // MARK: editor.status
 function serialCmdEditorStatus(id: any) {
     if (App_Open !== "NanoCode") {
@@ -506,19 +516,16 @@ function serialCmdEditorStatus(id: any) {
 
 // MARK: editor.read
 function serialCmdEditorRead(id: any, req: any) {
-    if (App_Open !== "NanoCode") {
-        serialSendError(id, "NanoCode is not open")
-        return
-    }
+    if (!nanoCodeGate(id)) return
     const lineStart: number = req.line_start
     const lineEnd: number = req.line_end
     if (typeof lineStart !== "number" || typeof lineEnd !== "number" || lineStart < 1 || lineEnd < lineStart) {
-        serialSendError(id, "invalid line_start/line_end")
+        serialSendError(id, "bad range")
         return
     }
     const lines = nanoCodeBufferLines()
     if (lineStart > lines.length) {
-        serialSendError(id, "line_start out of range")
+        serialSendError(id, "out of range")
         return
     }
     const clampedEnd = Math.min(lineEnd, lines.length)
@@ -535,24 +542,21 @@ function serialCmdEditorRead(id: any, req: any) {
 // exactly once -- same contract as the extension's own file-editing tool --
 // so an ambiguous or stale match is rejected rather than guessed at.
 function serialCmdEditorEdit(id: any, req: any) {
-    if (App_Open !== "NanoCode") {
-        serialSendError(id, "NanoCode is not open")
-        return
-    }
+    if (!nanoCodeGate(id)) return
     const oldString: string = req.old_string
     const newString: string = req.new_string
     if (!oldString || typeof newString !== "string") {
-        serialSendError(id, "missing old_string/new_string")
+        serialSendError(id, "missing args")
         return
     }
     const content = nanoCodeBufferLines().join("\n")
     const firstIdx = content.indexOf(oldString)
     if (firstIdx < 0) {
-        serialSendError(id, "old_string not found")
+        serialSendError(id, "not found")
         return
     }
     if (content.indexOf(oldString, firstIdx + 1) >= 0) {
-        serialSendError(id, "old_string is not unique in the open project")
+        serialSendError(id, "not unique")
         return
     }
     const newContent = content.slice(0, firstIdx) + newString + content.slice(firstIdx + oldString.length)
