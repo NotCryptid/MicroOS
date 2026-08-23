@@ -125,15 +125,6 @@ function dispatchSerialCommand(id: any, cmd: string, req: any) {
         case "clock.set":
             serialCmdClockSet(id, req)
             break
-        case "editor.status":
-            serialCmdEditor(id, "status", req)
-            break
-        case "editor.read":
-            serialCmdEditor(id, "read", req)
-            break
-        case "editor.edit":
-            serialCmdEditor(id, "edit", req)
-            break
         default:
             serialSendError(id, "unknown command")
             break
@@ -456,88 +447,5 @@ function serialCmdClockSet(id: any, req: any) {
     minute = Math.max(0, Math.min(59, req.minute | 0)) + 100
     clock.setText(hour.toString() + ":" + minute.toString().substr(1, 2))
     serialSendResponse(id, { hour: hour, minute: minute - 100 })
-}
-
-// MARK: NanoCode Editor Bridge
-// These commands read/write the NanoCode app's *live* in-memory buffer
-// (ListMenuGUIHidden + ListMenuContents), not the saved file on disk --
-// fs.read/fs.write only ever see what was last explicitly Saved from the
-// device UI (see handleNanoCodeWriteToolbarClick in input.ts), so a serial
-// client wanting to see/change what's actually on screen (and have the
-// human's next Save pick up those changes, rather than clobber them) has
-// to go through the live buffer instead.
-
-// Reconstructs the full document as an ordered line array, same as the
-// Save/Compile toolbar actions do: concatenate the scrolled-off-top items
-// back with the currently visible ones, and drop the trailing blank-row
-// placeholder that the editor keeps appended for new-line entry.
-function nanoCodeBufferLines(): string[] {
-    return ListMenuGUIHidden.concat(ListMenuContents)
-        .map(item => item.text)
-        .filter(t => t !== " ")
-}
-
-// Replaces the live buffer wholesale and redraws the on-screen list if
-// NanoCode is the foreground app. Always resets scroll to the top --
-// simplest safe option, and the same starting state Open_NanoCode() itself
-// uses when it first loads a project's lines into the buffer.
-function setNanoCodeBufferLines(lines: string[]) {
-    ListMenuGUIHidden = []
-    ListMenuContents = lines.map(line => microUtilities.createMenuItem(line))
-    if (ListMenuContents.length == 0 || ListMenuContents[ListMenuContents.length - 1].text !== " ") {
-        ListMenuContents.push(microUtilities.createMenuItem(" "))
-    }
-    List_Scroll = 0
-    refreshNanoCodeWriteListGUI()
-}
-
-// MARK: editor.status / editor.read / editor.edit
-// Single dispatcher for all three NanoCode-buffer commands (mode: "status" |
-// "read" | "edit") -- shares the not-open check, buffer fetch, and response
-// helpers across all three instead of triplicating them.
-function serialCmdEditor(id: any, mode: string, req: any) {
-    if (App_Open !== "NanoCode") {
-        if (mode == "status") serialSendResponse(id, { open: false })
-        else serialSendError(id, "not open")
-        return
-    }
-    const lines = nanoCodeBufferLines()
-    if (mode == "status") {
-        serialSendResponse(id, { open: true, name: open_document, lineCount: lines.length })
-        return
-    }
-    if (mode == "read") {
-        const s: number = req.line_start
-        const e: number = req.line_end
-        if (typeof s !== "number" || typeof e !== "number" || s < 1 || e < s || s > lines.length) {
-            serialSendError(id, "bad range")
-            return
-        }
-        const clampedEnd = Math.min(e, lines.length)
-        serialSendResponse(id, { name: open_document, line_start: s, line_end: clampedEnd, lines: lines.slice(s - 1, clampedEnd) })
-        return
-    }
-    // edit -- old_string must match the joined buffer text exactly once,
-    // same contract as the extension's own file-editing tool, so an
-    // ambiguous or stale match is rejected rather than guessed at.
-    const oldString: string = req.old_string
-    const newString: string = req.new_string
-    if (!oldString || typeof newString !== "string") {
-        serialSendError(id, "missing args")
-        return
-    }
-    const content = lines.join("\n")
-    const firstIdx = content.indexOf(oldString)
-    if (firstIdx < 0) {
-        serialSendError(id, "not found")
-        return
-    }
-    if (content.indexOf(oldString, firstIdx + 1) >= 0) {
-        serialSendError(id, "not unique")
-        return
-    }
-    const newLines = (content.slice(0, firstIdx) + newString + content.slice(firstIdx + oldString.length)).split("\n")
-    setNanoCodeBufferLines(newLines)
-    serialSendResponse(id, { name: open_document, lineCount: newLines.length })
 }
 
