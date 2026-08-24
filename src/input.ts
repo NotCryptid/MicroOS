@@ -193,7 +193,9 @@ if (isVM) {
 // MARK: Refresh Scrollable List GUI
 // Shared by the arrow-click and scrollbar-drag scroll paths.
 function refreshScrollableListGUI() {
-    if (App_Open == "NanoCode") {
+    if (NanoSDK_App_Running) {
+        Reload_ListGUI(ListMenuContents, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+    } else if (App_Open == "NanoCode") {
         reloadListGUI(76, 64, 151, 84, true);
         updateScrollBar(visibleRows, true);
     } else if (App_Open == "Write") {

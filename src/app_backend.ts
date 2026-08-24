@@ -363,7 +363,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             ListMenuContents = [
                                 microUtilities.createMenuItem("Back"),
                                 microUtilities.createMenuItem("MicroOS " + MicroOS_Version),
-                                microUtilities.createMenuItem("NanoSDK 2026.3"),
+                                microUtilities.createMenuItem("NanoSDK 2026.3.1"),
                                 microUtilities.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
                                 microUtilities.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
                                 microUtilities.createMenuItem("RAM Capacity - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),
