@@ -41,7 +41,7 @@ forever(function () {
                 xcellUpdateHover()
                 break
             default:
-                if ((NanoSDK_App_Running || when_cond_data.length > 0) && nanoSDK_hover_highlight) {
+                if (!isDestroyed(NanoSDK_Taskbar_Icon) && nanoSDK_hover_highlight) {
                     ListMenuGUI.selectedIndex = -1;
                     let menuTop = menu_data[1] - Math.floor(menu_data[3] / 2);
                     let menuLeft = menu_data[0] - Math.floor(menu_data[2] / 2);
