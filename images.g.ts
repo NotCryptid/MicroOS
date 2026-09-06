@@ -441,16 +441,6 @@ d f 3 a 9 c f d
 d f f f f f f d 
 e e e e e e e e 
 `;
-            case "image21":
-            case "Arrow":return img`
-. 9 9 9 9 9 . 
-9 9 9 9 9 9 9 
-9 9 9 1 9 9 9 
-9 9 1 1 1 9 9 
-9 1 1 1 1 1 9 
-7 9 9 9 9 9 7 
-. 7 7 7 7 7 . 
-`;
             case "image25":
             case "scrollBar2":return img`
 9 9 9 9 9 9 9 
@@ -614,6 +604,16 @@ d e . 1 d . d e
 9999999
 9999999
 .99999.
+`;
+            case "image21":
+            case "Arrow":return img`
+. 7 7 7 7 7 . 
+7 9 9 9 9 9 7 
+7 9 9 1 9 9 7 
+7 9 1 1 1 9 7 
+7 1 1 1 1 1 7 
+7 9 9 9 9 9 7 
+. 7 7 7 7 7 . 
 `;
         }
         return null;
