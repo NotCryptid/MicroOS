@@ -49,11 +49,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Arrow"
     },
-    "image24": {
-        "data": "hwQHAE4AAACQmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQcAmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZl5AJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZeQCZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmXkAmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZl5AJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZeQCQmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQcA",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "scrollBar"
-    },
     "image25": {
         "data": "hwQHAAMAAAB5AQAAmQcAAJkHAACZBwAAmQcAAJkHAAB5AQAA",
         "mimeType": "image/x-mkcd-f4",
@@ -93,6 +88,11 @@
         "data": "hwQIAAgAAAAQDRAN0N7dDgDt3gDRDtDR7Q4Q7QDd0QAQ7R4N0A7QDg==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Settings"
+    },
+    "image24": {
+        "data": "hwQHAE4AAACQmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQkAmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZAJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQCZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZkAmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZAJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQCQmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQkA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "scrollBar"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
