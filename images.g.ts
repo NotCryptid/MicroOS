@@ -291,6 +291,108 @@ fffffffffffffffffffffffffffffff3333ffffffffffffffffffffffffff777ffffffffffffffff
 fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 `;
+            case "image23":
+            case "WebSend":return img`
+2 2 2 2 2 2 2 2 2 2 2 2 
+2 2 d d d d d d d d 2 2 
+2 d 1 1 1 1 1 1 1 1 d 2 
+2 d f f f f 1 1 1 1 d 2 
+2 d f 1 1 1 f f f 1 d 2 
+2 d f f f f f f 1 f d 2 
+2 d f 1 1 1 f f d f d 2 
+2 d f f f f d d f 1 e 2 
+2 d f f f f f f 1 1 e 2 
+2 d 1 1 1 1 1 1 1 1 e 2 
+2 2 e e e e e e e e 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 
+`;
+            case "image24":
+            case "scrollBar":return img`
+.99999.
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+9999999
+.99999.
+`;
+            case "image25":
+            case "scrollBar2":return img`
+9 9 9 9 9 9 9 
+7 9 9 9 9 9 7 
+1 7 7 7 7 7 1 
+`;
             case "image1":
             case "WebAttachementRemove":return img`
 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -305,6 +407,90 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 2 d a 9 1 1 1 1 9 a e 2 
 2 2 e e e e e e e e 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 
+`;
+            case "image6":
+            case "Web Chat":return img`
+. . 1 1 1 4 . . 
+. 5 5 4 4 4 8 . 
+5 5 4 8 8 8 8 b 
+8 4 4 4 4 8 8 8 
+8 4 4 4 4 8 8 8 
+8 4 4 4 4 4 4 b 
+. 4 4 4 4 c c . 
+. . c c c c . . 
+`;
+            case "image3":
+            case "xCell":return img`
+5 5 5 5 5 1 1 1 
+5 5 5 5 5 1 e e 
+5 1 5 1 5 1 1 1 
+5 5 1 5 5 1 e 1 
+5 1 5 1 5 e 1 e 
+5 5 5 5 5 1 1 1 
+5 5 5 5 5 1 e e 
+4 4 4 4 4 d d d 
+`;
+            case "image17":
+            case "Library_icon":return img`
+2 2 2 2 2 2 2 2 
+2 9 9 9 7 7 d 2 
+2 a 1 a e e 3 2 
+2 1 a 1 3 e 3 2 
+2 7 7 7 5 9 9 2 
+2 1 1 7 9 5 9 2 
+2 d 3 d 4 7 7 2 
+c c c c c c c c 
+`;
+            case "image8":
+            case "File Manager":return img`
+b b b . . . . . 
+b b b a 3 2 4 5 
+b b b b b b b b 
+b b b b b b b b 
+b b b b b b b b 
+b b b b b b b b 
+b b b b b b b b 
+6 6 6 6 6 6 6 6 
+`;
+            case "image4":
+            case "Write":return img`
+. . d 1 1 d . . 
+7 7 3 e e 3 7 7 
+3 1 1 1 1 1 1 3 
+3 1 f e d e 1 3 
+3 1 1 1 1 1 1 3 
+3 1 d e f d 1 3 
+3 1 1 1 1 1 1 3 
+2 d f f e e d 2 
+`;
+            case "image9":
+            case "Cursor":return img`
+. f f f . 
+f 1 9 7 f 
+f 9 7 3 f 
+f 7 3 2 f 
+. f f f . 
+`;
+            case "image7":
+            case "Settings":return img`
+. . . 1 d . . . 
+1 d . d e . 1 d 
+d e d e e d d e 
+. d e . . d e . 
+. d e . . 1 e . 
+1 d d d 1 d 1 d 
+d e . 1 d . d e 
+. . . d e . . . 
+`;
+            case "image2":
+            case "Minimize":return img`
+. b b b b b . 
+b b b b b b b 
+b b b b b b b 
+b 1 1 1 1 1 b 
+b b b b b b b 
+b b b b b b 6 
+. 6 6 6 6 6 . 
 `;
             case "image19":
             case "Kernel Panic":return img`
@@ -428,234 +614,6 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
 3333333333333333333333333333333333333333333333333333333333333333337931333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
 3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
 3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
-`;
-            case "image6":
-            case "Web Chat":return img`
-. . 1 1 1 4 . . 
-. 5 5 4 4 4 8 . 
-5 5 4 8 8 8 8 b 
-8 4 4 4 4 8 8 8 
-8 4 4 4 4 8 8 8 
-8 4 4 4 4 4 4 b 
-. 4 4 4 4 c c . 
-. . c c c c . . 
-`;
-            case "image2":
-            case "Minimize":return img`
-. b b b b b . 
-b b b b b b b 
-b b b b b b b 
-b 1 1 1 1 1 b 
-b b b b b b b 
-b b b b b b 6 
-. 6 6 6 6 6 . 
-`;
-            case "image8":
-            case "File Manager":return img`
-b b b . . . . . 
-b b b a 3 2 4 5 
-b b b b b b b b 
-b b b b b b b b 
-b b b b b b b b 
-b b b b b b b b 
-b b b b b b b b 
-6 6 6 6 6 6 6 6 
-`;
-            case "image3":
-            case "xCell":return img`
-5 5 5 5 5 1 1 1 
-5 5 5 5 5 1 e e 
-5 1 5 1 5 1 1 1 
-5 5 1 5 5 1 e 1 
-5 1 5 1 5 e 1 e 
-5 5 5 5 5 1 1 1 
-5 5 5 5 5 1 e e 
-4 4 4 4 4 d d d 
-`;
-            case "image10":
-            case "Process Manager":return img`
-d d d d d d d d 
-d e e e e e e d 
-d f f a f c f d 
-d f 3 a f c f d 
-d f 3 a 9 c f d 
-d f 3 a 9 c f d 
-d f f f f f f d 
-e e e e e e e e 
-`;
-            case "image25":
-            case "scrollBar2":return img`
-9 9 9 9 9 9 9 
-7 9 9 9 9 9 7 
-1 7 7 7 7 7 1 
-`;
-            case "image17":
-            case "Library_icon":return img`
-2 2 2 2 2 2 2 2 
-2 9 9 9 7 7 d 2 
-2 a 1 a e e 3 2 
-2 1 a 1 3 e 3 2 
-2 7 7 7 5 9 9 2 
-2 1 1 7 9 5 9 2 
-2 d 3 d 4 7 7 2 
-c c c c c c c c 
-`;
-            case "image4":
-            case "Write":return img`
-. . d 1 1 d . . 
-7 7 3 e e 3 7 7 
-3 1 1 1 1 1 1 3 
-3 1 f e d e 1 3 
-3 1 1 1 1 1 1 3 
-3 1 d e f d 1 3 
-3 1 1 1 1 1 1 3 
-2 d f f e e d 2 
-`;
-            case "image5":
-            case "NanoCode":return img`
-1 1 1 1 1 1 1 1 
-1 e e 1 e e e 1 
-1 1 1 1 1 1 1 1 
-3 3 3 3 1 1 e 1 
-2 1 1 2 2 e e 1 
-2 1 2 1 2 1 1 1 
-2 1 2 1 2 e e 1 
-c c c c c d d d 
-`;
-            case "image11":
-            case "Close":return img`
-. 9 9 9 9 9 . 
-9 1 a a a 1 a 
-a a 1 a 1 a a 
-a a a 1 a a a 
-a a 1 a 1 a a 
-a 1 a a a 1 3 
-. 3 3 3 3 3 . 
-`;
-            case "image23":
-            case "WebSend":return img`
-2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 d d d d d d d d 2 2 
-2 d 1 1 1 1 1 1 1 1 d 2 
-2 d f f f f 1 1 1 1 d 2 
-2 d f 1 1 1 f f f 1 d 2 
-2 d f f f f f f 1 f d 2 
-2 d f 1 1 1 f f d f d 2 
-2 d f f f f d d f 1 e 2 
-2 d f f f f f f 1 1 e 2 
-2 d 1 1 1 1 1 1 1 1 e 2 
-2 2 e e e e e e e e 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 
-`;
-            case "image9":
-            case "Cursor":return img`
-. f f f . 
-f 1 9 7 f 
-f 9 7 3 f 
-f 7 3 2 f 
-. f f f . 
-`;
-            case "image7":
-            case "Settings":return img`
-. . . 1 d . . . 
-1 d . d e . 1 d 
-d e d e e d d e 
-. d e . . d e . 
-. d e . . 1 e . 
-1 d d d 1 d 1 d 
-d e . 1 d . d e 
-. . . d e . . . 
-`;
-            case "image24":
-            case "scrollBar":return img`
-.99999.
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-9999999
-.99999.
-`;
-            case "image21":
-            case "Arrow":return img`
-. 9 9 9 9 9 . 
-9 9 9 9 9 9 9 
-9 9 9 1 9 9 9 
-9 9 1 1 1 9 9 
-9 1 1 1 1 1 9 
-9 9 9 9 9 9 9 
-. 9 9 9 9 9 . 
 `;
         }
         return null;
