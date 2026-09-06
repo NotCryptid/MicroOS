@@ -69,11 +69,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Write"
     },
-    "image7": {
-        "data": "hwQIAAgAAAAA7e4A0N7dDu3t3v3t3v3+7d79/u3t7/3g3d0OAO7uAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Settings"
-    },
     "image5": {
         "data": "hwQIAAgAAAARMSLC4TERweExIcIRMRLB4REiwuERHt7h4R7eERER0Q==",
         "mimeType": "image/x-mkcd-f4",
@@ -93,6 +88,11 @@
         "data": "hwQFAAUAAADw/wAAH3kPAJ83DwB/Iw8A8P8AAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Cursor"
+    },
+    "image7": {
+        "data": "hwQIAAgAAAAQDRAN0N7dDgDt3gDRDtDR7Q4Q7QDd0QAQ7R4N0A7QDg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Settings"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

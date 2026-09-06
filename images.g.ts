@@ -560,17 +560,6 @@ c c c c c c c c
 3 1 1 1 1 1 1 3 
 2 d f f e e d 2 
 `;
-            case "image7":
-            case "Settings":return img`
-. . d d d d . . 
-. d e e e e e . 
-d e d e e d d e 
-e d e d d e d e 
-e d e d d f d e 
-e d d f f e d e 
-. e d e e d e . 
-. . f f f f . . 
-`;
             case "image5":
             case "NanoCode":return img`
 1 1 1 1 1 1 1 1 
@@ -614,6 +603,17 @@ f 1 9 7 f
 f 9 7 3 f 
 f 7 3 2 f 
 . f f f . 
+`;
+            case "image7":
+            case "Settings":return img`
+. . . 1 d . . . 
+1 d . d e . 1 d 
+d e d e e d d e 
+. d e . . d e . 
+. d e . . 1 e . 
+1 d d d 1 d 1 d 
+d e . 1 d . d e 
+. . . d e . . . 
 `;
         }
         return null;
