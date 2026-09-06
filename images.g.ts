@@ -560,14 +560,6 @@ c c c c c c c c
 3 1 1 1 1 1 1 3 
 2 d f f e e d 2 
 `;
-            case "image9":
-            case "Cursor":return img`
-. 1 9 7 . 
-1 9 9 7 3 
-9 9 7 7 3 
-7 7 7 3 3 
-. 3 3 3 . 
-`;
             case "image7":
             case "Settings":return img`
 . . d d d d . . 
@@ -603,17 +595,25 @@ a 1 a a a 1 3
             case "image23":
             case "WebSend":return img`
 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 8 8 8 8 8 8 8 8 2 2 
-2 8 1 1 1 1 1 1 1 1 8 2 
-2 8 f f f f 1 1 1 1 8 2 
-2 8 f 1 1 1 f f f 1 8 2 
-2 8 f f f f f f 1 f 8 2 
-2 8 f 1 1 1 f f d f 8 2 
-2 8 f f f f d d f 1 8 2 
-2 8 f f f f f f 1 1 8 2 
-2 8 1 1 1 1 1 1 1 1 8 2 
-2 2 8 8 8 8 8 8 8 8 2 2 
+2 2 d d d d d d d d 2 2 
+2 d 1 1 1 1 1 1 1 1 d 2 
+2 d f f f f 1 1 1 1 d 2 
+2 d f 1 1 1 f f f 1 d 2 
+2 d f f f f f f 1 f d 2 
+2 d f 1 1 1 f f d f d 2 
+2 d f f f f d d f 1 e 2 
+2 d f f f f f f 1 1 e 2 
+2 d 1 1 1 1 1 1 1 1 e 2 
+2 2 e e e e e e e e 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 
+`;
+            case "image9":
+            case "Cursor":return img`
+. f f f . 
+f 1 9 7 f 
+f 9 7 3 f 
+f 7 3 2 f 
+. f f f . 
 `;
         }
         return null;
