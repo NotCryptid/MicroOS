@@ -1,7 +1,7 @@
 // MARK: ListGUI Reload Function
 // why does this exist twice
 function Reload_ListGUI(data: microUtilities.MenuItem[], x: number, y: number, width: number, height: number, destroy: Boolean) {
-    if (destroy) {
+    if (destroy && !isDestroyed(ListMenuGUI)) {
         ListMenuGUI.destroy()
     }
     ListMenuGUI = microUtilities.createMenuFromArray(data)
@@ -18,10 +18,52 @@ function nanoSDK_apply_theme(mode: string) {
     ListMenuGUI.setColors(dark ? 1 : 15, dark ? 15 : 1, dark ? 15 : 1, dark ? 1 : 15)
 }
 
+// MARK: App Bar Theme
+// Keeps the app's background in sync with the ListGUI's own theme (set via
+// LGT), rather than the fixed light background NanoSDK apps used to open
+// with regardless of theme.
+function nanoSDK_apply_app_bar() {
+    let dark = nanoSDK_theme == "d" || (nanoSDK_theme == "m" && darkMode)
+    createAppBar(dark ? 15 : 1)
+}
+
+// MARK: ListGUI Visible Rows
+function nanoSDK_visible_rows(): number {
+    return Math.max(1, Math.floor(menu_data[3] / 12))
+}
+
 // MARK: ListGUI Scroll Bar
-// No-op: SimpleMenu (MicroUtilities) doesn't have a built-in scroll
-// indicator -- NanoCode draws its own scrollbar sprites separately.
+// SimpleMenu (MicroUtilities) has no built-in scroll indicator, so this
+// reuses the OS's fixed-position scrollbar + arrow sprites instead. They're
+// anchored at x=156, which is why the "scl" CLG preset narrows the list box
+// to leave room for them.
 function nanoSDK_apply_scrollbar(enabled: boolean) {
+    if (!enabled) {
+        if (!isDestroyed(scrollBar)) { scrollBar.destroy() }
+        if (!isDestroyed(scrollBarRond)) { scrollBarRond.destroy() }
+        if (!isDestroyed(ArrowUp)) { ArrowUp.destroy() }
+        if (!isDestroyed(ArrowDown)) { ArrowDown.destroy() }
+        return
+    }
+    if (isDestroyed(scrollBar)) { createScrollBarSprites() }
+    if (isDestroyed(ArrowUp)) { createArrows() }
+    let dark = nanoSDK_theme == "d" || (nanoSDK_theme == "m" && darkMode)
+    updateScrollBar(nanoSDK_visible_rows(), dark)
+}
+
+// MARK: ListGUI Window Rebuild
+// NanoSDK's menu_array is the full logical list (what LGV/LGS/LGR index
+// into); ListMenuContents/ListMenuGUIHidden/List_Scroll are the shared OS
+// scroll-window globals reused here so the generic arrow-click/wheel/drag
+// scroll handlers (input.ts) work for NanoSDK lists too.
+function nanoSDK_rebuild_list_window(preserveScroll: boolean) {
+    let visible = nanoSDK_visible_rows()
+    if (!preserveScroll) { List_Scroll = 0 }
+    let maxScroll = Math.max(0, menu_array.length - visible)
+    List_Scroll = Math.max(0, Math.min(List_Scroll, maxScroll))
+    ListMenuGUIHidden = menu_array.slice(0, List_Scroll)
+    ListMenuContents = menu_array.slice(List_Scroll)
+    Reload_ListGUI(ListMenuContents, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
 }
 
 // MARK: Variable Definitions
@@ -84,11 +126,6 @@ function Open_NanoSDK_App(app_binary: string) {
     NanoSDK_Taskbar_Icon = sprites.create(nanoSDK_decode_icon(binary[1]), SpriteKind.Desktop_UI)
     NanoSDK_Taskbar_Icon.setPosition(92, 111)
     NanoSDK_Taskbar_Name = binary[0]
-    createAppBar()
-    Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
-    Close_App.setPosition(156, 5)
-    App_Title = textsprite.create(binary[0], 0, 1)
-    App_Title.setPosition(parseInt(binary[3]), 4)
 
     command_data = []
     current_command = ""
@@ -106,6 +143,12 @@ function Open_NanoSDK_App(app_binary: string) {
     nanoSDK_scrollbar = false
     when_cond_data = []
     when_ranges = []
+
+    nanoSDK_apply_app_bar()
+    Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
+    Close_App.setPosition(156, 5)
+    App_Title = textsprite.create(binary[0], 0, 1)
+    App_Title.setPosition(parseInt(binary[3]), 4)
 }
 
 // MARK: Variable String/Value Resolution
@@ -470,10 +513,10 @@ function nanoSDK_run_line() {
             switch (current_command) {
                 case "01":
                     switch (command_data[1]) {
-                        case "f": Reload_ListGUI(menu_array, 80, 58, 160, 97, true); break
-                        case "s": Reload_ListGUI(menu_array, 76, 58, 151, 97, true); break
+                        case "f": menu_data = [80, 58, 160, 97]; break
+                        case "s": menu_data = [76, 58, 151, 97]; break
                     }
-                    Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], false)
+                    nanoSDK_rebuild_list_window(false)
                     break
                 case "02":
                     menu_data[0] = parseInt(command_data[1])
@@ -490,13 +533,13 @@ function nanoSDK_run_line() {
                     for (let i = 1; i < command_data.length; i++) {
                         menu_array.push(microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[i])))
                     }
-                    Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+                    nanoSDK_rebuild_list_window(false)
                     break
                 case "05": {
                     let lgsIndex = parseInt(nanoSDK_resolve_vars(command_data[1]))
                     if (lgsIndex >= 0 && lgsIndex < menu_array.length) {
                         menu_array[lgsIndex] = microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[2]))
-                        Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+                        nanoSDK_rebuild_list_window(true)
                     }
                     break
                 }
@@ -509,11 +552,12 @@ function nanoSDK_run_line() {
                 }
                 case "07":
                     menu_array.splice(parseInt(command_data[1]), 1)
-                    Reload_ListGUI(menu_array, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+                    nanoSDK_rebuild_list_window(true)
                     break
                 case "08":
                     menu_array = []
                     ListMenuGUI.destroy()
+                    nanoSDK_apply_scrollbar(false)
                     break
                 case "09":
                     switch (command_data[1]) {
@@ -531,6 +575,7 @@ function nanoSDK_run_line() {
                 case "10":
                     nanoSDK_theme = command_data[1]
                     if (ListMenuGUI) { nanoSDK_apply_theme(nanoSDK_theme) }
+                    nanoSDK_apply_app_bar()
                     break
                 case "11":
                     nanoSDK_scrollbar = command_data[1] == "t"

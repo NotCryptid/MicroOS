@@ -1,3 +1,6 @@
+> [!Tip]
+> If you have a Micro:Bit consider using [Micro Companion](https://cryptid.zip/micro-companion)
+
 # About Micro:OS
 Micro:OS is a lightweight operating system made in PXT and TypeScript for devices such as the Micro:Bit or Pi Pico.
 

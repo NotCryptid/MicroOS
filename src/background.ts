@@ -41,15 +41,15 @@ forever(function () {
                 xcellUpdateHover()
                 break
             default:
-                if ((NanoSDK_App_Running || when_cond_data.length > 0) && nanoSDK_hover_highlight) {
+                if (!isDestroyed(NanoSDK_Taskbar_Icon) && nanoSDK_hover_highlight) {
                     ListMenuGUI.selectedIndex = -1;
                     let menuTop = menu_data[1] - Math.floor(menu_data[3] / 2);
                     let menuLeft = menu_data[0] - Math.floor(menu_data[2] / 2);
                     let menuRight = menu_data[0] + Math.floor(menu_data[2] / 2);
                     if (Mouse_Cursor.x >= menuLeft && Mouse_Cursor.x < menuRight) {
                         let row = Math.floor((Mouse_Cursor.y - menuTop) / 12);
-                        if (row >= 0 && row < menu_array.length) {
-                            if (menu_array[row] && menu_array[row].text !== "" && menu_array[row].text !== " ") {
+                        if (row >= 0 && row < ListMenuContents.length) {
+                            if (ListMenuContents[row] && ListMenuContents[row].text !== "" && ListMenuContents[row].text !== " ") {
                                 ListMenuGUI.selectedIndex = row;
                             }
                         }

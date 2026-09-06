@@ -6,6 +6,9 @@ namespace SpriteKind {
     export const App_UI = SpriteKind.create()
 }
 
+// MARK: OS Version
+const MicroOS_Version = "v1.1.0"
+
 // MARK: Is Destroyed
 function isDestroyed(sprite: Sprite): boolean {
     return !sprite || !!(sprite.flags & sprites.Flag.Destroyed)
@@ -87,20 +90,26 @@ text2.setPosition(61, 6)
 let text3 = textsprite.create("> PXT Build 4.0.14", 0, 1)
 text3.setPosition(58, 16)
 pause(200)
-text = textsprite.create("> Loading MicroOS v1.0.0", 0, 1)
+text = textsprite.create("> Loading MicroOS " + MicroOS_Version, 0, 1)
 text.setPosition(76, 26)
 
 const themes = [[7, 9, 2], [10, 9, 10], [5, 5, 5], [11, 10, 10], [1, 9, 9]]
 
 let theme = themes[0]
 
-const defaultSettings = "1100000"
+const defaultSettings = "110000000"
 
 // MARK: Load Settings
 // Settings digit layout: 0 unused, 1 radio channel, 2 wallpaper,
-// 3 show clock, 4 dark mode, 5 theme, 6 indicator. (Username/RoomCode are
-// stored as their own separate strings, not digits here.)
-if (Settings == null || Settings.length !== defaultSettings.length || (controller.B.isPressed() && controller.up.isPressed())) {
+// 3 show clock, 4 dark mode, 5 theme, 6 indicator, 7 serial USB, 8 MCP.
+// (Username/RoomCode are stored as their own separate strings, not digits
+// here.) defaultSettings must stay padded out to cover every digit up to
+// 8 -- devices with a Settings string persisted before serial/MCP existed
+// only have 7 digits, and the padding below only fills in what's missing
+// from defaultSettings, so a short defaultSettings here means charAt(7)/
+// charAt(8) come back as "" (NaN when parsed) on those devices instead of
+// the intended "0" (on).
+if (Settings == null || (controller.B.isPressed() && controller.up.isPressed())) {
     Settings = defaultSettings
     radio.setGroup(113)
     settings.writeString("settings", Settings)
@@ -111,6 +120,10 @@ if (Settings == null || Settings.length !== defaultSettings.length || (controlle
     radio.setGroup(113 + parseInt(Settings.charAt(1)))
     Username = settings.readString("Username")
     RoomCode = settings.readString("RoomCode")
+}
+
+if (Settings.length < defaultSettings.length) { 
+    Settings = Settings + defaultSettings.slice(Settings.length);
 }
 webChatProtocol.setUsername(Username)
 webChatProtocol.setRoomCode(RoomCode)
@@ -128,6 +141,8 @@ Current_Settings = [
     microUtilities.createMenuItem(["Dark Mode - Off", "Dark Mode - On", "Dark Mode - Off"][parseInt(Settings.charAt(4), 10)]),
     microUtilities.createMenuItem(["Theme - Default", "Theme - Blush", "Theme - Ocean", "Theme - Orange", "Theme - Default"][parseInt(Settings.charAt(5), 10)]),
     microUtilities.createMenuItem(["Indicator - On", "Indicator - Off", "Indicator - On"][parseInt(Settings.charAt(6), 10)]),
+    microUtilities.createMenuItem(["Serial USB - On", "Serial USB - Off", "Serial USB - On"][parseInt(Settings.charAt(7), 10)]),
+    microUtilities.createMenuItem(["MCP - On", "MCP - Off", "MCP - On"][parseInt(Settings.charAt(8), 10)])
 ]
 
 theme = themes[parseInt(Settings.charAt(5), 10)]
@@ -274,26 +289,5 @@ function error(code: number) {
     if (App_Open !== "death") {
         close_apps()
         game.splash("Error " + code)
-    }
-}
-
-// MARK: Kernel Panic
-function kernel_panic(code: number) {
-    if (App_Open !== "death") {
-        close_apps()
-        App_Open = "death"   
-        scene.setBackgroundImage(assets.image`Kernel Panic`)
-        sprites.destroyAllSpritesOfKind(SpriteKind.SimpleMenu)
-        sprites.destroyAllSpritesOfKind(SpriteKind.Text)
-        sprites.destroyAllSpritesOfKind(SpriteKind.Mouse)
-        sprites.destroyAllSpritesOfKind(SpriteKind.Desktop_UI)
-        let text2 = textsprite.create("MicroOS has ran into a", 0, 1)
-        text2.setPosition(72, 32)
-        let text3 = textsprite.create("fatal error.", 0, 1)
-        text3.setPosition(41, 41)
-        let text4 = textsprite.create("Error Code " + code, 0, 1)
-        text4.setPosition(47, 94)
-        text = textsprite.create("Press Menu to reboot", 0, 1)
-        text.setPosition(79, 111)
     }
 }

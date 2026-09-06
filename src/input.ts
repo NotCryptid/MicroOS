@@ -76,7 +76,6 @@ function MouseClick(button: number) {
 
     if (isDestroyed(Mouse_Cursor)) {
         // ugh, why is this needed for the code to work, you can't even destroy the mouse cursor
-        kernel_panic(202)
         return
     }
     if (button == 1 && handleTaskbarIconClick()) {
@@ -194,7 +193,12 @@ if (isVM) {
 // MARK: Refresh Scrollable List GUI
 // Shared by the arrow-click and scrollbar-drag scroll paths.
 function refreshScrollableListGUI() {
-    if (App_Open == "NanoCode") {
+    if (!isDestroyed(NanoSDK_Taskbar_Icon)) {
+        // A NanoSDK app stays open (and scrollable) even after its script
+        // finishes running -- NanoSDK_App_Running only tracks whether lines
+        // are still being stepped, not whether the app/list is still open.
+        Reload_ListGUI(ListMenuContents, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
+    } else if (App_Open == "NanoCode") {
         reloadListGUI(76, 64, 151, 84, true);
         updateScrollBar(visibleRows, true);
     } else if (App_Open == "Write") {

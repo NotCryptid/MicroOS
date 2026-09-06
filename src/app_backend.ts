@@ -264,6 +264,7 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 Current_Settings[2] // username
                             ]
                             if (microUtilities.isMicrobit()) {
+                                Current_Settings[7]
                                 ListMenuContents.push(microUtilities.createMenuItem("Serial - " + microUtilities.serialNumber()))
                             }
                             SubMenu = "Connectivity"
@@ -314,6 +315,11 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                                 Current_Settings[2]
                             ]
                             break
+                        case 4:
+                            if (microUtilities.isMicrobit()) {
+                                changeSettings(8)
+                            }
+                            break
                     }
                     break
                 // MARK: Settings Customization
@@ -356,8 +362,8 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 3:
                             ListMenuContents = [
                                 microUtilities.createMenuItem("Back"),
-                                microUtilities.createMenuItem("MicroOS v1.0.0"),
-                                microUtilities.createMenuItem("NanoSDK 2026.3"),
+                                microUtilities.createMenuItem("MicroOS " + MicroOS_Version),
+                                microUtilities.createMenuItem("NanoSDK 2026.3.1"),
                                 microUtilities.createMenuItem("Storage - " + microUtilities.storageCapacity(StorageUnit.Kilobytes) + "KB"),
                                 microUtilities.createMenuItem("Storage Free - " + Math.floor((microUtilities.storageCapacity(StorageUnit.Kilobytes) - microUtilities.storageUsage(StorageUnit.Kilobytes))) + "KB"),
                                 microUtilities.createMenuItem("RAM Capacity - " + microUtilities.ramCapacity(StorageUnit.Kilobytes) + "KB"),
@@ -463,8 +469,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                         case 3:
                             ListMenuContents = [
                                 microUtilities.createMenuItem("Back")
-                                // make something here later
                             ]
+                            if (microUtilities.isMicrobit()) {
+                                ListMenuContents.push(Current_Settings[9]) // MCP
+                            }
                             SubMenu = "NanoCode Settings"
                             break
                         case 4:
@@ -512,6 +520,10 @@ function listSelection(app: string, selection: number, submenu: string, action: 
                             SubMenu = "App Settings"
                             break
                         case 2:
+                            if (microUtilities.isMicrobit()) {
+                                changeSettings(9)
+                                ListMenuContents[1] = Current_Settings[9]
+                            }
                             break
                     }
                     break
@@ -638,8 +650,10 @@ function deleteAllUserFiles() {
 // MARK: Write Settings
 // selection: 1 radio channel, 2 wallpaper, 3 show clock, 4 room code
 // (no digit -- stored as its own string), 5 dark mode, 6 theme,
-// 7 indicator. Matches Current_Settings' layout 1:1 except room code,
-// which sits at Current_Settings[4] with no corresponding Settings digit.
+// 7 indicator, 8 serial USB, 9 MCP. Matches Current_Settings' layout 1:1
+// except room code, which sits at Current_Settings[4] with no
+// corresponding Settings digit -- every selection past it is offset by
+// one digit index below its selection number.
 function changeSettings(selection: number) {
     let settingDigitIndex = selection
     switch (selection) {
@@ -654,6 +668,12 @@ function changeSettings(selection: number) {
             break
         case 7:
             settingDigitIndex = 6
+            break
+        case 8:
+            settingDigitIndex = 7
+            break
+        case 9:
+            settingDigitIndex = 8
             break
     }
     let dingus53 = 0
@@ -731,6 +751,22 @@ function changeSettings(selection: number) {
                 microUtilities.setPixel(0,0,false)
             }
             currentSettingsIndex = 7
+            break
+        case 8:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["Serial USB - On", "Serial USB - Off", "Serial USB - On"][dingus53]
+            currentSettingsIndex = 8
+            break
+        case 9:
+            dingus52 = 1
+            if (dingus53 > dingus52) {
+                dingus53 = 0
+            }
+            dingus51 = ["MCP - On", "MCP - Off", "MCP - On"][dingus53]
+            currentSettingsIndex = 9
             break
     }
     createAppBar(0, theme[2])

@@ -3,6 +3,48 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
+            case "image11":
+            case "Close":return img`
+. a a a a a . 
+a 1 a a a 1 a 
+a a 1 a 1 a a 
+a a a 1 a a a 
+a a 1 a 1 a a 
+a 1 a a a 1 a 
+. a a a a a . 
+`;
+            case "image10":
+            case "Process Manager":return img`
+e e e e e e e e 
+e f f f f f f e 
+e f f a f c f e 
+e f 3 a f c f e 
+e f 3 a 9 c f e 
+e f 3 a 9 c f e 
+e f f f f f f e 
+e e e e e e e e 
+`;
+            case "image5":
+            case "NanoCode":return img`
+f f f f f f f f 
+f 1 1 f 1 1 1 f 
+f f f f f f f f 
+2 2 2 2 f f 1 f 
+2 1 1 2 2 1 1 f 
+2 1 2 1 2 f f f 
+2 1 2 1 2 1 1 f 
+2 2 2 2 2 f f f 
+`;
+            case "image21":
+            case "Arrow":return img`
+. 9 9 9 9 9 . 
+9 9 9 9 9 9 9 
+9 9 9 1 9 9 9 
+9 9 1 1 1 9 9 
+9 1 1 1 1 1 9 
+9 9 9 9 9 9 9 
+. 9 9 9 9 9 . 
+`;
             case "image15":
             case "Wallpaper - Squiggles":return img`
 fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff222ffffffffffffffffffffffffffffffffffffffff
