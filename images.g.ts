@@ -3,17 +3,6 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "image17":
-            case "Library_icon":return img`
-2 2 2 2 2 2 2 c 
-2 9 a 1 7 1 d c 
-2 9 1 a 7 1 3 c 
-2 9 a 1 7 7 d c 
-2 7 e 3 5 9 4 c 
-2 7 e e 9 5 7 c 
-2 d 3 3 9 9 7 c 
-2 2 2 2 2 2 2 c 
-`;
             case "image1":
             case "WebAttachementRemove":return img`
 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -99,17 +88,6 @@ e e e e e e e e
 7 9 9 9 9 9 7 
 1 7 7 7 7 7 1 
 `;
-            case "image4":
-            case "Write":return img`
-. 7 d 1 1 d 3 2 
-7 7 3 e e 3 7 7 
-3 1 1 1 1 1 1 3 
-3 1 f e d e 1 3 
-3 1 1 1 1 1 1 3 
-3 1 d e f d 1 3 
-3 1 1 1 1 1 1 3 
-2 d f f e e d 2 
-`;
             case "image9":
             case "Cursor":return img`
 . f f f . 
@@ -117,28 +95,6 @@ f 1 9 7 f
 f 9 7 3 f 
 f 7 3 2 f 
 . f f f . 
-`;
-            case "image7":
-            case "Settings":return img`
-. 1 d 1 d 1 d . 
-1 d e d e d 1 d 
-d e d e e d d e 
-1 d e . . d e d 
-d d e . . 1 e e 
-1 d d d 1 d 1 d 
-d e d 1 d 1 d e 
-. d e d e d e . 
-`;
-            case "image5":
-            case "NanoCode":return img`
-1 1 1 1 1 1 1 1 
-1 e e 1 e e e 1 
-1 1 1 1 1 1 1 1 
-3 3 3 3 1 1 e 1 
-2 1 1 2 2 e e 1 
-2 1 2 1 2 1 1 1 
-2 1 2 1 2 e e 1 
-c c c c c d d d 
 `;
             case "image11":
             case "Close":return img`
@@ -492,6 +448,50 @@ fffffffffffffffffffffffffffffff3333ffffffffffffffffffffffffff777ffffffffffffffff
 fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 `;
+            case "image4":
+            case "Write":return img`
+. . d 1 1 d . . 
+7 7 3 e e 3 7 7 
+3 1 1 1 1 1 1 3 
+3 1 f e d e 1 3 
+3 1 1 1 1 1 1 3 
+3 1 d e f d 1 3 
+3 1 1 1 1 1 1 3 
+2 d f f e e d 2 
+`;
+            case "image17":
+            case "Library_icon":return img`
+2 2 2 2 2 2 2 2 
+2 9 9 9 7 7 d 2 
+2 a 1 a e e 3 2 
+2 1 a 1 3 e 3 2 
+2 7 7 7 5 9 9 2 
+2 1 1 7 9 5 9 2 
+2 d 3 d 4 7 7 2 
+c c c c c c c c 
+`;
+            case "image5":
+            case "NanoCode":return img`
+f f f f f f f f 
+f 1 1 f 1 1 1 f 
+f f f f f f f f 
+3 3 3 3 f f 1 f 
+2 1 1 2 2 1 1 f 
+2 1 2 1 2 f f f 
+2 1 2 1 2 1 1 f 
+c c c c c f f f 
+`;
+            case "image7":
+            case "Settings":return img`
+. . . 1 d . . . 
+1 d . d e . 1 d 
+d e d e e d d e 
+. d e . . d e . 
+. d e . . 1 e . 
+1 d d d 1 d 1 d 
+d e . 1 d . d e 
+. . . d e . . . 
+`;
         }
         return null;
     })
@@ -516,6 +516,12 @@ fffffffffffffffffffffffffffffff333fffffffffffffffffffffffffff777ffffffffffffffff
         }
         return null;
     })
+
+}
+// Auto-generated code. Do not edit.
+
+// Auto-generated code. Do not edit.
+namespace myTiles {
 
 }
 // Auto-generated code. Do not edit.

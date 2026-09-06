@@ -199,7 +199,7 @@ function refreshScrollableListGUI() {
         // are still being stepped, not whether the app/list is still open.
         Reload_ListGUI(ListMenuContents, menu_data[0], menu_data[1], menu_data[2], menu_data[3], true)
     } else if (App_Open == "NanoCode") {
-        reloadListGUI(76, 64, 151, 84, true);
+        reloadListGUI(76, 63, 151, 84, true);
         updateScrollBar(visibleRows, true);
     } else if (App_Open == "Write") {
         reloadListGUI(76, 63, 151, 84, darkMode);
