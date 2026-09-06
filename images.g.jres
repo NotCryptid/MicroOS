@@ -63,14 +63,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "scrollBar2"
     },
-    "myImages.image9": {
-        "id": "myImages.image9",
-        "data": "hwQFAAUAAADw/wAAH3kPAJ83DwB/Iw8A8P8AAA==",
-        "dataEncoding": "base64",
-        "namespace": "myImages.",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Cursor"
-    },
     "myImages.image11": {
         "id": "myImages.image11",
         "data": "hwQHAAcAAACQqqoAGaoaA6mhoQOpGqoDqaGhAxmqGgOgqjoA",
@@ -142,5 +134,13 @@
         "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Settings"
+    },
+    "myImages.image9": {
+        "id": "myImages.image9",
+        "data": "hwQFAAUAAADw/wAAH5EPAB95DwCfNw8A8P8AAA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Cursor"
     }
 }

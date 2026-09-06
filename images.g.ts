@@ -88,14 +88,6 @@ e e e e e e e e
 7 9 9 9 9 9 7 
 1 7 7 7 7 7 1 
 `;
-            case "image9":
-            case "Cursor":return img`
-. f f f . 
-f 1 9 7 f 
-f 9 7 3 f 
-f 7 3 2 f 
-. f f f . 
-`;
             case "image11":
             case "Close":return img`
 . 9 9 9 9 9 . 
@@ -491,6 +483,14 @@ d e d e e d d e
 1 d d d 1 d 1 d 
 d e . 1 d . d e 
 . . . d e . . . 
+`;
+            case "image9":
+            case "Cursor":return img`
+. f f f . 
+f 1 1 9 f 
+f 1 9 7 f 
+f 9 7 3 f 
+. f f f . 
 `;
         }
         return null;
