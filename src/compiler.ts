@@ -140,7 +140,7 @@ function compile_nanosdk_code(source: string): string {
             case "SVR": if (a.length < 2) { break }
                 out.push("502§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
             case "VRM": if (a.length < 3) { break }
-                out.push("503§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1]) + "§" + nsc_pad(a[2])); continue
+                out.push("503§" + nsc_pad(a[0]) + "§" + nsc_op(a[1]) + "§" + nsc_pad(a[2])); continue
             case "VCJ": if (a.length < 1) { break }
                 out.push("504§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
         }
@@ -194,6 +194,16 @@ function nsc_cmp(s: string): string {
         case "les": return "<"
         case "moe": return "≥"
         case "loe": return "≤"
+        default: return s
+    }
+}
+
+function nsc_op(s: string): string {
+    switch (s.toLowerCase()) {
+        case "add": return "a"
+        case "sub": return "s"
+        case "mul": return "m"
+        case "div": return "d"
         default: return s
     }
 }
