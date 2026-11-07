@@ -100,6 +100,11 @@ function MouseClick(button: number) {
         case "Web Chat":
             handleWebChatClick(button)
             break
+        default:
+            // NanoSDK app: record the clicked row for WHN sel
+            if (button == 1 && !isDestroyed(NanoSDK_Taskbar_Icon) && !isDestroyed(ListMenuGUI)) {
+                nanoSDK_clicked_row = ListMenuGUI.selectedIndex
+            }
     }
 }
 

@@ -81,6 +81,7 @@ let loop_condition: string[][] = [] // stores condition params for conditional l
 let menu_array: microUtilities.MenuItem[] = []
 let menu_data = [80, 58, 160, 97]
 let nanoSDK_hover_highlight = false
+let nanoSDK_clicked_row = -1   // row clicked since last WHN sel check (-1 = none)
 let nanoSDK_theme = "m"
 let nanoSDK_scrollbar = false
 
@@ -139,6 +140,7 @@ function Open_NanoSDK_App(app_binary: string) {
     menu_array = []
     menu_data = [80, 58, 160, 97]
     nanoSDK_hover_highlight = false
+    nanoSDK_clicked_row = -1
     nanoSDK_theme = "m"
     nanoSDK_scrollbar = false
     when_cond_data = []
@@ -224,8 +226,13 @@ function nanoSDK_check_when(idx: number): boolean {
 
         // MARK: When ListGUI Select
         case "sel": {
+            // Edge-triggered: fires once per click on the row, not while hovering
             let targetIdx = parseInt(cond[1]) - 1
-            return ListMenuGUI.selectedIndex == targetIdx
+            if (nanoSDK_clicked_row == targetIdx) {
+                nanoSDK_clicked_row = -1
+                return true
+            }
+            return false
         }
     }
 
