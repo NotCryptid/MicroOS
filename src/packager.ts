@@ -49,11 +49,38 @@ function nsc_compile_icon(param: string): string {
 }
 
 // MARK: Title X Position
-// App titles are textsprites (fixed-width font, left edge at x=0) positioned
-// by their centre, so the centre is half the rendered text width.
+// App titles are textsprites (fixed-width font) positioned by their centre.
+// Glyphs don't fill their whole cell though: each has blank columns on the
+// left that depend on the letter, so centring on the cell width leaves
+// titles starting at different visible x positions. This reads the real
+// glyph data from the font and places the title so the first visible pixel
+// of the first letter always lands on x = 1 (where the built-in app titles
+// sit).
+function nsc_glyph_lead(font: image.Font, ch: number): number {
+    if (font.multiplier != null && font.multiplier > 1) { return 0 }
+    let dataW = font.charWidth
+    let charSize = ((font.charHeight + 7) >> 3) * dataW
+    let rowSize = 2 + charSize
+    let data = font.data
+    let count = Math.idiv(data.length, rowSize)
+    for (let g = 0; g < count; g++) {
+        let off = g * rowSize
+        if (data.getNumber(NumberFormat.UInt16LE, off) != ch) { continue }
+        let bytesPerCol = charSize / dataW
+        for (let col = 0; col < dataW; col++) {
+            for (let by = 0; by < bytesPerCol; by++) {
+                if (data[off + 2 + col * bytesPerCol + by] != 0) { return col }
+            }
+        }
+        return 0
+    }
+    return 0
+}
+
 function nsc_title_x(name: string): number {
     let font = image.getFontForText(name)
-    return Math.floor(font.charWidth * name.length / 2)
+    let lead = name.length > 0 ? nsc_glyph_lead(font, name.charCodeAt(0)) : 0
+    return Math.floor(font.charWidth * name.length / 2) + 1 - lead
 }
 
 function nsc_tokens(line: string): string[] {

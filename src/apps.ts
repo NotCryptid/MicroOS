@@ -181,7 +181,7 @@ function Open_NanoCode(project: string = null, file_name: string = null) {
     App_Open = "NanoCode"
     SubMenu = "Editor"
     createAppBar(15)
-    text = textsprite.create(" Save | Save As | Compile", 1, 15)
+    text = textsprite.create(" Save | Save As | Package", 1, 15)
     text.setPosition(72, 13)
     text.setBorder(2,1,0)
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
