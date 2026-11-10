@@ -366,7 +366,7 @@ function handleNanoCodeWriteToolbarClick() {
             .map(item => item.text)
             .filter(t => t !== " ")
             .join("~")
-        const compiled = compile_nanosdk_code(serialized)
+        const compiled = package_nanosdk_code(serialized)
         if (compiled == null) {
             softerror(114)
             return

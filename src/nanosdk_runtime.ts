@@ -68,11 +68,9 @@ function nanoSDK_rebuild_list_window(preserveScroll: boolean) {
 
 // MARK: Variable Definitions
 
-let binary: string[] = []
+let program: string[][] = []   // decoded app body, one [CMD, ...args] per instruction
 let command_data: string[] = []
-let current_command = ""
-let command_category = ""
-let line = 5
+let line = 0                   // 0-based index into program
 let variables: {[key: string]: string} = {}
 let condition_met = ["null"]
 let loop_repeats_left: string[] = []
@@ -86,15 +84,14 @@ let nanoSDK_theme = "m"
 let nanoSDK_scrollbar = false
 
 // WHN (When) registry
-// Each entry: [condType, ...condParams, bodyStart, bodyEnd]
-// bodyStart = line index of first instruction inside the when block
-// bodyEnd   = line index of the 401§e instruction
+// bodyStart = program index of first instruction inside the when block
+// bodyEnd   = program index of the last instruction inside the when block
 let when_registry: number[][] = []   // [condType_encoded, ...params, bodyStart, bodyEnd] — we store as a parallel structure
 let when_cond_data: string[][] = []  // [condType, param1, param2, ...] for each when
 let when_ranges: number[][] = []     // [[bodyStart, bodyEnd], ...] for each when
 
 // MARK: DAI Icon Decoding
-// Icon pixel data is baked into the compiled binary at compile time (see
+// Icon pixel data is baked into the package at packaging time (see
 // nsc_compile_icon in compiler.ts) as a flat string of hex nibbles, one per
 // pixel, row-major, matching the Write-app icon-asset palette. "default"
 // (or anything malformed) falls back to the built-in icon below.
@@ -114,9 +111,136 @@ function nanoSDK_decode_icon(hex: string, size: number = 8): Image {
     return img
 }
 
+// MARK: Source Decoder
+// Turns packaged source lines (see package_nanosdk_code) into program
+// entries of the form [CMD, ...args], once, when the app opens. Aliases are
+// normalised here (eql -> "=", btna -> "a", ...) so the executor stays simple.
+// Every index in NanoSDK (LGS, LGV, LGR, LGH, WHN sel) is 0-based.
+function nanoSDK_decode(src: string[]): string[][] {
+    // :BLW joins a line with the one below it (except LOP :BLW, whose
+    // condition line is consumed by the LOP case below)
+    let lines: string[] = []
+    let i = 0
+    while (i < src.length) {
+        let l = src[i].trim()
+        if (l == "") { i++; continue }
+        if (l.toUpperCase() != "LOP :BLW" && l.length > 4 && l.substr(l.length - 4).toUpperCase() == ":BLW") {
+            let base = l.substr(0, l.length - 4).trim()
+            i++
+            while (i < src.length && src[i].trim() == "") { i++ }
+            lines.push(i < src.length ? base + " " + src[i++].trim() : base)
+        } else { lines.push(l); i++ }
+    }
+
+    let out: string[][] = []
+    let lgoN = 0
+    let lgoA: string[] = []
+
+    for (let li = 0; li < lines.length; li++) {
+        let l = lines[li]
+
+        if (lgoN > 0) {
+            lgoA.push(l); lgoN--
+            if (lgoN == 0) { out.push(["LGO"].concat(lgoA)); lgoA = [] }
+            continue
+        }
+
+        let tk = nsc_tokens(l)
+        if (tk.length == 0) { continue }
+        let cmd = tk[0].toUpperCase()
+        let a = tk.slice(1)
+
+        switch (cmd) {
+            case "PRN":
+            case "END":
+            case "ASM": out.push([cmd, a.join(" ")]); continue
+
+            case "IFB":
+            case "WHN": {
+                if (a.length == 0) { break }
+                switch (a[0].toLowerCase()) {
+                    case "end": out.push([cmd, "e"]); continue
+                    case "els": out.push([cmd, "l"]); continue
+                    case "var": if (a.length < 3) { break }
+                        out.push([cmd, "v", a[1], nsc_cmp(a[2]), a.slice(3).join(" ")]); continue
+                    case "btn": if (a.length < 3) { break }
+                        out.push([cmd, "b", nsc_btn(a[1]), nsc_bs(a[2])]); continue
+                    case "spr": if (a.length < 3) { break }
+                        out.push([cmd, "s", a[1], a[2].toLowerCase() == "tch" ? "tch" : nsc_cmp(a[2]), a.slice(3).join(" ")]); continue
+                    case "sel": if (cmd == "WHN" && a.length >= 2) { out.push(["WHN", "sel", a[1]]); continue }
+                }
+                break
+            }
+
+            case "LOP": {
+                let p = a.length > 0 ? a[0].toLowerCase() : ""
+                switch (p) {
+                    case "end": out.push(["LOP", "e"]); continue
+                    case "ext": out.push(["LOP", "x"]); continue
+                    case "inf": out.push(["LOP", "inf"]); continue
+                    case ":blw": {
+                        // next line is the condition (IFB btn/var/spr)
+                        li++
+                        if (li < lines.length) {
+                            let ctk = nsc_tokens(lines[li])
+                            let cac = ctk.length > 1 ? ctk[1].toLowerCase() : ""
+                            let ca = ctk.slice(2)
+                            switch (cac) {
+                                case "btn": if (ca.length >= 2) { out.push(["LOP", "BLW", "b", nsc_btn(ca[0]), nsc_bs(ca[1])]) }; break
+                                case "var": if (ca.length >= 2) { out.push(["LOP", "BLW", "v", ca[0], nsc_cmp(ca[1]), ca.slice(2).join(" ")]) }; break
+                                case "spr": if (ca.length >= 2) { out.push(["LOP", "BLW", "s", ca[0], ca[1].toLowerCase() == "tch" ? "tch" : nsc_cmp(ca[1]), ca.slice(2).join(" ")]) }; break
+                            }
+                        }
+                        continue
+                    }
+                    default: out.push(["LOP", parseInt(p).toString()]); continue
+                }
+            }
+
+            case "CLG": {
+                let p = a.length > 0 ? a[0].toLowerCase() : ""
+                out.push(["CLG", p == "ful" ? "f" : p == "scl" ? "s" : ""]); continue
+            }
+            case "LGP":
+            case "LGD": if (a.length < 2) { break }
+                out.push([cmd, a[0], a[1]]); continue
+            case "LGO": if (a.length < 1) { break }
+                lgoN = parseInt(a[0].toLowerCase().substr(3)); lgoA = []; continue
+            case "LGS": if (a.length < 1) { break }
+                out.push(["LGS", a[0], a.slice(1).join(" ")]); continue
+            case "LGV": if (a.length < 2) { break }
+                out.push(["LGV", a[0], a[1]]); continue
+            case "LGR": if (a.length < 1) { break }
+                out.push(["LGR", a[0]]); continue
+            case "DLG": out.push(["DLG"]); continue
+            case "LGH": {
+                if (a.length < 1) { break }
+                let m = a[0].toLowerCase()
+                out.push(["LGH", m == "off" ? "o" : m == "auto" ? "a" : parseInt(m).toString()]); continue
+            }
+            case "LGT": if (a.length < 1) { break }
+                out.push(["LGT", a[0].toLowerCase()]); continue
+            case "LSB": if (a.length < 1) { break }
+                out.push(["LSB", a[0].toLowerCase() == "on" ? "t" : "f"]); continue
+
+            case "DVR":
+            case "SVR": if (a.length < 2) { break }
+                out.push([cmd, a[0], a[1]]); continue
+            case "VRM": if (a.length < 3) { break }
+                out.push(["VRM", a[0], nsc_op(a[1]), a[2]]); continue
+            case "VCJ": if (a.length < 1) { break }
+                out.push(["VCJ", a[0], a.slice(1).join(" ")]); continue
+        }
+
+        out.push(["NOP"]) // unknown — no-op passthrough
+    }
+    return out
+}
+
 // MARK: Start Runtime
 function Open_NanoSDK_App(app_binary: string) {
-    binary = app_binary.split("~")
+    let binary = app_binary.split("~")
+    program = nanoSDK_decode(binary.slice(4))
     close_apps()
     NanoSDK_App_Running = true
     App_Open = binary[0]
@@ -129,9 +253,7 @@ function Open_NanoSDK_App(app_binary: string) {
     NanoSDK_Taskbar_Name = binary[0]
 
     command_data = []
-    current_command = ""
-    command_category = ""
-    line = 5
+    line = 0
     variables = {}
     condition_met = ["null"]
     loop_repeats_left = []
@@ -227,7 +349,7 @@ function nanoSDK_check_when(idx: number): boolean {
         // MARK: When ListGUI Select
         case "sel": {
             // Edge-triggered: fires once per click on the row, not while hovering
-            let targetIdx = parseInt(cond[1]) - 1
+            let targetIdx = parseInt(cond[1])
             if (nanoSDK_clicked_row == targetIdx) {
                 nanoSDK_clicked_row = -1
                 return true
@@ -266,7 +388,7 @@ function executeNanoSDKLine() {
 
     // MARK: When Check
     // When app has finished main execution, only when checks keep it alive
-    if (line > binary.length) {
+    if (line >= program.length) {
         if (when_cond_data.length == 0) {
             NanoSDK_App_Running = false
         }
@@ -297,16 +419,14 @@ function executeNanoSDKLine() {
 }
 
 function nanoSDK_run_line() {
-    if (line > binary.length) { return }
+    if (line >= program.length) { return }
 
-    command_data = binary[line - 1].split("§")
-    let raw_cmd = command_data[0]
-    command_category = raw_cmd.charAt(0)
-    current_command = raw_cmd.charAt(1) + raw_cmd.charAt(2)
+    command_data = program[line]
+    let cmd = command_data[0]
     line++
 
     // MARK: IFB End early pop (before condition check so nested brackets close correctly)
-    if (command_category == "2" && command_data[1] == "e") {
+    if (cmd == "IFB" && command_data[1] == "e") {
         condition_met.pop()
         return
     }
@@ -314,10 +434,10 @@ function nanoSDK_run_line() {
     // MARK: Condition Gate
     if (condition_met[condition_met.length - 1] == "false") {
         // Still need to track nested IFB opens so we can pop correctly
-        if (command_category == "2" && current_command == "01" && command_data[1] != "e" && command_data[1] != "l") {
+        if (cmd == "IFB" && command_data[1] != "e" && command_data[1] != "l") {
             condition_met.push("skip") // nested bracket inside false block
         }
-        if (command_category == "2" && command_data[1] == "l") {
+        if (cmd == "IFB" && command_data[1] == "l") {
             // els flips the condition
             if (condition_met[condition_met.length - 1] == "true") {
                 condition_met[condition_met.length - 1] = "false"
@@ -329,34 +449,28 @@ function nanoSDK_run_line() {
     }
     if (condition_met[condition_met.length - 1] == "skip") { return }
 
-    switch (command_category) {
+    switch (cmd) {
 
         // MARK: Basic Commands
-        case "1":
-            switch (current_command) {
-                case "05":
-                    NanoSDK_App_Running = false
-                    game.splash(nanoSDK_resolve_vars(command_data[1]))
-                    NanoSDK_App_Running = true
-                    break
-                case "06":
-                    close_apps()
-                    if (command_data[1] && command_data[1] != "") {
-                        game.splash(nanoSDK_resolve_vars(command_data[1]))
-                    }
-                    break
-                case "07":
-                    // ASM mid-code submenu change
-                    SubMenu = command_data[1]
-                    break
-                default:
-                    error(301)
+        case "PRN":
+            NanoSDK_App_Running = false
+            game.splash(nanoSDK_resolve_vars(command_data[1]))
+            NanoSDK_App_Running = true
+            break
+        case "END":
+            close_apps()
+            if (command_data[1] && command_data[1] != "") {
+                game.splash(nanoSDK_resolve_vars(command_data[1]))
             }
+            break
+        case "ASM":
+            // mid-code submenu change
+            SubMenu = command_data[1]
             break
 
         // MARK: Logic
-        case "2":
-            if (current_command == "01") {
+        case "IFB": {
+            {
                 // MARK: IFB
                 condition_met.push("false")
                 let action = command_data[1]
@@ -404,8 +518,13 @@ function nanoSDK_run_line() {
                         break
                 }
                 // "e" already handled above
-            } else if (current_command == "02") {
-                // MARK: Loop
+            }
+            break
+        }
+
+        // MARK: Loop
+        case "LOP": {
+            {
                 if (command_data[1] == "e") {
                     // Loop end — check condition or decrement
                     let cond = loop_condition[loop_condition.length - 1]
@@ -463,15 +582,15 @@ function nanoSDK_run_line() {
                     loop_repeats_left.pop()
                     loop_condition.pop()
                     let depth = 1
-                    while (line <= binary.length && depth > 0) {
-                        let ld = binary[line - 1].split("§")
-                        if (ld[0] == "202" && ld[1] != "e" && ld[1] != "x") depth++
-                        if (ld[0] == "202" && ld[1] == "e") depth--
+                    while (line < program.length && depth > 0) {
+                        let ld = program[line]
+                        if (ld[0] == "LOP" && ld[1] != "e" && ld[1] != "x") depth++
+                        if (ld[0] == "LOP" && ld[1] == "e") depth--
                         line++
                     }
                 } else {
                     // Loop start — check if this is a conditional loop (command_data[1] == "BLW")
-                    // Conditional loops are stored as 202§BLW§condType§...params
+                    // Conditional loops are decoded as [LOP, BLW, condType, ...params]
                     if (command_data[1] == "BLW") {
                         loop_repeats_left.push("inf")
                         loop_line.push(line)
@@ -484,26 +603,27 @@ function nanoSDK_run_line() {
                 }
             }
             break
+        }
 
         // MARK: When
-        case "4":
-            if (current_command == "01") {
+        case "WHN": {
+            {
                 if (command_data[1] == "e") {
                     // WHN end — nothing to do during registration pass,
                     // but during when-body execution this signals end (handled by when_exec_line > range[1])
                 } else {
                     // Register a new when
-                    // Find the matching 401§e to get the body range
+                    // Find the matching WHN end to get the body range
                     let bodyStart = line // line after WHN declaration
                     let depth = 1
                     let scanLine = line
-                    while (scanLine <= binary.length && depth > 0) {
-                        let ld = binary[scanLine - 1].split("§")
-                        if (ld[0].charAt(0) == "4" && ld[0].charAt(1) + ld[0].charAt(2) == "01" && ld[1] != "e") depth++
-                        if (ld[0].charAt(0) == "4" && ld[0].charAt(1) + ld[0].charAt(2) == "01" && ld[1] == "e") depth--
+                    while (scanLine < program.length && depth > 0) {
+                        let ld = program[scanLine]
+                        if (ld[0] == "WHN" && ld[1] != "e") depth++
+                        if (ld[0] == "WHN" && ld[1] == "e") depth--
                         scanLine++
                     }
-                    let bodyEnd = scanLine - 2 // line of 401§e (0-indexed into binary means scanLine-1, but we want before it)
+                    let bodyEnd = scanLine - 2 // last instruction before the matching WHN end
                     // Skip past the whole when block during main execution
                     line = scanLine
 
@@ -514,104 +634,102 @@ function nanoSDK_run_line() {
                 }
             }
             break
+        }
 
         // MARK: ListGUI
-        case "3":
-            switch (current_command) {
-                case "01":
-                    switch (command_data[1]) {
-                        case "f": menu_data = [80, 58, 160, 97]; break
-                        case "s": menu_data = [76, 58, 151, 97]; break
-                    }
-                    nanoSDK_rebuild_list_window(false)
+        case "CLG":
+            switch (command_data[1]) {
+                case "f": menu_data = [80, 58, 160, 97]; break
+                case "s": menu_data = [76, 58, 151, 97]; break
+            }
+            nanoSDK_rebuild_list_window(false)
+            break
+        case "LGP":
+            menu_data[0] = parseInt(command_data[1])
+            menu_data[1] = parseInt(command_data[2])
+            if (ListMenuGUI) { ListMenuGUI.setPosition(menu_data[0], menu_data[1]) }
+            break
+        case "LGD":
+            menu_data[2] = parseInt(command_data[1])
+            menu_data[3] = parseInt(command_data[2])
+            if (ListMenuGUI) { ListMenuGUI.setDimensions(menu_data[2], menu_data[3]) }
+            break
+        case "LGO":
+            menu_array = []
+            for (let i = 1; i < command_data.length; i++) {
+                menu_array.push(microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[i])))
+            }
+            nanoSDK_rebuild_list_window(false)
+            break
+        case "LGS": {
+            let lgsIndex = parseInt(nanoSDK_resolve_vars(command_data[1]))
+            if (lgsIndex >= 0 && lgsIndex < menu_array.length) {
+                menu_array[lgsIndex] = microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[2]))
+                nanoSDK_rebuild_list_window(true)
+            }
+            break
+            }
+        case "LGV": {
+            let lgvIndex = parseInt(command_data[1])
+            if (lgvIndex >= 0 && lgvIndex < menu_array.length) {
+                variables[command_data[2]] = menu_array[lgvIndex].text
+            }
+            break
+            }
+        case "LGR":
+            menu_array.splice(parseInt(command_data[1]), 1)
+            nanoSDK_rebuild_list_window(true)
+            break
+        case "DLG":
+            menu_array = []
+            ListMenuGUI.destroy()
+            nanoSDK_apply_scrollbar(false)
+            break
+        case "LGH":
+            switch (command_data[1]) {
+                case "o":
+                    nanoSDK_hover_highlight = false
+                    ListMenuGUI.selectedIndex = -1
                     break
-                case "02":
-                    menu_data[0] = parseInt(command_data[1])
-                    menu_data[1] = parseInt(command_data[2])
-                    if (ListMenuGUI) { ListMenuGUI.setPosition(menu_data[0], menu_data[1]) }
-                    break
-                case "03":
-                    menu_data[2] = parseInt(command_data[1])
-                    menu_data[3] = parseInt(command_data[2])
-                    if (ListMenuGUI) { ListMenuGUI.setDimensions(menu_data[2], menu_data[3]) }
-                    break
-                case "04":
-                    menu_array = []
-                    for (let i = 1; i < command_data.length; i++) {
-                        menu_array.push(microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[i])))
-                    }
-                    nanoSDK_rebuild_list_window(false)
-                    break
-                case "05": {
-                    let lgsIndex = parseInt(nanoSDK_resolve_vars(command_data[1]))
-                    if (lgsIndex >= 0 && lgsIndex < menu_array.length) {
-                        menu_array[lgsIndex] = microUtilities.createMenuItem(nanoSDK_resolve_vars(command_data[2]))
-                        nanoSDK_rebuild_list_window(true)
-                    }
-                    break
-                }
-                case "06": {
-                    let lgvIndex = parseInt(command_data[1])
-                    if (lgvIndex >= 0 && lgvIndex < menu_array.length) {
-                        variables[command_data[2]] = menu_array[lgvIndex].text
-                    }
-                    break
-                }
-                case "07":
-                    menu_array.splice(parseInt(command_data[1]), 1)
-                    nanoSDK_rebuild_list_window(true)
-                    break
-                case "08":
-                    menu_array = []
-                    ListMenuGUI.destroy()
-                    nanoSDK_apply_scrollbar(false)
-                    break
-                case "09":
-                    switch (command_data[1]) {
-                        case "o":
-                            nanoSDK_hover_highlight = false
-                            ListMenuGUI.selectedIndex = -1
-                            break
-                        case "a":
-                            nanoSDK_hover_highlight = true
-                            break
-                        default:
-                            ListMenuGUI.selectedIndex = parseInt(command_data[1])
-                    }
-                    break
-                case "10":
-                    nanoSDK_theme = command_data[1]
-                    if (ListMenuGUI) { nanoSDK_apply_theme(nanoSDK_theme) }
-                    nanoSDK_apply_app_bar()
-                    break
-                case "11":
-                    nanoSDK_scrollbar = command_data[1] == "t"
-                    if (ListMenuGUI) { nanoSDK_apply_scrollbar(nanoSDK_scrollbar) }
+                case "a":
+                    nanoSDK_hover_highlight = true
                     break
                 default:
-                    error(301)
+                    ListMenuGUI.selectedIndex = parseInt(command_data[1])
             }
+            break
+        case "LGT":
+            nanoSDK_theme = command_data[1]
+            if (ListMenuGUI) { nanoSDK_apply_theme(nanoSDK_theme) }
+            nanoSDK_apply_app_bar()
+            break
+        case "LSB":
+            nanoSDK_scrollbar = command_data[1] == "t"
+            if (ListMenuGUI) { nanoSDK_apply_scrollbar(nanoSDK_scrollbar) }
             break
 
         // MARK: Variable Commands
-        case "5": {
+        case "DVR":
+        case "SVR":
+        case "VRM":
+        case "VCJ": {
             let variableDataTemp = command_data[2]
-            if (current_command == "03") {
+            if (cmd == "VRM") {
                 variableDataTemp = command_data[3]
             }
             variableDataTemp = nanoSDK_resolve_vars(variableDataTemp)
 
-            switch (current_command) {
+            switch (cmd) {
                 // Define Variable
-                case "01":
+                case "DVR":
                     variables[command_data[1]] = variableDataTemp
                     break
                 // Set Variable
-                case "02":
+                case "SVR":
                     variables[command_data[1]] = variableDataTemp
                     break
                 // Variable Operation
-                case "03": {
+                case "VRM": {
                     const lhs = parseFloat(variables[command_data[1]])
                     const rhs = parseFloat(variableDataTemp)
                     let operationOutput = 0
@@ -625,7 +743,7 @@ function nanoSDK_run_line() {
                     break
                 }
                 // VCJ — Variable Content Join: var = var + (text or !var!)
-                case "04":
+                case "VCJ":
                     variables[command_data[1]] = (variables[command_data[1]] != null ? variables[command_data[1]] : "") + variableDataTemp
                     break
             }
