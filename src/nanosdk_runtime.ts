@@ -205,7 +205,9 @@ function nanoSDK_decode(src: string[]): string[][] {
             case "LGD": if (a.length < 2) { break }
                 out.push([cmd, a[0], a[1]]); continue
             case "LGO": if (a.length < 1) { break }
-                lgoN = parseInt(a[0].toLowerCase().substr(3)); lgoA = []; continue
+                lgoN = parseInt(a[0])
+                if (isNaN(lgoN)) { lgoN = 0; break }
+                lgoA = []; continue
             case "LGS": if (a.length < 1) { break }
                 out.push(["LGS", a[0], a.slice(1).join(" ")]); continue
             case "LGV": if (a.length < 2) { break }
