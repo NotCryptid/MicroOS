@@ -160,7 +160,7 @@ function nanoSDK_decode(src: string[]): string[][] {
                 if (a.length == 0) { break }
                 switch (a[0].toLowerCase()) {
                     case "end": out.push([cmd, "e"]); continue
-                    case "els": out.push([cmd, "l"]); continue
+                    case "els": if (cmd == "IFB") { out.push(["IFB", "l"]); continue }; break
                     case "var": if (a.length < 3) { break }
                         out.push([cmd, "v", a[1], nsc_cmp(a[2]), a.slice(3).join(" ")]); continue
                     case "btn": if (a.length < 3) { break }
@@ -181,6 +181,7 @@ function nanoSDK_decode(src: string[]): string[][] {
                     case ":blw": {
                         // next line is the condition (IFB btn/var/spr)
                         li++
+                        let before = out.length
                         if (li < lines.length) {
                             let ctk = nsc_tokens(lines[li])
                             let cac = ctk.length > 1 ? ctk[1].toLowerCase() : ""
@@ -191,12 +192,13 @@ function nanoSDK_decode(src: string[]): string[][] {
                                 case "spr": if (ca.length >= 2) { out.push(["LOP", "BLW", "s", ca[0], ca[1].toLowerCase() == "tch" ? "tch" : nsc_cmp(ca[1]), ca.slice(2).join(" ")]) }; break
                             }
                         }
+                        if (out.length == before) { out.push(["NOP"]) } // missing/invalid condition
                         continue
                     }
                     default: {
-                        // anything that isn't a number counts as 0 (loop skipped)
                         let n = parseInt(p)
-                        out.push(["LOP", isNaN(n) ? "0" : n.toString()]); continue
+                        // not a number: invalid (error 301)
+                        out.push(isNaN(n) ? ["NOP"] : ["LOP", n.toString()]); continue
                     }
                 }
             }
@@ -238,15 +240,30 @@ function nanoSDK_decode(src: string[]): string[][] {
                 out.push(["VCJ", a[0], a.slice(1).join(" ")]); continue
         }
 
-        out.push(["NOP"]) // unknown — no-op passthrough
+        out.push(["NOP"]) // unknown or malformed command (reported as error 301)
     }
+    if (lgoN > 0) { out.push(["NOP"]) } // LGO promised more lines than the app has
     return out
+}
+
+// MARK: Program Validation
+// The decoder marks every invalid command as NOP. Used when packaging and
+// when opening an app: any NOP means error 301.
+function nanoSDK_program_valid(p: string[][]): boolean {
+    for (let i = 0; i < p.length; i++) {
+        if (p[i][0] == "NOP") { return false }
+    }
+    return true
 }
 
 // MARK: Start Runtime
 function Open_NanoSDK_App(app_binary: string) {
     let binary = app_binary.split("~")
     program = nanoSDK_decode(binary.slice(4))
+    if (!nanoSDK_program_valid(program)) {
+        error(301)
+        return
+    }
     close_apps()
     NanoSDK_App_Running = true
     App_Open = binary[0]

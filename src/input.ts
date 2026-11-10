@@ -373,6 +373,10 @@ function handleNanoCodeWriteToolbarClick() {
             softerror(114)
             return
         }
+        if (!nanoSDK_program_valid(nanoSDK_decode(compiled.split("~").slice(4)))) {
+            softerror(301)
+            return
+        }
         const nsaKey = fileKey("nsa", newName)
         if (!hasStorageSpaceFor(nsaKey, compiled)) {
             softerror(113)
