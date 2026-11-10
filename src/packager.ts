@@ -1,8 +1,9 @@
 // MARK: NanoSDK Packager
 // Not a compiler: the app body ships as plain NanoSDK source and is decoded
 // by the runtime (nanoSDK_decode in nanosdk_runtime.ts) when the app opens.
-// All this does is validate the 4-line header, bake the DAI icon in, and
-// strip blank lines / indentation to save storage.
+// All this does is validate the 3-line header (DAN, DAI, ASM), bake the DAI
+// icon in, work out the title X position, and strip blank lines /
+// indentation to save storage.
 // Package format: name~icon~submenu~titleX~<source line>~<source line>...
 
 function package_nanosdk_code(source: string): string {
@@ -13,12 +14,16 @@ function package_nanosdk_code(source: string): string {
         if (l != "") { lines.push(l) }
     }
 
-    if (lines.length < 4) { return null }
-    let t0 = lines[0].split(" "); let t1 = lines[1].split(" ")
-    let t2 = lines[2].split(" "); let t3 = lines[3].split(" ")
-    let hdr = [t0.slice(1).join(" "), nsc_compile_icon(t1.slice(1).join(" ")), t2.slice(1).join(" "), t3[1]]
+    if (lines.length < 3) { return null }
+    let t0 = lines[0].split(" "); let t1 = lines[1].split(" "); let t2 = lines[2].split(" ")
+    let name = t0.slice(1).join(" ")
+    let hdr = [name, nsc_compile_icon(t1.slice(1).join(" ")), t2.slice(1).join(" "), nsc_title_x(name).toString()]
 
-    return hdr.concat(lines.slice(4)).join("~")
+    // Older apps carry a TXP line as the 4th header line; it's ignored now.
+    let bodyStart = 3
+    if (lines.length > 3 && lines[3].substr(0, 3).toUpperCase() == "TXP") { bodyStart = 4 }
+
+    return hdr.concat(lines.slice(bodyStart)).join("~")
 }
 
 // MARK: Packager Helpers
@@ -41,6 +46,14 @@ function nsc_compile_icon(param: string): string {
     let assetContent = settings.readString(fileKey(param.substr(dot + 1), param.substr(0, dot)))
     if (assetContent == null) { return "default" }
     return assetContent.split("~").join("")
+}
+
+// MARK: Title X Position
+// App titles are textsprites (fixed-width font, left edge at x=0) positioned
+// by their centre, so the centre is half the rendered text width.
+function nsc_title_x(name: string): number {
+    let font = image.getFontForText(name)
+    return Math.floor(font.charWidth * name.length / 2)
 }
 
 function nsc_tokens(line: string): string[] {

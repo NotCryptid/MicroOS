@@ -190,7 +190,7 @@ function Open_NanoCode(project: string = null, file_name: string = null) {
     App_Title.setPosition(24, 4)
     open_document = file_name
     if (project == null || project == "") {
-        ListMenuContents = [microUtilities.createMenuItem("DAN example"), microUtilities.createMenuItem("DAI default"), microUtilities.createMenuItem("ASM home"), microUtilities.createMenuItem("TXP 22"), microUtilities.createMenuItem("PRN Hello World!")]
+        ListMenuContents = [microUtilities.createMenuItem("DAN example"), microUtilities.createMenuItem("DAI default"), microUtilities.createMenuItem("ASM home"), microUtilities.createMenuItem("PRN Hello World!")]
     } else {
         ListMenuContents = project.split("~").map(line => microUtilities.createMenuItem(line))
     }

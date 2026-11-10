@@ -11,3 +11,4 @@ built/
 .simstate.json
 .DS_Store
 scripts/
+wiki.md
