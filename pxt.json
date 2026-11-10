@@ -25,7 +25,7 @@
         "src/apps.ts",
         "src/nanosdk_runtime.ts",
         "src/app_backend.ts",
-        "src/compiler.ts",
+        "src/packager.ts",
         "src/serial_protocol.ts",
         "README.md"
     ],

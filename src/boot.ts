@@ -7,7 +7,7 @@ namespace SpriteKind {
 }
 
 // MARK: OS Version
-const MicroOS_Version = "v1.1.0"
+const MicroOS_Version = "v1.2.0"
 
 // MARK: Is Destroyed
 function isDestroyed(sprite: Sprite): boolean {

@@ -92,7 +92,7 @@ let when_ranges: number[][] = []     // [[bodyStart, bodyEnd], ...] for each whe
 
 // MARK: DAI Icon Decoding
 // Icon pixel data is baked into the package at packaging time (see
-// nsc_compile_icon in compiler.ts) as a flat string of hex nibbles, one per
+// nsc_compile_icon in packager.ts) as a flat string of hex nibbles, one per
 // pixel, row-major, matching the Write-app icon-asset palette. "default"
 // (or anything malformed) falls back to the built-in icon below.
 const NANO_SDK_DEFAULT_ICON = "0AAAABB0AA1AB1B3AA11B133AA11B133AB1B1132BB131122BB13312203332220"
