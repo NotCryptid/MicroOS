@@ -86,9 +86,9 @@ let nanoSDK_scrollbar = false
 // WHN (When) registry
 // bodyStart = program index of first instruction inside the when block
 // bodyEnd   = program index of the last instruction inside the when block
-let when_registry: number[][] = []   // [condType_encoded, ...params, bodyStart, bodyEnd] — we store as a parallel structure
 let when_cond_data: string[][] = []  // [condType, param1, param2, ...] for each when
 let when_ranges: number[][] = []     // [[bodyStart, bodyEnd], ...] for each when
+let when_lines: number[] = []        // program index of each registered WHN, so a WHN inside a loop registers only once
 
 // MARK: DAI Icon Decoding
 // Icon pixel data is baked into the package at packaging time (see
@@ -193,7 +193,11 @@ function nanoSDK_decode(src: string[]): string[][] {
                         }
                         continue
                     }
-                    default: out.push(["LOP", parseInt(p).toString()]); continue
+                    default: {
+                        // anything that isn't a number counts as 0 (loop skipped)
+                        let n = parseInt(p)
+                        out.push(["LOP", isNaN(n) ? "0" : n.toString()]); continue
+                    }
                 }
             }
 
@@ -269,6 +273,7 @@ function Open_NanoSDK_App(app_binary: string) {
     nanoSDK_scrollbar = false
     when_cond_data = []
     when_ranges = []
+    when_lines = []
 
     nanoSDK_apply_app_bar()
     Close_App = sprites.create(assets.image`Close`, SpriteKind.App_UI)
@@ -363,6 +368,32 @@ function nanoSDK_check_when(idx: number): boolean {
     return false
 }
 
+// MARK: When Poll
+// Starts the body of the first registered when whose condition is met.
+// Returns true if one was started.
+function nanoSDK_poll_whens(): boolean {
+    for (let wi = 0; wi < when_cond_data.length; wi++) {
+        if (nanoSDK_check_when(wi)) {
+            when_exec_idx = wi
+            when_exec_line = when_ranges[wi][0]
+            return true
+        }
+    }
+    return false
+}
+
+// MARK: Loop Skip
+// Moves line past the LOP end matching a loop whose start was just read.
+function nanoSDK_skip_loop() {
+    let depth = 1
+    while (line < program.length && depth > 0) {
+        let ld = program[line]
+        if (ld[0] == "LOP" && ld[1] != "e" && ld[1] != "x") { depth++ }
+        if (ld[0] == "LOP" && ld[1] == "e") { depth-- }
+        line++
+    }
+}
+
 // MARK: When Body Execution
 // Runs one line of a when body and returns whether to keep executing it
 let when_exec_idx = -1   // which when is currently mid-execution (-1 = none)
@@ -394,14 +425,7 @@ function executeNanoSDKLine() {
         if (when_cond_data.length == 0) {
             NanoSDK_App_Running = false
         }
-        // Check all registered whens
-        for (let wi = 0; wi < when_cond_data.length; wi++) {
-            if (nanoSDK_check_when(wi)) {
-                when_exec_idx = wi
-                when_exec_line = when_ranges[wi][0]
-                return
-            }
-        }
+        nanoSDK_poll_whens()
         return
     }
 
@@ -410,13 +434,7 @@ function executeNanoSDKLine() {
 
     // After main execution also check whens (for IFB-wrapped whens mid-program)
     if (NanoSDK_App_Running && when_cond_data.length > 0) {
-        for (let wi = 0; wi < when_cond_data.length; wi++) {
-            if (nanoSDK_check_when(wi)) {
-                when_exec_idx = wi
-                when_exec_line = when_ranges[wi][0]
-                return
-            }
-        }
+        nanoSDK_poll_whens()
     }
 }
 
@@ -449,7 +467,14 @@ function nanoSDK_run_line() {
         }
         return
     }
-    if (condition_met[condition_met.length - 1] == "skip") { return }
+    if (condition_met[condition_met.length - 1] == "skip") {
+        // brackets nested deeper inside a skipped one must be tracked too,
+        // otherwise their IFB end pops the wrong entry
+        if (cmd == "IFB" && command_data[1] != "e" && command_data[1] != "l") {
+            condition_met.push("skip")
+        }
+        return
+    }
 
     switch (cmd) {
 
@@ -583,13 +608,7 @@ function nanoSDK_run_line() {
                     loop_line.pop()
                     loop_repeats_left.pop()
                     loop_condition.pop()
-                    let depth = 1
-                    while (line < program.length && depth > 0) {
-                        let ld = program[line]
-                        if (ld[0] == "LOP" && ld[1] != "e" && ld[1] != "x") depth++
-                        if (ld[0] == "LOP" && ld[1] == "e") depth--
-                        line++
-                    }
+                    nanoSDK_skip_loop()
                 } else {
                     // Loop start — check if this is a conditional loop (command_data[1] == "BLW")
                     // Conditional loops are decoded as [LOP, BLW, condType, ...params]
@@ -597,6 +616,9 @@ function nanoSDK_run_line() {
                         loop_repeats_left.push("inf")
                         loop_line.push(line)
                         loop_condition.push(command_data.slice(2))
+                    } else if (command_data[1] == "0") {
+                        // LOP 0 ignores the loop entirely
+                        nanoSDK_skip_loop()
                     } else {
                         loop_repeats_left.push(command_data[1])
                         loop_line.push(line)
@@ -614,6 +636,14 @@ function nanoSDK_run_line() {
                     // WHN end — nothing to do during registration pass,
                     // but during when-body execution this signals end (handled by when_exec_line > range[1])
                 } else {
+                    // A WHN inside a loop is reached again on every pass:
+                    // only register it the first time, then just skip it
+                    let whenIdx = when_lines.indexOf(line - 1)
+                    if (whenIdx >= 0) {
+                        line = when_ranges[whenIdx][1] + 2
+                        break
+                    }
+
                     // Register a new when
                     // Find the matching WHN end to get the body range
                     let bodyStart = line // line after WHN declaration
@@ -633,6 +663,7 @@ function nanoSDK_run_line() {
                     let cdata = command_data.slice(1) // [condType, ...params]
                     when_cond_data.push(cdata)
                     when_ranges.push([bodyStart, bodyEnd])
+                    when_lines.push(bodyStart - 1)
                 }
             }
             break
@@ -684,20 +715,24 @@ function nanoSDK_run_line() {
             break
         case "DLG":
             menu_array = []
-            ListMenuGUI.destroy()
+            if (!isDestroyed(ListMenuGUI)) { ListMenuGUI.destroy() }
             nanoSDK_apply_scrollbar(false)
             break
         case "LGH":
             switch (command_data[1]) {
                 case "o":
                     nanoSDK_hover_highlight = false
-                    ListMenuGUI.selectedIndex = -1
+                    if (!isDestroyed(ListMenuGUI)) { ListMenuGUI.selectedIndex = -1 }
                     break
                 case "a":
                     nanoSDK_hover_highlight = true
                     break
                 default:
-                    ListMenuGUI.selectedIndex = parseInt(command_data[1])
+                    // explicit indexes are absolute; the menu only holds the visible window
+                    if (!isDestroyed(ListMenuGUI)) {
+                        let sel = parseInt(command_data[1]) - List_Scroll
+                        ListMenuGUI.selectedIndex = sel >= 0 && sel < ListMenuContents.length ? sel : -1
+                    }
             }
             break
         case "LGT":

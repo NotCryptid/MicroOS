@@ -103,7 +103,9 @@ function MouseClick(button: number) {
         default:
             // NanoSDK app: record the clicked row for WHN sel
             if (button == 1 && !isDestroyed(NanoSDK_Taskbar_Icon) && !isDestroyed(ListMenuGUI)) {
-                nanoSDK_clicked_row = ListMenuGUI.selectedIndex
+                // selectedIndex is relative to the visible window; WHN sel
+                // uses the absolute (0-based) index into the full list
+                nanoSDK_clicked_row = ListMenuGUI.selectedIndex >= 0 ? ListMenuGUI.selectedIndex + List_Scroll : -1
             }
     }
 }
