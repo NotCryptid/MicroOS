@@ -261,7 +261,7 @@ function Open_NanoSDK_App(app_binary: string) {
     let binary = app_binary.split("~")
     program = nanoSDK_decode(binary.slice(4))
     if (!nanoSDK_program_valid(program)) {
-        error(301)
+        softerror(301)
         return
     }
     close_apps()
