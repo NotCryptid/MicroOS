@@ -1,164 +1,34 @@
-// MARK: NanoSDK Compiler
+// MARK: NanoSDK Packager
+// Not a compiler: the app body ships as plain NanoSDK source and is decoded
+// by the runtime (nanoSDK_decode in nanosdk_runtime.ts) when the app opens.
+// All this does is validate the 4-line header, bake the DAI icon in, and
+// strip blank lines / indentation to save storage.
+// Package format: name~icon~submenu~titleX~<source line>~<source line>...
 
-function compile_nanosdk_code(source: string): string {
-    // MARK: Pass 1 - :BLW resolution
-    // LOP :BLW is special — we do NOT join it here, instead we handle it
-    // in the body pass so we can keep the IFB line separate for parsing.
-    // All other :BLW lines get joined with the line below.
-    let raw = source.split("~")
+function package_nanosdk_code(source: string): string {
     let lines: string[] = []
-    let i = 0
-    while (i < raw.length) {
+    let raw = source.split("~")
+    for (let i = 0; i < raw.length; i++) {
         let l = raw[i].trim()
-        if (l == "" || l == " ") { i++; continue }
-        let isLopBlw = l.toUpperCase() == "LOP :BLW"
-        if (i >= 4 && !isLopBlw && l.substr(l.length - 4) == ":BLW") {
-            let base = l.substr(0, l.length - 4).trim()
-            i++
-            while (i < raw.length && raw[i].trim() == "") { i++ }
-            lines.push(i < raw.length ? base + " " + raw[i++].trim() : base)
-        } else { lines.push(l); i++ }
+        if (l != "") { lines.push(l) }
     }
 
-    // MARK: Pass 2 - Header
     if (lines.length < 4) { return null }
     let t0 = lines[0].split(" "); let t1 = lines[1].split(" ")
     let t2 = lines[2].split(" "); let t3 = lines[3].split(" ")
     let hdr = [t0.slice(1).join(" "), nsc_compile_icon(t1.slice(1).join(" ")), t2.slice(1).join(" "), t3[1]]
 
-    // MARK: Pass 3 - Body
-    let out: string[] = []
-    let body = lines.slice(4)
-    let lgoN = 0
-    let lgoA: string[] = []
-
-    for (let li = 0; li < body.length; li++) {
-        let l = body[li]
-
-        // MARK: LGO string consumption
-        if (lgoN > 0) {
-            lgoA.push(l); lgoN--
-            if (lgoN == 0) { out.push("304§" + lgoA.join("§")); lgoA = [] }
-            continue
-        }
-
-        let tk = nsc_tokens(l)
-        if (tk.length == 0) { continue }
-        let cmd = tk[0].toUpperCase()
-        let a = tk.slice(1)
-
-        switch (cmd) {
-            // MARK: Basic Commands
-            case "PRN": out.push("105§" + a.join(" ")); continue
-            case "END": out.push("106§" + a.join(" ")); continue
-            case "ASM": out.push("107§" + a.join(" ")); continue
-
-            // MARK: Logic — IFB and WHN share the same condition encoding
-            case "IFB":
-            case "WHN": {
-                if (a.length == 0) { break }
-                let pfx = cmd == "IFB" ? "201" : "401"
-                let ac = a[0].toLowerCase()
-                switch (ac) {
-                    case "end": out.push(pfx + "§e"); continue
-                    case "els": out.push(pfx + "§l"); continue
-                    case "var": if (a.length < 3) { break }
-                        out.push(pfx + "§v§" + a[1] + "§" + nsc_cmp(a[2]) + "§" + a.slice(3).join(" ")); continue
-                    case "btn": if (a.length < 3) { break }
-                        out.push(pfx + "§b§" + nsc_btn(a[1]) + "§" + nsc_bs(a[2])); continue
-                    case "spr": if (a.length < 3) { break }
-                        out.push(pfx + "§s§" + a[1] + "§" + (a[2].toLowerCase() == "tch" ? "tch" : nsc_cmp(a[2])) + "§" + a.slice(3).join(" ")); continue
-                    case "sel": if (cmd == "WHN" && a.length >= 2) { out.push("401§sel§" + nsc_pad(a[1])); continue }
-                }
-                break
-            }
-
-            // MARK: Loop
-            case "LOP": {
-                let p = a.length > 0 ? a[0].toLowerCase() : ""
-                switch (p) {
-                    case "end": out.push("202§e"); continue
-                    case "ext": out.push("202§x"); continue
-                    case "inf": out.push("202§inf"); continue
-                    case ":blw": {
-                        // LOP :BLW — next line is the condition (IFB btn/var/spr)
-                        li++
-                        if (li < body.length) {
-                            let ctk = nsc_tokens(body[li])
-                            let cac = ctk.length > 1 ? ctk[1].toLowerCase() : ""
-                            let ca = ctk.slice(2)
-                            let condStr = ""
-                            switch (cac) {
-                                case "btn": if (ca.length >= 2) { condStr = "b§" + nsc_btn(ca[0]) + "§" + nsc_bs(ca[1]) }; break
-                                case "var": if (ca.length >= 2) { condStr = "v§" + ca[0] + "§" + nsc_cmp(ca[1]) + "§" + ca.slice(2).join(" ") }; break
-                                case "spr": if (ca.length >= 2) { condStr = "s§" + ca[0] + "§" + (ca[1].toLowerCase() == "tch" ? "tch" : nsc_cmp(ca[1])) + "§" + ca.slice(2).join(" ") }; break
-                            }
-                            if (condStr != "") { out.push("202§BLW§" + condStr) }
-                        }
-                        continue
-                    }
-                    default: out.push("202§" + parseInt(p).toString()); continue
-                }
-            }
-
-            // MARK: ListGUI
-            case "CLG": {
-                let p = a.length > 0 ? a[0].toLowerCase() : ""
-                let enc = p == "ful" ? "f" : p == "scl" ? "s" : ""
-                out.push(enc ? "301§" + enc : "301"); continue
-            }
-            case "LGP": if (a.length < 2) { break }
-                out.push("302§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "LGD": if (a.length < 2) { break }
-                out.push("303§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "LGO": if (a.length < 1) { break }
-                lgoN = parseInt(a[0].toLowerCase().substr(3)); lgoA = []; continue
-            case "LGS": if (a.length < 1) { break }
-                out.push("305§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
-            case "LGV": if (a.length < 2) { break }
-                out.push("306§" + nsc_pad(a[0]) + "§" + a[1]); continue
-            case "LGR": if (a.length < 1) { break }
-                out.push("307§" + nsc_pad(a[0])); continue
-            case "DLG": out.push("308"); continue
-            case "LGH": {
-                if (a.length < 1) { break }
-                let m = a[0].toLowerCase()
-                out.push("309§" + (m == "off" ? "o" : m == "auto" ? "a" : parseInt(m).toString())); continue
-            }
-            case "LGT": if (a.length < 1) { break }
-                out.push("310§" + a[0].toLowerCase()); continue
-            case "LSB": {
-                if (a.length < 1) { break }
-                let m = a[0].toLowerCase()
-                out.push("311§" + (m == "on" ? "t" : "f")); continue
-            }
-
-
-            // MARK: Variables
-            case "DVR": if (a.length < 2) { break }
-                out.push("501§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "SVR": if (a.length < 2) { break }
-                out.push("502§" + nsc_pad(a[0]) + "§" + nsc_pad(a[1])); continue
-            case "VRM": if (a.length < 3) { break }
-                out.push("503§" + nsc_pad(a[0]) + "§" + nsc_op(a[1]) + "§" + nsc_pad(a[2])); continue
-            case "VCJ": if (a.length < 1) { break }
-                out.push("504§" + nsc_pad(a[0]) + "§" + a.slice(1).join(" ")); continue
-        }
-
-        out.push("000") // unknown — no-op passthrough
-    }
-
-    return hdr.concat(out).join("~")
+    return hdr.concat(lines.slice(4)).join("~")
 }
 
-// MARK: Compiler Helpers
+// MARK: Packager Helpers
 
 // MARK: DAI Icon Resolution
 // Resolves a DAI parameter at compile time: "default" (or empty) passes
 // through as-is, otherwise the parameter is treated as a Write asset file
 // name WITH extension (eg. "icon.wrt") whose hex-pixel content gets baked
-// directly into the compiled binary, so the runtime never has to touch the
-// file system to render an app's icon.
+// directly into the package, so the runtime never has to touch the file
+// system to render an app's icon.
 function nsc_compile_icon(param: string): string {
     if (param == null || param == "" || param.toLowerCase() == "default") {
         return "default"
@@ -227,12 +97,4 @@ function nsc_bs(s: string): string {
         case "ndn": return "f"
         default: return s
     }
-}
-
-function nsc_pad(s: string): string {
-    let n = parseInt(s)
-    if (isNaN(n)) return s
-    if (Math.abs(n) < 10)  return (n < 0 ? "-0" : "00") + Math.abs(n)
-    if (Math.abs(n) < 100) return (n < 0 ? "-"  : "0")  + Math.abs(n)
-    return n.toString()
 }
