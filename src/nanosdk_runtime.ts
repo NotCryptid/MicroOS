@@ -333,6 +333,39 @@ function nanoSDK_resolve_vars(str: string): string {
     return result
 }
 
+// MARK: Condition Helpers
+// Shared by IFB, WHN and LOP :BLW so each condition type is evaluated one way.
+function nanoSDK_compare(lhs: string, op: string, rhs: string): boolean {
+    switch (op) {
+        case "=": return lhs == rhs
+        case ">": return parseFloat(lhs) > parseFloat(rhs)
+        case "<": return parseFloat(lhs) < parseFloat(rhs)
+        case "≥": return parseFloat(lhs) >= parseFloat(rhs)
+        case "≤": return parseFloat(lhs) <= parseFloat(rhs)
+    }
+    return false
+}
+
+// name is a variable, or a literal if no variable has that name
+function nanoSDK_var_met(name: string, op: string, rhs: string): boolean {
+    let lhs = variables[name] != null ? variables[name] : name
+    return nanoSDK_compare(lhs, op, nanoSDK_resolve_vars(rhs))
+}
+
+// want is "t" (pressed) or "f" (not pressed)
+function nanoSDK_btn_met(btn: string, want: string): boolean {
+    let down = false
+    switch (btn) {
+        case "a": down = controller.A.isPressed(); break
+        case "b": down = controller.B.isPressed(); break
+        case "u": down = controller.up.isPressed(); break
+        case "d": down = controller.down.isPressed(); break
+        case "l": down = controller.left.isPressed(); break
+        case "r": down = controller.right.isPressed(); break
+    }
+    return want == "t" ? down : !down
+}
+
 // MARK: When Condition Check
 // Returns true if a registered when's condition is currently met
 function nanoSDK_check_when(idx: number): boolean {
@@ -341,34 +374,10 @@ function nanoSDK_check_when(idx: number): boolean {
 
     switch (ctype) {
         // MARK: When Button
-        case "b": {
-            let down = false
-            let btn = cond[1]
-            switch (btn) {
-                case "a": down = controller.A.isPressed(); break
-                case "b": down = controller.B.isPressed(); break
-                case "u": down = controller.up.isPressed(); break
-                case "d": down = controller.down.isPressed(); break
-                case "l": down = controller.left.isPressed(); break
-                case "r": down = controller.right.isPressed(); break
-            }
-            return cond[2] == "t" ? down : !down
-        }
+        case "b": return nanoSDK_btn_met(cond[1], cond[2])
 
         // MARK: When Variable
-        case "v": {
-            let val = variables[cond[1]] != null ? variables[cond[1]] : cond[1]
-            let target = nanoSDK_resolve_vars(cond[3])
-            let op = cond[2]
-            switch (op) {
-                case "=": return val == target
-                case ">": return parseFloat(val) > parseFloat(target)
-                case "<": return parseFloat(val) < parseFloat(target)
-                case "≥": return parseFloat(val) >= parseFloat(target)
-                case "≤": return parseFloat(val) <= parseFloat(target)
-            }
-            break
-        }
+        case "v": return nanoSDK_var_met(cond[1], cond[2], cond[3])
 
         // MARK: When ListGUI Select
         case "sel": {
@@ -527,36 +536,12 @@ function nanoSDK_run_line() {
                         condition_met[condition_met.length - 1] = top == "true" ? "false" : "true"
                         break
                     }
-                    case "v": {
-                        // IFB var
-                        let lhs = variables[command_data[2]] != null ? variables[command_data[2]] : command_data[2]
-                        let rhs = nanoSDK_resolve_vars(command_data[4])
-                        let met = false
-                        switch (command_data[3]) {
-                            case "=": met = lhs == rhs; break
-                            case ">": met = parseFloat(lhs) > parseFloat(rhs); break
-                            case "<": met = parseFloat(lhs) < parseFloat(rhs); break
-                            case "≥": met = parseFloat(lhs) >= parseFloat(rhs); break
-                            case "≤": met = parseFloat(lhs) <= parseFloat(rhs); break
-                        }
-                        if (met) { condition_met[condition_met.length - 1] = "true" }
+                    case "v": // IFB var
+                        if (nanoSDK_var_met(command_data[2], command_data[3], command_data[4])) { condition_met[condition_met.length - 1] = "true" }
                         break
-                    }
-                    case "b": {
-                        // IFB btn
-                        let down = false
-                        switch (command_data[2]) {
-                            case "a": down = controller.A.isPressed(); break
-                            case "b": down = controller.B.isPressed(); break
-                            case "u": down = controller.up.isPressed(); break
-                            case "d": down = controller.down.isPressed(); break
-                            case "l": down = controller.left.isPressed(); break
-                            case "r": down = controller.right.isPressed(); break
-                        }
-                        let met = command_data[3] == "t" ? down : !down
-                        if (met) { condition_met[condition_met.length - 1] = "true" }
+                    case "b": // IFB btn
+                        if (nanoSDK_btn_met(command_data[2], command_data[3])) { condition_met[condition_met.length - 1] = "true" }
                         break
-                    }
                     case "s":
                         // IFB spr — stub
                         break
@@ -574,34 +559,9 @@ function nanoSDK_run_line() {
                     let cond = loop_condition[loop_condition.length - 1]
                     if (cond && cond.length > 0) {
                         // Conditional loop (LOP :BLW) — re-evaluate condition
-                        let met = false
-                        switch (cond[0]) {
-                            case "b": {
-                                let down = false
-                                switch (cond[1]) {
-                                    case "a": down = controller.A.isPressed(); break
-                                    case "b": down = controller.B.isPressed(); break
-                                    case "u": down = controller.up.isPressed(); break
-                                    case "d": down = controller.down.isPressed(); break
-                                    case "l": down = controller.left.isPressed(); break
-                                    case "r": down = controller.right.isPressed(); break
-                                }
-                                met = cond[2] == "t" ? down : !down
-                                break
-                            }
-                            case "v": {
-                                let lhs = variables[cond[1]] != null ? variables[cond[1]] : cond[1]
-                                let rhs = nanoSDK_resolve_vars(cond[3])
-                                switch (cond[2]) {
-                                    case "=": met = lhs == rhs; break
-                                    case ">": met = parseFloat(lhs) > parseFloat(rhs); break
-                                    case "<": met = parseFloat(lhs) < parseFloat(rhs); break
-                                    case "≥": met = parseFloat(lhs) >= parseFloat(rhs); break
-                                    case "≤": met = parseFloat(lhs) <= parseFloat(rhs); break
-                                }
-                                break
-                            }
-                        }
+                        let met = cond[0] == "b" ? nanoSDK_btn_met(cond[1], cond[2])
+                            : cond[0] == "v" ? nanoSDK_var_met(cond[1], cond[2], cond[3])
+                            : false
                         if (met) {
                             line = loop_line[loop_line.length - 1]
                         } else {
